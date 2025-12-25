@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zhtw"
+version = "1.0.0"
+description = "Simplified/HK Traditional to Taiwan Traditional Chinese Converter"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "rajatim", email = "rajatim@users.noreply.github.com" }
+]
+keywords = ["chinese", "traditional", "simplified", "taiwan", "converter", "i18n"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Linguistic",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "click>=8.0",
+    "pyahocorasick>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1",
+]
+
+[project.scripts]
+zhtw = "zhtw.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/rajatim/zhtw"
+Repository = "https://github.com/rajatim/zhtw"
+Issues = "https://github.com/rajatim/zhtw/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/zhtw"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
