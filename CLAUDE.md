@@ -340,7 +340,7 @@ LLM 相關命令（`import`, `review`, `validate-llm`, `usage`, `config`）保�
 ### 結構
 
 ```
-1. 標題 + Badge（含 Downloads）
+1. 標題 + Badge
 2. Hero：讓你的程式碼說台灣話
 3. 痛點共鳴：你是否遇過這些情況？
 4. 理念：寧可少轉不要錯轉
