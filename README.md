@@ -93,6 +93,31 @@ zhtw fix ./src
 
 ---
 
+## Pre-commit Hook
+
+在 commit 前自動檢查：
+
+```yaml
+# .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/rajatim/zhtw
+    rev: v2.3.0
+    hooks:
+      - id: zhtw-check
+```
+
+```bash
+# 安裝
+pip install pre-commit
+pre-commit install
+
+# 之後每次 commit 都會自動檢查
+git commit -m "feat: 新功能"
+# Check Simplified Chinese...............Passed
+```
+
+---
+
 ## 進階用法
 
 ```bash
@@ -107,6 +132,12 @@ zhtw check ./src --exclude node_modules,dist
 
 # 模擬執行（不實際修改）
 zhtw fix ./src --dry-run
+
+# 預覽修改（確認後才執行）
+zhtw fix ./src --show-diff
+
+# 備份後修改
+zhtw fix ./src --backup
 
 # 顯示詞庫統計
 zhtw stats
