@@ -5,6 +5,10 @@ Usage:
     zhtw check ./src           # Check mode (report only)
     zhtw fix ./src             # Fix mode (modify files)
     zhtw check ./src --json    # JSON output for CI/CD
+    zhtw import ./terms.json   # Import external dictionary
+    zhtw review                # Review pending terms
+    zhtw usage                 # Show LLM usage
+    zhtw config show           # Show configuration
 """
 
 import json
@@ -16,7 +20,7 @@ import click
 
 from . import __version__
 from .converter import ConversionResult, Issue, process_directory
-from .dictionary import DATA_DIR, load_json_file
+from .dictionary import DATA_DIR, load_dictionary, load_json_file
 
 
 def format_issue(issue: Issue, show_context: bool = True) -> str:
@@ -476,6 +480,434 @@ def validate(source: str):
             )
         )
         sys.exit(0)
+
+
+# =============================================================================
+# v2.0 Commands: import, review, usage, config
+# =============================================================================
+
+
+@main.command("import")
+@click.argument("source", type=str)
+@click.option(
+    "--no-pending",
+    is_flag=True,
+    help="直接匯入，跳過暫存審核（不建議）",
+)
+@click.option(
+    "--name",
+    "-n",
+    type=str,
+    help="暫存檔案名稱（預設從來源自動產生）",
+)
+def import_cmd(source: str, no_pending: bool, name: Optional[str]):
+    """
+    匯入外部詞庫。
+
+    SOURCE 可以是 URL 或本地檔案路徑。
+
+    Example:
+
+        zhtw import ./external-terms.json
+
+        zhtw import https://example.com/terms.json
+
+        zhtw import ./terms.json --name my-terms
+    """
+    from .import_terms import ImportError as TermImportError
+    from .import_terms import import_terms, save_to_pending
+
+    click.echo(f"📥 匯入詞庫: {source}")
+
+    # Load existing terms for conflict detection
+    try:
+        existing = load_dictionary(sources=["cn", "hk"])
+    except Exception:
+        existing = {}
+
+    try:
+        result = import_terms(source, existing_terms=existing)
+    except TermImportError as e:
+        click.echo(click.style(f"❌ 匯入失敗: {e}", fg="red"))
+        sys.exit(1)
+
+    click.echo("\n📊 匯入結果:")
+    click.echo(f"   總數: {result.total}")
+    click.echo(f"   有效: {result.valid}")
+    click.echo(f"   無效: {result.invalid}")
+    click.echo(f"   重複: {result.duplicates}")
+    click.echo(f"   衝突: {result.conflicts}")
+
+    if result.errors and len(result.errors) <= 10:
+        click.echo("\n⚠️ 問題詳情:")
+        for error in result.errors:
+            click.echo(f"   {error}")
+    elif result.errors:
+        click.echo(f"\n⚠️ 發現 {len(result.errors)} 個問題（顯示前 10 個）:")
+        for error in result.errors[:10]:
+            click.echo(f"   {error}")
+
+    if result.valid == 0:
+        click.echo(click.style("\n❌ 無有效詞彙可匯入", fg="red"))
+        sys.exit(1)
+
+    if no_pending:
+        # Direct import (not recommended)
+        from .review import approve_terms
+
+        path = approve_terms(result.terms)
+        click.echo(click.style(f"\n✅ 已直接匯入 {result.valid} 個詞彙到 {path}", fg="green"))
+    else:
+        # Save to pending
+        if not name:
+            # Generate name from source
+            if source.startswith("http"):
+                name = source.split("/")[-1].replace(".json", "")
+            else:
+                name = Path(source).stem
+            name = f"import_{name}"
+
+        path = save_to_pending(result.terms, name)
+        click.echo(click.style(f"\n✅ 已儲存 {result.valid} 個詞彙到暫存區", fg="green"))
+        click.echo(f"   檔案: {path}")
+        click.echo("\n💡 使用 'zhtw review' 審核並核准詞彙")
+
+
+@main.command()
+@click.option(
+    "--list",
+    "-l",
+    "list_only",
+    is_flag=True,
+    help="列出待審核檔案",
+)
+@click.option(
+    "--llm",
+    is_flag=True,
+    help="使用 LLM 輔助審核",
+)
+@click.option(
+    "--approve-all",
+    is_flag=True,
+    help="核准所有待審核詞彙",
+)
+@click.option(
+    "--reject-all",
+    is_flag=True,
+    help="拒絕所有待審核詞彙",
+)
+@click.option(
+    "--file",
+    "-f",
+    "file_name",
+    type=str,
+    help="指定要審核的檔案",
+)
+@click.option(
+    "--force",
+    is_flag=True,
+    help="強制執行，忽略 LLM 用量限制",
+)
+def review(
+    list_only: bool,
+    llm: bool,
+    approve_all: bool,
+    reject_all: bool,
+    file_name: Optional[str],
+    force: bool,
+):
+    """
+    審核待匯入的詞彙。
+
+    Example:
+
+        zhtw review --list
+
+        zhtw review
+
+        zhtw review --llm
+
+        zhtw review --approve-all
+    """
+    from .import_terms import list_pending
+    from .review import finalize_review, review_pending_file
+
+    pending = list_pending()
+
+    if not pending:
+        click.echo("📋 暫無待審核詞彙")
+        click.echo("\n💡 使用 'zhtw import <file>' 匯入詞庫")
+        return
+
+    if list_only:
+        click.echo("📋 待審核檔案:\n")
+        for item in pending:
+            click.echo(f"   📄 {item['name']}")
+            click.echo(f"      詞彙數: {item['terms_count']}")
+            click.echo(f"      說明: {item['description']}")
+            click.echo()
+        return
+
+    # Get LLM client if needed
+    llm_client = None
+    if llm:
+        try:
+            from .llm import GeminiClient
+
+            llm_client = GeminiClient(force=force)
+            if not llm_client.is_available():
+                click.echo(click.style("⚠️ GEMINI_API_KEY 未設定，將不使用 LLM", fg="yellow"))
+                llm_client = None
+        except ImportError:
+            click.echo(click.style("⚠️ LLM 模組未安裝，將不使用 LLM", fg="yellow"))
+
+    # Determine which file to review
+    if file_name:
+        target_files = [
+            f for f in pending
+            if f["name"] == file_name or f["name"] == file_name + ".json"
+        ]
+        if not target_files:
+            click.echo(click.style(f"❌ 找不到檔案: {file_name}", fg="red"))
+            sys.exit(1)
+    else:
+        target_files = pending
+
+    total_approved = 0
+    total_rejected = 0
+
+    for item in target_files:
+        name = item["name"]
+        click.echo(f"\n📋 審核: {name} ({item['terms_count']} 個詞彙)")
+        click.echo("━" * 40)
+
+        try:
+            result = review_pending_file(
+                name=name,
+                llm_client=llm_client,
+                interactive=not (approve_all or reject_all),
+                auto_approve=approve_all,
+                auto_reject=reject_all,
+            )
+
+            total_approved += result.approved
+            total_rejected += result.rejected
+
+            if result.approved > 0:
+                path = finalize_review(name, result)
+                click.echo(f"\n✅ 已核准 {result.approved} 個詞彙 → {path}")
+            else:
+                finalize_review(name, result, delete_after=True)
+                msg = f"核准: {result.approved}, 拒絕: {result.rejected}, 跳過: {result.skipped}"
+                click.echo(f"\n📋 已處理（{msg}）")
+
+        except Exception as e:
+            click.echo(click.style(f"❌ 審核失敗: {e}", fg="red"))
+
+    click.echo(f"\n📊 審核完成: 核准 {total_approved}, 拒絕 {total_rejected}")
+
+
+@main.command()
+@click.option(
+    "--json",
+    "json_output",
+    is_flag=True,
+    help="輸出 JSON 格式",
+)
+@click.option(
+    "--reset",
+    is_flag=True,
+    help="重設用量統計（需確認）",
+)
+def usage(json_output: bool, reset: bool):
+    """
+    顯示 LLM 用量統計。
+
+    Example:
+
+        zhtw usage
+
+        zhtw usage --json
+
+        zhtw usage --reset
+    """
+    from .llm.usage import UsageTracker
+
+    tracker = UsageTracker()
+
+    if reset:
+        if click.confirm("確定要重設所有用量統計？"):
+            tracker.reset()
+            click.echo(click.style("✅ 用量已重設", fg="green"))
+        return
+
+    report = tracker.format_usage_report(json_output=json_output)
+    click.echo(report)
+
+
+@main.command()
+@click.argument("action", type=click.Choice(["show", "set", "reset"]))
+@click.argument("args", nargs=-1)
+def config(action: str, args: tuple):
+    """
+    管理設定。
+
+    Example:
+
+        zhtw config show
+
+        zhtw config set llm.limits.daily_cost_usd 0.05
+
+        zhtw config reset
+    """
+    from .config import load_config, reset_config, set_config_value
+
+    if action == "show":
+        cfg = load_config()
+        click.echo(json.dumps(cfg, indent=2, ensure_ascii=False))
+
+    elif action == "set":
+        if len(args) < 2:
+            click.echo(click.style("❌ 用法: zhtw config set <key> <value>", fg="red"))
+            click.echo("   例如: zhtw config set llm.limits.daily_cost_usd 0.05")
+            sys.exit(1)
+
+        key = args[0]
+        value = args[1]
+
+        # Try to parse as number or boolean
+        if value.lower() == "true":
+            value = True
+        elif value.lower() == "false":
+            value = False
+        else:
+            try:
+                if "." in value:
+                    value = float(value)
+                else:
+                    value = int(value)
+            except ValueError:
+                pass  # Keep as string
+
+        set_config_value(key, value)
+        click.echo(click.style(f"✅ 已設定 {key} = {value}", fg="green"))
+
+    elif action == "reset":
+        if click.confirm("確定要重設為預設設定？"):
+            reset_config()
+            click.echo(click.style("✅ 設定已重設", fg="green"))
+
+
+# Update validate command to support --llm
+@main.command("validate-llm")
+@click.option(
+    "--source",
+    "-s",
+    type=str,
+    default="cn,hk",
+    help="驗證來源: cn (簡體), hk (港式), 或 cn,hk (預設)",
+)
+@click.option(
+    "--limit",
+    "-l",
+    type=int,
+    default=50,
+    help="限制驗證數量（預設 50）",
+)
+@click.option(
+    "--force",
+    is_flag=True,
+    help="強制執行，忽略用量限制",
+)
+def validate_llm(source: str, limit: int, force: bool):
+    """
+    使用 LLM 驗證詞庫品質。
+
+    Example:
+
+        zhtw validate-llm
+
+        zhtw validate-llm --limit 100
+
+        zhtw validate-llm --force
+    """
+    from .llm import GeminiClient, LLMError, UsageLimitError
+
+    sources_list = [s.strip() for s in source.split(",")]
+
+    click.echo("🤖 LLM 驗證詞庫品質\n")
+    click.echo("━" * 50)
+
+    # Initialize LLM client
+    try:
+        client = GeminiClient(force=force)
+        if not client.is_available():
+            click.echo(click.style("❌ 請先設定 GEMINI_API_KEY 環境變數", fg="red"))
+            click.echo("\n設定方式:")
+            click.echo('  export GEMINI_API_KEY="your-api-key"')
+            click.echo("  或使用 direnv: echo 'export GEMINI_API_KEY=\"your-key\"' > .envrc")
+            sys.exit(1)
+    except Exception as e:
+        click.echo(click.style(f"❌ 初始化 LLM 失敗: {e}", fg="red"))
+        sys.exit(1)
+
+    # Load terms
+    terms = load_dictionary(sources=sources_list)
+    terms_list = list(terms.items())[:limit]
+
+    click.echo(f"📋 驗證 {len(terms_list)} 個詞彙（共 {len(terms)} 個）\n")
+
+    correct_count = 0
+    incorrect_count = 0
+    error_count = 0
+    incorrect_terms = []
+
+    with click.progressbar(terms_list, label="驗證中") as bar:
+        for src, tgt in bar:
+            try:
+                result = client.validate_term(src, tgt)
+                if result["correct"]:
+                    correct_count += 1
+                else:
+                    incorrect_count += 1
+                    incorrect_terms.append({
+                        "source": src,
+                        "target": tgt,
+                        "reason": result.get("reason", ""),
+                        "suggestion": result.get("suggestion"),
+                    })
+            except UsageLimitError as e:
+                click.echo(f"\n{e}")
+                break
+            except LLMError:
+                error_count += 1
+
+    click.echo("\n" + "━" * 50)
+    click.echo(f"✅ 正確: {correct_count}")
+    click.echo(f"❌ 可能有誤: {incorrect_count}")
+    if error_count:
+        click.echo(f"⚠️ 錯誤: {error_count}")
+
+    if incorrect_terms:
+        click.echo("\n📋 可能有誤的詞彙:")
+        for item in incorrect_terms[:10]:
+            click.echo(f"\n   「{item['source']}」→「{item['target']}」")
+            if item["reason"]:
+                click.echo(f"   理由: {item['reason']}")
+            if item["suggestion"]:
+                click.echo(f"   建議: {item['suggestion']}")
+
+        if len(incorrect_terms) > 10:
+            click.echo(f"\n   ... 還有 {len(incorrect_terms) - 10} 個")
+
+    # Show usage
+    click.echo("\n" + "━" * 50)
+    from .llm.usage import UsageTracker
+
+    tracker = UsageTracker()
+    warning = tracker.get_warning()
+    if warning:
+        click.echo(warning)
 
 
 if __name__ == "__main__":

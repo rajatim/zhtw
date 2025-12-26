@@ -13,10 +13,11 @@
 
 ### 核心設計原則
 
-1. **完全離線** - 不傳送任何資料到外部伺服器
+1. **預設離線** - 基礎功能不需網路，LLM 功能可選
 2. **術語表優先** - 只轉換明確定義的詞彙，避免過度轉換
 3. **高效能** - Aho-Corasick 演算法處理大量術語
 4. **可擴充** - JSON 詞庫格式，易於維護
+5. **用量可控** - LLM 功能有嚴格的用量監控與限制
 
 ### 為什麼不用 OpenCC？
 
@@ -34,15 +35,24 @@ zhtw/
 │   ├── converter.py     # 核心轉換邏輯
 │   ├── dictionary.py    # 詞庫載入/管理
 │   ├── matcher.py       # Aho-Corasick 匹配器
+│   ├── config.py        # 設定管理
+│   ├── import_terms.py  # 詞庫匯入
+│   ├── review.py        # 詞彙審核
+│   ├── llm/             # LLM 模組（v2.0+）
+│   │   ├── __init__.py
+│   │   ├── client.py    # Gemini API 客戶端
+│   │   ├── usage.py     # 用量追蹤與限制
+│   │   └── prompts.py   # 提示詞模板
 │   └── data/
 │       └── terms/
 │           ├── cn/          # 簡體 → 台灣繁體
 │           │   ├── base.json
 │           │   ├── it.json
 │           │   └── business.json
-│           └── hk/          # 港式 → 台灣繁體
-│               ├── base.json
-│               └── tech.json
+│           ├── hk/          # 港式 → 台灣繁體
+│           │   ├── base.json
+│           │   └── tech.json
+│           └── pending/     # 待審核詞彙
 ├── tests/
 ├── pyproject.toml
 ├── README.md
@@ -55,7 +65,8 @@ zhtw/
 
 ### cli.py
 - 使用 `click` 框架
-- 子命令: `check`, `fix`
+- 核心命令: `check`, `fix`, `stats`, `validate`
+- LLM 命令: `import`, `review`, `validate-llm`, `usage`, `config`
 - 參數: `--source`, `--dict`, `--exclude`, `--json`, `--verbose`, `--dry-run`
 
 ### converter.py
@@ -182,12 +193,35 @@ python -m zhtw check ./test-files
 
 ---
 
-## 未來規劃
+## v2.0 LLM 模組
 
-### v2.0 LLM 整合
-- 詞彙探索: 用 LLM 發現新詞彙
-- 上下文感知: 依上下文判斷轉換
-- 主動學習: 收集使用者修正
+### config.py
+- 設定管理（`~/.config/zhtw/config.json`）
+- 預設限制值、pricing 計算
+
+### llm/client.py
+- `GeminiClient` - Gemini API 客戶端
+- 自動用量追蹤和限制檢查
+- 錯誤處理和重試機制
+
+### llm/usage.py
+- `UsageTracker` - 用量追蹤
+- 每日/每月/總計統計
+- 限制檢查和警告
+
+### import_terms.py
+- 從 URL 或本地檔案匯入詞庫
+- 格式驗證、衝突偵測
+- 儲存到 pending 目錄待審核
+
+### review.py
+- 互動式審核待匯入詞彙
+- 可選 LLM 輔助驗證
+- 核准後加入主詞庫
+
+---
+
+## 未來規劃
 
 ### v3.0 本地模型
 - 微調小型中文模型
@@ -198,10 +232,11 @@ python -m zhtw check ./test-files
 ## AI 開發注意事項
 
 1. **不要使用 OpenCC** - 會過度轉換台灣正確用語
-2. **不要呼叫外部 API** - 保持離線運作
+2. **核心功能保持離線** - LLM 功能是可選的
 3. **詞庫修改要謹慎** - 確認轉換在台灣用語中正確
 4. **測試要全面** - 包含邊界案例和誤判測試
 5. **不要新增不確定的詞彙** - 寧可少轉不要錯轉
+6. **LLM 用量要監控** - 使用 UsageTracker 追蹤並限制費用
 
 ---
 
