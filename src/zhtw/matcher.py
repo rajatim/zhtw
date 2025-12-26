@@ -5,7 +5,7 @@ This allows O(n) scanning of text regardless of the number of terms in the dicti
 """
 
 from dataclasses import dataclass
-from typing import Dict, Iterator, List
+from typing import Dict, Iterator
 
 import ahocorasick
 
@@ -63,6 +63,9 @@ class Matcher:
         Yields:
             Match objects for each found term.
         """
+        if not self.terms:
+            return
+
         for end_pos, (source, target) in self.automaton.iter(text):
             start_pos = end_pos - len(source) + 1
             yield Match(
