@@ -12,7 +12,7 @@ import fnmatch
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Iterator, List, Optional, Set
+from typing import Callable, Iterator, List, Optional, Set
 
 from .dictionary import load_dictionary
 from .matcher import Match, Matcher
@@ -412,6 +412,10 @@ def convert_file(
     return result
 
 
+# Type for progress callback: (current, total) -> None
+ProgressCallback = Callable[[int, int], None]
+
+
 def convert_directory(
     directory: Path,
     matcher: Matcher,
@@ -419,6 +423,7 @@ def convert_directory(
     extensions: Optional[Set[str]] = None,
     excludes: Optional[Set[str]] = None,
     workers: Optional[int] = None,
+    on_progress: Optional[ProgressCallback] = None,
 ) -> Iterator[FileResult]:
     """
     Process all files in a directory.
@@ -430,6 +435,7 @@ def convert_directory(
         extensions: Allowed file extensions.
         excludes: Directory names to exclude.
         workers: Number of parallel workers.
+        on_progress: Callback for progress updates (current, total).
 
     Yields:
         FileResult for each processed file.
@@ -446,9 +452,13 @@ def convert_directory(
         and not is_ignored_by_patterns(f, directory, ignore_patterns)
     ]
 
+    total = len(files)
+
     # Process files (single-threaded for now to avoid pickle issues with Matcher)
     # TODO: Implement proper parallel processing
-    for file_path in files:
+    for i, file_path in enumerate(files):
+        if on_progress:
+            on_progress(i + 1, total)
         yield convert_file(file_path, matcher, fix=fix)
 
 
@@ -459,6 +469,7 @@ def process_directory(
     fix: bool = False,
     extensions: Optional[Set[str]] = None,
     excludes: Optional[Set[str]] = None,
+    on_progress: Optional[ProgressCallback] = None,
 ) -> ConversionResult:
     """
     Process a directory and return aggregated results.
@@ -470,6 +481,7 @@ def process_directory(
         fix: Whether to apply fixes.
         extensions: Allowed file extensions.
         excludes: Directory names to exclude.
+        on_progress: Callback for progress updates (current, total).
 
     Returns:
         Aggregated ConversionResult.
@@ -481,7 +493,8 @@ def process_directory(
     result = ConversionResult()
 
     for file_result in convert_directory(
-        directory, matcher, fix=fix, extensions=extensions, excludes=excludes
+        directory, matcher, fix=fix, extensions=extensions, excludes=excludes,
+        on_progress=on_progress,
     ):
         if file_result.skipped:
             result.files_skipped += 1

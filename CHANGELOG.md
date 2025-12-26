@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.0] - 2025-12-26
+
+### Added
+- 進度條顯示：掃描檔案時顯示即時進度
+  - TTY 模式：動態進度條 `掃描中 [████████░░░░] 50/100`
+  - 非 TTY 模式（Jenkins/CI）：靜態輸出 `掃描中... 25% (25/100)`
+- `--json` 模式自動停用進度顯示
+
 ## [2.3.0] - 2025-12-26
 
 ### Added
@@ -69,6 +77,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `--exclude` 排除目錄
 - 自訂詞庫支援
 
+[2.4.0]: https://github.com/rajatim/zhtw/compare/v2.3.0...v2.4.0
 [2.3.0]: https://github.com/rajatim/zhtw/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/rajatim/zhtw/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/rajatim/zhtw/compare/v2.0.0...v2.1.0
