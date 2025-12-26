@@ -128,6 +128,23 @@ test_cases = ["软件", "硬件", "网络"]
 # zhtw:enable
 ```
 
+### .zhtwignore 忽略檔案
+
+在專案根目錄建立 `.zhtwignore` 檔案，排除不需檢查的目錄或檔案：
+
+```gitignore
+# 測試目錄
+tests/
+
+# 詞庫檔案（本來就是簡體）
+src/data/terms/
+
+# 特定檔案
+legacy-code.py
+```
+
+支援目錄模式（結尾 `/`）和檔案 glob 模式。
+
 ### 自訂詞庫格式
 
 ```json
