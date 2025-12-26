@@ -12,13 +12,69 @@ Usage:
 import json
 import sys
 from pathlib import Path
-from typing import List, Optional
+from typing import Callable, List, Optional
 
 import click
 
 from . import __version__
 from .converter import ConversionResult, Issue, process_directory
 from .dictionary import DATA_DIR, load_dictionary, load_json_file
+
+
+class ProgressDisplay:
+    """
+    Progress display handler for TTY and non-TTY environments.
+
+    TTY: Dynamic progress bar with carriage return
+    Non-TTY (CI/Jenkins): Static progress lines at intervals
+    """
+
+    def __init__(self, enabled: bool = True, prefix: str = "掃描中"):
+        self.enabled = enabled
+        self.prefix = prefix
+        self.is_tty = sys.stderr.isatty()
+        self._last_percent = -1
+
+    def update(self, current: int, total: int) -> None:
+        """Update progress display."""
+        if not self.enabled or total == 0:
+            return
+
+        percent = (current * 100) // total
+
+        if self.is_tty:
+            # Dynamic progress bar for TTY
+            bar_width = 30
+            filled = (current * bar_width) // total
+            bar = "█" * filled + "░" * (bar_width - filled)
+            click.echo(f"\r{self.prefix} [{bar}] {current}/{total}", nl=False, err=True)
+            if current >= total:
+                click.echo(err=True)  # New line at end
+        else:
+            # Static progress for non-TTY (Jenkins, CI)
+            # Only print at 0%, 25%, 50%, 75%, 100%
+            if percent in (0, 25, 50, 75, 100) and percent != self._last_percent:
+                click.echo(f"{self.prefix}... {percent}% ({current}/{total})", err=True)
+                self._last_percent = percent
+
+    def finish(self) -> None:
+        """Ensure clean line ending."""
+        if self.is_tty and self.enabled:
+            # Ensure we're on a new line
+            pass  # update() already handles this
+
+
+def create_progress_callback(
+    enabled: bool = True, prefix: str = "掃描中"
+) -> tuple[Callable[[int, int], None], ProgressDisplay]:
+    """
+    Create a progress callback function.
+
+    Returns:
+        Tuple of (callback function, display instance).
+    """
+    display = ProgressDisplay(enabled=enabled, prefix=prefix)
+    return display.update, display
 
 
 def format_issue(issue: Issue, show_context: bool = True) -> str:
@@ -256,12 +312,18 @@ def check(
     if not json_output:
         click.echo(f"📁 掃描 {path}")
 
+    # Create progress callback (disabled for JSON output)
+    progress_callback, _ = create_progress_callback(
+        enabled=not json_output, prefix="掃描中"
+    )
+
     result = process_directory(
         directory=path,
         sources=sources,
         custom_dict=custom_dict,
         fix=False,
         excludes=excludes,
+        on_progress=progress_callback,
     )
 
     if json_output:
@@ -357,7 +419,8 @@ def fix(
             files_to_backup = list(set(issue.file for issue in result.issues))
             base = path if path.is_dir() else path.parent
             backup_dir = create_backup(files_to_backup, base)
-            click.echo(click.style(f"📦 已備份 {len(files_to_backup)} 個檔案到 {backup_dir}", fg="cyan"))
+            msg = f"📦 已備份 {len(files_to_backup)} 個檔案到 {backup_dir}"
+            click.echo(click.style(msg, fg="cyan"))
 
     # Warn if not in git and not using backup (only for actual fixes)
     if not dry_run and not backup and not json_output:
@@ -372,6 +435,11 @@ def fix(
             if not click.confirm("確定要繼續？"):
                 sys.exit(1)
 
+    # Create progress callback (disabled for JSON output)
+    progress_callback, _ = create_progress_callback(
+        enabled=not json_output, prefix="掃描中"
+    )
+
     # show_diff implies dry-run first, then fix after confirmation
     if show_diff:
         if not json_output:
@@ -384,6 +452,7 @@ def fix(
             custom_dict=custom_dict,
             fix=False,
             excludes=excludes,
+            on_progress=progress_callback,
         )
 
         if result.total_issues == 0:
@@ -414,13 +483,14 @@ def fix(
             do_backup_if_needed(result)
 
             # Second pass: actually fix
-            click.echo(f"\n🔧 執行修正...")
+            click.echo("\n🔧 執行修正...")
             result = process_directory(
                 directory=path,
                 sources=sources,
                 custom_dict=custom_dict,
                 fix=True,
                 excludes=excludes,
+                on_progress=progress_callback,
             )
             print_results(result, verbose=verbose)
         else:
@@ -443,6 +513,7 @@ def fix(
             custom_dict=custom_dict,
             fix=False,
             excludes=excludes,
+            on_progress=progress_callback,
         )
         do_backup_if_needed(check_result)
 
@@ -452,6 +523,7 @@ def fix(
         custom_dict=custom_dict,
         fix=not dry_run,
         excludes=excludes,
+        on_progress=progress_callback,
     )
 
     if json_output:
