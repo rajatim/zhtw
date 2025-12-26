@@ -5,8 +5,10 @@ Supports:
 - Single file processing
 - Directory scanning with parallel processing
 - Pre-filtering (skip non-Chinese files)
+- .zhtwignore file support
 """
 
+import fnmatch
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -73,6 +75,81 @@ DEFAULT_EXCLUDE_FILES: Set[str] = {
     "pnpm-lock.yaml",
     "Cargo.lock",
 }
+
+
+def load_zhtwignore(base_path: Path) -> List[str]:
+    """
+    Load patterns from .zhtwignore file.
+
+    Args:
+        base_path: Base directory to search for .zhtwignore.
+
+    Returns:
+        List of ignore patterns.
+    """
+    ignore_file = base_path / ".zhtwignore"
+    if not ignore_file.exists():
+        # Also check parent directories up to 3 levels
+        for parent in list(base_path.parents)[:3]:
+            ignore_file = parent / ".zhtwignore"
+            if ignore_file.exists():
+                break
+        else:
+            return []
+
+    patterns = []
+    try:
+        for line in ignore_file.read_text().splitlines():
+            line = line.strip()
+            # Skip empty lines and comments
+            if line and not line.startswith("#"):
+                patterns.append(line)
+    except Exception:
+        return []
+
+    return patterns
+
+
+def is_ignored_by_patterns(path: Path, base_path: Path, patterns: List[str]) -> bool:
+    """
+    Check if path matches any ignore pattern.
+
+    Args:
+        path: File path to check.
+        base_path: Base directory for relative path calculation.
+        patterns: List of ignore patterns.
+
+    Returns:
+        True if path should be ignored.
+    """
+    if not patterns:
+        return False
+
+    try:
+        rel_path = path.relative_to(base_path)
+    except ValueError:
+        rel_path = path
+
+    rel_str = str(rel_path)
+
+    for pattern in patterns:
+        # Directory pattern (ends with /)
+        if pattern.endswith("/"):
+            dir_pattern = pattern.rstrip("/")
+            if rel_str.startswith(dir_pattern + "/") or rel_str.startswith(dir_pattern):
+                return True
+            # Check if any parent matches
+            for part in rel_path.parts:
+                if fnmatch.fnmatch(part, dir_pattern):
+                    return True
+        else:
+            # File or glob pattern
+            if fnmatch.fnmatch(rel_str, pattern):
+                return True
+            if fnmatch.fnmatch(path.name, pattern):
+                return True
+
+    return False
 
 
 @dataclass
@@ -356,11 +433,16 @@ def convert_directory(
     Yields:
         FileResult for each processed file.
     """
+    # Load .zhtwignore patterns
+    ignore_patterns = load_zhtwignore(directory)
+
     # Collect files to process
     files = [
         f
         for f in directory.rglob("*")
-        if f.is_file() and should_check_file(f, extensions, excludes)
+        if f.is_file()
+        and should_check_file(f, extensions, excludes)
+        and not is_ignored_by_patterns(f, directory, ignore_patterns)
     ]
 
     # Process files (single-threaded for now to avoid pickle issues with Matcher)
