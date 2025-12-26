@@ -130,6 +130,33 @@ class TestFixCommand:
         data = json.loads(result.output)
         assert "files_modified" in data
 
+    def test_fix_show_diff_preview(self, runner: CliRunner, tmp_path: Path):
+        """Fix --show-diff shows diff preview."""
+        test_file = tmp_path / "test.py"
+        test_file.write_text('msg = "软件"')
+
+        # Simulate user pressing 'n' to cancel
+        result = runner.invoke(main, ["fix", str(tmp_path), "--show-diff"], input="n\n")
+
+        assert "預覽模式" in result.output
+        assert "软件" in result.output or "軟體" in result.output
+        assert "已取消" in result.output
+        # File should not be modified
+        assert test_file.read_text() == 'msg = "软件"'
+
+    def test_fix_show_diff_confirm(self, runner: CliRunner, tmp_path: Path):
+        """Fix --show-diff with confirmation applies changes."""
+        test_file = tmp_path / "test.py"
+        test_file.write_text('msg = "软件"')
+
+        # Simulate user pressing 'y' to confirm
+        result = runner.invoke(main, ["fix", str(tmp_path), "--show-diff"], input="y\n")
+
+        assert result.exit_code == 0
+        assert "已修正" in result.output
+        # File should be modified
+        assert "軟體" in test_file.read_text()
+
 
 class TestStatsCommand:
     """Tests for 'zhtw stats' command."""
