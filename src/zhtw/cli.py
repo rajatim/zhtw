@@ -16,6 +16,7 @@ import click
 
 from . import __version__
 from .converter import ConversionResult, Issue, process_directory
+from .dictionary import DATA_DIR, load_json_file
 
 
 def format_issue(issue: Issue, show_context: bool = True) -> str:
@@ -267,6 +268,213 @@ def fix(
     if dry_run:
         sys.exit(1 if result.total_issues > 0 else 0)
     else:
+        sys.exit(0)
+
+
+@main.command()
+@click.option(
+    "--source",
+    "-s",
+    type=str,
+    default="cn,hk",
+    help="顯示來源: cn (簡體), hk (港式), 或 cn,hk (預設)",
+)
+@click.option(
+    "--json",
+    "json_output",
+    is_flag=True,
+    help="輸出 JSON 格式",
+)
+def stats(source: str, json_output: bool):
+    """
+    顯示詞庫統計資訊。
+
+    Example:
+
+        zhtw stats
+
+        zhtw stats --source cn
+
+        zhtw stats --json
+    """
+    sources = [s.strip() for s in source.split(",")]
+
+    # Collect stats for each source
+    stats_data = {"sources": {}, "total_terms": 0}
+
+    for src in sources:
+        src_dir = DATA_DIR / src
+        if not src_dir.exists():
+            continue
+
+        src_stats = {"files": {}, "total": 0}
+
+        for json_file in sorted(src_dir.glob("*.json")):
+            terms = load_json_file(json_file)
+            count = len(terms)
+            src_stats["files"][json_file.stem] = count
+            src_stats["total"] += count
+
+        stats_data["sources"][src] = src_stats
+        stats_data["total_terms"] += src_stats["total"]
+
+    if json_output:
+        click.echo(json.dumps(stats_data, ensure_ascii=False, indent=2))
+    else:
+        click.echo("📊 ZHTW 詞庫統計\n")
+        click.echo("━" * 40)
+
+        for src, src_stats in stats_data["sources"].items():
+            src_name = {"cn": "簡體中文", "hk": "香港繁體"}.get(src, src)
+            click.echo(f"\n📁 {src_name} ({src}/)")
+
+            for file_name, count in src_stats["files"].items():
+                click.echo(f"   {file_name}.json: {count} 個詞彙")
+
+            click.echo(
+                click.style(f"   小計: {src_stats['total']} 個詞彙", fg="cyan")
+            )
+
+        click.echo("\n" + "━" * 40)
+        click.echo(
+            click.style(
+                f"📈 總計: {stats_data['total_terms']} 個詞彙",
+                fg="green",
+                bold=True,
+            )
+        )
+
+
+@main.command()
+@click.option(
+    "--source",
+    "-s",
+    type=str,
+    default="cn,hk",
+    help="驗證來源: cn (簡體), hk (港式), 或 cn,hk (預設)",
+)
+def validate(source: str):
+    """
+    驗證詞庫品質，檢查潛在問題。
+
+    檢查項目：
+    - 目標詞彙是否與其他來源詞彙衝突
+    - 來源與目標是否相同（無效轉換）
+    - 重複的來源詞彙
+
+    Example:
+
+        zhtw validate
+
+        zhtw validate --source cn
+    """
+    sources = [s.strip() for s in source.split(",")]
+
+    click.echo("🔍 驗證詞庫品質\n")
+    click.echo("━" * 50)
+
+    # Load all terms
+    all_sources = {}
+    all_targets = {}
+
+    for src in sources:
+        src_dir = DATA_DIR / src
+        if not src_dir.exists():
+            continue
+
+        for json_file in src_dir.glob("*.json"):
+            terms = load_json_file(json_file)
+            for source_term, target_term in terms.items():
+                all_sources[source_term] = (src, json_file.stem, target_term)
+                if target_term not in all_targets:
+                    all_targets[target_term] = []
+                all_targets[target_term].append((src, json_file.stem, source_term))
+
+    issues = []
+
+    # Check 1: Target terms that are also source terms (potential false positives)
+    click.echo("\n📋 檢查目標詞彙衝突...")
+    conflicts = []
+    for target, sources_list in all_targets.items():
+        if target in all_sources:
+            src, file, original_source = all_sources[target]
+            conflicts.append(
+                f"   ⚠️  「{target}」是 {src}/{file}.json 的目標，"
+                f"但也是來源詞彙 → 可能誤轉換"
+            )
+
+    if conflicts:
+        for c in conflicts[:10]:  # Show max 10
+            click.echo(c)
+        if len(conflicts) > 10:
+            click.echo(f"   ... 還有 {len(conflicts) - 10} 個衝突")
+        issues.extend(conflicts)
+    else:
+        click.echo("   ✅ 無衝突")
+
+    # Check 2: Source equals target (useless conversion)
+    click.echo("\n📋 檢查無效轉換（來源=目標）...")
+    same_terms = []
+    for source_term, (src, file, target_term) in all_sources.items():
+        if source_term == target_term:
+            same_terms.append(f"   ⚠️  {src}/{file}.json: 「{source_term}」→「{target_term}」")
+
+    if same_terms:
+        for s in same_terms[:10]:
+            click.echo(s)
+        if len(same_terms) > 10:
+            click.echo(f"   ... 還有 {len(same_terms) - 10} 個")
+        issues.extend(same_terms)
+    else:
+        click.echo("   ✅ 無無效轉換")
+
+    # Check 3: Duplicate source terms across files
+    click.echo("\n📋 檢查重複來源詞彙...")
+    source_files = {}
+    duplicates = []
+    for src in sources:
+        src_dir = DATA_DIR / src
+        if not src_dir.exists():
+            continue
+
+        for json_file in src_dir.glob("*.json"):
+            terms = load_json_file(json_file)
+            for source_term in terms:
+                key = (src, source_term)
+                if key in source_files:
+                    duplicates.append(
+                        f"   ⚠️  {src}/: 「{source_term}」同時出現在 "
+                        f"{source_files[key]}.json 和 {json_file.stem}.json"
+                    )
+                else:
+                    source_files[key] = json_file.stem
+
+    if duplicates:
+        for d in duplicates[:10]:
+            click.echo(d)
+        if len(duplicates) > 10:
+            click.echo(f"   ... 還有 {len(duplicates) - 10} 個")
+        issues.extend(duplicates)
+    else:
+        click.echo("   ✅ 無重複")
+
+    # Summary
+    click.echo("\n" + "━" * 50)
+    if issues:
+        click.echo(
+            click.style(
+                f"⚠️  發現 {len(issues)} 個潛在問題",
+                fg="yellow",
+            )
+        )
+        sys.exit(1)
+    else:
+        click.echo(
+            click.style(
+                "✅ 詞庫驗證通過，無問題",
+                fg="green",
+            )
+        )
         sys.exit(0)
 
 
