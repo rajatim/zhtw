@@ -1,225 +1,155 @@
 # ZHTW
 
-> 簡轉繁台灣用語轉換器 | Simplified to Traditional Chinese (Taiwan) Converter
-
 [![CI](https://github.com/rajatim/zhtw/actions/workflows/ci.yml/badge.svg)](https://github.com/rajatim/zhtw/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/zhtw.svg)](https://pypi.org/project/zhtw/)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**rajatim 出品**
+**專為程式碼和技術文件設計的簡繁轉換工具**
 
-將程式碼和文件中的簡體中文轉換為台灣繁體中文用語。
+---
 
-## 特色
+## 我們的理念
 
-- **高效能** - Aho-Corasick 演算法，萬級術語秒級掃描
-- **完全離線** - 不傳送任何資料到外部伺服器
-- **可擴充詞庫** - JSON 格式，易於維護和貢獻
-- **精準轉換** - 術語表優先，避免過度轉換
-- **CI/CD 友善** - JSON 輸出，易於整合
-- **忽略註解** - 支援 `zhtw:disable` 跳過特定程式碼
+> 寧可少轉，不要錯轉
 
-## 安裝
+通用的簡繁轉換工具很棒，但程式碼和技術文件有自己的術語習慣。「權限」在台灣就是「權限」，不需要變成「許可權」；「代码」應該轉成「程式碼」，而不是保持原樣。
+
+**ZHTW** 專注於這個場景：用精選的術語表，確保每一個轉換都符合台灣開發者的用語習慣。
+
+---
+
+## 30 秒開始使用
 
 ```bash
+# 安裝
 pip install zhtw
-```
 
-或從原始碼安裝：
-
-```bash
-git clone https://github.com/rajatim/zhtw.git
-cd zhtw
-pip install -e .
-```
-
-## 快速開始
-
-```bash
-# 檢查模式（只報告，不修改）
+# 檢查（只報告，不修改）
 zhtw check ./src
 
-# 修正模式（自動修改檔案）
+# 修正（自動修改檔案）
 zhtw fix ./src
+```
 
-# JSON 輸出（CI/CD 整合）
-zhtw check ./src --json
+**輸出範例：**
+```
+📁 掃描 ./src
 
+📄 src/components/Header.tsx
+   L12:5: "用户" → "使用者"
+
+📄 src/utils/api.ts
+   L8:10: "软件" → "軟體"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️  發現 2 處需修正（2 個檔案）
+```
+
+---
+
+## 特點
+
+| | |
+|------|------|
+| **精準** | 433 個人工驗證術語，每個轉換都經過確認 |
+| **快速** | Aho-Corasick 演算法，萬級檔案秒級掃描 |
+| **離線** | 完全本地執行，不傳送任何資料到外部 |
+| **CI 友善** | JSON 輸出，輕鬆整合 GitHub Actions / Jenkins |
+| **可控** | 支援 `zhtw:disable` 註解跳過特定程式碼 |
+
+---
+
+## 術語涵蓋範圍
+
+我們維護 **433 個精選術語**，涵蓋：
+
+- **簡體 IT 術語** — 程序→程式、软件→軟體、服务器→伺服器
+- **簡體商業用語** — 信息→資訊、用户→使用者
+- **港式繁體差異** — 視像→視訊、軟件→軟體
+
+| 來源 | 類別 | 詞彙數 |
+|------|------|--------|
+| 簡體 | 基礎詞彙 | 151 |
+| 簡體 | IT 術語 | 132 |
+| 簡體 | 商業用語 | 42 |
+| 簡體 | 擴充詞彙 | 47 |
+| 港式 | 基礎詞彙 | 42 |
+| 港式 | 科技術語 | 19 |
+
+---
+
+## CI/CD 整合
+
+```yaml
+# .github/workflows/chinese-check.yml
+- name: 檢查繁體中文用語
+  run: |
+    pip install zhtw
+    zhtw check ./src --json
+```
+
+發現問題時會自動失敗，確保程式碼品質。
+
+---
+
+## 進階用法
+
+```bash
 # 使用自訂詞庫
 zhtw fix ./src --dict ./my-terms.json
 
-# 排除目錄
-zhtw check ./src --exclude node_modules,dist
-
-# 只處理簡體
+# 只處理簡體（跳過港式）
 zhtw check ./src --source cn
 
-# 只處理港式
-zhtw check ./src --source hk
+# 排除目錄
+zhtw check ./src --exclude node_modules,dist
 
 # 模擬執行（不實際修改）
 zhtw fix ./src --dry-run
 
 # 顯示詞庫統計
 zhtw stats
-
-# 驗證詞庫品質
-zhtw validate
 ```
 
-## 輸出範例
+### 忽略特定程式碼
 
-```
-📁 掃描 ./src
+```python
+# 忽略這一行
+test_data = "软件"  # zhtw:disable-line
 
-📄 src/components/Header.tsx
-   L12:5: "用户" → "使用者"
-      ...顯示用户資訊...
+# 忽略下一行
+# zhtw:disable-next
+legacy_code = "用户信息"
 
-📄 src/utils/api.ts
-   L8:10: "网络" → "網路"
-      ...檢查网络連線...
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚠️  發現 2 處問題（2 個檔案）
-   掃描: 150 個檔案 (跳過 45 個無中文檔案)
+# 忽略整個區塊
+# zhtw:disable
+test_cases = ["软件", "硬件", "网络"]
+# zhtw:enable
 ```
 
-## 詞庫格式
+### 自訂詞庫格式
 
 ```json
 {
   "version": "1.0",
-  "description": "自訂詞庫說明",
+  "description": "我的專案術語",
   "terms": {
-    "文档": "文件",
-    "代码": "程式碼",
-    "软件": "軟體"
+    "自定义": "自訂"
   }
 }
 ```
 
-## 內建詞庫
-
-| 來源 | 類別 | 詞彙數 | 說明 |
-|------|------|--------|------|
-| CN | base | 151 | 簡體基礎詞彙 |
-| CN | it | 132 | IT/程式術語 |
-| CN | business | 42 | 商業術語 |
-| CN | imported | 47 | 擴充詞彙 |
-| HK | base | 42 | 港式基礎詞彙 |
-| HK | tech | 19 | 港式科技術語 |
-
-**總計：433 個詞彙**
-
-## 忽略註解
-
-在程式碼中使用註解來跳過特定內容的檢查：
-
-```python
-# 忽略當前行
-user_info = "用户信息"  # zhtw:disable-line
-
-# 忽略下一行
-# zhtw:disable-next
-simplified = "软件"
-
-# 忽略區塊
-# zhtw:disable
-test_data = [
-    "软件",
-    "硬件",
-    "网络",
-]
-# zhtw:enable
-```
-
-支援各種註解風格：`#`、`//`、`/* */`、`<!-- -->`
-
-## CI/CD 整合
-
-### GitHub Actions
-
-```yaml
-- name: Check Traditional Chinese
-  run: |
-    pip install zhtw
-    zhtw check ./src --json > result.json
-    if [ $? -ne 0 ]; then
-      echo "發現簡體中文用語，請修正"
-      exit 1
-    fi
-```
-
-### Jenkins
-
-```groovy
-stage('繁體中文檢查') {
-    steps {
-        sh 'pip install zhtw'
-        sh 'zhtw check . --json > terminology-report.json'
-    }
-}
-```
-
-### JSON 輸出格式
-
-```json
-{
-  "total_issues": 3,
-  "files_with_issues": 2,
-  "files_checked": 150,
-  "files_modified": 0,
-  "files_skipped": 45,
-  "status": "fail",
-  "issues": [
-    {
-      "file": "src/components/Header.tsx",
-      "line": 12,
-      "column": 5,
-      "source": "用户",
-      "target": "使用者"
-    }
-  ]
-}
-```
-
-## 為什麼不用 OpenCC？
-
-OpenCC 會過度轉換一些在台灣已經正確的詞彙：
-
-| 原文 | OpenCC 結果 | 正確（台灣） |
-|------|-------------|--------------|
-| 權限 | 許可權 | 權限 |
-| 設備 | 裝置 | 設備 |
-| 視頻 | 視訊 | 影片 |
-
-ZHTW 使用精確的術語表，只轉換明確定義的詞彙，避免這類問題。
+---
 
 ## 開發
 
 ```bash
-# 安裝開發依賴
 pip install -e ".[dev]"
-
-# 執行測試
 pytest
-
-# 執行 lint
 ruff check .
 ```
 
-## 路線圖
-
-- [x] v1.0 - 基礎 CLI + 詞庫
-- [x] v1.5 - 統計報告 + 詞庫驗證 + 忽略註解
-- [x] v2.0 - 內部工具強化
-- [ ] v3.0 - 更多詞庫擴充
-
-## License
-
-MIT License
-
 ---
 
-**rajatim 出品**
+MIT License | **rajatim 出品**
