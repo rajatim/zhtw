@@ -580,9 +580,9 @@ def import_cmd(source: str, no_pending: bool, name: Optional[str]):
     help="列出待審核檔案",
 )
 @click.option(
-    "--llm",
+    "--no-llm",
     is_flag=True,
-    help="使用 LLM 輔助審核",
+    help="停用 LLM 輔助審核（預設啟用 LLM）",
 )
 @click.option(
     "--approve-all",
@@ -608,14 +608,14 @@ def import_cmd(source: str, no_pending: bool, name: Optional[str]):
 )
 def review(
     list_only: bool,
-    llm: bool,
+    no_llm: bool,
     approve_all: bool,
     reject_all: bool,
     file_name: Optional[str],
     force: bool,
 ):
     """
-    審核待匯入的詞彙。
+    審核待匯入的詞彙（預設啟用 LLM 驗證）。
 
     Example:
 
@@ -623,7 +623,7 @@ def review(
 
         zhtw review
 
-        zhtw review --llm
+        zhtw review --no-llm
 
         zhtw review --approve-all
     """
@@ -646,9 +646,9 @@ def review(
             click.echo()
         return
 
-    # Get LLM client if needed
+    # Get LLM client (enabled by default)
     llm_client = None
-    if llm:
+    if not no_llm:
         try:
             from .llm import GeminiClient
 
