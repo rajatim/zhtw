@@ -31,6 +31,44 @@ def format_issue(issue: Issue, show_context: bool = True) -> str:
     return f"   {location}: {change}"
 
 
+def format_diff(result: ConversionResult) -> str:
+    """Format issues as a diff-like output."""
+    output_lines = []
+
+    # Group issues by file
+    issues_by_file: dict[Path, List[Issue]] = {}
+    for issue in result.issues:
+        if issue.file not in issues_by_file:
+            issues_by_file[issue.file] = []
+        issues_by_file[issue.file].append(issue)
+
+    for file_path, issues in sorted(issues_by_file.items()):
+        output_lines.append(f"\n📄 {file_path}")
+
+        # Group by line for cleaner output
+        issues_by_line: dict[int, List[Issue]] = {}
+        for issue in issues:
+            if issue.line not in issues_by_line:
+                issues_by_line[issue.line] = []
+            issues_by_line[issue.line].append(issue)
+
+        for line_num in sorted(issues_by_line.keys()):
+            line_issues = issues_by_line[line_num]
+            # Get original context from first issue
+            original = line_issues[0].context
+
+            # Build the modified version
+            modified = original
+            for issue in line_issues:
+                modified = modified.replace(issue.source, issue.target)
+
+            output_lines.append(click.style(f"   L{line_num}:", fg="cyan"))
+            output_lines.append(click.style(f"   - {original.strip()}", fg="red"))
+            output_lines.append(click.style(f"   + {modified.strip()}", fg="green"))
+
+    return "\n".join(output_lines)
+
+
 def print_results(result: ConversionResult, verbose: bool = False) -> None:
     """Print results to console."""
     # Group issues by file
@@ -226,6 +264,11 @@ def check(
     is_flag=True,
     help="模擬執行，不實際修改檔案",
 )
+@click.option(
+    "--show-diff",
+    is_flag=True,
+    help="顯示修改預覽，確認後才執行",
+)
 def fix(
     path: Path,
     source: str,
@@ -234,6 +277,7 @@ def fix(
     json_output: bool,
     verbose: bool,
     dry_run: bool,
+    show_diff: bool,
 ):
     """
     修正模式：掃描檔案並自動修正問題。
@@ -244,11 +288,68 @@ def fix(
 
         zhtw fix ./src --dry-run
 
+        zhtw fix ./src --show-diff
+
         zhtw fix ./src --source cn
     """
     sources = [s.strip() for s in source.split(",")]
     excludes = set(e.strip() for e in exclude.split(",")) if exclude else None
 
+    # show_diff implies dry-run first, then fix after confirmation
+    if show_diff:
+        if not json_output:
+            click.echo(f"🔍 預覽模式：掃描 {path}")
+
+        # First pass: check only (don't fix)
+        result = process_directory(
+            directory=path,
+            sources=sources,
+            custom_dict=custom_dict,
+            fix=False,
+            excludes=excludes,
+        )
+
+        if result.total_issues == 0:
+            if json_output:
+                print_json(result)
+            else:
+                click.echo(click.style("\n✅ 未發現需要修正的問題", fg="green"))
+            sys.exit(0)
+
+        # Show diff
+        if not json_output:
+            click.echo(format_diff(result))
+            click.echo()
+            click.echo("━" * 50)
+            click.echo(
+                click.style(
+                    f"📊 將修正 {result.total_issues} 處問題（{result.files_with_issues} 個檔案）",
+                    fg="yellow",
+                )
+            )
+
+            # Ask for confirmation
+            if not click.confirm("\n確認執行修正？"):
+                click.echo(click.style("❌ 已取消", fg="red"))
+                sys.exit(1)
+
+            # Second pass: actually fix
+            click.echo(f"\n🔧 執行修正...")
+            result = process_directory(
+                directory=path,
+                sources=sources,
+                custom_dict=custom_dict,
+                fix=True,
+                excludes=excludes,
+            )
+            print_results(result, verbose=verbose)
+        else:
+            print_json(result)
+            sys.exit(1 if result.total_issues > 0 else 0)
+
+        sys.exit(0)
+
+    # Normal mode (no show_diff)
     if not json_output:
         mode = "模擬" if dry_run else "修正"
         click.echo(f"🔧 {mode}模式：掃描 {path}")
