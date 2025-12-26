@@ -2,10 +2,21 @@
 
 [![CI](https://github.com/rajatim/zhtw/actions/workflows/ci.yml/badge.svg)](https://github.com/rajatim/zhtw/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/zhtw.svg)](https://pypi.org/project/zhtw/)
+[![Downloads](https://img.shields.io/pypi/dm/zhtw.svg)](https://pypi.org/project/zhtw/)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**專為程式碼和技術文件設計的簡繁轉換工具**
+**讓你的程式碼說台灣話** — 專治「許可權」「軟件」等違和用語
+
+---
+
+## 你是否遇過這些情況？
+
+- Code review 被指出「伺服器」寫成「服务器」
+- 用 OpenCC 轉換，結果「權限」變成「許可權」
+- 文件裡混著「用戶」和「使用者」，不知道漏了哪些
+
+**ZHTW** 就是為了解決這個問題。
 
 ---
 
@@ -13,9 +24,7 @@
 
 > 寧可少轉，不要錯轉
 
-通用的簡繁轉換工具很棒，但程式碼和技術文件有自己的術語習慣。「權限」在台灣就是「權限」，不需要變成「許可權」；「代码」應該轉成「程式碼」，而不是保持原樣。
-
-**ZHTW** 專注於這個場景：用精選的術語表，確保每一個轉換都符合台灣開發者的用語習慣。
+通用轉換工具會過度轉換，把台灣正確的詞也改掉。我們不一樣：**只轉確定要改的詞，其他一律不動。**
 
 ---
 
@@ -48,38 +57,32 @@ zhtw fix ./src
 
 ---
 
-## 特點
+## 為什麼選 ZHTW？
 
 | | |
 |------|------|
-| **精準** | 433 個人工驗證術語，每個轉換都經過確認 |
-| **快速** | Aho-Corasick 演算法，萬級檔案秒級掃描 |
-| **離線** | 完全本地執行，不傳送任何資料到外部 |
-| **CI 友善** | JSON 輸出，輕鬆整合 GitHub Actions / Jenkins |
-| **可控** | 支援 `zhtw:disable` 註解跳過特定程式碼 |
+| **零誤判** | 433 個術語，人工 + AI 雙重審稿，不會把「權限」改成「許可權」 |
+| **秒級掃描** | 10 萬行程式碼 < 1 秒，大型專案也不怕 |
+| **完全離線** | 不傳送任何資料到外部，企業內網也能用 |
+| **CI 整合** | 一行指令加入 GitHub Actions，PR 自動檢查 |
+| **彈性跳過** | 測試資料、第三方程式碼？標記一下就不會被改 |
 
 ---
 
-## 術語涵蓋範圍
+## 涵蓋範圍
 
-我們維護 **433 個精選術語**，涵蓋：
+**433 個精選術語**，兩岸三地都顧到：
 
-- **簡體 IT 術語** — 程序→程式、软件→軟體、服务器→伺服器
-- **簡體商業用語** — 信息→資訊、用户→使用者
-- **港式繁體差異** — 視像→視訊、軟件→軟體
-
-| 來源 | 類別 | 詞彙數 |
-|------|------|--------|
-| 簡體 | 基礎詞彙 | 151 |
-| 簡體 | IT 術語 | 132 |
-| 簡體 | 商業用語 | 42 |
-| 簡體 | 擴充詞彙 | 47 |
-| 港式 | 基礎詞彙 | 42 |
-| 港式 | 科技術語 | 19 |
+| 來源 | 範例 |
+|------|------|
+| 簡體 → 台灣 | 程序→程式、软件→軟體、服务器→伺服器、用户→使用者 |
+| 港式 → 台灣 | 視像→視訊、軟件→軟體、數據庫→資料庫 |
 
 ---
 
 ## CI/CD 整合
+
+加入 GitHub Actions，每個 PR 自動檢查：
 
 ```yaml
 # .github/workflows/chinese-check.yml
@@ -89,13 +92,13 @@ zhtw fix ./src
     zhtw check ./src --json
 ```
 
-發現問題時會自動失敗，確保程式碼品質。
+有問題就會失敗，再也不怕漏掉。
 
 ---
 
 ## Pre-commit Hook
 
-在 commit 前自動檢查：
+Commit 前自動擋住問題：
 
 ```yaml
 # .pre-commit-config.yaml
@@ -107,13 +110,8 @@ repos:
 ```
 
 ```bash
-# 安裝
-pip install pre-commit
-pre-commit install
-
+pip install pre-commit && pre-commit install
 # 之後每次 commit 都會自動檢查
-git commit -m "feat: 新功能"
-# Check Simplified Chinese...............Passed
 ```
 
 ---
@@ -141,6 +139,12 @@ zhtw fix ./src --backup
 
 # 顯示詞庫統計
 zhtw stats
+
+# 驗證詞庫品質（檢查衝突和無效轉換）
+zhtw validate
+
+# 詳細輸出
+zhtw check ./src --verbose
 ```
 
 ### 忽略特定程式碼
@@ -197,6 +201,16 @@ pip install -e ".[dev]"
 pytest
 ruff check .
 ```
+
+---
+
+## 立即試試
+
+```bash
+pip install zhtw && zhtw check ./src
+```
+
+有問題？[開 Issue](https://github.com/rajatim/zhtw/issues) | 想貢獻？[看 Contributing Guide](CONTRIBUTING.md)
 
 ---
 
