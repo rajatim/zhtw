@@ -33,10 +33,14 @@
 # 安裝
 pip install zhtw
 
-# 檢查（只報告，不修改）
-zhtw check ./src
+# 檢查整個專案（當前目錄 + 所有子目錄）
+zhtw check .
 
-# 修正（自動修改檔案）
+# 修正整個專案
+zhtw fix .
+
+# 或指定特定目錄
+zhtw check ./src
 zhtw fix ./src
 ```
 
