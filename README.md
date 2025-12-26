@@ -106,10 +106,11 @@ zhtw validate
 | CN | base | 151 | 簡體基礎詞彙 |
 | CN | it | 132 | IT/程式術語 |
 | CN | business | 42 | 商業術語 |
+| CN | imported | 47 | 擴充詞彙 |
 | HK | base | 42 | 港式基礎詞彙 |
 | HK | tech | 19 | 港式科技術語 |
 
-**總計：386 個詞彙**
+**總計：433 個詞彙**
 
 ## 忽略註解
 
