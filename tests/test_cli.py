@@ -99,7 +99,8 @@ class TestFixCommand:
         test_file = tmp_path / "test.py"
         test_file.write_text('msg = "软件"')
 
-        result = runner.invoke(main, ["fix", str(tmp_path)])
+        # Need to confirm because tmp_path is not in git
+        result = runner.invoke(main, ["fix", str(tmp_path)], input="y\n")
 
         assert result.exit_code == 0
         content = test_file.read_text()
@@ -135,8 +136,8 @@ class TestFixCommand:
         test_file = tmp_path / "test.py"
         test_file.write_text('msg = "软件"')
 
-        # Simulate user pressing 'n' to cancel
-        result = runner.invoke(main, ["fix", str(tmp_path), "--show-diff"], input="n\n")
+        # Need to confirm git warning first (y), then cancel fix (n)
+        result = runner.invoke(main, ["fix", str(tmp_path), "--show-diff"], input="y\nn\n")
 
         assert "預覽模式" in result.output
         assert "软件" in result.output or "軟體" in result.output
@@ -149,13 +150,35 @@ class TestFixCommand:
         test_file = tmp_path / "test.py"
         test_file.write_text('msg = "软件"')
 
-        # Simulate user pressing 'y' to confirm
-        result = runner.invoke(main, ["fix", str(tmp_path), "--show-diff"], input="y\n")
+        # Need to confirm git warning first (y), then confirm fix (y)
+        result = runner.invoke(main, ["fix", str(tmp_path), "--show-diff"], input="y\ny\n")
 
         assert result.exit_code == 0
         assert "已修正" in result.output
         # File should be modified
         assert "軟體" in test_file.read_text()
+
+    def test_fix_backup_creates_backup(self, runner: CliRunner, tmp_path: Path):
+        """Fix --backup creates backup before modifying."""
+        test_file = tmp_path / "test.py"
+        original_content = 'msg = "软件"'
+        test_file.write_text(original_content)
+
+        result = runner.invoke(main, ["fix", str(tmp_path), "--backup"])
+
+        assert result.exit_code == 0
+        assert "已備份" in result.output
+        assert "已修正" in result.output
+
+        # File should be modified
+        assert "軟體" in test_file.read_text()
+
+        # Backup should exist with original content
+        backup_dir = tmp_path / ".zhtw-backup"
+        assert backup_dir.exists()
+        backup_files = list(backup_dir.rglob("test.py"))
+        assert len(backup_files) == 1
+        assert backup_files[0].read_text() == original_content
 
 
 class TestStatsCommand:

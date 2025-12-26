@@ -66,6 +66,7 @@ DEFAULT_EXCLUDES: Set[str] = {
     ".idea",
     ".vscode",
     "coverage",
+    ".zhtw-backup",
 }
 
 # Default files to exclude
