@@ -8,10 +8,9 @@ Supports:
 """
 
 import re
-from concurrent.futures import ProcessPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, Iterator, List, Optional, Set
+from typing import Iterator, List, Optional, Set
 
 from .dictionary import load_dictionary
 from .matcher import Match, Matcher
