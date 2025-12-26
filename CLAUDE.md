@@ -34,7 +34,7 @@ zhtw/
 │   ├── cli.py           # CLI 入口 (click)
 │   ├── converter.py     # 核心轉換邏輯
 │   ├── dictionary.py    # 詞庫載入/管理
-│   ├── matcher.py       # Aho-Corasick 匹配器
+│   ├── matcher.py       # Aho-Corasick 比對器
 │   ├── config.py        # 設定管理
 │   ├── import_terms.py  # 詞庫匯入
 │   ├── review.py        # 詞彙審核
@@ -42,7 +42,7 @@ zhtw/
 │   │   ├── __init__.py
 │   │   ├── client.py    # Gemini API 客戶端
 │   │   ├── usage.py     # 用量追蹤與限制
-│   │   └── prompts.py   # 提示詞模板
+│   │   └── prompts.py   # 提示詞範本
 │   └── data/
 │       └── terms/
 │           ├── cn/          # 簡體 → 台灣繁體
@@ -77,13 +77,13 @@ zhtw/
 ### matcher.py
 - 使用 `pyahocorasick` 建立自動機
 - `Matcher` 類別:
-  - `find_matches(text)` - 找出所有匹配
+  - `find_matches(text)` - 找出所有比對
   - `find_matches_with_lines(text)` - 帶行列資訊
-  - `replace_all(text)` - 替換所有匹配
+  - `replace_all(text)` - 替換所有比對
 
 ### dictionary.py
 - `load_builtin(sources)` - 載入內建 cn/hk 詞庫
-- `load_dictionary(sources, custom_path)` - 主要載入函數
+- `load_dictionary(sources, custom_path)` - 主要載入函式
 - 支援簡單格式和擴展格式
 
 ---
@@ -149,6 +149,7 @@ python -m zhtw check ./test-files
 ```
 
 ### 擴展格式（v1.5+，未來支援）
+<!-- zhtw:disable -->
 ```json
 {
   "version": "1.5",
@@ -162,6 +163,7 @@ python -m zhtw check ./test-files
   }
 }
 ```
+<!-- zhtw:enable -->
 
 ---
 
