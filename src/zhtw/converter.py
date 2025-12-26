@@ -18,6 +18,12 @@ from .matcher import Match, Matcher
 # Regex to detect Chinese characters
 CHINESE_PATTERN = re.compile(r"[\u4e00-\u9fff]")
 
+# Ignore directive patterns
+IGNORE_LINE_PATTERN = re.compile(r"zhtw:disable-line")
+IGNORE_NEXT_PATTERN = re.compile(r"zhtw:disable-next")
+IGNORE_START_PATTERN = re.compile(r"zhtw:disable\b")
+IGNORE_END_PATTERN = re.compile(r"zhtw:enable\b")
+
 # Default file extensions to check
 DEFAULT_EXTENSIONS: Set[str] = {
     # Code
@@ -109,6 +115,54 @@ def contains_chinese(text: str) -> bool:
     return bool(CHINESE_PATTERN.search(text))
 
 
+def get_ignored_lines(text: str) -> Set[int]:
+    """
+    Parse text and return set of line numbers that should be ignored.
+
+    Supports:
+    - zhtw:disable-line  (ignore current line)
+    - zhtw:disable-next  (ignore next line)
+    - zhtw:disable ... zhtw:enable  (ignore block)
+
+    Args:
+        text: Text to parse.
+
+    Returns:
+        Set of 1-based line numbers to ignore.
+    """
+    ignored: Set[int] = set()
+    lines = text.split("\n")
+    in_disabled_block = False
+
+    for i, line in enumerate(lines):
+        line_num = i + 1  # 1-based
+
+        # Check for block start/end
+        if IGNORE_START_PATTERN.search(line):
+            # Make sure it's not disable-line or disable-next
+            if not IGNORE_LINE_PATTERN.search(line) and not IGNORE_NEXT_PATTERN.search(line):
+                in_disabled_block = True
+                continue
+
+        if IGNORE_END_PATTERN.search(line):
+            in_disabled_block = False
+            continue
+
+        # If in disabled block, ignore this line
+        if in_disabled_block:
+            ignored.add(line_num)
+            continue
+
+        # Check for line-level ignores
+        if IGNORE_LINE_PATTERN.search(line):
+            ignored.add(line_num)
+
+        if IGNORE_NEXT_PATTERN.search(line):
+            ignored.add(line_num + 1)
+
+    return ignored
+
+
 def should_check_file(
     path: Path,
     extensions: Optional[Set[str]] = None,
@@ -166,6 +220,7 @@ def convert_text(
     text: str,
     matcher: Matcher,
     fix: bool = False,
+    ignored_lines: Optional[Set[int]] = None,
 ) -> tuple[str, List[tuple[Match, int, int]]]:
     """
     Convert text using matcher.
@@ -174,16 +229,46 @@ def convert_text(
         text: Text to process.
         matcher: Matcher instance.
         fix: Whether to apply fixes.
+        ignored_lines: Set of line numbers to skip.
 
     Returns:
         Tuple of (processed_text, list of (match, line, col)).
     """
-    matches = list(matcher.find_matches_with_lines(text))
+    if ignored_lines is None:
+        ignored_lines = set()
+
+    all_matches = list(matcher.find_matches_with_lines(text))
+
+    # Filter out matches on ignored lines
+    matches = [(m, line, col) for m, line, col in all_matches if line not in ignored_lines]
 
     if fix and matches:
-        text = matcher.replace_all(text)
+        # Only replace non-ignored matches
+        # We need to do this carefully to preserve ignored content
+        text = _replace_with_ignores(text, matcher, ignored_lines)
 
     return text, matches
+
+
+def _replace_with_ignores(text: str, matcher: Matcher, ignored_lines: Set[int]) -> str:
+    """Replace matches while respecting ignored lines."""
+    if not ignored_lines:
+        return matcher.replace_all(text)
+
+    # Process line by line
+    lines = text.split("\n")
+    result_lines = []
+
+    for i, line in enumerate(lines):
+        line_num = i + 1
+        if line_num in ignored_lines:
+            # Keep line as-is
+            result_lines.append(line)
+        else:
+            # Replace matches in this line
+            result_lines.append(matcher.replace_all(line))
+
+    return "\n".join(result_lines)
 
 
 def convert_file(
@@ -218,8 +303,11 @@ def convert_file(
         result.skipped = True
         return result
 
+    # Parse ignore directives
+    ignored_lines = get_ignored_lines(content)
+
     # Find matches
-    new_content, matches = convert_text(content, matcher, fix=fix)
+    new_content, matches = convert_text(content, matcher, fix=fix, ignored_lines=ignored_lines)
 
     # Build issues list
     for match, line, col in matches:
