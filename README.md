@@ -25,12 +25,6 @@
 pip install zhtw
 ```
 
-使用 LLM 功能（可選）：
-
-```bash
-pip install zhtw[llm]
-```
-
 或從原始碼安裝：
 
 ```bash
@@ -71,68 +65,6 @@ zhtw stats
 
 # 驗證詞庫品質
 zhtw validate
-```
-
-## LLM 功能（v2.0+）
-
-使用 Google Gemini API 驗證和擴充詞庫：
-
-```bash
-# 設定 API Key（使用 direnv）
-echo 'export GEMINI_API_KEY="your-key-here"' >> .envrc
-direnv allow
-
-# 從外部來源匯入詞庫（存到暫存區）
-zhtw import https://example.com/terms.json
-zhtw import ./external-terms.json
-
-# 列出待審核詞彙
-zhtw review --list
-
-# 互動式審核
-zhtw review
-
-# 使用 LLM 輔助審核
-zhtw review --llm
-
-# 批准/拒絕全部
-zhtw review --approve-all
-zhtw review --reject-all
-
-# 使用 LLM 驗證現有詞庫
-zhtw validate-llm
-zhtw validate-llm --limit 50  # 限制數量省費用
-
-# 查看 LLM 用量
-zhtw usage
-
-# 設定用量限制
-zhtw config show
-zhtw config set llm.limits.daily_cost_usd 0.05
-```
-
-### 用量監控
-
-為避免意外超支，內建嚴格的用量限制：
-
-| 項目 | 預設值 |
-|------|--------|
-| 每日請求上限 | 100 次 |
-| 每日費用上限 | $0.10 |
-| 每月費用上限 | $1.00 |
-| 警告門檻 | 80% |
-
-```
-📊 LLM 用量統計
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-今日 (2025-12-26):
-  請求: 15 / 100 (15%)
-  費用: $0.0003 / $0.10 (0.3%)
-
-本月 (2025-12):
-  請求: 520
-  費用: $0.0093 / $1.00 (0.9%)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ## 輸出範例
@@ -280,8 +212,8 @@ ruff check .
 
 - [x] v1.0 - 基礎 CLI + 詞庫
 - [x] v1.5 - 統計報告 + 詞庫驗證 + 忽略註解
-- [x] v2.0 - LLM 輔助詞彙驗證 + 詞庫匯入 + 用量監控
-- [ ] v3.0 - 本地模型上下文感知
+- [x] v2.0 - 內部工具強化
+- [ ] v3.0 - 更多詞庫擴充
 
 ## License
 

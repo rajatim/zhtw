@@ -5,10 +5,8 @@ Usage:
     zhtw check ./src           # Check mode (report only)
     zhtw fix ./src             # Fix mode (modify files)
     zhtw check ./src --json    # JSON output for CI/CD
-    zhtw import ./terms.json   # Import external dictionary
-    zhtw review                # Review pending terms
-    zhtw usage                 # Show LLM usage
-    zhtw config show           # Show configuration
+    zhtw stats                 # Show dictionary statistics
+    zhtw validate              # Validate dictionary quality
 """
 
 import json
