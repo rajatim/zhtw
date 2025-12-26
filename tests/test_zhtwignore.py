@@ -1,9 +1,6 @@
 """Tests for .zhtwignore functionality."""
 
-import tempfile
 from pathlib import Path
-
-import pytest
 
 from zhtw.converter import (
     is_ignored_by_patterns,
