@@ -31,6 +31,54 @@ def format_issue(issue: Issue, show_context: bool = True) -> str:
     return f"   {location}: {change}"
 
 
+def create_backup(files: List[Path], base_path: Path) -> Path:
+    """
+    Create backup of files before modification.
+
+    Args:
+        files: List of file paths to backup.
+        base_path: Base directory for backup.
+
+    Returns:
+        Path to backup directory.
+    """
+    import shutil
+    from datetime import datetime
+
+    # Create backup directory with timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    backup_dir = base_path / ".zhtw-backup" / timestamp
+
+    for file_path in files:
+        try:
+            rel_path = file_path.relative_to(base_path)
+        except ValueError:
+            rel_path = file_path.name
+
+        dest = backup_dir / rel_path
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(file_path, dest)
+
+    return backup_dir
+
+
+def check_git_status(path: Path) -> bool:
+    """Check if path is in a git repository with clean status."""
+    import subprocess
+
+    try:
+        # Check if in git repo
+        result = subprocess.run(
+            ["git", "rev-parse", "--is-inside-work-tree"],
+            cwd=path if path.is_dir() else path.parent,
+            capture_output=True,
+            text=True,
+        )
+        return result.returncode == 0
+    except Exception:
+        return False
+
+
 def format_diff(result: ConversionResult) -> str:
     """Format issues as a diff-like output."""
     output_lines = []
@@ -269,6 +317,11 @@ def check(
     is_flag=True,
     help="顯示修改預覽，確認後才執行",
 )
+@click.option(
+    "--backup",
+    is_flag=True,
+    help="修改前備份原檔到 .zhtw-backup/",
+)
 def fix(
     path: Path,
     source: str,
@@ -278,6 +331,7 @@ def fix(
     verbose: bool,
     dry_run: bool,
     show_diff: bool,
+    backup: bool,
 ):
     """
     修正模式：掃描檔案並自動修正問題。
@@ -290,10 +344,33 @@ def fix(
 
         zhtw fix ./src --show-diff
 
+        zhtw fix ./src --backup
+
         zhtw fix ./src --source cn
     """
     sources = [s.strip() for s in source.split(",")]
     excludes = set(e.strip() for e in exclude.split(",")) if exclude else None
+
+    # Helper function to perform backup if needed
+    def do_backup_if_needed(result: ConversionResult) -> None:
+        if backup and result.total_issues > 0:
+            files_to_backup = list(set(issue.file for issue in result.issues))
+            base = path if path.is_dir() else path.parent
+            backup_dir = create_backup(files_to_backup, base)
+            click.echo(click.style(f"📦 已備份 {len(files_to_backup)} 個檔案到 {backup_dir}", fg="cyan"))
+
+    # Warn if not in git and not using backup (only for actual fixes)
+    if not dry_run and not backup and not json_output:
+        if not check_git_status(path):
+            click.echo(
+                click.style(
+                    "⚠️  警告：此目錄不在 git 版控下，修改後無法輕易恢復",
+                    fg="yellow",
+                )
+            )
+            click.echo("   建議使用 --backup 建立備份，或 --dry-run 先預覽")
+            if not click.confirm("確定要繼續？"):
+                sys.exit(1)
 
     # show_diff implies dry-run first, then fix after confirmation
     if show_diff:
@@ -333,6 +410,9 @@ def fix(
                 click.echo(click.style("❌ 已取消", fg="red"))
                 sys.exit(1)
 
+            # Backup before fixing
+            do_backup_if_needed(result)
+
             # Second pass: actually fix
             click.echo(f"\n🔧 執行修正...")
             result = process_directory(
@@ -353,6 +433,18 @@ def fix(
     if not json_output:
         mode = "模擬" if dry_run else "修正"
         click.echo(f"🔧 {mode}模式：掃描 {path}")
+
+    # For backup mode without show_diff, we need to check first
+    if backup and not dry_run:
+        # First pass: check what will be modified
+        check_result = process_directory(
+            directory=path,
+            sources=sources,
+            custom_dict=custom_dict,
+            fix=False,
+            excludes=excludes,
+        )
+        do_backup_if_needed(check_result)
 
     result = process_directory(
         directory=path,
