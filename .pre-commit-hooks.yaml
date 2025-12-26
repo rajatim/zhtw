@@ -1,0 +1,15 @@
+- id: zhtw-check
+  name: Check Simplified Chinese
+  description: Check for Simplified/HK Chinese that should be Taiwan Traditional
+  entry: zhtw check
+  language: python
+  types: [text]
+  pass_filenames: false
+
+- id: zhtw-fix
+  name: Fix Simplified Chinese
+  description: Auto-fix Simplified/HK Chinese to Taiwan Traditional
+  entry: zhtw fix
+  language: python
+  types: [text]
+  pass_filenames: false
