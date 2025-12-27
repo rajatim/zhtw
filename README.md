@@ -30,19 +30,28 @@
 ## 30 秒開始使用
 
 ```bash
-# 安裝
 pip install zhtw
 
-# 檢查整個專案（當前目錄 + 所有子目錄）
-zhtw check .
-
-# 修正整個專案
-zhtw fix .
-
-# 或指定特定目錄
-zhtw check ./src
-zhtw fix ./src
+zhtw check .    # 檢查整個專案
+zhtw fix .      # 自動修正
 ```
+
+<details>
+<summary>zhtw 指令找不到？設定 PATH</summary>
+
+```bash
+# macOS (zsh)
+echo 'export PATH="$PATH:$(python3 -m site --user-base)/bin"' >> ~/.zshrc
+source ~/.zshrc
+
+# Linux (bash)
+echo 'export PATH="$PATH:~/.local/bin"' >> ~/.bashrc
+source ~/.bashrc
+
+# Windows — 通常自動設定，若無請加入環境變數：
+# %APPDATA%\Python\PythonXX\Scripts
+```
+</details>
 
 **輸出範例：**
 ```
@@ -210,7 +219,7 @@ ruff check .
 ## 立即試試
 
 ```bash
-pip install zhtw && zhtw check ./src
+pip install zhtw && zhtw check .
 ```
 
 有問題？[開 Issue](https://github.com/rajatim/zhtw/issues) | 想貢獻？[看 Contributing Guide](CONTRIBUTING.md)
