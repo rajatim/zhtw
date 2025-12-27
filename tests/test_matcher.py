@@ -95,3 +95,33 @@ class TestMatcher:
 
         assert list(matcher.find_matches("任何文字")) == []
         assert matcher.replace_all("任何文字") == "任何文字"
+
+    def test_identity_mapping_priority_over_overlap(self):
+        """Test that identity mapping takes precedence over overlapping conversion.
+
+        When "文檔"→"文件" and "檔案"→"檔案" overlap in "中文檔案",
+        the identity mapping should win to protect the valid word "檔案".
+        """
+        terms = {"文檔": "文件", "檔案": "檔案"}
+        matcher = Matcher(terms)
+
+        # "中文檔案" should NOT be converted to "中文件案"
+        result = matcher.replace_all("無中文檔案")
+        assert result == "無中文檔案"
+
+        # Verify no matches are reported (identity mapping is skipped)
+        matches = list(matcher.find_matches("無中文檔案"))
+        assert len(matches) == 0
+
+    def test_identity_mapping_does_not_block_valid_conversion(self):
+        """Test that identity mapping doesn't block valid conversions elsewhere."""
+        terms = {"文檔": "文件", "檔案": "檔案"}
+        matcher = Matcher(terms)
+
+        # Standalone "文檔" should still be converted
+        result = matcher.replace_all("請查看文檔")
+        assert result == "請查看文件"
+
+        # Both cases in same text
+        result = matcher.replace_all("文檔和中文檔案")
+        assert result == "文件和中文檔案"

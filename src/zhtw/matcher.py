@@ -86,11 +86,23 @@ class Matcher:
         # Sort by start position, then by length (longer first)
         all_matches.sort(key=lambda m: (m.start, -(m.end - m.start)))
 
-        # Filter overlapping matches (keep longest match at each position)
-        # Then skip identity matches (source == target)
+        # Build "protected ranges" from identity mappings
+        # These ranges should not be modified by overlapping conversions
+        # This ensures "檔案"→"檔案" protects against "文檔"→"文件"
+        # when they overlap in "中文檔案"
+        protected: set[int] = set()
+        for match in all_matches:
+            if match.source == match.target:
+                protected.update(range(match.start, match.end))
+
+        # Filter overlapping matches
         last_end = -1
         for match in all_matches:
             if match.start >= last_end:
+                # Skip if this conversion overlaps with a protected range
+                if match.source != match.target:
+                    if any(i in protected for i in range(match.start, match.end)):
+                        continue
                 last_end = match.end
                 # Skip identity matches (no actual change needed)
                 if match.source != match.target:
