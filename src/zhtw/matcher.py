@@ -57,23 +57,44 @@ class Matcher:
         """
         Find all matches in text.
 
+        Uses longest-match-first strategy to avoid substring issues.
+        For example, if both "算法" and "演算法" are in the dictionary,
+        "演算法" in text will match the longer pattern first.
+
         Args:
             text: Text to search in.
 
         Yields:
-            Match objects for each found term.
+            Match objects for each found term (excluding identity matches).
         """
         if not self.terms:
             return
 
+        # Collect all matches first (including identity matches for overlap detection)
+        all_matches = []
         for end_pos, (source, target) in self.automaton.iter(text):
             start_pos = end_pos - len(source) + 1
-            yield Match(
-                start=start_pos,
-                end=end_pos + 1,
-                source=source,
-                target=target,
+            all_matches.append(
+                Match(
+                    start=start_pos,
+                    end=end_pos + 1,
+                    source=source,
+                    target=target,
+                )
             )
+
+        # Sort by start position, then by length (longer first)
+        all_matches.sort(key=lambda m: (m.start, -(m.end - m.start)))
+
+        # Filter overlapping matches (keep longest match at each position)
+        # Then skip identity matches (source == target)
+        last_end = -1
+        for match in all_matches:
+            if match.start >= last_end:
+                last_end = match.end
+                # Skip identity matches (no actual change needed)
+                if match.source != match.target:
+                    yield match
 
     def find_matches_with_lines(
         self, text: str
