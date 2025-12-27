@@ -213,7 +213,7 @@ def print_results(result: ConversionResult, verbose: bool = False) -> None:
 
     click.echo(
         f"   掃描: {result.files_checked} 個檔案 "
-        f"(跳過 {result.files_skipped} 個無中文檔案)"
+        f"(跳過 {result.files_skipped} 個無中文檔案)"  # zhtw:disable-line
     )
 
 
