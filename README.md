@@ -5,15 +5,19 @@
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+<!-- zhtw:disable -->
 **讓你的程式碼說台灣話** — 專治「許可權」「軟件」等違和用語
+<!-- zhtw:enable -->
 
 ---
 
 ## 你是否遇過這些情況？
 
+<!-- zhtw:disable -->
 - Code review 被指出「伺服器」寫成「服务器」
 - 用 OpenCC 轉換，結果「權限」變成「許可權」
 - 文件裡混著「用戶」和「使用者」，不知道漏了哪些
+<!-- zhtw:enable -->
 
 **ZHTW** 就是為了解決這個問題。
 
@@ -53,6 +57,7 @@ source ~/.bashrc
 ```
 </details>
 
+<!-- zhtw:disable -->
 **輸出範例：**
 ```
 📁 掃描 ./src
@@ -66,6 +71,7 @@ source ~/.bashrc
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⚠️  發現 2 處需修正（2 個檔案）
 ```
+<!-- zhtw:enable -->
 
 ---
 
@@ -85,10 +91,12 @@ source ~/.bashrc
 
 **433 個精選術語**，兩岸三地都顧到：
 
+<!-- zhtw:disable -->
 | 來源 | 範例 |
 |------|------|
 | 簡體 → 台灣 | 程序→程式、软件→軟體、服务器→伺服器、用户→使用者 |
 | 港式 → 台灣 | 視像→視訊、軟件→軟體、數據庫→資料庫 |
+<!-- zhtw:enable -->
 
 ---
 
