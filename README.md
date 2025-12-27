@@ -30,7 +30,7 @@
 ## 30 秒開始使用
 
 ```bash
-pip install zhtw
+python3 -m pip install zhtw
 
 zhtw check .    # 檢查整個專案
 zhtw fix .      # 自動修正
@@ -219,7 +219,7 @@ ruff check .
 ## 立即試試
 
 ```bash
-pip install zhtw && zhtw check .
+python3 -m pip install zhtw && zhtw check .
 ```
 
 有問題？[開 Issue](https://github.com/rajatim/zhtw/issues) | 想貢獻？[看 Contributing Guide](CONTRIBUTING.md)
