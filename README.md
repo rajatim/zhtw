@@ -124,7 +124,7 @@ Commit 前自動擋住問題：
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v2.3.0
+    rev: v2.5.0
     hooks:
       - id: zhtw-check
 ```
@@ -166,6 +166,28 @@ zhtw validate
 # 詳細輸出
 zhtw check ./src --verbose
 ```
+
+### 多編碼支援 (v2.5.0+)
+
+自動偵測並處理 Big5、GBK 等舊編碼檔案：
+
+```bash
+# 自動偵測編碼（預設）
+zhtw fix ./legacy-code/
+
+# 強制輸出為 UTF-8
+zhtw fix ./big5-files/ --output-encoding utf-8
+
+# 保留原編碼
+zhtw fix ./mixed/ --output-encoding keep
+
+# CI/CD 模式（無互動確認）
+zhtw fix ./src/ --yes
+# 或用環境變數
+ZHTW_YES=1 zhtw fix ./src/
+```
+
+**支援編碼**: UTF-8 (含 BOM)、Big5、GBK、GB2312、GB18030
 
 ### 忽略特定程式碼
 
