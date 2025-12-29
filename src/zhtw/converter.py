@@ -8,6 +8,8 @@ Supports:
 - .zhtwignore file support
 """
 
+from __future__ import annotations
+
 import fnmatch
 import re
 from dataclasses import dataclass, field
@@ -15,6 +17,7 @@ from pathlib import Path
 from typing import Callable, Iterator, List, Optional, Set
 
 from .dictionary import load_dictionary
+from .encoding import EncodingInfo, read_file, write_file
 from .matcher import Match, Matcher
 
 # Regex to detect Chinese characters
@@ -174,6 +177,9 @@ class FileResult:
     modified: bool = False
     skipped: bool = False
     error: Optional[str] = None
+    encoding_info: Optional[EncodingInfo] = None
+    encoding_converted: bool = False
+    output_encoding: Optional[str] = None
 
 
 @dataclass
@@ -186,6 +192,8 @@ class ConversionResult:
     files_skipped: int = 0
     total_issues: int = 0
     issues: List[Issue] = field(default_factory=list)
+    encoding_conversions: int = 0
+    files_needing_conversion: List[Path] = field(default_factory=list)
 
 
 def contains_chinese(text: str) -> bool:
@@ -353,6 +361,8 @@ def convert_file(
     path: Path,
     matcher: Matcher,
     fix: bool = False,
+    input_encoding: str | None = None,
+    output_encoding: str = "auto",
 ) -> FileResult:
     """
     Process a single file.
@@ -361,6 +371,8 @@ def convert_file(
         path: File to process.
         matcher: Matcher instance.
         fix: Whether to apply fixes.
+        input_encoding: Input encoding (None or "auto" for auto-detect).
+        output_encoding: Output encoding strategy ("auto", "utf-8", "keep").
 
     Returns:
         FileResult with issues found.
@@ -368,8 +380,10 @@ def convert_file(
     result = FileResult(file=path)
 
     try:
-        content = path.read_text(encoding="utf-8")
-    except UnicodeDecodeError:
+        content, encoding_info = read_file(path, encoding=input_encoding)
+        result.encoding_info = encoding_info
+    except UnicodeDecodeError as e:
+        result.error = f"Encoding error: {e}"
         result.skipped = True
         return result
     except Exception as e:
@@ -380,6 +394,10 @@ def convert_file(
     if not contains_chinese(content):
         result.skipped = True
         return result
+
+    # Check if encoding conversion is needed
+    if encoding_info.needs_conversion:
+        result.encoding_converted = True
 
     # Parse ignore directives
     ignored_lines = get_ignored_lines(content)
@@ -404,8 +422,18 @@ def convert_file(
     # Write back if fixed
     if fix and matches:
         try:
-            path.write_text(new_content, encoding="utf-8")
+            used_encoding = write_file(
+                path,
+                new_content,
+                output_encoding=output_encoding,
+                original_info=encoding_info,
+            )
             result.modified = True
+            result.output_encoding = used_encoding
+            if used_encoding != encoding_info.encoding:
+                result.encoding_converted = True
+        except UnicodeEncodeError as e:
+            result.error = f"Cannot encode with {output_encoding}: {e}"
         except Exception as e:
             result.error = f"Failed to write: {e}"
 
@@ -424,6 +452,8 @@ def convert_directory(
     excludes: Optional[Set[str]] = None,
     workers: Optional[int] = None,
     on_progress: Optional[ProgressCallback] = None,
+    input_encoding: str | None = None,
+    output_encoding: str = "auto",
 ) -> Iterator[FileResult]:
     """
     Process all files in a directory.
@@ -436,6 +466,8 @@ def convert_directory(
         excludes: Directory names to exclude.
         workers: Number of parallel workers.
         on_progress: Callback for progress updates (current, total).
+        input_encoding: Input encoding (None or "auto" for auto-detect).
+        output_encoding: Output encoding strategy.
 
     Yields:
         FileResult for each processed file.
@@ -459,7 +491,13 @@ def convert_directory(
     for i, file_path in enumerate(files):
         if on_progress:
             on_progress(i + 1, total)
-        yield convert_file(file_path, matcher, fix=fix)
+        yield convert_file(
+            file_path,
+            matcher,
+            fix=fix,
+            input_encoding=input_encoding,
+            output_encoding=output_encoding,
+        )
 
 
 def process_directory(
@@ -470,6 +508,8 @@ def process_directory(
     extensions: Optional[Set[str]] = None,
     excludes: Optional[Set[str]] = None,
     on_progress: Optional[ProgressCallback] = None,
+    input_encoding: str | None = None,
+    output_encoding: str = "auto",
 ) -> ConversionResult:
     """
     Process a directory and return aggregated results.
@@ -482,6 +522,8 @@ def process_directory(
         extensions: Allowed file extensions.
         excludes: Directory names to exclude.
         on_progress: Callback for progress updates (current, total).
+        input_encoding: Input encoding (None or "auto" for auto-detect).
+        output_encoding: Output encoding strategy.
 
     Returns:
         Aggregated ConversionResult.
@@ -493,8 +535,14 @@ def process_directory(
     result = ConversionResult()
 
     for file_result in convert_directory(
-        directory, matcher, fix=fix, extensions=extensions, excludes=excludes,
+        directory,
+        matcher,
+        fix=fix,
+        extensions=extensions,
+        excludes=excludes,
         on_progress=on_progress,
+        input_encoding=input_encoding,
+        output_encoding=output_encoding,
     ):
         if file_result.skipped:
             result.files_skipped += 1
@@ -509,5 +557,16 @@ def process_directory(
 
         if file_result.modified:
             result.files_modified += 1
+
+        if file_result.encoding_converted:
+            result.encoding_conversions += 1
+
+        # Track files that need encoding conversion but weren't fixed
+        if (
+            file_result.encoding_info
+            and file_result.encoding_info.needs_conversion
+            and not fix
+        ):
+            result.files_needing_conversion.append(file_result.file)
 
     return result
