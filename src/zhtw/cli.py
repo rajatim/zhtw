@@ -9,7 +9,10 @@ Usage:
     zhtw validate              # Validate dictionary quality
 """
 
+from __future__ import annotations
+
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Callable, List, Optional
@@ -19,6 +22,21 @@ import click
 from . import __version__
 from .converter import ConversionResult, Issue, process_directory
 from .dictionary import DATA_DIR, load_dictionary, load_json_file
+
+
+def get_env_bool(name: str, default: bool = False) -> bool:
+    """Get boolean value from environment variable."""
+    val = os.environ.get(name, "").lower()
+    if val in ("1", "true", "yes"):
+        return True
+    if val in ("0", "false", "no"):
+        return False
+    return default
+
+
+def get_env_str(name: str, default: str | None = None) -> str | None:
+    """Get string value from environment variable."""
+    return os.environ.get(name, default) or default
 
 
 class ProgressDisplay:
@@ -213,8 +231,32 @@ def print_results(result: ConversionResult, verbose: bool = False) -> None:
 
     click.echo(
         f"   掃描: {result.files_checked} 個檔案 "
-        f"(跳過 {result.files_skipped} 個無中文檔案)"
+        f"(跳過 {result.files_skipped} 個無中文檔案)"  # zhtw:disable-line
     )
+
+    # Show encoding conversion info
+    if result.encoding_conversions > 0:
+        click.echo(
+            click.style(
+                f"   編碼轉換: {result.encoding_conversions} 個檔案 → UTF-8",
+                fg="cyan",
+            )
+        )
+
+    # Warn about files needing encoding conversion (check mode)
+    if result.files_needing_conversion:
+        click.echo()
+        click.echo(
+            click.style(
+                f"⚠️  {len(result.files_needing_conversion)} 個檔案使用非 Unicode 編碼：",
+                fg="yellow",
+            )
+        )
+        for f in result.files_needing_conversion[:5]:
+            click.echo(f"   - {f}")
+        if len(result.files_needing_conversion) > 5:
+            click.echo(f"   ... 還有 {len(result.files_needing_conversion) - 5} 個")
+        click.echo("   使用 --output-encoding utf-8 轉換為 UTF-8")
 
 
 def print_json(result: ConversionResult) -> None:
@@ -225,6 +267,7 @@ def print_json(result: ConversionResult) -> None:
         "files_checked": result.files_checked,
         "files_modified": result.files_modified,
         "files_skipped": result.files_skipped,
+        "encoding_conversions": result.encoding_conversions,
         "status": "pass" if result.total_issues == 0 else "fail",
         "issues": [
             {
@@ -237,6 +280,10 @@ def print_json(result: ConversionResult) -> None:
             for issue in result.issues
         ],
     }
+    if result.files_needing_conversion:
+        output["files_needing_encoding_conversion"] = [
+            str(f) for f in result.files_needing_conversion
+        ]
     click.echo(json.dumps(output, ensure_ascii=False, indent=2))
 
 
@@ -287,6 +334,13 @@ def main():
     is_flag=True,
     help="顯示詳細資訊（包含上下文）",
 )
+@click.option(
+    "--encoding",
+    "-E",
+    type=str,
+    default=None,
+    help="輸入編碼 (auto=自動偵測，預設)",
+)
 def check(
     path: Path,
     source: str,
@@ -294,6 +348,7 @@ def check(
     exclude: Optional[str],
     json_output: bool,
     verbose: bool,
+    encoding: Optional[str],
 ):
     """
     檢查模式：掃描檔案並報告問題，不修改檔案。
@@ -308,6 +363,9 @@ def check(
     """
     sources = [s.strip() for s in source.split(",")]
     excludes = set(e.strip() for e in exclude.split(",")) if exclude else None
+
+    # Get encoding from env if not specified
+    input_encoding = encoding or get_env_str("ZHTW_ENCODING")
 
     if not json_output:
         click.echo(f"📁 掃描 {path}")
@@ -324,6 +382,7 @@ def check(
         fix=False,
         excludes=excludes,
         on_progress=progress_callback,
+        input_encoding=input_encoding,
     )
 
     if json_output:
@@ -384,6 +443,26 @@ def check(
     is_flag=True,
     help="修改前備份原檔到 .zhtw-backup/",
 )
+@click.option(
+    "--encoding",
+    "-E",
+    type=str,
+    default=None,
+    help="輸入編碼 (auto=自動偵測，預設)",
+)
+@click.option(
+    "--output-encoding",
+    "-O",
+    type=click.Choice(["auto", "utf-8", "keep"]),
+    default="auto",
+    help="輸出編碼: auto=安全時保留原編碼，utf-8=強制 UTF-8，keep=保留原編碼",
+)
+@click.option(
+    "--yes",
+    "-y",
+    is_flag=True,
+    help="自動確認，不互動（CI/CD 模式）",
+)
 def fix(
     path: Path,
     source: str,
@@ -394,6 +473,9 @@ def fix(
     dry_run: bool,
     show_diff: bool,
     backup: bool,
+    encoding: Optional[str],
+    output_encoding: str,
+    yes: bool,
 ):
     """
     修正模式：掃描檔案並自動修正問題。
@@ -409,9 +491,16 @@ def fix(
         zhtw fix ./src --backup
 
         zhtw fix ./src --source cn
+
+        zhtw fix ./src --output-encoding utf-8
     """
     sources = [s.strip() for s in source.split(",")]
     excludes = set(e.strip() for e in exclude.split(",")) if exclude else None
+
+    # Get values from environment if not specified
+    input_encoding = encoding or get_env_str("ZHTW_ENCODING")
+    out_encoding = output_encoding or get_env_str("ZHTW_OUTPUT_ENCODING", "auto")
+    auto_yes = yes or get_env_bool("ZHTW_YES")
 
     # Helper function to perform backup if needed
     def do_backup_if_needed(result: ConversionResult) -> None:
@@ -423,7 +512,7 @@ def fix(
             click.echo(click.style(msg, fg="cyan"))
 
     # Warn if not in git and not using backup (only for actual fixes)
-    if not dry_run and not backup and not json_output:
+    if not dry_run and not backup and not json_output and not auto_yes:
         if not check_git_status(path):
             click.echo(
                 click.style(
@@ -453,6 +542,8 @@ def fix(
             fix=False,
             excludes=excludes,
             on_progress=progress_callback,
+            input_encoding=input_encoding,
+            output_encoding=out_encoding,
         )
 
         if result.total_issues == 0:
@@ -474,8 +565,8 @@ def fix(
                 )
             )
 
-            # Ask for confirmation
-            if not click.confirm("\n確認執行修正？"):
+            # Ask for confirmation (skip if --yes)
+            if not auto_yes and not click.confirm("\n確認執行修正？"):
                 click.echo(click.style("❌ 已取消", fg="red"))
                 sys.exit(1)
 
@@ -491,6 +582,8 @@ def fix(
                 fix=True,
                 excludes=excludes,
                 on_progress=progress_callback,
+                input_encoding=input_encoding,
+                output_encoding=out_encoding,
             )
             print_results(result, verbose=verbose)
         else:
@@ -514,6 +607,8 @@ def fix(
             fix=False,
             excludes=excludes,
             on_progress=progress_callback,
+            input_encoding=input_encoding,
+            output_encoding=out_encoding,
         )
         do_backup_if_needed(check_result)
 
@@ -524,6 +619,8 @@ def fix(
         fix=not dry_run,
         excludes=excludes,
         on_progress=progress_callback,
+        input_encoding=input_encoding,
+        output_encoding=out_encoding,
     )
 
     if json_output:
