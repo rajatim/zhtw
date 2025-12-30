@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.pytest_cache/**)",
+      "Read(./coverage/**)",
+      "Read(./htmlcov/**)",
+      "Read(./dist/**)",
+      "Read(./build/**)",
+      "Read(./__pycache__/**)",
+      "Read(./*.egg-info/**)",
+      "Read(./.ruff_cache/**)"
+    ]
+  }
+}
