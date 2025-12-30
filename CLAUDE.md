@@ -1,374 +1,465 @@
 # ZHTW - Claude AI 開發指南
 
-**專案名稱**: ZHTW - 簡轉繁台灣用語轉換器
-**作者**: rajatim
-**語言**: Python 3.9+
-**最後更新**: 2025-12-26
+> **快速定位**: 這是給 AI 助手的開發指南，人類開發者請看 README.md 和 CONTRIBUTING.md
+
+**版本**: v2.5.0 | **更新**: 2025-12-31 | **作者**: rajatim
 
 ---
 
-## 專案概述
+## 🚨 關鍵規則（必讀）
 
-將程式碼和文件中的簡體中文轉換為台灣繁體中文用語的 CLI 工具。
-
-### 核心設計原則
-
-1. **預設離線** - 基礎功能不需網路，LLM 功能可選
-2. **術語表優先** - 只轉換明確定義的詞彙，避免過度轉換
-3. **高效能** - Aho-Corasick 演算法處理大量術語
-4. **可擴充** - JSON 詞庫格式，易於維護
-5. **用量可控** - LLM 功能有嚴格的用量監控與限制
-
-### 為什麼不用 OpenCC？
-
-OpenCC 會過度轉換台灣正確的詞彙（如 權限→許可權）。我們使用精確術語表避免這問題。
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  1. 寧可少轉，不要錯轉 — 這是本專案的核心理念                    │
+│  2. 不要使用 OpenCC — 會過度轉換台灣正確用語                     │
+│  3. 詞庫修改要謹慎 — 新增前先確認是否為台灣正確用語              │
+│  4. 核心功能保持離線 — LLM 功能是可選的增強                      │
+│  5. 測試先行 — 任何修改都要跑 pytest 確認通過                    │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 專案結構
+## 📋 快速參考
+
+### 專案概述
+
+| 項目 | 說明 |
+|------|------|
+| **功能** | 簡體/港式中文 → 台灣繁體用語轉換 |
+| **核心演算法** | Aho-Corasick（O(n) 時間複雜度）|
+| **詞庫數量** | 433 個精選術語 |
+| **支援編碼** | UTF-8、Big5、GBK、GB2312、GB18030 |
+
+### 常用指令
+
+```bash
+# 開發
+pip install -e ".[dev]"    # 安裝開發依賴
+pytest                      # 執行測試
+ruff check .                # 程式碼檢查
+python -m zhtw check ./src  # 本地測試
+
+# 功能
+zhtw check <path>           # 檢查
+zhtw fix <path>             # 修正
+zhtw stats                  # 詞庫統計
+zhtw validate               # 詞庫驗證
+```
+
+### 重要檔案位置
+
+| 檔案 | 用途 |
+|------|------|
+| `src/zhtw/cli.py` | CLI 入口，所有指令定義 |
+| `src/zhtw/converter.py` | 核心轉換邏輯 |
+| `src/zhtw/matcher.py` | Aho-Corasick 比對器 |
+| `src/zhtw/encoding.py` | 編碼偵測與轉換 |
+| `src/zhtw/dictionary.py` | 詞庫載入 |
+| `src/zhtw/data/terms/cn/` | 簡體→台灣詞庫 |
+| `src/zhtw/data/terms/hk/` | 港式→台灣詞庫 |
+
+---
+
+## ✅ DO（正確行為）
+
+### 修改程式碼前
+
+```
+✅ 先用 Read 工具讀取要修改的檔案
+✅ 理解現有程式碼邏輯再修改
+✅ 修改後執行 pytest 確認測試通過
+✅ 確認 ruff check 無錯誤
+```
+
+### 詞庫相關
+
+```
+✅ 新增詞彙前，確認這是台灣「不使用」的用語
+✅ 新增 identity mapping 防止子字串誤判（如「演算法」→「演算法」）
+✅ 考慮詞彙的多種使用情境
+✅ 用 zhtw validate 檢查詞庫衝突
+```
+
+### 回應使用者
+
+```
+✅ 用繁體中文回應
+✅ 程式碼註解用英文或繁體中文
+✅ commit message 用繁體中文
+✅ 提供具體的檔案路徑和行號
+```
+
+---
+
+## ❌ DON'T（錯誤行為）
+
+### 絕對禁止
+
+```
+❌ 使用 OpenCC 或任何自動轉換工具
+❌ 新增不確定的詞彙（寧可少轉不要錯轉）
+❌ 修改程式碼但不跑測試
+❌ 把台灣正確用語加入詞庫（如「權限」不應轉換）
+```
+
+### 詞庫陷阱
+
+```
+❌ "表情" → "表情符號"     # 太廣泛，「臉部表情」會被誤轉
+❌ "橙" → "柳橙"           # 「橙色」會變成「柳橙色」
+❌ "算法" → "演算法"       # 「演算法」會變成「演演算法」
+   （正確做法：加入 "演算法" → "演算法" identity mapping）
+```
+
+### 常見錯誤
+
+```
+❌ 假設檔案是 UTF-8（要用 encoding.py 偵測）
+❌ 忽略 zhtw:disable 註解區塊
+❌ 修改 .zhtwignore 排除的檔案
+❌ 在非 TTY 環境使用動態進度條
+```
+
+---
+
+## 🔀 決策樹
+
+### 使用者要求新增詞彙
+
+```
+使用者要求新增 "X" → "Y"
+         │
+         ▼
+    "X" 是台灣不使用的用語嗎？
+         │
+    ┌────┴────┐
+    是        否
+    │         │
+    ▼         ▼
+  繼續      拒絕，說明原因
+    │
+    ▼
+  "Y" 在台灣常用嗎？
+    │
+    ┌────┴────┐
+    是        否
+    │         │
+    ▼         ▼
+  繼續      建議更好的翻譯
+    │
+    ▼
+  "X" 是否為其他詞的子字串？
+    │
+    ┌────┴────┐
+    是        否
+    │         │
+    ▼         ▼
+  需要加入    直接新增
+  identity
+  mapping
+```
+
+### 使用者報告誤判
+
+```
+使用者報告 "A" 被誤轉為 "B"
+         │
+         ▼
+    檢查詞庫是否有 "A" → "B"
+         │
+    ┌────┴────┐
+    有        沒有
+    │         │
+    ▼         ▼
+  評估是否    檢查是否為
+  應該移除    子字串問題
+    │         │
+    ▼         ▼
+  移除或      加入 identity
+  加入例外    mapping 保護
+```
+
+### 修改核心模組
+
+```
+要修改 converter.py / matcher.py / encoding.py
+         │
+         ▼
+    1. 先讀取完整檔案內容
+    2. 理解現有邏輯
+    3. 寫出修改計畫
+    4. 執行修改
+    5. 執行 pytest
+         │
+    ┌────┴────┐
+  通過       失敗
+    │         │
+    ▼         ▼
+  完成      分析錯誤
+           修復後重測
+```
+
+---
+
+## 📁 專案結構
 
 ```
 zhtw/
 ├── src/zhtw/
-│   ├── __init__.py      # 版本號、匯出
-│   ├── cli.py           # CLI 入口 (click)
-│   ├── converter.py     # 核心轉換邏輯
-│   ├── dictionary.py    # 詞庫載入/管理
-│   ├── matcher.py       # Aho-Corasick 比對器
-│   ├── config.py        # 設定管理
-│   ├── import_terms.py  # 詞庫匯入
-│   ├── review.py        # 詞彙審核
-│   ├── llm/             # LLM 模組（v2.0+）
-│   │   ├── __init__.py
-│   │   ├── client.py    # Gemini API 客戶端
-│   │   ├── usage.py     # 用量追蹤與限制
-│   │   └── prompts.py   # 提示詞範本
-│   └── data/
-│       └── terms/
-│           ├── cn/          # 簡體 → 台灣繁體
-│           │   ├── base.json
-│           │   ├── it.json
-│           │   └── business.json
-│           ├── hk/          # 港式 → 台灣繁體
-│           │   ├── base.json
-│           │   └── tech.json
-│           └── pending/     # 待審核詞彙
+│   ├── __init__.py          # 版本號 (2.5.0)
+│   ├── __main__.py          # python -m zhtw 入口
+│   ├── cli.py               # CLI 指令 (click 框架)
+│   ├── converter.py         # 檔案轉換引擎
+│   ├── matcher.py           # Aho-Corasick 比對器
+│   ├── dictionary.py        # 詞庫載入/合併
+│   ├── encoding.py          # 編碼偵測/轉換 (v2.5.0+)
+│   ├── config.py            # 設定管理
+│   ├── import_terms.py      # 詞庫匯入
+│   ├── review.py            # 詞彙審核
+│   │
+│   ├── llm/                 # LLM 模組（可選）
+│   │   ├── client.py        # Gemini API 客戶端
+│   │   ├── usage.py         # 用量追蹤
+│   │   └── prompts.py       # 提示詞範本
+│   │
+│   └── data/terms/
+│       ├── cn/              # 簡體 → 台灣
+│       │   ├── base.json    # 基礎詞彙
+│       │   ├── it.json      # IT 術語
+│       │   └── business.json
+│       ├── hk/              # 港式 → 台灣
+│       │   ├── base.json
+│       │   └── tech.json
+│       └── pending/         # 待審核
+│
 ├── tests/
+│   ├── test_matcher.py
+│   ├── test_converter.py
+│   ├── test_dictionary.py
+│   └── test_encoding.py
+│
 ├── pyproject.toml
-├── README.md
-└── CLAUDE.md            # 本文件
+├── README.md                # 使用者文件
+├── CONTRIBUTING.md          # 貢獻指南
+├── CHANGELOG.md             # 版本記錄
+└── CLAUDE.md                # 本文件
 ```
 
 ---
 
-## 核心模組說明
+## 🔧 核心模組詳解
 
-### cli.py
-- 使用 `click` 框架
-- 核心命令: `check`, `fix`, `stats`, `validate`
-- LLM 命令: `import`, `review`, `validate-llm`, `usage`, `config`
-- 參數: `--source`, `--dict`, `--exclude`, `--json`, `--verbose`, `--dry-run`
+### converter.py — 轉換引擎
 
-### converter.py
-- `convert_file(path, matcher, fix)` - 處理單一檔案
-- `convert_directory(path, matcher, fix)` - 處理目錄
-- `process_directory()` - 主要入口，載入詞庫並處理
+```python
+# 主要函式
+process_directory(path, sources, fix, ...)  # 主入口
+convert_directory(path, matcher, fix, ...)  # 遍歷目錄
+convert_file(path, matcher, fix, ...)       # 處理單檔
 
-### matcher.py
-- 使用 `pyahocorasick` 建立自動機
-- `Matcher` 類別:
-  - `find_matches(text)` - 找出所有比對
-  - `find_matches_with_lines(text)` - 帶行列資訊
-  - `replace_all(text)` - 替換所有比對
+# 重要參數
+fix: bool              # True=修改檔案, False=只檢查
+encoding: str          # 輸入編碼 (auto/utf-8/big5/...)
+output_encoding: str   # 輸出編碼 (auto/utf-8/keep)
+yes: bool              # 跳過確認提示
+```
 
-### dictionary.py
-- `load_builtin(sources)` - 載入內建 cn/hk 詞庫
-- `load_dictionary(sources, custom_path)` - 主要載入函式
-- 支援簡單格式和擴展格式
+### matcher.py — Aho-Corasick 比對器
 
----
+```python
+class Matcher:
+    def __init__(self, terms: dict[str, str]):
+        # 建立 Aho-Corasick 自動機
+        # 處理 identity mapping 優先權
 
-## CLI 使用方式
+    def find_matches(self, text: str) -> list[Match]:
+        # 找出所有比對，過濾重疊
 
-```bash
-# 檢查模式（只報告）
-zhtw check ./src
+    def find_matches_with_lines(self, text: str) -> list[MatchWithLine]:
+        # 帶行號/列號的比對結果
 
-# 修正模式（自動修改）
-zhtw fix ./src
+    def replace_all(self, text: str) -> str:
+        # 替換所有比對
 
-# 指定來源
-zhtw check ./src --source cn      # 只處理簡體
-zhtw check ./src --source hk      # 只處理港式
-zhtw check ./src --source cn,hk   # 兩者都處理（預設）
+# Identity Mapping 機制
+# 當 terms 包含 {"演算法": "演算法"} 時
+# "演算法" 會建立保護區，防止內部的 "算法" 被轉換
+```
 
-# 自訂詞庫
-zhtw fix ./src --dict ./custom.json
+### encoding.py — 編碼處理 (v2.5.0+)
 
-# JSON 輸出（CI/CD）
-zhtw check ./src --json
+```python
+def detect_encoding(file_path: Path) -> EncodingInfo:
+    # 使用 charset-normalizer 偵測編碼
+    # 回傳 EncodingInfo(encoding, confidence, has_bom)
 
-# 模擬執行
-zhtw fix ./src --dry-run
+def read_file(file_path: Path, encoding: str = "auto") -> tuple[str, EncodingInfo]:
+    # 讀取檔案，自動處理編碼
+    # 回傳 (內容, 編碼資訊)
 
-# 詳細輸出
-zhtw check ./src --verbose
+def write_file(file_path: Path, content: str, output_encoding: str, original_encoding: str):
+    # 寫入檔案，處理編碼轉換
+    # output_encoding="keep" 保留原編碼
+    # output_encoding="utf-8" 統一轉 UTF-8
+```
+
+### dictionary.py — 詞庫載入
+
+```python
+def load_builtin(sources: list[str] = ["cn", "hk"]) -> dict[str, str]:
+    # 載入內建詞庫
+    # sources: ["cn"], ["hk"], ["cn", "hk"]
+
+def load_dictionary(sources: list[str], custom_path: str = None) -> dict[str, str]:
+    # 載入並合併詞庫
+    # 自訂詞庫優先於內建
 ```
 
 ---
 
-## 開發指令
+## 📝 詞庫格式
 
-```bash
-# 安裝開發依賴
-pip install -e ".[dev]"
+### 標準格式
 
-# 執行測試
-pytest
-
-# 執行 lint
-ruff check .
-
-# 本地測試 CLI
-python -m zhtw check ./test-files
-```
-
----
-
-## 詞庫格式
-
-### 簡單格式（v1.0）
 ```json
 {
   "version": "1.0",
-  "description": "說明文字",
+  "description": "簡體中文 IT 術語",
   "terms": {
-    "简体": "繁體"
+    "软件": "軟體",
+    "硬件": "硬體",
+    "程序": "程式"
   }
 }
 ```
 
-### 擴展格式（v1.5+，未來支援）
-<!-- zhtw:disable -->
-```json
-{
-  "version": "1.5",
-  "terms": {
-    "文档": {
-      "target": "文件",
-      "category": "it",
-      "confidence": 1.0,
-      "context": "一般情境"
-    }
-  }
-}
-```
-<!-- zhtw:enable -->
+### Identity Mapping（防止誤判）
 
----
-
-## 效能考量
-
-- **Aho-Corasick**: O(n) 時間複雜度掃描，不受術語數量影響
-- **預過濾**: 跳過不含中文字元的檔案（約 70%+）
-- **預設排除**: node_modules, .git, dist, build 等
-- **支援副檔名**: .py, .ts, .tsx, .js, .jsx, .java, .vue, .go, .rs, .json, .yml, .yaml, .md, .txt, .html, .css
-
----
-
-## 新增詞彙
-
-1. 找到對應的詞庫檔案（cn/ 或 hk/）
-2. 新增 key-value 對
-3. 確保轉換在台灣用語中正確
-4. 提交 PR
-
-範例：
 ```json
 {
   "terms": {
-    "existing_term": "existing_translation",
-    "new_term": "新翻譯"
+    "算法": "演算法",
+    "演算法": "演算法"
   }
 }
 ```
 
----
-
-## v2.0 LLM 模組
-
-### config.py
-- 設定管理（`~/.config/zhtw/config.json`）
-- 預設限制值、pricing 計算
-
-### llm/client.py
-- `GeminiClient` - Gemini API 客戶端
-- 自動用量追蹤和限制檢查
-- 錯誤處理和重試機制
-
-### llm/usage.py
-- `UsageTracker` - 用量追蹤
-- 每日/每月/總計統計
-- 限制檢查和警告
-
-### import_terms.py
-- 從 URL 或本地檔案匯入詞庫
-- 格式驗證、衝突偵測
-- 儲存到 pending 目錄待審核
-
-### review.py
-- 互動式審核待匯入詞彙
-- 可選 LLM 輔助驗證
-- 核准後加入主詞庫
+當文字包含「演算法」時，整個詞會被保護，不會被拆成「演」+「算法」→「演」+「演算法」。
 
 ---
 
-## 開發進度與決策記錄
+## 🧪 測試要求
 
-### 目前版本
-**v2.4.0** (2025-12-26)
+### 修改程式碼後必須執行
 
-### 已完成功能
-| 版本 | 功能 |
-|------|------|
-| v1.0 | 基礎 check/fix、Aho-Corasick 演算法、JSON 輸出 |
-| v1.5 | stats、validate、忽略註解 (zhtw:disable) |
-| v2.0 | LLM 整合（import、review、validate-llm、usage、config） |
-| v2.1 | 47 個 IT 術語、review 預設啟用 LLM |
-| v2.2 | .zhtwignore 檔案支援 |
-| v2.3 | --show-diff、--backup、非 git 警告 |
-| v2.4 | 進度條顯示（TTY/非TTY 自動偵測） |
+```bash
+# 完整測試
+pytest
 
-### 待開發功能 (GitHub Issues)
+# 快速測試（開發時）
+pytest tests/test_matcher.py -v
 
-| Issue | 功能 | 優先級 | 難度評估 |
-|-------|------|--------|---------|
-| #11 | 瀏覽器擴充套件 (Chrome/Firefox) | 🔴 高 | 低 - 純 JS，1-2 天 MVP |
-| #10 | 資料庫支援 (zhtw-db) | 🔴 高 | 中 - 核心簡單，備份機制複雜 |
-| #8 | VS Code 擴充套件 | 🟡 中 | 中 |
-| #6 | Office 文件支援 (zhtw-office) | 🟡 中 | 高 - 格式保留困難 |
-
-### 技術決策記錄
-
-1. **為什麼不用 OpenCC？**
-   - OpenCC 會過度轉換（如 權限→許可權）
-   - 我們使用精確術語表，寧可少轉不要錯轉
-
-2. **Office vs 資料庫優先級？** (2025-12-26 討論)
-   - 資料庫：核心邏輯簡單，但備份機制複雜（需要 dump/export）
-   - Office：備份簡單（複製檔案），但格式保留困難（run 拆分問題）
-   - 結論：兩者各有難處，風險不同
-
-3. **瀏覽器擴充套件為何優先？** (2025-12-26 決定)
-   - 受眾最廣（不只開發者）
-   - 開發最快（純 JS）
-   - 維護最輕（不依賴外部套件）
-   - 推廣容易（Web Store 曝光）
-
-4. **進度條實作** (v2.4.0)
-   - TTY 模式：動態進度條 `[████░░░░] 50/100`
-   - 非 TTY 模式（Jenkins）：靜態輸出 `25% (25/100)`
-   - 使用 `sys.stderr.isatty()` 偵測環境
-
-### 下次開發建議
-
-1. **瀏覽器擴充套件 MVP** (#11)
-   - 建立 `zhtw-browser/` 目錄
-   - 實作右鍵選單轉換
-   - 實作彈出視窗貼上轉換
-   - 詞庫從 Python 版導出為 JSON
-
-2. **或者資料庫 MVP** (#10)
-   - 先做 SQLite 支援
-   - `zhtw db check/fix` 命令
-   - 分頁處理 + 進度條
-
----
-
-## 未來規劃
-
-### v3.0 插件架構
-- zhtw-db（資料庫支援）
-- zhtw-office（Office 文件支援）
-
-### v3.1 生態整合
-- 瀏覽器擴充套件
-- VS Code 擴充套件
-
-### v4.0 本地模型
-- 微調小型中文模型
-- 完全離線高準確度
-
----
-
-## AI 開發注意事項
-
-1. **不要使用 OpenCC** - 會過度轉換台灣正確用語
-2. **核心功能保持離線** - LLM 功能是可選的
-3. **詞庫修改要謹慎** - 確認轉換在台灣用語中正確
-4. **測試要全面** - 包含邊界案例和誤判測試
-5. **不要新增不確定的詞彙** - 寧可少轉不要錯轉
-6. **LLM 用量要監控** - 使用 UsageTracker 追蹤並限制費用
-
----
-
-## README 撰寫策略
-
-### 核心原則
-
-1. **簡單至上** - 使用者 30 秒內要能開始使用
-2. **離線優先** - 強調不需要任何外部服務或 API
-3. **品質保證** - 強調「人工 + LLM 雙重審稿」作為品質背書
-
-### LLM 功能的呈現方式
-
-- **不要**：強調使用者可以用 LLM 功能（需要設定 API key，增加使用門檻）
-- **要**：強調詞庫「經過 LLM 審稿驗證」（品質保證，不需使用者操作）
-
-LLM 相關命令（`import`, `review`, `validate-llm`, `usage`, `config`）保留在 CLI 中，但 README 不主動介紹。進階使用者可透過 `zhtw --help` 發現這些功能。
-
-### 行銷賣點優先順序（結果導向，不講技術）
-
-| 技術說法 | 行銷說法 |
-|---------|---------|
-| Aho-Corasick 演算法 | 10 萬行程式碼 < 1 秒 |
-| 人工 + LLM 雙重審稿 | 零誤判，不會把「權限」改成「許可權」 |
-| 完全本地執行 | 企業內網也能用 |
-| JSON 輸出 | 一行指令加入 GitHub Actions |
-| zhtw:disable 註解 | 標記一下就不會被改 |
-
-### 結構
-
-```
-1. 標題 + Badge
-2. Hero：讓你的程式碼說台灣話
-3. 痛點共鳴：你是否遇過這些情況？
-4. 理念：寧可少轉不要錯轉
-5. 30 秒快速開始
-6. 為什麼選 ZHTW？（賣點表格）
-7. 涵蓋範圍（精簡版）
-8. CI/CD 整合
-9. Pre-commit Hook
-10. 進階用法
-11. 開發
-12. 立即試試（CTA）
+# 特定測試
+pytest tests/test_converter.py::test_convert_file -v
 ```
 
-### 寫作風格
+### 測試覆蓋的情境
 
-- **口語化** — 「有問題就會失敗，再也不怕漏掉」
-- **結果導向** — 不講演算法，講「< 1 秒」
-- **精簡** — 表格能 2 行就不要 6 行
-- **有行動** — 結尾要有 CTA
-
-### 不要寫的內容
-
-- LLM 功能設定教學（進階使用者自己會找）
-- 內部架構細節（這些放 CLAUDE.md）
-- 過長的 API 文件
-- 未來規劃（避免給使用者不切實際的期待）
-- 技術術語（Aho-Corasick、JSON schema 等）
+| 模組 | 測試重點 |
+|------|---------|
+| matcher | 基本比對、重疊處理、identity mapping |
+| converter | 檔案讀寫、忽略註解、編碼轉換 |
+| dictionary | 詞庫載入、合併、衝突處理 |
+| encoding | 編碼偵測、BOM 處理、轉換 |
 
 ---
 
-*rajatim 出品*
+## 📜 版本歷史
+
+| 版本 | 日期 | 主要功能 |
+|------|------|---------|
+| v2.5.0 | 2025-12-29 | 多編碼支援、--yes 參數 |
+| v2.4.3 | 2025-12-27 | 修正子字串誤判、identity mapping |
+| v2.4.0 | 2025-12-26 | 進度條、TTY 偵測 |
+| v2.3.0 | - | --show-diff、--backup |
+| v2.2.0 | - | .zhtwignore 支援 |
+| v2.0.0 | - | LLM 整合 |
+| v1.5.0 | - | stats、validate、忽略註解 |
+| v1.0.0 | - | 基礎 check/fix |
+
+---
+
+## 🎯 開發中功能 (GitHub Issues)
+
+| Issue | 功能 | 狀態 |
+|-------|------|------|
+| #10 | 資料庫支援 (zhtw-db) | 📐 架構設計完成 |
+| #11 | 瀏覽器擴充套件 | 📋 待開發 |
+| #8 | VS Code 擴充套件 | 📋 待開發 |
+| #6 | Office 文件支援 | 📋 待開發 |
+
+---
+
+## 💡 常見任務範例
+
+### 新增詞彙
+
+```bash
+# 1. 確認詞彙正確性
+# 2. 編輯對應的詞庫檔案
+vim src/zhtw/data/terms/cn/base.json
+
+# 3. 驗證詞庫
+python -m zhtw validate
+
+# 4. 測試
+pytest tests/test_dictionary.py -v
+```
+
+### 修復誤判 Bug
+
+```bash
+# 1. 分析問題
+python -c "
+from zhtw.matcher import Matcher
+m = Matcher({'算法': '演算法'})
+print(m.find_matches('演算法'))  # 應該為空或只有 identity
+"
+
+# 2. 加入 identity mapping
+# 編輯詞庫，加入 "演算法": "演算法"
+
+# 3. 測試修復
+pytest tests/test_matcher.py -v
+```
+
+### 新增 CLI 參數
+
+```python
+# 1. 在 cli.py 找到對應的 command
+# 2. 加入 @click.option
+@click.option("--new-param", default=None, help="說明")
+
+# 3. 在函式中使用參數
+def check(path, new_param, ...):
+    if new_param:
+        ...
+
+# 4. 測試
+python -m zhtw check --help
+python -m zhtw check ./test --new-param value
+```
+
+---
+
+## 🔗 相關資源
+
+- **Issue #10**: zhtw-db 完整架構設計
+- **README.md**: 使用者文件
+- **CONTRIBUTING.md**: 貢獻指南
+- **tests/**: 測試範例
+
+---
+
+*本文件針對 Claude AI 優化，提供快速參考和明確指引*
