@@ -113,7 +113,8 @@ class TestDisableBlock:
         text = """# zhtw:disable
 data1 = "软件"
 data2 = "硬件"
-# zhtw:enable"""
+# zhtw:enable"""  # 注意：字串內的 enable 會被誤讀，下一行重新 disable
+        # zhtw:disable
         matches = check_text(text, matcher)
         assert matches == []
 
@@ -123,6 +124,7 @@ data2 = "硬件"
 const data1 = "软件";
 const data2 = "硬件";
 // zhtw:enable"""
+        # zhtw:disable
         matches = check_text(text, matcher)
         assert matches == []
 
@@ -132,23 +134,25 @@ const data2 = "硬件";
 <div>软件</div>
 <div>硬件</div>
 <!-- zhtw:enable -->"""
+        # zhtw:disable
         matches = check_text(text, matcher)
         assert matches == []
 
     def test_disable_block_partial(self, matcher: Matcher):
         """Code before and after block is still checked."""
-        text = '''before = "軟體"
+        text = '''before = "软件"
 # zhtw:disable
 ignored = "硬件"
 # zhtw:enable
-after = "使用者"'''
+after = "用户"'''
+        # zhtw:disable
         matches = check_text(text, matcher)
         # Line 1 and 5 should have issues, Line 3 ignored
         assert len(matches) == 2
         sources = [m[0].source for m in matches]
-        assert "軟體" in sources
-        assert "使用者" in sources
-        assert "硬體" not in sources
+        assert "软件" in sources
+        assert "用户" in sources
+        assert "硬件" not in sources
 
     def test_disable_block_nested_content(self, matcher: Matcher):
         """Block can contain multiple lines with terms."""
@@ -159,6 +163,7 @@ test_data = [
     "用户",
 ]
 # zhtw:enable"""
+        # zhtw:disable
         matches = check_text(text, matcher)
         assert matches == []
 
@@ -179,20 +184,22 @@ class TestMixedDirectives:
         text = """# zhtw:disable
 data = "软件"  # zhtw:disable-line
 # zhtw:enable"""
+        # zhtw:disable
         matches = check_text(text, matcher)
         assert matches == []
 
     def test_disable_next_before_block(self, matcher: Matcher):
         """Disable-next before block start."""
-        text = """data1 = "軟體"
+        text = """data1 = "软件"
 # zhtw:disable-next
 # zhtw:disable
 data2 = "硬件"
 # zhtw:enable"""
+        # zhtw:disable
         matches = check_text(text, matcher)
         # Line 1 has issue, rest ignored
         assert len(matches) == 1
-        assert matches[0][0].source == "軟體"
+        assert matches[0][0].source == "软件"
 
 
 class TestFileIntegration:
@@ -202,11 +209,11 @@ class TestFileIntegration:
         """Process file with disable-line directive."""
         test_file = tmp_path / "test.py"
         test_file.write_text("""data1 = "软件"  # zhtw:disable-line
-data2 = "硬體"
-""")
+data2 = "硬件"
+""")  # zhtw:disable-line
         result = convert_file(test_file, matcher)
         assert len(result.issues) == 1
-        assert result.issues[0].source == "硬體"
+        assert result.issues[0].source == "硬件"
 
     def test_file_with_disable_block(self, tmp_path: Path, matcher: Matcher):
         """Process file with disable block."""
@@ -214,11 +221,12 @@ data2 = "硬體"
         test_file.write_text("""# zhtw:disable
 test_data = ["软件", "硬件"]
 # zhtw:enable
-real_data = "使用者"
-""")
+real_data = "用户"
+""")  # zhtw:disable-line
+        # zhtw:disable
         result = convert_file(test_file, matcher)
         assert len(result.issues) == 1
-        assert result.issues[0].source == "使用者"
+        assert result.issues[0].source == "用户"
 
 
 class TestEdgeCases:
@@ -234,7 +242,7 @@ class TestEdgeCases:
 
     def test_case_sensitive_directive(self, matcher: Matcher):
         """Directives are case sensitive."""
-        text = 'data = "軟體"  # ZHTW:DISABLE-LINE'
+        text = 'data = "软件"  # ZHTW:DISABLE-LINE'  # zhtw:disable-line
         matches = check_text(text, matcher)
         # Uppercase doesn't work
         assert len(matches) == 1
@@ -251,6 +259,7 @@ class TestEdgeCases:
         """Empty file with directives."""
         text = """# zhtw:disable
 # zhtw:enable"""
+        # zhtw:disable
         matches = check_text(text, matcher)
         assert matches == []
 
