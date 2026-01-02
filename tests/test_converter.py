@@ -143,11 +143,12 @@ class TestIgnoreDirectives:
         terms = {"软件": "軟體", "硬件": "硬體"}
         matcher = Matcher(terms)
 
-        text = "# zhtw:disable\n軟體\n硬體\n# zhtw:enable"
+        text = "# zhtw:disable\n软件\n硬件\n# zhtw:enable"  # zhtw:disable-line
+        # zhtw:disable
         ignored = get_ignored_lines(text)
         result_text, matches = convert_text(text, matcher, fix=True, ignored_lines=ignored)
 
-        # Both should be preserved
+        # Both should be preserved (not converted)
         assert "软件" in result_text
         assert "硬件" in result_text
         assert len(matches) == 0

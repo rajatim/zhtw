@@ -20,5 +20,9 @@ repos:
         entry: scripts/pre-commit-zhtw.sh
         language: script
         types: [text]
-        # 只排除詞庫（裡面的簡體字是必要的 source）
-        exclude: ^src/zhtw/data/
+        exclude: |
+          (?x)^(
+            src/zhtw/data/|                    # 詞庫（簡體字是 source）
+            tests/test_ignore_directives\.py|  # 測試 ignore 功能（含 zhtw:enable 字串）
+            tests/test_converter\.py           # 測試轉換功能（含 zhtw:enable 字串）
+          )
