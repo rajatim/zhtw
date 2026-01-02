@@ -88,14 +88,26 @@ class Matcher:
         # Sort by start position, then by length (longer first)
         all_matches.sort(key=lambda m: (m.start, -(m.end - m.start)))
 
-        # Build "protected ranges" from identity mappings
-        # These ranges should not be modified by overlapping conversions
-        # This ensures "檔案"→"檔案" protects against "文件"→"文件"
-        # when they overlap in "中文檔案"
+        # Build "protected ranges" from identity mappings that are NOT fully contained
+        # within a longer match. This ensures:
+        # - "檔案"→"檔案" protects against overlapping "文件"→"檔案"
+        # - "件"→"件" does NOT block longer "軟體"→"軟體" (件 is contained)
         protected: set[int] = set()
-        for match in all_matches:
-            if match.source == match.target:
-                protected.update(range(match.start, match.end))
+
+        # First, find all identity mappings
+        identity_matches = [m for m in all_matches if m.source == m.target]
+
+        # For each identity mapping, check if it's fully contained in a longer match
+        for identity in identity_matches:
+            is_contained = False
+            for other in all_matches:
+                if other is not identity and other.source != other.target:
+                    # Check if identity is fully contained within other
+                    if other.start <= identity.start and other.end >= identity.end:
+                        is_contained = True
+                        break
+            if not is_contained:
+                protected.update(range(identity.start, identity.end))
 
         # Filter overlapping matches
         last_end = -1
