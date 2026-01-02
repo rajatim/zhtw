@@ -84,11 +84,15 @@ class TestUsageTracker:
             tracker = self._create_tracker(tmpdir)
 
             # Mock get_limits to return test limits
-            with patch.object(tracker, "get_limits", return_value={
-                "daily_requests": 100,
-                "daily_cost_usd": 0.10,
-                "monthly_cost_usd": 1.00,
-            }):
+            with patch.object(
+                tracker,
+                "get_limits",
+                return_value={
+                    "daily_requests": 100,
+                    "daily_cost_usd": 0.10,
+                    "monthly_cost_usd": 1.00,
+                },
+            ):
                 can_proceed, error = tracker.check_limits()
 
                 assert can_proceed is True
@@ -103,11 +107,15 @@ class TestUsageTracker:
             for _ in range(100):
                 tracker.record(100, 50, "gemini", "gemini-2.0-flash")
 
-            with patch.object(tracker, "get_limits", return_value={
-                "daily_requests": 100,
-                "daily_cost_usd": 10.00,  # High enough not to trigger
-                "monthly_cost_usd": 100.00,
-            }):
+            with patch.object(
+                tracker,
+                "get_limits",
+                return_value={
+                    "daily_requests": 100,
+                    "daily_cost_usd": 10.00,  # High enough not to trigger
+                    "monthly_cost_usd": 100.00,
+                },
+            ):
                 can_proceed, error = tracker.check_limits()
 
                 assert can_proceed is False
@@ -122,11 +130,15 @@ class TestUsageTracker:
             for _ in range(100):
                 tracker.record(100, 50, "gemini", "gemini-2.0-flash")
 
-            with patch.object(tracker, "get_limits", return_value={
-                "daily_requests": 100,
-                "daily_cost_usd": 0.10,
-                "monthly_cost_usd": 1.00,
-            }):
+            with patch.object(
+                tracker,
+                "get_limits",
+                return_value={
+                    "daily_requests": 100,
+                    "daily_cost_usd": 0.10,
+                    "monthly_cost_usd": 1.00,
+                },
+            ):
                 can_proceed, error = tracker.check_limits(force=True)
 
                 assert can_proceed is True
@@ -137,12 +149,16 @@ class TestUsageTracker:
         with tempfile.TemporaryDirectory() as tmpdir:
             tracker = self._create_tracker(tmpdir)
 
-            with patch.object(tracker, "get_limits", return_value={
-                "daily_requests": 100,
-                "daily_cost_usd": 0.10,
-                "monthly_cost_usd": 1.00,
-                "warn_at_percent": 80,
-            }):
+            with patch.object(
+                tracker,
+                "get_limits",
+                return_value={
+                    "daily_requests": 100,
+                    "daily_cost_usd": 0.10,
+                    "monthly_cost_usd": 1.00,
+                    "warn_at_percent": 80,
+                },
+            ):
                 warning = tracker.get_warning()
 
                 assert warning is None
@@ -156,12 +172,16 @@ class TestUsageTracker:
             for _ in range(85):
                 tracker.record(100, 50, "gemini", "gemini-2.0-flash")
 
-            with patch.object(tracker, "get_limits", return_value={
-                "daily_requests": 100,
-                "daily_cost_usd": 10.00,  # High enough
-                "monthly_cost_usd": 100.00,
-                "warn_at_percent": 80,
-            }):
+            with patch.object(
+                tracker,
+                "get_limits",
+                return_value={
+                    "daily_requests": 100,
+                    "daily_cost_usd": 10.00,  # High enough
+                    "monthly_cost_usd": 100.00,
+                    "warn_at_percent": 80,
+                },
+            ):
                 warning = tracker.get_warning()
 
                 assert warning is not None
@@ -174,11 +194,15 @@ class TestUsageTracker:
 
             tracker.record(1000, 500, "gemini", "gemini-2.0-flash")
 
-            with patch.object(tracker, "get_limits", return_value={
-                "daily_requests": 100,
-                "daily_cost_usd": 0.10,
-                "monthly_cost_usd": 1.00,
-            }):
+            with patch.object(
+                tracker,
+                "get_limits",
+                return_value={
+                    "daily_requests": 100,
+                    "daily_cost_usd": 0.10,
+                    "monthly_cost_usd": 1.00,
+                },
+            ):
                 report = tracker.format_usage_report()
 
                 assert "LLM 用量統計" in report
@@ -192,11 +216,15 @@ class TestUsageTracker:
 
             tracker.record(1000, 500, "gemini", "gemini-2.0-flash")
 
-            with patch.object(tracker, "get_limits", return_value={
-                "daily_requests": 100,
-                "daily_cost_usd": 0.10,
-                "monthly_cost_usd": 1.00,
-            }):
+            with patch.object(
+                tracker,
+                "get_limits",
+                return_value={
+                    "daily_requests": 100,
+                    "daily_cost_usd": 0.10,
+                    "monthly_cost_usd": 1.00,
+                },
+            ):
                 report = tracker.format_usage_report(json_output=True)
                 data = json.loads(report)
 

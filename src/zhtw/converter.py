@@ -562,11 +562,7 @@ def process_directory(
             result.encoding_conversions += 1
 
         # Track files that need encoding conversion but weren't fixed
-        if (
-            file_result.encoding_info
-            and file_result.encoding_info.needs_conversion
-            and not fix
-        ):
+        if file_result.encoding_info and file_result.encoding_info.needs_conversion and not fix:
             result.files_needing_conversion.append(file_result.file)
 
     return result

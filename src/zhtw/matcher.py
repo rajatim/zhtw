@@ -25,11 +25,13 @@ class Matcher:
     Aho-Corasick based matcher for efficient multi-pattern matching.
 
     Example:
+        # zhtw:disable
         >>> terms = {"软件": "軟體", "硬件": "硬體"}
         >>> matcher = Matcher(terms)
         >>> list(matcher.find_matches("这是软件和硬件"))
         [Match(start=2, end=4, source='软件', target='軟體'),
          Match(start=5, end=7, source='硬件', target='硬體')]
+        # zhtw:enable
     """
 
     def __init__(self, terms: Dict[str, str]):
@@ -58,7 +60,7 @@ class Matcher:
         Find all matches in text.
 
         Uses longest-match-first strategy to avoid substring issues.
-        For example, if both "算法" and "演算法" are in the dictionary,
+        For example, if both "算法" and "演算法" are in the dictionary,  # zhtw:disable-line
         "演算法" in text will match the longer pattern first.
 
         Args:
@@ -88,7 +90,7 @@ class Matcher:
 
         # Build "protected ranges" from identity mappings
         # These ranges should not be modified by overlapping conversions
-        # This ensures "檔案"→"檔案" protects against "文檔"→"文件"
+        # This ensures "檔案"→"檔案" protects against "文件"→"文件"
         # when they overlap in "中文檔案"
         protected: set[int] = set()
         for match in all_matches:
@@ -108,9 +110,7 @@ class Matcher:
                 if match.source != match.target:
                     yield match
 
-    def find_matches_with_lines(
-        self, text: str
-    ) -> Iterator[tuple[Match, int, int]]:
+    def find_matches_with_lines(self, text: str) -> Iterator[tuple[Match, int, int]]:
         """
         Find all matches with line and column information.
 

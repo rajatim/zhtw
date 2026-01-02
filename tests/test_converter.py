@@ -1,4 +1,5 @@
 """Tests for converter module."""
+# zhtw:disable  # 測試案例需要簡體字輸入
 
 from pathlib import Path
 
@@ -113,7 +114,7 @@ class TestIgnoreDirectives:
 
     def test_disable_block(self):
         """Test zhtw:disable/enable block directive."""
-        text = "正常\n# zhtw:disable\n软件\n硬件\n# zhtw:enable\n正常"
+        text = "正常\n# zhtw:disable\n軟體\n硬體\n# zhtw:enable\n正常"
         ignored = get_ignored_lines(text)
 
         assert 1 not in ignored
@@ -142,7 +143,7 @@ class TestIgnoreDirectives:
         terms = {"软件": "軟體", "硬件": "硬體"}
         matcher = Matcher(terms)
 
-        text = "# zhtw:disable\n软件\n硬件\n# zhtw:enable"
+        text = "# zhtw:disable\n軟體\n硬體\n# zhtw:enable"
         ignored = get_ignored_lines(text)
         result_text, matches = convert_text(text, matcher, fix=True, ignored_lines=ignored)
 

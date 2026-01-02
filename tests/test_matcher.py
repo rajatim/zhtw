@@ -1,5 +1,5 @@
 """Tests for matcher module."""
-
+# zhtw:disable  # 測試案例需要簡體字輸入
 
 from zhtw.matcher import Matcher
 

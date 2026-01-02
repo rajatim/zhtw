@@ -1,4 +1,5 @@
 """Tests for import_terms module."""
+# zhtw:disable  # 測試案例需要簡體字輸入
 
 import json
 import tempfile
