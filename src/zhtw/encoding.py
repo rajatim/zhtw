@@ -16,26 +16,30 @@ from pathlib import Path
 from charset_normalizer import from_path
 
 # Encodings that can fully represent Traditional Chinese
-TRADITIONAL_CHINESE_SAFE = frozenset({
-    "utf-8",
-    "utf-16",
-    "utf-16-le",
-    "utf-16-be",
-    "utf-32",
-    "utf-32-le",
-    "utf-32-be",
-    "big5",
-    "big5hkscs",
-    "gb18030",
-})
+TRADITIONAL_CHINESE_SAFE = frozenset(
+    {
+        "utf-8",
+        "utf-16",
+        "utf-16-le",
+        "utf-16-be",
+        "utf-32",
+        "utf-32-le",
+        "utf-32-be",
+        "big5",
+        "big5hkscs",
+        "gb18030",
+    }
+)
 
 # Encodings that cannot fully represent Traditional Chinese
-TRADITIONAL_CHINESE_UNSAFE = frozenset({
-    "gb2312",
-    "gbk",
-    "hz",
-    "iso-2022-cn",
-})
+TRADITIONAL_CHINESE_UNSAFE = frozenset(
+    {
+        "gb2312",
+        "gbk",
+        "hz",
+        "iso-2022-cn",
+    }
+)
 
 # Encoding aliases for normalization
 ENCODING_ALIASES = {

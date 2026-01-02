@@ -109,7 +109,7 @@ def review_pending_file(
             continue
 
         # Interactive review
-        print(f"\n📋 審核: \"{source}\" → \"{target}\"")
+        print(f'\n📋 審核: "{source}" → "{target}"')
 
         # Get LLM validation if available
         if llm_client:

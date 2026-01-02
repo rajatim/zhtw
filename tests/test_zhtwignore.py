@@ -1,4 +1,5 @@
 """Tests for .zhtwignore functionality."""
+# zhtw:disable  # 測試案例需要簡體字輸入
 
 from pathlib import Path
 
@@ -157,24 +158,16 @@ class TestIsIgnoredByPatterns:
         patterns = ["tests/", "*.log", "temp.txt"]
 
         # Should match tests/
-        assert is_ignored_by_patterns(
-            tmp_path / "tests" / "test.py", tmp_path, patterns
-        ) is True
+        assert is_ignored_by_patterns(tmp_path / "tests" / "test.py", tmp_path, patterns) is True
 
         # Should match *.log
-        assert is_ignored_by_patterns(
-            tmp_path / "app.log", tmp_path, patterns
-        ) is True
+        assert is_ignored_by_patterns(tmp_path / "app.log", tmp_path, patterns) is True
 
         # Should match temp.txt
-        assert is_ignored_by_patterns(
-            tmp_path / "temp.txt", tmp_path, patterns
-        ) is True
+        assert is_ignored_by_patterns(tmp_path / "temp.txt", tmp_path, patterns) is True
 
         # Should not match
-        assert is_ignored_by_patterns(
-            tmp_path / "src" / "main.py", tmp_path, patterns
-        ) is False
+        assert is_ignored_by_patterns(tmp_path / "src" / "main.py", tmp_path, patterns) is False
 
 
 class TestZhtwignoreIntegration:

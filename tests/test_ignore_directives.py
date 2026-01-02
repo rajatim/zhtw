@@ -1,4 +1,5 @@
 """Tests for ignore directives (zhtw:disable)."""
+# zhtw:disable  # 測試案例需要簡體字輸入
 
 from pathlib import Path
 
@@ -11,11 +12,13 @@ from zhtw.matcher import Matcher
 @pytest.fixture
 def matcher():
     """Create a matcher with test terms."""
-    return Matcher({
-        "软件": "軟體",
-        "硬件": "硬體",
-        "用户": "使用者",
-    })
+    return Matcher(
+        {
+            "软件": "軟體",
+            "硬件": "硬體",
+            "用户": "使用者",
+        }
+    )
 
 
 def check_text(text: str, matcher: Matcher):
@@ -42,7 +45,7 @@ class TestDisableLine:
 
     def test_disable_line_html_comment(self, matcher: Matcher):
         """Disable line with HTML comment."""
-        text = '<div>软件</div>  <!-- zhtw:disable-line -->'
+        text = "<div>软件</div>  <!-- zhtw:disable-line -->"
         matches = check_text(text, matcher)
         assert matches == []
 
@@ -74,8 +77,8 @@ data = "软件"'''
 
     def test_disable_next_js(self, matcher: Matcher):
         """Disable next line with JavaScript comment."""
-        text = '''// zhtw:disable-next
-const data = "软件";'''
+        text = """// zhtw:disable-next
+const data = "软件";"""
         matches = check_text(text, matcher)
         assert matches == []
 
@@ -107,55 +110,55 @@ class TestDisableBlock:
 
     def test_disable_block_python(self, matcher: Matcher):
         """Disable block with Python comments."""
-        text = '''# zhtw:disable
+        text = """# zhtw:disable
 data1 = "软件"
 data2 = "硬件"
-# zhtw:enable'''
+# zhtw:enable"""
         matches = check_text(text, matcher)
         assert matches == []
 
     def test_disable_block_js(self, matcher: Matcher):
         """Disable block with JavaScript comments."""
-        text = '''// zhtw:disable
+        text = """// zhtw:disable
 const data1 = "软件";
 const data2 = "硬件";
-// zhtw:enable'''
+// zhtw:enable"""
         matches = check_text(text, matcher)
         assert matches == []
 
     def test_disable_block_html(self, matcher: Matcher):
         """Disable block with HTML comments."""
-        text = '''<!-- zhtw:disable -->
+        text = """<!-- zhtw:disable -->
 <div>软件</div>
 <div>硬件</div>
-<!-- zhtw:enable -->'''
+<!-- zhtw:enable -->"""
         matches = check_text(text, matcher)
         assert matches == []
 
     def test_disable_block_partial(self, matcher: Matcher):
         """Code before and after block is still checked."""
-        text = '''before = "软件"
+        text = '''before = "軟體"
 # zhtw:disable
 ignored = "硬件"
 # zhtw:enable
-after = "用户"'''
+after = "使用者"'''
         matches = check_text(text, matcher)
         # Line 1 and 5 should have issues, Line 3 ignored
         assert len(matches) == 2
         sources = [m[0].source for m in matches]
-        assert "软件" in sources
-        assert "用户" in sources
-        assert "硬件" not in sources
+        assert "軟體" in sources
+        assert "使用者" in sources
+        assert "硬體" not in sources
 
     def test_disable_block_nested_content(self, matcher: Matcher):
         """Block can contain multiple lines with terms."""
-        text = '''# zhtw:disable
+        text = """# zhtw:disable
 test_data = [
     "软件",
     "硬件",
     "用户",
 ]
-# zhtw:enable'''
+# zhtw:enable"""
         matches = check_text(text, matcher)
         assert matches == []
 
@@ -173,23 +176,23 @@ class TestMixedDirectives:
 
     def test_disable_line_inside_block(self, matcher: Matcher):
         """Disable-line inside block (redundant but valid)."""
-        text = '''# zhtw:disable
+        text = """# zhtw:disable
 data = "软件"  # zhtw:disable-line
-# zhtw:enable'''
+# zhtw:enable"""
         matches = check_text(text, matcher)
         assert matches == []
 
     def test_disable_next_before_block(self, matcher: Matcher):
         """Disable-next before block start."""
-        text = '''data1 = "软件"
+        text = """data1 = "軟體"
 # zhtw:disable-next
 # zhtw:disable
 data2 = "硬件"
-# zhtw:enable'''
+# zhtw:enable"""
         matches = check_text(text, matcher)
         # Line 1 has issue, rest ignored
         assert len(matches) == 1
-        assert matches[0][0].source == "软件"
+        assert matches[0][0].source == "軟體"
 
 
 class TestFileIntegration:
@@ -198,24 +201,24 @@ class TestFileIntegration:
     def test_file_with_disable_line(self, tmp_path: Path, matcher: Matcher):
         """Process file with disable-line directive."""
         test_file = tmp_path / "test.py"
-        test_file.write_text('''data1 = "软件"  # zhtw:disable-line
-data2 = "硬件"
-''')
+        test_file.write_text("""data1 = "软件"  # zhtw:disable-line
+data2 = "硬體"
+""")
         result = convert_file(test_file, matcher)
         assert len(result.issues) == 1
-        assert result.issues[0].source == "硬件"
+        assert result.issues[0].source == "硬體"
 
     def test_file_with_disable_block(self, tmp_path: Path, matcher: Matcher):
         """Process file with disable block."""
         test_file = tmp_path / "test.py"
-        test_file.write_text('''# zhtw:disable
+        test_file.write_text("""# zhtw:disable
 test_data = ["软件", "硬件"]
 # zhtw:enable
-real_data = "用户"
-''')
+real_data = "使用者"
+""")
         result = convert_file(test_file, matcher)
         assert len(result.issues) == 1
-        assert result.issues[0].source == "用户"
+        assert result.issues[0].source == "使用者"
 
 
 class TestEdgeCases:
@@ -231,7 +234,7 @@ class TestEdgeCases:
 
     def test_case_sensitive_directive(self, matcher: Matcher):
         """Directives are case sensitive."""
-        text = 'data = "软件"  # ZHTW:DISABLE-LINE'
+        text = 'data = "軟體"  # ZHTW:DISABLE-LINE'
         matches = check_text(text, matcher)
         # Uppercase doesn't work
         assert len(matches) == 1
@@ -246,14 +249,14 @@ class TestEdgeCases:
 
     def test_empty_file(self, matcher: Matcher):
         """Empty file with directives."""
-        text = '''# zhtw:disable
-# zhtw:enable'''
+        text = """# zhtw:disable
+# zhtw:enable"""
         matches = check_text(text, matcher)
         assert matches == []
 
     def test_directive_only_file(self, matcher: Matcher):
         """File with only directives, no content."""
-        text = '''# zhtw:disable-next
-# zhtw:disable-line'''
+        text = """# zhtw:disable-next
+# zhtw:disable-line"""
         matches = check_text(text, matcher)
         assert matches == []

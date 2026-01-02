@@ -213,16 +213,14 @@ def print_results(result: ConversionResult, verbose: bool = False) -> None:
     if result.files_modified > 0:
         click.echo(
             click.style(
-                f"✅ 已修正 {result.files_modified} 個檔案 "
-                f"({result.total_issues} 處)",
+                f"✅ 已修正 {result.files_modified} 個檔案 " f"({result.total_issues} 處)",
                 fg="green",
             )
         )
     elif result.total_issues > 0:
         click.echo(
             click.style(
-                f"⚠️  發現 {result.total_issues} 處問題 "
-                f"（{result.files_with_issues} 個檔案）",
+                f"⚠️  發現 {result.total_issues} 處問題 " f"（{result.files_with_issues} 個檔案）",
                 fg="yellow",
             )
         )
@@ -371,9 +369,7 @@ def check(
         click.echo(f"📁 掃描 {path}")
 
     # Create progress callback (disabled for JSON output)
-    progress_callback, _ = create_progress_callback(
-        enabled=not json_output, prefix="掃描中"
-    )
+    progress_callback, _ = create_progress_callback(enabled=not json_output, prefix="掃描中")
 
     result = process_directory(
         directory=path,
@@ -525,9 +521,7 @@ def fix(
                 sys.exit(1)
 
     # Create progress callback (disabled for JSON output)
-    progress_callback, _ = create_progress_callback(
-        enabled=not json_output, prefix="掃描中"
-    )
+    progress_callback, _ = create_progress_callback(enabled=not json_output, prefix="掃描中")
 
     # show_diff implies dry-run first, then fix after confirmation
     if show_diff:
@@ -695,9 +689,7 @@ def stats(source: str, json_output: bool):
             for file_name, count in src_stats["files"].items():
                 click.echo(f"   {file_name}.json: {count} 個詞彙")
 
-            click.echo(
-                click.style(f"   小計: {src_stats['total']} 個詞彙", fg="cyan")
-            )
+            click.echo(click.style(f"   小計: {src_stats['total']} 個詞彙", fg="cyan"))
 
         click.echo("\n" + "━" * 40)
         click.echo(
@@ -763,8 +755,7 @@ def validate(source: str):
         if target in all_sources:
             src, file, original_source = all_sources[target]
             conflicts.append(
-                f"   ⚠️  「{target}」是 {src}/{file}.json 的目標，"
-                f"但也是來源詞彙 → 可能誤轉換"
+                f"   ⚠️  「{target}」是 {src}/{file}.json 的目標，" f"但也是來源詞彙 → 可能誤轉換"
             )
 
     if conflicts:
@@ -1024,8 +1015,7 @@ def review(
     # Determine which file to review
     if file_name:
         target_files = [
-            f for f in pending
-            if f["name"] == file_name or f["name"] == file_name + ".json"
+            f for f in pending if f["name"] == file_name or f["name"] == file_name + ".json"
         ]
         if not target_files:
             click.echo(click.style(f"❌ 找不到檔案: {file_name}", fg="red"))
@@ -1230,12 +1220,14 @@ def validate_llm(source: str, limit: int, force: bool):
                     correct_count += 1
                 else:
                     incorrect_count += 1
-                    incorrect_terms.append({
-                        "source": src,
-                        "target": tgt,
-                        "reason": result.get("reason", ""),
-                        "suggestion": result.get("suggestion"),
-                    })
+                    incorrect_terms.append(
+                        {
+                            "source": src,
+                            "target": tgt,
+                            "reason": result.get("reason", ""),
+                            "suggestion": result.get("suggestion"),
+                        }
+                    )
             except UsageLimitError as e:
                 click.echo(f"\n{e}")
                 break

@@ -242,7 +242,7 @@ class UsageTracker:
         daily_cost_pct = (daily["cost_usd"] / daily_cost_limit * 100) if daily_cost_limit else 0
         monthly_cost_pct = 0
         if monthly_cost_limit:
-            monthly_cost_pct = (monthly["cost_usd"] / monthly_cost_limit * 100)
+            monthly_cost_pct = monthly["cost_usd"] / monthly_cost_limit * 100
 
         lines = [
             "📊 LLM 用量統計",

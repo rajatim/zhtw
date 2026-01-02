@@ -1,0 +1,24 @@
+# pre-commit hooks for zhtw
+# 安裝: pre-commit install
+# 手動執行: pre-commit run --all-files
+
+repos:
+  # Ruff linter
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  # 自動簡轉繁 - 吃自己的狗食！
+  # 統一使用 zhtw 原生排除機制（# zhtw:disable）
+  - repo: local
+    hooks:
+      - id: zhtw
+        name: zhtw (簡轉繁)
+        entry: scripts/pre-commit-zhtw.sh
+        language: script
+        types: [text]
+        # 只排除詞庫（裡面的簡體字是必要的 source）
+        exclude: ^src/zhtw/data/

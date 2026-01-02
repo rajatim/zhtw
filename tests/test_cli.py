@@ -1,4 +1,5 @@
 """Tests for CLI commands."""
+# zhtw:disable  # 測試案例需要簡體字輸入
 
 import json
 from pathlib import Path
@@ -273,7 +274,7 @@ class TestEdgeCases:
     def test_binary_file_skipped(self, runner: CliRunner, tmp_path: Path):
         """Binary files are skipped."""
         binary_file = tmp_path / "data.bin"
-        binary_file.write_bytes(b'\x00\x01\x02\x03')
+        binary_file.write_bytes(b"\x00\x01\x02\x03")
 
         result = runner.invoke(main, ["check", str(tmp_path)])
 
@@ -298,19 +299,13 @@ class TestCustomDictionary:
         """Check with custom dictionary."""
         # Create custom dictionary
         custom_dict = tmp_path / "custom.json"
-        custom_dict.write_text(json.dumps({
-            "version": "1.0",
-            "terms": {"自定义": "自訂"}
-        }))
+        custom_dict.write_text(json.dumps({"version": "1.0", "terms": {"自定义": "自訂"}}))
 
         # Create test file
         test_file = tmp_path / "test.py"
         test_file.write_text('msg = "自定义"')
 
-        result = runner.invoke(main, [
-            "check", str(tmp_path),
-            "--dict", str(custom_dict)
-        ])
+        result = runner.invoke(main, ["check", str(tmp_path), "--dict", str(custom_dict)])
 
         assert "自定义" in result.output or "自訂" in result.output
 
@@ -323,10 +318,7 @@ class TestCustomDictionary:
         test_file = tmp_path / "test.py"
         test_file.write_text('msg = "软件"')
 
-        result = runner.invoke(main, [
-            "check", str(tmp_path),
-            "--dict", str(custom_dict)
-        ])
+        result = runner.invoke(main, ["check", str(tmp_path), "--dict", str(custom_dict)])
 
         # Should handle error gracefully
         assert result.exit_code != 0 or "error" in result.output.lower() or "錯誤" in result.output
