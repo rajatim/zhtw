@@ -317,3 +317,217 @@ class TestBing:
         }
         for src, expected in cases.items():
             assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+
+# Phase 3 新增測試
+class TestJuan:
+    """卷 → 捲/卷"""
+
+    def test_juan_roll(self, matcher: Matcher):
+        """捲起轉「捲」"""
+        cases = {
+            "卷起": "捲起",
+            "卷入": "捲入",
+            "席卷": "席捲",
+            "卷土重来": "捲土重來",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+    def test_juan_volume(self, matcher: Matcher):
+        """書卷保持「卷」"""
+        cases = {
+            "试卷": "試卷",
+            "画卷": "畫卷",
+            "卷宗": "卷宗",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should stay as {expected}"
+
+
+class TestXu:
+    """须 → 鬚/須"""
+
+    def test_xu_beard(self, matcher: Matcher):
+        """鬍鬚轉「鬚」"""
+        cases = {
+            "胡须": "鬍鬚",
+            "须发": "鬚髮",
+            "触须": "觸鬚",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+    def test_xu_must(self, matcher: Matcher):
+        """必須轉「須」"""
+        cases = {
+            "必须": "必須",
+            "无须": "無須",
+            "须知": "須知",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+
+class TestHu:
+    """胡 → 鬍"""
+
+    def test_hu_beard(self, matcher: Matcher):
+        """鬍子轉「鬍」"""
+        cases = {
+            "胡子": "鬍子",
+            "刮胡子": "刮鬍子",
+            "大胡子": "大鬍子",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+    def test_hu_nonsense(self, matcher: Matcher):
+        """胡說保持「胡」"""
+        cases = {
+            "胡说": "胡說",
+            "胡闹": "胡鬧",
+            "胡同": "胡同",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should stay as {expected}"
+
+
+class TestJin:
+    """尽 → 盡/儘"""
+
+    def test_jin_exhaust(self, matcher: Matcher):
+        """盡力轉「盡」"""
+        cases = {
+            "尽力": "盡力",
+            "尽情": "盡情",
+            "穷尽": "窮盡",
+            "用尽": "用盡",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+    def test_jin_despite(self, matcher: Matcher):
+        """儘管轉「儘」"""
+        cases = {
+            "尽管": "儘管",
+            "尽量": "儘量",
+            "尽快": "儘快",
+            "尽可能": "儘可能",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+
+class TestYu2:
+    """于 → 於"""
+
+    def test_yu_at(self, matcher: Matcher):
+        """於轉「於」"""
+        cases = {
+            "于是": "於是",
+            "对于": "對於",
+            "由于": "由於",
+            "属于": "屬於",
+            "终于": "終於",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+
+class TestYou:
+    """游 → 遊/游"""
+
+    def test_you_travel(self, matcher: Matcher):
+        """旅遊轉「遊」"""
+        cases = {
+            "旅游": "旅遊",
+            "游客": "遊客",
+            "游戏": "遊戲",
+            "漫游": "漫遊",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+    def test_you_swim(self, matcher: Matcher):
+        """游泳保持「游」"""
+        cases = {
+            "游泳": "游泳",
+            "游水": "游水",
+            "蛙泳": "蛙泳",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should stay as {expected}"
+
+
+class TestCai:
+    """采 → 採/采"""
+
+    def test_cai_gather(self, matcher: Matcher):
+        """採集轉「採」"""
+        cases = {
+            "采集": "採集",
+            "采访": "採訪",
+            "采取": "採取",
+            "开采": "開採",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+    def test_cai_style(self, matcher: Matcher):
+        """風采保持「采」"""
+        cases = {
+            "风采": "風采",
+            "神采": "神采",
+            "文采": "文采",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should stay as {expected}"
+
+
+class TestBiao:
+    """表 → 錶"""
+
+    def test_biao_watch(self, matcher: Matcher):
+        """手錶轉「錶」"""
+        cases = {
+            "手表": "手錶",
+            "腕表": "腕錶",
+            "怀表": "懷錶",
+            "秒表": "碼錶",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+    def test_biao_surface(self, matcher: Matcher):
+        """表面保持「表」"""
+        cases = {
+            "表面": "表面",
+            "表示": "表示",
+            "代表": "代表",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should stay as {expected}"
+
+
+class TestZheng2:
+    """症 → 癥"""
+
+    def test_zheng_symptom(self, matcher: Matcher):
+        """症狀保持「症」"""
+        cases = {
+            "症状": "症狀",
+            "病症": "病症",
+            "并发症": "併發症",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should stay as {expected}"
+
+    def test_zheng_illness(self, matcher: Matcher):
+        """癥結轉「癥」"""
+        cases = {
+            "症结": "癥結",
+            "顽症": "頑癥",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
