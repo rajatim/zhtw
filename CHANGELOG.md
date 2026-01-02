@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.0] - 2026-01-03
+
+### Added
+- 900+ 高頻簡體單字轉換（詞庫從 ~1100 → 2071 個詞彙）
+  - 涵蓋人稱代詞：們→們、他→他
+  - 常用動詞：說→說、會→會、進→進、動→動
+  - 常用名詞：國→國、時→時、機→機、電→電
+  - 形容詞副詞：難→難、專→專、遠→遠
+
+### Fixed
+- 修正 identity mapping 阻擋長詞轉換問題
+  - 例如「件→件」不再阻擋「軟體→軟體」
+  - 保留正確的保護機制（如「檔案」保護免受「文件」影響）
+
+## [2.5.0] - 2025-12-31
+
+### Added
+- 一對多危險字完整覆蓋（22 個字）
+  - 發→發/髮、面→面/麵、裡→裡/裡、后→後/后
+  - 複→複/復、幹→幹/乾、隻→隻/隻 等
+- 完整測試覆蓋（208 個測試案例）
+
+### Changed
+- 最佳化 Token 使用：AI 檔案分層架構
+
 ## [2.4.0] - 2025-12-26
 
 ### Added
@@ -37,7 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `zhtw review` 預設啟用 LLM 驗證
 
 ### Changed
-- 簡化 README，移除 LLM 功能文件（進階功能）
+- 簡化 README，移除 LLM 功能檔案（進階功能）
 
 ## [2.0.0] - 2025-12-24
 
