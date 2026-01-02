@@ -531,3 +531,91 @@ class TestZheng2:
         }
         for src, expected in cases.items():
             assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+
+# Phase 4 新增測試
+class TestFeng:
+    """风 → 風"""
+
+    def test_feng_wind(self, matcher: Matcher):
+        """風轉「風」"""
+        cases = {
+            "风": "風",
+            "大风": "大風",
+            "刮风": "颳風",
+            "台风": "颱風",
+            "风景": "風景",
+            "风险": "風險",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+
+class TestLuan:
+    """乱 → 亂"""
+
+    def test_luan_chaos(self, matcher: Matcher):
+        """亂轉「亂」"""
+        cases = {
+            "乱": "亂",
+            "混乱": "混亂",
+            "吹乱": "吹亂",
+            "乱七八糟": "亂七八糟",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+
+class TestKai:
+    """开 → 開"""
+
+    def test_kai_open(self, matcher: Matcher):
+        """開轉「開」"""
+        cases = {
+            "开": "開",
+            "打开": "打開",
+            "开始": "開始",
+            "开发": "開發",
+            "离开": "離開",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+
+class TestHouExtended:
+    """后 系列擴展"""
+
+    def test_hou_after(self, matcher: Matcher):
+        """X后 轉「X後」"""
+        cases = {
+            "完成后": "完成後",
+            "结束后": "結束後",
+            "然后": "然後",
+            "随后": "隨後",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+
+class TestRealText:
+    """真實文本測試"""
+
+    def test_software_doc(self, matcher: Matcher):
+        """軟體文檔轉換"""
+        cases = {
+            "软件开发文档": "軟體開發文件",
+            "用户可以通过简单的操作完成任务": "使用者可以透過簡單的操作完成任務",
+            "安装完成后，请尽快配置相关参数": "安裝完成後，請儘快組態相關參數",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"Failed: {src}"
+
+    def test_daily_text(self, matcher: Matcher):
+        """日常文本轉換"""
+        cases = {
+            "头发被风吹乱了": "頭髮被風吹亂了",
+            "我们一起去旅游": "我們一起去旅遊",
+            "游泳之后吃面条": "游泳之後吃麵條",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"Failed: {src}"
