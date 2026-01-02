@@ -605,7 +605,7 @@ class TestRealText:
         cases = {
             "软件开发文档": "軟體開發文件",
             "用户可以通过简单的操作完成任务": "使用者可以透過簡單的操作完成任務",
-            "安装完成后，请尽快配置相关参数": "安裝完成後，請儘快組態相關參數",
+            "安装完成后，请尽快配置相关参数": "安裝完成後，請儘快設定相關參數",
         }
         for src, expected in cases.items():
             assert matcher.replace_all(src) == expected, f"Failed: {src}"
