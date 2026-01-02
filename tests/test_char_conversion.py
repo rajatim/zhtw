@@ -220,3 +220,100 @@ class TestMixedText:
         }
         for src, expected in cases.items():
             assert matcher.replace_all(src) == expected, f"{src} should stay as {expected}"
+
+
+# Phase 2 新增測試
+class TestYun:
+    """云 → 雲/云"""
+
+    def test_yun_cloud(self, matcher: Matcher):
+        """雲彩轉「雲」"""
+        cases = {
+            "云": "雲",
+            "白云": "白雲",
+            "云端": "雲端",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+    def test_yun_literary(self, matcher: Matcher):
+        """古文「云」保持"""
+        cases = {
+            "人云亦云": "人云亦云",
+            "子曰诗云": "子曰詩云",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should stay as {expected}"
+
+
+class TestDang:
+    """当 → 當"""
+
+    def test_dang_time(self, matcher: Matcher):
+        """當時轉「當」"""
+        cases = {
+            "当时": "當時",
+            "当然": "當然",
+            "当前": "當前",
+            "应当": "應當",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+
+class TestZang:
+    """脏 → 髒/臟"""
+
+    def test_zang_dirty(self, matcher: Matcher):
+        """骯髒轉「髒」"""
+        cases = {
+            "肮脏": "骯髒",
+            "脏话": "髒話",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+    def test_zang_organ(self, matcher: Matcher):
+        """內臟轉「臟」"""
+        cases = {
+            "心脏": "心臟",
+            "内脏": "內臟",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+
+class TestShe:
+    """舍 → 捨/舍"""
+
+    def test_she_give_up(self, matcher: Matcher):
+        """捨棄轉「捨」"""
+        cases = {
+            "舍不得": "捨不得",
+            "取舍": "取捨",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
+
+    def test_she_building(self, matcher: Matcher):
+        """宿舍保持「舍」"""
+        cases = {
+            "宿舍": "宿舍",
+            "校舍": "校舍",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should stay as {expected}"
+
+
+class TestBing:
+    """并 → 並"""
+
+    def test_bing_and(self, matcher: Matcher):
+        """並且轉「並」"""
+        cases = {
+            "并且": "並且",
+            "并不": "並不",
+            "合并": "合併",
+        }
+        for src, expected in cases.items():
+            assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
