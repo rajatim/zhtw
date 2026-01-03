@@ -855,7 +855,7 @@ def import_cmd(source: str, no_pending: bool, name: Optional[str]):
     """
     匯入外部詞庫。
 
-    SOURCE 可以是 URL 或本地檔案路徑。
+    SOURCE 可以是 URL 或本機檔案路徑。
 
     Example:
 
