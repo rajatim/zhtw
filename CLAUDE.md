@@ -64,6 +64,7 @@ PyPI 發佈由 **GitHub Actions 自動處理**：
 | 詞庫操作 | `.claude/guides/vocabulary.md` |
 | 問題排查 | `.claude/guides/debugging.md` |
 | 決策樹 | `.claude/guides/decision-trees.md` |
+| 深度測試 | `.claude/guides/deep-testing.md` |
 
 ## 🧪 深度測試專家角色
 
