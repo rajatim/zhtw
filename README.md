@@ -165,7 +165,7 @@ Commit 前自動擋住問題：
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v2.6.0
+    rev: v2.7.0
     hooks:
       - id: zhtw-check
 ```
