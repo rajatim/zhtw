@@ -102,10 +102,12 @@ head -20 CHANGELOG.md | grep '## \['
 #### 徽章檢查清單
 
 ```markdown
-# 目前使用的徽章
+# 目前使用的徽章（6 個）
 [![CI](https://github.com/rajatim/zhtw/actions/workflows/ci.yml/badge.svg)]
 [![PyPI](https://img.shields.io/pypi/v/zhtw.svg)]
+[![Downloads](https://img.shields.io/pypi/dm/zhtw.svg)]
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)]
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)]
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
 ```
 
@@ -113,12 +115,13 @@ head -20 CHANGELOG.md | grep '## \['
 |------|------|----------|
 | CI | 顯示測試狀態 | workflow 檔名變更時 |
 | PyPI | 顯示最新版本 | 自動更新 |
+| Downloads | 月下載量 | 自動更新 |
 | Python | 支援的 Python 版本 | pyproject.toml requires-python 變更時 |
+| Ruff | 程式碼風格 | 不需更新 |
 | License | 授權類型 | 授權變更時 |
 
 **可考慮新增的徽章：**
-- `[![Downloads](https://img.shields.io/pypi/dm/zhtw.svg)]` - 月下載量
-- `[![codecov](https://codecov.io/gh/rajatim/zhtw/branch/main/graph/badge.svg)]` - 測試覆蓋率
+- `[![codecov](https://codecov.io/gh/rajatim/zhtw/branch/main/graph/badge.svg)]` - 測試覆蓋率（需設定 codecov）
 
 #### README 結構建議
 
