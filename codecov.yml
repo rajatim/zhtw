@@ -1,4 +1,8 @@
 coverage:
+  # Badge 顏色範圍（官方設定方式）
+  # 60% 以下紅色，80% 以上綠色
+  range: "60...80"
+
   status:
     project:
       default:
@@ -7,6 +11,3 @@ coverage:
     patch:
       default:
         target: 80%
-
-# Badge color thresholds
-# Green: >= 80%, Yellow: 60-79%, Red: < 60%
