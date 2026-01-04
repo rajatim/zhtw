@@ -1,7 +1,7 @@
 """Tests for review.py module."""
 
 import json
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from zhtw.review import (
     ReviewResult,
@@ -173,3 +173,129 @@ class TestFinalizeReview:
         ):
             finalize_review("test", result, delete_after=False)
             mock_delete.assert_not_called()
+
+
+class TestInteractiveReview:
+    """Test interactive review mode."""
+
+    def test_interactive_approve(self):
+        """Test interactive approve action."""
+        mock_data = {"terms": {"a": "A"}}
+
+        with (
+            patch("zhtw.review.load_pending", return_value=mock_data),
+            patch("builtins.input", return_value="a"),
+            patch("builtins.print"),
+        ):
+            result = review_pending_file("test", interactive=True)
+            assert result.approved == 1
+            assert result.rejected == 0
+            assert result.terms == {"a": "A"}
+
+    def test_interactive_reject(self):
+        """Test interactive reject action."""
+        mock_data = {"terms": {"a": "A"}}
+
+        with (
+            patch("zhtw.review.load_pending", return_value=mock_data),
+            patch("builtins.input", return_value="r"),
+            patch("builtins.print"),
+        ):
+            result = review_pending_file("test", interactive=True)
+            assert result.approved == 0
+            assert result.rejected == 1
+            assert result.terms == {}
+
+    def test_interactive_skip(self):
+        """Test interactive skip action."""
+        mock_data = {"terms": {"a": "A"}}
+
+        with (
+            patch("zhtw.review.load_pending", return_value=mock_data),
+            patch("builtins.input", return_value="s"),
+            patch("builtins.print"),
+        ):
+            result = review_pending_file("test", interactive=True)
+            assert result.approved == 0
+            assert result.rejected == 0
+            assert result.skipped == 1
+            assert result.terms == {}
+
+    def test_interactive_quit(self):
+        """Test interactive quit action."""
+        mock_data = {"terms": {"a": "A", "b": "B"}}
+
+        with (
+            patch("zhtw.review.load_pending", return_value=mock_data),
+            patch("builtins.input", side_effect=["a", "q"]),
+            patch("builtins.print"),
+        ):
+            result = review_pending_file("test", interactive=True)
+            # First term approved, then quit
+            assert result.approved == 1
+            assert result.terms == {"a": "A"}
+
+    def test_interactive_invalid_then_approve(self):
+        """Test invalid input followed by approve."""
+        mock_data = {"terms": {"a": "A"}}
+
+        with (
+            patch("zhtw.review.load_pending", return_value=mock_data),
+            patch("builtins.input", side_effect=["x", "invalid", "a"]),
+            patch("builtins.print"),
+        ):
+            result = review_pending_file("test", interactive=True)
+            assert result.approved == 1
+            assert result.terms == {"a": "A"}
+
+    def test_interactive_with_llm_success(self):
+        """Test interactive with LLM validation success."""
+        mock_data = {"terms": {"a": "A"}}
+        mock_llm = MagicMock()
+        mock_llm.validate_term.return_value = {
+            "correct": True,
+            "reason": "正確轉換",
+            "suggestion": None,
+        }
+
+        with (
+            patch("zhtw.review.load_pending", return_value=mock_data),
+            patch("builtins.input", return_value="a"),
+            patch("builtins.print"),
+        ):
+            result = review_pending_file("test", interactive=True, llm_client=mock_llm)
+            assert result.approved == 1
+            mock_llm.validate_term.assert_called_once_with("a", "A")
+
+    def test_interactive_with_llm_incorrect(self):
+        """Test interactive with LLM validation incorrect."""
+        mock_data = {"terms": {"a": "A"}}
+        mock_llm = MagicMock()
+        mock_llm.validate_term.return_value = {
+            "correct": False,
+            "reason": "錯誤轉換",
+            "suggestion": "B",
+        }
+
+        with (
+            patch("zhtw.review.load_pending", return_value=mock_data),
+            patch("builtins.input", return_value="r"),
+            patch("builtins.print"),
+        ):
+            result = review_pending_file("test", interactive=True, llm_client=mock_llm)
+            assert result.rejected == 1
+
+    def test_interactive_with_llm_error(self):
+        """Test interactive with LLM validation error."""
+        mock_data = {"terms": {"a": "A"}}
+        mock_llm = MagicMock()
+        mock_llm.validate_term.side_effect = Exception("LLM error")
+
+        with (
+            patch("zhtw.review.load_pending", return_value=mock_data),
+            patch("builtins.input", return_value="a"),
+            patch("builtins.print"),
+        ):
+            # Should still work despite LLM error
+            result = review_pending_file("test", interactive=True, llm_client=mock_llm)
+            assert result.approved == 1
