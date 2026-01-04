@@ -5,6 +5,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.0] - 2026-01-04
+
+### Added
+- **單檔案掃描模式**：現在可以直接對單一檔案執行 check 或 fix
+  - `zhtw check ./file.py`
+  - `zhtw fix ./file.py`
+- CLI 訊息區分檔案（📄）和目錄（📁）圖示
+- 版本發佈 SOP 文件（`.claude/guides/releasing.md`）
+
+### Fixed
+- 補齊 77 條基礎簡繁字元對應（P0）
+- 統一術語 key 格式為簡體（P1）
+- 補上 隨身碟→隨身碟 轉換（P2）
+
+## [2.7.0] - 2026-01-03
+
+### Added
+- **詞庫重大擴充**：433 → 3,490 詞彙（8 倍成長）
+- 10+ 專業領域詞庫：
+  - 醫療健康（230+）、法律合規（170+）、金融財務（140+）
+  - 遊戲娛樂（150+）、電商零售（110+）、學術教育（110+）
+  - 每日生活（230+）、地理國名（160+）、商業基礎（80+）
+- 22 個一對多危險字完整覆蓋（發/髮、面/麵、裡/裡 等）
+
+### Fixed
+- 語義衝突智慧處理（禁用/撤銷/登出 在 UI 語境的正確轉換）
+
+### Changed
+- 使用 Trusted Publishing 發佈到 PyPI
+
 ## [2.6.0] - 2026-01-03
 
 ### Added
@@ -23,7 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - 一對多危險字完整覆蓋（22 個字）
-  - 發→發/髮、面→面/麵、裡→裡/裡、后→後/后
+  - 發→發/髮、面→面/麵、裡→裡/裡、後→後/後
   - 複→複/復、幹→幹/乾、隻→隻/隻 等
 - 完整測試覆蓋（208 個測試案例）
 

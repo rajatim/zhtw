@@ -1,6 +1,6 @@
 # ZHTW - AI 開發指南
 
-> **v2.6.0** | 簡轉繁轉換器 | 指南：`.claude/guides/`
+> **v2.8.0** | 簡轉繁轉換器 | 指南：`.claude/guides/`
 
 ## 🚨 黃金規則
 
@@ -46,16 +46,14 @@ zhtw validate             # 驗證詞庫
 
 ## 🚀 發佈流程
 
-PyPI 發佈由 **GitHub Actions 自動處理**：
+詳見 **`.claude/guides/releasing.md`**（完整 SOP）
 
-1. 更新版本號：`pyproject.toml` + `src/zhtw/__init__.py`
-2. 更新 `CHANGELOG.md`
-3. 建立 git tag：`git tag -a v版本號 -m "訊息"`
-4. 推送：`git push && git push origin v版本號`
-5. 建立 GitHub Release：`gh release create v版本號 --title "標題" --notes "內容"`
-6. **自動觸發** `.github/workflows/publish.yml` → 發佈到 PyPI
+快速提醒 - 必改檔案：
+1. `pyproject.toml` → version
+2. `src/zhtw/__init__.py` → __version__
+3. `CHANGELOG.md` → 新增版本區塊
 
-> ⚠️ PyPI Token 存放於 **GitHub Secrets**（`PYPI_API_TOKEN`），不在 1Password
+> ⚠️ 三處版本號必須一致！
 
 ## 📚 按需讀取
 
@@ -65,6 +63,26 @@ PyPI 發佈由 **GitHub Actions 自動處理**：
 | 問題排查 | `.claude/guides/debugging.md` |
 | 決策樹 | `.claude/guides/decision-trees.md` |
 | 深度測試 | `.claude/guides/deep-testing.md` |
+| **版本發佈** | **`.claude/guides/releasing.md`** |
+| 測試框架 | `TESTING.md` |
+
+## 🔗 關聯外部 Repo
+
+| Repo | 用途 | 注意事項 |
+|------|------|----------|
+| [zhtw-test-corpus](https://github.com/rajatim/zhtw-test-corpus) | 簡體中文測試語料 | **勿轉換！** 需保持簡體 |
+
+### 測試語料使用
+
+```bash
+# 下載語料（在 zhtw 目錄）
+git clone https://github.com/rajatim/zhtw-test-corpus tests/data/corpus
+
+# 執行語料測試
+pytest tests/test_corpus.py
+```
+
+> ⚠️ 測試語料獨立 repo 是因為：此 repo 的 hooks 會自動轉換簡體字
 
 ## 🧪 深度測試專家角色
 
