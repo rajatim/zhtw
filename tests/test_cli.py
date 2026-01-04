@@ -2,12 +2,24 @@
 # zhtw:disable  # 測試案例需要簡體字輸入
 
 import json
+import os
 from pathlib import Path
+from unittest.mock import patch
 
 import pytest
 from click.testing import CliRunner
 
-from zhtw.cli import main
+from zhtw.cli import (
+    ProgressDisplay,
+    create_backup,
+    create_progress_callback,
+    format_diff,
+    format_issue,
+    get_env_bool,
+    get_env_str,
+    main,
+)
+from zhtw.converter import ConversionResult, Issue
 
 
 @pytest.fixture
@@ -322,3 +334,437 @@ class TestCustomDictionary:
 
         # Should handle error gracefully
         assert result.exit_code != 0 or "error" in result.output.lower() or "錯誤" in result.output
+
+
+# =============================================================================
+# Helper Function Tests
+# =============================================================================
+
+
+class TestGetEnvBool:
+    """Tests for get_env_bool helper."""
+
+    def test_true_values(self):
+        """Test true values."""
+        for val in ["1", "true", "yes", "TRUE", "Yes"]:
+            with patch.dict(os.environ, {"TEST_VAR": val}):
+                assert get_env_bool("TEST_VAR") is True
+
+    def test_false_values(self):
+        """Test false values."""
+        for val in ["0", "false", "no", "FALSE", "No"]:
+            with patch.dict(os.environ, {"TEST_VAR": val}):
+                assert get_env_bool("TEST_VAR") is False
+
+    def test_default_value(self):
+        """Test default value when env not set."""
+        with patch.dict(os.environ, {}, clear=True):
+            os.environ.pop("TEST_VAR", None)
+            assert get_env_bool("TEST_VAR") is False
+            assert get_env_bool("TEST_VAR", default=True) is True
+
+    def test_invalid_value_returns_default(self):
+        """Test invalid value returns default."""
+        with patch.dict(os.environ, {"TEST_VAR": "invalid"}):
+            assert get_env_bool("TEST_VAR") is False
+            assert get_env_bool("TEST_VAR", default=True) is True
+
+
+class TestGetEnvStr:
+    """Tests for get_env_str helper."""
+
+    def test_returns_value(self):
+        """Test returns env value."""
+        with patch.dict(os.environ, {"TEST_VAR": "test_value"}):
+            assert get_env_str("TEST_VAR") == "test_value"
+
+    def test_default_when_not_set(self):
+        """Test returns default when not set."""
+        with patch.dict(os.environ, {}, clear=True):
+            os.environ.pop("TEST_VAR", None)
+            assert get_env_str("TEST_VAR") is None
+            assert get_env_str("TEST_VAR", "default") == "default"
+
+    def test_empty_string_returns_default(self):
+        """Test empty string returns default."""
+        with patch.dict(os.environ, {"TEST_VAR": ""}):
+            assert get_env_str("TEST_VAR", "default") == "default"
+
+
+class TestFormatIssue:
+    """Tests for format_issue helper."""
+
+    def test_format_with_context(self):
+        """Test format with context."""
+        issue = Issue(
+            file=Path("test.py"),
+            line=10,
+            column=5,
+            source="软件",
+            target="軟體",
+            context='msg = "软件"',
+        )
+        result = format_issue(issue, show_context=True)
+        assert "L10:5" in result
+        assert "软件" in result
+        assert "軟體" in result
+        assert "msg" in result
+
+    def test_format_without_context(self):
+        """Test format without context."""
+        issue = Issue(
+            file=Path("test.py"),
+            line=10,
+            column=5,
+            source="软件",
+            target="軟體",
+            context='msg = "软件"',
+        )
+        result = format_issue(issue, show_context=False)
+        assert "L10:5" in result
+        assert "软件" in result
+        assert "軟體" in result
+        assert "msg" not in result
+
+
+class TestProgressDisplay:
+    """Tests for ProgressDisplay class."""
+
+    def test_init(self):
+        """Test initialization."""
+        display = ProgressDisplay(enabled=True, prefix="測試中")
+        assert display.enabled is True
+        assert display.prefix == "測試中"
+
+    def test_disabled(self):
+        """Test disabled display does nothing."""
+        display = ProgressDisplay(enabled=False)
+        display.update(50, 100)  # Should not raise
+
+    def test_update_zero_total(self):
+        """Test update with zero total."""
+        display = ProgressDisplay(enabled=True)
+        display.update(0, 0)  # Should not raise
+
+    def test_finish(self):
+        """Test finish method."""
+        display = ProgressDisplay(enabled=True)
+        display.finish()  # Should not raise
+
+
+class TestCreateProgressCallback:
+    """Tests for create_progress_callback helper."""
+
+    def test_returns_tuple(self):
+        """Test returns callback and display."""
+        callback, display = create_progress_callback()
+        assert callable(callback)
+        assert isinstance(display, ProgressDisplay)
+
+    def test_callback_updates_display(self):
+        """Test callback calls display update."""
+        callback, display = create_progress_callback(enabled=False)
+        callback(50, 100)  # Should not raise
+
+
+class TestCreateBackup:
+    """Tests for create_backup helper."""
+
+    def test_creates_backup(self, tmp_path: Path):
+        """Test backup creation."""
+        test_file = tmp_path / "test.py"
+        test_file.write_text("original content")
+
+        backup_dir = create_backup([test_file], tmp_path)
+
+        assert backup_dir.exists()
+        assert ".zhtw-backup" in str(backup_dir)
+
+        backup_files = list(backup_dir.rglob("test.py"))
+        assert len(backup_files) == 1
+        assert backup_files[0].read_text() == "original content"
+
+    def test_backup_file_not_under_base(self, tmp_path: Path):
+        """Test backup when file is not under base path."""
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as f:
+            f.write("content")
+            external_file = Path(f.name)
+
+        try:
+            backup_dir = create_backup([external_file], tmp_path)
+            assert backup_dir.exists()
+        finally:
+            external_file.unlink()
+
+
+class TestFormatDiff:
+    """Tests for format_diff helper."""
+
+    def test_format_diff_output(self):
+        """Test diff formatting."""
+        result = ConversionResult()
+        result.issues = [
+            Issue(
+                file=Path("test.py"),
+                line=1,
+                column=1,
+                source="软件",
+                target="軟體",
+                context="软件",
+            ),
+        ]
+
+        output = format_diff(result)
+        assert "test.py" in output
+        assert "软件" in output or "軟體" in output
+
+
+# =============================================================================
+# Config Command Tests
+# =============================================================================
+
+
+class TestConfigCommand:
+    """Tests for 'zhtw config' command."""
+
+    def test_config_show(self, runner: CliRunner):
+        """Config show displays configuration."""
+        result = runner.invoke(main, ["config", "show"])
+
+        assert result.exit_code == 0
+        # Should output valid JSON
+        data = json.loads(result.output)
+        assert "llm" in data
+
+    def test_config_set(self, runner: CliRunner):
+        """Config set updates value."""
+        with patch("zhtw.config.set_config_value") as mock_set:
+            result = runner.invoke(main, ["config", "set", "test.key", "test_value"])
+
+            assert result.exit_code == 0
+            mock_set.assert_called_once()
+            assert "已設定" in result.output
+
+    def test_config_set_missing_args(self, runner: CliRunner):
+        """Config set with missing args shows error."""
+        result = runner.invoke(main, ["config", "set", "only_key"])
+
+        assert result.exit_code == 1
+        assert "用法" in result.output or "usage" in result.output.lower()
+
+    def test_config_set_boolean_true(self, runner: CliRunner):
+        """Config set parses boolean true."""
+        with patch("zhtw.config.set_config_value") as mock_set:
+            runner.invoke(main, ["config", "set", "key", "true"])
+            mock_set.assert_called_with("key", True)
+
+    def test_config_set_boolean_false(self, runner: CliRunner):
+        """Config set parses boolean false."""
+        with patch("zhtw.config.set_config_value") as mock_set:
+            runner.invoke(main, ["config", "set", "key", "false"])
+            mock_set.assert_called_with("key", False)
+
+    def test_config_set_integer(self, runner: CliRunner):
+        """Config set parses integer."""
+        with patch("zhtw.config.set_config_value") as mock_set:
+            runner.invoke(main, ["config", "set", "key", "42"])
+            mock_set.assert_called_with("key", 42)
+
+    def test_config_set_float(self, runner: CliRunner):
+        """Config set parses float."""
+        with patch("zhtw.config.set_config_value") as mock_set:
+            runner.invoke(main, ["config", "set", "key", "3.14"])
+            mock_set.assert_called_with("key", 3.14)
+
+    def test_config_reset(self, runner: CliRunner):
+        """Config reset with confirmation."""
+        with patch("zhtw.config.reset_config") as mock_reset:
+            result = runner.invoke(main, ["config", "reset"], input="y\n")
+
+            assert result.exit_code == 0
+            mock_reset.assert_called_once()
+            assert "已重設" in result.output
+
+    def test_config_reset_cancelled(self, runner: CliRunner):
+        """Config reset cancelled."""
+        with patch("zhtw.config.reset_config") as mock_reset:
+            runner.invoke(main, ["config", "reset"], input="n\n")
+
+            mock_reset.assert_not_called()
+
+
+# =============================================================================
+# Usage Command Tests
+# =============================================================================
+
+
+class TestUsageCommand:
+    """Tests for 'zhtw usage' command."""
+
+    def test_usage_shows_report(self, runner: CliRunner):
+        """Usage command shows report."""
+        result = runner.invoke(main, ["usage"])
+
+        assert result.exit_code == 0
+
+    def test_usage_json_output(self, runner: CliRunner):
+        """Usage command outputs JSON."""
+        result = runner.invoke(main, ["usage", "--json"])
+
+        assert result.exit_code == 0
+        # Output might be JSON or formatted text
+
+    def test_usage_reset(self, runner: CliRunner):
+        """Usage reset with confirmation."""
+        result = runner.invoke(main, ["usage", "--reset"], input="y\n")
+
+        assert result.exit_code == 0
+        assert "已重設" in result.output
+
+    def test_usage_reset_cancelled(self, runner: CliRunner):
+        """Usage reset cancelled."""
+        result = runner.invoke(main, ["usage", "--reset"], input="n\n")
+
+        assert result.exit_code == 0
+        assert "已重設" not in result.output
+
+
+# =============================================================================
+# Stats Command Extended Tests
+# =============================================================================
+
+
+class TestStatsCommandExtended:
+    """Extended tests for 'zhtw stats' command."""
+
+    def test_stats_cn_only(self, runner: CliRunner):
+        """Stats with cn source only."""
+        result = runner.invoke(main, ["stats", "--source", "cn"])
+
+        assert result.exit_code == 0
+        assert "詞彙" in result.output or "總計" in result.output
+
+    def test_stats_nonexistent_source(self, runner: CliRunner):
+        """Stats with nonexistent source."""
+        result = runner.invoke(main, ["stats", "--source", "nonexistent"])
+
+        assert result.exit_code == 0
+
+
+# =============================================================================
+# Validate Command Extended Tests
+# =============================================================================
+
+
+class TestValidateCommandExtended:
+    """Extended tests for 'zhtw validate' command."""
+
+    def test_validate_cn_only(self, runner: CliRunner):
+        """Validate with cn source only."""
+        result = runner.invoke(main, ["validate", "--source", "cn"])
+
+        assert result.exit_code in [0, 1]
+        assert "驗證" in result.output or "檢查" in result.output
+
+
+# =============================================================================
+# Import Command Tests
+# =============================================================================
+
+
+class TestImportCommand:
+    """Tests for 'zhtw import' command."""
+
+    def test_import_local_file(self, runner: CliRunner, tmp_path: Path):
+        """Import from local file."""
+        terms_file = tmp_path / "terms.json"
+        terms_file.write_text(json.dumps({"version": "1.0", "terms": {"测试": "測試"}}))
+
+        result = runner.invoke(main, ["import", str(terms_file)])
+
+        # Should either succeed or report results
+        assert "匯入" in result.output or "Import" in result.output.lower()
+
+    def test_import_invalid_file(self, runner: CliRunner, tmp_path: Path):
+        """Import from invalid file."""
+        invalid_file = tmp_path / "invalid.json"
+        invalid_file.write_text("not valid json")
+
+        result = runner.invoke(main, ["import", str(invalid_file)])
+
+        assert result.exit_code != 0 or "失敗" in result.output or "錯誤" in result.output
+
+
+# =============================================================================
+# Review Command Tests
+# =============================================================================
+
+
+class TestReviewCommand:
+    """Tests for 'zhtw review' command."""
+
+    def test_review_list_empty(self, runner: CliRunner):
+        """Review list when no pending files."""
+        with patch("zhtw.import_terms.list_pending", return_value=[]):
+            result = runner.invoke(main, ["review", "--list"])
+
+            assert result.exit_code == 0
+            assert "暫無" in result.output or "無" in result.output
+
+    def test_review_list_with_items(self, runner: CliRunner):
+        """Review list with pending items."""
+        pending = [{"name": "test.json", "terms_count": 5, "description": "Test terms"}]
+        with patch("zhtw.import_terms.list_pending", return_value=pending):
+            result = runner.invoke(main, ["review", "--list"])
+
+            assert result.exit_code == 0
+            assert "test.json" in result.output
+
+
+# =============================================================================
+# Fix Command Extended Tests
+# =============================================================================
+
+
+class TestFixCommandExtended:
+    """Extended tests for 'zhtw fix' command."""
+
+    def test_fix_with_yes_flag(self, runner: CliRunner, tmp_path: Path):
+        """Fix with --yes flag skips confirmation."""
+        test_file = tmp_path / "test.py"
+        test_file.write_text('msg = "软件"')
+
+        result = runner.invoke(main, ["fix", str(tmp_path), "--yes"])
+
+        assert result.exit_code == 0
+        assert "軟體" in test_file.read_text()
+
+    def test_fix_verbose(self, runner: CliRunner, tmp_path: Path):
+        """Fix with --verbose shows more details."""
+        test_file = tmp_path / "test.py"
+        test_file.write_text('msg = "软件"')
+
+        result = runner.invoke(main, ["fix", str(tmp_path), "--verbose", "--yes"])
+
+        assert result.exit_code == 0
+
+
+# =============================================================================
+# Check Command Extended Tests
+# =============================================================================
+
+
+class TestCheckCommandExtended:
+    """Extended tests for 'zhtw check' command."""
+
+    def test_check_verbose(self, runner: CliRunner, tmp_path: Path):
+        """Check with --verbose shows context."""
+        test_file = tmp_path / "test.py"
+        test_file.write_text('msg = "软件"')
+
+        result = runner.invoke(main, ["check", str(tmp_path), "--verbose"])
+
+        assert result.exit_code == 1
+        assert "软件" in result.output
