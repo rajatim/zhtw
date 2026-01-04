@@ -38,8 +38,9 @@
 ```bash
 python3 -m pip install zhtw
 
-zhtw check .    # 檢查整個專案
-zhtw fix .      # 自動修正
+zhtw check .          # 檢查整個專案
+zhtw check ./file.py  # 檢查單一檔案
+zhtw fix .            # 自動修正
 ```
 
 <details>
@@ -165,7 +166,7 @@ Commit 前自動擋住問題：
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v2.7.0
+    rev: v2.8.0
     hooks:
       - id: zhtw-check
 ```
@@ -180,6 +181,10 @@ pip install pre-commit && pre-commit install
 ## 進階用法
 
 ```bash
+# 單檔案模式（v2.8.0+）
+zhtw check ./src/api.py    # 檢查單一檔案
+zhtw fix ./src/api.py      # 修正單一檔案
+
 # 使用自訂詞庫
 zhtw fix ./src --dict ./my-terms.json
 
