@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.5] - 2026-01-05
+
+### Changed
+- **validate 命令大幅改善**：808 警告 → 0
+  - 預設跳過 identity mapping（設計如此）
+  - 區分同來源衝突（bug）與跨來源衝突（設計）
+  - 新增 `--strict` 選項顯示完整資訊
+- 測試覆蓋率提升：82% → 90%
+- 新增 Codecov 整合與徽章
+
+### Fixed
+- 移除 28 個跨檔案重複詞彙
+- 修正「控制台」衝突（控制台→控制台 vs 控制台→主控台）
+- 修正「奶油」連鎖轉換問題
+
 ## [2.8.4] - 2026-01-04
 
 ### Changed
