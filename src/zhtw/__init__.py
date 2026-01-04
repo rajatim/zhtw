@@ -4,7 +4,7 @@ ZHTW - Simplified/HK Traditional to Taiwan Traditional Chinese Converter
 rajatim 出品 🇹🇼
 """
 
-__version__ = "2.8.1"
+__version__ = "2.8.2"
 __author__ = "rajatim"
 
 from .converter import convert_file, convert_text
