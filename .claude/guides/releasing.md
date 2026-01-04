@@ -19,6 +19,7 @@
 | 檔案 | 何時需要改 | 負責專家 |
 |------|------------|----------|
 | `README.md` | 新增功能、使用方式變更 | 📣 行銷專家 |
+| `README.md` 徽章 | 新增 CI/品質徽章 | 📣 行銷專家 |
 | `CLAUDE.md` | AI 開發指南變更 | 📝 技術文件 |
 | `.claude/guides/*.md` | 開發流程變更 | 📝 技術文件 |
 | `pyproject.toml` 依賴 | 新增/更新依賴 | 📦 發佈工程師 |
@@ -96,6 +97,28 @@ head -20 CHANGELOG.md | grep '## \['
 | **數據佐證** | 詞庫規模、準確率等具體數字 |
 | **安裝簡單** | pip install 指令清楚 |
 | **快速上手** | 30 秒內能跑出第一個結果 |
+| **徽章更新** | 確認徽章正確且有效 |
+
+#### 徽章檢查清單
+
+```markdown
+# 目前使用的徽章
+[![CI](https://github.com/rajatim/zhtw/actions/workflows/ci.yml/badge.svg)]
+[![PyPI](https://img.shields.io/pypi/v/zhtw.svg)]
+[![Python](https://img.shields.io/badge/python-3.9+-blue.svg)]
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
+```
+
+| 徽章 | 用途 | 何時更新 |
+|------|------|----------|
+| CI | 顯示測試狀態 | workflow 檔名變更時 |
+| PyPI | 顯示最新版本 | 自動更新 |
+| Python | 支援的 Python 版本 | pyproject.toml requires-python 變更時 |
+| License | 授權類型 | 授權變更時 |
+
+**可考慮新增的徽章：**
+- `[![Downloads](https://img.shields.io/pypi/dm/zhtw.svg)]` - 月下載量
+- `[![codecov](https://codecov.io/gh/rajatim/zhtw/branch/main/graph/badge.svg)]` - 測試覆蓋率
 
 #### README 結構建議
 
