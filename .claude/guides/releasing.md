@@ -241,6 +241,44 @@ gh release create vX.Y.Z \
 | 安裝測試 | `pip install zhtw==X.Y.Z` |
 | 版本確認 | `zhtw --version` 顯示正確 |
 | 基本功能 | `zhtw check .` 正常執行 |
+| **通知** | 發送發佈通知到 通訊軟體 |
+
+### 發送 通知
+
+發佈成功後，執行以下指令發送通知：
+
+```bash
+curl -X POST -H 'Content-type: application/json' \
+  --data '{
+    "blocks": [
+      {
+        "type": "header",
+        "text": {"type": "plain_text", "text": "🚀 ZHTW vX.Y.Z 發佈成功"}
+      },
+      {
+        "type": "section",
+        "fields": [
+          {"type": "mrkdwn", "text": "*版本:*\nvX.Y.Z"},
+          {"type": "mrkdwn", "text": "*日期:*\nYYYY-MM-DD"}
+        ]
+      },
+      {
+        "type": "section",
+        "text": {"type": "mrkdwn", "text": "*更新內容:*\n• 功能 1\n• 功能 2"}
+      },
+      {
+        "type": "actions",
+        "elements": [
+          {"type": "button", "text": {"type": "plain_text", "text": "📦 PyPI"}, "url": "https://pypi.org/project/zhtw/"},
+          {"type": "button", "text": {"type": "plain_text", "text": "📝 Release Notes"}, "url": "https://github.com/rajatim/zhtw/releases/tag/vX.Y.Z"}
+        ]
+      }
+    ]
+  }' \
+  "$ZHTW_NOTIFY_WEBHOOK"
+```
+
+> ⚠️ Webhook URL 存放於環境變數 `ZHTW_NOTIFY_WEBHOOK`，勿直接寫入程式碼
 
 ---
 
