@@ -779,25 +779,43 @@ def validate(source: str, strict: bool):
     }
 
     # Check 1: Target terms that are also source terms (potential false positives)
-    # Skip if the conflicting source is an identity mapping (intentional protection)
+    # Skip identity mappings and cross-source conflicts (intentional design)
     click.echo("\n📋 檢查目標詞彙衝突...")
-    conflicts = []
-    for target, sources_list in all_targets.items():
+    same_source_conflicts = []
+    cross_source_conflicts = []
+
+    for target, target_sources in all_targets.items():
         if target in all_sources:
-            # Skip if target == source (identity mapping conflict with itself)
+            # Skip identity mappings
             if target in identity_mappings and not strict:
                 continue
-            src, file, original_source = all_sources[target]
-            conflicts.append(
-                f"   ⚠️  「{target}」是 {src}/{file}.json 的目標，" f"但也是來源詞彙 → 可能誤轉換"
-            )
 
-    if conflicts:
-        for c in conflicts[:10]:  # Show max 10
+            source_src, source_file, _ = all_sources[target]  # Where target is used as source
+            target_srcs = {s[0] for s in target_sources}  # Where term appears as target
+
+            # Check if conflict is same-source or cross-source
+            if source_src in target_srcs:
+                # Same source conflict (e.g., both in cn) = likely a bug
+                same_source_conflicts.append(
+                    f"   ⚠️  「{target}」在 {source_src} 同時是來源和目標 → 可能誤轉換"
+                )
+            else:
+                # Cross-source conflict (e.g., cn vs hk) = intentional design
+                target_str = ", ".join(target_srcs)
+                cross_source_conflicts.append(
+                    f"   ℹ️  「{target}」跨來源：目標於 {target_str}，來源於 {source_src}"
+                )
+
+    if same_source_conflicts:
+        for c in same_source_conflicts[:10]:
             click.echo(c)
-        if len(conflicts) > 10:
-            click.echo(f"   ... 還有 {len(conflicts) - 10} 個衝突")
-        issues.extend(conflicts)
+        if len(same_source_conflicts) > 10:
+            click.echo(f"   ... 還有 {len(same_source_conflicts) - 10} 個")
+        issues.extend(same_source_conflicts)
+    elif cross_source_conflicts and strict:
+        click.echo(f"   ℹ️  {len(cross_source_conflicts)} 個跨來源設計（非 bug）")
+        for c in cross_source_conflicts[:5]:
+            click.echo(c)
     else:
         click.echo("   ✅ 無衝突")
 
