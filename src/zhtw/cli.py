@@ -2,8 +2,10 @@
 CLI interface for ZHTW.
 
 Usage:
-    zhtw check ./src           # Check mode (report only)
-    zhtw fix ./src             # Fix mode (modify files)
+    zhtw check ./src           # Check directory (report only)
+    zhtw check ./file.py       # Check single file
+    zhtw fix ./src             # Fix directory (modify files)
+    zhtw fix ./file.py         # Fix single file
     zhtw check ./src --json    # JSON output for CI/CD
     zhtw stats                 # Show dictionary statistics
     zhtw validate              # Validate dictionary quality
@@ -351,9 +353,13 @@ def check(
     """
     檢查模式：掃描檔案並報告問題，不修改檔案。
 
+    PATH 可以是目錄或單一檔案。
+
     Example:
 
         zhtw check ./src
+
+        zhtw check ./file.py
 
         zhtw check ./src --source cn
 
@@ -366,13 +372,14 @@ def check(
     input_encoding = encoding or get_env_str("ZHTW_ENCODING")
 
     if not json_output:
-        click.echo(f"📁 掃描 {path}")
+        icon = "📄" if path.is_file() else "📁"
+        click.echo(f"{icon} 掃描 {path}")
 
     # Create progress callback (disabled for JSON output)
     progress_callback, _ = create_progress_callback(enabled=not json_output, prefix="掃描中")
 
     result = process_directory(
-        directory=path,
+        path=path,
         sources=sources,
         custom_dict=custom_dict,
         fix=False,
@@ -476,9 +483,13 @@ def fix(
     """
     修正模式：掃描檔案並自動修正問題。
 
+    PATH 可以是目錄或單一檔案。
+
     Example:
 
         zhtw fix ./src
+
+        zhtw fix ./file.py
 
         zhtw fix ./src --dry-run
 
@@ -526,11 +537,12 @@ def fix(
     # show_diff implies dry-run first, then fix after confirmation
     if show_diff:
         if not json_output:
-            click.echo(f"🔍 預覽模式：掃描 {path}")
+            icon = "📄" if path.is_file() else "📁"
+            click.echo(f"🔍 預覽模式：掃描 {icon} {path}")
 
         # First pass: check only (don't fix)
         result = process_directory(
-            directory=path,
+            path=path,
             sources=sources,
             custom_dict=custom_dict,
             fix=False,
@@ -570,7 +582,7 @@ def fix(
             # Second pass: actually fix
             click.echo("\n🔧 執行修正...")
             result = process_directory(
-                directory=path,
+                path=path,
                 sources=sources,
                 custom_dict=custom_dict,
                 fix=True,
@@ -589,13 +601,14 @@ def fix(
     # Normal mode (no show_diff)
     if not json_output:
         mode = "模擬" if dry_run else "修正"
-        click.echo(f"🔧 {mode}模式：掃描 {path}")
+        icon = "📄" if path.is_file() else "📁"
+        click.echo(f"🔧 {mode}模式：掃描 {icon} {path}")
 
     # For backup mode without show_diff, we need to check first
     if backup and not dry_run:
         # First pass: check what will be modified
         check_result = process_directory(
-            directory=path,
+            path=path,
             sources=sources,
             custom_dict=custom_dict,
             fix=False,
@@ -607,7 +620,7 @@ def fix(
         do_backup_if_needed(check_result)
 
     result = process_directory(
-        directory=path,
+        path=path,
         sources=sources,
         custom_dict=custom_dict,
         fix=not dry_run,

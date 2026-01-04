@@ -445,7 +445,7 @@ ProgressCallback = Callable[[int, int], None]
 
 
 def convert_directory(
-    directory: Path,
+    path: Path,
     matcher: Matcher,
     fix: bool = False,
     extensions: Optional[Set[str]] = None,
@@ -456,10 +456,10 @@ def convert_directory(
     output_encoding: str = "auto",
 ) -> Iterator[FileResult]:
     """
-    Process all files in a directory.
+    Process files in a directory or a single file.
 
     Args:
-        directory: Directory to scan.
+        path: Directory to scan or single file to process.
         matcher: Matcher instance.
         fix: Whether to apply fixes.
         extensions: Allowed file extensions.
@@ -472,16 +472,31 @@ def convert_directory(
     Yields:
         FileResult for each processed file.
     """
-    # Load .zhtwignore patterns
-    ignore_patterns = load_zhtwignore(directory)
+    # Handle single file
+    if path.is_file():
+        if should_check_file(path, extensions, excludes):
+            if on_progress:
+                on_progress(1, 1)
+            yield convert_file(
+                path,
+                matcher,
+                fix=fix,
+                input_encoding=input_encoding,
+                output_encoding=output_encoding,
+            )
+        return
+
+    # Handle directory
+    base_dir = path
+    ignore_patterns = load_zhtwignore(base_dir)
 
     # Collect files to process
     files = [
         f
-        for f in directory.rglob("*")
+        for f in base_dir.rglob("*")
         if f.is_file()
         and should_check_file(f, extensions, excludes)
-        and not is_ignored_by_patterns(f, directory, ignore_patterns)
+        and not is_ignored_by_patterns(f, base_dir, ignore_patterns)
     ]
 
     total = len(files)
@@ -501,7 +516,7 @@ def convert_directory(
 
 
 def process_directory(
-    directory: Path,
+    path: Path,
     sources: Optional[List[str]] = None,
     custom_dict: Optional[Path] = None,
     fix: bool = False,
@@ -512,10 +527,10 @@ def process_directory(
     output_encoding: str = "auto",
 ) -> ConversionResult:
     """
-    Process a directory and return aggregated results.
+    Process a directory or single file and return aggregated results.
 
     Args:
-        directory: Directory to scan.
+        path: Directory to scan or single file to process.
         sources: Sources to use ("cn", "hk").
         custom_dict: Path to custom dictionary.
         fix: Whether to apply fixes.
@@ -535,7 +550,7 @@ def process_directory(
     result = ConversionResult()
 
     for file_result in convert_directory(
-        directory,
+        path,
         matcher,
         fix=fix,
         extensions=extensions,
