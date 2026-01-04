@@ -722,14 +722,21 @@ def stats(source: str, json_output: bool):
     default="cn,hk",
     help="驗證來源: cn (簡體), hk (港式), 或 cn,hk (預設)",
 )
-def validate(source: str):
+@click.option(
+    "--strict",
+    is_flag=True,
+    help="嚴格模式：包含 identity mapping 檢查",
+)
+def validate(source: str, strict: bool):
     """
     驗證詞庫品質，檢查潛在問題。
 
     檢查項目：
     - 目標詞彙是否與其他來源詞彙衝突
-    - 來源與目標是否相同（無效轉換）
     - 重複的來源詞彙
+
+    預設跳過 identity mapping（來源=目標），這些是故意加入用於防止子字串誤轉換。
+    使用 --strict 顯示 identity mapping 資訊。
 
     Example:
 
@@ -754,6 +761,9 @@ def validate(source: str):
         for json_file in src_dir.glob("*.json"):
             terms = load_json_file(json_file)
             for source_term, target_term in terms.items():
+                # Skip comment keys (start with _)
+                if source_term.startswith("_"):
+                    continue
                 all_sources[source_term] = (src, json_file.stem, target_term)
                 if target_term not in all_targets:
                     all_targets[target_term] = []
@@ -761,11 +771,22 @@ def validate(source: str):
 
     issues = []
 
+    # Build set of identity mappings (source == target) for reference
+    identity_mappings = {
+        source_term
+        for source_term, (_, _, target_term) in all_sources.items()
+        if source_term == target_term
+    }
+
     # Check 1: Target terms that are also source terms (potential false positives)
+    # Skip if the conflicting source is an identity mapping (intentional protection)
     click.echo("\n📋 檢查目標詞彙衝突...")
     conflicts = []
     for target, sources_list in all_targets.items():
         if target in all_sources:
+            # Skip if target == source (identity mapping conflict with itself)
+            if target in identity_mappings and not strict:
+                continue
             src, file, original_source = all_sources[target]
             conflicts.append(
                 f"   ⚠️  「{target}」是 {src}/{file}.json 的目標，" f"但也是來源詞彙 → 可能誤轉換"
@@ -780,21 +801,28 @@ def validate(source: str):
     else:
         click.echo("   ✅ 無衝突")
 
-    # Check 2: Source equals target (useless conversion)
-    click.echo("\n📋 檢查無效轉換（來源=目標）...")
-    same_terms = []
-    for source_term, (src, file, target_term) in all_sources.items():
-        if source_term == target_term:
-            same_terms.append(f"   ⚠️  {src}/{file}.json: 「{source_term}」→「{target_term}」")
+    # Check 2: Source equals target (identity mapping)
+    # These are intentional for substring protection, skip unless --strict
+    if strict:
+        click.echo("\n📋 檢查 identity mapping（來源=目標）...")
+        same_terms = []
+        for source_term, (src, file, target_term) in all_sources.items():
+            if source_term == target_term:
+                same_terms.append(f"   ℹ️  {src}/{file}.json: 「{source_term}」→「{target_term}」")
 
-    if same_terms:
-        for s in same_terms[:10]:
-            click.echo(s)
-        if len(same_terms) > 10:
-            click.echo(f"   ... 還有 {len(same_terms) - 10} 個")
-        issues.extend(same_terms)
+        if same_terms:
+            for s in same_terms[:10]:
+                click.echo(s)
+            if len(same_terms) > 10:
+                click.echo(f"   ... 還有 {len(same_terms) - 10} 個")
+            click.echo(f"   （共 {len(same_terms)} 個 identity mapping，用於防止子字串誤轉）")
+        else:
+            click.echo("   ✅ 無 identity mapping")
     else:
-        click.echo("   ✅ 無無效轉換")
+        if identity_mappings:
+            click.echo(
+                f"\n📋 跳過 {len(identity_mappings)} 個 identity mapping（使用 --strict 顯示）"
+            )
 
     # Check 3: Duplicate source terms across files
     click.echo("\n📋 檢查重複來源詞彙...")
@@ -808,6 +836,9 @@ def validate(source: str):
         for json_file in src_dir.glob("*.json"):
             terms = load_json_file(json_file)
             for source_term in terms:
+                # Skip comment keys (start with _)
+                if source_term.startswith("_"):
+                    continue
                 key = (src, source_term)
                 if key in source_files:
                     duplicates.append(
