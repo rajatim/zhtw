@@ -28,8 +28,25 @@
 
 | 檔案 | 說明 |
 |------|------|
-| `git tag` | 發佈流程建立 |
-| PyPI | GitHub Actions 自動發佈 |
+| `git tag` | 發佈流程建立（Jenkins 或手動） |
+| PyPI | Jenkins 或 GitHub Actions 自動發佈 |
+
+---
+
+## 🔀 發佈方式選擇
+
+| 方式 | 適用情境 | 優點 |
+|------|----------|------|
+| **Jenkins（推薦）** | 正式發佈 | 人工審核、通知、完整驗證 |
+| GitHub Actions | 緊急修復、Jenkins 不可用時 | 快速、無需額外設定 |
+
+### Jenkins Pipeline 位置
+
+```
+[REDACTED-PIPELINE-PATH]
+```
+
+Jenkins URL: `https://[REDACTED]`
 
 ---
 
@@ -196,7 +213,7 @@ head -20 CHANGELOG.md | grep '## \['
 
 ## 🚀 發佈流程
 
-### Step 1: 更新版本號
+### Step 1: 更新版本號（共通）
 
 ```bash
 # 編輯這三個檔案，確保版本號一致
@@ -205,7 +222,7 @@ head -20 CHANGELOG.md | grep '## \['
 # 3. CHANGELOG.md
 ```
 
-### Step 2: 提交版本變更
+### Step 2: 提交版本變更（共通）
 
 ```bash
 git add pyproject.toml src/zhtw/__init__.py CHANGELOG.md
@@ -213,16 +230,49 @@ git commit -m "chore: release vX.Y.Z"
 git push
 ```
 
-### Step 3: 建立 Tag
+---
 
-```bash
-git tag -a vX.Y.Z -m "vX.Y.Z: 簡短說明"
-git push origin vX.Y.Z
+### 方式 A: Jenkins 發佈（推薦）
+
+```
+1. 前往 Jenkins: https://[REDACTED]
+2. 找到 Job: zhtw-release
+3. 點擊 Build Now
+4. Jenkins 自動執行：
+   - 版本號驗證（三檔案一致性）
+   - pytest + ruff + zhtw validate
+   - build 套件
+   - ⏸️ 人工審核（顯示 CHANGELOG 預覽）
+   - 發佈到 PyPI
+   - 建立 GitHub Release + Tag
+   - 通知
 ```
 
-### Step 4: 建立 GitHub Release
+**Pipeline 執行內容：**
+
+| Stage | 說明 |
+|-------|------|
+| Checkout | 從 GitHub clone main |
+| Version Check | 驗證 3 檔案版本一致 |
+| Validate | pytest / ruff / zhtw validate |
+| Build | python -m build |
+| **Approval** | ⏸️ 人工確認 |
+| Publish to PyPI | twine upload |
+| GitHub Release | git tag + gh release |
+| Verify | 確認 PyPI 可安裝 |
+
+---
+
+### 方式 B: GitHub Actions 發佈（備用）
+
+適用：Jenkins 不可用、緊急修復
 
 ```bash
+# Step 3: 建立 Tag
+git tag -a vX.Y.Z -m "vX.Y.Z: 簡短說明"
+git push origin vX.Y.Z
+
+# Step 4: 建立 GitHub Release
 gh release create vX.Y.Z \
   --title "vX.Y.Z: 標題" \
   --notes "變更內容（可從 CHANGELOG 複製）"
