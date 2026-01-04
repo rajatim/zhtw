@@ -1,6 +1,6 @@
 # ZHTW - AI 開發指南
 
-> **v2.8.0** | 簡轉繁轉換器 | 指南：`.claude/guides/`
+> **v2.8.5** | 簡轉繁轉換器 | 指南：`.claude/guides/`
 
 ## 🚨 黃金規則
 
@@ -46,14 +46,35 @@ zhtw validate             # 驗證詞庫
 
 ## 🚀 發佈流程
 
-詳見 **`.claude/guides/releasing.md`**（完整 SOP）
+### 🚨 最高優先級規則
 
-快速提醒 - 必改檔案：
-1. `pyproject.toml` → version
-2. `src/zhtw/__init__.py` → __version__
-3. `CHANGELOG.md` → 新增版本區塊
+```
+⛔ 禁止手動發佈（gh release create、git tag）
+⛔ 沒有使用者明確同意，不可發佈
+✅ 只能透過 Jenkins Pipeline 發佈
+```
 
-> ⚠️ 三處版本號必須一致！
+### Jenkins 發佈
+
+| 項目 | 值 |
+|------|-----|
+| Jenkins URL | [REDACTED-JENKINS-URL] |
+| Pipeline 檔案 | `[REDACTED-PIPELINE-PATH]` |
+| 觸發方式 | 手動（需 審核） |
+
+### 發佈步驟
+
+1. **準備**（Claude 可做）：
+   - 更新 `pyproject.toml` → version
+   - 更新 `src/zhtw/__init__.py` → __version__
+   - 更新 `CHANGELOG.md` → 新增版本區塊
+   - Commit + Push 到 main
+
+2. **發佈**（需使用者操作）：
+   - 使用者到 Jenkins 觸發 `zhtw-release`
+   - 審核通過後自動發佈
+
+> ⚠️ 三處版本號必須一致！Jenkins 會驗證。
 
 ## 📚 按需讀取
 
