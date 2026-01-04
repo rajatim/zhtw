@@ -3,14 +3,19 @@
 
 import json
 import tempfile
+import urllib.error
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from zhtw.import_terms import (
     ImportResult,
+    delete_pending,
     import_terms,
     is_simplified_chinese,
+    list_pending,
     load_from_file,
+    load_from_url,
+    load_pending,
     save_to_pending,
     validate_term,
 )
@@ -254,3 +259,240 @@ class TestImportResult:
         assert result.conflicts == 0
         assert result.errors == []
         assert result.terms == {}
+
+
+class TestLoadFromUrl:
+    """Test load_from_url function."""
+
+    def test_load_dict_format(self):
+        """Test loading dict format from URL."""
+        mock_data = {"软件": "軟體", "硬件": "硬體"}
+
+        mock_resp = MagicMock()
+        mock_resp.read.return_value = json.dumps(mock_data).encode()
+        mock_resp.__enter__ = MagicMock(return_value=mock_resp)
+        mock_resp.__exit__ = MagicMock(return_value=False)
+
+        with patch("urllib.request.urlopen", return_value=mock_resp):
+            terms = load_from_url("https://example.com/terms.json")
+
+            assert terms == mock_data
+
+    def test_load_terms_key_format(self):
+        """Test loading format with terms key from URL."""
+        mock_data = {"version": "1.0", "terms": {"软件": "軟體"}}
+
+        mock_resp = MagicMock()
+        mock_resp.read.return_value = json.dumps(mock_data).encode()
+        mock_resp.__enter__ = MagicMock(return_value=mock_resp)
+        mock_resp.__exit__ = MagicMock(return_value=False)
+
+        with patch("urllib.request.urlopen", return_value=mock_resp):
+            terms = load_from_url("https://example.com/terms.json")
+
+            assert terms == {"软件": "軟體"}
+
+    def test_load_list_format(self):
+        """Test loading list format from URL."""
+        mock_data = [
+            {"source": "软件", "target": "軟體"},
+            {"source": "硬件", "target": "硬體"},
+        ]
+
+        mock_resp = MagicMock()
+        mock_resp.read.return_value = json.dumps(mock_data).encode()
+        mock_resp.__enter__ = MagicMock(return_value=mock_resp)
+        mock_resp.__exit__ = MagicMock(return_value=False)
+
+        with patch("urllib.request.urlopen", return_value=mock_resp):
+            terms = load_from_url("https://example.com/terms.json")
+
+            assert terms == {"软件": "軟體", "硬件": "硬體"}
+
+    def test_load_url_error(self):
+        """Test URL error handling."""
+        from zhtw.import_terms import ImportError
+
+        with patch("urllib.request.urlopen") as mock_urlopen:
+            mock_urlopen.side_effect = urllib.error.URLError("Connection refused")
+
+            try:
+                load_from_url("https://example.com/terms.json")
+                assert False, "Should have raised ImportError"
+            except ImportError as e:
+                assert "無法載入 URL" in str(e)
+
+    def test_load_json_error(self):
+        """Test JSON decode error handling."""
+        from zhtw.import_terms import ImportError
+
+        mock_resp = MagicMock()
+        mock_resp.read.return_value = b"not valid json"
+        mock_resp.__enter__ = MagicMock(return_value=mock_resp)
+        mock_resp.__exit__ = MagicMock(return_value=False)
+
+        with patch("urllib.request.urlopen", return_value=mock_resp):
+            try:
+                load_from_url("https://example.com/terms.json")
+                assert False, "Should have raised ImportError"
+            except ImportError as e:
+                assert "JSON 解析錯誤" in str(e)
+
+    def test_load_unknown_format(self):
+        """Test unknown format error handling."""
+        from zhtw.import_terms import ImportError
+
+        mock_resp = MagicMock()
+        mock_resp.read.return_value = b'"just a string"'
+        mock_resp.__enter__ = MagicMock(return_value=mock_resp)
+        mock_resp.__exit__ = MagicMock(return_value=False)
+
+        with patch("urllib.request.urlopen", return_value=mock_resp):
+            try:
+                load_from_url("https://example.com/terms.json")
+                assert False, "Should have raised ImportError"
+            except ImportError as e:
+                assert "無法識別的格式" in str(e)
+
+
+class TestListPending:
+    """Test list_pending function."""
+
+    def test_list_empty_dir(self):
+        """Test listing empty pending directory."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            with patch("zhtw.import_terms.get_pending_dir", return_value=Path(tmpdir)):
+                results = list_pending()
+                assert results == []
+
+    def test_list_pending_files(self):
+        """Test listing pending files."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            pending_dir = Path(tmpdir)
+
+            # Create test pending files
+            file1 = pending_dir / "test1.json"
+            file1.write_text(
+                json.dumps(
+                    {
+                        "terms": {"a": "A", "b": "B"},
+                        "description": "Test file 1",
+                        "status": "pending",
+                    }
+                )
+            )
+
+            file2 = pending_dir / "test2.json"
+            file2.write_text(json.dumps({"terms": {"c": "C"}, "status": "reviewed"}))
+
+            with patch("zhtw.import_terms.get_pending_dir", return_value=pending_dir):
+                results = list_pending()
+
+                assert len(results) == 2
+                assert results[0]["name"] == "test1.json"
+                assert results[0]["terms_count"] == 2
+                assert results[0]["description"] == "Test file 1"
+                assert results[1]["name"] == "test2.json"
+                assert results[1]["terms_count"] == 1
+
+    def test_list_skips_invalid_json(self):
+        """Test listing skips invalid JSON files."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            pending_dir = Path(tmpdir)
+
+            # Create valid file
+            valid = pending_dir / "valid.json"
+            valid.write_text(json.dumps({"terms": {"a": "A"}}))
+
+            # Create invalid file
+            invalid = pending_dir / "invalid.json"
+            invalid.write_text("not valid json")
+
+            with patch("zhtw.import_terms.get_pending_dir", return_value=pending_dir):
+                results = list_pending()
+
+                assert len(results) == 1
+                assert results[0]["name"] == "valid.json"
+
+
+class TestLoadPending:
+    """Test load_pending function."""
+
+    def test_load_pending_file(self):
+        """Test loading a pending file."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            pending_dir = Path(tmpdir)
+
+            # Create test file
+            test_file = pending_dir / "test.json"
+            test_data = {"terms": {"a": "A"}, "status": "pending"}
+            test_file.write_text(json.dumps(test_data))
+
+            with patch("zhtw.import_terms.get_pending_dir", return_value=pending_dir):
+                data = load_pending("test")
+
+                assert data == test_data
+
+    def test_load_pending_with_extension(self):
+        """Test loading with .json extension."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            pending_dir = Path(tmpdir)
+
+            test_file = pending_dir / "test.json"
+            test_data = {"terms": {"a": "A"}}
+            test_file.write_text(json.dumps(test_data))
+
+            with patch("zhtw.import_terms.get_pending_dir", return_value=pending_dir):
+                data = load_pending("test.json")
+
+                assert data == test_data
+
+    def test_load_pending_not_found(self):
+        """Test loading nonexistent file raises error."""
+        from zhtw.import_terms import ImportError
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            with patch("zhtw.import_terms.get_pending_dir", return_value=Path(tmpdir)):
+                try:
+                    load_pending("nonexistent")
+                    assert False, "Should have raised ImportError"
+                except ImportError as e:
+                    assert "待審核檔案不存在" in str(e)
+
+
+class TestDeletePending:
+    """Test delete_pending function."""
+
+    def test_delete_pending_file(self):
+        """Test deleting a pending file."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            pending_dir = Path(tmpdir)
+
+            # Create test file
+            test_file = pending_dir / "test.json"
+            test_file.write_text("{}")
+
+            with patch("zhtw.import_terms.get_pending_dir", return_value=pending_dir):
+                delete_pending("test")
+
+                assert not test_file.exists()
+
+    def test_delete_pending_with_extension(self):
+        """Test deleting with .json extension."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            pending_dir = Path(tmpdir)
+
+            test_file = pending_dir / "test.json"
+            test_file.write_text("{}")
+
+            with patch("zhtw.import_terms.get_pending_dir", return_value=pending_dir):
+                delete_pending("test.json")
+
+                assert not test_file.exists()
+
+    def test_delete_nonexistent_no_error(self):
+        """Test deleting nonexistent file doesn't raise error."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            with patch("zhtw.import_terms.get_pending_dir", return_value=Path(tmpdir)):
+                # Should not raise
+                delete_pending("nonexistent")
