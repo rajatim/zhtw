@@ -44,48 +44,16 @@ pytest                    # 測試
 zhtw validate             # 驗證詞庫
 ```
 
-## 🚀 發佈流程
+## 📚 模組化規則
 
-### 🚨 最高優先級規則
-
-```
-⛔ 禁止手動發佈（gh release create、git tag）
-⛔ 沒有使用者明確同意，不可發佈
-✅ 只能透過 Jenkins Pipeline 發佈
-```
-
-### Jenkins 發佈
-
-| 項目 | 值 |
-|------|-----|
-| Jenkins URL | [REDACTED-JENKINS-URL] |
-| Pipeline 檔案 | `[REDACTED-PIPELINE-PATH]` |
-| 觸發方式 | 手動（需 審核） |
-
-### 發佈步驟
-
-1. **準備**（Claude 可做）：
-   - 更新 `pyproject.toml` → version
-   - 更新 `src/zhtw/__init__.py` → __version__
-   - 更新 `CHANGELOG.md` → 新增版本區塊
-   - Commit + Push 到 main
-
-2. **發佈**（需使用者操作）：
-   - 使用者到 Jenkins 觸發 `zhtw-release`
-   - 審核通過後自動發佈
-
-> ⚠️ 三處版本號必須一致！Jenkins 會驗證。
-
-## 📚 按需讀取
-
-| 主題 | 檔案 |
-|-----|------|
-| 詞庫操作 | `.claude/guides/vocabulary.md` |
-| 問題排查 | `.claude/guides/debugging.md` |
-| 決策樹 | `.claude/guides/decision-trees.md` |
-| 深度測試 | `.claude/guides/deep-testing.md` |
-| **版本發佈** | **`.claude/guides/releasing.md`** |
-| 測試框架 | `TESTING.md` |
+| 檔案 | 內容 | 讀取時機 |
+|------|------|----------|
+| @.claude/rules/releasing.md | 版本發佈流程 | 準備發佈版本 |
+| @.claude/rules/git-workflow.md | 分支策略、提交規範 | 開發分支、合併 |
+| `.claude/guides/vocabulary.md` | 詞庫操作 | 新增/修改詞彙 |
+| `.claude/guides/debugging.md` | 問題排查 | 轉換錯誤 |
+| `.claude/guides/decision-trees.md` | 決策樹 | 複雜判斷 |
+| `.claude/guides/deep-testing.md` | 深度測試 | 完整驗證 |
 
 ## 🔗 關聯外部 Repo
 
@@ -107,74 +75,14 @@ pytest tests/test_corpus.py
 
 ## 🧪 深度測試專家角色
 
-深度測試本產品需要以下專家：
-
-**語言專家：**
-- 台灣母語者：驗證轉換結果符合台灣用語
-- 中國母語者：提供真實簡體樣本
-- 香港母語者：測試 HK→TW 轉換
-- 語言學者：一字多義（後/後、發/髮）語境判斷
-
-**領域專家：**
-- IT 工程師：軟體/軟體、函式/函式 等術語
-- 醫療人員：愛滋/愛滋、超音波/超音波
-- 法律/財經專業：正式文書用語
-
-**技術測試：**
-- QA 工程師：邊界條件、效能、回歸測試
-- 文字編輯：大量真實文字校對
-- NLP 專家：LLM 模式語境準確度
+**語言專家：** 台灣母語者、中國母語者、香港母語者、語言學者
+**領域專家：** IT 工程師、醫療人員、法律/財經專業
+**技術測試：** QA 工程師、文字編輯、NLP 專家
 
 > 💡 最有價值：**台灣 IT 從業者**（同時覆蓋每日 + 技術術語）
 
-## 🔀 Git 工作流程
+詳細說明：`.claude/guides/deep-testing.md`
 
-### 預設行為
-- 一般修改直接 commit 到 main
-- 每次 commit 都要有清楚的 commit message
+---
 
-### 何時需要 Branch
-
-| 情境 | 分支 | 說明 |
-|------|------|------|
-| 詞庫擴充/修正 | ❌ | 直接 main |
-| 小修正/文件 | ❌ | 直接 main |
-| **zhtw-db 開發** | ✅ | 每個 DB 一個 branch |
-| **核心重構** | ✅ | 先詢問再開 |
-| **實驗性變更** | ✅ | 先詢問再開 |
-
-需要開 branch 時，先詢問：
-> 這次變更會 [簡述影響]，建議開 branch `feature/xxx` 進行，要嗎？
-
-### Branch 命名
-- `feature/功能簡述`（如 `feature/db-postgres`）
-- `refactor/範圍簡述`
-- `experiment/嘗試內容`
-- `fix/問題簡述`
-
-### 合併前確認
-```
-## 準備合併 [branch name] → main
-
-**變更內容：**
-- [檔案清單]
-
-**功能說明：**
-- [完成了什麼]
-
-**注意事項：**
-- [破壞性變更或額外步驟]
-
-確認合併？
-```
-
-### Commit 規範
-格式：`type: 簡短描述`
-
-| 類型 | 用途 |
-|------|------|
-| `feat` | 新功能 |
-| `fix` | 修復問題 |
-| `refactor` | 重構（不改功能） |
-| `docs` | 文件更新 |
-| `chore` | 雜項（依賴、設定） |
+**開始開發：遵守黃金規則，按需讀取模組化指南**
