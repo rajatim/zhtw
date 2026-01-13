@@ -40,16 +40,21 @@
 
 ## 30 秒開始使用
 
+### 安裝
+
+**macOS (Homebrew)**
+```bash
+brew tap rajatim/tap
+brew install zhtw
+```
+
+**pip (所有平臺)**
 ```bash
 python3 -m pip install zhtw
-
-zhtw check .          # 檢查整個專案
-zhtw check ./file.py  # 檢查單一檔案
-zhtw fix .            # 自動修正
 ```
 
 <details>
-<summary>zhtw 指令找不到？設定 PATH</summary>
+<summary>pip 安裝後找不到 zhtw 指令？</summary>
 
 ```bash
 # macOS (zsh)
@@ -64,6 +69,14 @@ source ~/.bashrc
 # %APPDATA%\Python\PythonXX\Scripts
 ```
 </details>
+
+### 基本使用
+
+```bash
+zhtw check .          # 檢查整個專案
+zhtw check ./file.py  # 檢查單一檔案
+zhtw fix .            # 自動修正
+```
 
 <!-- zhtw:disable -->
 **輸出範例：**
@@ -340,6 +353,10 @@ ruff check .
 ## 立即試試
 
 ```bash
+# macOS
+brew tap rajatim/tap && brew install zhtw && zhtw check .
+
+# 其他平臺
 python3 -m pip install zhtw && zhtw check .
 ```
 
