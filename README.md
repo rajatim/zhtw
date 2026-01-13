@@ -149,17 +149,40 @@ source ~/.bashrc
 
 ## CI/CD 整合
 
+### GitHub Actions
+
 加入 GitHub Actions，每個 PR 自動檢查：
 
 ```yaml
 # .github/workflows/chinese-check.yml
-- name: 檢查繁體中文用語
-  run: |
-    pip install zhtw
-    zhtw check ./src --json
+name: Chinese Check
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install zhtw
+        run: pip install zhtw
+      - name: Check Traditional Chinese
+        run: zhtw check . --json
 ```
 
-有問題就會失敗，再也不怕漏掉。
+### GitLab CI
+
+```yaml
+# .gitlab-ci.yml
+chinese-check:
+  image: python:3.12-slim
+  script:
+    - pip install zhtw
+    - zhtw check . --json
+```
+
+有問題就會失敗，再也不怕漏掉。詳細教學請參考 [CI/CD 整合指南](docs/CI-CD-INTEGRATION.md)。
 
 ---
 
@@ -171,15 +194,30 @@ Commit 前自動擋住問題：
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v2.8.0
+    rev: v2.8.6  # 使用最新版本
     hooks:
-      - id: zhtw-check
+      - id: zhtw-check   # 檢查模式（建議）
+      # - id: zhtw-fix   # 或自動修正模式
 ```
 
 ```bash
 pip install pre-commit && pre-commit install
 # 之後每次 commit 都會自動檢查
 ```
+
+<details>
+<summary>進階設定：只檢查特定檔案類型</summary>
+
+```yaml
+repos:
+  - repo: https://github.com/rajatim/zhtw
+    rev: v2.8.6
+    hooks:
+      - id: zhtw-check
+        types: [python, markdown, yaml]  # 只檢查這些類型
+        exclude: ^tests/fixtures/        # 排除測試資料
+```
+</details>
 
 ---
 

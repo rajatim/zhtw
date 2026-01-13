@@ -1,15 +1,27 @@
+# Pre-commit hooks for zhtw
+# https://github.com/rajatim/zhtw
+#
+# Usage in .pre-commit-config.yaml:
+#   repos:
+#     - repo: https://github.com/rajatim/zhtw
+#       rev: v2.8.6  # Use the latest version
+#       hooks:
+#         - id: zhtw-check  # Or zhtw-fix for auto-fix
+
 - id: zhtw-check
-  name: Check Simplified Chinese
+  name: zhtw (check)
   description: Check for Simplified/HK Chinese that should be Taiwan Traditional
   entry: zhtw check
   language: python
   types: [text]
-  pass_filenames: false
+  pass_filenames: true
+  require_serial: false
 
 - id: zhtw-fix
-  name: Fix Simplified Chinese
+  name: zhtw (fix)
   description: Auto-fix Simplified/HK Chinese to Taiwan Traditional
   entry: zhtw fix
   language: python
   types: [text]
-  pass_filenames: false
+  pass_filenames: true
+  require_serial: false
