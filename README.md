@@ -38,23 +38,45 @@
 
 ---
 
-## 30 秒開始使用
+## 安裝
 
-### 安裝
+### macOS (Homebrew) — 推薦
 
-**macOS (Homebrew)**
 ```bash
 brew tap rajatim/tap
 brew install zhtw
 ```
 
-**pip (所有平臺)**
+更新：`brew upgrade zhtw`
+
+### pip (所有平臺)
+
 ```bash
 python3 -m pip install zhtw
 ```
 
+更新：`pip install --upgrade zhtw`
+
+### pipx (隔離環境)
+
+[pipx](https://pipx.pypa.io/) 會在獨立虛擬環境中安裝，不影響系統 Python：
+
+```bash
+pipx install zhtw
+```
+
+更新：`pipx upgrade zhtw`
+
+### 從原始碼安裝 (開發者)
+
+```bash
+git clone https://github.com/rajatim/zhtw.git
+cd zhtw
+pip install -e ".[dev]"
+```
+
 <details>
-<summary>pip 安裝後找不到 zhtw 指令？</summary>
+<summary>pip 安裝後找不到 zhtw 指令？設定 PATH</summary>
 
 ```bash
 # macOS (zsh)
@@ -70,7 +92,9 @@ source ~/.bashrc
 ```
 </details>
 
-### 基本使用
+---
+
+## 30 秒開始使用
 
 ```bash
 zhtw check .          # 檢查整個專案
