@@ -11,19 +11,37 @@ license = "MIT"
 authors = [
     { name = "rajatim", email = "rajatim@users.noreply.github.com" }
 ]
-keywords = ["chinese", "traditional", "simplified", "taiwan", "converter", "i18n"]
+keywords = [
+    "chinese",
+    "traditional",
+    "simplified",
+    "taiwan",
+    "converter",
+    "i18n",
+    "l10n",
+    "localization",
+    "nlp",
+    "text-processing",
+    "vibe-coding",
+    "ai-tools",
+]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Environment :: Console",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
+    "Natural Language :: Chinese (Traditional)",
+    "Natural Language :: Chinese (Simplified)",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Text Processing :: Linguistic",
+    "Topic :: Software Development :: Internationalization",
+    "Topic :: Software Development :: Localization",
 ]
 requires-python = ">=3.9"
 dependencies = [
@@ -49,7 +67,11 @@ zhtw = "zhtw.cli:main"
 [project.urls]
 Homepage = "https://github.com/rajatim/zhtw"
 Repository = "https://github.com/rajatim/zhtw"
+Documentation = "https://github.com/rajatim/zhtw#readme"
 Issues = "https://github.com/rajatim/zhtw/issues"
+Changelog = "https://github.com/rajatim/zhtw/blob/main/CHANGELOG.md"
+"Blog Post (中文)" = "https://blog.rajatim.com/zhtw-vibe-coding-traditional-chinese-converter-zh/"
+"Blog Post (English)" = "https://blog.rajatim.com/zhtw-vibe-coding-traditional-chinese-converter-en/"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/zhtw"]
