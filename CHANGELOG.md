@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.6] - 2026-01-13
+
+### Changed
+- **PyPI SEO 優化**：增加專案曝光度
+  - 新增 Blog Post 連結（中文/English）
+  - 新增 Documentation、Changelog 連結
+  - 擴充 keywords：l10n, localization, nlp, vibe-coding, ai-tools
+  - 新增 classifiers：Natural Language, Internationalization, Localization
+  - 新增 Python 3.13 支援宣告
+
 ## [2.8.5] - 2026-01-05
 
 ### Changed
