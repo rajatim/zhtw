@@ -55,6 +55,8 @@ zhtw validate             # 驗證詞庫
 | `.claude/guides/decision-trees.md` | 決策樹 | 複雜判斷 |
 | `.claude/guides/deep-testing.md` | 深度測試 | 完整驗證 |
 
+> 💡 **Maintainer 注意**：內部規則（如 CI/CD 細節）在 `*-internal.md` 檔案中，不公開版控。
+
 ## 🔗 關聯外部 Repo
 
 | Repo | 用途 | 注意事項 |

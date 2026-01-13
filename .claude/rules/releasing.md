@@ -1,48 +1,52 @@
 # 發佈流程
 
-> 版本發佈必須透過 Jenkins Pipeline 執行
+> 版本發佈透過 CI/CD Pipeline 執行
 
 ## 🚨 最高優先級規則
 
 ```
 ⛔ 禁止手動發佈（gh release create、git tag）
 ⛔ 沒有使用者明確同意，不可發佈
-✅ 只能透過 Jenkins Pipeline 發佈
+✅ 只能透過 CI/CD Pipeline 發佈
 ```
-
-## Jenkins 發佈
-
-| 項目 | 值 |
-|------|-----|
-| Jenkins URL | [REDACTED-JENKINS-URL] |
-| Pipeline 檔案 | `[REDACTED-PIPELINE-PATH]` |
-| 觸發方式 | 手動（需 審核） |
 
 ## 發佈步驟
 
-### 1. 準備（Claude 可做）
+### 1. 準備版本（貢獻者/AI 可做）
 
-- 更新 `pyproject.toml` → version
-- 更新 `src/zhtw/__init__.py` → __version__
-- 更新 `CHANGELOG.md` → 新增版本區塊
+更新以下三處版本號（**必須一致**）：
+
+```bash
+# 1. pyproject.toml
+version = "x.y.z"
+
+# 2. src/zhtw/__init__.py
+__version__ = "x.y.z"
+
+# 3. CHANGELOG.md 新增版本區塊
+## [x.y.z] - YYYY-MM-DD
+### Added / Changed / Fixed
+- ...
+```
+
+然後：
+- 執行 `pytest` 確保測試通過
 - Commit + Push 到 main
 
-### 2. 發佈（需使用者操作）
+### 2. 觸發發佈（Maintainer 操作）
 
-- 使用者到 Jenkins 觸發 `zhtw-release`
+- Maintainer 觸發 CI/CD Pipeline
 - 審核通過後自動發佈
 
-> ⚠️ 三處版本號必須一致！Jenkins 會驗證。
+> ⚠️ Pipeline 會驗證三處版本號一致性，不一致會失敗。
 
-## 自動執行內容
+## Pipeline 自動執行
 
-Pipeline 會自動：
 1. 驗證版本號一致性
 2. 執行完整測試
 3. 建立 Git tag
 4. 建立 GitHub Release
 5. 發佈至 PyPI
-6. 發送 通知
 
 ---
 
