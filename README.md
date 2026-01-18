@@ -389,4 +389,4 @@ python3 -m pip install zhtw && zhtw check .
 
 ---
 
-MIT License | **rajatim 出品**
+MIT License | **tim Insight 出品**
