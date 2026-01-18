@@ -295,7 +295,7 @@ def main():
 
     將程式碼和文件中的簡體中文/香港繁體轉換為台灣繁體中文。
 
-    rajatim 出品 ✨
+    tim Insight 出品 ✨
     """
     pass
 
