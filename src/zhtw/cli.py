@@ -913,7 +913,12 @@ def validate(source: str, strict: bool):
     type=str,
     help="暫存檔案名稱（預設從來源自動產生）",
 )
-def import_cmd(source: str, no_pending: bool, name: Optional[str]):
+@click.option(
+    "--allow-insecure",
+    is_flag=True,
+    help="允許不安全的 HTTP 連線（不建議）",
+)
+def import_cmd(source: str, no_pending: bool, name: Optional[str], allow_insecure: bool):
     """
     匯入外部詞庫。
 
@@ -939,7 +944,7 @@ def import_cmd(source: str, no_pending: bool, name: Optional[str]):
         existing = {}
 
     try:
-        result = import_terms(source, existing_terms=existing)
+        result = import_terms(source, existing_terms=existing, allow_insecure=allow_insecure)
     except TermImportError as e:
         click.echo(click.style(f"❌ 匯入失敗: {e}", fg="red"))
         sys.exit(1)

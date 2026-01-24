@@ -43,15 +43,15 @@ def is_simplified_chinese(char: str) -> bool:
     """
     # Common simplified-only characters
     simplified_chars = set(
-        "与专业东两严个丰临为丽举义乐习书买乱争亏云产亲亿仅从仓仪众优会"
-        "伟传伤伦伪体余佣侠侣侥侦侧侨侬俊俏俐俣俦俨俩俪俭债倾偻偿傥傧储"
-        "兑兖关兴养兽冁冯冲决况冻净凄准凉减凑凛凤凫凭凯击凿刍划刘则刚创"
-        "删别刬刭刮刹剀剂剐剑剥剧劝办务劢动励劲劳势勋勚匀匦匮区医华协单"
-        "卖卢卤卫却卷厂厅历厉压厌厍厐厕厘厢厣厦厨厩厮县叁参双变叙叠只台"
-        "叶号叹吁后吓吕吗吨听启吴呐呒呓呕呖呗员呙呛呜咏咙咛咝咤咴咸哒哓"
+        "與專業東兩严個丰临為丽举義乐習书買亂争虧雲產親億僅從仓仪众優會"
+        "偉傳伤伦伪體余佣侠侣侥侦侧侨侬俊俏俐俣俦俨俩俪俭債倾偻償傥傧储"
+        "兑兖關兴养兽冁冯冲決况冻淨凄准凉减凑凛凤凫凭凯击凿刍劃劉則剛創"
+        "删别刬刭刮刹剀剂剐剑剥劇劝辦務劢動励劲勞勢勋勚匀匦匮区醫華协單"
+        "賣卢卤衛卻卷廠厅歷厉壓厌厍厐厕厘厢厣厦厨厩厮縣叁參雙變叙叠只台"
+        "葉號叹吁後吓吕嗎吨聽启吴呐呒呓呕呖呗員呙呛呜咏咙咛咝咤咴鹹哒哓"
         "哔哕哗哙哜哝哟唛唝唠唡唢唣唤啧啬啭啮啰啴啸喷喽喾嗫嗳嘘嘤嘱噜噼"
-        "嚣囊囔囵国图圆圣圹场坂坏块坚坛坜坝坞坟坠垄垅垆垒垦垧垩垫垭垱垲"
-        "垴埘埙埚埝域埯堑堕堙塆墙壮声壳壶壸处备复够头夸夹夺奁奂奋奖套奥"
+        "嚣囊囔囵國圖圆圣圹場坂壞塊坚坛坜坝坞坟坠垄垅垆垒垦垧垩垫垭垱垲"
+        "垴埘埙埚埝域埯堑堕堙塆墙壮聲壳壶壸處備複夠頭誇夹夺奁奂奋獎套奥"
     )
     return char in simplified_chars
 
@@ -149,7 +149,10 @@ def load_from_file(path: Path) -> dict:
 
 
 def import_terms(
-    source: str, existing_terms: Optional[dict] = None, validate: bool = True
+    source: str,
+    existing_terms: Optional[dict] = None,
+    validate: bool = True,
+    allow_insecure: bool = False,
 ) -> ImportResult:
     """Import terms from a URL or file path.
 
@@ -157,6 +160,7 @@ def import_terms(
         source: URL or file path
         existing_terms: Existing terms dict for conflict detection
         validate: Whether to validate terms
+        allow_insecure: Whether to allow insecure HTTP connections
 
     Returns:
         ImportResult with import statistics and validated terms
@@ -165,7 +169,11 @@ def import_terms(
     existing = existing_terms or {}
 
     # Load terms
-    if source.startswith("http://") or source.startswith("https://"):
+    if source.startswith("http://"):
+        if not allow_insecure:
+            raise ImportError("不安全的 HTTP 連線，請使用 HTTPS 或加上 --allow-insecure")
+        raw_terms = load_from_url(source)
+    elif source.startswith("https://"):
         raw_terms = load_from_url(source)
     else:
         raw_terms = load_from_file(Path(source))
