@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-03-22
+
+### Added
+- **字元級轉換層**：新增 6,344 個安全一對一簡繁字元映射（`str.translate()`），作為詞彙級轉換後的第二層
+- **OpenCC 詞庫整合**：修復 `opencc.json` 格式並新增 28,106 個詞條
+- **Aho-Corasick 重疊保護**：13 個新保護詞條，修復周/週過度轉換
+- **7 個驗證測試模組**（623 項測試）：字元映射完整性、詞庫品質、過度轉換偵測、歧義字消歧、邊界案例、壓力效能、黃金對照
+- **52 書大規模審計**：103M 字、0 殘留簡體、0 古字、0 真實過度轉換
+- `charconv.py` 模組：字元級轉換核心
+- `generate_charmap.py`：從 Unicode Unihan 自動產生映射腳本
+- `audit_books.py`：多書籍 epub 品質審計腳本
+
+### Fixed
+- `opencc.json` 存儲為 Python dict literal 而非 JSON，導致無法載入
+- `灶→竈`、`𬮤→閤` 古字映射移除（臺灣不用）
+- 25 處 `週圍`（應為 `周圍`）過度轉換
+- 2 處 `週全`（應為 `周全`）過度轉換
+
 ## [2.8.7] - 2026-01-18
 
 ### Changed
