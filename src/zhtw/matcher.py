@@ -4,6 +4,7 @@ Matcher module using Aho-Corasick algorithm for efficient multi-pattern matching
 This allows O(n) scanning of text regardless of the number of terms in the dictionary.
 """
 
+from bisect import bisect_right
 from dataclasses import dataclass
 from typing import Dict, Iterator
 
@@ -94,19 +95,28 @@ class Matcher:
         # - "件"→"件" does NOT block longer "軟體"→"軟體" (件 is contained)
         protected: set[int] = set()
 
-        # First, find all identity mappings
+        # Separate identity and non-identity matches
         identity_matches = [m for m in all_matches if m.source == m.target]
+        non_identity = [(m.start, m.end) for m in all_matches if m.source != m.target]
 
-        # For each identity mapping, check if it's fully contained in a longer match
-        for identity in identity_matches:
-            is_contained = False
-            for other in all_matches:
-                if other is not identity and other.source != other.target:
-                    # Check if identity is fully contained within other
-                    if other.start <= identity.start and other.end >= identity.end:
-                        is_contained = True
-                        break
-            if not is_contained:
+        # Use binary search to check containment: O(m log m) instead of O(n*m)
+        if non_identity:
+            non_identity.sort()
+            ni_starts = [s for s, _e in non_identity]
+            # prefix_max_end[i] = max(end) among non_identity[0..i]
+            ni_max_end: list[int] = []
+            max_e = 0
+            for _s, e in non_identity:
+                max_e = max(max_e, e)
+                ni_max_end.append(max_e)
+
+            for identity in identity_matches:
+                idx = bisect_right(ni_starts, identity.start) - 1
+                is_contained = idx >= 0 and ni_max_end[idx] >= identity.end
+                if not is_contained:
+                    protected.update(range(identity.start, identity.end))
+        else:
+            for identity in identity_matches:
                 protected.update(range(identity.start, identity.end))
 
         # Filter overlapping matches
@@ -167,21 +177,22 @@ class Matcher:
         Returns:
             Text with all matches replaced.
         """
-        # Collect matches and sort by position (in reverse to replace from end)
+        # Collect matches (already in forward order from find_matches)
         matches = list(self.find_matches(text))
 
         if not matches:
             return text
 
-        # Sort by start position in reverse
-        matches.sort(key=lambda m: m.start, reverse=True)
-
-        # Replace from end to start to preserve positions
-        result = text
+        # Build result with forward scan + list join: O(n) instead of O(n*m)
+        parts: list[str] = []
+        last_end = 0
         for match in matches:
-            result = result[: match.start] + match.target + result[match.end :]
+            parts.append(text[last_end : match.start])
+            parts.append(match.target)
+            last_end = match.end
+        parts.append(text[last_end:])
 
-        return result
+        return "".join(parts)
 
     def has_matches(self, text: str) -> bool:
         """
