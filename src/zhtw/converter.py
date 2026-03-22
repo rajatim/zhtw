@@ -307,6 +307,7 @@ def convert_text(
     matcher: Matcher,
     fix: bool = False,
     ignored_lines: Optional[Set[int]] = None,
+    char_table: Optional[dict[int, str]] = None,
 ) -> tuple[str, List[tuple[Match, int, int]]]:
     """
     Convert text using matcher.
@@ -316,6 +317,7 @@ def convert_text(
         matcher: Matcher instance.
         fix: Whether to apply fixes.
         ignored_lines: Set of line numbers to skip.
+        char_table: Character-level translate table (str.translate format).
 
     Returns:
         Tuple of (processed_text, list of (match, line, col)).
@@ -331,15 +333,26 @@ def convert_text(
     if fix and matches:
         # Only replace non-ignored matches
         # We need to do this carefully to preserve ignored content
-        text = _replace_with_ignores(text, matcher, ignored_lines)
+        text = _replace_with_ignores(text, matcher, ignored_lines, char_table)
+    elif fix and not matches and char_table:
+        # No term-level matches but still apply char-level conversion
+        text = _replace_with_ignores(text, matcher, ignored_lines, char_table)
 
     return text, matches
 
 
-def _replace_with_ignores(text: str, matcher: Matcher, ignored_lines: Set[int]) -> str:
+def _replace_with_ignores(
+    text: str,
+    matcher: Matcher,
+    ignored_lines: Set[int],
+    char_table: Optional[dict[int, str]] = None,
+) -> str:
     """Replace matches while respecting ignored lines."""
     if not ignored_lines:
-        return matcher.replace_all(text)
+        result = matcher.replace_all(text)
+        if char_table:
+            result = result.translate(char_table)
+        return result
 
     # Process line by line
     lines = text.split("\n")
@@ -351,8 +364,11 @@ def _replace_with_ignores(text: str, matcher: Matcher, ignored_lines: Set[int]) 
             # Keep line as-is
             result_lines.append(line)
         else:
-            # Replace matches in this line
-            result_lines.append(matcher.replace_all(line))
+            # Replace matches in this line, then apply char-level conversion
+            converted = matcher.replace_all(line)
+            if char_table:
+                converted = converted.translate(char_table)
+            result_lines.append(converted)
 
     return "\n".join(result_lines)
 
@@ -363,6 +379,7 @@ def convert_file(
     fix: bool = False,
     input_encoding: str | None = None,
     output_encoding: str = "auto",
+    char_table: Optional[dict[int, str]] = None,
 ) -> FileResult:
     """
     Process a single file.
@@ -403,7 +420,13 @@ def convert_file(
     ignored_lines = get_ignored_lines(content)
 
     # Find matches
-    new_content, matches = convert_text(content, matcher, fix=fix, ignored_lines=ignored_lines)
+    new_content, matches = convert_text(
+        content,
+        matcher,
+        fix=fix,
+        ignored_lines=ignored_lines,
+        char_table=char_table,
+    )
 
     # Build issues list
     for match, line, col in matches:
@@ -419,8 +442,8 @@ def convert_file(
             )
         )
 
-    # Write back if fixed
-    if fix and matches:
+    # Write back if fixed and content actually changed
+    if fix and new_content != content:
         try:
             used_encoding = write_file(
                 path,
@@ -454,6 +477,7 @@ def convert_directory(
     on_progress: Optional[ProgressCallback] = None,
     input_encoding: str | None = None,
     output_encoding: str = "auto",
+    char_table: Optional[dict[int, str]] = None,
 ) -> Iterator[FileResult]:
     """
     Process files in a directory or a single file.
@@ -483,6 +507,7 @@ def convert_directory(
                 fix=fix,
                 input_encoding=input_encoding,
                 output_encoding=output_encoding,
+                char_table=char_table,
             )
         return
 
@@ -501,8 +526,6 @@ def convert_directory(
 
     total = len(files)
 
-    # Process files (single-threaded for now to avoid pickle issues with Matcher)
-    # TODO: Implement proper parallel processing
     for i, file_path in enumerate(files):
         if on_progress:
             on_progress(i + 1, total)
@@ -512,6 +535,7 @@ def convert_directory(
             fix=fix,
             input_encoding=input_encoding,
             output_encoding=output_encoding,
+            char_table=char_table,
         )
 
 
@@ -525,6 +549,7 @@ def process_directory(
     on_progress: Optional[ProgressCallback] = None,
     input_encoding: str | None = None,
     output_encoding: str = "auto",
+    char_convert: bool = True,
 ) -> ConversionResult:
     """
     Process a directory or single file and return aggregated results.
@@ -539,6 +564,7 @@ def process_directory(
         on_progress: Callback for progress updates (current, total).
         input_encoding: Input encoding (None or "auto" for auto-detect).
         output_encoding: Output encoding strategy.
+        char_convert: Whether to apply character-level conversion.
 
     Returns:
         Aggregated ConversionResult.
@@ -546,6 +572,13 @@ def process_directory(
     # Load dictionary and create matcher
     terms = load_dictionary(sources=sources, custom_path=custom_dict)
     matcher = Matcher(terms)
+
+    # Load character-level conversion table
+    char_table = None
+    if char_convert and sources and "cn" in sources:
+        from .charconv import get_translate_table
+
+        char_table = get_translate_table()
 
     result = ConversionResult()
 
@@ -558,6 +591,7 @@ def process_directory(
         on_progress=on_progress,
         input_encoding=input_encoding,
         output_encoding=output_encoding,
+        char_table=char_table,
     ):
         if file_result.skipped:
             result.files_skipped += 1

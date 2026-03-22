@@ -341,6 +341,11 @@ def main():
     default=None,
     help="輸入編碼 (auto=自動偵測，預設)",
 )
+@click.option(
+    "--no-char-convert",
+    is_flag=True,
+    help="停用字元層轉換（僅使用詞庫轉換）",
+)
 def check(
     path: Path,
     source: str,
@@ -349,6 +354,7 @@ def check(
     json_output: bool,
     verbose: bool,
     encoding: Optional[str],
+    no_char_convert: bool,
 ):
     """
     檢查模式：掃描檔案並報告問題，不修改檔案。
@@ -371,6 +377,9 @@ def check(
     # Get encoding from env if not specified
     input_encoding = encoding or get_env_str("ZHTW_ENCODING")
 
+    # Determine char-convert setting (env override)
+    use_char_convert = not no_char_convert and get_env_bool("ZHTW_CHAR_CONVERT", default=True)
+
     if not json_output:
         icon = "📄" if path.is_file() else "📁"
         click.echo(f"{icon} 掃描 {path}")
@@ -386,6 +395,7 @@ def check(
         excludes=excludes,
         on_progress=progress_callback,
         input_encoding=input_encoding,
+        char_convert=use_char_convert,
     )
 
     if json_output:
@@ -466,6 +476,11 @@ def check(
     is_flag=True,
     help="自動確認，不互動（CI/CD 模式）",
 )
+@click.option(
+    "--no-char-convert",
+    is_flag=True,
+    help="停用字元層轉換（僅使用詞庫轉換）",
+)
 def fix(
     path: Path,
     source: str,
@@ -479,6 +494,7 @@ def fix(
     encoding: Optional[str],
     output_encoding: str,
     yes: bool,
+    no_char_convert: bool,
 ):
     """
     修正模式：掃描檔案並自動修正問題。
@@ -508,6 +524,9 @@ def fix(
     input_encoding = encoding or get_env_str("ZHTW_ENCODING")
     out_encoding = output_encoding or get_env_str("ZHTW_OUTPUT_ENCODING", "auto")
     auto_yes = yes or get_env_bool("ZHTW_YES")
+
+    # Determine char-convert setting (env override)
+    use_char_convert = not no_char_convert and get_env_bool("ZHTW_CHAR_CONVERT", default=True)
 
     # Helper function to perform backup if needed
     def do_backup_if_needed(result: ConversionResult) -> None:
@@ -550,6 +569,7 @@ def fix(
             on_progress=progress_callback,
             input_encoding=input_encoding,
             output_encoding=out_encoding,
+            char_convert=use_char_convert,
         )
 
         if result.total_issues == 0:
@@ -590,6 +610,7 @@ def fix(
                 on_progress=progress_callback,
                 input_encoding=input_encoding,
                 output_encoding=out_encoding,
+                char_convert=use_char_convert,
             )
             print_results(result, verbose=verbose)
         else:
@@ -616,6 +637,7 @@ def fix(
             on_progress=progress_callback,
             input_encoding=input_encoding,
             output_encoding=out_encoding,
+            char_convert=use_char_convert,
         )
         do_backup_if_needed(check_result)
 
@@ -628,6 +650,7 @@ def fix(
         on_progress=progress_callback,
         input_encoding=input_encoding,
         output_encoding=out_encoding,
+        char_convert=use_char_convert,
     )
 
     if json_output:
@@ -689,6 +712,17 @@ def stats(source: str, json_output: bool):
         stats_data["sources"][src] = src_stats
         stats_data["total_terms"] += src_stats["total"]
 
+    # Load charmap stats
+    try:
+        from .charconv import get_charmap_stats
+
+        charmap_stats = get_charmap_stats()
+    except Exception:
+        charmap_stats = None
+
+    if charmap_stats:
+        stats_data["charmap"] = charmap_stats
+
     if json_output:
         click.echo(json.dumps(stats_data, ensure_ascii=False, indent=2))
     else:
@@ -704,14 +738,21 @@ def stats(source: str, json_output: bool):
 
             click.echo(click.style(f"   小計: {src_stats['total']} 個詞彙", fg="cyan"))
 
-        click.echo("\n" + "━" * 40)
-        click.echo(
-            click.style(
-                f"📈 總計: {stats_data['total_terms']} 個詞彙",
-                fg="green",
-                bold=True,
+        if charmap_stats:
+            click.echo("\n🔤 字元映射 (charmap/)")
+            click.echo(f"   安全字元: {charmap_stats['safe_chars']} 個")
+            click.echo(f"   排除歧義字: {charmap_stats['ambiguous_excluded']} 個")
+            click.echo(
+                click.style(
+                    f"   覆蓋率: {charmap_stats['total_coverage']} 個已知簡繁差異字", fg="cyan"
+                )
             )
-        )
+
+        click.echo("\n" + "━" * 40)
+        total_str = f"📈 總計: {stats_data['total_terms']} 個詞彙"
+        if charmap_stats:
+            total_str += f" + {charmap_stats['safe_chars']} 個安全字元"
+        click.echo(click.style(total_str, fg="green", bold=True))
 
 
 @main.command()
