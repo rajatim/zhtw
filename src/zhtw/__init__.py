@@ -4,7 +4,7 @@ ZHTW - Simplified/HK Traditional to Taiwan Traditional Chinese Converter
 tim Insight 出品 🇹🇼
 """
 
-__version__ = "3.2.0"
+__version__ = "3.2.1"
 __author__ = "tim Insight"
 
 from .converter import convert_file, convert_text
