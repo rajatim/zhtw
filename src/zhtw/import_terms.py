@@ -28,6 +28,9 @@ class ImportError(Exception):
     pass
 
 
+_simplified_chars_cache: Optional[set] = None
+
+
 def get_pending_dir() -> Path:
     """Get the pending terms directory."""
     # Get the data directory relative to this file
@@ -39,21 +42,19 @@ def get_pending_dir() -> Path:
 def is_simplified_chinese(char: str) -> bool:
     """Check if a character is likely simplified Chinese.
 
-    This is a simple heuristic based on Unicode ranges.
+    Uses the charmap data (safe_chars.json) as the source of truth.
+    A character is simplified if it appears as a key in the charmap
+    (meaning it has a different traditional form).
     """
-    # Common simplified-only characters
-    simplified_chars = set(
-        "與專業東兩严個丰临為丽举義乐習书買亂争虧雲產親億僅從仓仪众優會"
-        "偉傳伤伦伪體余佣侠侣侥侦侧侨侬俊俏俐俣俦俨俩俪俭債倾偻償傥傧储"
-        "兑兖關兴养兽冁冯冲決况冻淨凄准凉减凑凛凤凫凭凯击凿刍劃劉則剛創"
-        "删别刬刭刮刹剀剂剐剑剥劇劝辦務劢動励劲勞勢勋勚匀匦匮区醫華协單"
-        "賣卢卤衛卻卷廠厅歷厉壓厌厍厐厕厘厢厣厦厨厩厮縣叁參雙變叙叠只台"
-        "葉號叹吁後吓吕嗎吨聽启吴呐呒呓呕呖呗員呙呛呜咏咙咛咝咤咴鹹哒哓"
-        "哔哕哗哙哜哝哟唛唝唠唡唢唣唤啧啬啭啮啰啴啸喷喽喾嗫嗳嘘嘤嘱噜噼"
-        "嚣囊囔囵國圖圆圣圹場坂壞塊坚坛坜坝坞坟坠垄垅垆垒垦垧垩垫垭垱垲"
-        "垴埘埙埚埝域埯堑堕堙塆墙壮聲壳壶壸處備複夠頭誇夹夺奁奂奋獎套奥"
-    )
-    return char in simplified_chars
+    global _simplified_chars_cache
+    if _simplified_chars_cache is None:
+        charmap_path = Path(__file__).parent / "data" / "charmap" / "safe_chars.json"
+        try:
+            data = json.loads(charmap_path.read_text("utf-8"))
+            _simplified_chars_cache = set(data.get("chars", {}).keys())
+        except Exception:
+            _simplified_chars_cache = set()
+    return char in _simplified_chars_cache
 
 
 def validate_term(source: str, target: str, existing_terms: dict) -> tuple[bool, Optional[str]]:
