@@ -9,6 +9,8 @@ Gold Standard 比對測試。
 4. 效能達標
 """
 
+from __future__ import annotations
+
 import time
 from pathlib import Path
 

@@ -1,6 +1,8 @@
 """詞庫品質驗證測試。驗證全部詞條的正確性、一致性和完整性。"""
 # zhtw:disable  # 測試案例需要簡體字
 
+from __future__ import annotations
+
 import json
 import unicodedata
 from pathlib import Path
