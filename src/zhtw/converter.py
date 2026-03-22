@@ -338,7 +338,38 @@ def convert_text(
         # No term-level matches but still apply char-level conversion
         text = _replace_with_ignores(text, matcher, ignored_lines, char_table)
 
+    # In check mode, also detect char-level conversions
+    if not fix and char_table:
+        char_matches = _find_char_matches(text, char_table, ignored_lines)
+        matches = matches + char_matches
+
     return text, matches
+
+
+def _find_char_matches(
+    text: str,
+    char_table: dict[int, str],
+    ignored_lines: Set[int],
+) -> List[tuple[Match, int, int]]:
+    """Find characters that would be converted by char_table (for check mode)."""
+    results: List[tuple[Match, int, int]] = []
+    lines = text.split("\n")
+    pos = 0
+    for i, line in enumerate(lines):
+        line_num = i + 1
+        if line_num not in ignored_lines:
+            for col_idx, ch in enumerate(line):
+                cp = ord(ch)
+                if cp in char_table and char_table[cp] != ch:
+                    m = Match(
+                        start=pos + col_idx,
+                        end=pos + col_idx + 1,
+                        source=ch,
+                        target=char_table[cp],
+                    )
+                    results.append((m, line_num, col_idx + 1))
+        pos += len(line) + 1  # +1 for newline
+    return results
 
 
 def _replace_with_ignores(

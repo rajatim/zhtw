@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] - 2026-03-22
+
+### Added
+- **Check mode 字元級偵測**：check 模式現在也會報告字元層轉換（之前只報告詞彙層）
+- **30+ 新保護詞條**：划船/划水/划拳 identity、周到/周密/周旋/周折 保護、屋里/水里/梦里/城里 等
+- **Thread safety**：charconv.py 全域快取加入 `threading.Lock`
+
+### Fixed
+- **opencc.json 122 條古字修復**：喫→吃、孃→娘、昇→升、鬨→哄（臺灣不用古字形）
+- **苹果→Apple 危險映射**：改為 `苹果手机→Apple 手機` 等特定複合詞
+- **笔记本→筆記型電腦 過度轉換**：改為 `笔记本电脑→筆記型電腦`，裸詞 identity 保護
+- **头像→大頭貼**：改為通用正確的 `头像→頭像`
+- **存储→儲存空間**：改為不過度翻譯的 `存储→儲存`
+- **encoding.py confidence 型別錯誤**：從 `encoding_aliases[0]`（str）改為 `best.coherence`（float）
+- **于 歧義字排除**：從 safe_chars.json 移至 ambiguous_excluded（于可為姓氏）
+
 ## [3.1.0] - 2026-03-22
 
 ### Performance

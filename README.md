@@ -243,7 +243,7 @@ Commit 前自動擋住問題：
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v3.1.0  # 使用最新版本
+    rev: v3.2.0  # 使用最新版本
     hooks:
       - id: zhtw-check   # 檢查模式（建議）
       # - id: zhtw-fix   # 或自動修正模式
@@ -260,7 +260,7 @@ pip install pre-commit && pre-commit install
 ```yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v3.1.0
+    rev: v3.2.0
     hooks:
       - id: zhtw-check
         types: [python, markdown, yaml]  # 只檢查這些類型

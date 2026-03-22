@@ -77,8 +77,8 @@ class TestAmbiguousExclusion:
         assert violations == [], f"以下歧義字不應出現在 safe charmap 中：{violations}"
 
     def test_ambiguous_count(self, ambiguous):
-        """歧義字數量恰好為 118 個。"""
-        assert len(ambiguous) == 118, f"期望 118 個歧義字，實際 {len(ambiguous)} 個"
+        """歧義字數量恰好為 119 個。"""
+        assert len(ambiguous) == 119, f"期望 119 個歧義字，實際 {len(ambiguous)} 個"
 
     def test_ambiguous_are_single_chars(self, ambiguous):
         """每個歧義字都是單一字元。"""

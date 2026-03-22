@@ -115,7 +115,7 @@ def detect_encoding(file_path: Path) -> EncodingInfo:
     return EncodingInfo(
         encoding=encoding,
         has_bom=bool(best.bom),
-        confidence=best.encoding_aliases[0] if best.encoding_aliases else 1.0,
+        confidence=best.coherence,
         can_represent_traditional=can_represent_traditional(encoding),
     )
 

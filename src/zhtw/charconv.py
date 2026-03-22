@@ -8,13 +8,15 @@
 from __future__ import annotations
 
 import json
+import threading
 from pathlib import Path
 from typing import Dict, List, Optional
 
 CHARMAP_DIR = Path(__file__).parent / "data" / "charmap"
 CHARMAP_FILE = CHARMAP_DIR / "safe_chars.json"
 
-# 模組級快取
+# 模組級快取（執行緒安全）
+_lock = threading.Lock()
 _cached_charmap: Optional[Dict[str, str]] = None
 _cached_table: Optional[Dict[int, str]] = None
 _cached_ambiguous: Optional[List[str]] = None
@@ -32,7 +34,8 @@ def load_charmap(path: Optional[Path] = None) -> Dict[str, str]:
 
     result = data.get("chars", data)
     if path is None:
-        _cached_charmap = result
+        with _lock:
+            _cached_charmap = result
     return result
 
 
@@ -49,7 +52,8 @@ def get_translate_table(path: Optional[Path] = None) -> Dict[int, str]:
 
     table = build_translate_table(load_charmap(path))
     if path is None:
-        _cached_table = table
+        with _lock:
+            _cached_table = table
     return table
 
 
@@ -70,7 +74,8 @@ def get_ambiguous_chars(path: Optional[Path] = None) -> List[str]:
 
     result = data.get("ambiguous_excluded", [])
     if path is None:
-        _cached_ambiguous = result
+        with _lock:
+            _cached_ambiguous = result
     return result
 
 
@@ -88,6 +93,7 @@ def get_charmap_stats(path: Optional[Path] = None) -> Dict[str, int]:
 def clear_cache() -> None:
     """清除快取（供測試用）。"""
     global _cached_charmap, _cached_table, _cached_ambiguous
-    _cached_charmap = None
-    _cached_table = None
-    _cached_ambiguous = None
+    with _lock:
+        _cached_charmap = None
+        _cached_table = None
+        _cached_ambiguous = None
