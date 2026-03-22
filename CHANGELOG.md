@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2026-03-22
+
+### Performance
+- **Matcher 效能優化**：修復超線性退化，1MB 文字吞吐量 33 → 3,068 KB/s（**93 倍**）
+  - Protected ranges：O(n×m) 巢狀迴圈 → O(m log m) 二分搜尋（bisect）
+  - replace_all：O(n×m) 字串切片 → O(n) list+join
+  - 吞吐量穩定 ~3,100 KB/s，不受文字大小影響
+- 測試套件執行時間：249s → 41s（6 倍加速）
+
 ## [3.0.0] - 2026-03-22
 
 ### Added
