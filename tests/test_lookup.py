@@ -7,7 +7,7 @@ import pytest
 
 from zhtw.charconv import get_translate_table
 from zhtw.dictionary import load_dictionary
-from zhtw.lookup import lookup_word
+from zhtw.lookup import lookup_word, lookup_words
 from zhtw.matcher import Matcher
 
 
@@ -115,3 +115,23 @@ class TestLookupWordEdgeCases:
         """不傳 char_table 時只做詞彙層。"""
         result = lookup_word("盐", matcher)
         assert result.changed is False
+
+
+class TestLookupWords:
+    """批次查詢測試。"""
+
+    def test_multiple_words(self, matcher, char_table):
+        """多詞批次查詢。"""
+        results = lookup_words(["摄入", "盐", "结合", "心态", "营养"], matcher, char_table)
+        assert len(results) == 5
+        assert all(r.changed for r in results)
+        assert results[0].output == "攝入"
+        assert results[1].output == "鹽"
+        assert results[2].output == "結合"
+        assert results[3].output == "心態"
+        assert results[4].output == "營養"
+
+    def test_empty_list(self, matcher, char_table):
+        """空列表回傳空列表。"""
+        results = lookup_words([], matcher, char_table)
+        assert results == []
