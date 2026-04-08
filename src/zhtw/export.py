@@ -6,8 +6,11 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 from . import __version__
-from .charconv import get_ambiguous_chars, load_charmap
-from .dictionary import DATA_DIR, load_directory
+from .charconv import get_ambiguous_chars, get_translate_table, load_charmap
+from .converter import convert_text
+from .dictionary import DATA_DIR, load_dictionary, load_directory
+from .lookup import lookup_word
+from .matcher import Matcher
 
 
 def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
@@ -46,4 +49,103 @@ def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
             "ambiguous": sorted(ambiguous),
         },
         "terms": terms,
+    }
+
+
+# Golden test cases — inputs that exercise key conversion scenarios
+# Uses Unicode escapes to prevent pre-commit zhtw hook from converting inputs.
+_GOLDEN_CASES = [
+    # (input_text, sources, description)
+    ("\u8f6f\u4ef6\u6d4b\u8bd5", ["cn"], "term layer: multi-term"),
+    ("\u8fd9\u4e2a\u670d\u52a1\u5668\u7684\u5185\u5b58\u4e0d\u591f", ["cn"], "mixed"),
+    ("\u5934\u53d1\u5f88\u5e72", ["cn"], "ambiguous chars"),
+    ("\u8edf\u4ef6\u5de5\u7a0b\u5e2b", ["hk"], "HK source: term only"),
+    ("\u5df2\u7d93\u662f\u7e41\u9ad4", ["cn"], "no conversion needed"),
+    ("\u6570\u636e\u5e93\u670d\u52a1\u5668", ["cn"], "term layer: compound terms"),
+    ("\u4e91\u8ba1\u7b97", ["cn"], "ambiguous: cloud"),
+    ("\u53d1\u5c55\u5f88\u5feb", ["cn"], "ambiguous: fa"),
+]
+
+# Lookup test cases — individual words/chars
+_LOOKUP_CASES = [
+    ("\u8f6f\u4ef6", ["cn"]),
+    ("\u8fd9", ["cn"]),
+    ("\u53f0", ["cn"]),
+    ("\u5934\u53d1", ["cn"]),
+    ("\u8edf\u4ef6", ["hk"]),
+]
+
+
+def generate_golden_test() -> Dict[str, Any]:
+    """Generate golden test JSON from Python pipeline results.
+
+    Runs the actual Python conversion on test cases and records results.
+    SDKs must reproduce these exact results.
+    """
+    convert_cases = []
+    check_cases = []
+    lookup_cases = []
+
+    for input_text, srcs, _desc in _GOLDEN_CASES:
+        terms = load_dictionary(sources=srcs)
+        matcher = Matcher(terms)
+        char_table = get_translate_table() if "cn" in srcs else None
+
+        # Convert
+        converted, _ = convert_text(input_text, matcher, fix=True, char_table=char_table)
+        convert_cases.append(
+            {
+                "input": input_text,
+                "sources": srcs,
+                "expected": converted,
+            }
+        )
+
+        # Check — get matches with positions
+        _, matches = convert_text(input_text, matcher, fix=False, char_table=char_table)
+        check_cases.append(
+            {
+                "input": input_text,
+                "sources": srcs,
+                "expected_matches": [
+                    {
+                        "start": m.start,
+                        "end": m.end,
+                        "source": m.source,
+                        "target": m.target,
+                    }
+                    for m, _line, _col in matches
+                ],
+            }
+        )
+
+    for word, srcs in _LOOKUP_CASES:
+        terms = load_dictionary(sources=srcs)
+        matcher = Matcher(terms)
+        char_table = get_translate_table() if "cn" in srcs else None
+        result = lookup_word(word, matcher, char_table)
+        lookup_cases.append(
+            {
+                "input": word,
+                "sources": srcs,
+                "expected_output": result.output,
+                "expected_changed": result.changed,
+                "expected_details": [
+                    {
+                        "source": d.source,
+                        "target": d.target,
+                        "layer": d.layer,
+                        "position": d.position,
+                    }
+                    for d in result.details
+                ],
+            }
+        )
+
+    return {
+        "version": __version__,
+        "description": "SDK consistency test — all SDKs must pass",
+        "convert": convert_cases,
+        "check": check_cases,
+        "lookup": lookup_cases,
     }

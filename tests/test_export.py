@@ -75,3 +75,87 @@ def test_export_data_source_filter():
     assert "cn" in data["terms"]
     assert "hk" not in data["terms"]
     assert data["stats"]["terms_hk_count"] == 0
+
+
+def test_golden_test_schema():
+    """Golden test must have correct schema."""
+    from zhtw.export import generate_golden_test
+
+    golden = generate_golden_test()
+
+    assert "version" in golden
+    assert "description" in golden
+    assert "convert" in golden
+    assert "check" in golden
+    assert "lookup" in golden
+    assert isinstance(golden["convert"], list)
+    assert isinstance(golden["check"], list)
+    assert isinstance(golden["lookup"], list)
+
+
+def test_golden_convert_cases():
+    """Convert cases must have input/sources/expected fields."""
+    from zhtw.export import generate_golden_test
+
+    golden = generate_golden_test()
+
+    for case in golden["convert"]:
+        assert "input" in case
+        assert "sources" in case
+        assert "expected" in case
+        assert isinstance(case["sources"], list)
+
+
+def test_golden_check_has_full_matches():
+    """Check cases must have expected_matches with start/end/source/target."""
+    from zhtw.export import generate_golden_test
+
+    golden = generate_golden_test()
+
+    for case in golden["check"]:
+        assert "input" in case
+        assert "expected_matches" in case
+        for m in case["expected_matches"]:
+            assert "start" in m
+            assert "end" in m
+            assert "source" in m
+            assert "target" in m
+
+
+def test_golden_lookup_has_full_details():
+    """Lookup cases must have expected_details with source/target/layer/position."""
+    from zhtw.export import generate_golden_test
+
+    golden = generate_golden_test()
+
+    for case in golden["lookup"]:
+        assert "input" in case
+        assert "expected_output" in case
+        assert "expected_changed" in case
+        assert "expected_details" in case
+        for d in case["expected_details"]:
+            assert "source" in d
+            assert "target" in d
+            assert "layer" in d
+            assert "position" in d
+
+
+def test_golden_convert_matches_python_pipeline():
+    """Golden convert expected values must match actual Python conversion."""
+    from zhtw.charconv import get_translate_table
+    from zhtw.converter import convert_text
+    from zhtw.dictionary import load_dictionary
+    from zhtw.export import generate_golden_test
+    from zhtw.matcher import Matcher
+
+    golden = generate_golden_test()
+
+    for case in golden["convert"]:
+        terms = load_dictionary(sources=case["sources"])
+        matcher = Matcher(terms)
+        char_table = get_translate_table() if "cn" in case["sources"] else None
+        result_text, _ = convert_text(case["input"], matcher, fix=True, char_table=char_table)
+        assert result_text == case["expected"], (
+            f"Convert mismatch for {case['input']!r}: "
+            f"golden={case['expected']!r}, actual={result_text!r}"
+        )
