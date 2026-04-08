@@ -28,25 +28,8 @@
 
 | 檔案 | 說明 |
 |------|------|
-| `git tag` | 發佈流程建立（Jenkins 或手動） |
-| PyPI | Jenkins 或 GitHub Actions 自動發佈 |
-
----
-
-## 🔀 發佈方式選擇
-
-| 方式 | 適用情境 | 優點 |
-|------|----------|------|
-| **Jenkins（推薦）** | 正式發佈 | 人工審核、通知、完整驗證 |
-| GitHub Actions | 緊急修復、Jenkins 不可用時 | 快速、無需額外設定 |
-
-### Jenkins Pipeline 位置
-
-```
-[REDACTED-PIPELINE-PATH]
-```
-
-Jenkins URL: `https://[REDACTED]`
+| `git tag` | 手動建立 |
+| PyPI | GitHub Actions 自動發佈（push tag 觸發） |
 
 ---
 
@@ -56,7 +39,7 @@ Jenkins URL: `https://[REDACTED]`
 
 | 檢查項目 | 指令 | 通過標準 |
 |----------|------|----------|
-| 單元測試 | `pytest` | 全部通過（目前 208+） |
+| 單元測試 | `pytest` | 全部通過 |
 | 測試覆蓋率 | `pytest --cov` | >80% |
 | Lint 檢查 | `ruff check .` | 無錯誤 |
 | 格式檢查 | `ruff format --check .` | 無問題 |
@@ -207,16 +190,21 @@ head -20 CHANGELOG.md | grep '## \['
   - [ ] 使用範例正確
   - [ ] 數據（詞庫規模等）正確
 
+### 發佈通路
+- [ ] PyPI publish workflow 成功（綠勾）
+- [ ] Homebrew tap Formula 已更新
+
 ### 最終確認
-- [ ] `git status` 無未提交變更
-- [ ] `python3 -m zhtw --version` 顯示正確版本
+- [ ] `pip install zhtw==X.Y.Z` 成功
+- [ ] `brew upgrade zhtw` 成功
+- [ ] `zhtw --version` 顯示正確版本
 ```
 
 ---
 
 ## 🚀 發佈流程
 
-### Step 1: 更新版本號（共通）
+### Step 1: 更新版本號
 
 ```bash
 # 編輯這三個檔案，確保版本號一致
@@ -225,7 +213,7 @@ head -20 CHANGELOG.md | grep '## \['
 # 3. CHANGELOG.md
 ```
 
-### Step 2: 提交版本變更（共通）
+### Step 2: 提交版本變更
 
 ```bash
 git add pyproject.toml src/zhtw/__init__.py CHANGELOG.md
@@ -233,93 +221,51 @@ git commit -m "chore: release vX.Y.Z"
 git push
 ```
 
----
-
-### 方式 A: Jenkins 發佈（推薦）
-
-```
-1. 前往 Jenkins: https://[REDACTED]
-2. 找到 Job: zhtw-release
-3. 點擊 Build Now
-4. Jenkins 自動執行所有發佈步驟
-```
-
-**Jenkins Credentials 需求：**
-
-| Credential ID | 類型 | 用途 |
-|---------------|------|------|
-| `github-credentials` | Username/Password (PAT) | Git push tag、gh CLI |
-| `pypi-token` | Secret text | PyPI API Token |
-| `通訊軟體-webhook` | — | 由 notifyService 使用 |
-
-**Pipeline 執行內容：**
-
-| Stage | 說明 |
-|-------|------|
-| Checkout | 從 GitHub clone main |
-| Version Check | 驗證 3 檔案版本一致、tag 不存在 |
-| Setup | 建立 Python venv（`/tmp/zhtw-venv-$BUILD_NUMBER`） |
-| Validate | pytest / ruff / zhtw validate（平行執行） |
-| Build | `python -m build` 產生 dist/ |
-| **Approval** | ⏸️ 人工確認（顯示 CHANGELOG，通知） |
-| Publish to PyPI | `twine upload dist/*` |
-| GitHub Release | `git tag` + `gh release create` |
-| Verify | `pip index versions zhtw` 確認已上架 |
-| Badge Health | 驗證 PyPI/CI 徽章內容正確 |
-
-**通知：**
-
-| 時機 | 頻道 | 內容 |
-|------|------|------|
-| Approval 等待 | #pipeline | 版本號、CHANGELOG、審核連結 |
-| 發佈成功 | #pipeline | 版本號、PyPI/GitHub/Jenkins 連結 |
-| 發佈失敗 | #pipeline | 版本號、Console 連結 |
-
----
-
-### 方式 B: GitHub Actions 發佈（備用）
-
-適用：Jenkins 不可用、緊急修復
+### Step 3: 建立 Tag 和 GitHub Release
 
 ```bash
-# Step 3: 建立 Tag
+# 建立 Tag
 git tag -a vX.Y.Z -m "vX.Y.Z: 簡短說明"
 git push origin vX.Y.Z
 
-# Step 4: 建立 GitHub Release
+# 建立 GitHub Release
 gh release create vX.Y.Z \
   --title "vX.Y.Z: 標題" \
   --notes "變更內容（可從 CHANGELOG 複製）"
 ```
 
-這會自動觸發 `.github/workflows/publish.yml` 發佈到 PyPI。
+> Push tag 會自動觸發 `.github/workflows/publish.yml` 發佈到 PyPI。
+
+### Step 4: 更新 Homebrew Tap
+
+PyPI 發佈成功後，更新 [`rajatim/homebrew-tap`](https://github.com/rajatim/homebrew-tap)：
+
+```bash
+cd ~/GitHub/homebrew-tap
+
+# 取得新版 tarball SHA256
+curl -sL https://files.pythonhosted.org/packages/source/z/zhtw/zhtw-X.Y.Z.tar.gz \
+  | shasum -a 256
+
+# 編輯 Formula/zhtw.rb
+# - 更新 url 為新版 tarball URL
+# - 更新 sha256
+
+# 提交
+git add Formula/zhtw.rb
+git commit -m "zhtw X.Y.Z"
+git push
+```
 
 ---
 
 ## ✅ 發佈後驗證
 
-### Jenkins 發佈（自動驗證）
-
-Jenkins Pipeline 的 Verify 和 Badge Health stage 已自動驗證：
-- ✅ PyPI 已上架（`pip index versions`）
-- ✅ PyPI 徽章顯示正確版本
-- ✅ CI 徽章狀態為 passing
-
-**手動確認（可選）：**
-
-| 項目 | 方法 |
-|------|------|
-| 安裝測試 | `pip install zhtw==X.Y.Z` |
-| 版本確認 | `zhtw --version` |
-| 基本功能 | `zhtw check .` |
-
-### GitHub Actions 發佈（手動驗證）
-
 | 項目 | 方法 |
 |------|------|
 | GitHub Actions | 確認 publish workflow 成功（綠勾） |
-| PyPI 頁面 | https://pypi.org/project/zhtw/ 版本正確 |
-| 安裝測試 | `pip install zhtw==X.Y.Z` |
+| PyPI | `pip install zhtw==X.Y.Z` 安裝成功 |
+| Homebrew | `brew upgrade zhtw` 更新成功 |
 | 版本確認 | `zhtw --version` 顯示正確 |
 | 基本功能 | `zhtw check .` 正常執行 |
 
@@ -351,32 +297,6 @@ git push origin vX.Y.Z
 2. 確認 `PYPI_API_TOKEN` secret 有效
 3. 確認版本號未被佔用（PyPI 不允許覆蓋）
 
-### Q: Jenkins 顯示「Tag vX.Y.Z 已存在」怎麼辦？
-
-表示該版本已發佈過。需要更新版本號：
-
-1. 修改 `pyproject.toml`、`__init__.py`、`CHANGELOG.md`
-2. `git commit && git push`
-3. 重新觸發 Jenkins job
-
-### Q: Jenkins Badge Health 失敗怎麼辦？
-
-Badge Health 驗證 SVG 內容，可能原因：
-
-| 問題 | 原因 | 解法 |
-|------|------|------|
-| PyPI 徽章版本不對 | CDN 快取延遲 | 等 1-2 分鐘後 Retry |
-| CI 徽章非 passing | main 有失敗的 commit | 修復 CI 後重新發佈 |
-
-### Q: Jenkins Approval 沒收到 通知？
-
-檢查：
-1. `notifyService` 是否正確設定
-2. 通訊軟體 webhook 是否有效
-3. Jenkins console 有無錯誤訊息
-
-即使通知失敗，仍可在 Jenkins UI 手動審核。
-
 ---
 
 ## 📊 版本號規則（Semantic Versioning）
@@ -389,4 +309,4 @@ Badge Health 驗證 SVG 內容，可能原因：
 
 ---
 
-*最後更新：2026-01-04（Jenkins Pipeline 完整文件化）*
+*最後更新：2026-04-08（移除 Jenkins，改為手動發佈流程）*
