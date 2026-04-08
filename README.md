@@ -101,6 +101,7 @@ source ~/.bashrc
 zhtw check .          # 檢查整個專案
 zhtw check ./file.py  # 檢查單一檔案
 zhtw fix .            # 自動修正
+zhtw lookup 软件 服务器  # 查詢轉換結果
 ```
 
 <!-- zhtw:disable -->
@@ -243,7 +244,7 @@ Commit 前自動擋住問題：
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v3.2.0  # 使用最新版本
+    rev: v3.3.0  # 使用最新版本
     hooks:
       - id: zhtw-check   # 檢查模式（建議）
       # - id: zhtw-fix   # 或自動修正模式
@@ -304,6 +305,36 @@ zhtw validate
 # 詳細輸出
 zhtw check ./src --verbose
 ```
+
+### 詞彙查詢 (v3.3.0+)
+
+<!-- zhtw:disable -->
+不確定某個詞會不會被轉？用 `lookup` 直接查：
+
+```bash
+# 查詢單詞
+zhtw lookup 软件 服务器 数据库
+
+# 查詢整句（自動拆解每個轉換點）
+zhtw lookup "这个软件需要网络服务器"
+
+# 詳細模式（顯示每個轉換由哪一層負責）
+zhtw lookup -v 营养
+
+# JSON 輸出（供程式使用）
+zhtw lookup --json 结合
+
+# stdin 管線
+echo "心态" | zhtw lookup
+```
+
+**輸出範例：**
+```
+软件 → 軟體  (詞彙層: 软件→軟體)
+服务器 → 伺服器  (詞彙層: 服务器→伺服器)
+数据库 → 資料庫  (詞彙層: 数据库→資料庫)
+```
+<!-- zhtw:enable -->
 
 ### 多編碼支援 (v2.5.0+)
 

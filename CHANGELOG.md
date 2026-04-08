@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.0] - 2026-04-08
+
+### Added
+- **`zhtw lookup` 指令**：查詢任意詞/句的轉換結果與來源歸因（詞彙層 vs 字元層）
+  - 三種輸入：命令列參數、stdin 管線、整句模式
+  - `--verbose` 樹狀詳細歸因、`--json` 結構化輸出
+  - 核心邏輯獨立為 `lookup.py` 模組，可供程式化使用
+- **lookup 公開 API**：`lookup_word()`、`lookup_words()`、`LookupResult`、`ConversionDetail`
+
+### Fixed
+- **config 全域狀態污染**：`DEFAULT_CONFIG` 改用 `copy.deepcopy` 防止淺拷貝突變
+- **review skip 資料遺失**：全部 skip 時保留 pending 檔，不再靜默刪除
+- **UTF-16 雙 BOM**：Python `utf-16` codec 已自動寫 BOM，不再手動重複寫入
+- **custom dict 缺 target 欄位**：extended entry 缺 `target` 時跳過，不再把整個 dict 當替換值
+- **list 格式匯入重複偵測**：`_list_to_dict()` 在轉 dict 前偵測重複，正確計入 `duplicates`
+- **usage --reset 權限錯誤**：`PermissionError` 轉為乾淨的 CLI 錯誤訊息
+- **lookup/converter 輸出一致性**：term target 套用 charmap，確保與 converter pipeline 一致
+
 ## [3.2.1] - 2026-03-22
 
 ### Fixed
