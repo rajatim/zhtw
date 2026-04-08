@@ -14,7 +14,7 @@ def test_export_data_schema():
     data = export_data()
 
     assert "version" in data
-    assert "exported_at" in data
+    assert "exported_at" not in data  # removed for deterministic output
     assert "stats" in data
     assert "charmap" in data
     assert "terms" in data
@@ -245,7 +245,7 @@ def test_cli_export_missing_default_dir(tmp_path, monkeypatch):
 
 
 def test_cli_export_source_filter(tmp_path):
-    """CLI export with --source cn only exports CN terms."""
+    """CLI export with --source cn only exports CN terms and consistent golden."""
     import json
 
     runner = CliRunner()
@@ -255,6 +255,29 @@ def test_cli_export_source_filter(tmp_path):
     data = json.loads((tmp_path / "zhtw-data.json").read_text("utf-8"))
     assert "cn" in data["terms"]
     assert "hk" not in data["terms"]
+
+    # Golden test must also be filtered — no HK cases
+    golden = json.loads((tmp_path / "golden-test.json").read_text("utf-8"))
+    for case in golden["convert"]:
+        assert "hk" not in case["sources"], f"HK case leaked into CN-only golden: {case}"
+    for case in golden["lookup"]:
+        assert "hk" not in case["sources"], f"HK case leaked into CN-only golden: {case}"
+
+
+def test_write_export_byte_stable(tmp_path):
+    """Two consecutive exports must produce identical bytes."""
+    from zhtw.export import write_export
+
+    dir1 = tmp_path / "a"
+    dir2 = tmp_path / "b"
+    dir1.mkdir()
+    dir2.mkdir()
+
+    write_export(output_dir=dir1)
+    write_export(output_dir=dir2)
+
+    assert (dir1 / "zhtw-data.json").read_bytes() == (dir2 / "zhtw-data.json").read_bytes()
+    assert (dir1 / "golden-test.json").read_bytes() == (dir2 / "golden-test.json").read_bytes()
 
 
 def test_cli_export_verbose(tmp_path):

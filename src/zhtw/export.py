@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -39,7 +38,6 @@ def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
 
     return {
         "version": __version__,
-        "exported_at": datetime.now(timezone.utc).isoformat(),
         "stats": {
             "charmap_count": len(charmap),
             "ambiguous_count": len(ambiguous),
@@ -78,8 +76,13 @@ _LOOKUP_CASES = [
 ]
 
 
-def generate_golden_test() -> Dict[str, Any]:
+def generate_golden_test(
+    sources: Optional[List[str]] = None,
+) -> Dict[str, Any]:
     """Generate golden test JSON from Python pipeline results.
+
+    Args:
+        sources: Only include cases matching these sources. Default: all.
 
     Runs the actual Python conversion on test cases and records results.
     SDKs must reproduce these exact results.
@@ -89,6 +92,8 @@ def generate_golden_test() -> Dict[str, Any]:
     lookup_cases = []
 
     for input_text, srcs, _desc in _GOLDEN_CASES:
+        if sources is not None and not all(s in sources for s in srcs):
+            continue
         terms = load_dictionary(sources=srcs)
         matcher = Matcher(terms)
         char_table = get_translate_table() if "cn" in srcs else None
@@ -122,6 +127,8 @@ def generate_golden_test() -> Dict[str, Any]:
         )
 
     for word, srcs in _LOOKUP_CASES:
+        if sources is not None and not all(s in sources for s in srcs):
+            continue
         terms = load_dictionary(sources=srcs)
         matcher = Matcher(terms)
         char_table = get_translate_table() if "cn" in srcs else None
@@ -179,7 +186,7 @@ def write_export(
         Tuple of (data_path, golden_path).
     """
     data = export_data(sources=sources)
-    golden = generate_golden_test()
+    golden = generate_golden_test(sources=sources)
 
     # Sort for deterministic output
     sorted_data = _sort_dict(data)
