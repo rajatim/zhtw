@@ -4,8 +4,10 @@
 from __future__ import annotations
 
 import pytest
+from click.testing import CliRunner
 
 from zhtw.charconv import get_translate_table
+from zhtw.cli import main
 from zhtw.dictionary import load_dictionary
 from zhtw.lookup import lookup_word, lookup_words
 from zhtw.matcher import Matcher
@@ -135,3 +137,31 @@ class TestLookupWords:
         """空列表回傳空列表。"""
         results = lookup_words([], matcher, char_table)
         assert results == []
+
+
+# ──────────────────────────────────────────────
+# CLI 整合測試
+# ──────────────────────────────────────────────
+
+
+@pytest.fixture
+def runner():
+    return CliRunner()
+
+
+class TestLookupCLI:
+    """CLI 整合測試。"""
+
+    def test_multiple_args(self, runner):
+        """多個參數模式。"""
+        result = runner.invoke(main, ["lookup", "摄入", "盐", "结合"])
+        assert result.exit_code == 0
+        assert "攝入" in result.output
+        assert "鹽" in result.output
+        assert "結合" in result.output
+
+    def test_no_change(self, runner):
+        """無需轉換時顯示提示。"""
+        result = runner.invoke(main, ["lookup", "台灣"])
+        assert result.exit_code == 0
+        assert "無需轉換" in result.output

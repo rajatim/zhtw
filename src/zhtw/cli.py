@@ -756,6 +756,149 @@ def stats(source: str, json_output: bool):
 
 
 @main.command()
+@click.argument("words", nargs=-1)
+@click.option("--verbose", "-v", is_flag=True, help="詳細模式（樹狀逐項列表）")
+@click.option("--json", "json_output", is_flag=True, help="JSON 輸出")
+@click.option(
+    "--source",
+    "-s",
+    type=str,
+    default="cn,hk",
+    help="詞庫來源: cn (簡體), hk (港式), 或 cn,hk (預設)",
+)
+def lookup(words: tuple, verbose: bool, json_output: bool, source: str):
+    """
+    查詢詞彙的轉換結果與來源歸因。
+
+    \b
+    支援三種輸入方式：
+      zhtw lookup 摄入 盐 结合        # 多個單詞
+      echo "摄入" | zhtw lookup       # stdin 管線
+      zhtw lookup "摄入量过高会影响心态"  # 整句
+    """
+    import sys as _sys
+
+    from .charconv import get_translate_table
+    from .lookup import lookup_words
+    from .matcher import Matcher as _Matcher
+
+    # 載入詞庫
+    sources = [s.strip() for s in source.split(",")]
+    terms = load_dictionary(sources=sources)
+    matcher = _Matcher(terms)
+
+    # 字元轉換表（僅 cn 來源）
+    char_table = get_translate_table() if "cn" in sources else None
+
+    # 收集輸入
+    input_words: list[str] = []
+    if words:
+        input_words = list(words)
+    elif not _sys.stdin.isatty():
+        for line in _sys.stdin:
+            stripped = line.strip()
+            if stripped:
+                input_words.append(stripped)
+
+    if not input_words:
+        click.echo("用法: zhtw lookup <詞彙>...", err=True)
+        raise SystemExit(1)
+
+    # 判斷整句 vs 多個單詞
+    is_sentence = len(input_words) == 1 and len(input_words[0]) >= 4
+
+    # 執行查詢
+    results = lookup_words(input_words, matcher, char_table)
+
+    # 輸出
+    if json_output:
+        _print_lookup_json(results)
+    elif is_sentence:
+        _print_lookup_sentence(results[0], verbose)
+    else:
+        _print_lookup_words(results, verbose)
+
+
+def _print_lookup_json(results):
+    """JSON 格式輸出。"""
+    data = {
+        "results": [
+            {
+                "input": r.input,
+                "output": r.output,
+                "changed": r.changed,
+                "details": [
+                    {
+                        "source": d.source,
+                        "target": d.target,
+                        "layer": d.layer,
+                        "position": d.position,
+                    }
+                    for d in r.details
+                ],
+            }
+            for r in results
+        ]
+    }
+    click.echo(json.dumps(data, ensure_ascii=False, indent=2))
+
+
+def _print_lookup_words(results, verbose: bool):
+    """多個單詞的輸出格式。"""
+    for r in results:
+        if not r.changed:
+            click.echo(f"{r.input} {click.style('✓ 無需轉換', fg='green')}")
+            continue
+
+        if verbose:
+            click.echo(f"{r.input} → {click.style(r.output, fg='cyan')}")
+            for i, d in enumerate(r.details):
+                layer_label = "詞彙層" if d.layer == "term" else "字元層"
+                prefix = "└──" if i == len(r.details) - 1 else "├──"
+                click.echo(f"  {prefix} {d.source} → {d.target}  ({layer_label})")
+        else:
+            # 簡潔模式：列出轉換來源
+            layer_parts = []
+            for d in r.details:
+                layer_parts.append(f"{d.source}→{d.target}")
+
+            # 歸類：如果全部同層就只寫一次層名
+            layers = {d.layer for d in r.details}
+            if len(layers) == 1:
+                layer_name = "詞彙層" if "term" in layers else "字元層"
+                detail_str = f"({layer_name}: {', '.join(layer_parts)})"
+            else:
+                parts_with_layer = []
+                for d in r.details:
+                    tag = "詞" if d.layer == "term" else "字"
+                    parts_with_layer.append(f"{d.source}→{d.target}[{tag}]")
+                detail_str = f"({', '.join(parts_with_layer)})"
+
+            click.echo(f"{r.input} → {click.style(r.output, fg='cyan')}  {detail_str}")
+
+
+def _print_lookup_sentence(result, verbose: bool):
+    """整句的輸出格式。"""
+    if not result.changed:
+        click.echo(f"{result.input} {click.style('✓ 無需轉換', fg='green')}")
+        return
+
+    click.echo(result.input)
+    click.echo(f"→ {click.style(result.output, fg='cyan')}")
+    click.echo()
+
+    if verbose:
+        for i, d in enumerate(result.details):
+            layer_label = "詞彙層" if d.layer == "term" else "字元層"
+            prefix = "└──" if i == len(result.details) - 1 else "├──"
+            click.echo(f"{prefix} {d.source} → {d.target}  ({layer_label})")
+    else:
+        parts = [f"{d.source}→{d.target}" for d in result.details]
+        click.echo(f"轉換明細 ({len(result.details)} 處):")
+        click.echo(f"  {' '.join(parts)}")
+
+
+@main.command()
 @click.option(
     "--source",
     "-s",
