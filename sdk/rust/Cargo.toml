@@ -1,0 +1,12 @@
+[package]
+name = "zhtw"
+version = "3.3.0"
+edition = "2021"
+description = "Traditional Chinese converter for Taiwan — Rust SDK"
+license = "MIT"
+repository = "https://github.com/rajatim/zhtw"
+
+[dependencies]
+aho-corasick = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
