@@ -80,15 +80,11 @@ zhtw export --verbose                # 顯示匯出統計
 - wheel 只包 `src/zhtw`（`pyproject.toml` hatch build targets），不含 `sdk/`
 - pip 安裝的使用者不需要也不應該使用此指令
 
-### Repo root 偵測
+### 預設輸出路徑
 
-預設輸出路徑透過 git root 偵測：
+預設輸出到 `./sdk/data/`（CWD 相對路徑）。若目錄不存在，報錯並提示使用 `--output`。
 
-1. 執行 `git rev-parse --show-toplevel` 取得 repo 根目錄
-2. 輸出到 `<repo-root>/sdk/data/`
-3. 若非 git repo 或找不到 `sdk/` 目錄，報錯並要求使用 `--output`
-
-`--output` 覆蓋此預設，允許輸出到任意路徑。
+`--output` 覆蓋預設，允許輸出到任意路徑。
 
 ### 實作
 
