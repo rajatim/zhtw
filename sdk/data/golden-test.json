@@ -1,0 +1,382 @@
+{
+  "version": "3.3.0",
+  "description": "SDK consistency test — all SDKs must pass",
+  "convert": [
+    {
+      "input": "软件测试",
+      "sources": [
+        "cn"
+      ],
+      "expected": "軟體測試"
+    },
+    {
+      "input": "这个服务器的内存不够",
+      "sources": [
+        "cn"
+      ],
+      "expected": "這個伺服器的記憶體不夠"
+    },
+    {
+      "input": "头发很干",
+      "sources": [
+        "cn"
+      ],
+      "expected": "頭髮很幹"
+    },
+    {
+      "input": "軟件工程師",
+      "sources": [
+        "hk"
+      ],
+      "expected": "軟體工程師"
+    },
+    {
+      "input": "已經是繁體",
+      "sources": [
+        "cn"
+      ],
+      "expected": "已經是繁體"
+    },
+    {
+      "input": "数据库服务器",
+      "sources": [
+        "cn"
+      ],
+      "expected": "資料庫伺服器"
+    },
+    {
+      "input": "云计算",
+      "sources": [
+        "cn"
+      ],
+      "expected": "雲端運算"
+    },
+    {
+      "input": "发展很快",
+      "sources": [
+        "cn"
+      ],
+      "expected": "發展很快"
+    }
+  ],
+  "check": [
+    {
+      "input": "软件测试",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 2,
+          "source": "软件",
+          "target": "軟體"
+        },
+        {
+          "start": 2,
+          "end": 4,
+          "source": "测试",
+          "target": "測試"
+        },
+        {
+          "start": 0,
+          "end": 1,
+          "source": "软",
+          "target": "軟"
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "source": "测",
+          "target": "測"
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "source": "试",
+          "target": "試"
+        }
+      ]
+    },
+    {
+      "input": "这个服务器的内存不够",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 2,
+          "source": "这个",
+          "target": "這個"
+        },
+        {
+          "start": 2,
+          "end": 5,
+          "source": "服务器",
+          "target": "伺服器"
+        },
+        {
+          "start": 6,
+          "end": 8,
+          "source": "内存",
+          "target": "記憶體"
+        },
+        {
+          "start": 9,
+          "end": 10,
+          "source": "够",
+          "target": "夠"
+        },
+        {
+          "start": 0,
+          "end": 1,
+          "source": "这",
+          "target": "這"
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "source": "个",
+          "target": "個"
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "source": "务",
+          "target": "務"
+        },
+        {
+          "start": 6,
+          "end": 7,
+          "source": "内",
+          "target": "內"
+        },
+        {
+          "start": 9,
+          "end": 10,
+          "source": "够",
+          "target": "夠"
+        }
+      ]
+    },
+    {
+      "input": "头发很干",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 2,
+          "source": "头发",
+          "target": "頭髮"
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "source": "干",
+          "target": "幹"
+        },
+        {
+          "start": 0,
+          "end": 1,
+          "source": "头",
+          "target": "頭"
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "source": "发",
+          "target": "發"
+        }
+      ]
+    },
+    {
+      "input": "軟件工程師",
+      "sources": [
+        "hk"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 2,
+          "source": "軟件",
+          "target": "軟體"
+        }
+      ]
+    },
+    {
+      "input": "已經是繁體",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": []
+    },
+    {
+      "input": "数据库服务器",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 3,
+          "source": "数据库",
+          "target": "資料庫"
+        },
+        {
+          "start": 3,
+          "end": 6,
+          "source": "服务器",
+          "target": "伺服器"
+        },
+        {
+          "start": 0,
+          "end": 1,
+          "source": "数",
+          "target": "數"
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "source": "据",
+          "target": "據"
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "source": "库",
+          "target": "庫"
+        },
+        {
+          "start": 4,
+          "end": 5,
+          "source": "务",
+          "target": "務"
+        }
+      ]
+    },
+    {
+      "input": "云计算",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 3,
+          "source": "云计算",
+          "target": "雲端運算"
+        },
+        {
+          "start": 0,
+          "end": 1,
+          "source": "云",
+          "target": "雲"
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "source": "计",
+          "target": "計"
+        }
+      ]
+    },
+    {
+      "input": "发展很快",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 2,
+          "source": "发展",
+          "target": "發展"
+        },
+        {
+          "start": 0,
+          "end": 1,
+          "source": "发",
+          "target": "發"
+        }
+      ]
+    }
+  ],
+  "lookup": [
+    {
+      "input": "软件",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "軟體",
+      "expected_changed": true,
+      "expected_details": [
+        {
+          "source": "软件",
+          "target": "軟體",
+          "layer": "term",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "input": "这",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "這",
+      "expected_changed": true,
+      "expected_details": [
+        {
+          "source": "这",
+          "target": "這",
+          "layer": "term",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "input": "台",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "台",
+      "expected_changed": false,
+      "expected_details": []
+    },
+    {
+      "input": "头发",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "頭髮",
+      "expected_changed": true,
+      "expected_details": [
+        {
+          "source": "头发",
+          "target": "頭髮",
+          "layer": "term",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "input": "軟件",
+      "sources": [
+        "hk"
+      ],
+      "expected_output": "軟體",
+      "expected_changed": true,
+      "expected_details": [
+        {
+          "source": "軟件",
+          "target": "軟體",
+          "layer": "term",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}
