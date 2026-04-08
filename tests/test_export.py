@@ -159,3 +159,47 @@ def test_golden_convert_matches_python_pipeline():
             f"Convert mismatch for {case['input']!r}: "
             f"golden={case['expected']!r}, actual={result_text!r}"
         )
+
+
+def test_write_export_creates_files(tmp_path):
+    """write_export() must create both JSON files."""
+    from zhtw.export import write_export
+
+    write_export(output_dir=tmp_path)
+
+    data_path = tmp_path / "zhtw-data.json"
+    golden_path = tmp_path / "golden-test.json"
+
+    assert data_path.exists()
+    assert golden_path.exists()
+
+    # Verify they are valid JSON
+    import json
+
+    data = json.loads(data_path.read_text("utf-8"))
+    golden = json.loads(golden_path.read_text("utf-8"))
+
+    assert data["version"] == golden["version"]
+    assert "terms" in data
+    assert "convert" in golden
+
+
+def test_write_export_deterministic_keys(tmp_path):
+    """Exported JSON keys must be sorted for deterministic output."""
+    import json
+
+    from zhtw.export import write_export
+
+    write_export(output_dir=tmp_path)
+
+    data_path = tmp_path / "zhtw-data.json"
+    raw = data_path.read_text("utf-8")
+    data = json.loads(raw)
+
+    # Charmap chars keys should be sorted
+    chars_keys = list(data["charmap"]["chars"].keys())
+    assert chars_keys == sorted(chars_keys)
+
+    # Terms CN keys should be sorted
+    cn_keys = list(data["terms"]["cn"].keys())
+    assert cn_keys == sorted(cn_keys)

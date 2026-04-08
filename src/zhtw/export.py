@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import json
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from . import __version__
@@ -149,3 +151,49 @@ def generate_golden_test() -> Dict[str, Any]:
         "check": check_cases,
         "lookup": lookup_cases,
     }
+
+
+def _sort_dict(d: dict) -> dict:
+    """Recursively sort dict keys for deterministic output."""
+    result = {}
+    for k in sorted(d.keys()):
+        v = d[k]
+        if isinstance(v, dict):
+            result[k] = _sort_dict(v)
+        else:
+            result[k] = v
+    return result
+
+
+def write_export(
+    output_dir: Path,
+    sources: Optional[List[str]] = None,
+) -> tuple[Path, Path]:
+    """Export data and golden test to files.
+
+    Args:
+        output_dir: Directory to write files to.
+        sources: Sources to export. Default: ["cn", "hk"].
+
+    Returns:
+        Tuple of (data_path, golden_path).
+    """
+    data = export_data(sources=sources)
+    golden = generate_golden_test()
+
+    # Sort for deterministic output
+    sorted_data = _sort_dict(data)
+
+    data_path = output_dir / "zhtw-data.json"
+    golden_path = output_dir / "golden-test.json"
+
+    data_path.write_text(
+        json.dumps(sorted_data, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    golden_path.write_text(
+        json.dumps(golden, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    return data_path, golden_path
