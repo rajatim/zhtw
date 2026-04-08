@@ -1,3 +1,4 @@
+<!-- zhtw:disable -->
 # zhtw export + Multi-Language SDK Design
 
 > **Sub-project 1 of 6** — export 指令、共享資料格式、golden test、Makefile 骨架
@@ -8,7 +9,7 @@
 
 ## Architecture
 
-zhtw 的核心價值是 31,000+ 精選詞條和 6,345 字元對映。`zhtw export` 將這些資料從 Python 內部格式匯出為語言無關的 JSON，放在 `sdk/data/`。各語言 SDK 在 build 時將此 JSON 嵌入為 reOpenCC STPhrases + TWPhrases + MediaWiki ZhConversion，用原生 Aho-Corasick 函式庫實作轉換引擎。
+zhtw 的核心價值是精選詞條和字元映射。`zhtw export` 將這些資料從 Python 內部格式匯出為語言無關的 JSON，放在 `sdk/data/`。各語言 SDK 在 build 時將此 JSON 嵌入為 resource，用原生 Aho-Corasick 函式庫實作轉換引擎。
 
 Monorepo 結構，GitHub Actions path filter 各自觸發，`make release` 一鍵全發。
 
@@ -67,45 +68,63 @@ zhtw/
 ```bash
 zhtw export                          # 產生 sdk/data/zhtw-data.json + golden-test.json
 zhtw export --output ./my-path/      # 指定輸出路徑
-zhtw export --OpenCC STPhrases + TWPhrases + MediaWiki ZhConversion cn              # 只匯出特定來源
+zhtw export --source cn              # 只匯出特定來源
 zhtw export --verbose                # 顯示匯出統計
 ```
+
+### Scope：Maintainer-only 指令
+
+`zhtw export` 僅供 repo maintainer 在 checkout 內使用，不是給終端使用者的功能。原因：
+
+- 預設輸出路徑 `sdk/data/` 只存在於 repo checkout 內
+- wheel 只包 `src/zhtw`（`pyproject.toml` hatch build targets），不含 `sdk/`
+- pip 安裝的使用者不需要也不應該使用此指令
+
+### Repo root 偵測
+
+預設輸出路徑透過 git root 偵測：
+
+1. 執行 `git rev-parse --show-toplevel` 取得 repo 根目錄
+2. 輸出到 `<repo-root>/sdk/data/`
+3. 若非 git repo 或找不到 `sdk/` 目錄，報錯並要求使用 `--output`
+
+`--output` 覆蓋此預設，允許輸出到任意路徑。
 
 ### 實作
 
 新增 `src/zhtw/export.py` 模組，複用現有模組：
 
-- `dictionary.load_builtin()` — 載入詞條
-- `charconv.load_charmap()` — 載入字元對映
-- `charconv.get_ambiguous_chars()` — 載入歧義字清單
+- `dictionary.load_directory()` — **分別載入** cn 和 hk 詞條（不用 `load_builtin()` 以避免合併）
+- `charconv.load_charmap()` — 載入字元映射
+- `charconv.get_ambiguous_chars()` — 載入歧義字列表
 - `converter.convert_text()` — 產生 golden test 預期結果
 - `lookup.lookup_word()` — 產生 lookup golden test
 
 CLI 指令在 `cli.py` 新增 `@main.command()` export。
 
-預設輸出路徑：`sdk/data/`（相對於 repo 根目錄）。
-
 ## 共享資料格式
 
-### `zhtw-data.json`（約 900KB）
+### `zhtw-data.json`
+
+約 900KB。所有數量為 runtime 實際值，不硬編碼。
 
 ```json
 {
-  "1.0": "3.3.0",
+  "version": "3.3.0",
   "exported_at": "2026-04-08T10:00:00Z",
   "stats": {
-    "charmap_count": 6345,
+    "charmap_count": 6343,
     "ambiguous_count": 119,
-    "terms_cn_count": 31000,
-    "terms_hk_count": 69
+    "terms_cn_count": 31794,
+    "terms_hk_count": 61
   },
   "charmap": {
-    "chars": { "㐷": "傌", ... },
-    "ambiguous": ["發", "面", "裡", ...]
+    "chars": { "㐷": "傌", "万": "萬", "与": "與" },
+    "ambiguous": ["发", "面", "里", "干", "只", "台", "后"]
   },
   "terms": {
-    "cn": { "軟體": "軟體", ... },
-    "hk": { "軟體": "軟體", ... }
+    "cn": { "软件": "軟體", "服务器": "伺服器", "头发": "頭髮" },
+    "hk": { "軟件": "軟體", "數據庫": "資料庫" }
   }
 }
 ```
@@ -114,50 +133,112 @@ CLI 指令在 `cli.py` 新增 `@main.command()` export。
 
 | 欄位 | 用途 |
 |------|------|
-| `1.0` | 對應 zhtw Python 版本號 |
+| `version` | 對應 zhtw Python 版本號 |
 | `exported_at` | ISO 8601 匯出時間 |
-| `stats` | 各區塊數量統計，供 SDK 載入時 sanity check |
-| `charmap.chars` | 6,345 個安全一對一字元對映（簡→繁） |
-| `charmap.ambiguous` | 119 個排除的歧義字（由詞彙層處理） |
-| `terms.cn` | 已合併的簡體→台灣繁體詞條（flat dict） |
-| `terms.hk` | 已合併的港式→台灣繁體詞條（flat dict） |
+| `stats` | 各區塊 runtime 數量統計，供 SDK 載入時 sanity check |
+| `charmap.chars` | 安全一對一字元映射（簡→繁），目前約 6,343 個 |
+| `charmap.ambiguous` | 排除的歧義字列表（由詞彙層處理），目前 119 個 |
+| `terms.cn` | 簡體→台灣繁體詞條，已合併（`load_directory` 結果），目前約 31,794 個 |
+| `terms.hk` | 港式→台灣繁體詞條，已合併（`load_directory` 結果），目前約 61 個 |
 
-terms 的 cn/hk 各自已完成合併（load_directory 結果），SDK 不需要處理多檔案合併邏輯。
+**重要：charmap 僅在 source 包含 "cn" 時套用**。HK 來源只做詞彙層轉換，不做字元層轉換。此規則寫入 JSON 但也必須在各 SDK 文件中明確說明。
+
+terms 的 cn/hk 各自已完成合併（`load_directory` 結果），SDK 不需要處理多檔案合併邏輯。分開存放是為了讓 SDK builder 可以選擇只載入特定 source。
 
 ### `golden-test.json`
 
+由 `zhtw export` 自動產生：Python 實際執行 convert/check/lookup 取得預期結果，寫入 JSON。任何 SDK 結果跟 Python 不一致就會被抓到。
+
 ```json
 {
-  "1.0": "3.3.0",
-  "OpenCC + MediaWiki 匯入詞彙 (Apache-2.0 / GPL-2.0+)": "SDK 一致性測試 — 所有 SDK 必須透過",
+  "version": "3.3.0",
+  "description": "SDK consistency test — all SDKs must pass",
   "convert": [
-    {"input": "軟體測試", "OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions": ["cn"], "expected": "軟體測試"},
-    {"input": "這個伺服器的記憶體不夠", "OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions": ["cn"], "expected": "這個伺服器的記憶體不夠"},
-    {"input": "頭髮很幹", "OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions": ["cn"], "expected": "頭髮很乾"},
-    {"input": "軟體工程師", "OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions": ["hk"], "expected": "軟體工程師"},
-    {"input": "已經是繁體", "OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions": ["cn"], "expected": "已經是繁體"}
+    {
+      "input": "软件测试",
+      "sources": ["cn"],
+      "expected": "軟體測試"
+    },
+    {
+      "input": "这个服务器的内存不够",
+      "sources": ["cn"],
+      "expected": "這個伺服器的記憶體不夠"
+    },
+    {
+      "input": "头发很干",
+      "sources": ["cn"],
+      "expected": "頭髮很乾"
+    },
+    {
+      "input": "軟件工程師",
+      "sources": ["hk"],
+      "expected": "軟體工程師"
+    },
+    {
+      "input": "已經是繁體",
+      "sources": ["cn"],
+      "expected": "已經是繁體"
+    }
   ],
   "check": [
-    {"input": "軟體測試", "OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions": ["cn"], "expected_count": 2},
-    {"input": "已經是繁體", "OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions": ["cn"], "expected_count": 0}
+    {
+      "input": "软件测试",
+      "sources": ["cn"],
+      "expected_matches": [
+        {"start": 0, "end": 2, "source": "软件", "target": "軟體"},
+        {"start": 2, "end": 4, "source": "测试", "target": "測試"}
+      ]
+    },
+    {
+      "input": "已經是繁體",
+      "sources": ["cn"],
+      "expected_matches": []
+    }
   ],
   "lookup": [
-    {"input": "軟體", "OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions": ["cn"], "expected_output": "軟體", "expected_layer": "term"},
-    {"input": "這", "OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions": ["cn"], "expected_output": "這", "expected_layer": "char"},
-    {"input": "台", "OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions": ["cn"], "expected_output": "台", "expected_changed": false}
+    {
+      "input": "软件",
+      "sources": ["cn"],
+      "expected_output": "軟體",
+      "expected_changed": true,
+      "expected_details": [
+        {"source": "软件", "target": "軟體", "layer": "term", "position": 0}
+      ]
+    },
+    {
+      "input": "这",
+      "sources": ["cn"],
+      "expected_output": "這",
+      "expected_changed": true,
+      "expected_details": [
+        {"source": "这", "target": "這", "layer": "char", "position": 0}
+      ]
+    },
+    {
+      "input": "台",
+      "sources": ["cn"],
+      "expected_output": "台",
+      "expected_changed": false,
+      "expected_details": []
+    }
   ]
 }
 ```
 
-Golden test 由 `zhtw export` 自動產生：Python 實際執行 convert/check/lookup 取得預期結果，寫入 JSON。這樣任何 SDK 結果跟 Python 不一致就會被抓到。
+**與原 spec 差異**（Codex finding #3 修正）：
+- `check` 現在包含完整 `expected_matches`（start/end/source/target），不只是 count
+- `lookup` 包含完整 `expected_details`（source/target/layer/position），不只是 single layer
+- 這確保 SDK 的位置計算、歸因順序、匹配邏輯都與 Python 一致
 
 測試案例涵蓋：
 - 詞彙層轉換（多詞條）
 - 字元層轉換（單字）
-- 一對多歧義字（發→發/髮、幹→乾/幹）
-- HK 來源
+- 一對多歧義字（发→發/髮、干→乾/幹）
+- HK 來源（只有詞彙層，無字元層）
 - 無需轉換的繁體文字
 - lookup 層歸因（term vs char）
+
+實際產生時，export 會從 Python pipeline 跑更多案例（含 edge cases），上面只是 schema 範例。
 
 ## SDK 統一 API 規格
 
@@ -165,11 +246,24 @@ Golden test 由 `zhtw export` 自動產生：Python 實際執行 convert/check/l
 
 ### Builder
 
-```
-ZhtwConverter converter = ZhtwConverter.Builder()
-    .OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions(["cn", "hk"])              // 預設 ["cn", "hk"]
-    .customDict({"自訂": "自訂"})       // 可選
-    .build()
+```java
+// Java
+ZhtwConverter converter = new ZhtwConverter.Builder()
+    .sources(List.of("cn", "hk"))       // 預設 ["cn", "hk"]
+    .customDict(Map.of("自定义", "自訂")) // 可選
+    .build();
+
+// TypeScript
+const converter = new ZhtwConverter({ sources: ["cn", "hk"], customDict: { "自定义": "自訂" } });
+
+// Rust
+let converter = ZhtwConverter::builder().sources(&["cn", "hk"]).custom_dict(custom).build();
+
+// Go
+converter := zhtw.NewConverter(zhtw.WithSources("cn", "hk"), zhtw.WithCustomDict(custom))
+
+// C#
+var converter = new ZhtwConverter.Builder().Sources("cn", "hk").CustomDict(custom).Build();
 ```
 
 ### 核心三方法
@@ -186,8 +280,8 @@ ZhtwConverter converter = ZhtwConverter.Builder()
 Match {
     start: int
     end: int
-    OpenCC STPhrases + TWPhrases + MediaWiki ZhConversion: string          // "軟體"
-    target: string          // "軟體"
+    source: string          // "软件"（原始簡體/港式）
+    target: string          // "軟體"（台灣繁體）
     line: int
     column: int
 }
@@ -196,11 +290,11 @@ LookupResult {
     input: string
     output: string
     changed: bool
-    details: Con1.0Detail[]
+    details: ConversionDetail[]
 }
 
-Con1.0Detail {
-    OpenCC STPhrases + TWPhrases + MediaWiki ZhConversion: string
+ConversionDetail {
+    source: string
     target: string
     layer: "term" | "char"
     position: int
@@ -209,7 +303,7 @@ Con1.0Detail {
 
 ### 資料載入
 
-每個 SDK 在 build 時將 `sdk/data/zhtw-data.json` 嵌入為 reOpenCC STPhrases + TWPhrases + MediaWiki ZhConversion（jar reOpenCC STPhrases + TWPhrases + MediaWiki ZhConversion、npm bundled file、Rust `include_str!`、Go embed、.NET embedded reOpenCC STPhrases + TWPhrases + MediaWiki ZhConversion）。執行期不需讀外部檔案。
+每個 SDK 在 build 時將 `sdk/data/zhtw-data.json` 嵌入為 resource（jar resource、npm bundled file、Rust `include_str!`、Go `//go:embed`、.NET embedded resource）。執行期不需讀外部檔案。
 
 ### 轉換演算法
 
@@ -217,6 +311,8 @@ Con1.0Detail {
 
 1. **詞彙層**：Aho-Corasick 最長匹配，identity mapping 保護，protected range 二分搜尋
 2. **字元層**：逐字查表替換（跳過已被詞彙層覆蓋的位置）
+
+**重要規則**：字元層僅在 sources 包含 "cn" 時啟用。HK source 只做詞彙層。（對應 Python `converter.py:609` 的 `if char_convert and "cn" in sources` 邏輯）
 
 各語言使用原生 Aho-Corasick 函式庫：
 
@@ -230,7 +326,7 @@ Con1.0Detail {
 
 ## 版本同步
 
-所有 SDK 版本號與 Python 主版本完全一致。`make release VERSION=3.4.0` 自動更新：
+所有 SDK 版本號與 Python 主版本完全一致。不允許 SDK 單獨出 patch — 要改就全部一起改。`make release VERSION=3.4.0` 自動更新：
 
 - `pyproject.toml`
 - `src/zhtw/__init__.py`
@@ -240,15 +336,15 @@ Con1.0Detail {
 - `sdk/go/zhtw.go`（const Version）
 - `sdk/dotnet/Zhtw.csproj`
 
-SDK 自身的 bug fix 使用 patch 版號（3.3.1），下次資料更新時自然對齊。
+若某個 SDK 有 bug 但資料沒變，仍然走正常 release 流程（bump 全域版號）。
 
-## 一鍵釋出流程
+## 一鍵發佈流程
 
 `make release VERSION=3.4.0`：
 
 ```
 Step 1: 驗證
-  ├── pytest 透過
+  ├── pytest 通過
   ├── VERSION 格式正確（semver）
   └── tag 不存在
 
@@ -258,23 +354,25 @@ Step 2: 更新版本號（全自動）
 Step 3: 匯出資料
   └── zhtw export → sdk/data/zhtw-data.json + golden-test.json
 
-Step 4: 提交 + 釋出
+Step 4: 提交 + 發佈
   ├── git add + commit "chore: release vX.Y.Z"
   ├── git tag -a vX.Y.Z
   ├── git push + push tag
   └── gh release create
 ```
 
-Tag push 觸發 GitHub Actions：
+GitHub Actions 觸發方式：
 
-| Workflow | 觸發 | 釋出目標 |
-|----------|------|----------|
-| `publish.yml`（現有） | tag `v*` | PyPI |
-| `sdk-java.yml` | tag `v*` | Maven Central |
-| `sdk-typescript.yml` | tag `v*` | npm |
-| `sdk-rust.yml` | tag `v*` | crates.io |
-| `sdk-go.yml` | tag `v*` | Go proxy（自動） |
-| `sdk-dotnet.yml` | tag `v*` | NuGet |
+| Workflow | 觸發條件 | 發佈目標 |
+|----------|----------|----------|
+| `publish.yml`（現有） | `release: types: [published]` | PyPI |
+| `sdk-java.yml` | `release: types: [published]` | Maven Central |
+| `sdk-typescript.yml` | `release: types: [published]` | npm |
+| `sdk-rust.yml` | `release: types: [published]` | crates.io |
+| `sdk-go.yml` | `release: types: [published]` | Go proxy（自動） |
+| `sdk-dotnet.yml` | `release: types: [published]` | NuGet |
+
+注意：觸發條件是 `release published`（不是 tag push），與現有 `publish.yml` 一致。
 
 Homebrew tap 仍維持手動更新（只追蹤 Python CLI）。
 
@@ -282,7 +380,7 @@ Homebrew tap 仍維持手動更新（只追蹤 Python CLI）。
 
 ### Golden test 一致性（最重要）
 
-`sdk/data/golden-test.json` 由 `zhtw export` 從 Python 實際執行結果產生。每個 SDK 的 CI 讀取此檔並驗證自己的輸出完全一致。
+`sdk/data/golden-test.json` 由 `zhtw export` 從 Python 實際執行結果產生。每個 SDK 的 CI 讀取此檔並驗證自己的輸出完全一致：convert 結果相同、check 的 match 位置/source/target 相同、lookup 的 details 完整相同。
 
 ### 各 SDK 自身測試
 
@@ -304,15 +402,15 @@ on:
     paths: ['sdk/java/**', 'sdk/data/**']
   pull_request:
     paths: ['sdk/java/**', 'sdk/data/**']
+  release:
+    types: [published]
 ```
-
-Tag `v*` push 時所有 workflow 都觸發（publish）。
 
 ## Sub-project 拆分
 
 | # | Sub-project | 內容 | Spec |
 |---|-------------|------|------|
-| 1 | **export + 骨架** | `zhtw export`、`sdk/data/` 格式、golden test、Makefile、目錄結構 | 本檔案 |
+| 1 | **export + 骨架** | `zhtw export`、`sdk/data/` 格式、golden test、Makefile、目錄結構 | 本文件 |
 | 2 | Java SDK | 完整 SDK + Maven publish | 另行 brainstorming |
 | 3 | TypeScript SDK | 完整 SDK + npm publish | 另行 brainstorming |
 | 4 | Rust SDK | 完整 SDK + crates.io publish | 另行 brainstorming |
@@ -323,12 +421,15 @@ SP1 完成後，資料格式和 golden test 穩定，SP 2~6 可平行推進。
 
 ## SP1 範圍（本次實作）
 
-1. `src/zhtw/export.py` — export 模組
-2. `src/zhtw/cli.py` — 新增 export CLI 指令
+1. `src/zhtw/export.py` — export 模組（load_directory per source、repo root 偵測）
+2. `src/zhtw/cli.py` — 新增 export CLI 指令（--output、--source、--verbose）
 3. `sdk/data/zhtw-data.json` — 首次匯出
-4. `sdk/data/golden-test.json` — 首次產生
+4. `sdk/data/golden-test.json` — 首次產生（含完整 match details）
 5. `Makefile` — export、release、各語言 build/test 指令骨架
 6. `sdk/` 目錄結構 — 建立空骨架（各語言 manifest + README placeholder）
-7. `.github/workflows/sdk-*.yml` — CI workflow 骨架（path filter + publish skeleton）
-8. `tests/test_export.py` — export 指令測試
+7. `.github/workflows/sdk-*.yml` — CI workflow 骨架（path filter + publish skeleton，不含實際 registry 發版）
+8. `tests/test_export.py` — export 指令測試（schema 驗證、source filter、golden 內容與 Python pipeline 一致）
 9. 更新 `CHANGELOG.md`、`README.md` 說明 export 功能
+
+注意：SP1 的 CI workflow 只含骨架（build + test），不打通實際 publish 到各 registry。Publish 步驟在各 SDK sub-project 完成時才接上。
+<!-- zhtw:enable -->
