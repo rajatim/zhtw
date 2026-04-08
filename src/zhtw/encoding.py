@@ -209,10 +209,15 @@ def write_file(
         target_encoding = normalize_encoding(output_encoding)
 
     # Handle BOM
+    # Note: Python's 'utf-16' codec automatically writes a BOM.
+    # Only manually write BOM for utf-8 and explicit LE/BE variants.
     write_bom = False
     if preserve_bom and original_info and original_info.has_bom:
-        if target_encoding in ("utf-8", "utf-16", "utf-16-le", "utf-16-be"):
+        if target_encoding == "utf-8":
             write_bom = True
+        elif target_encoding in ("utf-16-le", "utf-16-be"):
+            write_bom = True
+        # 'utf-16' already writes BOM automatically — do NOT write a second one
 
     # Write file
     with open(file_path, "w", encoding=target_encoding) as f:

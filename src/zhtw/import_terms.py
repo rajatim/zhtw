@@ -6,7 +6,7 @@ import urllib.error
 import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional, Tuple
 
 
 @dataclass
@@ -26,6 +26,24 @@ class ImportError(Exception):
     """Error during import."""
 
     pass
+
+
+def _list_to_dict(data: list) -> Tuple[dict, List[str]]:
+    """Convert list format to dict, detecting duplicates.
+
+    Returns:
+        Tuple of (terms_dict, duplicate_sources)
+    """
+    result = {}
+    duplicates = []
+    for item in data:
+        if "source" not in item:
+            continue
+        src = item["source"]
+        if src in result:
+            duplicates.append(src)
+        result[src] = item["target"]
+    return result, duplicates
 
 
 _simplified_chars_cache: Optional[set] = None
@@ -112,7 +130,7 @@ def load_from_url(url: str) -> dict:
                 return data
             elif isinstance(data, list):
                 # List of {"source": ..., "target": ...}
-                return {item["source"]: item["target"] for item in data if "source" in item}
+                return _list_to_dict(data)[0]
 
             raise ImportError(f"無法識別的格式: {type(data)}")
 
@@ -141,7 +159,7 @@ def load_from_file(path: Path) -> dict:
                     return data["terms"]
                 return data
             elif isinstance(data, list):
-                return {item["source"]: item["target"] for item in data if "source" in item}
+                return _list_to_dict(data)[0]
 
             raise ImportError(f"無法識別的格式: {type(data)}")
 

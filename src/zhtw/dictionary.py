@@ -29,7 +29,9 @@ def load_json_file(path: Path) -> Dict[str, str]:
     for source, target in terms.items():
         if isinstance(target, dict):
             # Extended format: {"target": "...", "category": "...", ...}
-            result[source] = target.get("target", target)
+            if "target" not in target:
+                continue  # Skip entries missing 'target' field
+            result[source] = target["target"]
         else:
             # Simple format: "source": "target"
             result[source] = target

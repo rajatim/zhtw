@@ -168,15 +168,16 @@ def finalize_review(
         Path to the updated terms file, or None if no terms approved
     """
     if not result.terms:
-        if delete_after:
+        # 有 skip 的詞 → 保留 pending 檔（使用者尚未做最終決定）
+        if delete_after and result.skipped == 0:
             delete_pending(name)
         return None
 
     # Save approved terms
     path = approve_terms(result.terms, target_source)
 
-    # Delete pending file
-    if delete_after:
+    # 只在沒有 skipped 詞時刪除（全部已審核完畢）
+    if delete_after and result.skipped == 0:
         delete_pending(name)
 
     return path

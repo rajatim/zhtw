@@ -1,5 +1,6 @@
 """Configuration management for zhtw."""
 
+import copy
 import json
 from pathlib import Path
 from typing import Any
@@ -48,11 +49,11 @@ def load_config() -> dict:
             with open(config_path, encoding="utf-8") as f:
                 user_config = json.load(f)
             # Merge with defaults
-            return _deep_merge(DEFAULT_CONFIG.copy(), user_config)
+            return _deep_merge(copy.deepcopy(DEFAULT_CONFIG), user_config)
         except (json.JSONDecodeError, IOError):
-            return DEFAULT_CONFIG.copy()
+            return copy.deepcopy(DEFAULT_CONFIG)
 
-    return DEFAULT_CONFIG.copy()
+    return copy.deepcopy(DEFAULT_CONFIG)
 
 
 def save_config(config: dict) -> None:
@@ -112,7 +113,7 @@ def set_config_value(key: str, value: Any) -> None:
 
 def reset_config() -> None:
     """Reset configuration to defaults."""
-    save_config(DEFAULT_CONFIG.copy())
+    save_config(copy.deepcopy(DEFAULT_CONFIG))
 
 
 def get_pricing(provider: str, model: str) -> dict:

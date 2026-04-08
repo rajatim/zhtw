@@ -47,7 +47,7 @@ class UsageTracker:
             return self._empty_usage()
 
     def _save_usage(self, usage: dict) -> None:
-        """Save usage data to file."""
+        """Save usage data to file. Raises PermissionError if write is denied."""
         with open(self.usage_file, "w", encoding="utf-8") as f:
             json.dump(usage, f, indent=2, ensure_ascii=False)
 
