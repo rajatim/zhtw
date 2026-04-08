@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import json
+
 import pytest
 from click.testing import CliRunner
 
@@ -165,3 +167,40 @@ class TestLookupCLI:
         result = runner.invoke(main, ["lookup", "台灣"])
         assert result.exit_code == 0
         assert "無需轉換" in result.output
+
+    def test_stdin_pipe(self, runner):
+        """stdin 管線模式。"""
+        result = runner.invoke(main, ["lookup"], input="摄入\n盐\n")
+        assert result.exit_code == 0
+        assert "攝入" in result.output
+        assert "鹽" in result.output
+
+    def test_sentence_mode(self, runner):
+        """整句模式（單一參數 >= 4 字元）。"""
+        result = runner.invoke(main, ["lookup", "摄入量过高"])
+        assert result.exit_code == 0
+        assert "→" in result.output
+        assert "轉換明細" in result.output
+
+    def test_verbose_mode(self, runner):
+        """--verbose 模式顯示樹狀結構。"""
+        result = runner.invoke(main, ["lookup", "-v", "摄入量过高"])
+        assert result.exit_code == 0
+        assert "├──" in result.output or "└──" in result.output
+        assert "字元層" in result.output or "詞彙層" in result.output
+
+    def test_json_output(self, runner):
+        """--json 輸出可被解析。"""
+        result = runner.invoke(main, ["lookup", "--json", "摄入", "盐"])
+        assert result.exit_code == 0
+        data = json.loads(result.output)
+        assert "results" in data
+        assert len(data["results"]) == 2
+        assert data["results"][0]["output"] == "攝入"
+        assert data["results"][0]["changed"] is True
+        assert len(data["results"][0]["details"]) > 0
+
+    def test_no_input(self, runner):
+        """無輸入時報錯。"""
+        result = runner.invoke(main, ["lookup"])
+        assert result.exit_code == 1
