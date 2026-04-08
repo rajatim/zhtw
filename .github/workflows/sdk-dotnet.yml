@@ -1,0 +1,21 @@
+name: SDK .NET
+
+on:
+  push:
+    paths: ['sdk/dotnet/**', 'sdk/data/**']
+  pull_request:
+    paths: ['sdk/dotnet/**', 'sdk/data/**']
+  release:
+    types: [published]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Build
+        working-directory: sdk/dotnet
+        run: echo "TODO — SDK not yet implemented"

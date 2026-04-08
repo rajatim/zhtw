@@ -1,0 +1,21 @@
+name: SDK TypeScript
+
+on:
+  push:
+    paths: ['sdk/typescript/**', 'sdk/data/**']
+  pull_request:
+    paths: ['sdk/typescript/**', 'sdk/data/**']
+  release:
+    types: [published]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build
+        working-directory: sdk/typescript
+        run: echo "TODO — SDK not yet implemented"

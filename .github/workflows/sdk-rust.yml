@@ -1,0 +1,19 @@
+name: SDK Rust
+
+on:
+  push:
+    paths: ['sdk/rust/**', 'sdk/data/**']
+  pull_request:
+    paths: ['sdk/rust/**', 'sdk/data/**']
+  release:
+    types: [published]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Build
+        working-directory: sdk/rust
+        run: echo "TODO — SDK not yet implemented"

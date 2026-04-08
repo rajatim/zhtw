@@ -1,0 +1,21 @@
+name: SDK Go
+
+on:
+  push:
+    paths: ['sdk/go/**', 'sdk/data/**']
+  pull_request:
+    paths: ['sdk/go/**', 'sdk/data/**']
+  release:
+    types: [published]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+      - name: Build
+        working-directory: sdk/go
+        run: echo "TODO — SDK not yet implemented"
