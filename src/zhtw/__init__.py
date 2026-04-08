@@ -9,6 +9,7 @@ __author__ = "tim Insight"
 
 from .converter import convert_file, convert_text
 from .dictionary import load_dictionary
+from .lookup import ConversionDetail, LookupResult, lookup_word, lookup_words
 from .matcher import Matcher
 
 __all__ = [
@@ -16,5 +17,9 @@ __all__ = [
     "convert_file",
     "convert_text",
     "load_dictionary",
+    "ConversionDetail",
+    "LookupResult",
+    "lookup_word",
+    "lookup_words",
     "Matcher",
 ]
