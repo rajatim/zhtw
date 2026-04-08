@@ -121,6 +121,37 @@ class TestLookupWordEdgeCases:
         assert result.changed is False
 
 
+class TestLookupConverterConsistency:
+    """驗證 lookup 輸出與 converter 完全一致。"""
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "摄入",
+            "盐",
+            "结合",
+            "心态",
+            "营养",
+            "症状",
+            "刮胡子",
+            "子曰诗云",
+            "软件",
+            "服务器",
+            "头发",
+            "方便面",
+            "摄入量过高会影响心态",
+            "这个软件的信息安全系统需要网络服务器来处理计算机的内存数据",
+        ],
+    )
+    def test_output_matches_converter(self, matcher, char_table, text):
+        """lookup 輸出必須與 convert_text 完全一致。"""
+        from zhtw.converter import convert_text
+
+        lr = lookup_word(text, matcher, char_table)
+        cr, _ = convert_text(text, matcher, fix=True, char_table=char_table)
+        assert lr.output == cr, f"diverge: lookup={lr.output} vs converter={cr}"
+
+
 class TestLookupWords:
     """批次查詢測試。"""
 
@@ -176,15 +207,28 @@ class TestLookupCLI:
         assert "鹽" in result.output
 
     def test_sentence_mode(self, runner):
-        """整句模式（單一參數 >= 4 字元）。"""
-        result = runner.invoke(main, ["lookup", "摄入量过高"])
+        """整句模式（單一參數 >= 6 字元）。"""
+        result = runner.invoke(main, ["lookup", "摄入量过高会影响心态"])
         assert result.exit_code == 0
         assert "→" in result.output
         assert "轉換明細" in result.output
 
+    def test_four_char_word_uses_word_mode(self, runner):
+        """4 字詞應走單詞模式，不走整句模式。"""
+        result = runner.invoke(main, ["lookup", "人工智能"])
+        assert result.exit_code == 0
+        # 單詞模式不會出現 "轉換明細"
+        assert "轉換明細" not in result.output
+
+    def test_sentence_no_change(self, runner):
+        """長繁體字串走整句模式，顯示無需轉換。"""
+        result = runner.invoke(main, ["lookup", "台灣的人工智慧"])
+        assert result.exit_code == 0
+        assert "無需轉換" in result.output
+
     def test_verbose_mode(self, runner):
         """--verbose 模式顯示樹狀結構。"""
-        result = runner.invoke(main, ["lookup", "-v", "摄入量过高"])
+        result = runner.invoke(main, ["lookup", "-v", "摄入量过高会影响心态"])
         assert result.exit_code == 0
         assert "├──" in result.output or "└──" in result.output
         assert "字元層" in result.output or "詞彙層" in result.output

@@ -21,7 +21,6 @@ class ConversionDetail:
     target: str
     layer: str  # "term" | "char"
     position: int
-    term_key: Optional[str] = None
 
 
 @dataclass
@@ -54,7 +53,6 @@ def lookup_word(
                 target=match.target,
                 layer="term",
                 position=match.start,
-                term_key=match.source,
             )
         )
         covered.update(range(match.start, match.end))
@@ -73,6 +71,16 @@ def lookup_word(
                             position=i,
                         )
                     )
+
+    # 3. 對 term target 套用 charmap（與 converter pipeline 一致）
+    #    converter: term replace → charmap（對整個結果）
+    #    所以 term 輸出中的字元也會被 charmap 處理
+    if char_table:
+        for d in details:
+            if d.layer == "term":
+                converted = d.target.translate(char_table)
+                if converted != d.target:
+                    d.target = converted
 
     # 按位置排序
     details.sort(key=lambda d: d.position)

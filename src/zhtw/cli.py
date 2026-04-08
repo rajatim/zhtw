@@ -794,7 +794,7 @@ def lookup(words: tuple, verbose: bool, json_output: bool, source: str):
     input_words: list[str] = []
     if words:
         input_words = list(words)
-    elif not _sys.stdin.isatty():
+    elif hasattr(_sys.stdin, "isatty") and not _sys.stdin.isatty():
         for line in _sys.stdin:
             stripped = line.strip()
             if stripped:
@@ -804,8 +804,8 @@ def lookup(words: tuple, verbose: bool, json_output: bool, source: str):
         click.echo("用法: zhtw lookup <詞彙>...", err=True)
         raise SystemExit(1)
 
-    # 判斷整句 vs 多個單詞
-    is_sentence = len(input_words) == 1 and len(input_words[0]) >= 4
+    # 判斷整句 vs 多個單詞（中文常用詞最多 4-5 字，6 字以上視為句子）
+    is_sentence = len(input_words) == 1 and len(input_words[0]) >= 6
 
     # 執行查詢
     results = lookup_words(input_words, matcher, char_table)
