@@ -2,7 +2,7 @@
 
 .PHONY: export test test-python release help
 
-PYTHON := python3
+PYTHON := uv run python
 VERSION ?=
 
 # === Core ===
