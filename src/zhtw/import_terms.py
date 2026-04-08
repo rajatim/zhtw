@@ -6,7 +6,7 @@ import urllib.error
 import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import List, Optional, Tuple
+from typing import Any, List, Optional, Tuple
 
 
 @dataclass
@@ -28,22 +28,40 @@ class ImportError(Exception):
     pass
 
 
-def _list_to_dict(data: list) -> Tuple[dict, List[str]]:
+def _list_to_dict(data: list) -> Tuple[dict, List[str], int]:
     """Convert list format to dict, detecting duplicates.
 
     Returns:
-        Tuple of (terms_dict, duplicate_sources)
+        Tuple of (terms_dict, duplicate_sources, total_items)
     """
     result = {}
     duplicates = []
+    total = 0
     for item in data:
-        if "source" not in item:
+        if not isinstance(item, dict):
             continue
+        if "source" not in item or "target" not in item:
+            continue
+        total += 1
         src = item["source"]
         if src in result:
             duplicates.append(src)
         result[src] = item["target"]
-    return result, duplicates
+    return result, duplicates, total
+
+
+def _extract_terms(data: Any) -> Tuple[dict, List[str], int]:
+    """Extract terms plus metadata from supported payload formats."""
+    if isinstance(data, dict):
+        terms = data.get("terms", data)
+        if not isinstance(terms, dict):
+            raise ImportError(f"無法識別的格式: {type(terms)}")
+        return terms, [], len(terms)
+
+    if isinstance(data, list):
+        return _list_to_dict(data)
+
+    raise ImportError(f"無法識別的格式: {type(data)}")
 
 
 _simplified_chars_cache: Optional[set] = None
@@ -122,17 +140,8 @@ def load_from_url(url: str) -> dict:
         with urllib.request.urlopen(req, timeout=30) as resp:
             content = resp.read().decode("utf-8")
             data = json.loads(content)
-
-            # Handle different formats
-            if isinstance(data, dict):
-                if "terms" in data:
-                    return data["terms"]
-                return data
-            elif isinstance(data, list):
-                # List of {"source": ..., "target": ...}
-                return _list_to_dict(data)[0]
-
-            raise ImportError(f"無法識別的格式: {type(data)}")
+            terms, _duplicates, _total = _extract_terms(data)
+            return terms
 
     except urllib.error.URLError as e:
         raise ImportError(f"無法載入 URL: {e.reason}")
@@ -152,16 +161,8 @@ def load_from_file(path: Path) -> dict:
     try:
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
-
-            # Handle different formats
-            if isinstance(data, dict):
-                if "terms" in data:
-                    return data["terms"]
-                return data
-            elif isinstance(data, list):
-                return _list_to_dict(data)[0]
-
-            raise ImportError(f"無法識別的格式: {type(data)}")
+            terms, _duplicates, _total = _extract_terms(data)
+            return terms
 
     except json.JSONDecodeError as e:
         raise ImportError(f"JSON 解析錯誤: {e}")
@@ -187,28 +188,40 @@ def import_terms(
     result = ImportResult()
     existing = existing_terms or {}
 
-    # Load terms
-    if source.startswith("http://"):
-        if not allow_insecure:
+    # Load raw data
+    if source.startswith(("http://", "https://")):
+        if source.startswith("http://") and not allow_insecure:
             raise ImportError("不安全的 HTTP 連線，請使用 HTTPS 或加上 --allow-insecure")
-        raw_terms = load_from_url(source)
-    elif source.startswith("https://"):
-        raw_terms = load_from_url(source)
+        req = urllib.request.Request(
+            source,
+            headers={"User-Agent": "zhtw/2.0"},
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                content = resp.read().decode("utf-8")
+                data = json.loads(content)
+        except urllib.error.URLError as e:
+            raise ImportError(f"無法載入 URL: {e.reason}")
+        except json.JSONDecodeError as e:
+            raise ImportError(f"JSON 解析錯誤: {e}")
     else:
-        raw_terms = load_from_file(Path(source))
+        path = Path(source)
+        if not path.exists():
+            raise ImportError(f"檔案不存在: {path}")
+        try:
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)
+        except json.JSONDecodeError as e:
+            raise ImportError(f"JSON 解析錯誤: {e}")
 
-    result.total = len(raw_terms)
+    raw_terms, duplicate_sources, total_terms = _extract_terms(data)
+
+    result.total = total_terms
+    result.duplicates = len(duplicate_sources)
+    result.errors.extend(f"重複: {src}" for src in duplicate_sources)
 
     # Validate each term
-    seen = set()
     for src, tgt in raw_terms.items():
-        # Check duplicates within this import
-        if src in seen:
-            result.duplicates += 1
-            result.errors.append(f"重複: {src}")
-            continue
-        seen.add(src)
-
         if validate:
             is_valid, error = validate_term(src, tgt, existing)
             if not is_valid:

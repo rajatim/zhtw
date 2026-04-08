@@ -174,6 +174,27 @@ class TestFinalizeReview:
             finalize_review("test", result, delete_after=False)
             mock_delete.assert_not_called()
 
+    def test_finalize_with_skipped_terms_keeps_pending(self, tmp_path):
+        """Test partially reviewed files stay pending when terms were skipped."""
+        result = ReviewResult(approved=1, skipped=1, terms={"a": "A"})
+
+        with (
+            patch("zhtw.review.approve_terms", return_value=tmp_path / "out.json"),
+            patch("zhtw.review.delete_pending") as mock_delete,
+        ):
+            path = finalize_review("test", result, delete_after=True)
+            mock_delete.assert_not_called()
+            assert path == tmp_path / "out.json"
+
+    def test_finalize_skipped_only_keeps_pending(self):
+        """Test skip-only review does not delete the pending file."""
+        result = ReviewResult(skipped=1, terms={})
+
+        with patch("zhtw.review.delete_pending") as mock_delete:
+            path = finalize_review("test", result, delete_after=True)
+            mock_delete.assert_not_called()
+            assert path is None
+
 
 class TestInteractiveReview:
     """Test interactive review mode."""

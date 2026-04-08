@@ -603,22 +603,28 @@ class TestConfigCommand:
 class TestUsageCommand:
     """Tests for 'zhtw usage' command."""
 
-    def test_usage_shows_report(self, runner: CliRunner):
+    def test_usage_shows_report(self, runner: CliRunner, tmp_path: Path):
         """Usage command shows report."""
-        result = runner.invoke(main, ["usage"])
+        with patch("zhtw.llm.usage.get_config_dir", return_value=tmp_path):
+            result = runner.invoke(main, ["usage"])
 
         assert result.exit_code == 0
+        assert "LLM 用量統計" in result.output
 
-    def test_usage_json_output(self, runner: CliRunner):
+    def test_usage_json_output(self, runner: CliRunner, tmp_path: Path):
         """Usage command outputs JSON."""
-        result = runner.invoke(main, ["usage", "--json"])
+        with patch("zhtw.llm.usage.get_config_dir", return_value=tmp_path):
+            result = runner.invoke(main, ["usage", "--json"])
 
         assert result.exit_code == 0
-        # Output might be JSON or formatted text
+        data = json.loads(result.output)
+        assert "daily" in data
+        assert "total" in data
 
-    def test_usage_reset(self, runner: CliRunner):
+    def test_usage_reset(self, runner: CliRunner, tmp_path: Path):
         """Usage reset with confirmation."""
-        result = runner.invoke(main, ["usage", "--reset"], input="y\n")
+        with patch("zhtw.llm.usage.get_config_dir", return_value=tmp_path):
+            result = runner.invoke(main, ["usage", "--reset"], input="y\n")
 
         assert result.exit_code == 0
         assert "已重設" in result.output
@@ -629,6 +635,17 @@ class TestUsageCommand:
 
         assert result.exit_code == 0
         assert "已重設" not in result.output
+
+    def test_usage_reset_permission_error(self, runner: CliRunner, tmp_path: Path):
+        """Usage reset reports permission errors cleanly."""
+        with (
+            patch("zhtw.llm.usage.get_config_dir", return_value=tmp_path),
+            patch("zhtw.llm.usage.UsageTracker.reset", side_effect=PermissionError("blocked")),
+        ):
+            result = runner.invoke(main, ["usage", "--reset"], input="y\n")
+
+        assert result.exit_code == 1
+        assert "權限不足" in result.output
 
 
 # =============================================================================

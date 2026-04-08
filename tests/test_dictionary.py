@@ -86,6 +86,29 @@ class TestDictionary:
         assert "软件" in terms
         assert "自定义" in terms
 
+    def test_load_custom_extended_entry_without_target_is_skipped(self):
+        """Test malformed extended entries don't leak dict objects into replacements."""
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            json.dump(
+                {
+                    "version": "1.0",
+                    "terms": {
+                        "测试": {"category": "bad"},
+                        "软件": {"target": "軟體", "category": "it"},
+                    },
+                },
+                f,
+                ensure_ascii=False,
+            )
+            f.flush()
+
+            terms = load_custom(Path(f.name))
+
+        assert "测试" not in terms
+        assert terms["软件"] == "軟體"
+
     def test_load_nonexistent_file(self):
         """Test loading non-existent file returns empty dict."""
         terms = load_json_file(Path("/nonexistent/path.json"))

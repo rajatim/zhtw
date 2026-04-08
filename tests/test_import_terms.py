@@ -210,6 +210,29 @@ class TestImportTerms:
         finally:
             Path(path).unlink()
 
+    def test_import_list_format_detects_duplicate_sources(self):
+        """Test duplicate sources in list format are counted instead of hidden."""
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
+            json.dump(
+                [
+                    {"source": "软件", "target": "軟體"},
+                    {"source": "软件", "target": "軟件"},
+                ],
+                f,
+                ensure_ascii=False,
+            )
+            path = f.name
+
+        try:
+            result = import_terms(path)
+
+            assert result.total == 2
+            assert result.duplicates == 1
+            assert "重複: 软件" in result.errors
+            assert result.terms == {"软件": "軟件"}
+        finally:
+            Path(path).unlink()
+
 
 class TestSaveToPending:
     """Test saving to pending directory."""

@@ -1334,20 +1334,22 @@ def usage(json_output: bool, reset: bool):
     """
     from .llm.usage import UsageTracker
 
-    tracker = UsageTracker()
-
-    if reset:
-        if click.confirm("確定要重設所有用量統計？"):
-            try:
-                tracker.reset()
-                click.echo(click.style("✅ 用量已重設", fg="green"))
-            except PermissionError:
-                click.echo(click.style("❌ 無法寫入用量檔案（權限不足）", fg="red"), err=True)
-                raise SystemExit(1)
+    if reset and not click.confirm("確定要重設所有用量統計？"):
         return
 
-    report = tracker.format_usage_report(json_output=json_output)
-    click.echo(report)
+    try:
+        tracker = UsageTracker()
+
+        if reset:
+            tracker.reset()
+            click.echo(click.style("✅ 用量已重設", fg="green"))
+            return
+
+        report = tracker.format_usage_report(json_output=json_output)
+        click.echo(report)
+    except PermissionError:
+        click.echo(click.style("❌ 無法讀寫用量檔案（權限不足）", fg="red"), err=True)
+        raise SystemExit(1)
 
 
 @main.command()

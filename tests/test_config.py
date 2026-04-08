@@ -1,5 +1,6 @@
 """Tests for config module."""
 
+import copy
 import json
 import tempfile
 from pathlib import Path
@@ -307,3 +308,35 @@ class TestSetConfigValue:
                 value = get_config_value("llm.limits.daily_requests")
                 # Should keep the string since conversion failed
                 assert value == "not-a-number"
+
+    def test_set_value_does_not_mutate_default_config(self):
+        """Test runtime config updates don't pollute DEFAULT_CONFIG."""
+        baseline = copy.deepcopy(DEFAULT_CONFIG)
+        try:
+            with tempfile.TemporaryDirectory() as tmpdir:
+                config_path = Path(tmpdir) / "config.json"
+
+                with patch("zhtw.config.get_config_path", return_value=config_path):
+                    set_config_value("llm.model", "mutated-model")
+
+            assert DEFAULT_CONFIG == baseline
+        finally:
+            DEFAULT_CONFIG.clear()
+            DEFAULT_CONFIG.update(copy.deepcopy(baseline))
+
+    def test_reset_uses_pristine_defaults(self):
+        """Test reset writes the original defaults after mutations."""
+        baseline = copy.deepcopy(DEFAULT_CONFIG)
+        try:
+            with tempfile.TemporaryDirectory() as tmpdir:
+                config_path = Path(tmpdir) / "config.json"
+
+                with patch("zhtw.config.get_config_path", return_value=config_path):
+                    set_config_value("llm.model", "mutated-model")
+                    reset_config()
+                    config = json.loads(config_path.read_text(encoding="utf-8"))
+
+                assert config == baseline
+        finally:
+            DEFAULT_CONFIG.clear()
+            DEFAULT_CONFIG.update(copy.deepcopy(baseline))

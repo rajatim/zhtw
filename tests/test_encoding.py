@@ -160,6 +160,32 @@ class TestReadWriteFile:
         raw = test_file.read_bytes()
         assert raw.startswith(b"\xef\xbb\xbf") or raw.decode("utf-8").startswith("\ufeff")
 
+    def test_write_file_utf16_preserve_bom_without_duplication(self, tmp_path: Path):
+        """Test utf-16 output keeps a single BOM."""
+        test_file = tmp_path / "test.txt"
+        content = "測試文件內容"
+
+        original_info = EncodingInfo(
+            encoding="utf-16",
+            has_bom=True,
+            confidence=1.0,
+            can_represent_traditional=True,
+        )
+
+        used_encoding = write_file(
+            test_file,
+            content,
+            output_encoding="keep",
+            original_info=original_info,
+            preserve_bom=True,
+        )
+
+        raw = test_file.read_bytes()
+        assert used_encoding == "utf-16"
+        assert raw.startswith((b"\xff\xfe", b"\xfe\xff"))
+        assert not raw.startswith(b"\xff\xfe\xff\xfe")
+        assert not raw.startswith(b"\xfe\xff\xfe\xff")
+
 
 class TestEncodingInfo:
     """Test EncodingInfo dataclass."""
