@@ -37,3 +37,81 @@ class TestLookupWordTermLayer:
         assert d.target == "結合"
         assert d.layer == "term"
         assert d.position == 0
+
+
+class TestLookupWordCharLayer:
+    """字元層歸因測試。"""
+
+    def test_char_only(self, matcher, char_table):
+        """盐 應由字元層處理。"""
+        result = lookup_word("盐", matcher, char_table)
+        assert result.changed is True
+        assert result.output == "鹽"
+        assert len(result.details) == 1
+        d = result.details[0]
+        assert d.source == "盐"
+        assert d.target == "鹽"
+        assert d.layer == "char"
+        assert d.position == 0
+
+    def test_multi_char(self, matcher, char_table):
+        """摄入：摄 由字元層轉，入 繁簡同形不出現。"""
+        result = lookup_word("摄入", matcher, char_table)
+        assert result.changed is True
+        assert result.output == "攝入"
+        assert len(result.details) == 1
+        assert result.details[0].source == "摄"
+        assert result.details[0].layer == "char"
+
+    def test_心态(self, matcher, char_table):
+        """心态：心 同形不轉，态 由字元層轉。"""
+        result = lookup_word("心态", matcher, char_table)
+        assert result.changed is True
+        assert result.output == "心態"
+        assert len(result.details) == 1
+        assert result.details[0].source == "态"
+        assert result.details[0].layer == "char"
+
+
+class TestLookupWordMixed:
+    """混合層歸因測試。"""
+
+    def test_mixed_layers(self, matcher, char_table):
+        """营养：歸因不重疊。"""
+        result = lookup_word("营养", matcher, char_table)
+        assert result.changed is True
+        assert result.output == "營養"
+        positions = [d.position for d in result.details]
+        assert len(positions) == len(set(positions))
+
+    def test_sentence(self, matcher, char_table):
+        """整句：多個轉換點，位置排序正確。"""
+        result = lookup_word("摄入量过高会影响心态", matcher, char_table)
+        assert result.changed is True
+        assert result.output == "攝入量過高會影響心態"
+        positions = [d.position for d in result.details]
+        assert positions == sorted(positions)
+        assert len(positions) == len(set(positions))
+
+
+class TestLookupWordEdgeCases:
+    """邊界條件測試。"""
+
+    def test_no_change(self, matcher, char_table):
+        """繁體字不需轉換。"""
+        result = lookup_word("台灣", matcher, char_table)
+        assert result.changed is False
+        assert result.output == "台灣"
+        assert result.details == []
+
+    def test_empty_string(self, matcher, char_table):
+        """空字串不炸。"""
+        result = lookup_word("", matcher, char_table)
+        assert result.changed is False
+        assert result.output == ""
+        assert result.details == []
+
+    def test_no_char_table(self, matcher):
+        """不傳 char_table 時只做詞彙層。"""
+        result = lookup_word("盐", matcher)
+        assert result.changed is False
