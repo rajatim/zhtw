@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+from click.testing import CliRunner
+
+from zhtw.cli import main
+
 
 def test_export_data_schema():
     """Exported data must have correct top-level schema."""
@@ -203,3 +207,60 @@ def test_write_export_deterministic_keys(tmp_path):
     # Terms CN keys should be sorted
     cn_keys = list(data["terms"]["cn"].keys())
     assert cn_keys == sorted(cn_keys)
+
+
+def test_cli_export_default(tmp_path, monkeypatch):
+    """CLI export writes files to sdk/data/ relative to CWD."""
+    sdk_data = tmp_path / "sdk" / "data"
+    sdk_data.mkdir(parents=True)
+    monkeypatch.chdir(tmp_path)
+
+    runner = CliRunner()
+    result = runner.invoke(main, ["export"])
+
+    assert result.exit_code == 0
+    assert (sdk_data / "zhtw-data.json").exists()
+    assert (sdk_data / "golden-test.json").exists()
+
+
+def test_cli_export_custom_output(tmp_path):
+    """CLI export with --output writes to specified directory."""
+    runner = CliRunner()
+    result = runner.invoke(main, ["export", "--output", str(tmp_path)])
+
+    assert result.exit_code == 0
+    assert (tmp_path / "zhtw-data.json").exists()
+    assert (tmp_path / "golden-test.json").exists()
+
+
+def test_cli_export_missing_default_dir(tmp_path, monkeypatch):
+    """CLI export fails gracefully when sdk/data/ doesn't exist."""
+    monkeypatch.chdir(tmp_path)
+
+    runner = CliRunner()
+    result = runner.invoke(main, ["export"])
+
+    assert result.exit_code != 0
+    assert "--output" in result.output
+
+
+def test_cli_export_source_filter(tmp_path):
+    """CLI export with --source cn only exports CN terms."""
+    import json
+
+    runner = CliRunner()
+    result = runner.invoke(main, ["export", "--output", str(tmp_path), "--source", "cn"])
+
+    assert result.exit_code == 0
+    data = json.loads((tmp_path / "zhtw-data.json").read_text("utf-8"))
+    assert "cn" in data["terms"]
+    assert "hk" not in data["terms"]
+
+
+def test_cli_export_verbose(tmp_path):
+    """CLI export --verbose shows stats."""
+    runner = CliRunner()
+    result = runner.invoke(main, ["export", "--output", str(tmp_path), "--verbose"])
+
+    assert result.exit_code == 0
+    assert "charmap" in result.output.lower() or "字元" in result.output

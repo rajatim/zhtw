@@ -11,6 +11,8 @@ Usage:
     zhtw validate              # Validate dictionary quality
 """
 
+# zhtw:disable  # Python identifiers must not be converted by zhtw hook
+
 from __future__ import annotations
 
 import json
@@ -215,14 +217,14 @@ def print_results(result: ConversionResult, verbose: bool = False) -> None:
     if result.files_modified > 0:
         click.echo(
             click.style(
-                f"✅ 已修正 {result.files_modified} 個檔案 " f"({result.total_issues} 處)",
+                f"✅ 已修正 {result.files_modified} 個檔案 ({result.total_issues} 處)",
                 fg="green",
             )
         )
     elif result.total_issues > 0:
         click.echo(
             click.style(
-                f"⚠️  發現 {result.total_issues} 處問題 " f"（{result.files_with_issues} 個檔案）",
+                f"⚠️  發現 {result.total_issues} 處問題 （{result.files_with_issues} 個檔案）",
                 fg="yellow",
             )
         )
@@ -1517,6 +1519,11 @@ def validate_llm(source: str, limit: int, force: bool):
     warning = tracker.get_warning()
     if warning:
         click.echo(warning)
+
+
+from .export_cmd import export as _export  # noqa: E402,F401,I001
+
+main.add_command(_export, "export")
 
 
 if __name__ == "__main__":
