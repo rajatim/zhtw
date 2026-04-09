@@ -77,3 +77,49 @@ describe('createConverter.convert', () => {
     expect(c.convert('巴士')).toBe('公車');          // hk terms
   });
 });
+
+describe('createConverter.check', () => {
+  it('returns [] for empty input', () => {
+    const c = createConverter(DATA, { sources: ['cn'] });
+    expect(c.check('')).toEqual([]);
+  });
+
+  it('reports a term match with codepoint indices', () => {
+    const c = createConverter(DATA, { sources: ['cn'] });
+    expect(c.check('这个软件')).toEqual(
+      expect.arrayContaining([
+        { start: 2, end: 4, source: '软件', target: '軟體' },
+      ]),
+    );
+  });
+
+  it('reports char matches where the charmap differs from the input', () => {
+    const c = createConverter(DATA, { sources: ['cn'] });
+    const matches = c.check('这个');
+    // Both 这→這 and 个→個 should appear.
+    expect(matches).toContainEqual({ start: 0, end: 1, source: '这', target: '這' });
+    expect(matches).toContainEqual({ start: 1, end: 2, source: '个', target: '個' });
+  });
+
+  it('does NOT report identity char mappings (件 → 件)', () => {
+    const c = createConverter(DATA, { sources: ['cn'] });
+    const matches = c.check('件');
+    // 件 maps to 件 in fixture DATA; check() should skip no-op entries.
+    expect(matches).toEqual([]);
+  });
+
+  it('reports BOTH term and char matches at overlapping positions', () => {
+    // Term 软件 covers positions 0..2, but char scan still emits 软→軟 at position 0.
+    // This is Java's behavior (differs from lookup, which skips covered positions).
+    const c = createConverter(DATA, { sources: ['cn'] });
+    const matches = c.check('软件');
+    expect(matches).toContainEqual({ start: 0, end: 2, source: '软件', target: '軟體' });
+    expect(matches).toContainEqual({ start: 0, end: 1, source: '软', target: '軟' });
+  });
+
+  it('does not run char layer when cn is not in sources', () => {
+    const c = createConverter(DATA, { sources: ['hk'] });
+    // No term matches, no char layer → no output.
+    expect(c.check('软件')).toEqual([]);
+  });
+});

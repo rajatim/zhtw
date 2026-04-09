@@ -87,9 +87,33 @@ export function createConverter(
     return charLayerEnabled ? applyCharmap(afterTerms, charmap) : afterTerms;
   }
 
-  function check(_text: string): Match[] {
-    requireString(_text, 'check');
-    throw new Error('check: implemented in Task 7');
+  function check(text: string): Match[] {
+    requireString(text, 'check');
+    if (text.length === 0) return [];
+    const results: Match[] = [];
+
+    // Term layer: matcher returns UTF-16 positions; convert to codepoint.
+    for (const m of matcher.findMatches(text)) {
+      results.push({
+        start: utf16ToCodepoint(text, m.start),
+        end: utf16ToCodepoint(text, m.end),
+        source: m.source,
+        target: m.target,
+      });
+    }
+
+    // Char layer: walk codepoints regardless of term coverage (Java semantics).
+    if (charLayerEnabled) {
+      let cp = 0;
+      for (const ch of text) {
+        const mapped = charmap[ch];
+        if (mapped !== undefined && mapped !== ch) {
+          results.push({ start: cp, end: cp + 1, source: ch, target: mapped });
+        }
+        cp++;
+      }
+    }
+    return results;
   }
 
   function lookup(_word: string): LookupResult {
