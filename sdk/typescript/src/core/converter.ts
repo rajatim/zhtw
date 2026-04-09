@@ -116,9 +116,88 @@ export function createConverter(
     return results;
   }
 
-  function lookup(_word: string): LookupResult {
-    requireString(_word, 'lookup');
-    throw new Error('lookup: implemented in Task 8');
+  function lookup(word: string): LookupResult {
+    requireString(word, 'lookup');
+    if (word.length === 0) {
+      return { input: '', output: '', changed: false, details: [] };
+    }
+
+    // Internal type used only for sorting by UTF-16 position before we
+    // build the output and convert to codepoint indices.
+    interface InternalDetail {
+      source: string;
+      target: string;
+      layer: 'term' | 'char';
+      utf16Start: number;
+      utf16End: number;
+    }
+
+    const internal: InternalDetail[] = [];
+    const covered = new Set<number>(); // UTF-16 code-unit indices covered by a term match
+
+    // Term layer.
+    for (const m of matcher.findMatches(word)) {
+      internal.push({
+        source: m.source,
+        target: m.target,
+        layer: 'term',
+        utf16Start: m.start,
+        utf16End: m.end,
+      });
+      for (let i = m.start; i < m.end; i++) covered.add(i);
+    }
+
+    // Char layer (only if 'cn' is in sources). Skip covered codepoints.
+    if (charLayerEnabled) {
+      let i = 0;
+      while (i < word.length) {
+        const code = word.charCodeAt(i);
+        const isHigh = code >= 0xd800 && code <= 0xdbff && i + 1 < word.length;
+        const step = isHigh ? 2 : 1;
+        if (!covered.has(i)) {
+          const ch = word.substring(i, i + step);
+          const mapped = charmap[ch];
+          if (mapped !== undefined && mapped !== ch) {
+            internal.push({
+              source: ch,
+              target: mapped,
+              layer: 'char',
+              utf16Start: i,
+              utf16End: i + step,
+            });
+          }
+        }
+        i += step;
+      }
+    }
+
+    // Sort by UTF-16 start position.
+    internal.sort((a, b) => a.utf16Start - b.utf16Start);
+
+    // Build output string by walking details with a UTF-16 cursor.
+    let output = '';
+    let cursor = 0;
+    for (const d of internal) {
+      if (d.utf16Start > cursor) output += word.substring(cursor, d.utf16Start);
+      output += d.target;
+      cursor = d.utf16End;
+    }
+    if (cursor < word.length) output += word.substring(cursor);
+
+    // Convert UTF-16 positions to codepoint indices for the public result.
+    const details = internal.map((d) => ({
+      source: d.source,
+      target: d.target,
+      layer: d.layer,
+      position: utf16ToCodepoint(word, d.utf16Start),
+    }));
+
+    return {
+      input: word,
+      output,
+      changed: output !== word,
+      details,
+    };
   }
 
   return { convert, check, lookup };

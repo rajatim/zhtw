@@ -123,3 +123,73 @@ describe('createConverter.check', () => {
     expect(c.check('软件')).toEqual([]);
   });
 });
+
+describe('createConverter.lookup', () => {
+  it('returns the empty-input baseline', () => {
+    const c = createConverter(DATA, { sources: ['cn'] });
+    expect(c.lookup('')).toEqual({
+      input: '',
+      output: '',
+      changed: false,
+      details: [],
+    });
+  });
+
+  it('returns changed=false when nothing matches', () => {
+    const c = createConverter(DATA, { sources: ['cn'] });
+    const r = c.lookup('hello');
+    expect(r.output).toBe('hello');
+    expect(r.changed).toBe(false);
+    expect(r.details).toEqual([]);
+  });
+
+  it('applies a term match and records details', () => {
+    const c = createConverter(DATA, { sources: ['cn'] });
+    const r = c.lookup('软件');
+    expect(r.output).toBe('軟體');
+    expect(r.changed).toBe(true);
+    expect(r.details).toEqual([
+      { source: '软件', target: '軟體', layer: 'term', position: 0 },
+    ]);
+  });
+
+  it('skips char layer on positions already covered by a term match', () => {
+    const c = createConverter(DATA, { sources: ['cn'] });
+    // Term 软件 covers 0..2. Char scan must NOT emit 软→軟 or 件→件 here.
+    const r = c.lookup('软件');
+    expect(r.details.length).toBe(1);
+    expect(r.details[0]!.layer).toBe('term');
+  });
+
+  it('applies char layer on uncovered codepoints in sorted order', () => {
+    const c = createConverter(DATA, { sources: ['cn'] });
+    // 这个 has no term; both chars fall through to char layer.
+    const r = c.lookup('这个');
+    expect(r.output).toBe('這個');
+    expect(r.changed).toBe(true);
+    expect(r.details).toEqual([
+      { source: '这', target: '這', layer: 'char', position: 0 },
+      { source: '个', target: '個', layer: 'char', position: 1 },
+    ]);
+  });
+
+  it('mixes term + char in a single input, sorted by position', () => {
+    const c = createConverter(DATA, { sources: ['cn'] });
+    // Use a simpler mix: 这软件 → 這[软件→軟體]
+    const r = c.lookup('这软件');
+    expect(r.output).toBe('這軟體');
+    expect(r.changed).toBe(true);
+    expect(r.details).toEqual([
+      { source: '这', target: '這', layer: 'char', position: 0 },
+      { source: '软件', target: '軟體', layer: 'term', position: 1 },
+    ]);
+  });
+
+  it('does not run char layer when cn is not in sources', () => {
+    const c = createConverter(DATA, { sources: ['hk'] });
+    const r = c.lookup('软件');
+    expect(r.output).toBe('软件');
+    expect(r.changed).toBe(false);
+    expect(r.details).toEqual([]);
+  });
+});
