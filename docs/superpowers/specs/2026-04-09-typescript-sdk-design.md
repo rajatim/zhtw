@@ -72,30 +72,36 @@ sdk/typescript/
 
 ### Zero-config convenience
 
+<!-- zhtw:disable -->
 ```ts
 import { convert, check, lookup } from 'zhtw-js';
 
-convert('這個軟體需要最佳化');       // => '這個軟體需要最佳化'
-check('使用者權限');                  // => Match[]
-lookup('軟體');                     // => LookupResult
+convert('这个软件需要优化');       // => '這個軟體需要最佳化'
+check('用户权限');                  // => Match[]
+lookup('软件');                     // => LookupResult
 ```
+<!-- zhtw:enable -->
 
 The convenience functions wrap a module-level lazy-initialized default converter with `sources: ['cn', 'hk']` and no custom dict.
 
 ### Advanced factory
 
+<!-- zhtw:disable -->
 ```ts
 import { createConverter } from 'zhtw-js';
 
 const conv = createConverter({
   sources: ['cn'],                     // default: ['cn', 'hk']
-  customDict: { '自訂': '自訂' },    // takes priority over built-in terms
+  customDict: { '自定义': '自訂' },    // takes priority over built-in terms
 });
 
 conv.convert('...');
 conv.check('...');
 conv.lookup('...');
 ```
+<!-- zhtw:enable -->
+
+The simplified-Chinese literals in the examples above are **intentional** — they illustrate what the converter is meant to transform. The `<!-- zhtw:disable -->` markers prevent the repository's own pre-commit hook from auto-converting them.
 
 ### Type surface
 
