@@ -25,7 +25,7 @@
 - 文件裡混著「用戶」和「使用者」，不知道漏了哪些
 <!-- zhtw:enable -->
 
-**ZHTW** 就是為了解決這個問題。
+**ZHTW** 就是為瞭解決這個問題。
 
 ---
 
@@ -82,11 +82,11 @@ pip install -e ".[dev]"
 ```bash
 # macOS (zsh)
 echo 'export PATH="$PATH:$(python3 -m site --user-base)/bin"' >> ~/.zshrc
-source ~/.zshrc
+OpenCC STPhrases + TWPhrases + MediaWiki ZhConversion ~/.zshrc
 
 # Linux (bash)
 echo 'export PATH="$PATH:~/.local/bin"' >> ~/.bashrc
-source ~/.bashrc
+OpenCC STPhrases + TWPhrases + MediaWiki ZhConversion ~/.bashrc
 
 # Windows — 通常自動設定，若無請加入環境變數：
 # %APPDATA%\Python\PythonXX\Scripts
@@ -101,7 +101,7 @@ source ~/.bashrc
 zhtw check .          # 檢查整個專案
 zhtw check ./file.py  # 檢查單一檔案
 zhtw fix .            # 自動修正
-zhtw lookup 软件 服务器  # 查詢轉換結果
+zhtw lookup 軟體 伺服器  # 查詢轉換結果
 ```
 
 <!-- zhtw:disable -->
@@ -126,7 +126,7 @@ zhtw lookup 软件 服务器  # 查詢轉換結果
 
 | | |
 |------|------|
-| **零誤判** | 31,000+ 詞條 + 6,344 字元映射，52 本書 1 億字驗證零錯轉 |
+| **零誤判** | 31,000+ 詞條 + 6,344 字元對映，52 本書 1 億字驗證零錯轉 |
 | **秒級掃描** | 3,100 KB/s 穩定吞吐，1MB 文字 < 1 秒 |
 | **完全離線** | 不傳送任何資料到外部，企業內網也能用 |
 | **CI 整合** | 一行指令加入 GitHub Actions，PR 自動檢查 |
@@ -134,9 +134,53 @@ zhtw lookup 软件 服务器  # 查詢轉換結果
 
 ---
 
+## 多語言 SDK
+
+除了 Python CLI，ZHTW 提供原生 SDK，讓你在任何技術棧中直接使用：
+
+| SDK | 安裝 | 吞吐量 (1MB) | 單句延遲 | 適用場景 | 狀態 |
+|-----|------|-------------|---------|---------|------|
+| **Python CLI** | `pip install zhtw` | 3.1 MB/s | — | CLI、CI/CD、pre-commit | ✅ Stable |
+| **Java** | [Maven Central](#java-sdk) | 17.9 MB/s | 2μs | Spring Boot、Android、後端服務 | ✅ Stable |
+| **TypeScript** | npm | — | — | Node.js、Deno、瀏覽器 | 🚧 Planned |
+| **Rust** | crates.io | — | — | 高效能、WebAssembly、嵌入式 | 🚧 Planned |
+| **C# (.NET)** | NuGet | — | — | ASP.NET、Unity、桌面應用 | 🚧 Planned |
+
+> 所有 SDK 共用同一份詞庫資料（`zhtw-data.json`），轉換結果與 Python CLI 完全一致。
+
+### Java SDK
+
+<!-- zhtw:disable -->
+```xml
+<dependency>
+    <groupId>com.rajatim</groupId>
+    <artifactId>zhtw</artifactId>
+    <version>3.3.0</version>
+</dependency>
+```
+<!-- zhtw:enable -->
+
+```java
+import com.rajatim.zhtw.ZhtwConverter;
+
+// 快速使用（thread-safe singleton）
+String result = ZhtwConverter.getDefault().convert("這個軟體需要最佳化");
+// → "這個軟體需要最佳化"
+
+// 自訂設定
+ZhtwConverter conv = ZhtwConverter.builder()
+    .OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions(List.of("cn", "hk"))
+    .customDict(Map.of("自訂", "自訂"))
+    .build();
+```
+
+**效能**：單句 2μs、100K 字 5.5ms（17.9 MB/s），比 Python 快 ~5.8 倍。詳見 [`sdk/java/BENCHMARK.md`](sdk/java/BENCHMARK.md)。
+
+---
+
 ## 涵蓋範圍
 
-**31,000+ 精選詞條 + 6,344 字元映射**，涵蓋 10+ 專業領域：
+**31,000+ 精選詞條 + 6,344 字元對映**，涵蓋 10+ 專業領域：
 
 <!-- zhtw:disable -->
 | 領域 | 詞彙數 | 範例 |
@@ -214,7 +258,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-1.0: '3.x'
       - name: Install zhtw
         run: pip install zhtw
       - name: Check Traditional Chinese
@@ -256,7 +300,7 @@ pip install pre-commit && pre-commit install
 ```
 
 <details>
-<summary>進階設定：只檢查特定檔案類型</summary>
+<summary>進階設定：只檢查特定檔案型別</summary>
 
 ```yaml
 repos:
@@ -264,7 +308,7 @@ repos:
     rev: v3.2.0
     hooks:
       - id: zhtw-check
-        types: [python, markdown, yaml]  # 只檢查這些類型
+        types: [python, markdown, yaml]  # 只檢查這些型別
         exclude: ^tests/fixtures/        # 排除測試資料
 ```
 </details>
@@ -282,7 +326,7 @@ zhtw fix ./src/api.py      # 修正單一檔案
 zhtw fix ./src --dict ./my-terms.json
 
 # 只處理簡體（跳過港式）  # zhtw:disable-line
-zhtw check ./src --source cn
+zhtw check ./src --OpenCC STPhrases + TWPhrases + MediaWiki ZhConversion cn
 
 # 排除目錄
 zhtw check ./src --exclude node_modules,dist
