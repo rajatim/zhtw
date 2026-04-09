@@ -15,18 +15,15 @@ public final class ZhtwConverter {
 
     private final AhoCorasickMatcher matcher;
     private final Map<Integer, String> charmap;    // codepoint -> replacement
-    private final Set<Integer> ambiguous;           // ambiguous codepoints
     private final boolean charLayerEnabled;
     private final List<String> sources;
 
     private ZhtwConverter(AhoCorasickMatcher matcher,
                           Map<Integer, String> charmap,
-                          Set<Integer> ambiguous,
                           boolean charLayerEnabled,
                           List<String> sources) {
         this.matcher = matcher;
         this.charmap = charmap;
-        this.ambiguous = ambiguous;
         this.charLayerEnabled = charLayerEnabled;
         this.sources = Collections.unmodifiableList(new ArrayList<>(sources));
     }
@@ -216,7 +213,6 @@ public final class ZhtwConverter {
             return new ZhtwConverter(
                     matcher,
                     data.getCharmap(),
-                    data.getAmbiguous(),
                     charLayerEnabled,
                     sources
             );

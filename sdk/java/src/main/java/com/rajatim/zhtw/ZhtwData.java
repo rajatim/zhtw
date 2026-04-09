@@ -56,10 +56,13 @@ final class ZhtwData {
 
     static ZhtwData fromInputStream(InputStream is) {
         Gson gson = new Gson();
-        Reader reader = new InputStreamReader(is, StandardCharsets.UTF_8);
-
         Type rootType = new TypeToken<Map<String, Object>>() {}.getType();
-        Map<String, Object> root = gson.fromJson(reader, rootType);
+        Map<String, Object> root;
+        try (Reader reader = new InputStreamReader(is, StandardCharsets.UTF_8)) {
+            root = gson.fromJson(reader, rootType);
+        } catch (java.io.IOException e) {
+            throw new IllegalStateException("Failed to read zhtw data", e);
+        }
 
         String version = (String) root.get("version");
 
