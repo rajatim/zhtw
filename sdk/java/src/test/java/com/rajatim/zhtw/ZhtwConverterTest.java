@@ -3,6 +3,7 @@ package com.rajatim.zhtw;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -101,5 +102,74 @@ class ZhtwConverterTest {
                 .customDict(Collections.singletonMap("\u5496\u5561", "\u73c8\u7432"))
                 .build();
         assertEquals("\u73c8\u7432", conv.convert("\u5496\u5561"));
+    }
+
+    // === check() tests ===
+
+    @Test
+    void checkReturnsTermAndCharMatches() {
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .build();
+        List<Match> matches = conv.check("\u8f6f\u4ef6\u6d4b\u8bd5");
+        // Term matches: 软件 (0,2), 测试 (2,4)
+        // Char matches: 软 (0,1), 测 (2,3), 试 (3,4)
+        assertTrue(matches.size() >= 2, "Should have at least term matches");
+        assertEquals(0, matches.get(0).getStart());
+        assertEquals(2, matches.get(0).getEnd());
+    }
+
+    @Test
+    void checkNoChangeReturnsEmpty() {
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .build();
+        List<Match> matches = conv.check("\u5df2\u7d93\u662f\u7e41\u9ad4");
+        assertTrue(matches.isEmpty());
+    }
+
+    @Test
+    void checkHkOnlyTermMatches() {
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("hk"))
+                .build();
+        List<Match> matches = conv.check("\u8edf\u4ef6\u5de5\u7a0b\u5e2b");
+        assertEquals(1, matches.size());
+        assertEquals("\u8edf\u4ef6", matches.get(0).getSource());
+    }
+
+    // === lookup() tests ===
+
+    @Test
+    void lookupKnownTerm() {
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .build();
+        LookupResult result = conv.lookup("\u8f6f\u4ef6");
+        assertEquals("\u8edf\u9ad4", result.getOutput());
+        assertTrue(result.isChanged());
+        assertEquals(1, result.getDetails().size());
+        assertEquals("term", result.getDetails().get(0).getLayer());
+    }
+
+    @Test
+    void lookupUnchanged() {
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .build();
+        LookupResult result = conv.lookup("\u53f0");
+        assertEquals("\u53f0", result.getOutput());
+        assertFalse(result.isChanged());
+        assertTrue(result.getDetails().isEmpty());
+    }
+
+    @Test
+    void lookupHkTerm() {
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("hk"))
+                .build();
+        LookupResult result = conv.lookup("\u8edf\u4ef6");
+        assertEquals("\u8edf\u9ad4", result.getOutput());
+        assertTrue(result.isChanged());
     }
 }

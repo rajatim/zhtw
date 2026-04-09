@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -62,6 +63,106 @@ public final class ZhtwConverter {
         }
 
         return result;
+    }
+
+    public List<Match> check(String text) {
+        if (text == null || text.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        List<Match> result = new ArrayList<>();
+
+        // Term-level matches
+        result.addAll(matcher.findMatches(text));
+
+        // Char-level matches (on original text)
+        if (charLayerEnabled) {
+            int i = 0;
+            while (i < text.length()) {
+                int cp = text.codePointAt(i);
+                String replacement = charmap.get(cp);
+                String original = new String(Character.toChars(cp));
+                if (replacement != null && !replacement.equals(original)) {
+                    int charLen = Character.charCount(cp);
+                    result.add(new Match(i, i + charLen, original, replacement));
+                }
+                i += Character.charCount(cp);
+            }
+        }
+
+        return result;
+    }
+
+    public LookupResult lookup(String word) {
+        if (word == null || word.isEmpty()) {
+            return new LookupResult(
+                    word == null ? "" : word,
+                    word == null ? "" : word,
+                    false,
+                    Collections.emptyList()
+            );
+        }
+
+        List<ConversionDetail> details = new ArrayList<>();
+        Set<Integer> covered = new HashSet<>();  // covered char indices
+
+        // 1. Term layer
+        List<Match> termMatches = matcher.findMatches(word);
+        for (Match m : termMatches) {
+            String target = m.getTarget();
+            // Apply charmap to term target (matching Python pipeline)
+            if (charLayerEnabled) {
+                target = applyCharmap(target);
+            }
+            details.add(new ConversionDetail(m.getSource(), target, "term", m.getStart()));
+            for (int i = m.getStart(); i < m.getEnd(); i++) {
+                covered.add(i);
+            }
+        }
+
+        // 2. Char layer: scan uncovered positions
+        if (charLayerEnabled) {
+            int i = 0;
+            while (i < word.length()) {
+                int cp = word.codePointAt(i);
+                int charLen = Character.charCount(cp);
+                if (!covered.contains(i)) {
+                    String replacement = charmap.get(cp);
+                    String original = new String(Character.toChars(cp));
+                    if (replacement != null && !replacement.equals(original)) {
+                        details.add(new ConversionDetail(original, replacement, "char", i));
+                    }
+                }
+                i += charLen;
+            }
+        }
+
+        // Sort by position
+        details.sort((a, b) -> Integer.compare(a.getPosition(), b.getPosition()));
+
+        // Build output
+        String output = buildOutput(word, details);
+        boolean changed = !output.equals(word);
+
+        return new LookupResult(word, output, changed, details);
+    }
+
+    private String buildOutput(String text, List<ConversionDetail> details) {
+        if (details.isEmpty()) {
+            return text;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        int lastEnd = 0;
+
+        for (ConversionDetail d : details) {
+            sb.append(text, lastEnd, d.getPosition());
+            sb.append(d.getTarget());
+            lastEnd = d.getPosition() + d.getSource().length();
+        }
+
+        sb.append(text, lastEnd, text.length());
+        return sb.toString();
     }
 
     /** Apply codepoint-based charmap to text. Handles supplementary plane characters. */
