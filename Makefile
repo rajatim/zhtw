@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export test test-python release help
+.PHONY: export test test-python test-java release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -13,7 +13,10 @@ export: ## Export SDK data (zhtw-data.json + golden-test.json)
 test-python: ## Run Python tests
 	$(PYTHON) -m pytest tests/ -v
 
-test: test-python ## Run all tests (Python + SDKs when available)
+test-java: ## Run Java SDK tests
+	cd sdk/java && mvn test --batch-mode
+
+test: test-python test-java ## Run all tests (Python + Java SDK)
 
 # === Release ===
 
