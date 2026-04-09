@@ -3,6 +3,9 @@ target/
 *.jar
 !src/
 
+# Shade plugin output
+dependency-reduced-pom.xml
+
 # Generated resources (copied from sdk/data/ by Maven)
 src/main/resources/zhtw-data.json
 src/test/resources/golden-test.json
