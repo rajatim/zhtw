@@ -105,13 +105,66 @@ export class AhoCorasickMatcher {
     }
   }
 
-  /** Stub — implemented in the next task. */
-  findMatches(_text: string): Utf16Match[] {
-    throw new Error('findMatches: not implemented yet (see Task 5)');
+  /**
+   * Longest-match, non-overlapping, left-to-right. Mirrors
+   * `AhoCorasickMatcher.java::findMatches` + `buildProtectedRanges` logic.
+   */
+  findMatches(text: string): Utf16Match[] {
+    const raw = Array.from(this.iterEmissions(text));
+    if (raw.length === 0) return [];
+    // Sort by start ASC, then length DESC (longer match wins at same start).
+    raw.sort((a, b) => {
+      if (a.start !== b.start) return a.start - b.start;
+      return b.end - a.end;
+    });
+
+    // Protected starts: sorted list of `start` positions already claimed by
+    // a chosen longer match. For each candidate, we binary-search the most
+    // recent protected start ≤ candidate.start and check whether the
+    // candidate lies *inside* that protected range.
+    const chosen: Utf16Match[] = [];
+    const protectedStarts: number[] = [];
+    const protectedEnds: number[] = [];
+    let cursor = 0;
+
+    for (const m of raw) {
+      if (m.start < cursor) continue; // overlaps previous chosen match
+      // Is m nested inside any already-protected range?
+      const idx = bisectRight(protectedStarts, m.start) - 1;
+      if (idx >= 0 && m.end <= protectedEnds[idx]! && m.start >= protectedStarts[idx]!) {
+        continue;
+      }
+      chosen.push(m);
+      protectedStarts.push(m.start);
+      protectedEnds.push(m.end);
+      cursor = m.end;
+    }
+    return chosen;
   }
 
-  /** Stub — implemented in the next task. */
-  replaceAll(_text: string): string {
-    throw new Error('replaceAll: not implemented yet (see Task 5)');
+  replaceAll(text: string): string {
+    const matches = this.findMatches(text);
+    if (matches.length === 0) return text;
+    let out = '';
+    let last = 0;
+    for (const m of matches) {
+      if (m.start > last) out += text.substring(last, m.start);
+      out += m.target;
+      last = m.end;
+    }
+    if (last < text.length) out += text.substring(last);
+    return out;
   }
+}
+
+/** Rightmost insertion point for `x` in sorted array `arr`. */
+function bisectRight(arr: number[], x: number): number {
+  let lo = 0;
+  let hi = arr.length;
+  while (lo < hi) {
+    const mid = (lo + hi) >>> 1;
+    if (x < arr[mid]!) hi = mid;
+    else lo = mid + 1;
+  }
+  return lo;
 }
