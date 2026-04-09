@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { AhoCorasickMatcher, type Utf16Match } from '../src/core/matcher';
+import { AhoCorasickMatcher } from '../src/core/matcher';
 
 describe('AhoCorasickMatcher — raw emissions (iterEmissions)', () => {
   it('emits empty array for no matches', () => {
