@@ -44,27 +44,27 @@ sdk/typescript/
 ├── tsconfig.json             # strict, target ES2022
 ├── vitest.config.ts          # Node env default; one subset runs under happy-dom
 ├── README.md                 # npm-facing usage docs
-├── zhtw-data.json            # symlink → ../data/zhtw-data.json (single source of truth)
 ├── src/
 │   ├── core/
-│   │   ├── types.ts          # Match, ConversionDetail, LookupResult, ZhtwData, Converter, ConverterOptions
+│   │   ├── types.ts          # Source, Match, ConversionDetail, LookupResult, ZhtwData, Converter, ConverterOptions (public)
 │   │   ├── codepoint.ts      # UTF-16 ↔ codepoint index utilities
-│   │   ├── matcher.ts        # AhoCorasickMatcher class (port of Java)
-│   │   └── converter.ts      # createConverter(data, options) pure factory
+│   │   ├── matcher.ts        # AhoCorasickMatcher + internal Utf16Match type (NOT re-exported)
+│   │   └── converter.ts      # createConverter(data, options) pure factory; converts Utf16Match → Match
 │   ├── data/
-│   │   ├── node.ts           # loadData() using fs.readFileSync
-│   │   └── browser.ts        # loadData() using `import data from '../../zhtw-data.json'`
+│   │   ├── node.ts           # loadData() using fs.readFileSync on dist/zhtw-data.json (copied by build)
+│   │   └── browser.ts        # loadData() via JSON import from ../../../data/zhtw-data.json (inlined by tsup)
 │   ├── index.node.ts         # Node entry: wires core + node loader, exports public API
 │   └── index.browser.ts      # Browser entry: same exports, browser loader
 └── tests/
     ├── matcher.test.ts       # AC automaton unit tests
     ├── codepoint.test.ts     # UTF-16 ↔ codepoint boundary tests
     ├── converter.test.ts     # Two-layer pipeline tests
-    ├── golden.test.ts        # Parametrized cross-SDK parity test (reads sdk/data/golden-test.json)
-    └── api.test.ts           # Public API smoke tests
+    ├── golden.test.ts        # Parametrized cross-SDK parity: convert + check + lookup
+    ├── api.test.ts           # Public API smoke tests (Node + happy-dom)
+    └── pack.test.ts          # npm pack → install → import smoke test (CI only)
 ```
 
-The `zhtw-data.json` entry at the package root is a symlink so `make bump` keeps it in sync automatically without special-casing TypeScript.
+**Data file packaging:** There is exactly **one** copy of `zhtw-data.json` shipped in the published tarball — inside `dist/`. The tsup build step explicitly copies `../data/zhtw-data.json` into `dist/zhtw-data.json`, and the Node loader reads it via `join(__dirname, 'zhtw-data.json')` (which resolves next to `dist/index.node.{mjs,cjs}`). The browser loader inlines the same file at build time via a JSON import. No symlinks, no root-level copy, no ambiguity about which file ships.
 
 ---
 
@@ -75,9 +75,9 @@ The `zhtw-data.json` entry at the package root is a symlink so `make bump` keeps
 ```ts
 import { convert, check, lookup } from 'zhtw-js';
 
-convert('这个软件需要优化');       // => '這個軟體需要最佳化'
-check('用户权限');                  // => Match[]
-lookup('软件');                     // => LookupResult
+convert('這個軟體需要最佳化');       // => '這個軟體需要最佳化'
+check('使用者權限');                  // => Match[]
+lookup('軟體');                     // => LookupResult
 ```
 
 The convenience functions wrap a module-level lazy-initialized default converter with `sources: ['cn', 'hk']` and no custom dict.
@@ -89,7 +89,7 @@ import { createConverter } from 'zhtw-js';
 
 const conv = createConverter({
   sources: ['cn'],                     // default: ['cn', 'hk']
-  customDict: { '自定义': '自訂' },    // takes priority over built-in terms
+  customDict: { '自訂': '自訂' },    // takes priority over built-in terms
 });
 
 conv.convert('...');
@@ -100,6 +100,8 @@ conv.lookup('...');
 ### Type surface
 
 ```ts
+export type Source = 'cn' | 'hk';
+
 export interface Match {
   start: number;      // codepoint index, inclusive
   end: number;        // codepoint index, exclusive
@@ -122,7 +124,7 @@ export interface LookupResult {
 }
 
 export interface ConverterOptions {
-  sources?: Array<'cn' | 'hk'>;        // default: ['cn', 'hk']
+  sources?: Source[];                  // default: ['cn', 'hk']
   customDict?: Record<string, string>;
 }
 
@@ -133,7 +135,9 @@ export interface Converter {
 }
 ```
 
-**Position semantics:** All `start`/`end`/`position` values are **Unicode codepoint indices**, not JavaScript's native UTF-16 code unit indices. This matches Python and Java and keeps cross-SDK output identical for supplementary plane characters (e.g., CJK Extension B+).
+**Input types are strict `string`.** The public API does not accept `null` or `undefined`; passing those is a TypeScript error at compile time and a runtime `TypeError` at the boundary. The empty string `''` is valid and round-trips unchanged. This differs from Java's `convert(null) → null` behavior — we intentionally make the TS surface narrower because TS users have a type system to enforce it.
+
+**Position semantics:** All `start`/`end`/`position` values exposed publicly (i.e., on `Match` and `ConversionDetail`) are **Unicode codepoint indices**, not JavaScript's native UTF-16 code unit indices. This matches Python and Java and keeps cross-SDK output identical for supplementary plane characters (e.g., CJK Extension B+). Internally the matcher works in UTF-16 (that's what JS strings are) and returns a separate `Utf16Match` type; the converter converts UTF-16 positions to codepoint positions before returning `Match` to callers. The two types are structurally similar but semantically different — mixing them up on the supplementary plane is a bug, so they are distinct named types to prevent accidental aliasing.
 
 ---
 
@@ -200,12 +204,24 @@ Tests cover ASCII, BMP CJK, supplementary plane, and empty strings.
 `AhoCorasickMatcher` class, direct port of Java's `AhoCorasickMatcher.java`:
 
 ```ts
+// Internal-only: matcher returns UTF-16 positions because JS strings are UTF-16.
+// NOT exported from the package. core/converter.ts converts these into
+// codepoint-indexed public `Match` values before returning to callers.
+export interface Utf16Match {
+  start: number;      // UTF-16 code unit index, inclusive
+  end: number;        // UTF-16 code unit index, exclusive
+  source: string;
+  target: string;
+}
+
 export class AhoCorasickMatcher {
   constructor(patterns: Record<string, string>);
   replaceAll(text: string): string;
-  findMatches(text: string): Match[];  // UTF-16 positions; caller converts to codepoint
+  findMatches(text: string): Utf16Match[];
 }
 ```
+
+`Utf16Match` lives in `core/matcher.ts` (or a sibling internal types module) and is **not** re-exported from `index.node.ts` / `index.browser.ts`. Keeping it as a distinct named type prevents accidentally passing UTF-16 offsets where a codepoint offset is expected — which would silently break on any supplementary-plane input.
 
 Internal data structures:
 - Goto trie (children map per node)
@@ -249,12 +265,15 @@ export function loadData(): ZhtwData {
 }
 ```
 
-The file will live next to `dist/index.node.{mjs,cjs}` in the published tarball. tsup's `publicDir` or a post-build copy step handles placement.
+The file lives next to `dist/index.node.{mjs,cjs}` in the published tarball. The tsup build config has an explicit post-build step that copies `../data/zhtw-data.json` → `dist/zhtw-data.json`. This is the **only** copy shipped; no root-level `zhtw-data.json` is published. The `files` field in `package.json` lists just `dist`, `README.md`, and `LICENSE`.
 
 ### `data/browser.ts`
 
 ```ts
-import data from '../../zhtw-data.json';
+// Path resolves to sdk/data/zhtw-data.json — the single source of truth
+// that `make bump` regenerates. No symlink, no copy for the browser build;
+// tsup inlines the JSON directly into the bundle.
+import data from '../../../data/zhtw-data.json';
 import type { ZhtwData } from '../core/types';
 
 export function loadData(): ZhtwData {
@@ -262,7 +281,7 @@ export function loadData(): ZhtwData {
 }
 ```
 
-tsup resolves the JSON import at build time and inlines it into `dist/index.browser.{mjs,cjs}`.
+tsup resolves the JSON import at build time and inlines it into `dist/index.browser.{mjs,cjs}`. The Node loader, by contrast, reads the file at runtime from `dist/zhtw-data.json` (copied in during build). Both paths ultimately read the same upstream `sdk/data/zhtw-data.json`.
 
 ### `index.node.ts` / `index.browser.ts`
 
@@ -272,7 +291,7 @@ Thin wrappers. Each is ~30 lines:
 import { loadData } from './data/node'; // or './data/browser'
 import { createConverter as createCoreConverter } from './core/converter';
 import type {
-  Converter, ConverterOptions, Match, LookupResult, ConversionDetail, ZhtwData,
+  Converter, ConverterOptions, Match, LookupResult, ConversionDetail, Source, ZhtwData,
 } from './core/types';
 
 // Cache the parsed data at module level so default converter and custom
@@ -310,28 +329,30 @@ export function createConverter(options: ConverterOptions = {}): Converter {
   return createCoreConverter(getData(), options);
 }
 
-export type { Converter, ConverterOptions, Match, LookupResult, ConversionDetail };
+export type { Converter, ConverterOptions, Match, LookupResult, ConversionDetail, Source };
 ```
 
 Note: `cachedData` is shared between the default converter and any custom converter built via `createConverter`. The data is immutable after load, so sharing is safe and avoids re-parsing the 1MB JSON for every factory call.
+
+The runtime `typeof` guards for non-string inputs (per §7) live inside `createCoreConverter`'s returned closures, not in the thin wrapper here. Keeping them in one place means the error message is consistent whether the caller goes through `convert(text)` or `conv.convert(text)`.
 
 ---
 
 ## 7. Error Handling
 
-The rule is: validate only at system boundaries (consumer input + JSON parsing). No defensive checks for internal invariants.
+The rule is: validate only at system boundaries (consumer input + JSON parsing). No defensive checks for internal invariants. The public API signatures are strict `string` / `Source[]` — TypeScript users get compile-time errors for bad inputs; runtime checks only catch the handful of cases that slip through (e.g., `any`-typed JS callers).
 
 | Situation | Behavior |
 |---|---|
-| `convert(null)` / `convert(undefined)` | Return empty string (matches Java's null-safe convert) |
-| `convert('')` | Return empty string |
-| `check(null)` / `lookup(null)` | Return `[]` / `{ input: '', output: '', changed: false, details: [] }` |
-| `loadData()` JSON parse / read failure | Throw `Error('Failed to load zhtw-data.json: <reason>')` at first `convert`/`check`/`lookup`/`createConverter` call (lazy init). Propagate loudly; this is a package bug, not user error |
-| `createConverter({ sources: ['xx'] })` | Throw `Error("Unknown source: 'xx', expected 'cn' or 'hk'")` |
+| `convert('')` / `check('')` / `lookup('')` | Return `''` / `[]` / `{ input: '', output: '', changed: false, details: [] }`. Empty string is a valid input |
+| `convert(null as any)` / non-string input | Throw `TypeError('zhtw: text must be a string')` immediately. The signature already forbids this at compile time; the runtime check exists only for JS callers bypassing types |
+| `createConverter({ sources: [] })` | Throw `Error('zhtw: sources must be a non-empty array of "cn" \| "hk", or omitted')`. Matches Python's behavior (`src/zhtw/converter.py` rejects empty list) |
+| `createConverter({ sources: ['xx' as any] })` | Throw `Error("zhtw: unknown source 'xx', expected 'cn' or 'hk'")` |
 | `customDict: { '': 'foo' }` | Silently skip empty-key entries (matches Python) |
 | `customDict` collides with built-in term | customDict wins (matches Java builder semantics) |
+| `loadData()` JSON parse / read failure | Throw `Error('zhtw: failed to load zhtw-data.json: <reason>')` on the **first** call to `convert` / `check` / `lookup` / `createConverter`. Lazy init means import-time is silent; the error surfaces at first use. Propagate loudly — this is a package bug, not user error, and should not be caught |
 
-No silent fallbacks. No "best effort" degradation. If the package data is corrupt, the consumer should find out at import time, not when their output is mysteriously wrong.
+No silent fallbacks. No "best effort" degradation. If the package data is corrupt, the consumer finds out on the first API call (loudly), not when their output is mysteriously wrong.
 
 ---
 
@@ -343,13 +364,22 @@ No silent fallbacks. No "best effort" degradation. If the package data is corrup
 |---|---|---|
 | `matcher.test.ts` | AC unit: basic match, longest match, overlapping patterns, supplementary plane, customDict merge/override, `replaceAll` return identity when nothing matches | Node |
 | `codepoint.test.ts` | UTF-16 ↔ codepoint: ASCII, BMP CJK, supplementary plane (CJK Extension B+, emoji), empty strings | Node |
-| `converter.test.ts` | Two-layer pipeline: term-only, char-only, combined, `sources: ['cn']` vs `['cn','hk']`, empty input, null input, customDict precedence | Node |
-| `golden.test.ts` | Parametrized: reads `sdk/data/golden-test.json`, asserts `convert(input) === expected` for every entry | Node |
+| `converter.test.ts` | Two-layer pipeline: term-only, char-only, combined, `sources: ['cn']` vs `['cn','hk']`, empty input, customDict precedence, error cases (`sources: []`, unknown source) | Node |
+| `golden.test.ts` | Parametrized cross-SDK parity: reads `sdk/data/golden-test.json` and asserts `convert`, `check`, **and** `lookup` parity on every entry | Node |
 | `api.test.ts` | Public API smoke: zero-config functions, `createConverter`, type exports resolve | Node + happy-dom |
+| `pack.test.ts` | `npm pack` smoke test: packs the tarball, installs it in a throwaway temp dir, imports from the installed package, asserts `convert` / `check` / `lookup` all work. Guards the Node data-file packaging | Node (CI only) |
 
 ### The golden gate
 
-`golden.test.ts` is the cross-SDK consistency contract. The same JSON file is already consumed by Python and Java tests. If the TS SDK ever produces a single byte of divergence, this test fails loudly. **This is the non-negotiable gate before release.**
+`golden.test.ts` is the cross-SDK consistency contract. The same JSON file is already consumed by Python and Java tests. **All three public APIs are tested against it**, not just `convert`:
+
+1. **`convert` parity** — `convert(input) === expected` (string-equal)
+2. **`check` parity** — `check(input)` returns the same matches (same count, same codepoint `start`/`end`, same `source`/`target`) as the corresponding Java/Python reference. `check` is where codepoint indexing is most fragile; leaving it untested was the biggest hole in the first draft of this spec
+3. **`lookup` parity** — `lookup(input).output === expected`, `.changed` matches, and `.details` matches in order (layer, position, source, target)
+
+If the TS SDK ever produces a single byte of divergence on any of the three, this test fails loudly. **This is the non-negotiable gate before release.**
+
+> Implementation note: the existing `sdk/data/golden-test.json` currently only encodes `{ input, expected }` for `convert`. As part of this SDK's implementation plan, the export command in the Python CLI will be extended to emit golden fixtures for `check` and `lookup` as well, and the Java SDK's existing parity test will be extended to consume them. That way all three SDKs share a single fixture source.
 
 ### CI matrix
 
@@ -389,7 +419,7 @@ The `api.test.ts` file has a `// @vitest-environment happy-dom` pragma for at le
       }
     }
   },
-  "files": ["dist", "zhtw-data.json", "README.md", "LICENSE"],
+  "files": ["dist", "README.md", "LICENSE"],
   "engines": { "node": ">=18" },
   "repository": {
     "type": "git",
@@ -437,12 +467,14 @@ Before cutting a release:
 
 1. ✅ `make version-check` passes with TS at 4.0.0 (already true)
 2. ✅ `pnpm test` in `sdk/typescript/` passes on Node 18, 20, 22
-3. ✅ `golden.test.ts` passes zero-divergence against `sdk/data/golden-test.json`
-4. ✅ `pnpm build` produces `dist/index.{node,browser}.{mjs,cjs,d.ts}`
-5. ✅ `api.test.ts` happy-dom case passes (browser entry is genuinely browser-safe)
-6. ✅ CI workflow `sdk-typescript.yml` is green
-7. ✅ README.md has Install + Quick Start + API reference
-8. ✅ Root README's "Multi-language SDKs" table is updated: TypeScript status → ✅ Stable, add throughput number once measured
+3. ✅ `golden.test.ts` passes zero-divergence against `sdk/data/golden-test.json` for **all three** APIs (`convert`, `check`, `lookup`)
+4. ✅ `pnpm build` produces `dist/index.{node,browser}.{mjs,cjs,d.ts}` **and** `dist/zhtw-data.json` (copied from `../data/zhtw-data.json` by the build step)
+5. ✅ `pack.test.ts` passes: `npm pack` → install in throwaway dir → import the installed package → `convert` / `check` / `lookup` all work (proves Node data-file packaging ships correctly)
+6. ✅ `api.test.ts` happy-dom case passes (browser entry is genuinely browser-safe — no `fs` / `node:*` imports leak)
+7. ✅ CI workflow `sdk-typescript.yml` is green
+8. ✅ README.md has Install + Quick Start + API reference
+9. ✅ A lightweight throughput measurement has been recorded (one-off `scripts/bench.ts` running `convert` over a representative ~100KB text, wall-clock number captured in the PR description). Not a full benchmark suite — just enough to justify the number we put in the root README
+10. ✅ Root README's "Multi-language SDKs" table is updated: TypeScript status → ✅ Stable, throughput number from step 9 filled in
 
 ---
 
