@@ -82,11 +82,11 @@ pip install -e ".[dev]"
 ```bash
 # macOS (zsh)
 echo 'export PATH="$PATH:$(python3 -m site --user-base)/bin"' >> ~/.zshrc
-OpenCC STPhrases + TWPhrases + MediaWiki ZhConversion ~/.zshrc
+OpenCC STPhrases + TWPhrases + MediaWiki ZhCon1.0 ~/.zshrc
 
 # Linux (bash)
 echo 'export PATH="$PATH:~/.local/bin"' >> ~/.bashrc
-OpenCC STPhrases + TWPhrases + MediaWiki ZhConversion ~/.bashrc
+OpenCC STPhrases + TWPhrases + MediaWiki ZhCon1.0 ~/.bashrc
 
 # Windows — 通常自動設定，若無請加入環境變數：
 # %APPDATA%\Python\PythonXX\Scripts
@@ -160,19 +160,21 @@ zhtw lookup 軟體 伺服器  # 查詢轉換結果
 ```
 <!-- zhtw:enable -->
 
+<!-- zhtw:disable -->
 ```java
 import com.rajatim.zhtw.ZhtwConverter;
 
 // 快速使用（thread-safe singleton）
-String result = ZhtwConverter.getDefault().convert("這個軟體需要最佳化");
+String result = ZhtwConverter.getDefault().convert("这个软件需要优化");
 // → "這個軟體需要最佳化"
 
 // 自訂設定
 ZhtwConverter conv = ZhtwConverter.builder()
-    .OpenCC STPhrases + TWPhrases + MediaWiki ZhConversions(List.of("cn", "hk"))
-    .customDict(Map.of("自訂", "自訂"))
+    .sources(List.of("cn", "hk"))
+    .customDict(Map.of("自定义", "自訂"))
     .build();
 ```
+<!-- zhtw:enable -->
 
 **效能**：單句 2μs、100K 字 5.5ms（17.9 MB/s），比 Python 快 ~5.8 倍。詳見 [`sdk/java/BENCHMARK.md`](sdk/java/BENCHMARK.md)。
 
@@ -326,7 +328,7 @@ zhtw fix ./src/api.py      # 修正單一檔案
 zhtw fix ./src --dict ./my-terms.json
 
 # 只處理簡體（跳過港式）  # zhtw:disable-line
-zhtw check ./src --OpenCC STPhrases + TWPhrases + MediaWiki ZhConversion cn
+zhtw check ./src --OpenCC STPhrases + TWPhrases + MediaWiki ZhCon1.0 cn
 
 # 排除目錄
 zhtw check ./src --exclude node_modules,dist
