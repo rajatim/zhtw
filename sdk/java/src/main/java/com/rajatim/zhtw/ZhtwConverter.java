@@ -9,6 +9,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Simplified Chinese to Traditional Chinese (Taiwan) converter.
+ *
+ * <p>Positions in {@link Match} and {@link ConversionDetail} use Unicode codepoint
+ * indices (not Java UTF-16 code unit indices), consistent with Python.
+ */
 public final class ZhtwConverter {
 
     private static volatile ZhtwConverter defaultInstance;
@@ -28,6 +34,10 @@ public final class ZhtwConverter {
         this.sources = Collections.unmodifiableList(new ArrayList<>(sources));
     }
 
+    /**
+     * Get the default converter instance (thread-safe singleton).
+     * Uses sources ["cn", "hk"], no custom dict.
+     */
     public static ZhtwConverter getDefault() {
         if (defaultInstance == null) {
             synchronized (ZhtwConverter.class) {
@@ -39,10 +49,17 @@ public final class ZhtwConverter {
         return defaultInstance;
     }
 
+    /** Create a new builder. */
     public static Builder builder() {
         return new Builder();
     }
 
+    /**
+     * Convert text from Simplified Chinese to Traditional Chinese (Taiwan).
+     *
+     * @param text input text
+     * @return converted text, or null if input is null
+     */
     public String convert(String text) {
         if (text == null) {
             return null;
@@ -62,6 +79,14 @@ public final class ZhtwConverter {
         return result;
     }
 
+    /**
+     * Check text for conversions without modifying it.
+     * Returns all matches (term-level + char-level on original text).
+     * Positions are Unicode codepoint indices, not UTF-16 code unit indices.
+     *
+     * @param text input text
+     * @return list of matches found
+     */
     public List<Match> check(String text) {
         if (text == null || text.isEmpty()) {
             return Collections.emptyList();
@@ -69,20 +94,25 @@ public final class ZhtwConverter {
 
         List<Match> result = new ArrayList<>();
 
-        // Term-level matches
-        result.addAll(matcher.findMatches(text));
+        // Term-level matches (matcher returns UTF-16 indices, convert to codepoint)
+        for (Match m : matcher.findMatches(text)) {
+            int cpStart = Character.codePointCount(text, 0, m.getStart());
+            int cpEnd = Character.codePointCount(text, 0, m.getEnd());
+            result.add(new Match(cpStart, cpEnd, m.getSource(), m.getTarget()));
+        }
 
-        // Char-level matches (on original text)
+        // Char-level matches (on original text, track codepoint index)
         if (charLayerEnabled) {
+            int cpIndex = 0;
             int i = 0;
             while (i < text.length()) {
                 int cp = text.codePointAt(i);
                 String replacement = charmap.get(cp);
                 String original = new String(Character.toChars(cp));
                 if (replacement != null && !replacement.equals(original)) {
-                    int charLen = Character.charCount(cp);
-                    result.add(new Match(i, i + charLen, original, replacement));
+                    result.add(new Match(cpIndex, cpIndex + 1, original, replacement));
                 }
+                cpIndex++;
                 i += Character.charCount(cp);
             }
         }
@@ -90,6 +120,13 @@ public final class ZhtwConverter {
         return result;
     }
 
+    /**
+     * Look up conversion details for a single word or phrase.
+     * Positions are Unicode codepoint indices, not UTF-16 code unit indices.
+     *
+     * @param word input word
+     * @return lookup result with conversion details
+     */
     public LookupResult lookup(String word) {
         if (word == null || word.isEmpty()) {
             return new LookupResult(
@@ -100,8 +137,9 @@ public final class ZhtwConverter {
             );
         }
 
-        List<ConversionDetail> details = new ArrayList<>();
-        Set<Integer> covered = new HashSet<>();  // covered char indices
+        // Internal work uses UTF-16 indices (needed by buildOutput for string slicing)
+        List<ConversionDetail> utf16Details = new ArrayList<>();
+        Set<Integer> coveredUtf16 = new HashSet<>();
 
         // 1. Term layer
         List<Match> termMatches = matcher.findMatches(word);
@@ -111,9 +149,9 @@ public final class ZhtwConverter {
             if (charLayerEnabled) {
                 target = applyCharmap(target);
             }
-            details.add(new ConversionDetail(m.getSource(), target, "term", m.getStart()));
+            utf16Details.add(new ConversionDetail(m.getSource(), target, "term", m.getStart()));
             for (int i = m.getStart(); i < m.getEnd(); i++) {
-                covered.add(i);
+                coveredUtf16.add(i);
             }
         }
 
@@ -123,27 +161,37 @@ public final class ZhtwConverter {
             while (i < word.length()) {
                 int cp = word.codePointAt(i);
                 int charLen = Character.charCount(cp);
-                if (!covered.contains(i)) {
+                if (!coveredUtf16.contains(i)) {
                     String replacement = charmap.get(cp);
                     String original = new String(Character.toChars(cp));
                     if (replacement != null && !replacement.equals(original)) {
-                        details.add(new ConversionDetail(original, replacement, "char", i));
+                        utf16Details.add(new ConversionDetail(original, replacement, "char", i));
                     }
                 }
                 i += charLen;
             }
         }
 
-        // Sort by position
-        details.sort((a, b) -> Integer.compare(a.getPosition(), b.getPosition()));
+        // Sort by UTF-16 position (for buildOutput)
+        utf16Details.sort((a, b) -> Integer.compare(a.getPosition(), b.getPosition()));
 
-        // Build output
-        String output = buildOutput(word, details);
+        // Build output using UTF-16 positions
+        String output = buildOutput(word, utf16Details);
         boolean changed = !output.equals(word);
 
-        return new LookupResult(word, output, changed, details);
+        // Convert to codepoint positions for public API
+        List<ConversionDetail> cpDetails = new ArrayList<>();
+        for (ConversionDetail d : utf16Details) {
+            int cpPos = Character.codePointCount(word, 0, d.getPosition());
+            cpDetails.add(new ConversionDetail(d.getSource(), d.getTarget(), d.getLayer(), cpPos));
+        }
+
+        return new LookupResult(word, output, changed, cpDetails);
     }
 
+    /**
+     * Build output text from conversion details (uses UTF-16 positions internally).
+     */
     private String buildOutput(String text, List<ConversionDetail> details) {
         if (details.isEmpty()) {
             return text;
@@ -181,6 +229,9 @@ public final class ZhtwConverter {
         return changed ? sb.toString() : text;
     }
 
+    /**
+     * Builder for ZhtwConverter.
+     */
     public static final class Builder {
 
         private List<String> sources = Arrays.asList("cn", "hk");
@@ -188,16 +239,25 @@ public final class ZhtwConverter {
 
         private Builder() {}
 
+        /**
+         * Set which term sources to use.
+         * @param sources list of sources, e.g. ["cn"], ["hk"], or ["cn", "hk"]
+         */
         public Builder sources(List<String> sources) {
             this.sources = new ArrayList<>(sources);
             return this;
         }
 
+        /**
+         * Set custom dictionary entries (take priority over built-in terms).
+         * @param customDict map of source to target terms
+         */
         public Builder customDict(Map<String, String> customDict) {
             this.customDict = new HashMap<>(customDict);
             return this;
         }
 
+        /** Build the converter. */
         public ZhtwConverter build() {
             ZhtwData data = ZhtwData.fromClasspath();
 

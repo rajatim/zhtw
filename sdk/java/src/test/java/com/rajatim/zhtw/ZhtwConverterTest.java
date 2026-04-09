@@ -243,4 +243,70 @@ class ZhtwConverterTest {
         ZhtwConverter c = b.sources(Collections.singletonList("hk")).build();
         assertNotSame(a, c);
     }
+
+    // === Supplementary plane position tests (codepoint vs UTF-16) ===
+
+    @Test
+    void checkSupplementaryPrefixUsesCodepointPositions() {
+        // U+20000 (𠀀) is a supplementary plane char: 1 codepoint but 2 UTF-16 code units.
+        // 软件 (U+8F6F U+4EF6) starts at codepoint index 1, NOT UTF-16 index 2.
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .build();
+        List<Match> matches = conv.check("\uD840\uDC00\u8f6f\u4ef6"); // 𠀀软件
+        boolean foundTerm = false;
+        for (Match m : matches) {
+            if ("\u8f6f\u4ef6".equals(m.getSource())) {
+                assertEquals(1, m.getStart(), "Term match should start at codepoint 1, not UTF-16 index 2");
+                assertEquals(3, m.getEnd(), "Term match should end at codepoint 3");
+                foundTerm = true;
+            }
+        }
+        assertTrue(foundTerm, "Should find term match for 软件");
+    }
+
+    @Test
+    void checkSupplementaryPrefixCharLevel() {
+        // 𠀀这 — char-level match for 这 (U+8FD9) should be at codepoint index 1
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .build();
+        List<Match> matches = conv.check("\uD840\uDC00\u8fd9"); // 𠀀这
+        boolean foundChar = false;
+        for (Match m : matches) {
+            if ("\u8fd9".equals(m.getSource())) {
+                assertEquals(1, m.getStart(), "Char match should start at codepoint 1, not UTF-16 index 2");
+                assertEquals(2, m.getEnd());
+                foundChar = true;
+            }
+        }
+        assertTrue(foundChar, "Should find char match for 这");
+    }
+
+    @Test
+    void lookupSupplementaryPrefixUsesCodepointPositions() {
+        // 𠀀软件 — lookup detail for 软件 should be at codepoint position 1
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .build();
+        LookupResult result = conv.lookup("\uD840\uDC00\u8f6f\u4ef6"); // 𠀀软件
+        assertTrue(result.isChanged());
+        boolean foundTerm = false;
+        for (ConversionDetail d : result.getDetails()) {
+            if ("term".equals(d.getLayer()) && "\u8f6f\u4ef6".equals(d.getSource())) {
+                assertEquals(1, d.getPosition(), "Term detail should be at codepoint 1, not UTF-16 index 2");
+                foundTerm = true;
+            }
+        }
+        assertTrue(foundTerm, "Should find term detail for 软件");
+    }
+
+    @Test
+    void convertSupplementaryPrefixPreservesContent() {
+        // 𠀀软件 should convert to 𠀀軟體 (supplementary char preserved, term converted)
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .build();
+        assertEquals("\uD840\uDC00\u8edf\u9ad4", conv.convert("\uD840\uDC00\u8f6f\u4ef6"));
+    }
 }
