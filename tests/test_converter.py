@@ -5,6 +5,7 @@ from pathlib import Path
 
 from zhtw.converter import (
     contains_chinese,
+    convert,
     convert_text,
     get_ignored_lines,
     should_check_file,
@@ -90,6 +91,36 @@ class TestConvertText:
 
         assert result_text == text
         assert len(matches) == 0
+
+
+class TestConvertWrapper:
+    """Test the high-level convert() convenience wrapper."""
+
+    def test_convert_simplified(self):
+        """Simplified input is converted using default sources."""
+        assert convert("这个软件需要优化") == "這個軟體需要最佳化"
+
+    def test_convert_hk_traditional(self):
+        """HK Traditional input is converted to TW Traditional."""
+        assert convert("這個軟件需要優化") == "這個軟體需要最佳化"
+
+    def test_convert_identity_for_plain_text(self):
+        """Non-Chinese content passes through unchanged."""
+        assert convert("Python 3.12") == "Python 3.12"
+
+    def test_convert_sources_filter(self):
+        """Restricting sources limits which dictionaries are loaded."""
+        assert convert("軟件", sources=["hk"]) == "軟體"
+
+    def test_convert_cache_reuses_matcher(self):
+        """Repeated calls with the same sources hit the cache."""
+        from zhtw.converter import _DEFAULT_CONVERT_CACHE
+
+        _DEFAULT_CONVERT_CACHE.clear()
+        convert("软件")
+        first = _DEFAULT_CONVERT_CACHE[None]
+        convert("硬件")
+        assert _DEFAULT_CONVERT_CACHE[None] is first
 
 
 class TestIgnoreDirectives:

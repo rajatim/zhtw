@@ -346,6 +346,48 @@ def convert_text(
     return text, matches
 
 
+# Lazy-cached matcher + char_table for convert() convenience wrapper.
+# Keyed by normalised sources tuple so repeated calls reuse the build cost.
+_DEFAULT_CONVERT_CACHE: dict = {}
+
+
+def convert(text: str, sources: Optional[List[str]] = None) -> str:
+    """
+    Convert Simplified/HK Traditional Chinese to Taiwan Traditional Chinese.
+
+    High-level convenience wrapper — loads the default dictionary and
+    character table on first call, caches them, and returns converted text.
+
+    Args:
+        text: Input text (Simplified or HK Traditional Chinese).
+        sources: Dictionary sources, e.g. ["cn", "hk"]. Defaults to both.
+
+    Returns:
+        Converted text (Taiwan Traditional Chinese).
+
+    Example:
+        >>> from zhtw import convert
+        >>> convert("这个软件需要优化")
+        '這個軟體需要最佳化'
+    """
+    key = tuple(sorted(sources)) if sources else None
+    cached = _DEFAULT_CONVERT_CACHE.get(key)
+    if cached is None:
+        terms = load_dictionary(sources=sources)
+        matcher = Matcher(terms)
+        char_table = None
+        if sources is None or "cn" in sources:
+            from .charconv import get_translate_table
+
+            char_table = get_translate_table()
+        cached = (matcher, char_table)
+        _DEFAULT_CONVERT_CACHE[key] = cached
+
+    matcher, char_table = cached
+    result, _ = convert_text(text, matcher, fix=True, char_table=char_table)
+    return result
+
+
 def _find_char_matches(
     text: str,
     char_table: dict[int, str],

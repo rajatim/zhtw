@@ -8,7 +8,7 @@ tim Insight 出品 🇹🇼
 __version__ = "3.4.0"
 __author__ = "tim Insight"
 
-from .converter import convert_file, convert_text
+from .converter import convert, convert_file, convert_text
 from .dictionary import load_dictionary
 from .export import export_data, write_export
 from .lookup import ConversionDetail, LookupResult, lookup_word, lookup_words
@@ -16,6 +16,7 @@ from .matcher import Matcher
 
 __all__ = [
     "__version__",
+    "convert",
     "convert_file",
     "convert_text",
     "load_dictionary",
