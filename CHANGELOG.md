@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.1] - 2026-04-09
+
+### Added
+- **TypeScript SDK**（`zhtw-js`）**首次 npm 釋出**：完整 isomorphic SDK，與 Python / Java pipeline byte-for-byte 一致
+  - 支援 Node ≥18 與現代瀏覽器，ESM + CJS 雙格式（tsup 外帶）
+  - 公開 API：`convert` / `check` / `lookup`（位置全部以 Unicode codepoint index 回傳，非 UTF-16 code-unit）
+  - 手刻 Aho-Corasick 自動機 + 詞彙層/字元層雙層架構
+  - 72 個測試（含 21 個 cross-SDK golden fixture 比對）
+  - CI matrix（Node 18/20/22）+ `pack + install` smoke test
+  - npm publish 由 GitHub Release trigger（provenance 開啟）
+  - Benchmark：1MB 輸入 ~16 MB/s 吞吐量
+  - 檔案：[`sdk/typescript/README.md`](sdk/typescript/README.md)
+
+### Fixed
+- **ts-sdk: matcher identity-protection**（Codex review #1）：補上 Python `src/zhtw/matcher.py:89-133` 的 identity-protection 規則。`AhoCorasickMatcher.findMatches` 現在會拆分 identity 與 non-identity matches、用 bisect_right + prefix-max-end 建立 protected ranges、過濾重疊的 non-identity 轉換、且只 yield non-identity。
+  - 修復前 `createConverter({ sources: ['hk'], customDict: { '文件': '檔案', '檔案': '檔案' } }).convert('無中文檔案')` 會誤轉成 `無中檔案案`；修復後保留 `無中文檔案`，與 Python/Java 行為一致。
+- **ts-sdk: lookup() charmap 後處理**（Codex review #2）：對齊 Python `src/zhtw/lookup.py:78-83`，term 層比對到詞之後把 target 再丟進 charmap translate 一次。
+  - 修復前 `lookup('伙頭').output` 回 `伙頭`（term target 未過字元層），但 `convert('伙頭')` 回 `夥頭`；修復後兩者一致。
+- **ts-sdk: sdk/typescript/LICENSE**（Codex review #3）：補上 `package.json` 的 `files` 欄位早就引用但實際缺漏的 LICENSE 檔案，避免未來 `npm publish` tarball 缺授權檔案。
+
+### Mono-versioning（所有 SDK 同步升至 4.0.1）
+Python / Java / Rust / .NET 程式碼與 4.0.0 **完全相同**，僅為滿足 mono-versioning 規則而重新釋出：
+- Python: `zhtw` 4.0.0 → **4.0.1**（程式碼未變；PyPI 重新釋出）
+- Java: `com.rajatim:zhtw` 4.0.0 → **4.0.1**（程式碼未變；Maven Central 重新釋出）
+- TypeScript: `zhtw-js` 4.0.0（未曾釋出）→ **4.0.1**（npm **首次**釋出，含上述 fix）
+- Rust: `zhtw` 4.0.0 → **4.0.1**（Planned，未實際釋出）
+- .NET: `Zhtw` 4.0.0 → **4.0.1**（Planned，未實際釋出）
+- `sdk/data/zhtw-data.json` + `golden-test.json` 已透過 `zhtw export` 重新產生，嵌入版本號為 `4.0.1`
+
 ## [4.0.0] - 2026-04-09
 
 ### ⚠️ Breaking Changes
