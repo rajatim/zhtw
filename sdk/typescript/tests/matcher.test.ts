@@ -61,6 +61,36 @@ describe('AhoCorasickMatcher.findMatches — longest-match + protected ranges', 
     const m = new AhoCorasickMatcher({ ab: 'X' });
     expect(m.findMatches('xyz')).toEqual([]);
   });
+
+  it('identity term protects an overlapping non-identity term (regression: Codex #1)', () => {
+    // `文檔→文件` at [2,4) would produce `無中文件案`, but `檔案→檔案`
+    // (identity) at [3,5) protects positions 3-4, so the non-identity
+    // match is filtered out and the text passes through unchanged.
+    // Python `無中文檔案` → `無中文檔案`; TS must agree.
+    const m = new AhoCorasickMatcher({ 文檔: '文件', 檔案: '檔案' });
+    // No non-identity match survives, so findMatches returns [].
+    expect(m.findMatches('無中文檔案')).toEqual([]);
+    // And replaceAll is an identity on this input.
+    expect(m.replaceAll('無中文檔案')).toBe('無中文檔案');
+  });
+
+  it('identity match never appears in findMatches output', () => {
+    // Even when an identity term is the only match in range, it must be
+    // filtered out (Python matcher.py:131-133 yields non-identity only).
+    const m = new AhoCorasickMatcher({ 檔案: '檔案' });
+    expect(m.findMatches('這個檔案很大')).toEqual([]);
+  });
+
+  it('identity contained inside a longer non-identity does NOT protect', () => {
+    // `軟件→軟體` at [1,3), identity `件→件` at [2,3). The identity is
+    // fully contained inside the non-identity span, so it must NOT
+    // contribute to protected ranges — the longer non-identity term wins.
+    const m = new AhoCorasickMatcher({ 軟件: '軟體', 件: '件' });
+    expect(m.findMatches('A軟件B')).toEqual([
+      { start: 1, end: 3, source: '軟件', target: '軟體' },
+    ]);
+    expect(m.replaceAll('A軟件B')).toBe('A軟體B');
+  });
 });
 
 describe('AhoCorasickMatcher.replaceAll', () => {

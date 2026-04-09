@@ -106,38 +106,84 @@ export class AhoCorasickMatcher {
   }
 
   /**
-   * Longest-match, non-overlapping, left-to-right. Mirrors
-   * `AhoCorasickMatcher.java::findMatches` + `buildProtectedRanges` logic.
+   * Longest-match, non-overlapping, left-to-right, with identity protection.
+   * Mirrors Python `src/zhtw/matcher.py::find_matches` (lines 89-133).
+   *
+   * Identity terms (source === target) never appear in the output, but they
+   * DO build "protected" ranges that block overlapping non-identity terms.
+   * Example: custom dict `{ '文檔': '文件', '檔案': '檔案' }` on text
+   * `無中文檔案` — without protection, `文檔→文件` would convert to
+   * `無中文件案`. The identity term `檔案→檔案` protects positions 3-4,
+   * so the non-identity `文檔[2,4)` match is filtered out and the text
+   * passes through unchanged.
+   *
+   * An identity match that is *fully contained* inside some non-identity
+   * match (e.g. `件→件` inside `軟件→軟體`) does NOT protect — the longer
+   * non-identity term wins.
    */
   findMatches(text: string): Utf16Match[] {
     const raw = Array.from(this.iterEmissions(text));
     if (raw.length === 0) return [];
+
     // Sort by start ASC, then length DESC (longer match wins at same start).
     raw.sort((a, b) => {
       if (a.start !== b.start) return a.start - b.start;
       return b.end - a.end;
     });
 
-    // Protected starts: sorted list of `start` positions already claimed by
-    // a chosen longer match. For each candidate, we binary-search the most
-    // recent protected start ≤ candidate.start and check whether the
-    // candidate lies *inside* that protected range.
-    const chosen: Utf16Match[] = [];
-    const protectedStarts: number[] = [];
-    const protectedEnds: number[] = [];
-    let cursor = 0;
-
+    // Build protected ranges from identity matches that are NOT fully
+    // contained inside any non-identity match. Uses a bisect + prefix-max-end
+    // trick to check containment in O(m log m) instead of O(n*m).
+    const identity: Utf16Match[] = [];
+    const nonIdentitySpans: Array<[number, number]> = [];
     for (const m of raw) {
-      if (m.start < cursor) continue; // overlaps previous chosen match
-      // Is m nested inside any already-protected range?
-      const idx = bisectRight(protectedStarts, m.start) - 1;
-      if (idx >= 0 && m.end <= protectedEnds[idx]! && m.start >= protectedStarts[idx]!) {
-        continue;
+      if (m.source === m.target) identity.push(m);
+      else nonIdentitySpans.push([m.start, m.end]);
+    }
+
+    const protectedPositions = new Set<number>();
+    if (nonIdentitySpans.length > 0) {
+      nonIdentitySpans.sort((a, b) => (a[0] !== b[0] ? a[0] - b[0] : a[1] - b[1]));
+      const niStarts = nonIdentitySpans.map(([s]) => s);
+      const niMaxEnd: number[] = new Array(nonIdentitySpans.length);
+      let maxE = 0;
+      for (let i = 0; i < nonIdentitySpans.length; i++) {
+        if (nonIdentitySpans[i]![1] > maxE) maxE = nonIdentitySpans[i]![1];
+        niMaxEnd[i] = maxE;
       }
-      chosen.push(m);
-      protectedStarts.push(m.start);
-      protectedEnds.push(m.end);
-      cursor = m.end;
+      for (const idM of identity) {
+        const idx = bisectRight(niStarts, idM.start) - 1;
+        const isContained = idx >= 0 && niMaxEnd[idx]! >= idM.end;
+        if (!isContained) {
+          for (let i = idM.start; i < idM.end; i++) protectedPositions.add(i);
+        }
+      }
+    } else {
+      for (const idM of identity) {
+        for (let i = idM.start; i < idM.end; i++) protectedPositions.add(i);
+      }
+    }
+
+    // Filter overlapping matches left-to-right. Identity matches advance the
+    // cursor (blocking later overlaps) but are never yielded. Non-identity
+    // matches that touch a protected position are skipped WITHOUT advancing
+    // the cursor — matching Python's exact control flow.
+    const chosen: Utf16Match[] = [];
+    let lastEnd = -1;
+    for (const m of raw) {
+      if (m.start < lastEnd) continue;
+      if (m.source !== m.target) {
+        let overlaps = false;
+        for (let i = m.start; i < m.end; i++) {
+          if (protectedPositions.has(i)) {
+            overlaps = true;
+            break;
+          }
+        }
+        if (overlaps) continue;
+      }
+      lastEnd = m.end;
+      if (m.source !== m.target) chosen.push(m);
     }
     return chosen;
   }
