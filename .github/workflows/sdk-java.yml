@@ -7,6 +7,16 @@ on:
     paths: ['sdk/java/**', 'sdk/data/**']
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish to Maven Central'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 jobs:
   test:
@@ -27,7 +37,7 @@ jobs:
 
   publish:
     needs: test
-    if: github.event_name == 'release'
+    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish == 'true')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
