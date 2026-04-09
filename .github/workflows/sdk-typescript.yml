@@ -2,20 +2,90 @@ name: SDK TypeScript
 
 on:
   push:
-    paths: ['sdk/typescript/**', 'sdk/data/**']
+    branches: [main]
+    paths:
+      - 'sdk/typescript/**'
+      - 'sdk/data/**'
+      - '.github/workflows/sdk-typescript.yml'
   pull_request:
-    paths: ['sdk/typescript/**', 'sdk/data/**']
+    paths:
+      - 'sdk/typescript/**'
+      - 'sdk/data/**'
+      - '.github/workflows/sdk-typescript.yml'
   release:
     types: [published]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['18', '20', '22']
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+          cache-dependency-path: sdk/typescript/pnpm-lock.yaml
+      - name: Install dependencies
+        working-directory: sdk/typescript
+        run: pnpm install --frozen-lockfile
+      - name: Type-check
+        working-directory: sdk/typescript
+        run: npx tsc --noEmit
+      - name: Run tests
+        working-directory: sdk/typescript
+        run: pnpm test
+      - name: Build
+        working-directory: sdk/typescript
+        run: pnpm build
+      - name: Verify dist layout
+        working-directory: sdk/typescript
+        run: |
+          test -f dist/index.node.mjs
+          test -f dist/index.node.cjs
+          test -f dist/index.node.d.ts
+          test -f dist/index.browser.mjs
+          test -f dist/index.browser.cjs
+          test -f dist/index.browser.d.ts
+          test -f dist/zhtw-data.json
+      - name: Pack + install smoke test
+        working-directory: sdk/typescript
+        env:
+          ZHTW_TS_RUN_PACK: '1'
+        run: npx vitest run tests/pack.test.ts
+
+  publish:
+    needs: test
+    if: github.event_name == 'release' && github.event.action == 'published'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: pnpm
+          cache-dependency-path: sdk/typescript/pnpm-lock.yaml
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        working-directory: sdk/typescript
+        run: pnpm install --frozen-lockfile
       - name: Build
         working-directory: sdk/typescript
-        run: echo "TODO — SDK not yet implemented"
+        run: pnpm build
+      - name: Publish to npm
+        working-directory: sdk/typescript
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --provenance --access public --no-git-checks
