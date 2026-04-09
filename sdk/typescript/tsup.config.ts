@@ -15,6 +15,9 @@ export default defineConfig({
   platform: 'neutral',
   outDir: 'dist',
   loader: { '.json': 'json' },
+  outExtension({ format }) {
+    return { js: format === 'esm' ? '.mjs' : '.cjs' };
+  },
   onSuccess: async () => {
     const src = resolve(__dirname, '../data/zhtw-data.json');
     const outDir = resolve(__dirname, 'dist');
