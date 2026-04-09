@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2026-04-09
+
+### ⚠️ Breaking Changes
+- **Python 3.9 support removed**（EOL: 2025-10-05）。最低版本 bump 至 **Python 3.10**。
+  - 理由：Python 3.9 已於 2025-10-05 結束上游安全維護。為滿足金融業審查對「default branch 0 open alerts」的要求，我們放棄 py3.9 resolution branch，讓 `uv.lock` 可以全面升級到最新安全修補版本。
+  - 影響：
+    - 使用 Python 3.9 的使用者請繼續使用 v3.4.x 系列（功能凍結，僅提供關鍵安全修補）。
+    - Python 3.10+ 使用者無行為變動，純粹是元資料與 CI 矩陣調整。
+  - 升級：`pip install --upgrade zhtw`（需 Python ≥ 3.10）。
+
+### Security
+- 全面升級 `uv.lock` 依賴至最新安全修補版本，清除 Dependabot 所有 open alerts（py<3.10 resolution branch 已不再存在）。
+
+### Changed
+- `requires-python = ">=3.10"`（原 `">=3.9"`）
+- CI 測試矩陣 `['3.10', '3.11', '3.12', '3.13']`（原 `['3.9', '3.11', '3.12']`）
+- Ruff `target-version = "py310"`（原 `"py39"`）
+
 ## [3.4.0] - 2026-04-09
 
 ### Added
