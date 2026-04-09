@@ -2,16 +2,43 @@
   "name": "zhtw-js",
   "version": "4.0.0",
   "description": "Traditional Chinese converter for Taiwan — TypeScript SDK",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "browser": {
+        "types": "./dist/index.browser.d.ts",
+        "import": "./dist/index.browser.mjs",
+        "require": "./dist/index.browser.cjs"
+      },
+      "node": {
+        "types": "./dist/index.node.d.ts",
+        "import": "./dist/index.node.mjs",
+        "require": "./dist/index.node.cjs"
+      }
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rajatim/zhtw",
+    "url": "https://github.com/rajatim/zhtw.git",
     "directory": "sdk/typescript"
   },
+  "license": "MIT",
+  "keywords": ["chinese", "traditional-chinese", "taiwan", "zhtw", "converter", "simplified-to-traditional"],
   "scripts": {
-    "build": "tsc",
-    "test": "jest"
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "bench": "tsx scripts/bench.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "happy-dom": "^14.0.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.4.0"
   }
 }
