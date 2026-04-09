@@ -28,12 +28,35 @@
 
 ---
 
-## 我們的理念
+## 為什麼選 ZHTW？
 
-> 寧可少轉，不要錯轉
+> **寧可少轉，不要錯轉**
+
+通用轉換工具會過度轉換，把台灣正確的詞也改掉。我們不一樣：**只轉確定要改的詞，其他一律不動。**
+
+| | |
+|------|------|
+| **零誤判** | 31,000+ 詞條 + 6,344 字元對映，52 本書 1 億字驗證零錯轉 |
+| **秒級掃描** | 3,100 KB/s 穩定吞吐，1MB 文字 < 1 秒 |
+| **完全離線** | 不傳送任何資料到外部，企業內網也能用 |
+| **CI 整合** | 一行指令加入 GitHub Actions，PR 自動檢查 |
+| **彈性跳過** | 測試資料、第三方程式碼？標記一下就不會被改 |
+
+### 對比 OpenCC
 
 <!-- zhtw:disable -->
-通用轉換工具會過度轉換，把台灣正確的詞也改掉。我們不一樣：**只轉確定要改的詞，其他一律不動。**
+OpenCC 是通用的繁簡轉換框架，採用「全字元 + 短語替換」策略，規則之間容易互相牴觸，例如 `权→權` 會把「權限」誤轉成「許可權」。ZHTW 專注於**簡體 → 台灣繁體**一個方向，用「詞彙層 + 字元層」分層處理，複合詞上下文優先匹配。
+
+| | OpenCC (s2twp) | ZHTW |
+|---|------|------|
+| **設計目標** | 通用繁簡多變體轉換 | 簡體 → 台灣繁體 |
+| **轉換策略** | 字元 + 短語全量替換 | 詞彙優先 → 字元層補齊 |
+| **歧義處理** | 依規則順序 | 22 個危險字人工校對特例 |
+| **詞庫規模** | 內建字表 + 短語 | 31,000+ 精選台灣用詞 |
+| **誤轉** | `权限 → 許可權` 等常見案例 | 52 本書 1 億字驗證零錯轉 |
+| **生態** | C++ 核心、多語言 bindings | CLI + Python Library + Java SDK + pre-commit |
+
+想看更多對比案例？執行 `zhtw lookup 权限 服务器 用户`。
 <!-- zhtw:enable -->
 
 ---
@@ -96,6 +119,10 @@ source ~/.bashrc
 
 ## 30 秒開始使用
 
+ZHTW 提供三種使用方式，選一個最適合你的場景：
+
+### 1. CLI（命令列）
+
 <!-- zhtw:disable -->
 ```bash
 zhtw check .            # 檢查整個專案
@@ -121,51 +148,20 @@ zhtw lookup 软件 服务器  # 查詢：软件→軟體、服务器→伺服器
 ```
 <!-- zhtw:enable -->
 
----
-
-## 為什麼選 ZHTW？
-
-| | |
-|------|------|
-| **零誤判** | 31,000+ 詞條 + 6,344 字元對映，52 本書 1 億字驗證零錯轉 |
-| **秒級掃描** | 3,100 KB/s 穩定吞吐，1MB 文字 < 1 秒 |
-| **完全離線** | 不傳送任何資料到外部，企業內網也能用 |
-| **CI 整合** | 一行指令加入 GitHub Actions，PR 自動檢查 |
-| **彈性跳過** | 測試資料、第三方程式碼？標記一下就不會被改 |
-
----
-
-## 多語言 SDK
-
-除了 Python CLI，ZHTW 提供原生 SDK，讓你在任何技術棧中直接使用：
-
-| SDK | 安裝 | 吞吐量 (1MB) | 單句延遲 | 適用場景 | 狀態 |
-|-----|------|-------------|---------|---------|------|
-| **Python CLI** | `pip install zhtw` | 3.1 MB/s | — | CLI、CI/CD、pre-commit | ✅ Stable |
-| **Java** | [Maven Central](#java-sdk) | 17.9 MB/s | 2μs | Spring Boot、Android、後端服務 | ✅ Stable |
-| **TypeScript** | npm | — | — | Node.js、Deno、瀏覽器 | 🚧 Planned |
-| **Rust** | crates.io | — | — | 高效能、WebAssembly、嵌入式 | 🚧 Planned |
-| **C# (.NET)** | NuGet | — | — | ASP.NET、Unity、桌面應用 | 🚧 Planned |
-
-> 所有 SDK 共用同一份詞庫資料（`zhtw-data.json`），轉換結果與 Python CLI 完全一致。
-
-### Python Library
-
-除了 CLI，也能在 Python 程式中直接呼叫：
+### 2. Python Library
 
 <!-- zhtw:disable -->
 ```python
-from zhtw import convert_text, Matcher, load_dictionary
+from zhtw import convert
 
-matcher = Matcher(load_dictionary())
-result, _ = convert_text("这个软件需要优化", matcher, fix=True)
+convert("这个软件需要优化")
 # → "這個軟體需要最佳化"
 ```
 <!-- zhtw:enable -->
 
-> 詞彙查詢 API 另有 `lookup_word` / `lookup_words`（v3.3.0+）。
+首次呼叫會載入字典並建立 Aho-Corasick 自動機，後續呼叫會重用快取。進階用法（自訂詞庫、逐行回報、整合到你自己的 pipeline）見 `convert_text` / `Matcher` / `load_dictionary`。詞彙查詢 API：`lookup_word` / `lookup_words`（v3.3.0+）。
 
-### Java SDK
+### 3. Java SDK
 
 **Maven**：
 
@@ -208,6 +204,20 @@ ZhtwConverter conv = ZhtwConverter.builder()
 <!-- zhtw:enable -->
 
 **效能**：單句 2μs、100K 字 5.5ms（17.9 MB/s），比 Python 快 ~5.8 倍。詳見 [`sdk/java/BENCHMARK.md`](sdk/java/BENCHMARK.md)。
+
+---
+
+## 多語言 SDK
+
+ZHTW 以 Python 實作為主，並提供原生 Java SDK。所有 SDK 共用同一份詞庫資料（`zhtw-data.json`），轉換結果與 Python CLI 完全一致。
+
+| SDK | 安裝 | 吞吐量 (1MB) | 單句延遲 | 適用場景 | 狀態 |
+|-----|------|-------------|---------|---------|------|
+| **Python** | `pip install zhtw` | 3.1 MB/s | — | CLI、CI/CD、pre-commit、資料處理 | ✅ Stable |
+| **Java** | [Maven Central](#3-java-sdk) | 17.9 MB/s | 2μs | Spring Boot、Android、後端服務 | ✅ Stable |
+| **TypeScript** | npm | — | — | Node.js、Deno、瀏覽器 | 🚧 Planned |
+| **Rust** | crates.io | — | — | 高效能、WebAssembly、嵌入式 | 🚧 Planned |
+| **C# (.NET)** | NuGet | — | — | ASP.NET、Unity、桌面應用 | 🚧 Planned |
 
 ---
 
@@ -490,18 +500,6 @@ legacy-code.py
 pip install -e ".[dev]"
 pytest
 ruff check .
-```
-
----
-
-## 立即試試
-
-```bash
-# macOS
-brew tap rajatim/tap && brew install zhtw && zhtw check .
-
-# 其他平臺
-python3 -m pip install zhtw && zhtw check .
 ```
 
 有問題？[開 Issue](https://github.com/rajatim/zhtw/issues) | 想貢獻？[看 Contributing Guide](CONTRIBUTING.md)
