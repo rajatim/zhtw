@@ -385,7 +385,7 @@ No silent fallbacks. No "best effort" degradation. If the package data is corrup
 
 If the TS SDK ever produces a single byte of divergence on any of the three, this test fails loudly. **This is the non-negotiable gate before release.**
 
-> Implementation note: the existing `sdk/data/golden-test.json` currently only encodes `{ input, expected }` for `convert`. As part of this SDK's implementation plan, the export command in the Python CLI will be extended to emit golden fixtures for `check` and `lookup` as well, and the Java SDK's existing parity test will be extended to consume them. That way all three SDKs share a single fixture source.
+> Implementation note: `sdk/data/golden-test.json` already contains three fixture sections — `convert` (8 cases), `check` (8 cases, with `expected_matches[].{start,end,source,target}` in codepoint indices), and `lookup` (5 cases, with `expected_output`, `expected_changed`, `expected_details[].{source,target,layer,position}`). The Java SDK's `GoldenTest.java` already consumes all three. The TypeScript SDK reuses the same fixture file unchanged — no Python export changes required.
 
 ### CI matrix
 
