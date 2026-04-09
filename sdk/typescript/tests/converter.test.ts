@@ -192,4 +192,26 @@ describe('createConverter.lookup', () => {
     expect(r.changed).toBe(false);
     expect(r.details).toEqual([]);
   });
+
+  it('re-applies charmap to term targets so lookup.output === convert (regression: Codex #2)', () => {
+    // Fixture: a term that stops at an HK form (`伙头 → 伙頭`). The char
+    // layer then maps `伙 → 夥`. convert() runs both layers, so its output
+    // is `夥頭`. Before the fix, lookup() stored the term target `伙頭`
+    // verbatim and produced `伙頭`, diverging from convert(). Python
+    // `src/zhtw/lookup.py:78-83` explicitly post-processes term targets
+    // through the charmap; TS must agree.
+    const fixture: ZhtwData = {
+      version: '4.0.0',
+      charmap: { chars: { '伙': '夥' }, ambiguous: {} },
+      terms: { cn: { '伙头': '伙頭' }, hk: {} },
+    };
+    const c = createConverter(fixture, { sources: ['cn'] });
+    expect(c.convert('伙头')).toBe('夥頭');
+    const r = c.lookup('伙头');
+    expect(r.output).toBe('夥頭');
+    expect(r.output).toBe(c.convert('伙头'));
+    expect(r.details).toEqual([
+      { source: '伙头', target: '夥頭', layer: 'term', position: 0 },
+    ]);
+  });
 });

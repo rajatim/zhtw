@@ -135,11 +135,17 @@ export function createConverter(
     const internal: InternalDetail[] = [];
     const covered = new Set<number>(); // UTF-16 code-unit indices covered by a term match
 
-    // Term layer.
+    // Term layer. Mirrors Python `src/zhtw/lookup.py:78-83` — the term
+    // target is re-run through the charmap so the emitted detail matches
+    // the final output of `convert()`. Example: the stdlib term
+    // `伙头 → 伙頭` stops at the HK form; `convert('伙头')` finishes at
+    // `夥頭` because the char layer maps `伙 → 夥`. Without this post-pass,
+    // `lookup('伙头').output` would diverge from `convert('伙头')`.
     for (const m of matcher.findMatches(word)) {
+      const target = charLayerEnabled ? applyCharmap(m.target, charmap) : m.target;
       internal.push({
         source: m.source,
-        target: m.target,
+        target,
         layer: 'term',
         utf16Start: m.start,
         utf16End: m.end,
