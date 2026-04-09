@@ -5,21 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.3.0] - 2026-04-09
+## [3.4.0] - 2026-04-09
 
 ### Added
-- **Java SDK**（`com.rajatim.zhtw`）：完整 Java SDK，與 Python pipeline 行為一致
+- **Java SDK**（`com.rajatim:zhtw`）：完整 Java SDK，與 Python pipeline 行為一致
   - `ZhtwConverter`：convert / check / lookup 三大公開 API
   - `AhoCorasickMatcher`：Aho-Corasick 詞彙匹配（最長非重疊、identity mapping 保護）
   - Builder pattern、thread-safe singleton（`getDefault()`）
   - Supplementary plane 完整支援（codepoint-based 位置，非 UTF-16 index）
   - 73 個測試（含 golden test 21 cases 一致性驗證）
-  - Maven 專案結構 + CI workflow（Java 11/17/21）
+  - JMH benchmark：convertShort ~2μs、convertLarge 17.9 MB/s（~5.8× Python）
+  - Maven 專案結構 + CI workflow（Java 11/17/21）+ Maven Central 自動釋出
+- **README 多語言 SDK 對照表**：Python / Java 資料已填，TS / Rust / C# 規劃中
+
+### Changed
+- **版本策略**：改為 mono-versioning，Python + Java SDK 共用同一版本號
+- **Maven 釋出管道**：從 OSSRH 遷移至 Sonatype Central Portal（`central-publishing-maven-plugin`）
+
+## [3.3.0] - 2026-04-08
+
+### Added
 - **`zhtw lookup` 指令**：查詢任意詞/句的轉換結果與來源歸因（詞彙層 vs 字元層）
   - 三種輸入：命令列引數、stdin 管線、整句模式
   - `--verbose` 樹狀詳細歸因、`--json` 結構化輸出
   - 核心邏輯獨立為 `lookup.py` 模組，可供程式化使用
-- **lookup 公開 API**：`lookup_word()`、`lookup_words()`、`LookupResult`、`Con1.0Detail`
+- **lookup 公開 API**：`lookup_word()`、`lookup_words()`、`LookupResult`、`ConversionDetail`
 
 ### Fixed
 - **config 全域狀態汙染**：`DEFAULT_CONFIG` 改用 `copy.deepcopy` 防止淺複製突變
