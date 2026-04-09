@@ -172,4 +172,75 @@ class ZhtwConverterTest {
         assertEquals("\u8edf\u9ad4", result.getOutput());
         assertTrue(result.isChanged());
     }
+
+    // === getDefault() tests ===
+
+    @Test
+    void getDefaultReturnsSameInstance() {
+        ZhtwConverter a = ZhtwConverter.getDefault();
+        ZhtwConverter b = ZhtwConverter.getDefault();
+        assertSame(a, b);
+    }
+
+    @Test
+    void getDefaultConverts() {
+        String result = ZhtwConverter.getDefault().convert("\u8f6f\u4ef6\u6d4b\u8bd5");
+        assertEquals("\u8edf\u9ad4\u6e2c\u8a66", result);
+    }
+
+    @Test
+    void getDefaultThreadSafe() throws Exception {
+        int threads = 10;
+        ZhtwConverter[] results = new ZhtwConverter[threads];
+        Thread[] threadArr = new Thread[threads];
+
+        for (int i = 0; i < threads; i++) {
+            final int idx = i;
+            threadArr[i] = new Thread(() -> results[idx] = ZhtwConverter.getDefault());
+            threadArr[i].start();
+        }
+        for (Thread t : threadArr) {
+            t.join();
+        }
+
+        for (int i = 1; i < threads; i++) {
+            assertSame(results[0], results[i], "All threads should get same instance");
+        }
+    }
+
+    // === Builder edge cases ===
+
+    @Test
+    void builderCnOnly() {
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .build();
+        assertNotNull(conv);
+    }
+
+    @Test
+    void builderHkOnly() {
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("hk"))
+                .build();
+        String result = conv.convert("\u8fd9");
+        assertEquals("\u8fd9", result, "HK source should not apply char conversion");
+    }
+
+    @Test
+    void builderCustomDictOverridesBuiltin() {
+        ZhtwConverter conv = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .customDict(Collections.singletonMap("\u8f6f\u4ef6", "SOFTWARE"))
+                .build();
+        assertEquals("SOFTWARE", conv.convert("\u8f6f\u4ef6"));
+    }
+
+    @Test
+    void builderEachBuildCreatesNewInstance() {
+        ZhtwConverter.Builder b = ZhtwConverter.builder();
+        ZhtwConverter a = b.sources(Collections.singletonList("cn")).build();
+        ZhtwConverter c = b.sources(Collections.singletonList("hk")).build();
+        assertNotSame(a, c);
+    }
 }
