@@ -13,6 +13,19 @@ from typing import Dict, List, Optional, Set
 # Built-in terms directory
 DATA_DIR = Path(__file__).parent / "data" / "terms"
 
+# Reserved top-level keys that must NOT be loaded as term mappings
+# when a JSON file uses the legacy flat format (no "terms" wrapper).
+_METADATA_KEYS = frozenset(
+    {
+        "version",
+        "description",
+        "source",
+        "status",
+        "category",
+        "license",
+    }
+)
+
 
 def load_json_file(path: Path) -> Dict[str, str]:
     """Load a JSON dictionary file."""
@@ -22,8 +35,14 @@ def load_json_file(path: Path) -> Dict[str, str]:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # Support both simple format and extended format
-    terms = data.get("terms", data)
+    # Support both wrapped format ({"terms": {...}, "version": ...}) and
+    # legacy flat format ({"src": "tgt", ...}). For the legacy flat format we
+    # must exclude reserved metadata keys, otherwise they leak into the term
+    # mapping (e.g. version → "1.0", description → "OpenCC + ...").
+    if "terms" in data:
+        terms = data["terms"]
+    else:
+        terms = {k: v for k, v in data.items() if k not in _METADATA_KEYS}
 
     result = {}
     for source, target in terms.items():

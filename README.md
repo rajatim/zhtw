@@ -82,11 +82,11 @@ pip install -e ".[dev]"
 ```bash
 # macOS (zsh)
 echo 'export PATH="$PATH:$(python3 -m site --user-base)/bin"' >> ~/.zshrc
-OpenCC STPhrases + TWPhrases + MediaWiki ZhCon1.0 ~/.zshrc
+source ~/.zshrc
 
 # Linux (bash)
 echo 'export PATH="$PATH:~/.local/bin"' >> ~/.bashrc
-OpenCC STPhrases + TWPhrases + MediaWiki ZhCon1.0 ~/.bashrc
+source ~/.bashrc
 
 # Windows — 通常自動設定，若無請加入環境變數：
 # %APPDATA%\Python\PythonXX\Scripts
@@ -155,7 +155,7 @@ zhtw lookup 軟體 伺服器  # 查詢轉換結果
 <dependency>
     <groupId>com.rajatim</groupId>
     <artifactId>zhtw</artifactId>
-    <version>3.3.0</version>
+    <version>3.4.0</version>
 </dependency>
 ```
 <!-- zhtw:enable -->
@@ -290,7 +290,7 @@ Commit 前自動擋住問題：
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v3.3.0  # 使用最新版本
+    rev: v3.4.0  # 使用最新版本
     hooks:
       - id: zhtw-check   # 檢查模式（建議）
       # - id: zhtw-fix   # 或自動修正模式
@@ -328,7 +328,7 @@ zhtw fix ./src/api.py      # 修正單一檔案
 zhtw fix ./src --dict ./my-terms.json
 
 # 只處理簡體（跳過港式）  # zhtw:disable-line
-zhtw check ./src --OpenCC STPhrases + TWPhrases + MediaWiki ZhCon1.0 cn
+zhtw check ./src --source cn
 
 # 排除目錄
 zhtw check ./src --exclude node_modules,dist

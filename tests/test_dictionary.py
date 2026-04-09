@@ -114,3 +114,39 @@ class TestDictionary:
         terms = load_json_file(Path("/nonexistent/path.json"))
 
         assert terms == {}
+
+    def test_legacy_flat_format_excludes_metadata_keys(self):
+        """Legacy flat-format JSON files (no `terms` wrapper) must NOT load
+        reserved metadata keys (version/description/source/...) as term
+        mappings. Regression: a previous loader treated `data.get("terms",
+        data)` as a fallback, leaking metadata into the dictionary and
+        corrupting English text like `version = "x.y.z"` → `1.0 = "x.y.z"`.
+        """
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            json.dump(
+                {
+                    "version": "1.0",
+                    "description": "Some metadata",
+                    "source": "External provider",
+                    "license": "Apache-2.0",
+                    # Real entries (legacy flat format)
+                    "软件": "軟體",
+                    "数据": "資料",
+                },
+                f,
+                ensure_ascii=False,
+            )
+            f.flush()
+
+            terms = load_json_file(Path(f.name))
+
+        # Real terms loaded
+        assert terms["软件"] == "軟體"
+        assert terms["数据"] == "資料"
+        # Metadata MUST NOT appear as term keys
+        assert "version" not in terms
+        assert "description" not in terms
+        assert "source" not in terms
+        assert "license" not in terms
