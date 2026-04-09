@@ -5,22 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.3.0] - 2026-04-08
+## [3.3.0] - 2026-04-09
 
 ### Added
+- **Java SDK**（`com.rajatim.zhtw`）：完整 Java SDK，與 Python pipeline 行為一致
+  - `ZhtwConverter`：convert / check / lookup 三大公開 API
+  - `AhoCorasickMatcher`：Aho-Corasick 詞彙匹配（最長非重疊、identity mapping 保護）
+  - Builder pattern、thread-safe singleton（`getDefault()`）
+  - Supplementary plane 完整支援（codepoint-based 位置，非 UTF-16 index）
+  - 73 個測試（含 golden test 21 cases 一致性驗證）
+  - Maven 專案結構 + CI workflow（Java 11/17/21）
 - **`zhtw lookup` 指令**：查詢任意詞/句的轉換結果與來源歸因（詞彙層 vs 字元層）
-  - 三種輸入：命令列參數、stdin 管線、整句模式
+  - 三種輸入：命令列引數、stdin 管線、整句模式
   - `--verbose` 樹狀詳細歸因、`--json` 結構化輸出
   - 核心邏輯獨立為 `lookup.py` 模組，可供程式化使用
-- **lookup 公開 API**：`lookup_word()`、`lookup_words()`、`LookupResult`、`ConversionDetail`
+- **lookup 公開 API**：`lookup_word()`、`lookup_words()`、`LookupResult`、`Con1.0Detail`
 
 ### Fixed
-- **config 全域狀態污染**：`DEFAULT_CONFIG` 改用 `copy.deepcopy` 防止淺拷貝突變
+- **config 全域狀態汙染**：`DEFAULT_CONFIG` 改用 `copy.deepcopy` 防止淺複製突變
 - **review skip 資料遺失**：全部 skip 時保留 pending 檔，不再靜默刪除
 - **UTF-16 雙 BOM**：Python `utf-16` codec 已自動寫 BOM，不再手動重複寫入
 - **custom dict 缺 target 欄位**：extended entry 缺 `target` 時跳過，不再把整個 dict 當替換值
 - **list 格式匯入重複偵測**：`_list_to_dict()` 在轉 dict 前偵測重複，正確計入 `duplicates`
-- **usage --reset 權限錯誤**：`PermissionError` 轉為乾淨的 CLI 錯誤訊息
+- **usage --reset 許可權錯誤**：`PermissionError` 轉為乾淨的 CLI 錯誤訊息
 - **lookup/converter 輸出一致性**：term target 套用 charmap，確保與 converter pipeline 一致
 
 ## [3.2.1] - 2026-03-22
@@ -32,22 +39,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Check mode 字元級偵測**：check 模式現在也會報告字元層轉換（之前只報告詞彙層）
-- **30+ 新保護詞條**：划船/划水/划拳 identity、周到/周密/周旋/周折 保護、屋里/水里/梦里/城里 等
+- **30+ 新保護詞條**：划船/划水/划拳 identity、周到/周密/周旋/周折 保護、屋裡/水裡/夢裡/城裡 等
 - **Thread safety**：charconv.py 全域快取加入 `threading.Lock`
 
 ### Fixed
-- **opencc.json 122 條古字修復**：喫→吃、孃→娘、昇→升、鬨→哄（臺灣不用古字形）
-- **苹果→Apple 危險映射**：改為 `苹果手机→Apple 手機` 等特定複合詞
-- **笔记本→筆記型電腦 過度轉換**：改為 `笔记本电脑→筆記型電腦`，裸詞 identity 保護
-- **头像→大頭貼**：改為通用正確的 `头像→頭像`
-- **存储→儲存空間**：改為不過度翻譯的 `存储→儲存`
+- **opencc.json 122 條古字修復**：吃→吃、孃→娘、昇→升、鬨→哄（臺灣不用古字形）
+- **苹果→Apple 危險對映**：改為 `Apple 手機→Apple 手機` 等特定複合詞
+- **筆記本→筆記型電腦 過度轉換**：改為 `筆記型電腦→筆記型電腦`，裸詞 identity 保護
+- **頭像→大頭貼**：改為通用正確的 `頭像→頭像`
+- **儲存→儲存空間**：改為不過度翻譯的 `儲存→儲存`
 - **encoding.py confidence 型別錯誤**：從 `encoding_aliases[0]`（str）改為 `best.coherence`（float）
 - **于 歧義字排除**：從 safe_chars.json 移至 ambiguous_excluded（于可為姓氏）
 
 ## [3.1.0] - 2026-03-22
 
 ### Performance
-- **Matcher 效能優化**：修復超線性退化，1MB 文字吞吐量 33 → 3,068 KB/s（**93 倍**）
+- **Matcher 效能最佳化**：修復超線性退化，1MB 文字吞吐量 33 → 3,068 KB/s（**93 倍**）
   - Protected ranges：O(n×m) 巢狀迴圈 → O(m log m) 二分搜尋（bisect）
   - replace_all：O(n×m) 字串切片 → O(n) list+join
   - 吞吐量穩定 ~3,100 KB/s，不受文字大小影響
@@ -56,18 +63,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [3.0.0] - 2026-03-22
 
 ### Added
-- **字元級轉換層**：新增 6,344 個安全一對一簡繁字元映射（`str.translate()`），作為詞彙級轉換後的第二層
+- **字元級轉換層**：新增 6,344 個安全一對一簡繁字元對映（`str.translate()`），作為詞彙級轉換後的第二層
 - **OpenCC 詞庫整合**：修復 `opencc.json` 格式並新增 28,106 個詞條
 - **Aho-Corasick 重疊保護**：13 個新保護詞條，修復周/週過度轉換
-- **7 個驗證測試模組**（623 項測試）：字元映射完整性、詞庫品質、過度轉換偵測、歧義字消歧、邊界案例、壓力效能、黃金對照
+- **7 個驗證測試模組**（623 項測試）：字元對映完整性、詞庫品質、過度轉換偵測、歧義字消歧、邊界案例、壓力效能、黃金對照
 - **52 書大規模審計**：103M 字、0 殘留簡體、0 古字、0 真實過度轉換
 - `charconv.py` 模組：字元級轉換核心
-- `generate_charmap.py`：從 Unicode Unihan 自動產生映射腳本
-- `audit_books.py`：多書籍 epub 品質審計腳本
+- `generate_charmap.py`：從 Unicode Unihan 自動產生對映指令碼
+- `audit_books.py`：多書籍 epub 品質審計指令碼
 
 ### Fixed
-- `opencc.json` 存儲為 Python dict literal 而非 JSON，導致無法載入
-- `灶→竈`、`𬮤→閤` 古字映射移除（臺灣不用）
+- `opencc.json` 儲存為 Python dict literal 而非 JSON，導致無法載入
+- `灶→竈`、`𬮤→閤` 古字對映移除（臺灣不用）
 - 25 處 `週圍`（應為 `周圍`）過度轉換
 - 2 處 `週全`（應為 `周全`）過度轉換
 
@@ -82,7 +89,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.8.6] - 2026-01-13
 
 ### Changed
-- **PyPI SEO 優化**：增加專案曝光度
+- **PyPI SEO 最佳化**：增加專案曝光度
   - 新增 Blog Post 連結（中文/English）
   - 新增 Documentation、Changelog 連結
   - 擴充 keywords：l10n, localization, nlp, vibe-coding, ai-tools
@@ -101,7 +108,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - 移除 28 個跨檔案重複詞彙
-- 修正「控制台」衝突（控制台→控制台 vs 控制台→主控台）
+- 修正「控制檯」衝突（控制檯→控制檯 vs 控制檯→主控臺）
 - 修正「奶油」連鎖轉換問題
 
 ## [2.8.4] - 2026-01-04
@@ -112,17 +119,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.8.3] - 2026-01-04
 
 ### Changed
-- 測試 Jenkins Pipeline 發佈流程
+- 測試 Jenkins Pipeline 釋出流程
 
 ## [2.8.2] - 2026-01-04
 
 ### Changed
-- 新增 Jenkins 發佈流程
+- 新增 Jenkins 釋出流程
 
 ## [2.8.1] - 2026-01-04
 
 ### Changed
-- 精簡發佈 SOP 文件
+- 精簡釋出 SOP 檔案
 
 ## [2.8.0] - 2026-01-04
 
@@ -131,7 +138,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `zhtw check ./file.py`
   - `zhtw fix ./file.py`
 - CLI 訊息區分檔案（📄）和目錄（📁）圖示
-- 版本發佈 SOP 文件（`.claude/guides/releasing.md`）
+- 版本釋出 SOP 檔案（`.claude/guides/releasing.md`）
 
 ### Fixed
 - 補齊 77 條基礎簡繁字元對應（P0）
@@ -149,10 +156,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 22 個一對多危險字完整覆蓋（發/髮、面/麵、裡/裡 等）
 
 ### Fixed
-- 語義衝突智慧處理（禁用/撤銷/登出 在 UI 語境的正確轉換）
+- 語義衝突智慧處理（停用/撤銷/登出 在 UI 語境的正確轉換）
 
 ### Changed
-- 使用 Trusted Publishing 發佈到 PyPI
+- 使用 Trusted Publishing 釋出到 PyPI
 
 ## [2.6.0] - 2026-01-03
 
@@ -166,7 +173,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - 修正 identity mapping 阻擋長詞轉換問題
   - 例如「件→件」不再阻擋「軟體→軟體」
-  - 保留正確的保護機制（如「檔案」保護免受「文件」影響）
+  - 保留正確的保護機制（如「檔案」保護免受「檔案」影響）
 
 ## [2.5.0] - 2025-12-31
 
