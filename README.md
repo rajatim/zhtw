@@ -208,13 +208,13 @@ ZhtwConverter conv = ZhtwConverter.builder()
 
 ## 多語言 SDK
 
-ZHTW 以 Python 實作為主，並提供原生 Java SDK。所有 SDK 共用同一份詞庫資料（`zhtw-data.json`），轉換結果與 Python CLI 完全一致。
+ZHTW 以 Python 實作為主，並提供原生 Java 與 TypeScript SDK。所有 SDK 共用同一份詞庫資料（`zhtw-data.json`），轉換結果與 Python CLI 完全一致（跨 SDK 透過共享 `sdk/data/golden-test.json` 做 byte-for-byte 驗證，零偏差為釋出條件）。
 
 | SDK | 安裝 | 吞吐量 (1MB) | 單句延遲 | 適用場景 | 狀態 |
 |-----|------|-------------|---------|---------|------|
 | **Python** | `pip install zhtw` | 3.1 MB/s | — | CLI、CI/CD、pre-commit、資料處理 | ✅ Stable |
 | **Java** | [Maven Central](#3-java-sdk) | 17.9 MB/s | 2μs | Spring Boot、Android、後端服務 | ✅ Stable |
-| **TypeScript** | npm | — | — | Node.js、Deno、瀏覽器 | 🚧 Planned |
+| **TypeScript** | `npm install zhtw-js` | ~16 MB/s | — | Node.js ≥18、瀏覽器（isomorphic ESM+CJS） | ✅ Stable |
 | **Rust** | crates.io | — | — | 高效能、WebAssembly、嵌入式 | 🚧 Planned |
 | **C# (.NET)** | NuGet | — | — | ASP.NET、Unity、桌面應用 | 🚧 Planned |
 
