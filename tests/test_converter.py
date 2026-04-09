@@ -3,7 +3,10 @@
 
 from pathlib import Path
 
+import pytest
+
 from zhtw.converter import (
+    VALID_SOURCES,
     contains_chinese,
     convert,
     convert_text,
@@ -121,6 +124,23 @@ class TestConvertWrapper:
         first = _DEFAULT_CONVERT_CACHE[None]
         convert("硬件")
         assert _DEFAULT_CONVERT_CACHE[None] is first
+
+    def test_convert_rejects_invalid_source(self):
+        """Typo in sources raises ValueError with helpful message."""
+        with pytest.raises(ValueError) as exc_info:
+            convert("软件", sources=["cn", "xx"])
+        msg = str(exc_info.value)
+        assert "xx" in msg
+        assert "cn" in msg and "hk" in msg  # valid set shown
+
+    def test_convert_valid_sources_constant(self):
+        """VALID_SOURCES enumerates the accepted source keys."""
+        assert VALID_SOURCES == frozenset({"cn", "hk"})
+
+    def test_convert_rejects_empty_sources(self):
+        """Empty sources list is treated as a user error."""
+        with pytest.raises(ValueError, match="non-empty"):
+            convert("软件", sources=[])
 
 
 class TestIgnoreDirectives:

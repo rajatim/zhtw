@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import fnmatch
 import re
+import threading
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable, Iterator, List, Optional, Set
@@ -19,6 +20,10 @@ from typing import Callable, Iterator, List, Optional, Set
 from .dictionary import load_dictionary
 from .encoding import EncodingInfo, read_file, write_file
 from .matcher import Match, Matcher
+
+# Valid values for the `sources` argument of `convert()`.
+# Keeping this in sync with the subdirectories under `src/zhtw/data/terms/`.
+VALID_SOURCES: frozenset = frozenset({"cn", "hk"})
 
 # Regex to detect Chinese characters
 CHINESE_PATTERN = re.compile(r"[\u4e00-\u9fff]")
@@ -346,42 +351,99 @@ def convert_text(
     return text, matches
 
 
-# Lazy-cached matcher + char_table for convert() convenience wrapper.
+# Lazy-cached (matcher, char_table) pairs for convert() convenience wrapper.
 # Keyed by normalised sources tuple so repeated calls reuse the build cost.
+# Guarded by _DEFAULT_CONVERT_LOCK so concurrent first-time calls don't
+# redundantly build multiple Aho-Corasick automata (or race the dict write).
 _DEFAULT_CONVERT_CACHE: dict = {}
+_DEFAULT_CONVERT_LOCK = threading.Lock()
 
 
 def convert(text: str, sources: Optional[List[str]] = None) -> str:
-    """
-    Convert Simplified/HK Traditional Chinese to Taiwan Traditional Chinese.
+    """Convert Simplified/HK Traditional Chinese to Taiwan Traditional Chinese.
 
-    High-level convenience wrapper — loads the default dictionary and
+    High-level convenience wrapper that loads the default dictionary and
     character table on first call, caches them, and returns converted text.
+    Use this for one-liner conversions; for hot loops or custom dictionaries,
+    build a :class:`Matcher` once and call :func:`convert_text` directly.
 
     Args:
-        text: Input text (Simplified or HK Traditional Chinese).
-        sources: Dictionary sources, e.g. ["cn", "hk"]. Defaults to both.
+        text: Input text. May contain Simplified Chinese (e.g. "软件"),
+            HK Traditional variants (e.g. "軟件"), Taiwan Traditional, or
+            any mix. Non-Chinese content passes through unchanged.
+        sources: Which built-in dictionaries to load. Accepted values:
+
+            * ``None`` (default) — load every built-in source; equivalent
+              to ``["cn", "hk"]``. Also loads the character-level CN→TW
+              translation table.
+            * ``["cn"]`` — Simplified Chinese only (vocabulary layer +
+              character layer).
+            * ``["hk"]`` — HK Traditional vocabulary only (no char table).
+            * ``["cn", "hk"]`` — both, same as ``None``.
 
     Returns:
-        Converted text (Taiwan Traditional Chinese).
+        Converted text (Taiwan Traditional Chinese). Returns a new string;
+        the input is never mutated.
+
+    Raises:
+        ValueError: If ``sources`` is an empty list, or contains any value
+            other than ``"cn"`` or ``"hk"``. The valid set is exposed as
+            :data:`VALID_SOURCES`. Pass ``None`` (or omit the argument) to
+            load every built-in source.
+
+    Thread Safety:
+        Safe for concurrent calls from multiple threads. The first call
+        for a given ``sources`` key builds the underlying :class:`Matcher`
+        under a lock; subsequent calls reuse the cached instance. The
+        :class:`Matcher` itself is read-only after construction, so
+        ``convert()`` can be called concurrently without additional
+        synchronisation.
 
     Example:
         >>> from zhtw import convert
         >>> convert("这个软件需要优化")
         '這個軟體需要最佳化'
+        >>> convert("軟件", sources=["hk"])
+        '軟體'
+
+    See Also:
+        :func:`convert_text` — lower-level API that takes a pre-built
+        :class:`Matcher` and reports per-match positions.
+
+        :func:`zhtw.dictionary.load_dictionary` — load raw term mappings
+        without the Aho-Corasick matcher.
+
+        :class:`zhtw.Matcher` — reusable matcher for custom pipelines.
     """
+    if sources is not None:
+        if not sources:
+            raise ValueError(
+                "sources must be None or a non-empty list. "
+                f"Valid sources are: {sorted(VALID_SOURCES)}"
+            )
+        invalid = sorted({s for s in sources if s not in VALID_SOURCES})
+        if invalid:
+            raise ValueError(
+                f"Invalid source(s): {invalid}. " f"Valid sources are: {sorted(VALID_SOURCES)}"
+            )
+
     key = tuple(sorted(sources)) if sources else None
     cached = _DEFAULT_CONVERT_CACHE.get(key)
     if cached is None:
-        terms = load_dictionary(sources=sources)
-        matcher = Matcher(terms)
-        char_table = None
-        if sources is None or "cn" in sources:
-            from .charconv import get_translate_table
+        with _DEFAULT_CONVERT_LOCK:
+            # Double-checked: another thread may have populated the cache
+            # while we were waiting for the lock.
+            cached = _DEFAULT_CONVERT_CACHE.get(key)
+            if cached is None:
+                terms = load_dictionary(sources=sources)
+                matcher = Matcher(terms)
+                char_table = None
+                if sources is None or "cn" in sources:
+                    from .charconv import get_translate_table
 
-            char_table = get_translate_table()
-        cached = (matcher, char_table)
-        _DEFAULT_CONVERT_CACHE[key] = cached
+                    char_table = get_translate_table()
+                cached = (matcher, char_table)
+                _DEFAULT_CONVERT_CACHE[key] = cached
 
     matcher, char_table = cached
     result, _ = convert_text(text, matcher, fix=True, char_table=char_table)
