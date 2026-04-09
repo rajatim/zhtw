@@ -53,7 +53,9 @@ endif
 	@echo "📝 Bumping all SDKs to $(VERSION)..."
 	@sed -i '' 's/^version = .*/version = "$(VERSION)"/' pyproject.toml
 	@sed -i '' 's/^__version__ = .*/__version__ = "$(VERSION)"/' src/zhtw/__init__.py
-	@sed -i '' 's|<version>[^<]*</version>|<version>$(VERSION)</version>|' sdk/java/pom.xml
+	@# Only match the project version (4-space indent, top level of <project>).
+	@# Plugin versions are nested deeper (12+ spaces) and must not be touched.
+	@sed -i '' 's|^    <version>[^<]*</version>|    <version>$(VERSION)</version>|' sdk/java/pom.xml
 	@sed -i '' 's/"version": "[^"]*"/"version": "$(VERSION)"/' sdk/typescript/package.json
 	@sed -i '' 's/^version = .*/version = "$(VERSION)"/' sdk/rust/Cargo.toml
 	@sed -i '' 's|<Version>[^<]*</Version>|<Version>$(VERSION)</Version>|' sdk/dotnet/Zhtw.csproj
