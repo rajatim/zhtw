@@ -3,12 +3,11 @@
 [![CI](https://github.com/rajatim/zhtw/actions/workflows/ci.yml/badge.svg)](https://github.com/rajatim/zhtw/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/rajatim/zhtw/branch/main/graph/badge.svg)](https://codecov.io/gh/rajatim/zhtw)
 [![PyPI](https://img.shields.io/pypi/v/zhtw.svg)](https://pypi.org/project/zhtw/)
-[![Downloads](https://img.shields.io/pypi/dm/zhtw.svg)](https://pypi.org/project/zhtw/)
+[![Maven Central](https://img.shields.io/maven-central/v/com.rajatim/zhtw.svg?label=maven%20central)](https://central.sonatype.com/artifact/com.rajatim/zhtw)
 [![Homebrew](https://img.shields.io/badge/homebrew-tap-FBB040?logo=homebrew)](https://github.com/rajatim/homebrew-tap)
+[![Downloads](https://img.shields.io/pypi/dm/zhtw.svg)](https://pypi.org/project/zhtw/)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
-[![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+[![Java](https://img.shields.io/badge/java-11+-orange.svg)](https://adoptium.net/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 <!-- zhtw:disable -->
@@ -97,12 +96,14 @@ source ~/.bashrc
 
 ## 30 秒開始使用
 
+<!-- zhtw:disable -->
 ```bash
-zhtw check .          # 檢查整個專案
-zhtw check ./file.py  # 檢查單一檔案
-zhtw fix .            # 自動修正
-zhtw lookup 軟體 伺服器  # 查詢轉換結果
+zhtw check .            # 檢查整個專案
+zhtw check ./file.py    # 檢查單一檔案
+zhtw fix .              # 自動修正
+zhtw lookup 软件 服务器  # 查詢：软件→軟體、服务器→伺服器
 ```
+<!-- zhtw:enable -->
 
 <!-- zhtw:disable -->
 **輸出範例：**
@@ -148,7 +149,25 @@ zhtw lookup 軟體 伺服器  # 查詢轉換結果
 
 > 所有 SDK 共用同一份詞庫資料（`zhtw-data.json`），轉換結果與 Python CLI 完全一致。
 
+### Python Library
+
+除了 CLI，也能在 Python 程式中直接呼叫：
+
+<!-- zhtw:disable -->
+```python
+from zhtw import convert_text, Matcher, load_dictionary
+
+matcher = Matcher(load_dictionary())
+result, _ = convert_text("这个软件需要优化", matcher, fix=True)
+# → "這個軟體需要最佳化"
+```
+<!-- zhtw:enable -->
+
+> 詞彙查詢 API 另有 `lookup_word` / `lookup_words`（v3.3.0+）。
+
 ### Java SDK
+
+**Maven**：
 
 <!-- zhtw:disable -->
 ```xml
@@ -159,6 +178,18 @@ zhtw lookup 軟體 伺服器  # 查詢轉換結果
 </dependency>
 ```
 <!-- zhtw:enable -->
+
+**Gradle (Kotlin DSL)**：
+
+```kotlin
+implementation("com.rajatim:zhtw:3.4.0")
+```
+
+**Gradle (Groovy DSL)**：
+
+```groovy
+implementation 'com.rajatim:zhtw:3.4.0'
+```
 
 <!-- zhtw:disable -->
 ```java
@@ -260,7 +291,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-1.0: '3.x'
+          python-version: '3.x'
       - name: Install zhtw
         run: pip install zhtw
       - name: Check Traditional Chinese
@@ -307,7 +338,7 @@ pip install pre-commit && pre-commit install
 ```yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v3.2.0
+    rev: v3.4.0
     hooks:
       - id: zhtw-check
         types: [python, markdown, yaml]  # 只檢查這些型別
