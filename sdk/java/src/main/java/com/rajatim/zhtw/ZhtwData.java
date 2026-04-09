@@ -17,17 +17,20 @@ import java.util.Set;
 
 /**
  * Loads and provides access to zhtw-data.json.
+ *
+ * <p>Charmap uses codepoint (int) keys to handle supplementary plane characters
+ * (CJK Extension B+, codepoints above U+FFFF) that cannot fit in a Java {@code char}.
  */
 final class ZhtwData {
 
     private final String version;
-    private final Map<Character, Character> charmap;
-    private final Set<Character> ambiguous;
+    private final Map<Integer, String> charmap;   // codepoint -> replacement string
+    private final Set<Integer> ambiguous;          // ambiguous codepoints
     private final Map<String, Map<String, String>> terms;
 
     private ZhtwData(String version,
-                     Map<Character, Character> charmap,
-                     Set<Character> ambiguous,
+                     Map<Integer, String> charmap,
+                     Set<Integer> ambiguous,
                      Map<String, Map<String, String>> terms) {
         this.version = version;
         this.charmap = Collections.unmodifiableMap(charmap);
@@ -60,25 +63,28 @@ final class ZhtwData {
 
         String version = (String) root.get("version");
 
-        // Parse charmap
+        // Parse charmap — keys and values may be supplementary plane characters
         @SuppressWarnings("unchecked")
         Map<String, Object> charmapObj = (Map<String, Object>) root.get("charmap");
 
         @SuppressWarnings("unchecked")
         Map<String, String> rawChars = (Map<String, String>) charmapObj.get("chars");
-        Map<Character, Character> charmap = new HashMap<>();
+        Map<Integer, String> charmap = new HashMap<>();
         for (Map.Entry<String, String> e : rawChars.entrySet()) {
-            if (!e.getKey().isEmpty() && !e.getValue().isEmpty()) {
-                charmap.put(e.getKey().charAt(0), e.getValue().charAt(0));
+            String key = e.getKey();
+            String val = e.getValue();
+            if (!key.isEmpty() && !val.isEmpty()) {
+                int codepoint = key.codePointAt(0);
+                charmap.put(codepoint, val);
             }
         }
 
         @SuppressWarnings("unchecked")
         List<String> rawAmbiguous = (List<String>) charmapObj.get("ambiguous");
-        Set<Character> ambiguous = new HashSet<>();
+        Set<Integer> ambiguous = new HashSet<>();
         for (String s : rawAmbiguous) {
             if (!s.isEmpty()) {
-                ambiguous.add(s.charAt(0));
+                ambiguous.add(s.codePointAt(0));
             }
         }
 
@@ -96,8 +102,8 @@ final class ZhtwData {
     }
 
     String getVersion() { return version; }
-    Map<Character, Character> getCharmap() { return charmap; }
-    Set<Character> getAmbiguous() { return ambiguous; }
+    Map<Integer, String> getCharmap() { return charmap; }
+    Set<Integer> getAmbiguous() { return ambiguous; }
 
     Map<String, String> getTerms(String source) {
         return terms.getOrDefault(source, Collections.emptyMap());
