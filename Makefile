@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export test test-python test-java release help
+.PHONY: export test test-python test-java version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -18,26 +18,61 @@ test-java: ## Run Java SDK tests
 
 test: test-python test-java ## Run all tests (Python + Java SDK)
 
+# === Version management (mono-versioning) ===
+
+version-check: ## Verify all SDK versions are aligned (mono-versioning)
+	@PY_VER=$$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/'); \
+	 INIT_VER=$$(grep '^__version__' src/zhtw/__init__.py | sed 's/__version__ = "\(.*\)"/\1/'); \
+	 JAVA_VER=$$(sed -n 's|.*<version>\(.*\)</version>.*|\1|p' sdk/java/pom.xml | head -1); \
+	 TS_VER=$$(grep '"version"' sdk/typescript/package.json | head -1 | sed 's/.*"version": "\(.*\)".*/\1/'); \
+	 RUST_VER=$$(grep '^version = ' sdk/rust/Cargo.toml | sed 's/version = "\(.*\)"/\1/'); \
+	 NET_VER=$$(sed -n 's|.*<Version>\(.*\)</Version>.*|\1|p' sdk/dotnet/Zhtw.csproj); \
+	 DATA_VER=$$(grep -o '"version": *"[^"]*"' sdk/data/zhtw-data.json | head -1 | sed 's/.*"version": *"\(.*\)"/\1/'); \
+	 printf "  %-28s %s\n" "Python (pyproject.toml):" "$$PY_VER"; \
+	 printf "  %-28s %s\n" "Python (__init__.py):"    "$$INIT_VER"; \
+	 printf "  %-28s %s\n" "Java (sdk/java/pom.xml):" "$$JAVA_VER"; \
+	 printf "  %-28s %s\n" "TypeScript (package.json):" "$$TS_VER"; \
+	 printf "  %-28s %s\n" "Rust (Cargo.toml):"       "$$RUST_VER"; \
+	 printf "  %-28s %s\n" ".NET (Zhtw.csproj):"      "$$NET_VER"; \
+	 printf "  %-28s %s\n" "sdk/data/zhtw-data.json:" "$$DATA_VER"; \
+	 if [ "$$PY_VER" != "$$INIT_VER" ] || [ "$$PY_VER" != "$$JAVA_VER" ] || \
+	    [ "$$PY_VER" != "$$TS_VER" ] || [ "$$PY_VER" != "$$RUST_VER" ] || \
+	    [ "$$PY_VER" != "$$NET_VER" ] || [ "$$PY_VER" != "$$DATA_VER" ]; then \
+	   echo ""; \
+	   echo "❌ Version mismatch — all SDKs must stay in sync (mono-versioning)"; \
+	   echo "   Fix: run 'make bump VERSION=X.Y.Z' or 'make release VERSION=X.Y.Z'"; \
+	   exit 1; \
+	 fi; \
+	 echo ""; \
+	 echo "✅ All SDKs aligned at $$PY_VER"
+
+bump: ## Bump all SDK versions without commit/tag/release: make bump VERSION=x.y.z
+ifndef VERSION
+	$(error VERSION is required. Usage: make bump VERSION=4.0.0)
+endif
+	@echo "📝 Bumping all SDKs to $(VERSION)..."
+	@sed -i '' 's/^version = .*/version = "$(VERSION)"/' pyproject.toml
+	@sed -i '' 's/^__version__ = .*/__version__ = "$(VERSION)"/' src/zhtw/__init__.py
+	@sed -i '' 's|<version>[^<]*</version>|<version>$(VERSION)</version>|' sdk/java/pom.xml
+	@sed -i '' 's/"version": "[^"]*"/"version": "$(VERSION)"/' sdk/typescript/package.json
+	@sed -i '' 's/^version = .*/version = "$(VERSION)"/' sdk/rust/Cargo.toml
+	@sed -i '' 's|<Version>[^<]*</Version>|<Version>$(VERSION)</Version>|' sdk/dotnet/Zhtw.csproj
+	@echo "📦 Regenerating sdk/data (embeds version)..."
+	$(PYTHON) -m zhtw export --output sdk/data
+	@$(MAKE) version-check
+
 # === Release ===
 
 release: ## One-command release: make release VERSION=x.y.z
 ifndef VERSION
-	$(error VERSION is required. Usage: make release VERSION=3.4.0)
+	$(error VERSION is required. Usage: make release VERSION=4.0.0)
 endif
 	@echo "🔍 Validating..."
 	$(PYTHON) -m pytest tests/ -q
 	@if git tag -l "v$(VERSION)" | grep -q "v$(VERSION)"; then \
 		echo "❌ Tag v$(VERSION) already exists"; exit 1; \
 	fi
-	@echo "📝 Updating version to $(VERSION)..."
-	@sed -i '' 's/^version = .*/version = "$(VERSION)"/' pyproject.toml
-	@sed -i '' 's/^__version__ = .*/__version__ = "$(VERSION)"/' src/zhtw/__init__.py
-	@sed -i '' 's/<version>.*<\/version>/<version>$(VERSION)<\/version>/' sdk/java/pom.xml
-	@sed -i '' 's/"version": ".*"/"version": "$(VERSION)"/' sdk/typescript/package.json
-	@sed -i '' 's/^version = .*/version = "$(VERSION)"/' sdk/rust/Cargo.toml
-	@sed -i '' 's/<Version>.*<\/Version>/<Version>$(VERSION)<\/Version>/' sdk/dotnet/Zhtw.csproj
-	@echo "📦 Exporting SDK data..."
-	$(PYTHON) -m zhtw export --output sdk/data --verbose
+	@$(MAKE) bump VERSION=$(VERSION)
 	@echo "📋 Commit, tag, and push..."
 	git add -A
 	git commit -m "chore: release v$(VERSION)"

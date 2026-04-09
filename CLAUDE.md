@@ -10,7 +10,41 @@
 3. 詞庫修改要謹慎（確認臺灣不用該詞）
 4. 修改後跑 pytest
 5. 子字串加 identity mapping
+6. ALWAYS 升版 = 所有 SDK 同步（mono-versioning）
 ```
+
+### 規則 6 展開：升版 mono-versioning
+
+**任何版本變動都必須同時更新這 7 個地方，一個都不能漏：**
+
+| # | 檔案 | 內容 |
+|---|------|------|
+| 1 | `pyproject.toml` | `version = "X.Y.Z"` |
+| 2 | `src/zhtw/__init__.py` | `__version__ = "X.Y.Z"` |
+| 3 | `sdk/java/pom.xml` | `<version>X.Y.Z</version>` |
+| 4 | `sdk/typescript/package.json` | `"version": "X.Y.Z"` |
+| 5 | `sdk/rust/Cargo.toml` | `version = "X.Y.Z"` |
+| 6 | `sdk/dotnet/Zhtw.csproj` | `<Version>X.Y.Z</Version>` |
+| 7 | `sdk/data/zhtw-data.json` + `golden-test.json` | 透過 `zhtw export` 重新產生 |
+
+**絕對禁止：**
+- ❌ 只升 Python 不升 Java — 會讓 `sdk-java.yml` 的 `mvn deploy` 失敗（Maven Central artifact 不可變）
+- ❌ 手動改一部分 SDK 就 commit — 請用下面的指令
+- ❌ 論證「某 SDK 沒有 breaking change 所以不用升」 — mono-versioning 優先於 strict SemVer
+
+**正確做法（擇一）：**
+
+```bash
+# 方法 A：一鍵升版（推薦）
+make bump VERSION=X.Y.Z
+# 會自動：sed 6 個檔案 → zhtw export → version-check 驗證
+
+# 方法 B：手動改後驗證
+# ...手動改檔案...
+make version-check   # 任一檔案不一致就 exit 1
+```
+
+**理由：** Git tag push 會同時觸發 `publish.yml`（PyPI）和 `sdk-java.yml`（Maven Central），兩邊的版本必須跟 tag 對齊，否則釋出會失敗或語意混亂。共享的 `sdk/data/zhtw-data.json` 也嵌入版本號，多語言 SDK 讀這份資料會做版本比對。
 
 ## 📍 檔案定位
 
@@ -48,7 +82,7 @@ zhtw validate             # 驗證詞庫
 
 | 檔案 | 內容 | 讀取時機 |
 |------|------|----------|
-| @.claude/rules/releasing.md | 版本發佈流程 | 準備發佈版本 |
+| @.claude/rules/releasing.md | 版本釋出流程 | 準備釋出版本 |
 | @.claude/rules/git-workflow.md | 分支策略、提交規範 | 開發分支、合併 |
 | `.claude/guides/vocabulary.md` | 詞庫操作 | 新增/修改詞彙 |
 | `.claude/guides/debugging.md` | 問題排查 | 轉換錯誤 |

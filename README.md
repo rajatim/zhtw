@@ -169,7 +169,7 @@ convert("这个软件需要优化")
 <dependency>
     <groupId>com.rajatim</groupId>
     <artifactId>zhtw</artifactId>
-    <version>3.4.0</version>
+    <version>4.0.0</version>
 </dependency>
 ```
 <!-- zhtw:enable -->
@@ -177,13 +177,13 @@ convert("这个软件需要优化")
 **Gradle (Kotlin DSL)**：
 
 ```kotlin
-implementation("com.rajatim:zhtw:3.4.0")
+implementation("com.rajatim:zhtw:4.0.0")
 ```
 
 **Gradle (Groovy DSL)**：
 
 ```groovy
-implementation 'com.rajatim:zhtw:3.4.0'
+implementation 'com.rajatim:zhtw:4.0.0'
 ```
 
 <!-- zhtw:disable -->
@@ -277,7 +277,7 @@ Commit 前自動擋住問題：
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v3.4.0  # 使用最新版本
+    rev: v4.0.0  # 使用最新版本
     hooks:
       - id: zhtw-check   # 檢查模式（建議）
       # - id: zhtw-fix   # 或自動修正模式
@@ -294,7 +294,7 @@ pip install pre-commit && pre-commit install
 ```yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v3.4.0
+    rev: v4.0.0
     hooks:
       - id: zhtw-check
         types: [python, markdown, yaml]  # 只檢查這些型別

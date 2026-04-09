@@ -23,6 +23,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI 測試矩陣 `['3.10', '3.11', '3.12', '3.13']`（原 `['3.9', '3.11', '3.12']`）
 - Ruff `target-version = "py310"`（原 `"py39"`）
 
+### Mono-versioning（所有 SDK 同步升至 4.0.0）
+依循 v3.4.0 引入的 mono-versioning 策略，所有 SDK 版本號與 Python 主版本對齊。Java / TypeScript / Rust / .NET SDK 雖然 **沒有 breaking API 變更**，仍同步升版以維持跨語言一致性，並避免 Maven Central 釋出衝突（tag → release → `sdk-java.yml` 自動觸發 `mvn deploy`，pom 版本必須跟 tag 對齊）：
+- Java: `com.rajatim:zhtw` 3.4.0 → **4.0.0**（Stable，自動釋出到 Maven Central）
+- TypeScript: `zhtw-js` 3.4.0 → **4.0.0**（Planned）
+- Rust: `zhtw` 3.4.0 → **4.0.0**（Planned）
+- .NET: `Zhtw` 3.3.0 → **4.0.0**（Planned，補齊 v3.4.0 漏升）
+- `sdk/data/zhtw-data.json` + `golden-test.json` 已透過 `zhtw export` 重新產生，嵌入版本號為 `4.0.0`
+
 ## [3.4.0] - 2026-04-09
 
 ### Added
