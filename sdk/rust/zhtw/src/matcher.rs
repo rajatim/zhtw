@@ -37,12 +37,16 @@ pub(crate) fn deserialize_pattern_table(bytes: &[u8]) -> Vec<(String, String)> {
     for _ in 0..count {
         let src_len = u32::from_le_bytes(bytes[pos..pos + 4].try_into().unwrap()) as usize;
         pos += 4;
-        let src = std::str::from_utf8(&bytes[pos..pos + src_len]).unwrap().to_string();
+        let src = std::str::from_utf8(&bytes[pos..pos + src_len])
+            .unwrap()
+            .to_string();
         pos += src_len;
 
         let tgt_len = u32::from_le_bytes(bytes[pos..pos + 4].try_into().unwrap()) as usize;
         pos += 4;
-        let tgt = std::str::from_utf8(&bytes[pos..pos + tgt_len]).unwrap().to_string();
+        let tgt = std::str::from_utf8(&bytes[pos..pos + tgt_len])
+            .unwrap()
+            .to_string();
         pos += tgt_len;
 
         table.push((src, tgt));
@@ -76,9 +80,7 @@ pub(crate) fn build_automaton(
 /// # Safety
 /// Uses `deserialize_unchecked` — safe when bytes come from the same daachorse
 /// version (verified by header magic + version check).
-pub(crate) fn deserialize_default_automaton(
-    bytes: &[u8],
-) -> CharwiseDoubleArrayAhoCorasick<u32> {
+pub(crate) fn deserialize_default_automaton(bytes: &[u8]) -> CharwiseDoubleArrayAhoCorasick<u32> {
     let payload = header::verify_header(bytes, header::SourceMask::CN_HK);
     // SAFETY: bytes were produced by the same daachorse version (verified above).
     let (automaton, _trailing) =
@@ -97,8 +99,12 @@ pub(crate) fn build_byte_to_cp(text: &str) -> Vec<usize> {
     for (cp_idx, (byte_idx, ch)) in text.char_indices().enumerate() {
         map[byte_idx] = cp_idx;
         // Fill intermediate bytes within this char with the same cp index.
-        for b in (byte_idx + 1)..byte_idx + ch.len_utf8() {
-            map[b] = cp_idx;
+        for item in map
+            .iter_mut()
+            .take(byte_idx + ch.len_utf8())
+            .skip(byte_idx + 1)
+        {
+            *item = cp_idx;
         }
     }
     // Sentinel: one past the last byte = total codepoint count.
@@ -138,13 +144,11 @@ pub(crate) fn find_term_matches(
 
     // 2. Sort by (byte_start ASC, length DESC).
     all_hits.sort_by(|a, b| {
-        a.byte_start
-            .cmp(&b.byte_start)
-            .then_with(|| {
-                let len_a = a.byte_end - a.byte_start;
-                let len_b = b.byte_end - b.byte_start;
-                len_b.cmp(&len_a) // DESC
-            })
+        a.byte_start.cmp(&b.byte_start).then_with(|| {
+            let len_a = a.byte_end - a.byte_start;
+            let len_b = b.byte_end - b.byte_start;
+            len_b.cmp(&len_a) // DESC
+        })
     });
 
     // 3. Build protected byte-range set from identity matches.

@@ -1,16 +1,8 @@
 use crate::{Config, Result, Source};
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub struct Builder {
     config: Config,
-}
-
-impl Default for Builder {
-    fn default() -> Self {
-        Self {
-            config: Config::default(),
-        }
-    }
 }
 
 impl Builder {

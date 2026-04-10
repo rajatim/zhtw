@@ -1,4 +1,4 @@
-use zhtw::{Source, Error, Config, Builder};
+use zhtw::{Builder, Config, Error, Source};
 
 #[test]
 fn source_from_str() {

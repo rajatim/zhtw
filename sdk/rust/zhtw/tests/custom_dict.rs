@@ -7,17 +7,20 @@ fn custom_dict_overrides_builtin() {
         .build()
         .unwrap();
     let result = conv.convert("自定义服务器");
-    assert!(result.contains("自訂"), "custom dict should override: got {result}");
-    assert!(result.contains("伺服器"), "built-in should still work: got {result}");
+    assert!(
+        result.contains("自訂"),
+        "custom dict should override: got {result}"
+    );
+    assert!(
+        result.contains("伺服器"),
+        "built-in should still work: got {result}"
+    );
 }
 
 #[test]
 fn identity_protection_blocks_overlap() {
     let conv = Converter::builder()
-        .custom_dict([
-            ("文件", "檔案"),
-            ("檔案", "檔案"),
-        ])
+        .custom_dict([("文件", "檔案"), ("檔案", "檔案")])
         .build()
         .unwrap();
     let result = conv.convert("無中文檔案");
@@ -26,10 +29,7 @@ fn identity_protection_blocks_overlap() {
 
 #[test]
 fn hk_only_no_char_layer() {
-    let conv = Converter::builder()
-        .sources([Source::Hk])
-        .build()
-        .unwrap();
+    let conv = Converter::builder().sources([Source::Hk]).build().unwrap();
     let text = "軟件工程師";
     let result = conv.convert(text);
     let _ = result;

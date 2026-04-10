@@ -16,6 +16,7 @@ pub(crate) const DAACHORSE_VERSION_PACKED: u32 = 0x0001_0000; // 1.0.0
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub(crate) struct SourceMask(pub u8);
 
+#[allow(dead_code)]
 impl SourceMask {
     pub const CN: Self = SourceMask(0b01);
     pub const HK: Self = SourceMask(0b10);
@@ -30,6 +31,7 @@ impl std::ops::BitOr for SourceMask {
 }
 
 /// Build a 28-byte header.
+#[allow(dead_code)]
 pub(crate) fn build_header(dict_hash: [u8; 8], source_mask: SourceMask) -> [u8; HEADER_LEN] {
     let mut buf = [0u8; HEADER_LEN];
     buf[0..8].copy_from_slice(&ZHTW_AUTOMATON_MAGIC);
@@ -51,7 +53,7 @@ pub(crate) fn verify_header(bytes: &[u8], expected: SourceMask) -> &[u8] {
     }
     let (header, rest) = bytes.split_at(HEADER_LEN);
 
-    if &header[0..8] != &ZHTW_AUTOMATON_MAGIC {
+    if header[0..8] != ZHTW_AUTOMATON_MAGIC {
         panic!("zhtw: invalid automaton magic (corrupt binary or wrong format)");
     }
 

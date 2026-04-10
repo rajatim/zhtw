@@ -87,7 +87,8 @@ fn main() {
         // DATA_VERSION const
         writeln!(
             f,
-            "/// Version of the embedded zhtw data.\n\
+            "#[allow(dead_code)]\n\
+             /// Version of the embedded zhtw data.\n\
              pub(crate) const DATA_VERSION: &str = \"{}\";",
             data.version
         )
@@ -124,10 +125,7 @@ fn main() {
         char_entries.sort_by_key(|(c, _)| *c as u32);
 
         for (src_char, tgt_char) in &char_entries {
-            map_builder.entry(
-                *src_char,
-                &format!("'\\u{{{:X}}}'", *tgt_char as u32),
-            );
+            map_builder.entry(*src_char, &format!("'\\u{{{:X}}}'", *tgt_char as u32));
         }
 
         writeln!(
@@ -146,12 +144,8 @@ fn main() {
     // Each pattern's u32 value = its index in this table.
     // Sort sources for determinism.
 
-    let mut patterns: Vec<(String, String)> = data
-        .terms
-        .cn
-        .into_iter()
-        .chain(data.terms.hk.into_iter())
-        .collect();
+    let mut patterns: Vec<(String, String)> =
+        data.terms.cn.into_iter().chain(data.terms.hk).collect();
     patterns.sort_by(|(a, _), (b, _)| a.cmp(b));
     patterns.dedup_by(|(a, _), (b, _)| a == b); // remove exact duplicates
 
@@ -201,9 +195,11 @@ fn main() {
             let src_bytes = src.as_bytes();
             let tgt_bytes = tgt.as_bytes();
 
-            f.write_all(&(src_bytes.len() as u32).to_le_bytes()).unwrap();
+            f.write_all(&(src_bytes.len() as u32).to_le_bytes())
+                .unwrap();
             f.write_all(src_bytes).unwrap();
-            f.write_all(&(tgt_bytes.len() as u32).to_le_bytes()).unwrap();
+            f.write_all(&(tgt_bytes.len() as u32).to_le_bytes())
+                .unwrap();
             f.write_all(tgt_bytes).unwrap();
         }
     }

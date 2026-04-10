@@ -2,20 +2,20 @@
 //!
 //! Part of the [rajatim/zhtw](https://github.com/rajatim/zhtw) monorepo.
 
-mod source;
-mod error;
-mod config;
 mod builder;
+mod config;
 mod converter;
+mod error;
+mod generated;
 mod header;
 mod matcher;
-mod generated;
+mod source;
 
-pub use source::Source;
-pub use error::{Error, Result};
-pub use config::Config;
 pub use builder::Builder;
-pub use converter::{Converter, Match, LookupResult, ConversionDetail, Layer};
+pub use config::Config;
+pub use converter::{ConversionDetail, Converter, Layer, LookupResult, Match};
+pub use error::{Error, Result};
+pub use source::Source;
 
 /// Convert simplified Chinese text to Traditional Chinese (Taiwan) using the
 /// default instance (Cn+Hk sources, char layer enabled).

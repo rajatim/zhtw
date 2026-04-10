@@ -1,4 +1,4 @@
-use criterion::{black_box, criterion_group, criterion_main, Criterion, Throughput, BenchmarkId};
+use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion, Throughput};
 
 fn bench_convert_single(c: &mut Criterion) {
     let text = "这个软件需要优化";
@@ -10,8 +10,7 @@ fn bench_convert_single(c: &mut Criterion) {
 fn bench_convert_throughput(c: &mut Criterion) {
     let mut group = c.benchmark_group("convert/throughput");
     for size_kb in &[1, 10, 100, 1024] {
-        let text = "这个软件需要优化，服务器的用户权限请联系管理员。"
-            .repeat(size_kb * 1024 / 72);
+        let text = "这个软件需要优化，服务器的用户权限请联系管理员。".repeat(size_kb * 1024 / 72);
         group.throughput(Throughput::Bytes(text.len() as u64));
         group.bench_with_input(
             BenchmarkId::from_parameter(format!("{}KB", size_kb)),
@@ -29,7 +28,8 @@ fn bench_default_instance_access(c: &mut Criterion) {
     });
 }
 
-criterion_group!(benches,
+criterion_group!(
+    benches,
     bench_convert_single,
     bench_convert_throughput,
     bench_default_instance_access,

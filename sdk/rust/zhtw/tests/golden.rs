@@ -1,8 +1,8 @@
 //! Byte-for-byte parity with Python CLI, Java SDK, and TypeScript SDK.
 //! Reads sdk/data/golden-test.json via include_str! (workspace-relative path).
 
-use std::collections::HashMap;
 use serde::Deserialize;
+use std::collections::HashMap;
 use zhtw::{Converter, Source};
 
 #[derive(Deserialize)]
@@ -122,8 +122,10 @@ fn check_parity() {
             continue;
         }
         for (j, (exp, act)) in case.expected_matches.iter().zip(actual.iter()).enumerate() {
-            if exp.start != act.start || exp.end != act.end
-                || exp.source != act.source || exp.target != act.target
+            if exp.start != act.start
+                || exp.end != act.end
+                || exp.source != act.source
+                || exp.target != act.target
             {
                 failures.push(format!(
                     "[{}.{}] input={:?}: match mismatch\n  expected=({},{},{:?},{:?})\n  actual  =({},{},{:?},{:?})",
@@ -167,18 +169,28 @@ fn lookup_parity() {
         if actual.details.len() != case.expected_details.len() {
             failures.push(format!(
                 "[{}] input={:?}: detail count mismatch ({} vs {})",
-                idx, case.input, case.expected_details.len(), actual.details.len()
+                idx,
+                case.input,
+                case.expected_details.len(),
+                actual.details.len()
             ));
             continue;
         }
-        for (j, (exp, act)) in case.expected_details.iter().zip(actual.details.iter()).enumerate() {
+        for (j, (exp, act)) in case
+            .expected_details
+            .iter()
+            .zip(actual.details.iter())
+            .enumerate()
+        {
             let exp_layer = &exp.layer;
             let act_layer = match act.layer {
                 zhtw::Layer::Term => "term",
                 zhtw::Layer::Char => "char",
             };
-            if exp.source != act.source || exp.target != act.target
-                || exp_layer != act_layer || exp.position != act.position
+            if exp.source != act.source
+                || exp.target != act.target
+                || exp_layer != act_layer
+                || exp.position != act.position
             {
                 failures.push(format!(
                     "[{}.{}] input={:?}: detail mismatch\n  expected=({:?},{:?},{},{})  actual=({:?},{:?},{},{})",
