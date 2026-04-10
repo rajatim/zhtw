@@ -7,6 +7,7 @@ on:
     paths: ['sdk/rust/**', 'sdk/data/**', '.github/workflows/sdk-rust.yml']
   release:
     types: [published]
+  workflow_dispatch:
 
 jobs:
   test:
