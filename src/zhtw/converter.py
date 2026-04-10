@@ -25,6 +25,9 @@ from .matcher import Match, Matcher
 # Keeping this in sync with the subdirectories under `src/zhtw/data/terms/`.
 VALID_SOURCES: frozenset = frozenset({"cn", "hk"})
 
+# Valid values for the `ambiguity_mode` argument.
+VALID_AMBIGUITY_MODES: frozenset = frozenset({"strict", "balanced"})
+
 # Regex to detect Chinese characters
 CHINESE_PATTERN = re.compile(r"[\u4e00-\u9fff]")
 
@@ -307,12 +310,42 @@ def get_context(text: str, start: int, end: int, context_chars: int = 20) -> str
     return f"{prefix}{context}{suffix}"
 
 
+def _apply_term_layer(text: str, matcher: Matcher) -> tuple[str, set[int]]:
+    """詞庫層替換，並收集已覆蓋的字元位置。
+
+    covered_positions 包含「所有詞庫層命中的位置」，含 identity mapping
+    （茶几→茶几 這類保護性 mapping），因此 balanced defaults 不會再改動
+    詞庫層已處理過的字元。
+
+    Args:
+        text: 要處理的文字。
+        matcher: Matcher 實例。
+
+    Returns:
+        Tuple of (replaced_text, covered_positions)，covered_positions 是
+        詞庫層已處理的字元位置集合（0-based，對應原始 text）。
+    """
+    if not matcher.terms:
+        return text, set()
+
+    covered: set[int] = set()
+    # Collect covered positions from ALL automaton hits, including identity
+    # mappings that find_matches() would normally filter out.
+    for end_pos, (source, _target) in matcher.automaton.iter(text):
+        start_pos = end_pos - len(source) + 1
+        covered.update(range(start_pos, end_pos + 1))
+
+    replaced = matcher.replace_all(text)
+    return replaced, covered
+
+
 def convert_text(
     text: str,
     matcher: Matcher,
     fix: bool = False,
     ignored_lines: Optional[Set[int]] = None,
     char_table: Optional[dict[int, str]] = None,
+    ambiguity_mode: str = "strict",
 ) -> tuple[str, List[tuple[Match, int, int]]]:
     """
     Convert text using matcher.
@@ -323,10 +356,17 @@ def convert_text(
         fix: Whether to apply fixes.
         ignored_lines: Set of line numbers to skip.
         char_table: Character-level translate table (str.translate format).
+        ambiguity_mode: 歧義處理模式，"strict"（預設）或 "balanced"。
 
     Returns:
         Tuple of (processed_text, list of (match, line, col)).
     """
+    if ambiguity_mode not in VALID_AMBIGUITY_MODES:
+        raise ValueError(
+            f"Invalid ambiguity_mode: {ambiguity_mode!r}. "
+            f"Valid modes are: {sorted(VALID_AMBIGUITY_MODES)}"
+        )
+
     if ignored_lines is None:
         ignored_lines = set()
 
@@ -335,18 +375,17 @@ def convert_text(
     # Filter out matches on ignored lines
     matches = [(m, line, col) for m, line, col in all_matches if line not in ignored_lines]
 
-    if fix and matches:
-        # Only replace non-ignored matches
-        # We need to do this carefully to preserve ignored content
-        text = _replace_with_ignores(text, matcher, ignored_lines, char_table)
-    elif fix and not matches and char_table:
-        # No term-level matches but still apply char-level conversion
-        text = _replace_with_ignores(text, matcher, ignored_lines, char_table)
+    if fix and (matches or char_table or ambiguity_mode == "balanced"):
+        text = _replace_with_ignores(text, matcher, ignored_lines, char_table, ambiguity_mode)
 
-    # In check mode, also detect char-level conversions
-    if not fix and char_table:
-        char_matches = _find_char_matches(text, char_table, ignored_lines)
-        matches = matches + char_matches
+    # In check mode, also detect char-level and balanced-level conversions
+    if not fix:
+        if char_table:
+            char_matches = _find_char_matches(text, char_table, ignored_lines)
+            matches = matches + char_matches
+        if ambiguity_mode == "balanced":
+            balanced_matches = _find_balanced_matches(text, matcher, ignored_lines)
+            matches = matches + balanced_matches
 
     return text, matches
 
@@ -359,7 +398,7 @@ _DEFAULT_CONVERT_CACHE: dict = {}
 _DEFAULT_CONVERT_LOCK = threading.Lock()
 
 
-def convert(text: str, sources: Optional[List[str]] = None) -> str:
+def convert(text: str, sources: Optional[List[str]] = None, ambiguity_mode: str = "strict") -> str:
     """Convert Simplified/HK Traditional Chinese to Taiwan Traditional Chinese.
 
     High-level convenience wrapper that loads the default dictionary and
@@ -427,6 +466,12 @@ def convert(text: str, sources: Optional[List[str]] = None) -> str:
                 f"Invalid source(s): {invalid}. " f"Valid sources are: {sorted(VALID_SOURCES)}"
             )
 
+    if ambiguity_mode not in VALID_AMBIGUITY_MODES:
+        raise ValueError(
+            f"Invalid ambiguity_mode: {ambiguity_mode!r}. "
+            f"Valid modes are: {sorted(VALID_AMBIGUITY_MODES)}"
+        )
+
     key = tuple(sorted(sources)) if sources else None
     cached = _DEFAULT_CONVERT_CACHE.get(key)
     if cached is None:
@@ -446,7 +491,9 @@ def convert(text: str, sources: Optional[List[str]] = None) -> str:
                 _DEFAULT_CONVERT_CACHE[key] = cached
 
     matcher, char_table = cached
-    result, _ = convert_text(text, matcher, fix=True, char_table=char_table)
+    result, _ = convert_text(
+        text, matcher, fix=True, char_table=char_table, ambiguity_mode=ambiguity_mode
+    )
     return result
 
 
@@ -476,15 +523,54 @@ def _find_char_matches(
     return results
 
 
+def _find_balanced_matches(
+    text: str,
+    matcher: Matcher,
+    ignored_lines: Set[int],
+) -> List[tuple[Match, int, int]]:
+    """Find chars that would be converted by balanced defaults (for check mode)."""
+    from .charconv import get_balanced_defaults
+
+    defaults = get_balanced_defaults()
+    if not defaults:
+        return []
+
+    _, covered = _apply_term_layer(text, matcher)
+    results: List[tuple[Match, int, int]] = []
+    lines = text.split("\n")
+    pos = 0
+    for i, line in enumerate(lines):
+        line_num = i + 1
+        if line_num not in ignored_lines:
+            for col_idx, ch in enumerate(line):
+                if ch in defaults and (pos + col_idx) not in covered:
+                    m = Match(
+                        start=pos + col_idx,
+                        end=pos + col_idx + 1,
+                        source=ch,
+                        target=defaults[ch],
+                    )
+                    results.append((m, line_num, col_idx + 1))
+        pos += len(line) + 1
+    return results
+
+
 def _replace_with_ignores(
     text: str,
     matcher: Matcher,
     ignored_lines: Set[int],
     char_table: Optional[dict[int, str]] = None,
+    ambiguity_mode: str = "strict",
 ) -> str:
     """Replace matches while respecting ignored lines."""
+    is_balanced = ambiguity_mode == "balanced"
+    if is_balanced:
+        from .charconv import apply_balanced_defaults
+
     if not ignored_lines:
-        result = matcher.replace_all(text)
+        result, covered = _apply_term_layer(text, matcher)
+        if is_balanced:
+            result = apply_balanced_defaults(result, covered)
         if char_table:
             result = result.translate(char_table)
         return result
@@ -493,14 +579,34 @@ def _replace_with_ignores(
     lines = text.split("\n")
     result_lines = []
 
+    # Compute per-line character offsets in the original text so we can
+    # build line-level covered_positions (relative to each line's start).
+    line_offsets: list[int] = []
+    offset = 0
+    for line in lines:
+        line_offsets.append(offset)
+        offset += len(line) + 1  # +1 for the "\n" separator
+
+    # Build full-text covered positions from the full-text term layer so that
+    # line-level balanced application uses correct positions.
+    if is_balanced:
+        _, full_covered = _apply_term_layer(text, matcher)
+    else:
+        full_covered = set()
+
     for i, line in enumerate(lines):
         line_num = i + 1
         if line_num in ignored_lines:
             # Keep line as-is
             result_lines.append(line)
         else:
-            # Replace matches in this line, then apply char-level conversion
+            # Replace matches in this line, then apply balanced/char-level conversion
             converted = matcher.replace_all(line)
+            if is_balanced:
+                line_start = line_offsets[i]
+                line_end = line_start + len(line)
+                line_covered = {p - line_start for p in full_covered if line_start <= p < line_end}
+                converted = apply_balanced_defaults(converted, line_covered)
             if char_table:
                 converted = converted.translate(char_table)
             result_lines.append(converted)
@@ -515,6 +621,7 @@ def convert_file(
     input_encoding: str | None = None,
     output_encoding: str = "auto",
     char_table: Optional[dict[int, str]] = None,
+    ambiguity_mode: str = "strict",
 ) -> FileResult:
     """
     Process a single file.
@@ -561,6 +668,7 @@ def convert_file(
         fix=fix,
         ignored_lines=ignored_lines,
         char_table=char_table,
+        ambiguity_mode=ambiguity_mode,
     )
 
     # Build issues list
@@ -613,6 +721,7 @@ def convert_directory(
     input_encoding: str | None = None,
     output_encoding: str = "auto",
     char_table: Optional[dict[int, str]] = None,
+    ambiguity_mode: str = "strict",
 ) -> Iterator[FileResult]:
     """
     Process files in a directory or a single file.
@@ -643,6 +752,7 @@ def convert_directory(
                 input_encoding=input_encoding,
                 output_encoding=output_encoding,
                 char_table=char_table,
+                ambiguity_mode=ambiguity_mode,
             )
         return
 
@@ -671,6 +781,7 @@ def convert_directory(
             input_encoding=input_encoding,
             output_encoding=output_encoding,
             char_table=char_table,
+            ambiguity_mode=ambiguity_mode,
         )
 
 
@@ -685,6 +796,7 @@ def process_directory(
     input_encoding: str | None = None,
     output_encoding: str = "auto",
     char_convert: bool = True,
+    ambiguity_mode: str = "strict",
 ) -> ConversionResult:
     """
     Process a directory or single file and return aggregated results.
@@ -727,6 +839,7 @@ def process_directory(
         input_encoding=input_encoding,
         output_encoding=output_encoding,
         char_table=char_table,
+        ambiguity_mode=ambiguity_mode,
     ):
         if file_result.skipped:
             result.files_skipped += 1

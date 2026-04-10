@@ -348,6 +348,12 @@ def main():
     is_flag=True,
     help="停用字元層轉換（僅使用詞庫轉換）",
 )
+@click.option(
+    "--ambiguity-mode",
+    type=click.Choice(["strict", "balanced"], case_sensitive=False),
+    default="strict",
+    help="歧義字處理模式。strict（預設）：不轉換歧義字。balanced：套用高信心預設映射。",
+)
 def check(
     path: Path,
     source: str,
@@ -357,6 +363,7 @@ def check(
     verbose: bool,
     encoding: Optional[str],
     no_char_convert: bool,
+    ambiguity_mode: str,
 ):
     """
     檢查模式：掃描檔案並報告問題，不修改檔案。
@@ -398,6 +405,7 @@ def check(
         on_progress=progress_callback,
         input_encoding=input_encoding,
         char_convert=use_char_convert,
+        ambiguity_mode=ambiguity_mode,
     )
 
     if json_output:
@@ -483,6 +491,12 @@ def check(
     is_flag=True,
     help="停用字元層轉換（僅使用詞庫轉換）",
 )
+@click.option(
+    "--ambiguity-mode",
+    type=click.Choice(["strict", "balanced"], case_sensitive=False),
+    default="strict",
+    help="歧義字處理模式。strict（預設）：不轉換歧義字。balanced：套用高信心預設映射。",
+)
 def fix(
     path: Path,
     source: str,
@@ -497,6 +511,7 @@ def fix(
     output_encoding: str,
     yes: bool,
     no_char_convert: bool,
+    ambiguity_mode: str,
 ):
     """
     修正模式：掃描檔案並自動修正問題。
@@ -572,6 +587,7 @@ def fix(
             input_encoding=input_encoding,
             output_encoding=out_encoding,
             char_convert=use_char_convert,
+            ambiguity_mode=ambiguity_mode,
         )
 
         if result.total_issues == 0:
@@ -613,6 +629,7 @@ def fix(
                 input_encoding=input_encoding,
                 output_encoding=out_encoding,
                 char_convert=use_char_convert,
+                ambiguity_mode=ambiguity_mode,
             )
             print_results(result, verbose=verbose)
         else:
@@ -640,6 +657,7 @@ def fix(
             input_encoding=input_encoding,
             output_encoding=out_encoding,
             char_convert=use_char_convert,
+            ambiguity_mode=ambiguity_mode,
         )
         do_backup_if_needed(check_result)
 
@@ -653,6 +671,7 @@ def fix(
         input_encoding=input_encoding,
         output_encoding=out_encoding,
         char_convert=use_char_convert,
+        ambiguity_mode=ambiguity_mode,
     )
 
     if json_output:
