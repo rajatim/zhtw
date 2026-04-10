@@ -73,6 +73,12 @@ _GOLDEN_CASES = [
         ["cn"],
         "identity+char: \u6025\u75c7 protected, \u4e25\u91cd char-converted",
     ),
+    ("\u708e\u75c7", ["cn"], "identity: \u708e\u75c7 protects \u75c7 (medical pattern)"),
+    (
+        "\u515a\u592a\u5c09\u5403\u5339\u98df",
+        ["cn"],
+        "identity: \u515a\u592a\u5c09\u5403\u5339\u98df protects \u515a (proper name)",
+    ),
 ]
 
 # Lookup test cases — individual words/chars

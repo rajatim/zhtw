@@ -78,6 +78,20 @@
         "cn"
       ],
       "expected": "急症很嚴重"
+    },
+    {
+      "input": "炎症",
+      "sources": [
+        "cn"
+      ],
+      "expected": "炎症"
+    },
+    {
+      "input": "党太尉吃匹食",
+      "sources": [
+        "cn"
+      ],
+      "expected": "黨太尉吃匹食"
     }
   ],
   "check": [
@@ -247,6 +261,27 @@
           "end": 4,
           "source": "严",
           "target": "嚴"
+        }
+      ]
+    },
+    {
+      "input": "炎症",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": []
+    },
+    {
+      "input": "党太尉吃匹食",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 1,
+          "source": "党",
+          "target": "黨"
         }
       ]
     }
