@@ -5,7 +5,11 @@
 mod source;
 mod error;
 mod config;
+mod builder;
+mod converter;
 
 pub use source::Source;
 pub use error::{Error, Result};
 pub use config::Config;
+pub use builder::Builder;
+pub use converter::Converter;
