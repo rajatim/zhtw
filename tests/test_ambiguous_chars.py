@@ -76,8 +76,8 @@ class TestAmbiguousExclusion:
         violations = [c for c in ambiguous if c in charmap]
         assert violations == [], f"以下歧義字不應出現在 safe charmap 中：{violations}"
 
-    def test_v12_promotions_and_deferred_chars(self, ambiguous):
-        """v1.2 升級/保留的分類應反映在 ambiguous 清單。"""
+    def test_v13_promotions_and_deferred_chars(self, ambiguous):
+        """v1.2/v1.3 升級/保留的分類應反映在 ambiguous 清單。"""
         promoted_to_safe = {
             "帘",
             "凫",
@@ -92,8 +92,13 @@ class TestAmbiguousExclusion:
             "锈",
             "颓",
             "鳄",
+            "仆",
+            "尸",
+            "赝",
+            "镋",
+            "镌",
         }
-        still_ambiguous = {"仆", "尸", "卤", "坛", "弥", "摆", "纤"}
+        still_ambiguous = {"卤", "坛", "弥", "摆", "纤"}
 
         for char in promoted_to_safe:
             assert char not in ambiguous, f"{char} 已升級到 safe_chars，不應留在 ambiguous"
@@ -179,10 +184,9 @@ class TestAmbiguousContextConversion:
 # TestAmbiguousAloneUnchanged：單獨歧義字不被字元層轉換
 # ──────────────────────────────────────────────
 
-# 這 20 個常用歧義字在字元層 (str.translate) 中不應被轉換。
-# 注意：部分歧義字在詞庫層有單字詞條（如 后→後），但字元層不處理。
+# 這些常用歧義字在字元層 (str.translate) 中不應被轉換。
+# 注意：像 后、舍 這類已採用「預設值 + 詞庫 identity 保護」策略的字不在此列。
 TOP_20_AMBIGUOUS = [
-    "后",
     "里",
     "干",
     "面",
@@ -199,7 +203,6 @@ TOP_20_AMBIGUOUS = [
     "折",
     "并",
     "表",
-    "舍",
     "志",
     "松",
 ]

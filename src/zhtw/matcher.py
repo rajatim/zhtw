@@ -91,7 +91,7 @@ class Matcher:
 
         # Build "protected ranges" from identity mappings that are NOT fully contained
         # within a longer match. This ensures:
-        # - "檔案"→"檔案" protects against overlapping "文件"→"檔案"
+        # - "檔案"→"檔案" protects against overlapping "檔案"→"檔案"
         # - "件"→"件" does NOT block longer "軟體"→"軟體" (件 is contained)
         protected: set[int] = set()
 
@@ -131,6 +131,17 @@ class Matcher:
                 # Skip identity matches (no actual change needed)
                 if match.source != match.target:
                     yield match
+
+    def get_covered_positions(self, text: str) -> set[int]:
+        """Return source positions covered by any term hit, including identity terms."""
+        covered: set[int] = set()
+        if not self.terms:
+            return covered
+
+        for end_pos, (source, _target) in self.automaton.iter(text):
+            start_pos = end_pos - len(source) + 1
+            covered.update(range(start_pos, end_pos + 1))
+        return covered
 
     def find_matches_with_lines(self, text: str) -> Iterator[tuple[Match, int, int]]:
         """

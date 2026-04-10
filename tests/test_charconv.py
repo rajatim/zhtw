@@ -15,7 +15,7 @@ from zhtw.charconv import (
     get_translate_table,
     load_charmap,
 )
-from zhtw.converter import convert_text
+from zhtw.converter import convert, convert_text
 from zhtw.matcher import Matcher
 
 CHARMAP_PATH = (
@@ -64,10 +64,9 @@ class TestCharmapData:
         for key, val in charmap.items():
             assert len(val) == 1, f"Value '{val}' for '{key}' 不是單字元"
 
-    def test_no_identity_mapping(self):
+    def test_shared_form_entries_are_allowed(self):
         charmap = load_charmap()
-        for key, val in charmap.items():
-            assert key != val, f"Identity mapping: '{key}' → '{val}'"
+        assert charmap.get("著") == "著"
 
     def test_no_ambiguous_chars_in_charmap(self):
         """歧義字不應出現在安全對映中。"""
@@ -86,16 +85,17 @@ class TestCharmapData:
         expected = {
             "這": "這",
             "個": "個",
-            "說": "說",
             "國": "國",
             "時": "時",
             "會": "會",
-            "為": "為",
             "過": "過",
             "還": "還",
-            "發": "發",
             "學": "學",
             "車": "車",
+            "测": "測",
+            "試": "試",
+            "東": "東",
+            "門": "門",
         }
         for simplified, traditional in expected.items():
             assert (
@@ -109,8 +109,8 @@ class TestCharmapData:
         for char in ambiguous_chars:
             assert char not in charmap, f"歧義字 '{char}' 不應在 safe charmap"
 
-    def test_v12_promoted_safe_chars(self):
-        """v1.2 升級到 safe_chars 的字應在 charmap 中。"""
+    def test_v13_promoted_safe_chars(self):
+        """v1.2/v1.3 升級到 safe_chars 的字應在 charmap 中。"""
         charmap = load_charmap()
         expected = {
             "帘": "簾",
@@ -126,15 +126,20 @@ class TestCharmapData:
             "锈": "鏽",
             "颓": "頹",
             "鳄": "鱷",
+            "仆": "僕",
+            "尸": "屍",
+            "赝": "贗",
+            "镋": "鎲",
+            "镌": "鐫",
         }
         for simplified, traditional in expected.items():
             assert charmap.get(simplified) == traditional
 
-    def test_v12_true_ambiguous_chars_remain_excluded(self):
-        """v1.2 仍保留為歧義的字不應誤升級到 safe_chars。"""
+    def test_v13_true_ambiguous_chars_remain_excluded(self):
+        """v1.2/v1.3 仍保留為歧義的字不應誤升級到 safe_chars。"""
         charmap = load_charmap()
         ambiguous = set(get_ambiguous_chars())
-        for char in ["仆", "尸", "卤", "坛", "弥", "摆", "纤"]:
+        for char in ["卤", "坛", "弥", "摆", "纤"]:
             assert char not in charmap
             assert char in ambiguous
 
@@ -165,10 +170,17 @@ class TestCharConvert:
         assert char_convert("裡", table) == "裡"
         assert char_convert("幹", table) == "幹"
 
-    def test_v12_promoted_chars_convert_in_strict_char_layer(self):
-        """v1.2 升級到 safe_chars 的字應在 strict 字元層直接轉換。"""
+    def test_v13_promoted_chars_convert_in_strict_char_layer(self):
+        """v1.2/v1.3 升級到 safe_chars 的字應在 strict 字元層直接轉換。"""
         table = get_translate_table()
-        assert char_convert("帘凫坝竖绣绷蕴谣赃酝锈颓鳄", table) == "簾鳧壩豎繡繃蘊謠贓醞鏽頹鱷"
+        assert char_convert("帘凫坝竖绣绷蕴谣赃酝锈颓鳄仆尸赝镋镌", table) == (
+            "簾鳧壩豎繡繃蘊謠贓醞鏽頹鱷僕屍贗鎲鐫"
+        )
+
+    def test_v13_identity_protection(self):
+        """v1.3 詞庫 identity 保護成語不被字元層覆寫。"""
+        assert convert("前仆後继", ambiguity_mode="strict") == "前仆後繼"
+        assert convert("尸位素餐", ambiguity_mode="strict") == "尸位素餐"
 
     def test_traditional_unchanged(self):
         """已經是繁體的字不應變。"""

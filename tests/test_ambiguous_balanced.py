@@ -391,6 +391,19 @@ class TestStrictUnchanged:
             result = convert(char, ambiguity_mode="strict")
             assert result == char, f"strict should not convert bare {char!r}, got {result!r}"
 
+    def test_v13_promoted_safe_chars_convert_in_strict(self):
+        """v1.3 升級到 safe_chars 的字在 strict mode 應直接轉換。"""
+        expectations = {
+            "仆": "僕",
+            "尸": "屍",
+            "赝": "贗",
+            "镋": "鎲",
+            "镌": "鐫",
+        }
+        for char, expected in expectations.items():
+            result = convert(char, ambiguity_mode="strict")
+            assert result == expected, f"strict: {char!r} → {result!r}, expected {expected!r}"
+
     def test_balanced_converts_bare_ambiguous(self):
         """單獨歧義字在 balanced mode 被轉換。"""
         expectations = {

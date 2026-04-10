@@ -51,13 +51,12 @@ FORCE_EXCLUDE = {
     "斗",  # 鬥(fight) vs 斗(dipper)
     "几",  # 幾(how many) vs 几(small table)
     "卜",  # 蔔(radish) vs 卜(divination)
-    "仆",  # 僕(servant) vs 仆(fall forward)
     "了",  # 瞭(understand) vs 了(particle)
     "千",  # 韆(swing) vs 千(thousand)
     "才",  # 才(just now) vs 才(talent)
     "出",  # 齣(act of play) vs 出(exit)
     "曲",  # 麯(yeast) vs 曲(song/curve)
-    "公公克",  # 剋(overcome) vs 公公克(gram)
+    "公公公克",  # 剋(overcome) vs 公公公克(gram)
     "奸",  # 姦(adultery) vs 奸(treacherous)
     "征",  # 徵(levy/sign) vs 征(expedition)
     "折",  # 摺(fold) vs 折(break)
@@ -90,7 +89,6 @@ FORCE_EXCLUDE = {
     "杰",  # 傑(outstanding) vs 杰(hero)
     "卷",  # 捲(roll) vs 卷(scroll)
     "秋",  # 鞦(swing) vs 秋(autumn)
-    "尸",  # 屍(corpse) vs 尸(preside over)
     "同",  # 衕(alley) vs 同(same)
     "升",  # 昇(rise) vs 升(liter)
     "累",  # 纍(archaic) vs 累(tired/accumulate) — Taiwan uses 累
@@ -232,16 +230,21 @@ FORCE_INCLUDE = {
     "線": "線",  # 綫 是異體
     "凫": "鳧",  # 鳬 是鳧的異體字
     "坝": "壩",  # 垻 極罕
+    "仆": "僕",  # 仆倒(前仆後繼) 由詞庫 identity 保護
+    "尸": "屍",  # 尸位素餐 由詞庫 identity 保護
     "竖": "豎",  # 竪 是豎的異體字
     "绣": "繡",  # 鏽=rust 是不同字，不構成歧義
     "绷": "繃",  # 無真實替代
     "蕴": "蘊",  # 縕/緼 是古字
     "谣": "謠",  # 諑 極罕
     "赃": "贓",  # 無真實替代
+    "赝": "贗",  # 贗品(counterfeit)，無真實替代
     "酝": "醞",  # 無真實替代
     "锈": "鏽",  # 銹 是鏽的異體字
     "颓": "頹",  # 穨 是古字
     "鳄": "鱷",  # 無真實替代
+    "镋": "鎲",  # 罕用兵器字，無真實替代
+    "镌": "鐫",  # 鐫刻(engrave)，無真實替代
     "網": "網",  # 網 不是繁體字
     "羅": "羅",  # 羅 不是繁體字
     "職": "職",  # 職 不是繁體字

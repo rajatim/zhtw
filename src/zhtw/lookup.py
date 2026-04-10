@@ -43,7 +43,7 @@ def lookup_word(
         return LookupResult(input="", output="", details=[], changed=False)
 
     details: List[ConversionDetail] = []
-    covered: set[int] = set()
+    covered = matcher.get_covered_positions(word)
 
     # 1. 詞彙層：Aho-Corasick 匹配
     for match in matcher.find_matches(word):
@@ -55,7 +55,6 @@ def lookup_word(
                 position=match.start,
             )
         )
-        covered.update(range(match.start, match.end))
 
     # 2. 字元層：逐字掃描未被詞彙層覆蓋的位置
     if char_table:
@@ -72,20 +71,10 @@ def lookup_word(
                         )
                     )
 
-    # 3. 對 term target 套用 charmap（與 converter pipeline 一致）
-    #    converter: term replace → charmap（對整個結果）
-    #    所以 term 輸出中的字元也會被 charmap 處理
-    if char_table:
-        for d in details:
-            if d.layer == "term":
-                converted = d.target.translate(char_table)
-                if converted != d.target:
-                    d.target = converted
-
-    # 按位置排序
+    # 3. 按位置排序
     details.sort(key=lambda d: d.position)
 
-    # 產生轉換後文字
+    # 4. 產生轉換後文字
     output = _build_output(word, details)
     changed = output != word
 

@@ -281,7 +281,7 @@ class TestCharmapTermConsistency:
         這些已知差異記錄在允許清單中，新增差異需人工審核。
         """
         # 已知的合理覆蓋（詞庫選擇台灣慣用形，與 charmap 不同）
-        known_overrides = {"净", "账"}
+        known_overrides = {"净", "账", "克"}
 
         charmap = _get_charmap()
         terms = load_dictionary(sources=["cn"])

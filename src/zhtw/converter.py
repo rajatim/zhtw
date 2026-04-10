@@ -328,15 +328,88 @@ def _apply_term_layer(text: str, matcher: Matcher) -> tuple[str, set[int]]:
     if not matcher.terms:
         return text, set()
 
-    covered: set[int] = set()
-    # Collect covered positions from ALL automaton hits, including identity
-    # mappings that find_matches() would normally filter out.
-    for end_pos, (source, _target) in matcher.automaton.iter(text):
-        start_pos = end_pos - len(source) + 1
-        covered.update(range(start_pos, end_pos + 1))
-
+    covered = matcher.get_covered_positions(text)
     replaced = matcher.replace_all(text)
     return replaced, covered
+
+
+def _transform_uncovered_segment(
+    segment: str,
+    start_offset: int,
+    covered_positions: set[int],
+    char_table: Optional[dict[int, str]] = None,
+    ambiguity_mode: str = "strict",
+) -> str:
+    """Apply balanced defaults and char-level mapping only outside covered ranges."""
+    if not segment or (not char_table and ambiguity_mode != "balanced"):
+        return segment
+
+    defaults = None
+    if ambiguity_mode == "balanced":
+        from .charconv import get_balanced_defaults
+
+        defaults = get_balanced_defaults()
+
+    chars = list(segment)
+    for i, ch in enumerate(chars):
+        if start_offset + i in covered_positions:
+            continue
+
+        updated = ch
+        if defaults and updated in defaults:
+            updated = defaults[updated]
+
+        if char_table:
+            mapped = char_table.get(ord(updated))
+            if mapped is not None and mapped != updated:
+                updated = mapped
+
+        chars[i] = updated
+
+    return "".join(chars)
+
+
+def _apply_conversion_layers(
+    text: str,
+    matcher: Matcher,
+    char_table: Optional[dict[int, str]] = None,
+    ambiguity_mode: str = "strict",
+) -> str:
+    """Apply term, balanced, and char layers while preserving term-covered output."""
+    if not text:
+        return text
+
+    covered = matcher.get_covered_positions(text)
+    matches = list(matcher.find_matches(text))
+
+    if not matches:
+        return _transform_uncovered_segment(text, 0, covered, char_table, ambiguity_mode)
+
+    parts: list[str] = []
+    last_end = 0
+    for match in matches:
+        parts.append(
+            _transform_uncovered_segment(
+                text[last_end : match.start],
+                last_end,
+                covered,
+                char_table,
+                ambiguity_mode,
+            )
+        )
+        parts.append(match.target)
+        last_end = match.end
+
+    parts.append(
+        _transform_uncovered_segment(
+            text[last_end:],
+            last_end,
+            covered,
+            char_table,
+            ambiguity_mode,
+        )
+    )
+    return "".join(parts)
 
 
 def convert_text(
@@ -380,8 +453,14 @@ def convert_text(
 
     # In check mode, also detect char-level and balanced-level conversions
     if not fix:
+        covered_positions = matcher.get_covered_positions(text)
         if char_table:
-            char_matches = _find_char_matches(text, char_table, ignored_lines)
+            char_matches = _find_char_matches(
+                text,
+                char_table,
+                ignored_lines,
+                covered_positions=covered_positions,
+            )
             matches = matches + char_matches
         if ambiguity_mode == "balanced":
             balanced_matches = _find_balanced_matches(text, matcher, ignored_lines)
@@ -505,9 +584,12 @@ def _find_char_matches(
     text: str,
     char_table: dict[int, str],
     ignored_lines: Set[int],
+    covered_positions: Optional[set[int]] = None,
 ) -> List[tuple[Match, int, int]]:
     """Find characters that would be converted by char_table (for check mode)."""
     results: List[tuple[Match, int, int]] = []
+    if covered_positions is None:
+        covered_positions = set()
     lines = text.split("\n")
     pos = 0
     for i, line in enumerate(lines):
@@ -515,10 +597,13 @@ def _find_char_matches(
         if line_num not in ignored_lines:
             for col_idx, ch in enumerate(line):
                 cp = ord(ch)
+                abs_pos = pos + col_idx
+                if abs_pos in covered_positions:
+                    continue
                 if cp in char_table and char_table[cp] != ch:
                     m = Match(
-                        start=pos + col_idx,
-                        end=pos + col_idx + 1,
+                        start=abs_pos,
+                        end=abs_pos + 1,
                         source=ch,
                         target=char_table[cp],
                     )
@@ -539,7 +624,7 @@ def _find_balanced_matches(
     if not defaults:
         return []
 
-    _, covered = _apply_term_layer(text, matcher)
+    covered = matcher.get_covered_positions(text)
     results: List[tuple[Match, int, int]] = []
     lines = text.split("\n")
     pos = 0
@@ -567,53 +652,18 @@ def _replace_with_ignores(
     ambiguity_mode: str = "strict",
 ) -> str:
     """Replace matches while respecting ignored lines."""
-    is_balanced = ambiguity_mode == "balanced"
-    if is_balanced:
-        from .charconv import apply_balanced_defaults
-
     if not ignored_lines:
-        result, covered = _apply_term_layer(text, matcher)
-        if is_balanced:
-            result = apply_balanced_defaults(result, covered)
-        if char_table:
-            result = result.translate(char_table)
-        return result
+        return _apply_conversion_layers(text, matcher, char_table, ambiguity_mode)
 
-    # Process line by line
     lines = text.split("\n")
     result_lines = []
-
-    # Compute per-line character offsets in the original text so we can
-    # build line-level covered_positions (relative to each line's start).
-    line_offsets: list[int] = []
-    offset = 0
-    for line in lines:
-        line_offsets.append(offset)
-        offset += len(line) + 1  # +1 for the "\n" separator
-
-    # Build full-text covered positions from the full-text term layer so that
-    # line-level balanced application uses correct positions.
-    if is_balanced:
-        _, full_covered = _apply_term_layer(text, matcher)
-    else:
-        full_covered = set()
 
     for i, line in enumerate(lines):
         line_num = i + 1
         if line_num in ignored_lines:
-            # Keep line as-is
             result_lines.append(line)
         else:
-            # Replace matches in this line, then apply balanced/char-level conversion
-            converted = matcher.replace_all(line)
-            if is_balanced:
-                line_start = line_offsets[i]
-                line_end = line_start + len(line)
-                line_covered = {p - line_start for p in full_covered if line_start <= p < line_end}
-                converted = apply_balanced_defaults(converted, line_covered)
-            if char_table:
-                converted = converted.translate(char_table)
-            result_lines.append(converted)
+            result_lines.append(_apply_conversion_layers(line, matcher, char_table, ambiguity_mode))
 
     return "\n".join(result_lines)
 

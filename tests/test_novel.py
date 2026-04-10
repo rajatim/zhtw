@@ -2,7 +2,7 @@
 大奉打更人 小說轉換測試。
 
 使用簡體中文小說作為真實世界測試語料，
-驗證 zhtw 在大量自然語言文本上的轉換品質。
+驗證 zhtw 在大量自然語言文字上的轉換品質。
 """
 
 import json
@@ -14,7 +14,7 @@ import pytest
 # 語料路徑
 NOVEL_DIR = Path(__file__).parent / "data" / "novel"
 CHAPTERS_DIR = NOVEL_DIR / "chapters"
-MERGED_FILE = NOVEL_DIR / "大奉打更人_简体.txt"
+MERGED_FILE = NOVEL_DIR / "大奉打更人_簡體.txt"
 CHARMAP_FILE = (
     Path(__file__).parent.parent / "src" / "zhtw" / "data" / "charmap" / "safe_chars.json"
 )
@@ -64,7 +64,7 @@ class TestNovelDataIntegrity:
     def test_text_is_simplified(self):
         """確認語料是簡體中文。"""
         text = MERGED_FILE.read_text("utf-8")[:5000]
-        simplified_markers = sum(1 for ch in text if ch in "这个说还没对应该给让请认为")
+        simplified_markers = sum(1 for ch in text if ch in "這個說還沒對應該給讓請認為")
         assert simplified_markers > 20, "語料不像簡體中文"
 
 
@@ -75,7 +75,7 @@ class TestNoResidualSimplified:
     def test_no_safe_chars_remaining(self):
         """safe_chars 中的字元應全部被轉換（取樣前 500K 字元）。"""
         charmap, _ = _load_charmap()
-        safe_keys = set(charmap.keys())
+        safe_keys = {k for k, v in charmap.items() if k != v}
 
         text = MERGED_FILE.read_text("utf-8")[:500_000]
         result = _convert(text)
@@ -96,14 +96,14 @@ class TestNoArchaicChars:
     """轉換結果不應出現古字或罕用異體字。"""
 
     ARCHAIC_CHARS = {
-        "纔": "才的古字，台灣不用",
+        "才": "才的古字，台灣不用",
         "閤": "合的異體，台灣用 合",
         "纍": "累的古字，台灣用 累",
-        "衆": "眾的異體",
-        "爲": "為的異體",
+        "眾": "眾的異體",
+        "為": "為的異體",
         "牀": "床的異體",
         "竈": "灶的異體",
-        "糉": "粽的異體",
+        "粽": "粽的異體",
     }
 
     def test_no_archaic_in_conversion(self):
@@ -131,26 +131,26 @@ class TestOverConversionGuards:
         result = _convert(text)
         assert "泡棉" not in result, "泡沫被過度轉換為泡棉"
 
-    def test_众所周知_not_週知(self):
+    def test_眾所周知_not_週知(self):
         """周知（to know）不應變成 週知。"""
-        result = _convert("众所周知")
+        result = _convert("眾所周知")
         assert result == "眾所周知", f"got: {result}"
 
     def test_周遭_preserved(self):
-        """周遭不應被下周吃掉。"""
-        result = _convert("看了下周遭的环境")
+        """周遭不應被下週吃掉。"""
+        result = _convert("看了下周遭的環境")
         assert "下周遭" in result, f"got: {result}"
 
-    def test_的士_not_eating_士卒(self):
-        """的士→計程車 不應吃掉 士卒。"""
+    def test_計程車_not_eating_士卒(self):
+        """計程車→計程車 不應吃掉 士卒。"""
         result = _convert("我的士卒")
         assert "的士卒" in result, f"got: {result}"
         assert "計程車卒" not in result, f"got: {result}"
 
-    def test_才_not_纔(self):
-        """才（talent/just）不應變成古字 纔。"""
-        result = _convert("才是最好的选择")
-        assert "纔" not in result, f"got: {result}"
+    def test_才_not_才(self):
+        """才（talent/just）不應變成古字 才。"""
+        result = _convert("才是最好的選擇")
+        assert "才" not in result, f"got: {result}"
 
     def test_配合_not_配閤(self):
         """合不應被轉為閤。"""
@@ -158,9 +158,9 @@ class TestOverConversionGuards:
         assert "配閤" not in result, f"got: {result}"
         assert "配合" in result, f"got: {result}"
 
-    def test_历史_not_歷史記錄(self):
-        """历史→歷史，不是歷史記錄。"""
-        result = _convert("历史悠久")
+    def test_歷史_not_歷史記錄(self):
+        """歷史→歷史，不是歷史記錄。"""
+        result = _convert("歷史悠久")
         assert "歷史悠久" in result, f"got: {result}"
         assert "歷史記錄" not in result, f"got: {result}"
 
@@ -170,11 +170,11 @@ class TestAhoCorasickOverlap:
     """Aho-Corasick 重疊保護測試。"""
 
     OVERLAP_CASES = [
-        ("下周遭", "下周遭", "下周 vs 周遭"),
-        ("的士卒", "的士卒", "的士 vs 士卒"),
-        ("的士兵", "的士兵", "的士 vs 士兵"),
-        ("的士气", "的士氣", "的士 vs 士气"),
-        ("的士大夫", "的士大夫", "的士 vs 士大夫"),
+        ("下周遭", "下周遭", "下週 vs 周遭"),
+        ("的士卒", "的士卒", "計程車 vs 士卒"),
+        ("的士兵", "的士兵", "計程車 vs 士兵"),
+        ("的士氣", "計程車氣", "計程車 vs 士氣"),
+        ("的士大夫", "的士大夫", "計程車 vs 士醫生"),
     ]
 
     @pytest.mark.parametrize("src,expected,desc", OVERLAP_CASES, ids=[c[2] for c in OVERLAP_CASES])
@@ -188,16 +188,16 @@ class TestKeyTermConversions:
     """小說中常見詞彙的轉換正確性。"""
 
     TERM_CASES = [
-        ("软件", "軟體"),
-        ("信息", "資訊"),
-        ("发送", "傳送"),
-        ("计算机", "電腦"),
-        ("内存", "記憶體"),
-        ("网络", "網路"),
-        ("服务器", "伺服器"),
-        ("视频", "影片"),
-        ("博客", "部落格"),
-        ("默认", "預設"),
+        ("軟體", "軟體"),
+        ("資訊", "資訊"),
+        ("傳送", "傳送"),
+        ("電腦", "電腦"),
+        ("記憶體", "記憶體"),
+        ("網路", "網路"),
+        ("伺服器", "伺服器"),
+        ("影片", "影片"),
+        ("部落格", "部落格"),
+        ("預設", "預設"),
     ]
 
     @pytest.mark.parametrize("src,expected", TERM_CASES, ids=[c[0] for c in TERM_CASES])

@@ -83,14 +83,15 @@ def test_export_data_source_filter():
     assert data["stats"]["terms_hk_count"] == 0
 
 
-def test_export_data_includes_ambiguity_v12_updates():
-    """Exported charmap must include v1.2 safe chars and balanced defaults."""
+def test_export_data_includes_ambiguity_v13_updates():
+    """Exported data must include v1.2/v1.3 safe chars, defaults, and identity terms."""
     from zhtw.export import export_data
 
     data = export_data()
     charmap = data["charmap"]["chars"]
     ambiguous = set(data["charmap"]["ambiguous"])
     defaults = data["charmap"]["balanced_defaults"]
+    cn_terms = data["terms"]["cn"]
 
     assert defaults["卤"] == "滷"
     assert defaults["坛"] == "壇"
@@ -101,9 +102,22 @@ def test_export_data_includes_ambiguity_v12_updates():
     assert charmap["帘"] == "簾"
     assert charmap["凫"] == "鳧"
     assert charmap["坝"] == "壩"
+    assert charmap["仆"] == "僕"
+    assert charmap["尸"] == "屍"
+    assert charmap["赝"] == "贗"
+    assert charmap["镋"] == "鎲"
+    assert charmap["镌"] == "鐫"
     assert "帘" not in ambiguous
     assert "凫" not in ambiguous
     assert "坝" not in ambiguous
+    assert "仆" not in ambiguous
+    assert "尸" not in ambiguous
+    assert "赝" not in ambiguous
+    assert "镋" not in ambiguous
+    assert "镌" not in ambiguous
+
+    assert cn_terms["前仆后继"] == "前仆後繼"
+    assert cn_terms["尸位素餐"] == "尸位素餐"
 
 
 def test_golden_test_schema():

@@ -4,6 +4,7 @@
 import pytest
 
 from zhtw.charconv import get_translate_table
+from zhtw.converter import convert_text
 from zhtw.dictionary import load_dictionary
 from zhtw.matcher import Matcher
 
@@ -22,9 +23,9 @@ def char_table():
 
 
 def convert(text: str, matcher: Matcher, char_table: dict) -> str:
-    """兩層轉換：詞彙級（Aho-Corasick）+ 字元級（str.translate）。"""
-    result = matcher.replace_all(text)
-    return result.translate(char_table)
+    """走實際 converter pipeline，避免測試複製過時邏輯。"""
+    result, _ = convert_text(text, matcher, fix=True, char_table=char_table)
+    return result
 
 
 # ---------------------------------------------------------------------------
