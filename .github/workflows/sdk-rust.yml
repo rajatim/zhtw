@@ -16,6 +16,8 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         rust: [stable, "1.80"]
     runs-on: ${{ matrix.os }}
+    env:
+      RUSTUP_TOOLCHAIN: ${{ matrix.rust }}
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@master
@@ -113,8 +115,8 @@ jobs:
             "compilerOptions": {
               "strict": true,
               "target": "es2022",
-              "module": "esnext",
-              "moduleResolution": "bundler",
+              "module": "nodenext",
+              "moduleResolution": "nodenext",
               "esModuleInterop": true,
               "noEmit": true,
               "skipLibCheck": false
