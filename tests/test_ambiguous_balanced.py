@@ -370,3 +370,44 @@ class TestCheckModeBalanced:
         )
         sources = [m.source for m, _line, _col in matches]
         assert "几" not in sources
+
+
+class TestBalancedSourcesGuard:
+    """balanced mode 在 sources=["hk"] 時不應啟用（CN→TW only）。"""
+
+    def test_hk_only_balanced_does_not_convert(self):
+        """sources=["hk"] 時 balanced 不轉換歧義字。"""
+        result = convert("几个人", sources=["hk"], ambiguity_mode="balanced")
+        assert "幾" not in result
+
+    def test_cn_balanced_converts(self):
+        """sources=["cn"] 時 balanced 正常轉換歧義字。"""
+        result = convert("几个人", sources=["cn"], ambiguity_mode="balanced")
+        assert "幾" in result
+
+    def test_default_sources_balanced_converts(self):
+        """sources=None 時 balanced 正常轉換歧義字。"""
+        result = convert("几个人", ambiguity_mode="balanced")
+        assert "幾" in result
+
+
+class TestFileAPIValidation:
+    """file/directory API 的 ambiguity_mode 驗證。"""
+
+    def test_convert_file_invalid_mode_raises(self, tmp_path, matcher):
+        """convert_file() 對無效 ambiguity_mode 立即報錯。"""
+        from zhtw.converter import convert_file
+
+        test_file = tmp_path / "latin.txt"
+        test_file.write_text("hello world", encoding="utf-8")
+        with pytest.raises(ValueError, match="ambiguity_mode"):
+            convert_file(test_file, matcher, ambiguity_mode="invalid")
+
+    def test_process_directory_invalid_mode_raises(self, tmp_path):
+        """process_directory() 對無效 ambiguity_mode 立即報錯。"""
+        from zhtw.converter import process_directory
+
+        test_file = tmp_path / "latin.txt"
+        test_file.write_text("hello world", encoding="utf-8")
+        with pytest.raises(ValueError, match="ambiguity_mode"):
+            process_directory(tmp_path, ambiguity_mode="invalid")

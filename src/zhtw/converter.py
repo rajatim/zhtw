@@ -491,8 +491,12 @@ def convert(text: str, sources: Optional[List[str]] = None, ambiguity_mode: str 
                 _DEFAULT_CONVERT_CACHE[key] = cached
 
     matcher, char_table = cached
+    # balanced defaults are CN→TW mappings; disable when cn not in sources
+    effective_mode = ambiguity_mode
+    if ambiguity_mode == "balanced" and sources is not None and "cn" not in sources:
+        effective_mode = "strict"
     result, _ = convert_text(
-        text, matcher, fix=True, char_table=char_table, ambiguity_mode=ambiguity_mode
+        text, matcher, fix=True, char_table=char_table, ambiguity_mode=effective_mode
     )
     return result
 
@@ -636,6 +640,12 @@ def convert_file(
     Returns:
         FileResult with issues found.
     """
+    if ambiguity_mode not in VALID_AMBIGUITY_MODES:
+        raise ValueError(
+            f"Invalid ambiguity_mode: {ambiguity_mode!r}. "
+            f"Valid modes are: {sorted(VALID_AMBIGUITY_MODES)}"
+        )
+
     result = FileResult(file=path)
 
     try:
@@ -816,6 +826,12 @@ def process_directory(
     Returns:
         Aggregated ConversionResult.
     """
+    if ambiguity_mode not in VALID_AMBIGUITY_MODES:
+        raise ValueError(
+            f"Invalid ambiguity_mode: {ambiguity_mode!r}. "
+            f"Valid modes are: {sorted(VALID_AMBIGUITY_MODES)}"
+        )
+
     # Load dictionary and create matcher
     terms = load_dictionary(sources=sources, custom_path=custom_dict)
     matcher = Matcher(terms)
@@ -826,6 +842,11 @@ def process_directory(
         from .charconv import get_translate_table
 
         char_table = get_translate_table()
+
+    # balanced defaults are CN→TW mappings; disable when cn not in sources
+    effective_mode = ambiguity_mode
+    if ambiguity_mode == "balanced" and sources and "cn" not in sources:
+        effective_mode = "strict"
 
     result = ConversionResult()
 
@@ -839,7 +860,7 @@ def process_directory(
         input_encoding=input_encoding,
         output_encoding=output_encoding,
         char_table=char_table,
-        ambiguity_mode=ambiguity_mode,
+        ambiguity_mode=effective_mode,
     ):
         if file_result.skipped:
             result.files_skipped += 1
