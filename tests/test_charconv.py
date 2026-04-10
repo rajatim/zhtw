@@ -1,12 +1,11 @@
+# zhtw:disable  # 測試案例需要簡體字輸入
 """字元級轉換（charconv）的測試。"""
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
 import pytest
 
+from zhtw import convert
 from zhtw.charconv import (
     char_convert,
     clear_cache,
@@ -15,12 +14,8 @@ from zhtw.charconv import (
     get_translate_table,
     load_charmap,
 )
-from zhtw.converter import convert, convert_text
+from zhtw.converter import convert_text
 from zhtw.matcher import Matcher
-
-CHARMAP_PATH = (
-    Path(__file__).parent.parent / "src" / "zhtw" / "data" / "charmap" / "safe_chars.json"
-)
 
 
 @pytest.fixture(autouse=True)
@@ -32,17 +27,12 @@ def _clear_charconv_cache():
 
 
 # ──────────────────────────────────────────────
-# 字元對映資料完整性
+# 字元映射資料完整性
 # ──────────────────────────────────────────────
 
 
 class TestCharmapData:
     """驗證 safe_chars.json 資料品質。"""
-
-    def test_file_stats_match_actual_content(self):
-        data = json.loads(CHARMAP_PATH.read_text(encoding="utf-8"))
-        assert data["stats"]["safe_chars"] == len(data["chars"])
-        assert data["stats"]["ambiguous_excluded"] == len(data["ambiguous_excluded"])
 
     def test_load_charmap(self):
         charmap = load_charmap()
@@ -51,7 +41,7 @@ class TestCharmapData:
 
     def test_charmap_count_reasonable(self):
         charmap = load_charmap()
-        # 應在 2000-8000 之間（包含擴充套件區）
+        # 應在 2000-8000 之間（包含擴展區）
         assert 2000 <= len(charmap) <= 8000
 
     def test_keys_are_single_chars(self):
@@ -64,12 +54,13 @@ class TestCharmapData:
         for key, val in charmap.items():
             assert len(val) == 1, f"Value '{val}' for '{key}' 不是單字元"
 
-    def test_shared_form_entries_are_allowed(self):
+    def test_no_identity_mapping(self):
         charmap = load_charmap()
-        assert charmap.get("著") == "著"
+        for key, val in charmap.items():
+            assert key != val, f"Identity mapping: '{key}' → '{val}'"
 
     def test_no_ambiguous_chars_in_charmap(self):
-        """歧義字不應出現在安全對映中。"""
+        """歧義字不應出現在安全映射中。"""
         charmap = load_charmap()
         ambiguous = get_ambiguous_chars()
         for char in ambiguous:
@@ -80,22 +71,21 @@ class TestCharmapData:
         assert len(ambiguous) > 50  # 至少 50 個歧義字
 
     def test_well_known_safe_chars(self):
-        """常見安全字元應在對映中。"""
+        """常見安全字元應在映射中。"""
         charmap = load_charmap()
         expected = {
-            "這": "這",
-            "個": "個",
-            "國": "國",
-            "時": "時",
-            "會": "會",
-            "過": "過",
-            "還": "還",
-            "學": "學",
-            "車": "車",
-            "测": "測",
-            "試": "試",
-            "東": "東",
-            "門": "門",
+            "这": "這",
+            "个": "個",
+            "说": "說",
+            "国": "國",
+            "时": "時",
+            "会": "會",
+            "为": "為",
+            "过": "過",
+            "还": "還",
+            "发": "發",
+            "学": "學",
+            "车": "車",
         }
         for simplified, traditional in expected.items():
             assert (
@@ -103,9 +93,9 @@ class TestCharmapData:
             ), f"{simplified} → 期望 {traditional}, 實際 {charmap.get(simplified)}"
 
     def test_well_known_ambiguous_excluded(self):
-        """已知歧義字不應在安全對映中。"""
+        """已知歧義字不應在安全映射中。"""
         charmap = load_charmap()
-        ambiguous_chars = ["後", "裡", "幹", "只", "台", "複", "系", "面", "折", "採"]
+        ambiguous_chars = ["后", "里", "干", "只", "台", "复", "系", "面", "折", "采"]
         for char in ambiguous_chars:
             assert char not in charmap, f"歧義字 '{char}' 不應在 safe charmap"
 
@@ -154,21 +144,21 @@ class TestCharConvert:
 
     def test_basic_conversion(self):
         table = get_translate_table()
-        assert char_convert("東", table) == "東"
-        assert char_convert("專", table) == "專"
+        assert char_convert("东", table) == "東"
+        assert char_convert("专", table) == "專"
 
     def test_multiple_chars(self):
         table = get_translate_table()
-        result = char_convert("我們說中國話", table)
+        result = char_convert("我们说中国话", table)
         assert result == "我們說中國話"
 
     def test_ambiguous_not_converted(self):
         """歧義字不應被字元層轉換。"""
         table = get_translate_table()
-        # 後、面、裡、幹 是歧義字，不在 charmap 中
-        assert char_convert("後", table) == "後"
-        assert char_convert("裡", table) == "裡"
-        assert char_convert("幹", table) == "幹"
+        # 后、面、里、干 是歧義字，不在 charmap 中
+        assert char_convert("后", table) == "后"
+        assert char_convert("里", table) == "里"
+        assert char_convert("干", table) == "干"
 
     def test_v13_promoted_chars_convert_in_strict_char_layer(self):
         """v1.2/v1.3 升級到 safe_chars 的字應在 strict 字元層直接轉換。"""
@@ -179,7 +169,7 @@ class TestCharConvert:
 
     def test_v13_identity_protection(self):
         """v1.3 詞庫 identity 保護成語不被字元層覆寫。"""
-        assert convert("前仆後继", ambiguity_mode="strict") == "前仆後繼"
+        assert convert("前仆后继", ambiguity_mode="strict") == "前仆後繼"
         assert convert("尸位素餐", ambiguity_mode="strict") == "尸位素餐"
 
     def test_traditional_unchanged(self):
@@ -197,7 +187,7 @@ class TestCharConvert:
 
     def test_mixed_content(self):
         table = get_translate_table()
-        result = char_convert("hello 這個 world", table)
+        result = char_convert("hello 这个 world", table)
         assert result == "hello 這個 world"
 
 
@@ -212,7 +202,7 @@ class TestPipelineIntegration:
     @pytest.fixture
     def matcher(self):
         """建立帶有基本詞彙的 matcher。"""
-        terms = {"軟體": "軟體", "資訊": "資訊", "頭髮": "頭髮"}
+        terms = {"软件": "軟體", "信息": "資訊", "头发": "頭髮"}
         return Matcher(terms)
 
     @pytest.fixture
@@ -221,13 +211,13 @@ class TestPipelineIntegration:
 
     def test_term_then_char(self, matcher, char_table):
         """詞彙層先跑，字元層補底。"""
-        text = "這個軟體"
+        text = "这个软件"
         result, _ = convert_text(text, matcher, fix=True, char_table=char_table)
-        # 軟體 被詞彙層轉為 軟體，這/個 被字元層轉
+        # 软件 被詞彙層轉為 軟體，这/个 被字元層轉
         assert result == "這個軟體"
 
     def test_mixed_real_text(self, matcher, char_table):
-        text = "這是一個測試軟體"
+        text = "这是一个测试软件"
         result, _ = convert_text(text, matcher, fix=True, char_table=char_table)
         assert "軟體" in result  # 詞彙層
         assert "這" in result  # 字元層
@@ -236,29 +226,29 @@ class TestPipelineIntegration:
 
     def test_ambiguous_in_term_context(self, matcher, char_table):
         """歧義字透過詞庫上下文正確轉換。"""
-        text = "頭髮"
+        text = "头发"
         result, _ = convert_text(text, matcher, fix=True, char_table=char_table)
         assert result == "頭髮"  # 詞庫層處理
 
     def test_char_convert_with_no_term_matches(self, char_table):
         """即使沒有詞彙匹配，字元層也要運作。"""
-        terms = {"不存在的詞": "不存在的詞"}
+        terms = {"不存在的词": "不存在的詞"}
         matcher = Matcher(terms)
-        text = "學習程式設計"
+        text = "学习编程"
         result, _ = convert_text(text, matcher, fix=True, char_table=char_table)
-        assert result == "學習程式設計"  # 全部由字元層轉換
+        assert result == "學習編程"  # 全部由字元層轉換
 
     def test_without_char_table(self, matcher):
         """不傳 char_table 時，行為和之前一樣。"""
-        text = "這個軟體"
+        text = "这个软件"
         result, _ = convert_text(text, matcher, fix=True, char_table=None)
-        # 只有詞彙層的 軟體→軟體，這/個 不轉
+        # 只有詞彙層的 软件→軟體，这/个 不轉
         assert "軟體" in result
-        assert "這" in result or "這" in result  # 取決於 這 是否在詞庫中
+        assert "这" in result or "這" in result  # 取決於 这 是否在詞庫中
 
     def test_ignored_lines_respected(self, matcher, char_table):
         """字元轉換也要尊重忽略指令。"""
-        text = "這個軟體\n這是測試"
+        text = "这个软件\n这是测试"
         # 忽略第二行
         result, _ = convert_text(
             text,
@@ -269,7 +259,7 @@ class TestPipelineIntegration:
         )
         lines = result.split("\n")
         assert "軟體" in lines[0]  # 第一行正常轉換
-        assert lines[1] == "這是測試"  # 第二行完全不轉
+        assert lines[1] == "这是测试"  # 第二行完全不轉
 
 
 # ──────────────────────────────────────────────
