@@ -1,44 +1,96 @@
 use wasm_bindgen::prelude::*;
 use zhtw::{Converter as CoreConverter, Source};
 
+// ─── TypeScript type declarations ───
+//
+// wasm-bindgen auto-generates `any` for JsValue returns. We suppress those
+// with `skip_typescript` and provide correct declarations here.
+
+#[wasm_bindgen(typescript_custom_section)]
+const TS_TYPES: &str = r#"
+export interface Match {
+    start: number;
+    end: number;
+    source: string;
+    target: string;
+}
+
+export interface LookupResult {
+    input: string;
+    output: string;
+    changed: boolean;
+    details: ConversionDetail[];
+}
+
+export interface ConversionDetail {
+    source: string;
+    target: string;
+    layer: "term" | "char";
+    position: number;
+}
+
+export interface ConverterOptions {
+    sources?: ("cn" | "hk")[];
+    customDict?: Record<string, string>;
+}
+"#;
+
+// Manual function/class declarations (replacing the auto-generated `any` ones).
+#[wasm_bindgen(typescript_custom_section)]
+const TS_API: &str = r#"
+export function convert(text: string): string;
+export function check(text: string): Match[];
+export function lookup(word: string): LookupResult;
+export function createConverter(options?: ConverterOptions): Converter;
+
+export class Converter {
+    free(): void;
+    convert(text: string): string;
+    check(text: string): Match[];
+    lookup(word: string): LookupResult;
+}
+"#;
+
 // ─── Zero-config free functions ───
 
-#[wasm_bindgen]
+// `convert` returns String → already typed as `string`, but we skip to avoid
+// duplicate declaration (we declared it in the custom section above).
+#[wasm_bindgen(skip_typescript)]
 pub fn convert(text: &str) -> String {
     zhtw::convert(text)
 }
 
-#[wasm_bindgen]
+#[wasm_bindgen(skip_typescript)]
 pub fn check(text: &str) -> Result<JsValue, JsValue> {
     serde_wasm_bindgen::to_value(&zhtw::check(text)).map_err(|e| JsValue::from_str(&e.to_string()))
 }
 
-#[wasm_bindgen]
+#[wasm_bindgen(skip_typescript)]
 pub fn lookup(word: &str) -> Result<JsValue, JsValue> {
     serde_wasm_bindgen::to_value(&zhtw::lookup(word)).map_err(|e| JsValue::from_str(&e.to_string()))
 }
 
 // ─── Converter class ───
 
-#[wasm_bindgen]
+#[wasm_bindgen(skip_typescript)]
 pub struct Converter {
     inner: CoreConverter,
 }
 
 #[wasm_bindgen]
 impl Converter {
-    #[wasm_bindgen(js_name = convert)]
+    #[wasm_bindgen(js_name = convert, skip_typescript)]
     pub fn convert(&self, text: &str) -> String {
         self.inner.convert(text)
     }
 
-    #[wasm_bindgen(js_name = check)]
+    #[wasm_bindgen(js_name = check, skip_typescript)]
     pub fn check(&self, text: &str) -> Result<JsValue, JsValue> {
         serde_wasm_bindgen::to_value(&self.inner.check(text))
             .map_err(|e| JsValue::from_str(&e.to_string()))
     }
 
-    #[wasm_bindgen(js_name = lookup)]
+    #[wasm_bindgen(js_name = lookup, skip_typescript)]
     pub fn lookup(&self, word: &str) -> Result<JsValue, JsValue> {
         serde_wasm_bindgen::to_value(&self.inner.lookup(word))
             .map_err(|e| JsValue::from_str(&e.to_string()))
@@ -47,7 +99,7 @@ impl Converter {
 
 // ─── createConverter factory ───
 
-#[wasm_bindgen(js_name = createConverter)]
+#[wasm_bindgen(skip_typescript, js_name = createConverter)]
 pub fn create_converter(options: Option<JsValue>) -> Result<Converter, JsValue> {
     let mut builder = CoreConverter::builder();
 
