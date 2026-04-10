@@ -4,8 +4,10 @@
 from __future__ import annotations
 
 import pytest
+from click.testing import CliRunner
 
 from zhtw.charconv import apply_balanced_defaults, clear_cache, get_balanced_defaults
+from zhtw.cli import main
 from zhtw.converter import convert, convert_text
 from zhtw.matcher import Matcher
 
@@ -209,3 +211,68 @@ class TestConvertConvenienceBalanced:
         result_default = convert("几个人")
         result_strict = convert("几个人", ambiguity_mode="strict")
         assert result_default == result_strict
+
+
+# ──────────────────────────────────────────────
+# TestCLIAmbiguityMode
+# ──────────────────────────────────────────────
+
+
+class TestCLIAmbiguityMode:
+    """CLI --ambiguity-mode flag。"""
+
+    def test_fix_balanced_mode(self, tmp_path):
+        """fix --ambiguity-mode balanced 轉換歧義字。"""
+        test_file = tmp_path / "test.txt"
+        test_file.write_text("几个人", encoding="utf-8")
+
+        runner = CliRunner()
+        result = runner.invoke(
+            main,
+            [
+                "fix",
+                str(test_file),
+                "--ambiguity-mode",
+                "balanced",
+                "--yes",
+            ],
+        )
+        assert result.exit_code == 0
+        content = test_file.read_text(encoding="utf-8")
+        assert "幾" in content
+
+    def test_fix_strict_mode_default(self, tmp_path):
+        """fix 不帶 flag 時預設 strict，不轉換歧義字。
+
+        使用「桌上只有几张纸」—「几张」不在詞庫中，strict mode 不應透過
+        balanced_defaults 將「几」替換為「幾」。
+        """
+        test_file = tmp_path / "test.txt"
+        test_file.write_text("桌上只有几张纸", encoding="utf-8")
+
+        runner = CliRunner()
+        result = runner.invoke(
+            main,
+            [
+                "fix",
+                str(test_file),
+                "--yes",
+            ],
+        )
+        assert result.exit_code == 0
+        content = test_file.read_text(encoding="utf-8")
+        assert "几" in content
+
+    def test_invalid_mode_error(self):
+        """無效的 ambiguity-mode 值應報錯。"""
+        runner = CliRunner()
+        result = runner.invoke(
+            main,
+            [
+                "check",
+                ".",
+                "--ambiguity-mode",
+                "invalid",
+            ],
+        )
+        assert result.exit_code != 0
