@@ -192,7 +192,9 @@ pub enum Layer {
 pub enum Error {
     #[error("invalid source string: {0}")]
     InvalidSource(String),
-    // 未來擴充用 — v1 只有這一個 variant。
+    #[error("sources must be a non-empty list of Source variants")]
+    EmptySources,
+    // 未來擴充用 — v1 只有這兩個 variant。
     // 熱路徑 convert/check/lookup 不回 Result。
 }
 
@@ -207,15 +209,23 @@ pub struct Converter {
     //   - term automaton (Arc<CharwiseDoubleArrayAhoCorasick<u32>>)
     //   - char_map (&'static phf::Map<char, char>)
     //   - pattern_data (Arc<Vec<(String, String)>>)  // pattern idx → (source, target)
-    //   - custom_dict empty? flag (True → 走 LazyLock default automaton 的熱路徑)
+    //   - char_layer_enabled: bool (sources.contains(&Source::Cn))
+    //   - is_default: bool (True → shared precompiled automaton path)
 }
 
 impl Converter {
-    pub fn new(config: Config) -> Self { /* see §3.4 */ }
+    /// Construct a Converter from a Config. Returns Err(EmptySources) if
+    /// `config.sources` is empty — daachorse rejects empty pattern sets, and
+    /// the TypeScript/Java SDKs also reject empty sources at construction.
+    pub fn new(config: Config) -> Result<Self> { /* see §3.4 */ }
+
+    /// Zero-cost shared default instance (Cn + Hk, no custom dict).
+    /// Infallible — known-good config baked in at build time.
     pub fn default_instance() -> &'static Self { /* LazyLock, see §2.3 */ }
+
     pub fn builder() -> Builder { Builder::default() }
 
-    // 熱路徑 — 不回 Result
+    // 熱路徑 — 不回 Result (construction already validated)
     pub fn convert(&self, text: &str) -> String { /* see §3.5 */ }
     pub fn check(&self, text: &str) -> Vec<Match> { /* see §3.5 */ }
     pub fn lookup(&self, word: &str) -> LookupResult { /* see §3.5 */ }
@@ -255,7 +265,10 @@ impl Builder {
         self
     }
 
-    pub fn build(self) -> Converter {
+    /// Validates the config and constructs the Converter. Returns
+    /// Err(EmptySources) on empty `sources`. Hot-path (convert/check/lookup)
+    /// remains infallible because validation happens here.
+    pub fn build(self) -> Result<Converter> {
         Converter::new(self.config)
     }
 }
@@ -298,38 +311,43 @@ impl Converter {
 
 ### 2.4 設計決策（明確 rationale）
 
-1. **`convert/check/lookup` 不回 `Result`** — 熱路徑對任何 `&str` 都能成功，無失敗模式；回 `Result` 會強迫 `.unwrap()`/`?` 噪音。
-2. **`Converter: Send + Sync`** — 內部 `Arc<...>` + `&'static`，可跨 thread 共享，對齊 Java SDK thread-safe 保證。Compile-time 強制。
-3. **`default_instance()` 回 `&'static`** — 零 allocation 的 zero-config 入口，從第二次呼叫起完全免費。
-4. **`Source` 是 enum，不是 `&str`** — 編譯期防打錯，WASM 邊界用 `FromStr` 解析。
-5. **`custom_dict` 觸發 runtime automaton build**（見 §3.4）— 預設路徑吃預編譯，自訂路徑付正常建構成本。
+1. **Validation 集中在 `Builder::build` / `Converter::new`，熱路徑不回 `Result`** — 建構時做完所有可能失敗的檢查（empty sources、無效 custom_dict key）；`convert/check/lookup` 對任何 `&str` 都能成功、零失敗模式，不需要 `.unwrap()`/`?` 噪音。`default_instance()` 拿的是建構時就 bake 好的 valid converter，使用者的 zero-config 路徑看不到任何 Result。
+2. **`Builder::build -> Result<Converter>`** — 空 `sources` 是使用者錯誤（daachorse 也拒絕 empty pattern set，TS/Java SDK 同樣在 constructor reject）。`build()` 是唯一需要 `?` 的地方，熱路徑不會漂出去。
+3. **`Converter: Send + Sync`** — 內部 `Arc<...>` + `&'static`，可跨 thread 共享，對齊 Java SDK thread-safe 保證。Compile-time 強制（加 non-Send 欄位自動紅字）。
+4. **`default_instance()` 回 `&'static`** — 零 allocation 的 zero-config 入口，從第二次呼叫起完全免費。
+5. **`Source` 是 enum，不是 `&str`** — 編譯期防打錯，WASM 邊界用 `FromStr` 解析。
+6. **`custom_dict` 觸發 runtime automaton build**（見 §3.4）— 預設路徑吃預編譯，自訂路徑付正常建構成本。
 
 ### 2.5 使用範例（檔案等級）
 
+<!-- zhtw:disable -->
 ```rust
 use zhtw::{Converter, Source};
 
-// Zero config
-assert_eq!(zhtw::convert("這個軟體需要最佳化"), "這個軟體需要最佳化");
+// Zero config — input is Simplified Chinese
+assert_eq!(zhtw::convert("这个软件需要优化"), "這個軟體需要最佳化");
 
-// Builder
+// Builder with custom dict (must use Result as of §2.6)
 let conv = Converter::builder()
     .sources([Source::Cn])
-    .custom_dict([("自訂", "自訂")])
-    .build();
-assert_eq!(conv.convert("自訂伺服器"), "自訂伺服器");
+    .custom_dict([("自定义", "自訂")])
+    .build()
+    .expect("non-empty sources");
+assert_eq!(conv.convert("自定义服务器"), "自訂伺服器");
 
-// Check
-let hits = zhtw::check("使用者權限");
-assert_eq!(hits[0].start, 0);  // codepoint index
-assert_eq!(hits[0].source, "使用者");
-assert_eq!(hits[0].target, "使用者");
+// Check — codepoint offsets
+let hits = zhtw::check("用户权限");
+let term = hits.iter().find(|m| m.source == "用户").unwrap();
+assert_eq!(term.start, 0);
+assert_eq!(term.end, 2);
+assert_eq!(term.target, "使用者");
 
 // Lookup
-let detail = zhtw::lookup("軟體");
+let detail = zhtw::lookup("软件");
 assert!(detail.changed);
 assert_eq!(detail.output, "軟體");
 ```
+<!-- zhtw:enable -->
 
 ---
 
@@ -365,11 +383,19 @@ sdk/data/zhtw-data.json  (~38K lines, ~1.5 MB)
           ▼  runtime (include_bytes! + deserialize)
 ┌────────────────────────────────────────────────────────┐
 │ Converter::default_instance() → LazyLock::new(|| {     │
-│   verify_magic_header(AUTOMATON_BYTES)?;               │
-│   let pma = unsafe {                                    │
-│     CharwiseDoubleArrayAhoCorasick::deserialize_unchecked│
-│       (&AUTOMATON_BYTES[HEADER_LEN..])                 │
+│   let body = verify_header(                             │
+│     AUTOMATON_BYTES, SourceMask::CN_HK                  │
+│   );  // panics on mismatch                             │
+│   // daachorse deserialize_unchecked returns (Self, &[u8])│
+│   let (pma, trailing) = unsafe {                        │
+│     CharwiseDoubleArrayAhoCorasick::<u32>               │
+│       ::deserialize_unchecked(body)                     │
 │   };                                                    │
+│   assert!(                                              │
+│     trailing.is_empty(),                                │
+│     "zhtw: {} trailing bytes after automaton",          │
+│     trailing.len()                                      │
+│   );                                                    │
 │   Converter { pma, char_map, ... }                     │
 │ })                                                      │
 └────────────────────────────────────────────────────────┘
@@ -377,72 +403,129 @@ sdk/data/zhtw-data.json  (~38K lines, ~1.5 MB)
 
 ### 3.2 Magic header 格式（**Guardrail 2**）
 
-`deserialize_unchecked` 是 `unsafe` — 餵錯格式會 UB。所以 build.rs 產出的每個 bytes blob 前面都包一層自製 header：
+`deserialize_unchecked` 是 `unsafe` — 餵錯格式會 UB。所以 build.rs 產出的每個 bytes blob 前面都包一層自製 header 作為 sanity check。
+
+**設計重點：**
+- **不用 `#[repr(C)]` struct + pointer cast** — 會引入未對齊 reference、padding、endianness 風險，寫得起來但是 undefined behavior。
+- **用純 byte-wise parser**：固定欄位位移，`u16::from_le_bytes` / `u32::from_le_bytes` 逐欄位讀，完全 safe Rust。
+- **header 本身固定 little-endian**（所有現代平臺包含 wasm32 都是 LE，不需要執行期 branch）。
+- **驗 daachorse 版本號**：header 把 daachorse crate 版本 packed 進去，runtime 比對 hardcoded const；不匹配就 panic，避免 serialized format 漂移餵進 `deserialize_unchecked` 爆掉。
 
 ```rust
-// zhtw/src/matcher.rs (shared struct, used by both build.rs and runtime)
-#[repr(C)]
-pub(crate) struct AutomatonHeader {
-    /// "ZHTWDAAC" (8 bytes)
-    pub magic: [u8; 8],
-    /// Schema version of this header format itself (u16, currently 1)
-    pub header_version: u16,
-    /// daachorse crate version as packed (major<<16 | minor<<8 | patch)
-    pub daachorse_version: u32,
-    /// Hash of sdk/data/zhtw-data.json (first 8 bytes of blake3)
-    pub dict_hash: [u8; 8],
-    /// Source set encoded: bit 0 = Cn, bit 1 = Hk
-    pub source_mask: u8,
-    /// Reserved for future use
-    pub _reserved: [u8; 5],
+// zhtw/src/header.rs — shared between build.rs (via include!) and runtime lib
+//
+// 格式（28 bytes, all little-endian）:
+//   [0..8]   magic          = b"ZHTWDAAC"
+//   [8..10]  header_version : u16 (currently 1)
+//   [10..14] daachorse_ver  : u32 packed as (major<<16 | minor<<8 | patch)
+//   [14..22] dict_hash      : [u8; 8]  (first 8 bytes of blake3 of zhtw-data.json)
+//   [22]     source_mask    : u8  (bit 0 = Cn, bit 1 = Hk)
+//   [23..28] reserved       : [u8; 5]  (MBZ, must-be-zero)
+
+pub(crate) const ZHTW_AUTOMATON_MAGIC: [u8; 8] = *b"ZHTWDAAC";
+pub(crate) const CURRENT_HEADER_VERSION: u16 = 1;
+pub(crate) const HEADER_LEN: usize = 28;
+
+/// Packed daachorse crate version. Must match the `daachorse = "=X.Y.Z"` in
+/// the workspace Cargo.toml. A `tests/api.rs` test asserts this via the
+/// daachorse-generated version string at runtime (e.g. by parsing
+/// `env!("DEP_DAACHORSE_VERSION")` exposed via build.rs `cargo:version=`).
+pub(crate) const DAACHORSE_VERSION_PACKED: u32 = 0x0001_0000; // 1.0.0
+
+#[derive(Clone, Copy)]
+pub(crate) struct SourceMask(pub u8);
+impl SourceMask {
+    pub const CN: Self = SourceMask(0b01);
+    pub const HK: Self = SourceMask(0b10);
+    pub const CN_HK: Self = SourceMask(0b11);
 }
 
-const ZHTW_AUTOMATON_MAGIC: [u8; 8] = *b"ZHTWDAAC";
-const CURRENT_HEADER_VERSION: u16 = 1;
-
-pub(crate) fn verify_header(bytes: &[u8], expected_mask: u8) -> Result<&[u8]> {
-    if bytes.len() < std::mem::size_of::<AutomatonHeader>() {
-        panic!("zhtw: automaton bytes truncated");
-    }
-    let header: &AutomatonHeader = unsafe {
-        &*(bytes.as_ptr() as *const AutomatonHeader)
-    };
-    if header.magic != ZHTW_AUTOMATON_MAGIC {
-        panic!("zhtw: invalid automaton magic (corrupt or wrong format)");
-    }
-    if header.header_version != CURRENT_HEADER_VERSION {
+/// Verify the header and return the remaining payload slice.
+/// Panics with a specific message on any mismatch — these failures mean
+/// the binary itself is corrupted or built against the wrong daachorse,
+/// never a user-input issue.
+pub(crate) fn verify_header(bytes: &[u8], expected: SourceMask) -> &[u8] {
+    if bytes.len() < HEADER_LEN {
         panic!(
-            "zhtw: automaton header version mismatch (got {}, expected {})",
-            header.header_version, CURRENT_HEADER_VERSION
+            "zhtw: automaton bytes truncated (got {} bytes, need >= {})",
+            bytes.len(), HEADER_LEN
         );
     }
-    if header.source_mask != expected_mask {
-        panic!("zhtw: automaton source mask mismatch");
+    let (header, rest) = bytes.split_at(HEADER_LEN);
+
+    // magic
+    if &header[0..8] != &ZHTW_AUTOMATON_MAGIC {
+        panic!("zhtw: invalid automaton magic (corrupt binary or wrong format)");
     }
-    // dict_hash verification is build-time only; runtime trusts it
-    // (it's baked into the binary alongside the data that was used to build it)
-    Ok(&bytes[std::mem::size_of::<AutomatonHeader>()..])
+
+    // header_version
+    let header_version = u16::from_le_bytes(header[8..10].try_into().unwrap());
+    if header_version != CURRENT_HEADER_VERSION {
+        panic!(
+            "zhtw: header version mismatch (got {}, expected {})",
+            header_version, CURRENT_HEADER_VERSION
+        );
+    }
+
+    // daachorse_version — catches the "upgraded daachorse without rebuilding
+    // automaton bytes" footgun before it feeds bad data into deserialize_unchecked.
+    let daachorse_version = u32::from_le_bytes(header[10..14].try_into().unwrap());
+    if daachorse_version != DAACHORSE_VERSION_PACKED {
+        panic!(
+            "zhtw: daachorse version mismatch in precompiled automaton \
+             (built with 0x{:08x}, runtime expects 0x{:08x}) — \
+             run `cargo clean && cargo build` to regenerate",
+            daachorse_version, DAACHORSE_VERSION_PACKED
+        );
+    }
+
+    // dict_hash: skipped at runtime (it's baked into the binary alongside
+    // the data blob that produced it; verification only matters at build time
+    // inside build.rs, which compares it against the live blake3 of data/zhtw-data.json)
+    // header[14..22] — present for forensic / introspection use only
+
+    // source_mask
+    let source_mask = header[22];
+    if source_mask != expected.0 {
+        panic!(
+            "zhtw: automaton source mask mismatch (got {:#04b}, expected {:#04b})",
+            source_mask, expected.0
+        );
+    }
+
+    // header[23..28] reserved — currently ignored; MBZ for forward compat
+
+    rest
 }
 ```
 
-**Panic policy rationale:** 這些 assertion failure 代表 binary 本身被破壞或錯誤 build，panic 是正確反應；不該試圖 fallback 或 silently swallow。這些都是 `build.rs` 產物，使用者正常流程不會觸發。
+**Panic policy rationale:** 這些 assertion failure 代表 binary 本身被破壞或錯誤 build，panic 是正確反應；不該試圖 fallback 或 silently swallow。使用者正常流程不會觸發——一旦觸發必定是 build chain 壞了。
+
+**Why no `unsafe`:** `verify_header` 全程是 safe Rust。原本的 `#[repr(C)]` struct + `&*(ptr as *const _)` cast 有三個潛在問題：(a) `bytes.as_ptr()` 沒對齊保證而 struct 要求對齊；(b) `#[repr(C)]` 可能因平臺 padding 產生意外欄位 offset；(c) 讀多位元組欄位時要手動處理 endianness。Byte-wise parser 一併解決。
 
 ### 3.3 `build.rs` 骨架
 
 ```rust
 // sdk/rust/zhtw/build.rs
 use std::{env, fs, path::PathBuf};
-use daachorse::CharwiseDoubleArrayAhoCorasick;
+use daachorse::CharwiseDoubleArrayAhoCorasickBuilder;
 // ... other imports
 
-const DATA_JSON: &str = "../../data/zhtw-data.json";
+/// Crate-local copy of zhtw-data.json.
+///
+/// IMPORTANT: Must be crate-local (not ../../../data/...) so it ends up inside
+/// the crates.io tarball. `cargo package` only includes files within the
+/// package root; workspace-relative paths escape it. The Makefile target
+/// `make export` writes to both `sdk/data/zhtw-data.json` (source of truth)
+/// AND this crate-local copy; `make version-check` asserts byte equality.
+const DATA_JSON: &str = "data/zhtw-data.json";
 
 fn main() {
     println!("cargo:rerun-if-changed={}", DATA_JSON);
     println!("cargo:rerun-if-changed=build.rs");
 
     let json_str = fs::read_to_string(DATA_JSON)
-        .expect("sdk/data/zhtw-data.json missing — run `zhtw export` to regenerate");
+        .expect("sdk/rust/zhtw/data/zhtw-data.json missing — run `make export` to regenerate from sdk/data/");
     let raw: RawZhtwData = serde_json::from_str(&json_str)
         .expect("zhtw-data.json schema drift — Python producer out of sync with Rust reader");
 
@@ -485,43 +568,177 @@ Config → Converter::new:
 
 **為什麼這樣拆：** 99% 的使用者呼叫 `zhtw::convert()` 走預設 → 零建構成本。少數自訂使用者付一次 runtime build cost → acceptable。不這樣拆的話，預設路徑也要付建構成本，直接把 daachorse 預編譯的優勢吐回去。
 
-### 3.5 Match semantics（**Guardrail 5**）— longest-match + identity protection
+### 3.5 Match semantics（**Guardrail 5**）— term 層 + char 層的完整語意
 
-**重要：** `daachorse::MatchKind::LeftmostLongest` 只給 longest + non-overlapping，**不處理 identity mapping 的保護語意**。Python / Java / TS 三個 SDK 實作的是更細的語意：
+**關鍵更正：** `daachorse::MatchKind::LeftmostLongest` 只會回「不重疊最長匹配」一次，**會把 identity blocker 直接吃掉**——不能當 protected-range 演算法的 raw input。正確做法是用 **`MatchKind::Standard`** build automaton，掃描時用 **`find_overlapping_iter()`** 收集所有重疊命中（等同 TS `iterEmissions`），再套 Python/TS 那套排序 + 保護區間篩選。
 
-```
-Algorithm (port from src/zhtw/matcher.py:60-133):
+> 這個錯誤本來會悄悄固化進實作：用 LeftmostLongest 的話 `custom dict { '文件': '檔案', '檔案': '檔案' }` 在文字 `無中文檔案` 上會把 `檔案` identity blocker 丟掉，結果變 `無中檔案案`（Python/TS 會保持原字）。spike 時要 assert 這個 case。
 
-1. Collect ALL matches including identity (source == target)
-   - 用 daachorse find_iter with LeftmostLongest
-   - Iterator 回傳 (start_byte, end_byte, pattern_id)
-   - 從 PATTERN_TABLE 查 (source, target)
+#### 3.5.1 Term 層演算法（port Python `src/zhtw/matcher.py::find_matches` / TS `sdk/typescript/src/core/matcher.ts::findMatches:124-187`）
 
-2. Build "protected ranges":
-   - Identity matches (source == target) 如果 NOT fully contained in a
-     longer non-identity match → 加進 protected set
-   - 目的：保護「檔案」不被「檔案→檔案」誤轉；但「件」被「軟體」完全包住
-     時不保護（它其實不在表面文字上）
+**Build time:**
 
-3. Filter:
-   - 左到右掃描 sorted matches
-   - Skip if start < last_end (overlap)
-   - Skip if non-identity 且範圍內有 protected codepoint
-   - Emit non-identity matches; identity matches 只扮演 blocker，不 emit
+```rust
+use daachorse::{CharwiseDoubleArrayAhoCorasickBuilder, MatchKind};
 
-4. Output:
-   - convert() → 套用 emitted matches 到字串 + 字元層 fallback
-   - check() → 回傳 emitted matches as Vec<Match> (codepoint indices)
-   - lookup(word) → check(word) + 對殘餘字元跑 char_map
+let patterns_with_values: Vec<(String, u32)> = flat_patterns
+    .iter()
+    .enumerate()
+    .map(|(idx, (src, _tgt))| (src.clone(), idx as u32))
+    .collect();
+
+let pma = CharwiseDoubleArrayAhoCorasickBuilder::new()
+    .match_kind(MatchKind::Standard)  // MUST be Standard, not LeftmostLongest
+    .build_with_values(patterns_with_values)
+    .expect("daachorse build");
 ```
 
-Rust 實作見 `zhtw/src/matcher.rs`，會直接 port Python 的 `find_matches` 函式。**這是 v1 必須測試的核心語意**，`tests/golden.rs` 和 Python 行為 byte-for-byte 相同就代表 port 正確。
+**Runtime `find_term_matches(text: &str) -> Vec<TermHit>`:**
+
+```
+1. Raw collection (all overlapping hits):
+   let mut raw = Vec::new();
+   for m in pma.find_overlapping_iter(text) {
+       let (src, tgt) = &PATTERN_TABLE[m.value() as usize];
+       raw.push(TermHit {
+           byte_start: m.start(),
+           byte_end: m.end(),
+           source: src,
+           target: tgt,
+       });
+   }
+   if raw.is_empty() { return Vec::new(); }
+
+2. Sort by (byte_start ASC, length DESC):
+   raw.sort_by(|a, b| {
+       a.byte_start.cmp(&b.byte_start)
+           .then_with(|| b.byte_end.cmp(&a.byte_end))
+   });
+
+3. Build protected byte-range set from identity matches NOT fully
+   contained in any non-identity match (bisect + prefix-max-end trick
+   from TS matcher.ts:137-165, avoids O(n*m)):
+
+   - Split raw into (identity_matches, non_identity_spans)
+   - Sort non_identity_spans by byte_start ASC
+   - Build prefix_max_end: for each i, max(non_identity_spans[0..=i].end)
+   - For each identity match:
+       idx = binary_search_last(ni_starts, <= id.byte_start)
+       contained = idx >= 0 AND prefix_max_end[idx] >= id.byte_end
+       if not contained:
+           protected_bytes.extend(id.byte_start..id.byte_end)
+   - Edge case: if non_identity_spans is empty, ALL identity ranges are protected
+
+4. Left-to-right filter (保留 Python 的完整控制流 — identity match
+   即使被 skip 也要 advance cursor when consumed as blocker):
+   let mut chosen = Vec::new();
+   let mut last_end = 0usize;
+   for m in &raw {
+       if m.byte_start < last_end { continue; }              // overlap
+       if m.source != m.target {
+           // non-identity: check protected range WITHOUT advancing cursor
+           let touches_protected = (m.byte_start..m.byte_end)
+               .any(|b| protected_bytes.contains(&b));
+           if touches_protected { continue; }                // skip, keep cursor
+       }
+       last_end = m.byte_end;                                // advance cursor
+       if m.source != m.target {
+           chosen.push(m.clone());                           // identity never emitted
+       }
+   }
+```
+
+所有 byte offsets 在公開 API 邊界轉 codepoint offsets（見 §3.5.4）。
+
+#### 3.5.2 Char 層語意（對齊 `sdk/typescript/src/core/converter.ts:81,90,119`）
+
+**關鍵 invariant：** char 層**只在 `sources` 包含 `Source::Cn` 時啟用**。HK-only converter 不跑 char 層（對齊 TS：`const charLayerEnabled = sources.includes('cn')`）。這個 flag 在 `Converter::new` 時決定、存成 struct 欄位，熱路徑零分支開銷。
+
+**`convert(text)`:**
+1. 跑 term 層 → 套用 emitted term matches 到原文 → `after_terms: String`
+2. If `char_layer_enabled`：對 `after_terms` 做 codepoint walk，套用 `CHAR_MAP`，回新字串；否則回 `after_terms`
+
+```rust
+fn convert(&self, text: &str) -> String {
+    if text.is_empty() { return String::new(); }
+    let term_hits = self.find_term_matches(text);
+    let after_terms = apply_term_replacements(text, &term_hits);
+    if self.char_layer_enabled {
+        apply_charmap(&after_terms, &CHAR_MAP)
+    } else {
+        after_terms
+    }
+}
+
+fn apply_charmap(text: &str, map: &phf::Map<char, char>) -> String {
+    let mut out = String::with_capacity(text.len());
+    for ch in text.chars() {
+        out.push(*map.get(&ch).unwrap_or(&ch));
+    }
+    out
+}
+```
+
+**`check(text) -> Vec<Match>`** — 對齊 TS `converter.ts:90-117`、Java `ZhtwConverter.check`：
+
+1. Term 層：把 `find_term_matches` 回傳的 hits push 成 `Match { start, end, source, target }`（codepoint offsets）。**term target 保持原樣，不做 char 層 post-pass**（對齊 TS line 100-102）。
+2. Char 層：**不管 term 層是否已覆蓋**，walk 原文 codepoints；若 `CHAR_MAP[ch]` 存在且 `mapped != ch`，push `Match { start: cp, end: cp+1, source: ch_to_string(), target: mapped_to_string() }`。只在 `char_layer_enabled` 時跑。
+3. 回傳順序：**term matches 在前、char matches 在後**（和 TS / Java / golden-test.json 一致，見 `sdk/data/golden-test.json` 的 check cases）。
+
+**`lookup(word) -> LookupResult`** — 對齊 TS `converter.ts:119-206`、Python `src/zhtw/lookup.py:78-83`：
+
+1. 收 term 層 hits。**每個 term 的 `target` 要再跑一次 `CHAR_MAP`**（only if `char_layer_enabled`）。理由：讓 `lookup(word).output == convert(word)`。範例：HK 詞條 `伙頭 → 伙頭` 停在 HK 形，但 char 層 `伙 → 夥` 會把 `convert()` 的最終輸出推到 `夥頭`；lookup 要 reflect 這一點，否則 details 加起來和 output 兜不上。
+2. 標記 term 層覆蓋的 byte 範圍 → `covered: BTreeSet<usize>`（byte indices）
+3. If `char_layer_enabled`：walk 原文 codepoints，**skip 任一 byte 落在 `covered` 的 codepoint**；其餘位置若 `CHAR_MAP[ch]` 存在且非 identity，push `ConversionDetail { layer: Char, ... }`
+4. Sort details by byte_start ASC
+5. Build output string（cursor + copy unmapped spans + 寫入每個 detail 的 target）
+6. 把 byte positions 轉成 codepoint positions 填進 public `position` 欄位
+7. Return `LookupResult { input, output, changed: output != input, details }`
+
+#### 3.5.3 Byte offset → codepoint offset 對映
+
+daachorse 回傳 UTF-8 byte offsets。所有 `Match.start` / `Match.end` / `ConversionDetail.position` 公開時**必須是 codepoint offsets**（對齊 Java/TS/Python SDK invariant）。
+
+實作位置：`zhtw/src/matcher.rs`。對每個被處理的 `text`，一次性建 `byte_to_cp: Vec<u32>`（長度 `text.len() + 1`，用 `text.char_indices().enumerate()` 填表），後續查表 O(1)。同一次 check/lookup call 內共用同一張表。
+
+#### 3.5.4 測試覆蓋（要求，不是建議）
+
+`tests/golden.rs` 必須跑到的 case 組合：
+1. Term-only convert
+2. Char-only convert（即 term 層沒命中，全走 char）
+3. Term + char 混合（term 命中區段 + 未覆蓋區段吃 char）
+4. Identity protection（custom dict `檔案→檔案` 阻擋 `文件→檔案`）
+5. HK-only converter（`sources = [Source::Hk]`，assert char 層**不**觸發）
+6. `lookup()` 的 term target post-charmap 行為（`伙頭` → details 看到 `夥頭`）
+
+Golden test 涵蓋不到的語意（例如 build-time panic path）另寫 `tests/matcher_semantics.rs`。
 
 ### 3.6 Cross-platform / cross-target 注意事項
 
 - **`build.rs` 永遠在 host 平臺執行**（即使 `--target wasm32-unknown-unknown`）。
 - **daachorse 的序列化格式** — 需要在 M2 spike 時 confirm 是否 endian-safe。如果不是，`build.rs` 要 branch on `CARGO_CFG_TARGET_ENDIAN`。假設 daachorse 預設是 LE（所有現代平臺包含 wasm32 都是 LE），99% 情況沒問題。
-- **`zhtw/Cargo.toml` `[package].include`** 必須明確列：`src/**, build.rs, Cargo.toml, ../../data/zhtw-data.json`，**不含** `OUT_DIR/*`。crates.io tarball 不攜帶預編譯產物；使用者 `cargo build` 時本機重跑 `build.rs`。
+- **`zhtw/Cargo.toml` `[package].include`** 必須是**明確白名單**，內容：
+
+  ```toml
+  [package]
+  include = [
+      "src/**/*.rs",
+      "build.rs",
+      "data/zhtw-data.json",   # crate-local copy, synced from sdk/data/
+      "Cargo.toml",
+      "README.md",
+      "LICENSE",
+  ]
+  ```
+
+  **刻意不包含：**
+  - `tests/**` — 測試依賴 `../../../data/golden-test.json`（workspace 外），publish 後 consumer 跑不動；用 include 白名單把它排除在外
+  - `benches/**` — 同理，且一般 consumer 不需要 benchmark 原始碼
+  - `OUT_DIR/*` — crates.io tarball 不攜帶預編譯產物；consumer 的 `cargo build` 會在本機重跑 `build.rs`
+  - `../../data/` — 沒有這個路徑的必要，因為 crate-local 副本在 `data/zhtw-data.json`
+
+- **資料同步機制：** `make export` 和 `make bump` 都必須把 `sdk/data/zhtw-data.json` 複製到 `sdk/rust/zhtw/data/zhtw-data.json`；`make version-check` 用 `cmp` 做 byte-for-byte 驗證。在 §6.1 Makefile 規則擴充會寫具體 sed/cp 指令。
+- **Golden test 路徑：** `tests/golden.rs` 用 `include_str!("../../../data/golden-test.json")` 讀 workspace 層的 source-of-truth（因為 `tests/` 不在 publish include 白名單裡，只有 in-repo 跑測試時才需要存在）。
 
 ### 3.7 Build time 成本（估）
 
@@ -599,13 +816,18 @@ impl Converter {
 
 #[wasm_bindgen(js_name = createConverter)]
 pub fn create_converter(options: JsValue) -> Result<Converter, JsValue> {
-    let sources = parse_sources_from_js(&options)?;
+    let sources = parse_sources_from_js(&options)?;           // validates 'cn'|'hk'
     let custom_dict = parse_custom_dict_from_js(&options)?;
     let mut builder = CoreConverter::builder().sources(sources);
     if let Some(dict) = custom_dict {
         builder = builder.custom_dict(dict);
     }
-    Ok(Converter { inner: builder.build() })
+    // Builder::build returns Result<Converter, zhtw::Error>; map EmptySources
+    // (and any future variants) into a JS Error so TS catches behave naturally.
+    let inner = builder
+        .build()
+        .map_err(|e| JsValue::from_str(&format!("zhtw: {}", e)))?;
+    Ok(Converter { inner })
 }
 
 // internal helpers: parse_sources_from_js, parse_custom_dict_from_js
@@ -659,9 +881,19 @@ export function createConverter(options?: ConverterOptions): Converter;
 
 ### 4.4 CI gate：TypeScript 型別相容性
 
-新增 job 到 `sdk-rust.yml`：
+新增 job 到 `sdk-rust.yml`。**設計重點：** artifact 從前一個 `wasm` job 下載（跨 job file system 不共用），兩個 SDK 都真的 `npm install` 進一個 temp project，用一般 `import * as` （不是 `import type`）才能同時捕 `.d.ts` 形狀和 runtime export 表面。
 
 ```yaml
+# In wasm job, upload pkg/ as artifact so typescript-compat can download it:
+# (add to §6.3 wasm job, end of steps)
+#
+#   - name: Upload zhtw-wasm pkg
+#     uses: actions/upload-artifact@v4
+#     with:
+#       name: zhtw-wasm-pkg
+#       path: sdk/rust/zhtw-wasm/pkg/
+#       retention-days: 1
+
 typescript-compat:
   needs: wasm
   runs-on: ubuntu-latest
@@ -669,23 +901,82 @@ typescript-compat:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with: { node-version: '22' }
-    - name: Install TypeScript + both SDKs
-      run: |
-        npm install -g typescript@5
-        npm pack sdk/typescript --pack-destination /tmp/
-        # (wasm build in previous job produces pkg/)
-    - name: Cross-assign type test
-      run: |
-        cat > /tmp/compat.ts <<'EOF'
-        import type * as js from 'zhtw-js';
-        import type * as wasm from 'zhtw-wasm';
 
-        const a: typeof js.convert = wasm.convert;
-        const b: typeof wasm.convert = js.convert;
-        const c: typeof js.createConverter = wasm.createConverter;
+    # 1. Build zhtw-js tarball from source
+    - name: Build zhtw-js tarball
+      run: |
+        cd sdk/typescript
+        npm ci
+        npm run build
+        npm pack --pack-destination /tmp/pkgs/
+
+    # 2. Download zhtw-wasm pkg/ from previous job
+    - name: Download zhtw-wasm pkg
+      uses: actions/download-artifact@v4
+      with:
+        name: zhtw-wasm-pkg
+        path: /tmp/zhtw-wasm-pkg
+
+    - name: Pack zhtw-wasm into tarball
+      run: |
+        cd /tmp/zhtw-wasm-pkg
+        npm pack --pack-destination /tmp/pkgs/
+
+    # 3. Create a temp project and install both tarballs
+    - name: Assemble temp project
+      run: |
+        mkdir -p /tmp/compat && cd /tmp/compat
+        npm init -y >/dev/null
+        npm install --save-dev typescript@5
+        npm install /tmp/pkgs/zhtw-js-*.tgz /tmp/pkgs/zhtw-wasm-*.tgz
+        cat > tsconfig.json <<'EOF'
+        {
+          "compilerOptions": {
+            "strict": true,
+            "target": "es2022",
+            "module": "esnext",
+            "moduleResolution": "bundler",
+            "esModuleInterop": true,
+            "noEmit": true,
+            "skipLibCheck": false
+          },
+          "include": ["compat.ts"]
+        }
         EOF
-        tsc --noEmit --strict /tmp/compat.ts
+
+    # 4. Cross-assignability test covering all public entry points
+    - name: Cross-assignability test
+      run: |
+        cat > /tmp/compat/compat.ts <<'EOF'
+        import * as js from 'zhtw-js';
+        import * as wasm from 'zhtw-wasm';
+
+        // Free functions: each side's value must be assignable to the other's type.
+        const a1: typeof js.convert = wasm.convert;
+        const a2: typeof wasm.convert = js.convert;
+        const b1: typeof js.check = wasm.check;
+        const b2: typeof wasm.check = js.check;
+        const c1: typeof js.lookup = wasm.lookup;
+        const c2: typeof wasm.lookup = js.lookup;
+        const d1: typeof js.createConverter = wasm.createConverter;
+        const d2: typeof wasm.createConverter = js.createConverter;
+
+        // Converter instance shape parity: build one of each and cross-assign.
+        const jsConv = js.createConverter();
+        const wasmConv = wasm.createConverter();
+        const e1: typeof jsConv = wasmConv;
+        const e2: typeof wasmConv = jsConv;
+
+        // Result-type structural parity.
+        const m1: js.Match = { start: 0, end: 1, source: 'x', target: 'y' };
+        const m2: wasm.Match = m1;
+        const l1: js.LookupResult = wasm.lookup('軟體');
+        const l2: wasm.LookupResult = js.lookup('軟體');
+        EOF
+        cd /tmp/compat && npx tsc -p tsconfig.json
 ```
+
+**Why `import *` not `import type *`:** Codex's review pointed out the original draft did `import type * as wasm` and then used `wasm.convert` as a value — that doesn't type-check. Using regular value import exercises both the runtime export table (must exist) and the `.d.ts` shape (must be structurally compatible).
 
 ### 4.5 Binary size 預算
 
@@ -701,7 +992,15 @@ typescript-compat:
 | After `wasm-opt -O3` | **~500-700 KB** |
 | After gzip | **~200-300 KB** |
 
-**CI gate：** WASM binary > 1 MB → fail（Cloudflare Workers free tier 限制）。
+**CI gate：** WASM binary > 1 MB（未壓縮）→ fail。
+
+**為什麼是 1 MB：** 這是**產品預算**，不是平臺硬限制。Cloudflare Workers 當前實際限制是 gzip 後 3 MB / 未壓縮 ~64 MB（見 https://developers.cloudflare.com/workers/platform/limits/），所以我們離平臺天花板還很遠。但 1 MB 這個預算對：
+- 瀏覽器首次載入時間（即使快取命中前）
+- npm install 大小 / node_modules footprint
+- 開發者心智模型（「一個簡轉繁套件需要 1 MB 以下才合理」）
+- serverless 冷啟動成本
+
+都是合理的上限。超過要特別討論而不是默默放大。
 
 ### 4.6 Non-goals
 
@@ -782,54 +1081,71 @@ fn lookup_parity() { /* identical structure for lookup */ }
 
 ### 5.2 Layer 2 · Codepoint index correctness
 
+<!-- zhtw:disable -->
 ```rust
 // zhtw/tests/codepoint_index.rs
+// NOTE: inputs are Simplified Chinese source terms (软件, not 軟體) — we
+// need the term layer to actually hit, so we have to feed the SOURCE form.
 
 #[test]
 fn check_returns_codepoint_not_byte_index() {
-    // "中 X 軟體" — 6 codepoints, 11 bytes
-    let text = "中 X 軟體";
-    let hits = zhtw::check(text);
-    assert_eq!(hits.len(), 1);
-    assert_eq!(hits[0].start, 4);  // 中=0, space=1, X=2, space=3, 軟=4
-    assert_eq!(hits[0].end, 6);    // exclusive
-    // If start == 6 or end == 11, we're returning byte indices (bug)
+    // "中 X 软件" — 6 codepoints, 12 bytes
+    //   中 = U+4E2D (3 bytes), ' ' = 1, X = 1, ' ' = 1, 软 = 3, 件 = 3 → 12
+    //   codepoint offsets: 中=0, ' '=1, X=2, ' '=3, 软=4, 件=5
+    //   byte offsets:      中=0, ' '=3, X=4, ' '=5, 软=6, 件=9, end=12
+    // check() emits one term match for 软件 → 軟體 plus char-layer entries
+    // for 软/件; we filter to the term match for a stable assertion.
+    let text = "中 X 软件";
+    let term = zhtw::check(text)
+        .into_iter()
+        .find(|m| m.source == "软件")
+        .expect("软件 term match");
+    assert_eq!(term.start, 4, "must be codepoint (4), not byte (6)");
+    assert_eq!(term.end, 6, "must be codepoint (6), not byte (12)");
+    assert_eq!(term.target, "軟體");
 }
 
 #[test]
 fn lookup_position_is_codepoint() {
-    // 中 = 3 bytes, 軟 = 3 bytes, 件 = 3 bytes; ASCII = 1 byte.
-    // "中文a軟體" → codepoints: [中=0, 文=1, a=2, 軟=3, 件=4]
-    //              bytes:      [中=0..3, 文=3..6, a=6..7, 軟=7..10, 件=10..13]
-    // 軟體 match: codepoint start=3, byte start=7 — MUST return 3.
-    let result = zhtw::lookup("中文a軟體");
+    // "中文a软件" — 5 codepoints, 13 bytes
+    //   codepoint offsets: 中=0, 文=1, a=2, 软=3, 件=4
+    //   byte offsets:      中=0..3, 文=3..6, a=6..7, 软=7..10, 件=10..13
+    // 软件 match: byte_start=7, cp_start=3. MUST return 3.
+    let result = zhtw::lookup("中文a软件");
     let term = result.details.iter()
-        .find(|d| d.source == "軟體")
-        .expect("軟體 match");
+        .find(|d| d.source == "软件")
+        .expect("软件 term detail");
     assert_eq!(term.position, 3, "must be codepoint (3), not byte (7)");
+    assert_eq!(term.target, "軟體");
 }
 
 #[test]
 fn supplementary_plane_chars() {
-    // "𠮷" is U+20BB7, one codepoint, 4 UTF-8 bytes.
-    // "𠮷軟體" → codepoints: [𠮷=0, 軟=1, 件=2]
-    //            bytes:      [𠮷=0..4, 軟=4..7, 件=7..10]
-    // 軟體 match: codepoint start=1, byte start=4 — MUST return 1.
-    let text = "𠮷軟體";
-    let hits = zhtw::check(text);
-    assert_eq!(hits[0].start, 1, "must be codepoint (1), not byte (4)");
-    assert_eq!(hits[0].end, 3, "must be codepoint (3), not byte (10)");
+    // "𠮷软件" — 3 codepoints, 10 bytes
+    //   𠮷 = U+20BB7 (4 UTF-8 bytes, 1 codepoint)
+    //   cp offsets:  𠮷=0, 软=1, 件=2
+    //   byte offsets: 𠮷=0..4, 软=4..7, 件=7..10
+    // 软件 match: byte_start=4, cp_start=1; byte_end=10, cp_end=3.
+    let text = "𠮷软件";
+    let term = zhtw::check(text)
+        .into_iter()
+        .find(|m| m.source == "软件")
+        .expect("软件 term match");
+    assert_eq!(term.start, 1, "must be codepoint (1), not byte (4)");
+    assert_eq!(term.end, 3, "must be codepoint (3), not byte (10)");
 }
 ```
+<!-- zhtw:enable -->
 
 ### 5.3 Layer 3 · Criterion benchmarks
 
+<!-- zhtw:disable -->
 ```rust
 // zhtw/benches/convert.rs
 use criterion::{black_box, criterion_group, criterion_main, Criterion, Throughput, BenchmarkId};
 
 fn bench_convert_single(c: &mut Criterion) {
-    let text = "這個軟體需要最佳化";
+    let text = "这个软件需要优化";   // Simplified — realistic input
     c.bench_function("convert/single_sentence", |b| {
         b.iter(|| zhtw::convert(black_box(text)))
     });
@@ -838,7 +1154,7 @@ fn bench_convert_single(c: &mut Criterion) {
 fn bench_convert_throughput(c: &mut Criterion) {
     let mut group = c.benchmark_group("convert/throughput");
     for size_kb in &[1, 10, 100, 1024] {
-        let text = "這個軟體需要最佳化，伺服器的使用者權限請聯繫管理員。"
+        let text = "这个软件需要优化，服务器的用户权限请联系管理员。"
             .repeat(size_kb * 1024 / 30);
         group.throughput(Throughput::Bytes(text.len() as u64));
         group.bench_with_input(
@@ -863,6 +1179,7 @@ criterion_group!(benches,
 );
 criterion_main!(benches);
 ```
+<!-- zhtw:enable -->
 
 ### 5.4 Regression gate（**Guardrail 1 的實踐**）
 
@@ -913,7 +1230,25 @@ criterion_main!(benches);
 @sed -i '' 's|"version": "[0-9][0-9.]*"|"version": "$(VERSION)"|' sdk/rust/zhtw-wasm/package.json
 ```
 
-**`make version-check` 也要同步擴充**以檢查這兩個新位置。
+**`make export` 擴充（crate-local 資料副本）：**
+
+`zhtw export` 寫出 `sdk/data/zhtw-data.json` 之後，`make export` 還必須把它 copy 到 `sdk/rust/zhtw/data/zhtw-data.json`，因為 `cargo package` 不能引用 package root 以外的檔案（見 §3.6）：
+
+```makefile
+export:
+	zhtw export
+	@mkdir -p sdk/rust/zhtw/data
+	@cp sdk/data/zhtw-data.json sdk/rust/zhtw/data/zhtw-data.json
+	@echo "synced crate-local copy → sdk/rust/zhtw/data/zhtw-data.json"
+```
+
+`make bump` 會先跑 `zhtw export`（產 canonical 資料 + golden），接著 `make export` 的 cp rule，接著才跑 version sed 規則。如果這條順序反了，bump 出來的 Rust crate 會嵌到舊版資料。
+
+**`make version-check` 擴充：**
+
+1. 比對 `sdk/rust/Cargo.toml [workspace.package].version` 和其他 7 個位置
+2. 比對 `sdk/rust/zhtw-wasm/package.json` 的 version
+3. **新增：** `cmp -s sdk/data/zhtw-data.json sdk/rust/zhtw/data/zhtw-data.json` — byte-for-byte 一致；不一致就 exit 1 並提示「run `make export`」
 
 **CLAUDE.md 的黃金規則 6 表格也要更新為 8 檔。**
 
@@ -951,21 +1286,32 @@ on:
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
+        # Run both stable and the MSRV declared in Cargo.toml (rust-version =
+        # "1.80"). This is the only way the CI actually defends the MSRV claim;
+        # using @stable alone lets the MSRV silently drift upward when
+        # contributors use newer features.
+        rust: [stable, "1.80"]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ matrix.rust }}
       - uses: Swatinem/rust-cache@v2
         with: { workspaces: sdk/rust }
       - run: cargo build -p zhtw --release
         working-directory: sdk/rust
       - run: cargo test -p zhtw --release
         working-directory: sdk/rust
+      # clippy/fmt run on stable only (MSRV toolchain lacks the newest lints)
       - run: cargo clippy -p zhtw -- -D warnings
+        if: matrix.rust == 'stable'
         working-directory: sdk/rust
       - run: cargo fmt --check
+        if: matrix.rust == 'stable'
         working-directory: sdk/rust
 
   wasm:
@@ -993,12 +1339,18 @@ jobs:
           size=$(wc -c < zhtw_wasm_bg.wasm)
           echo "WASM size: $size bytes"
           if [ $size -gt 1048576 ]; then
-            echo "::error::WASM > 1 MB — Cloudflare Workers free tier broken"
+            echo "::error::WASM binary exceeds 1 MB product budget (not a platform limit — see §4.5)"
             exit 1
           fi
       - name: Headless browser test
         working-directory: sdk/rust/zhtw-wasm
         run: wasm-pack test --headless --chrome
+      - name: Upload zhtw-wasm pkg for typescript-compat
+        uses: actions/upload-artifact@v4
+        with:
+          name: zhtw-wasm-pkg
+          path: sdk/rust/zhtw-wasm/pkg/
+          retention-days: 1
 
   typescript-compat:
     needs: wasm
@@ -1157,7 +1509,7 @@ npm publish --access public --provenance
 6. 不做 streaming API — 無使用者需求
 7. 不重新設計 `zhtw-data.json` schema — 只讀 Python 端現有產出
 8. 不做 Component Model (WIT) bindings — 生態未成熟
-9. v1 `Error` 只有 `InvalidSource` 一個 variant，`#[non_exhaustive]` 保留擴充
+9. v1 `Error` 只有 `InvalidSource` 和 `EmptySources` 兩個 variant，`#[non_exhaustive]` 保留擴充
 10. 不加 feature flags — 所有 v1 功能預設開啟
 
 ### 7.2 Open Questions（不 block v1，追蹤後續）
@@ -1178,6 +1530,10 @@ npm publish --access public --provenance
 5. **`sdk/rust/Cargo.toml` `[workspace.package].version` 永遠等於其他 7 個 mono-version 位置** — `make version-check` 守門
 6. **`sdk-rust.yml` 不可退回 `echo "TODO"` fake-green pattern** — 任何替代都必須執行真實建置
 7. **Automaton bytes 必須帶 magic header + 版本驗證** — 升級 daachorse 必須重跑 build，golden test 必須全綠
+8. **`sdk/rust/zhtw/data/zhtw-data.json` byte-for-byte 等於 `sdk/data/zhtw-data.json`** — `make version-check` 的 `cmp -s` 守門；crates.io package 限制需要 crate-local copy，但兩份必須永遠同步
+9. **`verify_header` 全程 safe Rust（無 `unsafe` cast）** — header 固定 little-endian，欄位用 `u16::from_le_bytes` / `u32::from_le_bytes` 讀取；禁止 `#[repr(C)]` + pointer cast 因為會被 alignment / padding / endianness UB 咬
+10. **`Builder::build` 拒絕 empty sources** — 回傳 `Err(Error::EmptySources)`；熱路徑 `convert` / `check` / `lookup` 保持 infallible（`&self` + `-> String` / `-> Vec<Match>` / `-> LookupResult`）
+11. **Char 層只在 `sources.contains(&Source::Cn)` 時啟用** — 對齊 `sdk/typescript/src/core/converter.ts:81`；HK-only 轉換不跑 char layer（`convert`/`check`/`lookup` 三個 API 都要守）
 
 ### 7.4 風險與緩解
 
@@ -1196,10 +1552,10 @@ npm publish --access public --provenance
 
 | M | 目標 | 完成條件 |
 |---|------|---------|
-| **M1** | Workspace 骨架 | `sdk/rust/Cargo.toml` → workspace root, `zhtw/` + `zhtw-wasm/` 空 crate, `make bump` / `make version-check` 更新, `cargo check` 綠燈 |
-| **M2** | Build.rs 資料管線 + daachorse API spike | build.rs 能產 `generated_maps.rs` + `automaton-cnhk.bin` + magic header; 單測驗 generated files 能 load |
-| **M3** | Core converter (convert) | `Config` / `Builder` / `Source` / `Converter::new` / `convert()` — `tests/api.rs` + 簡易 convert 測試透過 |
-| **M4** | Matcher + identity protection + check/lookup | Port Python `find_matches`; `matcher.rs` byte↔cp 對映; `check()` / `lookup()` — `tests/codepoint_index.rs` 透過 |
+| **M1** | Workspace 骨架 + data 同步 | `sdk/rust/Cargo.toml` → workspace root, `zhtw/` + `zhtw-wasm/` 空 crate, `sdk/rust/zhtw/data/zhtw-data.json` crate-local copy 建立, `make export` / `make bump` / `make version-check` 擴充（含 `cmp -s` data 比對）, `cargo check` 綠燈 |
+| **M2** | Build.rs 資料管線 + daachorse API spike | build.rs 能讀 crate-local `data/zhtw-data.json` 產 `generated_maps.rs` + `automaton-cnhk.bin`; 用 `MatchKind::Standard` + `find_overlapping_iter` 驗證可收集到所有 raw matches（含 identity blockers）; byte-wise `verify_header` safe Rust 實作; 單測驗 generated files 能 load |
+| **M3** | Core converter (convert) | `Config` / `Builder::build -> Result<Converter, Error>` / `Source` / `Error::{InvalidSource, EmptySources}` / `convert()` — `tests/api.rs` 含 empty sources reject 測試 + 簡易 convert 測試透過 |
+| **M4** | Matcher + identity protection + check/lookup + char 層旗標 | Port Python `find_matches` (longest-match + protected ranges); `matcher.rs` byte↔cp 對映; `check()` / `lookup()` 對齊 TS 語意; `charLayerEnabled = sources.contains(&Source::Cn)` HK-only 測試；`tests/codepoint_index.rs` + `tests/hk_only.rs` 透過 |
 | **M5** | Golden parity（核心完成） | `tests/golden.rs` 全綠 = Rust core done |
 | **M6** | Criterion benchmarks | `benches/convert.rs` + `benches/check.rs` 有真數字；README placeholder 可以填 |
 | **M7** | `zhtw-wasm` 薄包裝 | `zhtw-wasm/src/lib.rs` + `tests/web.rs` 過, `wasm-pack build` 綠燈 |
@@ -1224,10 +1580,15 @@ npm publish --access public --provenance
 | 6 | v1 功能範圍 | 全功能 (`convert`/`check`/`lookup`/`sources`/`custom_dict`) + criterion benchmarks |
 | 7 | 釋出機制 | crates.io + npm 雙 Trusted Publishing (OIDC) |
 | 8 | MSRV | 1.80 (LazyLock stabilization) |
-| 9 | Match semantics | Longest-match + non-overlapping + identity protection (port Python `find_matches`) |
+| 9 | Match semantics | Longest-match + non-overlapping + identity protection (port Python `find_matches`)，daachorse `MatchKind::Standard` + `find_overlapping_iter` |
 | 10 | `custom_dict` 策略 | 預設走預編譯; 自訂或 non-default sources 走 runtime build |
 | 11 | Panic policy | Automaton header 驗證失敗 → panic (不 fallback) |
 | 12 | `zhtw-wasm/package.json` | Checked-in, build 時同步到 `pkg/package.json` |
+| 13 | `Builder::build` 回傳型別 | `Result<Converter, Error>` — empty sources 在 build 時 reject，熱路徑保持 infallible |
+| 14 | Magic header 解析 | Byte-wise safe Rust (`u16/u32::from_le_bytes`)，**不**用 `#[repr(C)]` + pointer cast（避免 alignment/padding/endianness UB） |
+| 15 | Char 層啟用條件 | 只在 `sources.contains(&Source::Cn)` 時跑（對齊 `sdk/typescript/src/core/converter.ts:81`） |
+| 16 | Data file 位置 | `sdk/rust/zhtw/data/zhtw-data.json` crate-local copy（cargo package 無法引用 crate root 外的檔案），`make export` 同步自 `sdk/data/zhtw-data.json` |
+| 17 | MSRV CI 守門 | `rust: [stable, "1.80"]` matrix + `fail-fast: false`，clippy/fmt 只在 stable 跑 |
 
 ---
 
