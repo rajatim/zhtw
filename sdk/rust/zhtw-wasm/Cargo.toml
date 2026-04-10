@@ -1,0 +1,19 @@
+[package]
+name = "zhtw-wasm"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Traditional Chinese converter — WebAssembly bindings"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+zhtw = { path = "../zhtw" }
+wasm-bindgen = { workspace = true }
+js-sys = { workspace = true }
+serde-wasm-bindgen = { workspace = true }
+serde = { workspace = true }
