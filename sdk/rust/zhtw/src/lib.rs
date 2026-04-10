@@ -7,6 +7,7 @@ mod error;
 mod config;
 mod builder;
 mod converter;
+mod header;
 
 pub use source::Source;
 pub use error::{Error, Result};
