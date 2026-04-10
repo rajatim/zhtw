@@ -188,6 +188,21 @@ export class AhoCorasickMatcher {
     return chosen;
   }
 
+  /**
+   * Return all UTF-16 code-unit positions covered by any raw automaton hit,
+   * including identity terms (source === target). Used to prevent the char
+   * layer from converting characters protected by identity term matches.
+   */
+  getCoveredPositions(text: string): Set<number> {
+    const covered = new Set<number>();
+    for (const m of this.iterEmissions(text)) {
+      for (let i = m.start; i < m.end; i++) {
+        covered.add(i);
+      }
+    }
+    return covered;
+  }
+
   replaceAll(text: string): string {
     const matches = this.findMatches(text);
     if (matches.length === 0) return text;

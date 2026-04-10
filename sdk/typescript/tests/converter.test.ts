@@ -108,13 +108,13 @@ describe('createConverter.check', () => {
     expect(matches).toEqual([]);
   });
 
-  it('reports BOTH term and char matches at overlapping positions', () => {
-    // Term 软件 covers positions 0..2, but char scan still emits 软→軟 at position 0.
-    // This is Java's behavior (differs from lookup, which skips covered positions).
+  it('skips char matches at positions covered by term hits (Python parity)', () => {
+    // Term 软件 covers positions 0..2 — char scan must NOT emit 软→軟 at position 0.
+    // Matches Python: covered positions (including identity terms) block char layer.
     const c = createConverter(DATA, { sources: ['cn'] });
     const matches = c.check('软件');
     expect(matches).toContainEqual({ start: 0, end: 2, source: '软件', target: '軟體' });
-    expect(matches).toContainEqual({ start: 0, end: 1, source: '软', target: '軟' });
+    expect(matches).not.toContainEqual({ start: 0, end: 1, source: '软', target: '軟' });
   });
 
   it('does not run char layer when cn is not in sources', () => {
@@ -193,25 +193,23 @@ describe('createConverter.lookup', () => {
     expect(r.details).toEqual([]);
   });
 
-  it('re-applies charmap to term targets so lookup.output === convert (regression: Codex #2)', () => {
+  it('term targets are stored verbatim — lookup.output === convert (Python parity)', () => {
     // Fixture: a term that stops at an HK form (`伙头 → 伙頭`). The char
-    // layer then maps `伙 → 夥`. convert() runs both layers, so its output
-    // is `夥頭`. Before the fix, lookup() stored the term target `伙頭`
-    // verbatim and produced `伙頭`, diverging from convert(). Python
-    // `src/zhtw/lookup.py:78-83` explicitly post-processes term targets
-    // through the charmap; TS must agree.
+    // layer maps `伙 → 夥`, but since the entire input is covered by the
+    // term hit, the char layer does NOT apply. Both convert() and lookup()
+    // produce `伙頭` (term target verbatim), matching Python behaviour.
     const fixture: ZhtwData = {
       version: '4.0.0',
       charmap: { chars: { '伙': '夥' }, ambiguous: {} },
       terms: { cn: { '伙头': '伙頭' }, hk: {} },
     };
     const c = createConverter(fixture, { sources: ['cn'] });
-    expect(c.convert('伙头')).toBe('夥頭');
+    expect(c.convert('伙头')).toBe('伙頭');
     const r = c.lookup('伙头');
-    expect(r.output).toBe('夥頭');
+    expect(r.output).toBe('伙頭');
     expect(r.output).toBe(c.convert('伙头'));
     expect(r.details).toEqual([
-      { source: '伙头', target: '夥頭', layer: 'term', position: 0 },
+      { source: '伙头', target: '伙頭', layer: 'term', position: 0 },
     ]);
   });
 });

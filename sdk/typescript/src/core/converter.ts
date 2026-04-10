@@ -70,6 +70,37 @@ function applyCharmap(text: string, charmap: Record<string, string>): string {
   return out;
 }
 
+/**
+ * Apply charmap to a text segment, skipping positions covered by term hits.
+ * @param segment - text segment to map
+ * @param charmap - single-codepoint charmap
+ * @param covered - set of covered UTF-16 positions in the ORIGINAL text
+ * @param offset - UTF-16 offset of this segment within the original text
+ */
+function applyCharmapSkipping(
+  segment: string,
+  charmap: Record<string, string>,
+  covered: Set<number>,
+  offset: number,
+): string {
+  let out = '';
+  let i = 0;
+  while (i < segment.length) {
+    const code = segment.charCodeAt(i);
+    const isHigh = code >= 0xd800 && code <= 0xdbff && i + 1 < segment.length;
+    const step = isHigh ? 2 : 1;
+    const ch = segment.substring(i, i + step);
+    if (covered.has(offset + i)) {
+      out += ch;
+    } else {
+      const mapped = charmap[ch];
+      out += mapped !== undefined && mapped !== ch ? mapped : ch;
+    }
+    i += step;
+  }
+  return out;
+}
+
 export function createConverter(
   data: ZhtwData,
   options: ConverterOptions = {},
@@ -83,16 +114,39 @@ export function createConverter(
   function convert(text: string): string {
     requireString(text, 'convert');
     if (text.length === 0) return '';
-    const afterTerms = matcher.replaceAll(text);
-    return charLayerEnabled ? applyCharmap(afterTerms, charmap) : afterTerms;
+
+    // Covered positions from ALL automaton hits (including identity terms).
+    const covered = matcher.getCoveredPositions(text);
+    const matches = matcher.findMatches(text);
+
+    if (matches.length === 0) {
+      return charLayerEnabled ? applyCharmapSkipping(text, charmap, covered, 0) : text;
+    }
+
+    // Gap mode: term targets inserted verbatim; gaps get char-layer on uncovered only.
+    let result = '';
+    let lastEnd = 0;
+    for (const m of matches) {
+      const gap = text.substring(lastEnd, m.start);
+      result += charLayerEnabled ? applyCharmapSkipping(gap, charmap, covered, lastEnd) : gap;
+      result += m.target;
+      lastEnd = m.end;
+    }
+    const tail = text.substring(lastEnd);
+    result += charLayerEnabled ? applyCharmapSkipping(tail, charmap, covered, lastEnd) : tail;
+    return result;
   }
 
   function check(text: string): Match[] {
     requireString(text, 'check');
     if (text.length === 0) return [];
+
     const results: Match[] = [];
 
-    // Term layer: matcher returns UTF-16 positions; convert to codepoint.
+    // Covered positions from ALL automaton hits (including identity terms)
+    const coveredUtf16 = matcher.getCoveredPositions(text);
+
+    // Term layer
     for (const m of matcher.findMatches(text)) {
       results.push({
         start: utf16ToCodepoint(text, m.start),
@@ -102,15 +156,23 @@ export function createConverter(
       });
     }
 
-    // Char layer: walk codepoints regardless of term coverage (Java semantics).
+    // Char layer: skip covered positions
     if (charLayerEnabled) {
       let cp = 0;
-      for (const ch of text) {
-        const mapped = charmap[ch];
-        if (mapped !== undefined && mapped !== ch) {
-          results.push({ start: cp, end: cp + 1, source: ch, target: mapped });
+      let i = 0;
+      while (i < text.length) {
+        const code = text.charCodeAt(i);
+        const isHigh = code >= 0xd800 && code <= 0xdbff && i + 1 < text.length;
+        const step = isHigh ? 2 : 1;
+        if (!coveredUtf16.has(i)) {
+          const ch = text.substring(i, i + step);
+          const mapped = charmap[ch];
+          if (mapped !== undefined && mapped !== ch) {
+            results.push({ start: cp, end: cp + 1, source: ch, target: mapped });
+          }
         }
         cp++;
+        i += step;
       }
     }
     return results;
@@ -133,24 +195,20 @@ export function createConverter(
     }
 
     const internal: InternalDetail[] = [];
-    const covered = new Set<number>(); // UTF-16 code-unit indices covered by a term match
+    // Covered positions from ALL automaton hits (including identity terms)
+    const covered = matcher.getCoveredPositions(word);
 
-    // Term layer. Mirrors Python `src/zhtw/lookup.py:78-83` — the term
-    // target is re-run through the charmap so the emitted detail matches
-    // the final output of `convert()`. Example: the stdlib term
-    // `伙头 → 伙頭` stops at the HK form; `convert('伙头')` finishes at
-    // `夥頭` because the char layer maps `伙 → 夥`. Without this post-pass,
-    // `lookup('伙头').output` would diverge from `convert('伙头')`.
+    // Term layer. Term targets are stored verbatim (matching Python
+    // `src/zhtw/lookup.py:49-57`). The charmap does NOT post-process term
+    // targets — this keeps lookup().output aligned with convert().
     for (const m of matcher.findMatches(word)) {
-      const target = charLayerEnabled ? applyCharmap(m.target, charmap) : m.target;
       internal.push({
         source: m.source,
-        target,
+        target: m.target,
         layer: 'term',
         utf16Start: m.start,
         utf16End: m.end,
       });
-      for (let i = m.start; i < m.end; i++) covered.add(i);
     }
 
     // Char layer (only if 'cn' is in sources). Skip covered codepoints.
