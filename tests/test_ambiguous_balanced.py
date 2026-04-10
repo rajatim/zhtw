@@ -6,9 +6,15 @@ from __future__ import annotations
 import pytest
 from click.testing import CliRunner
 
-from zhtw.charconv import apply_balanced_defaults, clear_cache, get_balanced_defaults
+from zhtw.charconv import (
+    apply_balanced_defaults,
+    clear_cache,
+    get_balanced_defaults,
+    get_translate_table,
+)
 from zhtw.cli import main
 from zhtw.converter import convert, convert_text
+from zhtw.dictionary import load_dictionary
 from zhtw.matcher import Matcher
 
 
@@ -276,3 +282,63 @@ class TestCLIAmbiguityMode:
             ],
         )
         assert result.exit_code != 0
+
+
+# ──────────────────────────────────────────────
+# Shared fixtures for TestStrictUnchanged
+# ──────────────────────────────────────────────
+
+
+@pytest.fixture(scope="module")
+def matcher():
+    """建立包含完整詞庫的 matcher。"""
+    terms = load_dictionary(sources=["cn"])
+    return Matcher(terms)
+
+
+@pytest.fixture(scope="module")
+def char_table():
+    """取得字元級轉換表。"""
+    return get_translate_table()
+
+
+# ──────────────────────────────────────────────
+# TestStrictUnchanged
+# ──────────────────────────────────────────────
+
+
+class TestStrictUnchanged:
+    """strict mode 行為完全不變（回歸測試）。"""
+
+    def test_existing_ambiguous_tests_still_pass(self, matcher, char_table):
+        """現有歧義字測試案例在 strict mode 下行為不變。"""
+        cases = [
+            ("以后再说", "以後再說"),
+            ("皇后", "皇后"),
+            ("干净", "乾淨"),
+            ("干部", "幹部"),
+            ("面条", "麵條"),
+            ("面对", "面對"),
+        ]
+        for source, expected in cases:
+            result, _ = convert_text(
+                source,
+                matcher,
+                fix=True,
+                char_table=char_table,
+                ambiguity_mode="strict",
+            )
+            assert result == expected, f"strict: {source!r} → {result!r}, expected {expected!r}"
+
+    def test_bare_ambiguous_unchanged_in_strict(self):
+        """單獨歧義字在 strict mode 不被轉換。"""
+        for char in ["几", "丰", "杰"]:
+            result = convert(char, ambiguity_mode="strict")
+            assert result == char, f"strict should not convert bare {char!r}, got {result!r}"
+
+    def test_balanced_converts_bare_ambiguous(self):
+        """單獨歧義字在 balanced mode 被轉換。"""
+        expectations = {"几": "幾", "丰": "豐", "杰": "傑"}
+        for char, expected in expectations.items():
+            result = convert(char, ambiguity_mode="balanced")
+            assert result == expected, f"balanced: {char!r} → {result!r}, expected {expected!r}"
