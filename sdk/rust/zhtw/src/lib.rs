@@ -8,6 +8,7 @@ mod config;
 mod builder;
 mod converter;
 mod header;
+mod generated;
 
 pub use source::Source;
 pub use error::{Error, Result};
