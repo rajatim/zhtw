@@ -206,7 +206,11 @@ export function createConverter(
     };
   }
 
-  return { convert, check, lookup };
+  function free(): void {
+    // No-op: JS objects are garbage-collected. Provided for WASM API parity.
+  }
+
+  return { convert, check, lookup, free };
 }
 
 // Re-export so callers can import utilities if needed (internal helpers stay private).

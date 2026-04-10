@@ -37,6 +37,8 @@ export interface Converter {
   convert(text: string): string;
   check(text: string): Match[];
   lookup(word: string): LookupResult;
+  /** Release resources. No-op in JS; required for WASM interop. */
+  free(): void;
 }
 
 /** Shape of sdk/data/zhtw-data.json. */
