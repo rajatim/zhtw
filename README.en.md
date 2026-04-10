@@ -248,6 +248,35 @@ conv.convert('...');
 
 **Highlights:** isomorphic (Node.js ≥20 + native browser support), dual ESM + CJS output, zero runtime dependencies, tree-shakeable. All indices (`start` / `end` / `position`) are **Unicode codepoints**, byte-for-byte identical to the Python CLI and Java SDK (verified via the shared `sdk/data/golden-test.json` fixture). Published via npm Trusted Publishing (OIDC) — no long-lived tokens.
 
+### 5. Rust SDK
+
+**Cargo (crates.io)**:
+
+<!-- zhtw:disable -->
+```toml
+[dependencies]
+zhtw = "4.0.1"
+```
+<!-- zhtw:enable -->
+
+<!-- zhtw:disable -->
+```rust
+use zhtw::{Converter, Source};
+
+// Zero config
+assert_eq!(zhtw::convert("这个软件需要优化"), "這個軟體需要最佳化");
+
+// Builder with custom dict
+let conv = Converter::builder()
+    .sources([Source::Cn])
+    .custom_dict([("自定义", "自訂")])
+    .build()
+    .expect("non-empty sources");
+```
+<!-- zhtw:enable -->
+
+**Performance**: build-time precompiled `daachorse` automaton + `phf` char map, zero runtime construction cost. See benchmarks (`cargo bench -p zhtw`).
+
 ---
 
 ## Multi-language SDKs
@@ -259,7 +288,7 @@ ZHTW is primarily implemented in Python and ships native Java and TypeScript SDK
 | **Python** | `pip install zhtw` | 3.1 MB/s | — | CLI, CI/CD, pre-commit, data pipelines | ✅ Stable |
 | **Java** | [Maven Central](#3-java-sdk) | 17.9 MB/s | 2 μs | Spring Boot, Android, backend services | ✅ Stable |
 | **TypeScript** | `npm install zhtw-js` | ~16 MB/s | — | Node.js ≥20, browser (isomorphic ESM+CJS) | ✅ Stable |
-| **Rust** | crates.io | — | — | High-perf, WebAssembly, embedded | 🚧 Planned |
+| **Rust** | [crates.io](#5-rust-sdk) | — | — | High-perf, WebAssembly, embedded | ✅ Stable |
 | **C# (.NET)** | NuGet | — | — | ASP.NET, Unity, desktop apps | 🚧 Planned |
 
 ---

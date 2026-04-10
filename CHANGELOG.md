@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **Rust SDK**: new `zhtw` crate published to crates.io
+  - Feature parity with Java / TypeScript SDK (`convert`, `check`, `lookup`, `sources`, `custom_dict`)
+  - Compile-time `phf::Map` character layer (zero runtime hash construction)
+  - Pre-compiled `daachorse::CharwiseDoubleArrayAhoCorasick` embedded via `build.rs`
+  - Byte-for-byte parity verified via shared `sdk/data/golden-test.json`
+- **WASM SDK**: new `zhtw-wasm` npm package (Rust core compiled to WebAssembly)
+  - Drop-in API compatible with `zhtw-js`
+  - Published via npm Trusted Publishing (OIDC)
+
+### Changed
+- `make bump` updates 8 locations (added `sdk/rust/zhtw-wasm/package.json`)
+- `sdk/rust/` converted from single-crate scaffold to workspace
+- `.github/workflows/sdk-rust.yml` replaced fake-green stub with full pipeline
+- CLAUDE.md golden rule 6 updated: 7 → 8 mono-versioning locations
+
 ## [4.0.1] - 2026-04-09
 
 ### Added
@@ -20,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - **ts-sdk: matcher identity-protection**（Codex review #1）：補上 Python `src/zhtw/matcher.py:89-133` 的 identity-protection 規則。`AhoCorasickMatcher.findMatches` 現在會拆分 identity 與 non-identity matches、用 bisect_right + prefix-max-end 建立 protected ranges、過濾重疊的 non-identity 轉換、且只 yield non-identity。
-  - 修復前 `createConverter({ sources: ['hk'], customDict: { '文件': '檔案', '檔案': '檔案' } }).convert('無中文檔案')` 會誤轉成 `無中檔案案`；修復後保留 `無中文檔案`，與 Python/Java 行為一致。
+  - 修復前 `createConverter({ sources: ['hk'], customDict: { '檔案': '檔案', '檔案': '檔案' } }).convert('無中文檔案')` 會誤轉成 `無中檔案案`；修復後保留 `無中文檔案`，與 Python/Java 行為一致。
 - **ts-sdk: lookup() charmap 後處理**（Codex review #2）：對齊 Python `src/zhtw/lookup.py:78-83`，term 層比對到詞之後把 target 再丟進 charmap translate 一次。
   - 修復前 `lookup('伙頭').output` 回 `伙頭`（term target 未過字元層），但 `convert('伙頭')` 回 `夥頭`；修復後兩者一致。
 - **ts-sdk: sdk/typescript/LICENSE**（Codex review #3）：補上 `package.json` 的 `files` 欄位早就引用但實際缺漏的 LICENSE 檔案，避免未來 `npm publish` tarball 缺授權檔案。

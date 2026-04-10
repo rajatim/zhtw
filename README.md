@@ -248,6 +248,35 @@ conv.convert('...');
 
 **特色**：isomorphic（Node.js ≥20 + 瀏覽器原生支援）、ESM + CJS 雙產出、零執行期相依、tree-shakeable。所有索引（`start` / `end` / `position`）均為 **Unicode codepoint**，與 Python CLI、Java SDK 完全 byte-for-byte 一致（共享 `sdk/data/golden-test.json` 驗證）。釋出走 npm Trusted Publishing (OIDC)，無 long-lived token。
 
+### 5. Rust SDK
+
+**Cargo (crates.io)**：
+
+<!-- zhtw:disable -->
+```toml
+[dependencies]
+zhtw = "4.0.1"
+```
+<!-- zhtw:enable -->
+
+<!-- zhtw:disable -->
+```rust
+use zhtw::{Converter, Source};
+
+// Zero config
+assert_eq!(zhtw::convert("这个软件需要优化"), "這個軟體需要最佳化");
+
+// Builder with custom dict
+let conv = Converter::builder()
+    .sources([Source::Cn])
+    .custom_dict([("自定义", "自訂")])
+    .build()
+    .expect("non-empty sources");
+```
+<!-- zhtw:enable -->
+
+**效能**：build-time 預編譯 `daachorse` automaton + `phf` char map，runtime 零建構成本。詳見 benchmarks（`cargo bench -p zhtw`）。
+
 ---
 
 ## 多語言 SDK
@@ -259,7 +288,7 @@ ZHTW 以 Python 實作為主，並提供原生 Java 與 TypeScript SDK。所有 
 | **Python** | `pip install zhtw` | 3.1 MB/s | — | CLI、CI/CD、pre-commit、資料處理 | ✅ Stable |
 | **Java** | [Maven Central](#3-java-sdk) | 17.9 MB/s | 2μs | Spring Boot、Android、後端服務 | ✅ Stable |
 | **TypeScript** | `npm install zhtw-js` | ~16 MB/s | — | Node.js ≥20、瀏覽器（isomorphic ESM+CJS） | ✅ Stable |
-| **Rust** | crates.io | — | — | 高效能、WebAssembly、嵌入式 | 🚧 Planned |
+| **Rust** | [crates.io](#5-rust-sdk) | — | — | 高效能、WebAssembly、嵌入式 | ✅ Stable |
 | **C# (.NET)** | NuGet | — | — | ASP.NET、Unity、桌面應用 | 🚧 Planned |
 
 ---
