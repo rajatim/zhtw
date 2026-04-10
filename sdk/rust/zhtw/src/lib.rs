@@ -8,6 +8,7 @@ mod config;
 mod builder;
 mod converter;
 mod header;
+mod matcher;
 mod generated;
 
 pub use source::Source;
