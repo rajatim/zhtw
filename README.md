@@ -169,7 +169,7 @@ convert("这个软件需要优化")
 <dependency>
     <groupId>com.rajatim</groupId>
     <artifactId>zhtw</artifactId>
-    <version>4.0.0</version>
+    <version>4.0.1</version>
 </dependency>
 ```
 <!-- zhtw:enable -->
@@ -177,13 +177,13 @@ convert("这个软件需要优化")
 **Gradle (Kotlin DSL)**：
 
 ```kotlin
-implementation("com.rajatim:zhtw:4.0.0")
+implementation("com.rajatim:zhtw:4.0.1")
 ```
 
 **Gradle (Groovy DSL)**：
 
 ```groovy
-implementation 'com.rajatim:zhtw:4.0.0'
+implementation 'com.rajatim:zhtw:4.0.1'
 ```
 
 <!-- zhtw:disable -->
@@ -204,6 +204,50 @@ ZhtwConverter conv = ZhtwConverter.builder()
 
 **效能**：單句 2μs、100K 字 5.5ms（17.9 MB/s），比 Python 快 ~5.8 倍。詳見 [`sdk/java/BENCHMARK.md`](sdk/java/BENCHMARK.md)。
 
+### 4. TypeScript SDK
+
+**npm / pnpm / yarn**：
+
+```bash
+npm install zhtw-js
+# 或
+pnpm add zhtw-js
+yarn add zhtw-js
+```
+
+<!-- zhtw:disable -->
+```typescript
+import { convert, check, lookup } from 'zhtw-js';
+
+// 快速使用（zero config，內建 default converter）
+convert('这个软件需要优化');
+// → '這個軟體需要最佳化'
+
+check('用户权限');
+// → [{ start, end, source, target }, ...]
+
+lookup('软件');
+// → { input, output, changed, details: [...] }
+```
+<!-- zhtw:enable -->
+
+**自訂設定**：
+
+<!-- zhtw:disable -->
+```typescript
+import { createConverter } from 'zhtw-js';
+
+const conv = createConverter({
+  sources: ['cn'],                  // 預設 ['cn', 'hk']
+  customDict: { '自定义': '自訂' },  // 覆蓋內建詞條
+});
+
+conv.convert('...');
+```
+<!-- zhtw:enable -->
+
+**特色**：isomorphic（Node.js ≥20 + 瀏覽器原生支援）、ESM + CJS 雙產出、零執行期相依、tree-shakeable。所有索引（`start` / `end` / `position`）均為 **Unicode codepoint**，與 Python CLI、Java SDK 完全 byte-for-byte 一致（共享 `sdk/data/golden-test.json` 驗證）。釋出走 npm Trusted Publishing (OIDC)，無 long-lived token。
+
 ---
 
 ## 多語言 SDK
@@ -214,7 +258,7 @@ ZHTW 以 Python 實作為主，並提供原生 Java 與 TypeScript SDK。所有 
 |-----|------|-------------|---------|---------|------|
 | **Python** | `pip install zhtw` | 3.1 MB/s | — | CLI、CI/CD、pre-commit、資料處理 | ✅ Stable |
 | **Java** | [Maven Central](#3-java-sdk) | 17.9 MB/s | 2μs | Spring Boot、Android、後端服務 | ✅ Stable |
-| **TypeScript** | `npm install zhtw-js` | ~16 MB/s | — | Node.js ≥18、瀏覽器（isomorphic ESM+CJS） | ✅ Stable |
+| **TypeScript** | `npm install zhtw-js` | ~16 MB/s | — | Node.js ≥20、瀏覽器（isomorphic ESM+CJS） | ✅ Stable |
 | **Rust** | crates.io | — | — | 高效能、WebAssembly、嵌入式 | 🚧 Planned |
 | **C# (.NET)** | NuGet | — | — | ASP.NET、Unity、桌面應用 | 🚧 Planned |
 
@@ -277,7 +321,7 @@ Commit 前自動擋住問題：
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.0.0  # 使用最新版本
+    rev: v4.0.1  # 使用最新版本
     hooks:
       - id: zhtw-check   # 檢查模式（建議）
       # - id: zhtw-fix   # 或自動修正模式
@@ -294,7 +338,7 @@ pip install pre-commit && pre-commit install
 ```yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.0.0
+    rev: v4.0.1
     hooks:
       - id: zhtw-check
         types: [python, markdown, yaml]  # 只檢查這些型別

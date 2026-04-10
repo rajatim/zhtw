@@ -169,7 +169,7 @@ The first call loads the dictionary and builds the Aho-Corasick automaton; subse
 <dependency>
     <groupId>com.rajatim</groupId>
     <artifactId>zhtw</artifactId>
-    <version>4.0.0</version>
+    <version>4.0.1</version>
 </dependency>
 ```
 <!-- zhtw:enable -->
@@ -177,13 +177,13 @@ The first call loads the dictionary and builds the Aho-Corasick automaton; subse
 **Gradle (Kotlin DSL):**
 
 ```kotlin
-implementation("com.rajatim:zhtw:4.0.0")
+implementation("com.rajatim:zhtw:4.0.1")
 ```
 
 **Gradle (Groovy DSL):**
 
 ```groovy
-implementation 'com.rajatim:zhtw:4.0.0'
+implementation 'com.rajatim:zhtw:4.0.1'
 ```
 
 <!-- zhtw:disable -->
@@ -204,17 +204,61 @@ ZhtwConverter conv = ZhtwConverter.builder()
 
 **Performance:** 2 μs per sentence, 5.5 ms for 100K characters (17.9 MB/s) — roughly 5.8× faster than Python. See [`sdk/java/BENCHMARK.md`](sdk/java/BENCHMARK.md).
 
+### 4. TypeScript SDK
+
+**npm / pnpm / yarn:**
+
+```bash
+npm install zhtw-js
+# or
+pnpm add zhtw-js
+yarn add zhtw-js
+```
+
+<!-- zhtw:disable -->
+```typescript
+import { convert, check, lookup } from 'zhtw-js';
+
+// Quick start (zero config — built-in default converter)
+convert('这个软件需要优化');
+// → '這個軟體需要最佳化'
+
+check('用户权限');
+// → [{ start, end, source, target }, ...]
+
+lookup('软件');
+// → { input, output, changed, details: [...] }
+```
+<!-- zhtw:enable -->
+
+**Custom configuration:**
+
+<!-- zhtw:disable -->
+```typescript
+import { createConverter } from 'zhtw-js';
+
+const conv = createConverter({
+  sources: ['cn'],                  // default: ['cn', 'hk']
+  customDict: { '自定义': '自訂' },  // overrides built-in terms
+});
+
+conv.convert('...');
+```
+<!-- zhtw:enable -->
+
+**Highlights:** isomorphic (Node.js ≥20 + native browser support), dual ESM + CJS output, zero runtime dependencies, tree-shakeable. All indices (`start` / `end` / `position`) are **Unicode codepoints**, byte-for-byte identical to the Python CLI and Java SDK (verified via the shared `sdk/data/golden-test.json` fixture). Published via npm Trusted Publishing (OIDC) — no long-lived tokens.
+
 ---
 
 ## Multi-language SDKs
 
-ZHTW is primarily implemented in Python and ships a native Java SDK. All SDKs share the same dictionary data (`zhtw-data.json`), so conversion results are byte-identical to the Python CLI.
+ZHTW is primarily implemented in Python and ships native Java and TypeScript SDKs. All SDKs share the same dictionary data (`zhtw-data.json`), so conversion results are byte-identical to the Python CLI (cross-SDK byte-for-byte verification via the shared `sdk/data/golden-test.json` fixture is a release gate).
 
 | SDK | Install | Throughput (1MB) | Per-call latency | Use cases | Status |
 |-----|---------|-----------------|------------------|-----------|--------|
 | **Python** | `pip install zhtw` | 3.1 MB/s | — | CLI, CI/CD, pre-commit, data pipelines | ✅ Stable |
 | **Java** | [Maven Central](#3-java-sdk) | 17.9 MB/s | 2 μs | Spring Boot, Android, backend services | ✅ Stable |
-| **TypeScript** | npm | — | — | Node.js, Deno, browser | 🚧 Planned |
+| **TypeScript** | `npm install zhtw-js` | ~16 MB/s | — | Node.js ≥20, browser (isomorphic ESM+CJS) | ✅ Stable |
 | **Rust** | crates.io | — | — | High-perf, WebAssembly, embedded | 🚧 Planned |
 | **C# (.NET)** | NuGet | — | — | ASP.NET, Unity, desktop apps | 🚧 Planned |
 
@@ -277,7 +321,7 @@ Stop issues before they're committed:
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.0.0  # use the latest tag
+    rev: v4.0.1  # use the latest tag
     hooks:
       - id: zhtw-check   # check mode (recommended)
       # - id: zhtw-fix   # or auto-fix mode
@@ -294,7 +338,7 @@ pip install pre-commit && pre-commit install
 ```yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.0.0
+    rev: v4.0.1
     hooks:
       - id: zhtw-check
         types: [python, markdown, yaml]  # only these types

@@ -59,6 +59,13 @@ endif
 	@sed -i '' 's/"version": "[^"]*"/"version": "$(VERSION)"/' sdk/typescript/package.json
 	@sed -i '' 's/^version = .*/version = "$(VERSION)"/' sdk/rust/Cargo.toml
 	@sed -i '' 's|<Version>[^<]*</Version>|<Version>$(VERSION)</Version>|' sdk/dotnet/Zhtw.csproj
+	@# README files: Maven dep version, Gradle (Kotlin + Groovy), pre-commit rev tag.
+	@# Pattern requires the version starts with a digit so we never touch placeholders.
+	@sed -i '' 's|<version>[0-9][0-9.]*</version>|<version>$(VERSION)</version>|g' README.md README.en.md
+	@sed -i '' 's|com.rajatim:zhtw:[0-9][0-9.]*|com.rajatim:zhtw:$(VERSION)|g' README.md README.en.md
+	@sed -i '' 's|rev: v[0-9][0-9.]*|rev: v$(VERSION)|g' README.md README.en.md
+	@# Java SDK benchmark report header
+	@sed -i '' 's,| SDK Version | [0-9][0-9.]* |,| SDK Version | $(VERSION) |,' sdk/java/BENCHMARK.md
 	@echo "📦 Regenerating sdk/data (embeds version)..."
 	$(PYTHON) -m zhtw export --output sdk/data
 	@$(MAKE) version-check

@@ -10,7 +10,7 @@
 | JDK | 21.0.10 (OpenJDK 64-Bit Server VM) |
 | Platform | macOS Darwin (Apple Silicon) |
 | Date | 2026-04-09 |
-| SDK Version | 4.0.0 |
+| SDK Version | 4.0.1 |
 
 ## 測試設定
 

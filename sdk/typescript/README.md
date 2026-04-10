@@ -2,7 +2,7 @@
 
 > Traditional Chinese converter for Taiwan — TypeScript SDK
 
-Simplified Chinese → Taiwan Traditional Chinese converter with zero runtime dependencies. Runs identically in Node.js ≥18 and modern browsers. Byte-for-byte compatible with the Python CLI and Java SDK, verified by a shared golden fixture.
+Simplified Chinese → Taiwan Traditional Chinese converter with zero runtime dependencies. Runs identically in Node.js ≥20 and modern browsers. Byte-for-byte compatible with the Python CLI and Java SDK, verified by a shared golden fixture.
 
 ## Install
 
