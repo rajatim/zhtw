@@ -593,6 +593,7 @@ def convert_file(
     input_encoding: str | None = None,
     output_encoding: str = "auto",
     char_table: Optional[dict[int, str]] = None,
+    ambiguity_mode: str = "strict",
 ) -> FileResult:
     """
     Process a single file.
@@ -639,6 +640,7 @@ def convert_file(
         fix=fix,
         ignored_lines=ignored_lines,
         char_table=char_table,
+        ambiguity_mode=ambiguity_mode,
     )
 
     # Build issues list
@@ -691,6 +693,7 @@ def convert_directory(
     input_encoding: str | None = None,
     output_encoding: str = "auto",
     char_table: Optional[dict[int, str]] = None,
+    ambiguity_mode: str = "strict",
 ) -> Iterator[FileResult]:
     """
     Process files in a directory or a single file.
@@ -721,6 +724,7 @@ def convert_directory(
                 input_encoding=input_encoding,
                 output_encoding=output_encoding,
                 char_table=char_table,
+                ambiguity_mode=ambiguity_mode,
             )
         return
 
@@ -749,6 +753,7 @@ def convert_directory(
             input_encoding=input_encoding,
             output_encoding=output_encoding,
             char_table=char_table,
+            ambiguity_mode=ambiguity_mode,
         )
 
 
@@ -763,6 +768,7 @@ def process_directory(
     input_encoding: str | None = None,
     output_encoding: str = "auto",
     char_convert: bool = True,
+    ambiguity_mode: str = "strict",
 ) -> ConversionResult:
     """
     Process a directory or single file and return aggregated results.
@@ -805,6 +811,7 @@ def process_directory(
         input_encoding=input_encoding,
         output_encoding=output_encoding,
         char_table=char_table,
+        ambiguity_mode=ambiguity_mode,
     ):
         if file_result.skipped:
             result.files_skipped += 1
