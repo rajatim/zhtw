@@ -68,15 +68,28 @@ public final class ZhtwConverter {
             return text;
         }
 
-        // Stage 1: Term-level replacement
-        String result = matcher.replaceAll(text);
+        // Covered positions from ALL automaton hits (including identity terms).
+        // Must be computed on original text before any replacements.
+        Set<Integer> covered = matcher.getCoveredPositions(text);
+        List<Match> matches = matcher.findMatches(text);
 
-        // Stage 2: Char-level conversion (only when "cn" in sources)
-        if (charLayerEnabled) {
-            result = applyCharmap(result);
+        if (matches.isEmpty()) {
+            return charLayerEnabled ? applyCharmapSkipping(text, covered, 0) : text;
         }
 
-        return result;
+        // Gap mode: term targets are inserted verbatim; gaps get char-layer
+        // applied only on uncovered positions.
+        StringBuilder sb = new StringBuilder(text.length());
+        int lastEnd = 0;
+        for (Match m : matches) {
+            String gap = text.substring(lastEnd, m.getStart());
+            sb.append(charLayerEnabled ? applyCharmapSkipping(gap, covered, lastEnd) : gap);
+            sb.append(m.getTarget());
+            lastEnd = m.getEnd();
+        }
+        String tail = text.substring(lastEnd);
+        sb.append(charLayerEnabled ? applyCharmapSkipping(tail, covered, lastEnd) : tail);
+        return sb.toString();
     }
 
     /**
@@ -94,6 +107,9 @@ public final class ZhtwConverter {
 
         List<Match> result = new ArrayList<>();
 
+        // Covered positions from ALL automaton hits (including identity terms)
+        Set<Integer> coveredUtf16 = matcher.getCoveredPositions(text);
+
         // Term-level matches (matcher returns UTF-16 indices, convert to codepoint)
         for (Match m : matcher.findMatches(text)) {
             int cpStart = Character.codePointCount(text, 0, m.getStart());
@@ -101,16 +117,18 @@ public final class ZhtwConverter {
             result.add(new Match(cpStart, cpEnd, m.getSource(), m.getTarget()));
         }
 
-        // Char-level matches (on original text, track codepoint index)
+        // Char-level matches (on original text, skip covered positions)
         if (charLayerEnabled) {
             int cpIndex = 0;
             int i = 0;
             while (i < text.length()) {
                 int cp = text.codePointAt(i);
-                String replacement = charmap.get(cp);
-                String original = new String(Character.toChars(cp));
-                if (replacement != null && !replacement.equals(original)) {
-                    result.add(new Match(cpIndex, cpIndex + 1, original, replacement));
+                if (!coveredUtf16.contains(i)) {
+                    String replacement = charmap.get(cp);
+                    String original = new String(Character.toChars(cp));
+                    if (replacement != null && !replacement.equals(original)) {
+                        result.add(new Match(cpIndex, cpIndex + 1, original, replacement));
+                    }
                 }
                 cpIndex++;
                 i += Character.charCount(cp);
@@ -139,7 +157,9 @@ public final class ZhtwConverter {
 
         // Internal work uses UTF-16 indices (needed by buildOutput for string slicing)
         List<ConversionDetail> utf16Details = new ArrayList<>();
-        Set<Integer> coveredUtf16 = new HashSet<>();
+
+        // Covered positions from ALL automaton hits (including identity terms)
+        Set<Integer> coveredUtf16 = matcher.getCoveredPositions(word);
 
         // 1. Term layer
         List<Match> termMatches = matcher.findMatches(word);
@@ -150,9 +170,6 @@ public final class ZhtwConverter {
                 target = applyCharmap(target);
             }
             utf16Details.add(new ConversionDetail(m.getSource(), target, "term", m.getStart()));
-            for (int i = m.getStart(); i < m.getEnd(); i++) {
-                coveredUtf16.add(i);
-            }
         }
 
         // 2. Char layer: scan uncovered positions
@@ -227,6 +244,35 @@ public final class ZhtwConverter {
             i += Character.charCount(cp);
         }
         return changed ? sb.toString() : text;
+    }
+
+    /**
+     * Apply charmap to a text segment, skipping positions that are in the covered set.
+     * @param segment text segment to process
+     * @param covered set of covered UTF-16 positions in the ORIGINAL text
+     * @param offset UTF-16 offset of this segment within the original text
+     */
+    private String applyCharmapSkipping(String segment, Set<Integer> covered, int offset) {
+        StringBuilder sb = new StringBuilder(segment.length());
+        boolean changed = false;
+        int i = 0;
+        while (i < segment.length()) {
+            int cp = segment.codePointAt(i);
+            int charLen = Character.charCount(cp);
+            if (covered.contains(offset + i)) {
+                sb.appendCodePoint(cp);
+            } else {
+                String replacement = charmap.get(cp);
+                if (replacement != null) {
+                    sb.append(replacement);
+                    changed = true;
+                } else {
+                    sb.appendCodePoint(cp);
+                }
+            }
+            i += charLen;
+        }
+        return changed ? sb.toString() : segment;
     }
 
     /**

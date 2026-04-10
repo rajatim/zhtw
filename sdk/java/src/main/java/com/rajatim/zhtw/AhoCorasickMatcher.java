@@ -164,4 +164,24 @@ final class AhoCorasickMatcher {
         sb.append(text, lastEnd, text.length());
         return sb.toString();
     }
+
+    /**
+     * Return all UTF-16 positions covered by any raw automaton hit,
+     * including identity terms (source == target). This is used to
+     * prevent the char layer from converting characters that are
+     * protected by identity term matches.
+     */
+    Set<Integer> getCoveredPositions(String text) {
+        if (trie == null || text == null || text.isEmpty()) {
+            return Collections.emptySet();
+        }
+        Set<Integer> covered = new HashSet<>();
+        for (Emit emit : trie.parseText(text)) {
+            // Emit.getEnd() is inclusive
+            for (int i = emit.getStart(); i <= emit.getEnd(); i++) {
+                covered.add(i);
+            }
+        }
+        return covered;
+    }
 }
