@@ -65,6 +65,14 @@ _GOLDEN_CASES = [
     ("\u6570\u636e\u5e93\u670d\u52a1\u5668", ["cn"], "term layer: compound terms"),
     ("\u4e91\u8ba1\u7b97", ["cn"], "ambiguous: cloud"),
     ("\u53d1\u5c55\u5f88\u5feb", ["cn"], "ambiguous: fa"),
+    # Identity-term protection: char layer must NOT convert chars inside identity terms
+    ("\u5c38\u4f4d\u7d20\u9910", ["cn"], "identity: \u5c38\u4f4d\u7d20\u9910 protects \u5c38"),
+    ("\u4eba\u4e91\u4ea6\u4e91", ["cn"], "identity: \u4eba\u4e91\u4ea6\u4e91 protects \u4e91"),
+    (
+        "\u6025\u75c7\u5f88\u4e25\u91cd",
+        ["cn"],
+        "identity+char: \u6025\u75c7 protected, \u4e25\u91cd char-converted",
+    ),
 ]
 
 # Lookup test cases — individual words/chars
@@ -74,6 +82,7 @@ _LOOKUP_CASES = [
     ("\u53f0", ["cn"]),
     ("\u5934\u53d1", ["cn"]),
     ("\u8edf\u4ef6", ["hk"]),
+    ("\u6025\u75c7", ["cn"]),  # identity term: no conversion expected
 ]
 
 

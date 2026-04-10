@@ -57,6 +57,27 @@
         "cn"
       ],
       "expected": "發展很快"
+    },
+    {
+      "input": "尸位素餐",
+      "sources": [
+        "cn"
+      ],
+      "expected": "尸位素餐"
+    },
+    {
+      "input": "人云亦云",
+      "sources": [
+        "cn"
+      ],
+      "expected": "人云亦云"
+    },
+    {
+      "input": "急症很严重",
+      "sources": [
+        "cn"
+      ],
+      "expected": "急症很嚴重"
     }
   ],
   "check": [
@@ -200,6 +221,34 @@
           "target": "發展"
         }
       ]
+    },
+    {
+      "input": "尸位素餐",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": []
+    },
+    {
+      "input": "人云亦云",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": []
+    },
+    {
+      "input": "急症很严重",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 3,
+          "end": 4,
+          "source": "严",
+          "target": "嚴"
+        }
+      ]
     }
   ],
   "lookup": [
@@ -275,6 +324,15 @@
           "position": 0
         }
       ]
+    },
+    {
+      "input": "急症",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "急症",
+      "expected_changed": false,
+      "expected_details": []
     }
   ]
 }
