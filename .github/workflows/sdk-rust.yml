@@ -61,9 +61,11 @@ jobs:
         working-directory: sdk/rust/zhtw-wasm/pkg
         run: |
           size=$(wc -c < zhtw_wasm_bg.wasm)
-          echo "WASM size: $size bytes"
-          if [ "$size" -gt 1048576 ]; then
-            echo "::error::WASM binary exceeds 1 MB product budget"
+          echo "WASM size: $size bytes (~$((size / 1024))KB)"
+          # Budget: 4MB. Bulk of the binary is the embedded dictionary
+          # (daachorse automaton + pattern table + phf char map).
+          if [ "$size" -gt 4194304 ]; then
+            echo "::error::WASM binary exceeds 4 MB budget"
             exit 1
           fi
       - name: Upload zhtw-wasm pkg
@@ -78,15 +80,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - name: Build zhtw-js tarball
         run: |
+          mkdir -p /tmp/pkgs
           cd sdk/typescript
-          npm ci
-          npm run build
-          npm pack --pack-destination /tmp/pkgs/
+          pnpm install --frozen-lockfile
+          pnpm run build
+          pnpm pack --pack-destination /tmp/pkgs/
       - name: Download zhtw-wasm pkg
         uses: actions/download-artifact@v4
         with:

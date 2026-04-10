@@ -144,6 +144,16 @@ fn main() {
     // Each pattern's u32 value = its index in this table.
     // Sort sources for determinism.
 
+    // Track which source(s) each term key comes from.
+    // CN = 0b01, HK = 0b10, both = 0b11.
+    let mut source_masks: HashMap<String, u8> = HashMap::new();
+    for key in data.terms.cn.keys() {
+        *source_masks.entry(key.clone()).or_insert(0) |= 0b01;
+    }
+    for key in data.terms.hk.keys() {
+        *source_masks.entry(key.clone()).or_insert(0) |= 0b10;
+    }
+
     let mut patterns: Vec<(String, String)> =
         data.terms.cn.into_iter().chain(data.terms.hk).collect();
     patterns.sort_by(|(a, _), (b, _)| a.cmp(b));
@@ -179,6 +189,7 @@ fn main() {
     // Format:
     //   u32 LE: count
     //   For each entry:
+    //     u8: source_mask (0b01=CN, 0b10=HK, 0b11=both)
     //     u32 LE: source_len
     //     [u8; source_len]: source UTF-8 bytes
     //     u32 LE: target_len
@@ -192,6 +203,9 @@ fn main() {
         f.write_all(&count.to_le_bytes()).unwrap();
 
         for (src, tgt) in &patterns {
+            let mask = source_masks.get(src).copied().unwrap_or(0b11);
+            f.write_all(&[mask]).unwrap();
+
             let src_bytes = src.as_bytes();
             let tgt_bytes = tgt.as_bytes();
 

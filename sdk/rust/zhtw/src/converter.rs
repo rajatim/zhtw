@@ -60,7 +60,12 @@ unsafe impl Sync for Inner {}
 
 static DEFAULT_INNER: LazyLock<Arc<Inner>> = LazyLock::new(|| {
     let automaton = matcher::deserialize_default_automaton(AUTOMATON_CNHK_BYTES);
-    let pattern_table = matcher::deserialize_pattern_table(PATTERN_TABLE_CNHK_BYTES);
+    // Strip source masks — default path uses all patterns, indices match pre-compiled automaton.
+    let pattern_table: Vec<(String, String)> =
+        matcher::deserialize_pattern_table(PATTERN_TABLE_CNHK_BYTES)
+            .into_iter()
+            .map(|(s, t, _mask)| (s, t))
+            .collect();
     Arc::new(Inner {
         automaton,
         pattern_table,
@@ -98,14 +103,26 @@ impl Converter {
         }
 
         // Custom config: build automaton at runtime.
+        // Compute source mask from selected sources.
+        let desired_mask: u8 = config.sources.iter().fold(0u8, |acc, s| match s {
+            Source::Cn => acc | 0b01,
+            Source::Hk => acc | 0b10,
+        });
+
+        // Filter built-in patterns by source mask.
         let mut pattern_map: std::collections::HashMap<String, String> =
             matcher::deserialize_pattern_table(PATTERN_TABLE_CNHK_BYTES)
                 .into_iter()
+                .filter(|&(_, _, mask)| mask & desired_mask != 0)
+                .map(|(s, t, _)| (s, t))
                 .collect();
 
         // Merge custom dict (overrides built-in entries with the same key).
+        // Skip empty keys — daachorse panics on empty patterns.
         for (k, v) in &config.custom_dict {
-            pattern_map.insert(k.clone(), v.clone());
+            if !k.is_empty() {
+                pattern_map.insert(k.clone(), v.clone());
+            }
         }
 
         // Collect back to sorted Vec for deterministic automaton.
@@ -114,11 +131,14 @@ impl Converter {
 
         let automaton = matcher::build_automaton(&patterns);
 
+        // Char layer only runs when CN source is selected (matches Python behavior).
+        let char_layer_enabled = config.sources.contains(&Source::Cn);
+
         Ok(Converter {
             inner: Arc::new(Inner {
                 automaton,
                 pattern_table: patterns,
-                char_layer_enabled: true,
+                char_layer_enabled,
             }),
         })
     }

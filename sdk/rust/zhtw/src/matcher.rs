@@ -23,11 +23,14 @@ pub(crate) struct TermHit {
 /// Format:
 ///   u32 LE: count
 ///   For each entry:
+///     u8: source_mask (0b01=CN, 0b10=HK, 0b11=both)
 ///     u32 LE: source_len
 ///     [u8; source_len]: source bytes
 ///     u32 LE: target_len
 ///     [u8; target_len]: target bytes
-pub(crate) fn deserialize_pattern_table(bytes: &[u8]) -> Vec<(String, String)> {
+///
+/// Returns `(source, target, source_mask)` triples.
+pub(crate) fn deserialize_pattern_table(bytes: &[u8]) -> Vec<(String, String, u8)> {
     let mut pos = 0;
 
     let count = u32::from_le_bytes(bytes[pos..pos + 4].try_into().unwrap()) as usize;
@@ -35,6 +38,9 @@ pub(crate) fn deserialize_pattern_table(bytes: &[u8]) -> Vec<(String, String)> {
 
     let mut table = Vec::with_capacity(count);
     for _ in 0..count {
+        let mask = bytes[pos];
+        pos += 1;
+
         let src_len = u32::from_le_bytes(bytes[pos..pos + 4].try_into().unwrap()) as usize;
         pos += 4;
         let src = std::str::from_utf8(&bytes[pos..pos + src_len])
@@ -49,7 +55,7 @@ pub(crate) fn deserialize_pattern_table(bytes: &[u8]) -> Vec<(String, String)> {
             .to_string();
         pos += tgt_len;
 
-        table.push((src, tgt));
+        table.push((src, tgt, mask));
     }
 
     table

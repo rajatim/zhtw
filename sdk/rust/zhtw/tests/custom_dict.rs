@@ -28,11 +28,33 @@ fn identity_protection_blocks_overlap() {
 }
 
 #[test]
-fn hk_only_no_char_layer() {
-    let conv = Converter::builder().sources([Source::Hk]).build().unwrap();
-    let text = "軟件工程師";
-    let result = conv.convert(text);
-    let _ = result;
+fn hk_only_converts_hk_terms_only() {
+    let hk = Converter::builder().sources([Source::Hk]).build().unwrap();
+
+    // HK term: 軟件 → 軟體
+    assert_eq!(hk.convert("軟件工程師"), "軟體工程師");
+
+    // CN simplified input must NOT be converted — HK-only has no CN terms
+    // and char layer is disabled (matches Python behavior).
+    assert_eq!(
+        hk.convert("软件"),
+        "软件",
+        "HK-only must not convert CN simplified"
+    );
+    assert!(
+        hk.check("软件").is_empty(),
+        "HK-only check must find no matches for CN simplified"
+    );
+}
+
+#[test]
+fn empty_custom_dict_key_is_skipped() {
+    // Empty key must not panic — daachorse rejects empty patterns.
+    let conv = Converter::builder()
+        .custom_dict([("", "x"), ("软件", "軟體")])
+        .build()
+        .unwrap();
+    assert_eq!(conv.convert("软件"), "軟體");
 }
 
 #[test]
