@@ -1,6 +1,6 @@
-"""歧義字驗證測試。確保 118 個一對多歧義字被正確處理。
+"""歧義字驗證測試。確保剩餘一對多歧義字被正確處理。
 
-歧義字（一對多）被排除在字元級安全映射之外，
+歧義字（一對多）被排除在字元級安全對映之外，
 由詞庫層（Aho-Corasick 複合詞）根據上下文做正確轉換。
 """
 # zhtw:disable  # 測試案例需要簡體字
@@ -72,13 +72,33 @@ class TestAmbiguousExclusion:
     """歧義字未出現在安全字元映射中。"""
 
     def test_none_in_charmap(self, charmap, ambiguous):
-        """118 個歧義字都不在安全字元映射的 key 中。"""
+        """歧義字都不在安全字元映射的 key 中。"""
         violations = [c for c in ambiguous if c in charmap]
         assert violations == [], f"以下歧義字不應出現在 safe charmap 中：{violations}"
 
-    def test_ambiguous_count(self, ambiguous):
-        """歧義字數量恰好為 119 個。"""
-        assert len(ambiguous) == 119, f"期望 119 個歧義字，實際 {len(ambiguous)} 個"
+    def test_v12_promotions_and_deferred_chars(self, ambiguous):
+        """v1.2 升級/保留的分類應反映在 ambiguous 清單。"""
+        promoted_to_safe = {
+            "帘",
+            "凫",
+            "坝",
+            "竖",
+            "绣",
+            "绷",
+            "蕴",
+            "谣",
+            "赃",
+            "酝",
+            "锈",
+            "颓",
+            "鳄",
+        }
+        still_ambiguous = {"仆", "尸", "卤", "坛", "弥", "摆", "纤"}
+
+        for char in promoted_to_safe:
+            assert char not in ambiguous, f"{char} 已升級到 safe_chars，不應留在 ambiguous"
+        for char in still_ambiguous:
+            assert char in ambiguous, f"{char} 仍應保留在 ambiguous_excluded"
 
     def test_ambiguous_are_single_chars(self, ambiguous):
         """每個歧義字都是單一字元。"""
@@ -202,8 +222,8 @@ class TestAmbiguousAloneUnchanged:
         # 这→這、测→測、试→試 會被轉換，但歧義字本身不變
         assert char in result, f"歧義字「{char}」在字元層被錯誤替換，結果：「{result}」"
 
-    def test_all_118_ambiguous_untouched_by_char_layer(self, char_table, ambiguous):
-        """全部 118 個歧義字都不被字元層轉換。"""
+    def test_all_ambiguous_untouched_by_char_layer(self, char_table, ambiguous):
+        """全部剩餘歧義字都不被字元層轉換。"""
         changed = []
         for char in ambiguous:
             if char_convert(char, char_table) != char:

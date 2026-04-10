@@ -36,12 +36,17 @@ class TestGetBalancedDefaults:
         defaults = get_balanced_defaults()
         assert isinstance(defaults, dict)
 
-    def test_contains_three_entries(self):
+    def test_contains_eight_entries(self):
         defaults = get_balanced_defaults()
-        assert len(defaults) == 3
+        assert len(defaults) == 8
 
     def test_keys_and_values(self):
         defaults = get_balanced_defaults()
+        assert defaults.get("卤") == "滷"
+        assert defaults.get("坛") == "壇"
+        assert defaults.get("弥") == "彌"
+        assert defaults.get("摆") == "擺"
+        assert defaults.get("纤") == "纖"
         assert defaults.get("几") == "幾"
         assert defaults.get("丰") == "豐"
         assert defaults.get("杰") == "傑"
@@ -218,6 +223,35 @@ class TestConvertConvenienceBalanced:
         result_strict = convert("几个人", ambiguity_mode="strict")
         assert result_default == result_strict
 
+    def test_balanced_converts_v12_chars(self):
+        """v1.2 新增的真歧義字在 balanced mode 應替換。"""
+        expectations = {
+            "卤": "滷",
+            "坛": "壇",
+            "弥": "彌",
+            "摆": "擺",
+            "纤": "纖",
+        }
+        for char, expected in expectations.items():
+            assert convert(char, ambiguity_mode="balanced") == expected
+
+    def test_balanced_respects_existing_term_protection(self):
+        """既有詞庫保護詞在 balanced mode 不應被預設值覆寫。"""
+        cases = {
+            "卤素": "鹵素",
+            "酒坛": "酒罈",
+            "弥漫": "瀰漫",
+            "下摆": "下襬",
+            "纤夫": "縴夫",
+        }
+        for source, expected in cases.items():
+            assert convert(source, ambiguity_mode="balanced") == expected
+
+    def test_hk_source_does_not_apply_balanced_defaults(self):
+        """HK-only source 不應套用 CN balanced defaults。"""
+        assert convert("几个人", sources=["hk"], ambiguity_mode="balanced") == "几个人"
+        assert convert("卤肉", sources=["hk"], ambiguity_mode="balanced") == "卤肉"
+
 
 # ──────────────────────────────────────────────
 # TestCLIAmbiguityMode
@@ -283,6 +317,27 @@ class TestCLIAmbiguityMode:
         )
         assert result.exit_code != 0
 
+    def test_fix_hk_source_balanced_keeps_cn_only_defaults_disabled(self, tmp_path):
+        """CLI 在 --source hk 時不應套用 CN balanced defaults。"""
+        test_file = tmp_path / "test.txt"
+        test_file.write_text("几个人 卤肉", encoding="utf-8")
+
+        runner = CliRunner()
+        result = runner.invoke(
+            main,
+            [
+                "fix",
+                str(test_file),
+                "--source",
+                "hk",
+                "--ambiguity-mode",
+                "balanced",
+                "--yes",
+            ],
+        )
+        assert result.exit_code == 0
+        assert test_file.read_text(encoding="utf-8") == "几个人 卤肉"
+
 
 # ──────────────────────────────────────────────
 # Shared fixtures for TestStrictUnchanged
@@ -332,13 +387,22 @@ class TestStrictUnchanged:
 
     def test_bare_ambiguous_unchanged_in_strict(self):
         """單獨歧義字在 strict mode 不被轉換。"""
-        for char in ["几", "丰", "杰"]:
+        for char in ["卤", "坛", "弥", "摆", "纤", "几", "丰", "杰"]:
             result = convert(char, ambiguity_mode="strict")
             assert result == char, f"strict should not convert bare {char!r}, got {result!r}"
 
     def test_balanced_converts_bare_ambiguous(self):
         """單獨歧義字在 balanced mode 被轉換。"""
-        expectations = {"几": "幾", "丰": "豐", "杰": "傑"}
+        expectations = {
+            "卤": "滷",
+            "坛": "壇",
+            "弥": "彌",
+            "摆": "擺",
+            "纤": "纖",
+            "几": "幾",
+            "丰": "豐",
+            "杰": "傑",
+        }
         for char, expected in expectations.items():
             result = convert(char, ambiguity_mode="balanced")
             assert result == expected, f"balanced: {char!r} → {result!r}, expected {expected!r}"

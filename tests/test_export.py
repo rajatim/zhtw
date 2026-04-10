@@ -26,8 +26,10 @@ def test_export_data_schema():
 
     assert "chars" in data["charmap"]
     assert "ambiguous" in data["charmap"]
+    assert "balanced_defaults" in data["charmap"]
     assert isinstance(data["charmap"]["chars"], dict)
     assert isinstance(data["charmap"]["ambiguous"], list)
+    assert isinstance(data["charmap"]["balanced_defaults"], dict)
 
     assert "cn" in data["terms"]
     assert "hk" in data["terms"]
@@ -79,6 +81,29 @@ def test_export_data_source_filter():
     assert "cn" in data["terms"]
     assert "hk" not in data["terms"]
     assert data["stats"]["terms_hk_count"] == 0
+
+
+def test_export_data_includes_ambiguity_v12_updates():
+    """Exported charmap must include v1.2 safe chars and balanced defaults."""
+    from zhtw.export import export_data
+
+    data = export_data()
+    charmap = data["charmap"]["chars"]
+    ambiguous = set(data["charmap"]["ambiguous"])
+    defaults = data["charmap"]["balanced_defaults"]
+
+    assert defaults["卤"] == "滷"
+    assert defaults["坛"] == "壇"
+    assert defaults["弥"] == "彌"
+    assert defaults["摆"] == "擺"
+    assert defaults["纤"] == "纖"
+
+    assert charmap["帘"] == "簾"
+    assert charmap["凫"] == "鳧"
+    assert charmap["坝"] == "壩"
+    assert "帘" not in ambiguous
+    assert "凫" not in ambiguous
+    assert "坝" not in ambiguous
 
 
 def test_golden_test_schema():
