@@ -24,7 +24,7 @@
 make bump VERSION=X.Y.Z
 ```
 
-會自動更新這 7 個地方（mono-versioning）：
+會自動更新這 8 個地方（mono-versioning）：
 
 | # | 檔案 | 內容 |
 |---|------|------|
@@ -35,6 +35,7 @@ make bump VERSION=X.Y.Z
 | 5 | `sdk/rust/Cargo.toml` | `version = "X.Y.Z"` |
 | 6 | `sdk/dotnet/Zhtw.csproj` | `<Version>X.Y.Z</Version>` |
 | 7 | `sdk/data/zhtw-data.json` + `golden-test.json` | `zhtw export` 重新產生 |
+| 8 | `sdk/rust/zhtw-wasm/package.json` | `"version": "X.Y.Z"` |
 
 若因特殊原因需手動改：改完**務必**跑 `make version-check`，任一檔案不一致就會 exit 1。
 

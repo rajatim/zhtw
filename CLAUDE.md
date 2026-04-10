@@ -15,7 +15,7 @@
 
 ### 規則 6 展開：升版 mono-versioning
 
-**任何版本變動都必須同時更新這 7 個地方，一個都不能漏：**
+**任何版本變動都必須同時更新這 8 個地方，一個都不能漏：**
 
 | # | 檔案 | 內容 |
 |---|------|------|
@@ -26,6 +26,7 @@
 | 5 | `sdk/rust/Cargo.toml` | `version = "X.Y.Z"` |
 | 6 | `sdk/dotnet/Zhtw.csproj` | `<Version>X.Y.Z</Version>` |
 | 7 | `sdk/data/zhtw-data.json` + `golden-test.json` | 透過 `zhtw export` 重新產生 |
+| 8 | `sdk/rust/zhtw-wasm/package.json` | `"version": "X.Y.Z"` |
 
 **絕對禁止：**
 - ❌ 只升 Python 不升 Java — 會讓 `sdk-java.yml` 的 `mvn deploy` 失敗（Maven Central artifact 不可變）
