@@ -64,9 +64,12 @@ jobs:
     needs: test
     if: github.event_name == 'release' && github.event.action == 'published'
     runs-on: ubuntu-latest
+    # Trusted Publishing (OIDC) — no NPM_TOKEN required.
+    # Configured at: https://www.npmjs.com/package/zhtw-js/access
+    # Trusted publisher: rajatim/zhtw → .github/workflows/sdk-typescript.yml
     permissions:
       contents: read
-      id-token: write
+      id-token: write  # Required: GitHub OIDC token for npm Trusted Publishing
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -74,7 +77,7 @@ jobs:
           version: 9
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: pnpm
           cache-dependency-path: sdk/typescript/pnpm-lock.yaml
           registry-url: 'https://registry.npmjs.org'
@@ -84,8 +87,8 @@ jobs:
       - name: Build
         working-directory: sdk/typescript
         run: pnpm build
-      - name: Publish to npm
+      - name: Upgrade npm to >= 11.5.1 (required for Trusted Publishing OIDC)
+        run: npm install -g npm@latest
+      - name: Publish to npm (Trusted Publishing OIDC, no token)
         working-directory: sdk/typescript
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm publish --provenance --access public --no-git-checks
+        run: npm publish --access public --provenance
