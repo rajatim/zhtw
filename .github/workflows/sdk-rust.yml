@@ -2,18 +2,194 @@ name: SDK Rust
 
 on:
   push:
-    paths: ['sdk/rust/**', 'sdk/data/**']
+    paths: ['sdk/rust/**', 'sdk/data/**', '.github/workflows/sdk-rust.yml']
   pull_request:
-    paths: ['sdk/rust/**', 'sdk/data/**']
+    paths: ['sdk/rust/**', 'sdk/data/**', '.github/workflows/sdk-rust.yml']
   release:
     types: [published]
 
 jobs:
   test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        rust: [stable, "1.80"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ matrix.rust }}
+          components: clippy, rustfmt
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: sdk/rust
+      - run: cargo build -p zhtw --release
+        working-directory: sdk/rust
+      - run: cargo test -p zhtw --release
+        working-directory: sdk/rust
+      - run: cargo clippy -p zhtw -- -D warnings
+        if: matrix.rust == 'stable'
+        working-directory: sdk/rust
+      - run: cargo fmt -p zhtw --check
+        if: matrix.rust == 'stable'
+        working-directory: sdk/rust
+
+  wasm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - name: Build
-        working-directory: sdk/rust
-        run: echo "TODO — SDK not yet implemented"
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: sdk/rust
+      - name: Install wasm-pack
+        run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+      - name: Build zhtw-wasm
+        working-directory: sdk/rust/zhtw-wasm
+        run: wasm-pack build --target bundler --release
+      - name: Sync version from checked-in package.json
+        working-directory: sdk/rust/zhtw-wasm
+        run: |
+          version=$(jq -r .version package.json)
+          jq ".version = \"$version\"" pkg/package.json > pkg/package.json.tmp
+          mv pkg/package.json.tmp pkg/package.json
+      - name: Binary size gate
+        working-directory: sdk/rust/zhtw-wasm/pkg
+        run: |
+          size=$(wc -c < zhtw_wasm_bg.wasm)
+          echo "WASM size: $size bytes (~$((size / 1024))KB)"
+          # Budget: 4MB. Bulk of the binary is the embedded dictionary
+          # (daachorse automaton + pattern table + phf char map).
+          if [ "$size" -gt 4194304 ]; then
+            echo "::error::WASM binary exceeds 4 MB budget"
+            exit 1
+          fi
+      - name: Upload zhtw-wasm pkg
+        uses: actions/upload-artifact@v4
+        with:
+          name: zhtw-wasm-pkg
+          path: sdk/rust/zhtw-wasm/pkg/
+          retention-days: 1
+
+  typescript-compat:
+    needs: wasm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build zhtw-js tarball
+        run: |
+          mkdir -p /tmp/pkgs
+          cd sdk/typescript
+          pnpm install --frozen-lockfile
+          pnpm run build
+          pnpm pack --pack-destination /tmp/pkgs/
+      - name: Download zhtw-wasm pkg
+        uses: actions/download-artifact@v4
+        with:
+          name: zhtw-wasm-pkg
+          path: /tmp/zhtw-wasm-pkg
+      - name: Pack zhtw-wasm into tarball
+        run: |
+          cd /tmp/zhtw-wasm-pkg
+          npm pack --pack-destination /tmp/pkgs/
+      - name: Assemble temp project
+        run: |
+          mkdir -p /tmp/compat && cd /tmp/compat
+          npm init -y >/dev/null
+          npm install --save-dev typescript@5
+          npm install /tmp/pkgs/zhtw-js-*.tgz /tmp/pkgs/zhtw-wasm-*.tgz
+          cat > tsconfig.json <<'TSEOF'
+          {
+            "compilerOptions": {
+              "strict": true,
+              "target": "es2022",
+              "module": "esnext",
+              "moduleResolution": "bundler",
+              "esModuleInterop": true,
+              "noEmit": true,
+              "skipLibCheck": false
+            },
+            "include": ["compat.ts"]
+          }
+          TSEOF
+      - name: Cross-assignability test
+        run: |
+          cat > /tmp/compat/compat.ts <<'TSEOF'
+          import * as js from 'zhtw-js';
+          import * as wasm from 'zhtw-wasm';
+
+          const a1: typeof js.convert = wasm.convert;
+          const a2: typeof wasm.convert = js.convert;
+          const b1: typeof js.check = wasm.check;
+          const b2: typeof wasm.check = js.check;
+          const c1: typeof js.lookup = wasm.lookup;
+          const c2: typeof wasm.lookup = js.lookup;
+          const d1: typeof js.createConverter = wasm.createConverter;
+          const d2: typeof wasm.createConverter = js.createConverter;
+
+          const jsConv = js.createConverter();
+          const wasmConv = wasm.createConverter();
+          const e1: typeof jsConv = wasmConv;
+          const e2: typeof wasmConv = jsConv;
+          TSEOF
+          cd /tmp/compat && npx tsc -p tsconfig.json
+
+  publish-crates-io:
+    needs: [test, wasm, typescript-compat]
+    if: github.event_name == 'release' && github.event.action == 'published'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: rust-lang/crates-io-auth-action@v1
+        id: auth
+      - name: Publish zhtw to crates.io
+        working-directory: sdk/rust/zhtw
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
+        run: cargo publish
+
+  publish-npm:
+    needs: [test, wasm, typescript-compat]
+    if: github.event_name == 'release' && github.event.action == 'published'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+      - run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+      - name: Build zhtw-wasm
+        working-directory: sdk/rust/zhtw-wasm
+        run: wasm-pack build --target bundler --release
+      - name: Sync package.json version
+        working-directory: sdk/rust/zhtw-wasm
+        run: |
+          version=$(jq -r .version package.json)
+          jq ".version = \"$version\"" pkg/package.json > pkg/package.json.tmp
+          mv pkg/package.json.tmp pkg/package.json
+      - name: Upgrade npm for Trusted Publishing
+        run: npm install -g npm@latest
+      - name: Publish zhtw-wasm to npm
+        working-directory: sdk/rust/zhtw-wasm/pkg
+        run: npm publish --access public --provenance

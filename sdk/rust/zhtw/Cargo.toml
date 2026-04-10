@@ -1,0 +1,42 @@
+[package]
+name = "zhtw"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Traditional Chinese converter for Taiwan — Rust SDK"
+
+include = [
+    "src/**/*.rs",
+    "build.rs",
+    "data/zhtw-data.json",
+    "Cargo.toml",
+    "README.md",
+    "LICENSE",
+]
+
+[dependencies]
+daachorse = { workspace = true }
+phf = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+
+[build-dependencies]
+daachorse = { workspace = true }
+phf_codegen = "0.11"
+serde = { workspace = true }
+serde_json = { workspace = true }
+blake3 = "=1.5.5"
+
+[dev-dependencies]
+serde_json = { workspace = true }
+criterion = { workspace = true }
+
+[[bench]]
+name = "convert"
+harness = false
+
+[[bench]]
+name = "check"
+harness = false
