@@ -159,14 +159,44 @@ impl Converter {
         }
 
         let inner = &self.inner;
-        let hits = matcher::find_term_matches(&inner.automaton, &inner.pattern_table, text);
-        let after_terms = matcher::apply_term_replacements(text, &hits);
 
-        if inner.char_layer_enabled {
-            matcher::apply_charmap(&after_terms, &CHAR_MAP)
-        } else {
-            after_terms
+        // Covered byte positions from ALL automaton hits (including identity terms).
+        // Must be computed on original text before any replacements.
+        let covered = matcher::get_covered_positions(&inner.automaton, text);
+        let hits = matcher::find_term_matches(&inner.automaton, &inner.pattern_table, text);
+
+        if hits.is_empty() {
+            return if inner.char_layer_enabled {
+                matcher::apply_charmap_skipping(text, &CHAR_MAP, &covered, 0)
+            } else {
+                text.to_string()
+            };
         }
+
+        // Gap mode: term targets inserted verbatim; gaps get char-layer on uncovered only.
+        let mut result = String::new();
+        let mut last_end: usize = 0;
+        for h in &hits {
+            let gap = &text[last_end..h.byte_start];
+            if inner.char_layer_enabled {
+                result.push_str(&matcher::apply_charmap_skipping(
+                    gap, &CHAR_MAP, &covered, last_end,
+                ));
+            } else {
+                result.push_str(gap);
+            }
+            result.push_str(&h.target);
+            last_end = h.byte_end;
+        }
+        let tail = &text[last_end..];
+        if inner.char_layer_enabled {
+            result.push_str(&matcher::apply_charmap_skipping(
+                tail, &CHAR_MAP, &covered, last_end,
+            ));
+        } else {
+            result.push_str(tail);
+        }
+        result
     }
 
     /// Check text for simplified Chinese terms/characters, returning match info.
@@ -177,6 +207,9 @@ impl Converter {
 
         let inner = &self.inner;
         let byte_to_cp = matcher::build_byte_to_cp(text);
+
+        // Covered byte positions from ALL automaton hits (including identity terms)
+        let covered_bytes = matcher::get_covered_positions(&inner.automaton, text);
 
         // Term layer matches.
         let hits = matcher::find_term_matches(&inner.automaton, &inner.pattern_table, text);
@@ -190,14 +223,17 @@ impl Converter {
             })
             .collect();
 
-        // Char layer matches (if enabled).
+        // Char layer matches (if enabled): skip covered byte positions.
         if inner.char_layer_enabled {
-            for (cp_idx, ch) in text.chars().enumerate() {
+            for (byte_idx, ch) in text.char_indices() {
+                if covered_bytes.contains(&byte_idx) {
+                    continue;
+                }
                 if let Some(&mapped) = CHAR_MAP.get(&ch) {
                     if mapped != ch {
                         matches.push(Match {
-                            start: cp_idx,
-                            end: cp_idx + 1,
+                            start: byte_to_cp[byte_idx],
+                            end: byte_to_cp[byte_idx] + 1,
                             source: ch.to_string(),
                             target: mapped.to_string(),
                         });
@@ -224,26 +260,16 @@ impl Converter {
         let byte_to_cp = matcher::build_byte_to_cp(word);
         let hits = matcher::find_term_matches(&inner.automaton, &inner.pattern_table, word);
 
-        // Track which bytes are covered by term hits.
-        let mut covered_bytes: HashSet<usize> = HashSet::new();
-        for h in &hits {
-            for b in h.byte_start..h.byte_end {
-                covered_bytes.insert(b);
-            }
-        }
+        // Covered byte positions from ALL automaton hits (including identity terms)
+        let covered_bytes = matcher::get_covered_positions(&inner.automaton, word);
 
         let mut details: Vec<ConversionDetail> = Vec::new();
 
-        // Term details — apply charmap post-pass on target if char_layer_enabled.
+        // Term details.
         for h in &hits {
-            let target = if inner.char_layer_enabled {
-                matcher::apply_charmap(&h.target, &CHAR_MAP)
-            } else {
-                h.target.clone()
-            };
             details.push(ConversionDetail {
                 source: h.source.clone(),
-                target,
+                target: h.target.clone(),
                 layer: Layer::Term,
                 position: byte_to_cp[h.byte_start],
             });

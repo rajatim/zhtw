@@ -1,6 +1,6 @@
 //! Core matching engine: daachorse wrapper, identity protection, byte↔codepoint mapping.
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeSet, HashSet};
 
 use daachorse::CharwiseDoubleArrayAhoCorasick;
 
@@ -233,6 +233,22 @@ pub(crate) fn find_term_matches(
     result
 }
 
+/// Return all byte positions covered by any raw automaton hit, including
+/// identity terms (source == target). Used to prevent the char layer from
+/// converting characters protected by identity term matches.
+pub(crate) fn get_covered_positions(
+    pma: &CharwiseDoubleArrayAhoCorasick<u32>,
+    text: &str,
+) -> HashSet<usize> {
+    let mut covered = HashSet::new();
+    for m in pma.find_overlapping_iter(text) {
+        for b in m.start()..m.end() {
+            covered.insert(b);
+        }
+    }
+    covered
+}
+
 /// Check whether the identity span `[start, end)` is fully contained within
 /// some non-identity span, using binary search + prefix_max_end.
 fn is_contained_in_non_identity(
@@ -283,6 +299,26 @@ pub(crate) fn apply_charmap(text: &str, char_map: &phf::Map<char, char>) -> Stri
     text.chars()
         .map(|c| char_map.get(&c).copied().unwrap_or(c))
         .collect()
+}
+
+/// Apply charmap to a text segment, skipping byte positions that are in the
+/// covered set. `offset` is the byte offset of this segment within the
+/// original text.
+pub(crate) fn apply_charmap_skipping(
+    segment: &str,
+    char_map: &phf::Map<char, char>,
+    covered: &HashSet<usize>,
+    offset: usize,
+) -> String {
+    let mut result = String::with_capacity(segment.len());
+    for (byte_idx, ch) in segment.char_indices() {
+        if covered.contains(&(offset + byte_idx)) {
+            result.push(ch);
+        } else {
+            result.push(char_map.get(&ch).copied().unwrap_or(ch));
+        }
+    }
+    result
 }
 
 // ── Tests ───────────────────────────────────────────────────────────────────
