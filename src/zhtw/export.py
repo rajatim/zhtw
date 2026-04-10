@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from . import __version__
-from .charconv import get_ambiguous_chars, get_translate_table, load_charmap
+from .charconv import get_ambiguous_chars, get_balanced_defaults, get_translate_table, load_charmap
 from .converter import convert_text
 from .dictionary import DATA_DIR, load_dictionary, load_directory
 from .lookup import lookup_word
@@ -47,6 +47,7 @@ def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
         "charmap": {
             "chars": charmap,
             "ambiguous": sorted(ambiguous),
+            "balanced_defaults": get_balanced_defaults(),
         },
         "terms": terms,
     }
