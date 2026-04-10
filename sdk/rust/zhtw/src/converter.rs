@@ -1,4 +1,3 @@
-use std::collections::HashSet;
 use std::sync::{Arc, LazyLock};
 
 use daachorse::CharwiseDoubleArrayAhoCorasick;
@@ -174,7 +173,7 @@ impl Converter {
         }
 
         // Gap mode: term targets inserted verbatim; gaps get char-layer on uncovered only.
-        let mut result = String::new();
+        let mut result = String::with_capacity(text.len());
         let mut last_end: usize = 0;
         for h in &hits {
             let gap = &text[last_end..h.byte_start];

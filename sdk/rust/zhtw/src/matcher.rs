@@ -269,37 +269,7 @@ fn is_contained_in_non_identity(
     prefix_max_end[idx] >= end
 }
 
-// ── Apply replacements ──────────────────────────────────────────────────────
-
-/// Apply term hits to produce converted text.
-///
-/// Assumes `hits` are sorted by `byte_start` and non-overlapping.
-pub(crate) fn apply_term_replacements(text: &str, hits: &[TermHit]) -> String {
-    let bytes = text.as_bytes();
-    let mut result = String::with_capacity(text.len());
-    let mut pos = 0;
-
-    for hit in hits {
-        if hit.byte_start > pos {
-            result.push_str(&text[pos..hit.byte_start]);
-        }
-        result.push_str(&hit.target);
-        pos = hit.byte_end;
-    }
-
-    if pos < bytes.len() {
-        result.push_str(&text[pos..]);
-    }
-
-    result
-}
-
-/// Apply a phf char map to text (character-level conversion).
-pub(crate) fn apply_charmap(text: &str, char_map: &phf::Map<char, char>) -> String {
-    text.chars()
-        .map(|c| char_map.get(&c).copied().unwrap_or(c))
-        .collect()
-}
+// ── Charmap application ────────────────────────────────────────────────────
 
 /// Apply charmap to a text segment, skipping byte positions that are in the
 /// covered set. `offset` is the byte offset of this segment within the
