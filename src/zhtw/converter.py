@@ -375,21 +375,17 @@ def convert_text(
     # Filter out matches on ignored lines
     matches = [(m, line, col) for m, line, col in all_matches if line not in ignored_lines]
 
-    if fix and matches:
-        # Only replace non-ignored matches
-        # We need to do this carefully to preserve ignored content
-        text = _replace_with_ignores(text, matcher, ignored_lines, char_table, ambiguity_mode)
-    elif fix and not matches and char_table:
-        # No term-level matches but still apply char-level conversion
-        text = _replace_with_ignores(text, matcher, ignored_lines, char_table, ambiguity_mode)
-    elif fix and ambiguity_mode == "balanced":
-        # No term-level matches and no char_table, but balanced mode still applies
+    if fix and (matches or char_table or ambiguity_mode == "balanced"):
         text = _replace_with_ignores(text, matcher, ignored_lines, char_table, ambiguity_mode)
 
-    # In check mode, also detect char-level conversions
-    if not fix and char_table:
-        char_matches = _find_char_matches(text, char_table, ignored_lines)
-        matches = matches + char_matches
+    # In check mode, also detect char-level and balanced-level conversions
+    if not fix:
+        if char_table:
+            char_matches = _find_char_matches(text, char_table, ignored_lines)
+            matches = matches + char_matches
+        if ambiguity_mode == "balanced":
+            balanced_matches = _find_balanced_matches(text, matcher, ignored_lines)
+            matches = matches + balanced_matches
 
     return text, matches
 
@@ -527,6 +523,38 @@ def _find_char_matches(
     return results
 
 
+def _find_balanced_matches(
+    text: str,
+    matcher: Matcher,
+    ignored_lines: Set[int],
+) -> List[tuple[Match, int, int]]:
+    """Find chars that would be converted by balanced defaults (for check mode)."""
+    from .charconv import get_balanced_defaults
+
+    defaults = get_balanced_defaults()
+    if not defaults:
+        return []
+
+    _, covered = _apply_term_layer(text, matcher)
+    results: List[tuple[Match, int, int]] = []
+    lines = text.split("\n")
+    pos = 0
+    for i, line in enumerate(lines):
+        line_num = i + 1
+        if line_num not in ignored_lines:
+            for col_idx, ch in enumerate(line):
+                if ch in defaults and (pos + col_idx) not in covered:
+                    m = Match(
+                        start=pos + col_idx,
+                        end=pos + col_idx + 1,
+                        source=ch,
+                        target=defaults[ch],
+                    )
+                    results.append((m, line_num, col_idx + 1))
+        pos += len(line) + 1
+    return results
+
+
 def _replace_with_ignores(
     text: str,
     matcher: Matcher,
@@ -535,11 +563,13 @@ def _replace_with_ignores(
     ambiguity_mode: str = "strict",
 ) -> str:
     """Replace matches while respecting ignored lines."""
+    is_balanced = ambiguity_mode == "balanced"
+    if is_balanced:
+        from .charconv import apply_balanced_defaults
+
     if not ignored_lines:
         result, covered = _apply_term_layer(text, matcher)
-        if ambiguity_mode == "balanced":
-            from .charconv import apply_balanced_defaults
-
+        if is_balanced:
             result = apply_balanced_defaults(result, covered)
         if char_table:
             result = result.translate(char_table)
@@ -559,7 +589,7 @@ def _replace_with_ignores(
 
     # Build full-text covered positions from the full-text term layer so that
     # line-level balanced application uses correct positions.
-    if ambiguity_mode == "balanced":
+    if is_balanced:
         _, full_covered = _apply_term_layer(text, matcher)
     else:
         full_covered = set()
@@ -572,9 +602,7 @@ def _replace_with_ignores(
         else:
             # Replace matches in this line, then apply balanced/char-level conversion
             converted = matcher.replace_all(line)
-            if ambiguity_mode == "balanced":
-                from .charconv import apply_balanced_defaults
-
+            if is_balanced:
                 line_start = line_offsets[i]
                 line_end = line_start + len(line)
                 line_covered = {p - line_start for p in full_covered if line_start <= p < line_end}

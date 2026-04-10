@@ -342,3 +342,31 @@ class TestStrictUnchanged:
         for char, expected in expectations.items():
             result = convert(char, ambiguity_mode="balanced")
             assert result == expected, f"balanced: {char!r} → {result!r}, expected {expected!r}"
+
+
+class TestCheckModeBalanced:
+    """check mode（fix=False）在 balanced mode 下偵測歧義字。"""
+
+    def test_check_balanced_reports_ambiguous_chars(self, matcher, char_table):
+        """check --ambiguity-mode balanced 應報告可轉換的歧義字。"""
+        _text, matches = convert_text(
+            "桌上只有几张纸",
+            matcher,
+            fix=False,
+            char_table=char_table,
+            ambiguity_mode="balanced",
+        )
+        sources = [m.source for m, _line, _col in matches]
+        assert "几" in sources
+
+    def test_check_strict_does_not_report_bare_ambiguous(self, matcher, char_table):
+        """check --ambiguity-mode strict 不報告獨立歧義字。"""
+        _text, matches = convert_text(
+            "桌上只有几张纸",
+            matcher,
+            fix=False,
+            char_table=char_table,
+            ambiguity_mode="strict",
+        )
+        sources = [m.source for m, _line, _col in matches]
+        assert "几" not in sources
