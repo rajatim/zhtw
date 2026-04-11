@@ -1,0 +1,71 @@
+name: Go Binary Release
+
+on:
+  push:
+    tags: ['sdk/go/v*']
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - {goos: darwin, goarch: amd64}
+          - {goos: darwin, goarch: arm64}
+          - {goos: linux, goarch: amd64}
+          - {goos: linux, goarch: arm64}
+          - {goos: windows, goarch: amd64}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - name: Extract version
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#sdk/go/v}" >> "$GITHUB_OUTPUT"
+      - name: Build
+        working-directory: sdk/go
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+          CGO_ENABLED: '0'
+        run: |
+          ext="" && [[ "$GOOS" == "windows" ]] && ext=".exe"
+          go build -ldflags "-X main.version=${{ steps.version.outputs.version }}" \
+            -o "zhtw-${GOOS}-${GOARCH}${ext}" ./cmd/zhtw
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zhtw-${{ matrix.goos }}-${{ matrix.goarch }}
+          path: sdk/go/zhtw-*
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+      - name: Archive and checksum
+        run: |
+          for f in zhtw-*; do
+            if [[ "$f" == *windows* ]]; then
+              zip "${f%.exe}.zip" "$f"
+            else
+              chmod +x "$f"
+              tar czf "${f}.tar.gz" "$f"
+            fi
+          done
+          shasum -a 256 *.tar.gz *.zip > zhtw_checksums.txt
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            --repo "${{ github.repository }}" \
+            --title "Go CLI ${GITHUB_REF_NAME#sdk/go/}" \
+            --generate-notes \
+            *.tar.gz *.zip zhtw_checksums.txt
