@@ -88,6 +88,36 @@ func TestFindTermMatchesIdentityProtection(t *testing.T) {
 	}
 }
 
+func TestConverterConvertBasic(t *testing.T) {
+	conv := mustBuildTestConverter([]Source{SourceCn, SourceHk}, nil, AmbiguityStrict)
+
+	tests := []struct {
+		input    string
+		expected string
+	}{
+		{"", ""},
+		{"\u8f6f\u4ef6\u6d4b\u8bd5", "\u8edf\u9ad4\u6e2c\u8a66"},                       // 软件测试 → 軟體測試
+		{"\u5df2\u7d93\u662f\u7e41\u9ad4", "\u5df2\u7d93\u662f\u7e41\u9ad4"},             // 已經是繁體 (unchanged)
+		{"hello", "hello"},                                                                 // ASCII pass-through
+		{"\u6570\u636e\u5e93\u670d\u52a1\u5668", "\u8cc7\u6599\u5eab\u4f3a\u670d\u5668"}, // 数据库服务器 → 資料庫伺服器
+	}
+	for _, tt := range tests {
+		got := conv.Convert(tt.input)
+		if got != tt.expected {
+			t.Errorf("Convert(%q) = %q, want %q", tt.input, got, tt.expected)
+		}
+	}
+}
+
+func mustBuildTestConverter(sources []Source, customDict map[string]string, mode AmbiguityMode) *Converter {
+	data := getParsedData()
+	conv, err := buildConverter(data, sources, customDict, mode)
+	if err != nil {
+		panic(err)
+	}
+	return conv
+}
+
 func TestDataLoading(t *testing.T) {
 	data := getParsedData()
 	if data == nil {
