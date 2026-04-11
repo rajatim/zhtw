@@ -4,6 +4,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 )
@@ -15,7 +16,11 @@ func TestMain(m *testing.M) {
 	if err != nil {
 		panic(err)
 	}
-	binaryPath = filepath.Join(tmp, "zhtw")
+	exe := "zhtw"
+	if runtime.GOOS == "windows" {
+		exe = "zhtw.exe"
+	}
+	binaryPath = filepath.Join(tmp, exe)
 	cmd := exec.Command("go", "build", "-o", binaryPath, ".")
 	cmd.Dir = "."
 	if out, err := cmd.CombinedOutput(); err != nil {
