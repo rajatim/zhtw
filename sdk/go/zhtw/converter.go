@@ -137,6 +137,140 @@ func (c *Converter) Convert(text string) string {
 	return buf.String()
 }
 
+// Check scans text for simplified Chinese terms/characters and returns match info.
+// Output order: term matches first, then balanced defaults, then charmap.
+// This order is NOT sorted by position — it matches all other SDKs.
+func (c *Converter) Check(text string) []Match {
+	if text == "" {
+		return nil
+	}
+	runes := []rune(text)
+
+	covered := c.ac.getCoveredPositions(runes)
+	hits := c.ac.findTermMatches(runes)
+
+	var matches []Match
+
+	// 1. Term layer.
+	for _, h := range hits {
+		matches = append(matches, Match{
+			Start:  h.start,
+			End:    h.end,
+			Source: h.source,
+			Target: h.target,
+		})
+	}
+
+	// 2. Balanced defaults layer (if enabled).
+	if c.balancedDefaults != nil {
+		for i, r := range runes {
+			if covered[i] {
+				continue
+			}
+			if mapped, ok := c.balancedDefaults[r]; ok {
+				matches = append(matches, Match{
+					Start:  i,
+					End:    i + 1,
+					Source: string(r),
+					Target: string(mapped),
+				})
+			}
+		}
+	}
+
+	// 3. Char layer (if enabled).
+	if c.charLayerEnabled {
+		for i, r := range runes {
+			if covered[i] {
+				continue
+			}
+			if mapped, ok := c.charMap[r]; ok && mapped != r {
+				matches = append(matches, Match{
+					Start:  i,
+					End:    i + 1,
+					Source: string(r),
+					Target: string(mapped),
+				})
+			}
+		}
+	}
+
+	return matches
+}
+
+// Lookup returns detailed conversion information for a word or phrase.
+// Details are sorted by position (ascending).
+func (c *Converter) Lookup(word string) LookupResult {
+	if word == "" {
+		return LookupResult{Input: "", Output: "", Changed: false}
+	}
+	runes := []rune(word)
+
+	covered := c.ac.getCoveredPositions(runes)
+	hits := c.ac.findTermMatches(runes)
+
+	var details []ConversionDetail
+
+	// 1. Term layer.
+	for _, h := range hits {
+		details = append(details, ConversionDetail{
+			Source:   h.source,
+			Target:   h.target,
+			Layer:    "term",
+			Position: h.start,
+		})
+	}
+
+	// 2. Balanced defaults layer (if enabled).
+	if c.balancedDefaults != nil {
+		for i, r := range runes {
+			if covered[i] {
+				continue
+			}
+			if mapped, ok := c.balancedDefaults[r]; ok {
+				details = append(details, ConversionDetail{
+					Source:   string(r),
+					Target:   string(mapped),
+					Layer:    "char",
+					Position: i,
+				})
+			}
+		}
+	}
+
+	// 3. Char layer (if enabled).
+	if c.charLayerEnabled {
+		for i, r := range runes {
+			if covered[i] {
+				continue
+			}
+			if mapped, ok := c.charMap[r]; ok && mapped != r {
+				details = append(details, ConversionDetail{
+					Source:   string(r),
+					Target:   string(mapped),
+					Layer:    "char",
+					Position: i,
+				})
+			}
+		}
+	}
+
+	// Sort by position.
+	sort.Slice(details, func(i, j int) bool {
+		return details[i].Position < details[j].Position
+	})
+
+	output := c.Convert(word)
+	changed := output != word
+
+	return LookupResult{
+		Input:   word,
+		Output:  output,
+		Changed: changed,
+		Details: details,
+	}
+}
+
 // applyLayersSkipping applies balanced defaults then charmap to each rune
 // in the segment, skipping positions that are covered by AC term hits.
 // offset is the rune index of this segment's start in the original text.

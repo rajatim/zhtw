@@ -118,6 +118,60 @@ func mustBuildTestConverter(sources []Source, customDict map[string]string, mode
 	return conv
 }
 
+func TestConverterCheck(t *testing.T) {
+	conv := mustBuildTestConverter([]Source{SourceCn}, nil, AmbiguityStrict)
+	matches := conv.Check("\u8f6f\u4ef6\u6d4b\u8bd5") // 软件测试
+
+	if len(matches) != 2 {
+		t.Fatalf("expected 2 matches, got %d: %+v", len(matches), matches)
+	}
+	// 软件→軟體 at [0,2)
+	if matches[0].Start != 0 || matches[0].End != 2 || matches[0].Source != "\u8f6f\u4ef6" {
+		t.Errorf("match[0] = %+v", matches[0])
+	}
+	// 测试→測試 at [2,4)
+	if matches[1].Start != 2 || matches[1].End != 4 || matches[1].Source != "\u6d4b\u8bd5" {
+		t.Errorf("match[1] = %+v", matches[1])
+	}
+}
+
+func TestConverterCheckEmpty(t *testing.T) {
+	conv := mustBuildTestConverter([]Source{SourceCn}, nil, AmbiguityStrict)
+	matches := conv.Check("")
+
+	if len(matches) != 0 {
+		t.Errorf("expected 0 matches for empty string, got %d", len(matches))
+	}
+}
+
+func TestConverterLookup(t *testing.T) {
+	conv := mustBuildTestConverter([]Source{SourceCn}, nil, AmbiguityStrict)
+	result := conv.Lookup("\u8f6f\u4ef6") // 软件
+
+	if result.Input != "\u8f6f\u4ef6" || result.Output != "\u8edf\u9ad4" || !result.Changed {
+		t.Errorf("Lookup = %+v", result)
+	}
+	if len(result.Details) != 1 {
+		t.Fatalf("expected 1 detail, got %d", len(result.Details))
+	}
+	d := result.Details[0]
+	if d.Layer != "term" || d.Position != 0 || d.Source != "\u8f6f\u4ef6" || d.Target != "\u8edf\u9ad4" {
+		t.Errorf("detail = %+v", d)
+	}
+}
+
+func TestConverterLookupUnchanged(t *testing.T) {
+	conv := mustBuildTestConverter([]Source{SourceCn}, nil, AmbiguityStrict)
+	result := conv.Lookup("\u53f0") // 台 — ambiguous, no conversion in strict mode
+
+	if result.Changed {
+		t.Errorf("expected unchanged, got output=%q", result.Output)
+	}
+	if len(result.Details) != 0 {
+		t.Errorf("expected 0 details, got %d", len(result.Details))
+	}
+}
+
 func TestDataLoading(t *testing.T) {
 	data := getParsedData()
 	if data == nil {
