@@ -1,3 +1,4 @@
+<!-- zhtw:disable -->
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -11,8 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Balanced Mode（歧義字語義消歧 v1）**：全新 `ambiguityMode: "balanced"` 選項，10 個高頻歧義字自動套用預設繁體 + protect_terms 例外保護
-  - 10 個已處理歧義字：几→幾、丰→豐、杰→傑、卤→滷、坛→壇、弥→彌、摆→擺、纤→纖、後→後、裡→裡
-  - 17 個 protect_terms：皇后/太后/後妃/後土/影後/歌後/後冠、公里/英里/海里/萬裡長城/千里 等
+  - 10 個已處理歧義字：几→幾、丰→豐、杰→傑、卤→滷、坛→壇、弥→彌、摆→擺、纤→纖、后→後、里→裡
+  - 17 個 protect_terms：皇后/太后/后妃/后土/影后/歌后/后冠、公里/英里/海里/萬里長城/千里 等
   - 三層轉換架構：詞彙層（Aho-Corasick）→ balanced defaults 層 → 字元層（charmap）
   - CLI：`zhtw fix --ambiguity-mode balanced`、`zhtw check --ambiguity-mode balanced`、`zhtw lookup --ambiguity-mode balanced`
   - Balanced mode 為 CN→TW 專屬，HK-only 路徑自動降級為 strict（6 處 CN gate）
@@ -29,8 +30,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **SDK 全面對齊**：Python / Java / TypeScript / Rust 四語言 convert/check/lookup 行為完全一致
   - Covered positions（identity term 保護）跨 SDK 統一
   - Identity golden cases：尸位素餐、人云亦云、急症、炎症、党太尉吃匾食
-  - 伙頭→伙頭 regression gate（term target 不被 charmap 二次轉換）
-  - 影後 protect-term balanced lookup golden case
+  - 伙头→伙頭 regression gate（term target 不被 charmap 二次轉換）
+  - 影后 protect-term balanced lookup golden case
 
 ### Fixed
 - **pre-commit hook 汙染修復**：`generate_charmap.py` 被 zhtw hook 靜默轉換簡體 key → 繁體，導致 7 個歧義字（後/鹹/醜/捨/劃/闢/公克）洩漏至 safe_chars.json；已修復並加 `# zhtw:disable` header
