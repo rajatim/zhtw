@@ -21,6 +21,8 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go }}
+      - name: Verify embedded data in sync
+        run: diff sdk/data/zhtw-data.json sdk/go/zhtw/zhtw-data.json
       - name: Test
         working-directory: sdk/go
         run: go test ./... -v -race

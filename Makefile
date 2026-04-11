@@ -112,7 +112,8 @@ endif
 	git add -A
 	git commit -m "chore: release v$(VERSION)"
 	git tag -a "v$(VERSION)" -m "v$(VERSION)"
-	git push && git push origin "v$(VERSION)"
+	git tag -a "sdk/go/v$(VERSION)" -m "sdk/go v$(VERSION)"
+	git push && git push origin "v$(VERSION)" "sdk/go/v$(VERSION)"
 	gh release create "v$(VERSION)" --title "v$(VERSION)" --generate-notes
 	@echo "✅ Released v$(VERSION)"
 

@@ -142,7 +142,7 @@ func (c *Converter) Convert(text string) string {
 // This order is NOT sorted by position — it matches all other SDKs.
 func (c *Converter) Check(text string) []Match {
 	if text == "" {
-		return nil
+		return []Match{}
 	}
 	runes := []rune(text)
 
@@ -202,7 +202,7 @@ func (c *Converter) Check(text string) []Match {
 // Details are sorted by position (ascending).
 func (c *Converter) Lookup(word string) LookupResult {
 	if word == "" {
-		return LookupResult{Input: "", Output: "", Changed: false}
+		return LookupResult{Input: "", Output: "", Changed: false, Details: []ConversionDetail{}}
 	}
 	runes := []rune(word)
 
