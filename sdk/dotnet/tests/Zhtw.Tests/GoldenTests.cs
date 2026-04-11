@@ -15,7 +15,7 @@ namespace Zhtw.Tests
         {
             // Navigate from bin output to sdk/data/golden-test.json
             string dir = AppDomain.CurrentDomain.BaseDirectory;
-            string path = Path.GetFullPath(Path.Combine(dir, "..", "..", "..", "..", "..", "data", "golden-test.json"));
+            string path = Path.GetFullPath(Path.Combine(dir, "..", "..", "..", "..", "..", "..", "data", "golden-test.json"));
             string json = File.ReadAllText(path);
             _golden = JsonDocument.Parse(json);
         }
