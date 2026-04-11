@@ -13,9 +13,9 @@
 
 ## Architecture summary
 
-1. **Monorepo 內的 Go module**：`github.com/rajatim/zhtw/sdk/go`，主 package 在 `sdk/go/zhtw/`。
+1. **Monorepo 內的 Go module**：`github.com/rajatim/zhtw/sdk/go/v4`，主 package 在 `sdk/go/zhtw/`。Go 的 semantic import versioning 要求 major >= 2 的 module path 帶 `/vN` 後綴。
 2. **自己實作 Aho-Corasick**（trie + failure links + leftmost-longest match）— 零外部依賴，參考 TypeScript SDK 的自實作模式。
-3. **`//go:embed` 嵌入字典**：build 時從 `sdk/data/zhtw-data.json` 複製到 `sdk/go/data/zhtw-data.json`（gitignore），再用 `go:embed` 編譯進 binary。
+3. **`//go:embed` 嵌入字典**：`sdk/go/data/zhtw-data.json` **commit 進 VCS**（不 gitignore），透過 `make export` 從 `sdk/data/zhtw-data.json` 同步。這確保 `go get` 拉下來的 module zip 包含字典，consumer build 不會壞。
 4. **三層轉換**：Term layer（AC longest match）→ Balanced defaults layer → Char layer，邏輯與所有 SDK 一致。
 5. **版本走 Go prefix tag**：`sdk/go/v4.2.0` 格式，`make bump` 自動建立。Go proxy 從 Git tag 抓版本，不需要額外 registry。
 
@@ -33,9 +33,9 @@
 
 ```
 sdk/go/
-├── go.mod                        # module github.com/rajatim/zhtw/sdk/go, go 1.21
+├── go.mod                        # module github.com/rajatim/zhtw/sdk/go/v4, go 1.21
 ├── data/
-│   └── zhtw-data.json            # build 時從 sdk/data/ 複製（.gitignore）
+│   └── zhtw-data.json            # committed to VCS，make export 同步自 sdk/data/
 └── zhtw/
     ├── zhtw.go                   # 公開 API：Convert/Check/Lookup 便利函式
     ├── converter.go              # Converter struct + 三層轉換邏輯
@@ -132,8 +132,8 @@ type ConversionDetail struct {
 ```go
 type zhtwData struct {
     Charmap struct {
-        Chars           map[string]string `json:"chars"`
-        Ambiguous       map[string]any    `json:"ambiguous"`        // 不直接用，但需反序列化
+        Chars            map[string]string `json:"chars"`
+        Ambiguous        []string          `json:"ambiguous"`         // 102 個歧義字列表（不直接用於轉換）
         BalancedDefaults map[string]string `json:"balanced_defaults"` // optional
     } `json:"charmap"`
     Terms map[string]map[string]string `json:"terms"` // "cn" -> {"\u8f6f\u4ef6": "\u8edf\u9ad4", ...}, "hk" -> {...}
@@ -142,7 +142,7 @@ type zhtwData struct {
 
 ### 初始化流程
 
-1. `data.go` 用 `//go:embed ../data/zhtw-data.json` 嵌入原始 JSON bytes。
+1. `data.go` 用 `//go:embed ../data/zhtw-data.json` 嵌入原始 JSON bytes。此路徑相對於 `sdk/go/zhtw/data.go` 指向 `sdk/go/data/zhtw-data.json`，該檔案已 commit 進 VCS。
 2. `sync.Once` 在首次呼叫便利函式時反序列化 JSON、建構 AC automaton、初始化 charmap。
 3. 預設 Converter 用 `Sources: [Cn, Hk]`、`AmbiguityMode: Strict`。
 4. 自訂 Builder 每次 `Build()` 都建新 AC automaton（跟 Rust/Java 模式一致）。
@@ -219,9 +219,11 @@ func (ac *ahoCorasick) getCoveredPositions(text string) map[int]bool
 ### Golden test（`golden_test.go`）
 
 - 讀取 `sdk/data/golden-test.json`
-- 對每個 test case 建構對應 Converter（按 sources + ambiguityMode）
-- 驗證 `Convert()` 輸出 == `expected`
-- 這是跨 SDK parity 的硬性門檻
+- 驗證三段 API 全部對齊：
+  - **convert**：對每個 test case 建構對應 Converter（按 sources + ambiguityMode），驗證 `Convert()` 輸出 == `expected`
+  - **check**：驗證 `Check()` 回傳的 `[]Match` 與 fixture 的 start/end/source/target 完全一致
+  - **lookup**：驗證 `Lookup()` 回傳的 input/output/changed/details（含 layer、position）完全一致
+- 這是跨 SDK parity 的硬性門檻 — byte offset → codepoint index 映射、detail 排序、layer attribution 都在此驗證
 
 ## S7 - CI（`sdk-go.yml`）
 
@@ -247,8 +249,6 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go }}
-      - name: Copy shared data
-        run: cp sdk/data/zhtw-data.json sdk/go/data/zhtw-data.json
       - name: Test
         working-directory: sdk/go
         run: go test ./... -v -race
@@ -262,8 +262,6 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: stable
-      - name: Copy shared data
-        run: cp sdk/data/zhtw-data.json sdk/go/data/zhtw-data.json
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v6
         with:
@@ -272,21 +270,31 @@ jobs:
 
 Release 不需要 publish job — Go proxy 直接從 Git tag（`sdk/go/vX.Y.Z`）拉取。
 
+CI 不再需要 `cp` 步驟 — `sdk/go/data/zhtw-data.json` 已在 VCS 中。
+
 ## S8 - Mono-versioning 影響
 
-### `make bump` 新增步驟
+### Go semantic import versioning
 
-1. 複製 `sdk/data/zhtw-data.json` → `sdk/go/data/zhtw-data.json`
-2. Release 時額外建立 prefix tag：`git tag -a sdk/go/vX.Y.Z -m "sdk/go vX.Y.Z"`
-3. Push 時多推一個 tag：`git push origin sdk/go/vX.Y.Z`
+Go module path 為 `github.com/rajatim/zhtw/sdk/go/v4`（帶 `/v4` 後綴）。當 monorepo major version 升到 v5 時：
+1. `go.mod` 的 module path 改為 `.../v5`
+2. 所有 internal import path 更新
+3. 用戶 import path 也需跟著改（這是 Go 的設計，不是我們的限制）
 
-### `.gitignore`
+### `make bump` / `make export` 新增步驟
 
-`sdk/go/data/zhtw-data.json` 加入 `.gitignore`（build artifact，source of truth 在 `sdk/data/`）。
+1. `make export`：複製 `sdk/data/zhtw-data.json` → `sdk/go/data/zhtw-data.json`
+2. `make bump`：同上 + 更新 `go.mod` 的 module path（如果 major 版本變動）
+3. Release 時額外建立 prefix tag：`git tag -a sdk/go/vX.Y.Z -m "sdk/go vX.Y.Z"`
+4. Push 時多推一個 tag：`git push origin sdk/go/vX.Y.Z`
+
+### `make version-check`
+
+驗證 `sdk/go/data/zhtw-data.json` 與 `sdk/data/zhtw-data.json` 一致（`diff` 或 checksum）。
 
 ### `go.mod` 不含版本號
 
-Go module 的版本由 Git tag 決定，`go.mod` 裡沒有 `version` 欄位，所以 `make version-check` 不需要檢查 `go.mod`。
+Go module 的版本由 Git tag 決定，`go.mod` 裡沒有 `version` 欄位，所以 `make version-check` 不需要檢查版本數字，只檢查 data 同步。
 
 ---
 
@@ -297,7 +305,7 @@ package main
 
 import (
     "fmt"
-    "github.com/rajatim/zhtw/sdk/go/zhtw"
+    "github.com/rajatim/zhtw/sdk/go/v4/zhtw"
 )
 
 func main() {
@@ -319,5 +327,5 @@ func main() {
 安裝：
 
 ```bash
-go get github.com/rajatim/zhtw/sdk/go/zhtw@v4.2.0
+go get github.com/rajatim/zhtw/sdk/go/v4/zhtw@v4.2.0
 ```
