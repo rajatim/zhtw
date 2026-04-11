@@ -58,9 +58,8 @@ func buildAhoCorasick(patterns []acPattern) *ahoCorasick {
 		child.fail = ac.root
 		queue = append(queue, child)
 	}
-	for len(queue) > 0 {
-		node := queue[0]
-		queue = queue[1:]
+	for head := 0; head < len(queue); head++ {
+		node := queue[head]
 		for r, child := range node.children {
 			queue = append(queue, child)
 			f := node.fail
