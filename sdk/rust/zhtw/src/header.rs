@@ -7,7 +7,6 @@
 ///   [14..22] dict_hash      : [u8; 8]  (first 8 bytes of blake3)
 ///   [22]     source_mask    : u8  (bit 0 = Cn, bit 1 = Hk)
 ///   [23..28] reserved       : [u8; 5]  (MBZ)
-
 pub(crate) const ZHTW_AUTOMATON_MAGIC: [u8; 8] = *b"ZHTWDAAC";
 pub(crate) const CURRENT_HEADER_VERSION: u16 = 1;
 pub(crate) const HEADER_LEN: usize = 28;

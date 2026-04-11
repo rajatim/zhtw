@@ -181,9 +181,7 @@ impl Converter {
         let hits = matcher::find_term_matches(&inner.automaton, &inner.pattern_table, text);
 
         if hits.is_empty() {
-            return if inner.char_layer_enabled {
-                matcher::apply_layers_skipping(text, &CHAR_MAP, balanced, &covered, 0)
-            } else if balanced.is_some() {
+            return if inner.char_layer_enabled || balanced.is_some() {
                 matcher::apply_layers_skipping(text, &CHAR_MAP, balanced, &covered, 0)
             } else {
                 text.to_string()

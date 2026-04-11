@@ -58,19 +58,6 @@ function requireString(value: unknown, fnName: string): string {
 }
 
 /**
- * Apply the char layer (single-codepoint charmap) to a string. Returns the
- * transformed string. Walks codepoints so supplementary-plane chars work.
- */
-function applyCharmap(text: string, charmap: Record<string, string>): string {
-  let out = '';
-  for (const ch of text) {
-    const mapped = charmap[ch];
-    out += mapped !== undefined ? mapped : ch;
-  }
-  return out;
-}
-
-/**
  * Apply balanced defaults and charmap to a text segment, skipping covered positions.
  * Balanced defaults are checked first (matching Python order). Since balanced_defaults
  * chars are not in charmap, the two lookups never overlap.
