@@ -14,7 +14,7 @@ from typing import Dict, List, Optional, Set
 
 CHARMAP_DIR = Path(__file__).parent / "data" / "charmap"
 CHARMAP_FILE = CHARMAP_DIR / "safe_chars.json"
-BALANCED_DEFAULTS_FILE = CHARMAP_DIR / "balanced_defaults.json"
+DISAMBIGUATION_FILE = CHARMAP_DIR / "disambiguation.json"
 
 # 模組級快取（執行緒安全）
 _lock = threading.Lock()
@@ -22,6 +22,7 @@ _cached_charmap: Optional[Dict[str, str]] = None
 _cached_table: Optional[Dict[int, str]] = None
 _cached_ambiguous: Optional[List[str]] = None
 _cached_balanced_defaults: Optional[Dict[str, str]] = None
+_cached_protect_terms: Optional[Dict[str, List[str]]] = None
 
 
 def load_charmap(path: Optional[Path] = None) -> Dict[str, str]:
@@ -93,19 +94,44 @@ def get_charmap_stats(path: Optional[Path] = None) -> Dict[str, int]:
 
 
 def get_balanced_defaults(path: Optional[Path] = None) -> Dict[str, str]:
-    """載入 balanced_defaults.json 的 defaults 區段，有快取。"""
+    """從 disambiguation.json 萃取 {char: default} flat view，有快取。"""
     global _cached_balanced_defaults
     if _cached_balanced_defaults is not None and path is None:
         return _cached_balanced_defaults
 
-    p = path or BALANCED_DEFAULTS_FILE
+    p = path or DISAMBIGUATION_FILE
     with open(p, encoding="utf-8") as f:
         data = json.load(f)
 
-    result: Dict[str, str] = data.get("defaults", {})
+    result: Dict[str, str] = {}
+    for char, rule in data.get("rules", {}).items():
+        result[char] = rule["default"]
+
     if path is None:
         with _lock:
             _cached_balanced_defaults = result
+    return result
+
+
+def get_protect_terms(path: Optional[Path] = None) -> Dict[str, List[str]]:
+    """從 disambiguation.json 萃取 {char: [term, ...]} protect_terms，有快取。"""
+    global _cached_protect_terms
+    if _cached_protect_terms is not None and path is None:
+        return _cached_protect_terms
+
+    p = path or DISAMBIGUATION_FILE
+    with open(p, encoding="utf-8") as f:
+        data = json.load(f)
+
+    result: Dict[str, List[str]] = {}
+    for char, rule in data.get("rules", {}).items():
+        terms = rule.get("protect_terms")
+        if terms:
+            result[char] = terms
+
+    if path is None:
+        with _lock:
+            _cached_protect_terms = result
     return result
 
 
@@ -142,9 +168,15 @@ def apply_balanced_defaults(
 
 def clear_cache() -> None:
     """清除快取（供測試用）。"""
-    global _cached_charmap, _cached_table, _cached_ambiguous, _cached_balanced_defaults
+    global \
+        _cached_charmap, \
+        _cached_table, \
+        _cached_ambiguous, \
+        _cached_balanced_defaults, \
+        _cached_protect_terms
     with _lock:
         _cached_charmap = None
         _cached_table = None
         _cached_ambiguous = None
         _cached_balanced_defaults = None
+        _cached_protect_terms = None
