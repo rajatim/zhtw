@@ -12,6 +12,8 @@ export: ## Export SDK data (zhtw-data.json + golden-test.json)
 	@mkdir -p sdk/rust/zhtw/data
 	@cp sdk/data/zhtw-data.json sdk/rust/zhtw/data/zhtw-data.json
 	@echo "  synced crate-local copy → sdk/rust/zhtw/data/zhtw-data.json"
+	@cp sdk/data/zhtw-data.json sdk/go/zhtw/zhtw-data.json
+	@echo "  synced Go embed copy → sdk/go/zhtw/zhtw-data.json"
 
 test-python: ## Run Python tests
 	$(PYTHON) -m pytest tests/ -v
@@ -57,6 +59,12 @@ version-check: ## Verify all SDK versions are aligned (mono-versioning)
 	  echo "   Fix: run 'make export'"; \
 	  exit 1; \
 	fi
+	@if ! cmp -s sdk/data/zhtw-data.json sdk/go/zhtw/zhtw-data.json 2>/dev/null; then \
+	  echo ""; \
+	  echo "❌ sdk/go/zhtw/zhtw-data.json is out of sync"; \
+	  echo "   Fix: run 'make export'"; \
+	  exit 1; \
+	fi
 
 bump: ## Bump all SDK versions without commit/tag/release: make bump VERSION=x.y.z
 ifndef VERSION
@@ -85,6 +93,7 @@ endif
 	$(PYTHON) -m zhtw export --output sdk/data
 	@mkdir -p sdk/rust/zhtw/data
 	@cp sdk/data/zhtw-data.json sdk/rust/zhtw/data/zhtw-data.json
+	@cp sdk/data/zhtw-data.json sdk/go/zhtw/zhtw-data.json
 	@$(MAKE) version-check
 
 # === Release ===
@@ -103,7 +112,8 @@ endif
 	git add -A
 	git commit -m "chore: release v$(VERSION)"
 	git tag -a "v$(VERSION)" -m "v$(VERSION)"
-	git push && git push origin "v$(VERSION)"
+	git tag -a "sdk/go/v$(VERSION)" -m "sdk/go v$(VERSION)"
+	git push && git push origin "v$(VERSION)" "sdk/go/v$(VERSION)"
 	gh release create "v$(VERSION)" --title "v$(VERSION)" --generate-notes
 	@echo "✅ Released v$(VERSION)"
 

@@ -2,20 +2,41 @@ name: SDK Go
 
 on:
   push:
-    paths: ['sdk/go/**', 'sdk/data/**']
+    paths: ['sdk/go/**', 'sdk/data/**', '.github/workflows/sdk-go.yml']
   pull_request:
-    paths: ['sdk/go/**', 'sdk/data/**']
+    paths: ['sdk/go/**', 'sdk/data/**', '.github/workflows/sdk-go.yml']
   release:
     types: [published]
 
 jobs:
   test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        go: ['1.21', 'stable']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+      - name: Verify embedded data in sync
+        run: diff sdk/data/zhtw-data.json sdk/go/zhtw/zhtw-data.json
+      - name: Test
+        working-directory: sdk/go
+        run: go test ./... -v -race
+      - name: Vet
+        working-directory: sdk/go
+        run: go vet ./...
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
-          go-version: '1.21'
-      - name: Build
-        working-directory: sdk/go
-        run: echo "TODO — SDK not yet implemented"
+          go-version: stable
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          working-directory: sdk/go
