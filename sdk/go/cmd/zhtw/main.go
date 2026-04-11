@@ -105,11 +105,13 @@ func runConvert(args []string) int {
 			Output  string `json:"output"`
 			Changed bool   `json:"changed"`
 		}
-		writeJSON(struct {
+		if code := writeJSON(struct {
 			Results []result `json:"results"`
 		}{
 			Results: []result{{Input: input, Output: output, Changed: changed}},
-		})
+		}); code != 0 {
+			return code
+		}
 	} else {
 		fmt.Println(output)
 	}
@@ -149,11 +151,19 @@ func runLookup(args []string) int {
 			return fatalf("cannot read file: %v", err)
 		}
 		defer f.Close()
-		queries = readLines(f)
+		var err2 error
+		queries, err2 = readLines(f)
+		if err2 != nil {
+			return fatalf("reading file: %v", err2)
+		}
 	case fs.NArg() > 0:
 		queries = fs.Args()
 	case isStdinPipe():
-		queries = readLines(os.Stdin)
+		var err error
+		queries, err = readLines(os.Stdin)
+		if err != nil {
+			return fatalf("reading stdin: %v", err)
+		}
 	default:
 		return fatalf("no input provided (use args, --file, or pipe)")
 	}
@@ -168,9 +178,11 @@ func runLookup(args []string) int {
 	}
 
 	if *jsonOut {
-		writeJSON(struct {
+		if code := writeJSON(struct {
 			Results []zhtw.LookupResult `json:"results"`
-		}{Results: results})
+		}{Results: results}); code != 0 {
+			return code
+		}
 	} else {
 		for i, r := range results {
 			if i > 0 {
@@ -249,7 +261,7 @@ func isStdinPipe() bool {
 }
 
 // readLines reads non-empty, trimmed lines from r.
-func readLines(r io.Reader) []string {
+func readLines(r io.Reader) ([]string, error) {
 	var lines []string
 	sc := bufio.NewScanner(r)
 	for sc.Scan() {
@@ -258,15 +270,18 @@ func readLines(r io.Reader) []string {
 			lines = append(lines, line)
 		}
 	}
-	return lines
+	return lines, sc.Err()
 }
 
 // writeJSON encodes v as pretty JSON to stdout with HTML escaping disabled.
-func writeJSON(v any) {
+func writeJSON(v any) int {
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetEscapeHTML(false)
 	enc.SetIndent("", "  ")
-	_ = enc.Encode(v)
+	if err := enc.Encode(v); err != nil {
+		return fatalf("writing JSON: %v", err)
+	}
+	return 0
 }
 
 // fatalf prints a formatted error to stderr and returns exit code 2.

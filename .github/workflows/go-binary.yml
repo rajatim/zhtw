@@ -59,7 +59,7 @@ jobs:
               tar czf "${f}.tar.gz" "$f"
             fi
           done
-          shasum -a 256 *.tar.gz *.zip > zhtw_checksums.txt
+          sha256sum *.tar.gz *.zip > zhtw_checksums.txt
       - name: Create release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

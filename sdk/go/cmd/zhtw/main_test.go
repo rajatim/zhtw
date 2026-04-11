@@ -15,15 +15,15 @@ func TestMain(m *testing.M) {
 	if err != nil {
 		panic(err)
 	}
-	defer os.RemoveAll(tmp)
-
 	binaryPath = filepath.Join(tmp, "zhtw")
 	cmd := exec.Command("go", "build", "-o", binaryPath, ".")
 	cmd.Dir = "."
 	if out, err := cmd.CombinedOutput(); err != nil {
 		panic("failed to build CLI: " + string(out))
 	}
-	os.Exit(m.Run())
+	code := m.Run()
+	os.RemoveAll(tmp)
+	os.Exit(code)
 }
 
 func runCLI(t *testing.T, stdin string, args ...string) (stdout, stderr string, exitCode int) {
