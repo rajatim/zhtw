@@ -34,7 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - 影后 protect-term balanced lookup golden case
 
 ### Fixed
-- **pre-commit hook 汙染修復**：`generate_charmap.py` 被 zhtw hook 靜默轉換簡體 key → 繁體，導致 7 個歧義字（後/鹹/醜/捨/劃/闢/公克）洩漏至 safe_chars.json；已修復並加 `# zhtw:disable` header
+- **pre-commit hook 汙染修復**：`generate_charmap.py` 被 zhtw hook 靜默轉換簡體 key → 繁體，導致 7 個歧義字洩漏至 safe_chars.json；已修復並加 `# zhtw:disable` header
 - **Java lookup() term target 二次轉換**：移除錯誤的 `applyCharmap(target)` 呼叫，term target 現在與 Python/TS/Rust 一致（verbatim 輸出）
 - **Python lookup_word() 缺 balanced mode**：新增 `ambiguity_mode` 參數 + CN gate 防護
 - **Balanced mode HK 洩漏**：6 處 CN gate 確保 balanced defaults 不在 HK-only 路徑生效
