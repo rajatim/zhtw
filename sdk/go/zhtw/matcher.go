@@ -128,12 +128,104 @@ func (ac *ahoCorasick) getCoveredPositions(runes []rune) map[int]bool {
 	return covered
 }
 
-// ── Match selection (placeholder — implemented in Task 3) ───────────────────
+// ── Match selection ──────────────────────────────────────────────────────────
 
 // findTermMatches returns non-overlapping, leftmost-longest term matches
-// with identity-based protection. Implemented in Task 3.
+// with identity-based protection. Identity terms (source == target) advance
+// the cursor but are never emitted. Non-identity terms overlapping a
+// protected position are skipped without advancing the cursor.
+//
+// Mirrors Python src/zhtw/matcher.py:find_matches.
 func (ac *ahoCorasick) findTermMatches(runes []rune) []acMatch {
-	return nil // placeholder
+	raw := ac.iterEmissions(runes)
+	if len(raw) == 0 {
+		return nil
+	}
+
+	// Sort by (start ASC, length DESC).
+	sort.Slice(raw, func(i, j int) bool {
+		if raw[i].start != raw[j].start {
+			return raw[i].start < raw[j].start
+		}
+		lenI := raw[i].end - raw[i].start
+		lenJ := raw[j].end - raw[j].start
+		return lenI > lenJ
+	})
+
+	// Separate identity and non-identity hits.
+	var identity []acMatch
+	var nonIdentitySpans [][2]int
+	for _, m := range raw {
+		if m.source == m.target {
+			identity = append(identity, m)
+		} else {
+			nonIdentitySpans = append(nonIdentitySpans, [2]int{m.start, m.end})
+		}
+	}
+
+	// Build protected rune positions from identity matches not contained
+	// in any non-identity span.
+	protected := make(map[int]bool)
+	if len(nonIdentitySpans) == 0 {
+		for _, m := range identity {
+			for i := m.start; i < m.end; i++ {
+				protected[i] = true
+			}
+		}
+	} else {
+		sort.Slice(nonIdentitySpans, func(i, j int) bool {
+			return nonIdentitySpans[i][0] < nonIdentitySpans[j][0]
+		})
+		// Build prefix-max-end array.
+		prefixMaxEnd := make([]int, len(nonIdentitySpans))
+		maxEnd := 0
+		for i, span := range nonIdentitySpans {
+			if span[1] > maxEnd {
+				maxEnd = span[1]
+			}
+			prefixMaxEnd[i] = maxEnd
+		}
+		niStarts := make([]int, len(nonIdentitySpans))
+		for i, span := range nonIdentitySpans {
+			niStarts[i] = span[0]
+		}
+		for _, m := range identity {
+			idx := bisectRight(niStarts, m.start) - 1
+			contained := idx >= 0 && prefixMaxEnd[idx] >= m.end
+			if !contained {
+				for i := m.start; i < m.end; i++ {
+					protected[i] = true
+				}
+			}
+		}
+	}
+
+	// Left-to-right greedy filter.
+	var result []acMatch
+	cursor := 0
+	for _, m := range raw {
+		if m.start < cursor {
+			continue
+		}
+		isIdentity := m.source == m.target
+		if !isIdentity {
+			overlaps := false
+			for i := m.start; i < m.end; i++ {
+				if protected[i] {
+					overlaps = true
+					break
+				}
+			}
+			if overlaps {
+				continue // skip without advancing cursor
+			}
+		}
+		cursor = m.end
+		if !isIdentity {
+			result = append(result, m)
+		}
+	}
+	return result
 }
 
 // bisectRight returns the insertion point for x in a sorted slice a
