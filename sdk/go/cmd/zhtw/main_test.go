@@ -149,20 +149,20 @@ func TestConvertArgs(t *testing.T) {
 	if code != 0 {
 		t.Fatalf("want exit 0, got %d", code)
 	}
-	got := strings.TrimSpace(stdout)
-	if got != "軟體 測試" {
-		t.Errorf("want %q, got %q", "軟體 測試", got)
+	// Args have no trailing newline, so output is exactly "軟體 測試\n".
+	if stdout != "軟體 測試\n" {
+		t.Errorf("want %q, got %q", "軟體 測試\n", stdout)
 	}
 }
 
 func TestConvertStdin(t *testing.T) {
-	stdout, _, code := runCLI(t, "用户权限", "convert")
+	// Piped stdin typically ends with \n; output should have exactly one trailing newline.
+	stdout, _, code := runCLI(t, "用户权限\n", "convert")
 	if code != 0 {
 		t.Fatalf("want exit 0, got %d", code)
 	}
-	got := strings.TrimSpace(stdout)
-	if got != "使用者權限" {
-		t.Errorf("want %q, got %q", "使用者權限", got)
+	if stdout != "使用者權限\n" {
+		t.Errorf("want %q, got %q", "使用者權限\n", stdout)
 	}
 }
 
@@ -172,7 +172,8 @@ func TestConvertFile(t *testing.T) {
 		t.Fatalf("create temp file: %v", err)
 	}
 	defer os.Remove(tmp.Name())
-	if _, err := tmp.WriteString("软件测试"); err != nil {
+	// File content ends with \n (typical for text files).
+	if _, err := tmp.WriteString("软件测试\n"); err != nil {
 		t.Fatalf("write temp file: %v", err)
 	}
 	tmp.Close()
@@ -181,9 +182,8 @@ func TestConvertFile(t *testing.T) {
 	if code != 0 {
 		t.Fatalf("want exit 0, got %d", code)
 	}
-	got := strings.TrimSpace(stdout)
-	if got != "軟體測試" {
-		t.Errorf("want %q, got %q", "軟體測試", got)
+	if stdout != "軟體測試\n" {
+		t.Errorf("want %q, got %q", "軟體測試\n", stdout)
 	}
 }
 

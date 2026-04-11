@@ -113,7 +113,10 @@ func runConvert(args []string) int {
 			return code
 		}
 	} else {
-		fmt.Println(output)
+		fmt.Print(output)
+		if !strings.HasSuffix(output, "\n") {
+			fmt.Println()
+		}
 	}
 
 	if *check && changed {
