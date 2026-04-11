@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { createConverter } from '../src/core/converter';
-import type { Source, ZhtwData } from '../src/core/types';
+import type { AmbiguityMode, Source, ZhtwData } from '../src/core/types';
 
 // Load the real data file and golden fixtures from sdk/data/.
 const DATA_FILE = resolve(__dirname, '../../data/zhtw-data.json');
@@ -44,6 +44,7 @@ interface GoldenLookupCase {
   expected_output: string;
   expected_changed: boolean;
   expected_details: GoldenLookupDetail[];
+  ambiguity_mode?: string;
 }
 
 interface GoldenFile {
@@ -58,7 +59,10 @@ const golden = JSON.parse(readFileSync(GOLDEN_FILE, 'utf-8')) as GoldenFile;
 describe('golden-test.json — convert parity', () => {
   for (const tc of golden.convert) {
     it(`convert(${JSON.stringify(tc.input)}, ${JSON.stringify(tc.sources)})`, () => {
-      const conv = createConverter(data, { sources: tc.sources });
+      const conv = createConverter(data, {
+        sources: tc.sources,
+        ambiguityMode: (tc.ambiguity_mode as AmbiguityMode) ?? 'strict',
+      });
       expect(conv.convert(tc.input)).toBe(tc.expected);
     });
   }
@@ -67,7 +71,10 @@ describe('golden-test.json — convert parity', () => {
 describe('golden-test.json — check parity', () => {
   for (const tc of golden.check) {
     it(`check(${JSON.stringify(tc.input)}, ${JSON.stringify(tc.sources)})`, () => {
-      const conv = createConverter(data, { sources: tc.sources });
+      const conv = createConverter(data, {
+        sources: tc.sources,
+        ambiguityMode: (tc.ambiguity_mode as AmbiguityMode) ?? 'strict',
+      });
       const actual = conv.check(tc.input);
       // Sort both sides by (start, end, source) for a stable comparison,
       // since the spec does not mandate a specific order and Java/Python
@@ -87,7 +94,10 @@ describe('golden-test.json — check parity', () => {
 describe('golden-test.json — lookup parity', () => {
   for (const tc of golden.lookup) {
     it(`lookup(${JSON.stringify(tc.input)}, ${JSON.stringify(tc.sources)})`, () => {
-      const conv = createConverter(data, { sources: tc.sources });
+      const conv = createConverter(data, {
+        sources: tc.sources,
+        ambiguityMode: (tc.ambiguity_mode as AmbiguityMode) ?? 'strict',
+      });
       const r = conv.lookup(tc.input);
       expect(r.output).toBe(tc.expected_output);
       expect(r.changed).toBe(tc.expected_changed);

@@ -27,6 +27,8 @@ struct CharMap {
     // `ambiguous` field exists but we don't need it in build
     #[serde(default)]
     ambiguous: Vec<String>,
+    #[serde(default)]
+    balanced_defaults: HashMap<String, String>,
 }
 
 #[allow(dead_code)]
@@ -134,6 +136,40 @@ fn main() {
              #[allow(clippy::unreadable_literal)]\n\
              pub(crate) static CHAR_MAP: phf::Map<char, char> = {};",
             map_builder.build()
+        )
+        .unwrap();
+
+        // PHF balanced defaults map: ambiguous chars with clear majority mappings
+        let mut balanced_entries: Vec<(char, char)> = data
+            .charmap
+            .balanced_defaults
+            .iter()
+            .filter_map(|(src, tgt)| {
+                let src_char = src.chars().next()?;
+                if src.chars().count() != 1 {
+                    return None;
+                }
+                let tgt_char = tgt.chars().next()?;
+                if tgt.chars().count() != 1 {
+                    return None;
+                }
+                Some((src_char, tgt_char))
+            })
+            .collect();
+        balanced_entries.sort_by_key(|(c, _)| *c as u32);
+
+        let mut balanced_builder = phf_codegen::Map::<char>::new();
+        for (src_char, tgt_char) in &balanced_entries {
+            balanced_builder.entry(*src_char, &format!("'\\u{{{:X}}}'", *tgt_char as u32));
+        }
+
+        writeln!(f).unwrap();
+        writeln!(
+            f,
+            "/// Balanced-mode defaults: ambiguous chars with clear majority mappings.\n\
+             #[allow(clippy::unreadable_literal)]\n\
+             pub(crate) static BALANCED_DEFAULTS: phf::Map<char, char> = {};",
+            balanced_builder.build()
         )
         .unwrap();
     }

@@ -2,9 +2,9 @@ use std::sync::{Arc, LazyLock};
 
 use daachorse::CharwiseDoubleArrayAhoCorasick;
 
-use crate::config::Config;
+use crate::config::{AmbiguityMode, Config};
 use crate::error::{Error, Result};
-use crate::generated::{AUTOMATON_CNHK_BYTES, CHAR_MAP, PATTERN_TABLE_CNHK_BYTES};
+use crate::generated::{AUTOMATON_CNHK_BYTES, BALANCED_DEFAULTS, CHAR_MAP, PATTERN_TABLE_CNHK_BYTES};
 use crate::matcher;
 use crate::source::Source;
 
@@ -47,6 +47,7 @@ struct Inner {
     automaton: CharwiseDoubleArrayAhoCorasick<u32>,
     pattern_table: Vec<(String, String)>,
     char_layer_enabled: bool,
+    ambiguity_mode: AmbiguityMode,
 }
 
 // SAFETY: CharwiseDoubleArrayAhoCorasick is an immutable data structure after
@@ -69,6 +70,7 @@ static DEFAULT_INNER: LazyLock<Arc<Inner>> = LazyLock::new(|| {
         automaton,
         pattern_table,
         char_layer_enabled: true,
+        ambiguity_mode: AmbiguityMode::Strict,
     })
 });
 
@@ -90,6 +92,7 @@ impl Converter {
         }
 
         let is_default = config.custom_dict.is_empty()
+            && config.ambiguity_mode == AmbiguityMode::Strict
             && config.sources.len() == 2
             && config.sources.contains(&Source::Cn)
             && config.sources.contains(&Source::Hk);
@@ -133,11 +136,19 @@ impl Converter {
         // Char layer only runs when CN source is selected (matches Python behavior).
         let char_layer_enabled = config.sources.contains(&Source::Cn);
 
+        // balanced defaults are CN→TW mappings; degrade to strict when CN not in sources.
+        let effective_mode = if char_layer_enabled {
+            config.ambiguity_mode
+        } else {
+            AmbiguityMode::Strict
+        };
+
         Ok(Converter {
             inner: Arc::new(Inner {
                 automaton,
                 pattern_table: patterns,
                 char_layer_enabled,
+                ambiguity_mode: effective_mode,
             }),
         })
     }
@@ -158,6 +169,11 @@ impl Converter {
         }
 
         let inner = &self.inner;
+        let balanced = if inner.ambiguity_mode == AmbiguityMode::Balanced {
+            Some(&BALANCED_DEFAULTS)
+        } else {
+            None
+        };
 
         // Covered byte positions from ALL automaton hits (including identity terms).
         // Must be computed on original text before any replacements.
@@ -166,20 +182,22 @@ impl Converter {
 
         if hits.is_empty() {
             return if inner.char_layer_enabled {
-                matcher::apply_charmap_skipping(text, &CHAR_MAP, &covered, 0)
+                matcher::apply_layers_skipping(text, &CHAR_MAP, balanced, &covered, 0)
+            } else if balanced.is_some() {
+                matcher::apply_layers_skipping(text, &CHAR_MAP, balanced, &covered, 0)
             } else {
                 text.to_string()
             };
         }
 
-        // Gap mode: term targets inserted verbatim; gaps get char-layer on uncovered only.
+        // Gap mode: term targets inserted verbatim; gaps get char/balanced layers on uncovered only.
         let mut result = String::with_capacity(text.len());
         let mut last_end: usize = 0;
         for h in &hits {
             let gap = &text[last_end..h.byte_start];
-            if inner.char_layer_enabled {
-                result.push_str(&matcher::apply_charmap_skipping(
-                    gap, &CHAR_MAP, &covered, last_end,
+            if inner.char_layer_enabled || balanced.is_some() {
+                result.push_str(&matcher::apply_layers_skipping(
+                    gap, &CHAR_MAP, balanced, &covered, last_end,
                 ));
             } else {
                 result.push_str(gap);
@@ -188,9 +206,9 @@ impl Converter {
             last_end = h.byte_end;
         }
         let tail = &text[last_end..];
-        if inner.char_layer_enabled {
-            result.push_str(&matcher::apply_charmap_skipping(
-                tail, &CHAR_MAP, &covered, last_end,
+        if inner.char_layer_enabled || balanced.is_some() {
+            result.push_str(&matcher::apply_layers_skipping(
+                tail, &CHAR_MAP, balanced, &covered, last_end,
             ));
         } else {
             result.push_str(tail);
@@ -221,6 +239,23 @@ impl Converter {
                 target: h.target.clone(),
             })
             .collect();
+
+        // Balanced defaults layer (if enabled): emit matches for uncovered positions.
+        if inner.ambiguity_mode == AmbiguityMode::Balanced {
+            for (byte_idx, ch) in text.char_indices() {
+                if covered_bytes.contains(&byte_idx) {
+                    continue;
+                }
+                if let Some(&mapped) = BALANCED_DEFAULTS.get(&ch) {
+                    matches.push(Match {
+                        start: byte_to_cp[byte_idx],
+                        end: byte_to_cp[byte_idx] + 1,
+                        source: ch.to_string(),
+                        target: mapped.to_string(),
+                    });
+                }
+            }
+        }
 
         // Char layer matches (if enabled): skip covered byte positions.
         if inner.char_layer_enabled {
@@ -272,6 +307,23 @@ impl Converter {
                 layer: Layer::Term,
                 position: byte_to_cp[h.byte_start],
             });
+        }
+
+        // Balanced defaults (if enabled): walk original text, skip covered bytes.
+        if inner.ambiguity_mode == AmbiguityMode::Balanced {
+            for (byte_idx, ch) in word.char_indices() {
+                if covered_bytes.contains(&byte_idx) {
+                    continue;
+                }
+                if let Some(&mapped) = BALANCED_DEFAULTS.get(&ch) {
+                    details.push(ConversionDetail {
+                        source: ch.to_string(),
+                        target: mapped.to_string(),
+                        layer: Layer::Char,
+                        position: byte_to_cp[byte_idx],
+                    });
+                }
+            }
         }
 
         // Char details (if enabled): walk original text, skip covered bytes.

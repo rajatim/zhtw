@@ -12,7 +12,7 @@ mod matcher;
 mod source;
 
 pub use builder::Builder;
-pub use config::Config;
+pub use config::{AmbiguityMode, Config};
 pub use converter::{ConversionDetail, Converter, Layer, LookupResult, Match};
 pub use error::{Error, Result};
 pub use source::Source;

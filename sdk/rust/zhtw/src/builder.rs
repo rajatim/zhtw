@@ -1,3 +1,4 @@
+use crate::config::AmbiguityMode;
 use crate::{Config, Result, Source};
 
 #[derive(Debug, Default)]
@@ -21,6 +22,11 @@ impl Builder {
             .into_iter()
             .map(|(k, v)| (k.into(), v.into()))
             .collect();
+        self
+    }
+
+    pub fn ambiguity_mode(mut self, mode: AmbiguityMode) -> Self {
+        self.config.ambiguity_mode = mode;
         self
     }
 

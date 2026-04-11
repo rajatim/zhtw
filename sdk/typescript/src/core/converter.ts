@@ -71,15 +71,19 @@ function applyCharmap(text: string, charmap: Record<string, string>): string {
 }
 
 /**
- * Apply charmap to a text segment, skipping positions covered by term hits.
+ * Apply balanced defaults and charmap to a text segment, skipping covered positions.
+ * Balanced defaults are checked first (matching Python order). Since balanced_defaults
+ * chars are not in charmap, the two lookups never overlap.
  * @param segment - text segment to map
  * @param charmap - single-codepoint charmap
+ * @param balancedDefaults - balanced mode defaults (or undefined for strict mode)
  * @param covered - set of covered UTF-16 positions in the ORIGINAL text
  * @param offset - UTF-16 offset of this segment within the original text
  */
-function applyCharmapSkipping(
+function applyLayersSkipping(
   segment: string,
   charmap: Record<string, string>,
+  balancedDefaults: Record<string, string> | undefined,
   covered: Set<number>,
   offset: number,
 ): string {
@@ -93,8 +97,17 @@ function applyCharmapSkipping(
     if (covered.has(offset + i)) {
       out += ch;
     } else {
-      const mapped = charmap[ch];
-      out += mapped !== undefined && mapped !== ch ? mapped : ch;
+      // Balanced defaults first, then charmap.
+      let result = ch;
+      if (balancedDefaults !== undefined) {
+        const bd = balancedDefaults[ch];
+        if (bd !== undefined) result = bd;
+      }
+      if (result === ch) {
+        const mapped = charmap[ch];
+        if (mapped !== undefined && mapped !== ch) result = mapped;
+      }
+      out += result;
     }
     i += step;
   }
@@ -110,6 +123,12 @@ export function createConverter(
   const matcher = new AhoCorasickMatcher(terms);
   const charmap = data.charmap.chars;
   const charLayerEnabled = sources.includes('cn');
+  // balanced defaults are CN→TW mappings; degrade to strict when CN not in sources.
+  const balancedDefaults =
+    options.ambiguityMode === 'balanced' && charLayerEnabled
+      ? data.charmap.balanced_defaults
+      : undefined;
+  const layersEnabled = charLayerEnabled || balancedDefaults !== undefined;
 
   function convert(text: string): string {
     requireString(text, 'convert');
@@ -120,20 +139,26 @@ export function createConverter(
     const matches = matcher.findMatches(text);
 
     if (matches.length === 0) {
-      return charLayerEnabled ? applyCharmapSkipping(text, charmap, covered, 0) : text;
+      return layersEnabled
+        ? applyLayersSkipping(text, charmap, balancedDefaults, covered, 0)
+        : text;
     }
 
-    // Gap mode: term targets inserted verbatim; gaps get char-layer on uncovered only.
+    // Gap mode: term targets inserted verbatim; gaps get char/balanced layers on uncovered only.
     let result = '';
     let lastEnd = 0;
     for (const m of matches) {
       const gap = text.substring(lastEnd, m.start);
-      result += charLayerEnabled ? applyCharmapSkipping(gap, charmap, covered, lastEnd) : gap;
+      result += layersEnabled
+        ? applyLayersSkipping(gap, charmap, balancedDefaults, covered, lastEnd)
+        : gap;
       result += m.target;
       lastEnd = m.end;
     }
     const tail = text.substring(lastEnd);
-    result += charLayerEnabled ? applyCharmapSkipping(tail, charmap, covered, lastEnd) : tail;
+    result += layersEnabled
+      ? applyLayersSkipping(tail, charmap, balancedDefaults, covered, lastEnd)
+      : tail;
     return result;
   }
 
@@ -154,6 +179,26 @@ export function createConverter(
         source: m.source,
         target: m.target,
       });
+    }
+
+    // Balanced defaults layer: emit matches at uncovered positions
+    if (balancedDefaults !== undefined) {
+      let cp = 0;
+      let i = 0;
+      while (i < text.length) {
+        const code = text.charCodeAt(i);
+        const isHigh = code >= 0xd800 && code <= 0xdbff && i + 1 < text.length;
+        const step = isHigh ? 2 : 1;
+        if (!coveredUtf16.has(i)) {
+          const ch = text.substring(i, i + step);
+          const bd = balancedDefaults[ch];
+          if (bd !== undefined) {
+            results.push({ start: cp, end: cp + 1, source: ch, target: bd });
+          }
+        }
+        cp++;
+        i += step;
+      }
     }
 
     // Char layer: skip covered positions
@@ -209,6 +254,30 @@ export function createConverter(
         utf16Start: m.start,
         utf16End: m.end,
       });
+    }
+
+    // Balanced defaults layer: skip covered positions.
+    if (balancedDefaults !== undefined) {
+      let i = 0;
+      while (i < word.length) {
+        const code = word.charCodeAt(i);
+        const isHigh = code >= 0xd800 && code <= 0xdbff && i + 1 < word.length;
+        const step = isHigh ? 2 : 1;
+        if (!covered.has(i)) {
+          const ch = word.substring(i, i + step);
+          const bd = balancedDefaults[ch];
+          if (bd !== undefined) {
+            internal.push({
+              source: ch,
+              target: bd,
+              layer: 'char',
+              utf16Start: i,
+              utf16End: i + step,
+            });
+          }
+        }
+        i += step;
+      }
     }
 
     // Char layer (only if 'cn' is in sources). Skip covered codepoints.

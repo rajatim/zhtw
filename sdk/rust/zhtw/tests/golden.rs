@@ -3,7 +3,7 @@
 
 use serde::Deserialize;
 use std::collections::HashMap;
-use zhtw::{Converter, Source};
+use zhtw::{AmbiguityMode, Converter, Source};
 
 #[derive(Deserialize)]
 struct GoldenFile {
@@ -48,6 +48,8 @@ struct LookupCase {
     expected_output: String,
     expected_changed: bool,
     expected_details: Vec<ExpectedDetail>,
+    #[serde(default)]
+    ambiguity_mode: Option<String>,
 }
 
 #[derive(Deserialize)]
@@ -60,7 +62,11 @@ struct ExpectedDetail {
 
 const GOLDEN_JSON: &str = include_str!("../../../data/golden-test.json");
 
-fn build_converter(sources: &[String], custom_dict: Option<&HashMap<String, String>>) -> Converter {
+fn build_converter(
+    sources: &[String],
+    custom_dict: Option<&HashMap<String, String>>,
+    ambiguity_mode: Option<&str>,
+) -> Converter {
     let sources: Vec<Source> = sources
         .iter()
         .map(|s| s.parse().expect("known source"))
@@ -68,6 +74,12 @@ fn build_converter(sources: &[String], custom_dict: Option<&HashMap<String, Stri
     let mut builder = Converter::builder().sources(sources);
     if let Some(dict) = custom_dict {
         builder = builder.custom_dict(dict.clone());
+    }
+    if let Some(mode) = ambiguity_mode {
+        builder = builder.ambiguity_mode(match mode {
+            "balanced" => AmbiguityMode::Balanced,
+            _ => AmbiguityMode::Strict,
+        });
     }
     builder.build().expect("builder should succeed")
 }
@@ -90,7 +102,7 @@ fn convert_parity() {
     let mut failures = Vec::new();
 
     for (idx, case) in golden.convert.iter().enumerate() {
-        let conv = build_converter(&case.sources, case.custom_dict.as_ref());
+        let conv = build_converter(&case.sources, case.custom_dict.as_ref(), case.ambiguity_mode.as_deref());
         let actual = conv.convert(&case.input);
         if actual != case.expected {
             failures.push(format!(
@@ -114,7 +126,7 @@ fn check_parity() {
     let mut failures = Vec::new();
 
     for (idx, case) in golden.check.iter().enumerate() {
-        let conv = build_converter(&case.sources, None);
+        let conv = build_converter(&case.sources, None, case.ambiguity_mode.as_deref());
         let actual = conv.check(&case.input);
 
         if actual.len() != case.expected_matches.len() {
@@ -155,7 +167,7 @@ fn lookup_parity() {
     let mut failures = Vec::new();
 
     for (idx, case) in golden.lookup.iter().enumerate() {
-        let conv = build_converter(&case.sources, None);
+        let conv = build_converter(&case.sources, None, case.ambiguity_mode.as_deref());
         let actual = conv.lookup(&case.input);
 
         if actual.output != case.expected_output {

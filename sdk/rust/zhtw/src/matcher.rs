@@ -271,12 +271,14 @@ fn is_contained_in_non_identity(
 
 // ── Charmap application ────────────────────────────────────────────────────
 
-/// Apply charmap to a text segment, skipping byte positions that are in the
-/// covered set. `offset` is the byte offset of this segment within the
-/// original text.
-pub(crate) fn apply_charmap_skipping(
+/// Apply balanced defaults and charmap to a text segment, skipping covered
+/// positions. Balanced defaults are checked first; since balanced_defaults
+/// chars are not in char_map, the order matters only for correctness parity
+/// with the Python pipeline.
+pub(crate) fn apply_layers_skipping(
     segment: &str,
     char_map: &phf::Map<char, char>,
+    balanced: Option<&phf::Map<char, char>>,
     covered: &HashSet<usize>,
     offset: usize,
 ) -> String {
@@ -285,7 +287,17 @@ pub(crate) fn apply_charmap_skipping(
         if covered.contains(&(offset + byte_idx)) {
             result.push(ch);
         } else {
-            result.push(char_map.get(&ch).copied().unwrap_or(ch));
+            // Balanced defaults first, then charmap (matching Python order).
+            let mut out = ch;
+            if let Some(bd) = balanced {
+                if let Some(&mapped) = bd.get(&ch) {
+                    out = mapped;
+                }
+            }
+            if out == ch {
+                out = char_map.get(&ch).copied().unwrap_or(ch);
+            }
+            result.push(out);
         }
     }
     result

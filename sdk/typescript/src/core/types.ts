@@ -26,11 +26,15 @@ export interface LookupResult {
   details: ConversionDetail[];
 }
 
+export type AmbiguityMode = 'strict' | 'balanced';
+
 export interface ConverterOptions {
   /** Which source dictionaries to use. Default: ['cn', 'hk']. */
   sources?: Source[];
   /** User overrides, take priority over built-in terms. */
   customDict?: Record<string, string>;
+  /** Ambiguity handling mode. Default: 'strict'. */
+  ambiguityMode?: AmbiguityMode;
 }
 
 export interface Converter {
@@ -47,6 +51,7 @@ export interface ZhtwData {
   charmap: {
     chars: Record<string, string>;
     ambiguous: Record<string, string[]>;
+    balanced_defaults?: Record<string, string>;
   };
   terms: Record<string, Record<string, string>>;
   stats?: Record<string, unknown>;

@@ -132,6 +132,14 @@
       ],
       "expected": "影后得獎",
       "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "丰满",
+      "sources": [
+        "cn"
+      ],
+      "expected": "豐滿",
+      "ambiguity_mode": "balanced"
     }
   ],
   "check": [
@@ -398,6 +406,27 @@
         }
       ],
       "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "丰满",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 1,
+          "end": 2,
+          "source": "满",
+          "target": "滿"
+        },
+        {
+          "start": 0,
+          "end": 1,
+          "source": "丰",
+          "target": "豐"
+        }
+      ],
+      "ambiguity_mode": "balanced"
     }
   ],
   "lookup": [
@@ -482,6 +511,45 @@
       "expected_output": "急症",
       "expected_changed": false,
       "expected_details": []
+    },
+    {
+      "input": "伙头",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "伙頭",
+      "expected_changed": true,
+      "expected_details": [
+        {
+          "source": "伙头",
+          "target": "伙頭",
+          "layer": "term",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "input": "丰满",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "豐滿",
+      "expected_changed": true,
+      "expected_details": [
+        {
+          "source": "丰",
+          "target": "豐",
+          "layer": "char",
+          "position": 0
+        },
+        {
+          "source": "满",
+          "target": "滿",
+          "layer": "term",
+          "position": 1
+        }
+      ],
+      "ambiguity_mode": "balanced"
     }
   ]
 }

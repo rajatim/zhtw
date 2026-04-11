@@ -26,8 +26,12 @@ class GoldenTest {
                 new InputStreamReader(is, StandardCharsets.UTF_8), type);
     }
 
-    private ZhtwConverter converterFor(List<String> sources) {
-        return ZhtwConverter.builder().sources(sources).build();
+    private ZhtwConverter converterFor(List<String> sources, String ambiguityMode) {
+        ZhtwConverter.Builder b = ZhtwConverter.builder().sources(sources);
+        if (ambiguityMode != null) {
+            b = b.ambiguityMode(ambiguityMode);
+        }
+        return b.build();
     }
 
     @TestFactory
@@ -41,11 +45,12 @@ class GoldenTest {
             String input = (String) c.get("input");
             List<String> sources = (List<String>) c.get("sources");
             String expected = (String) c.get("expected");
+            String ambiguityMode = (String) c.get("ambiguity_mode");
 
             tests.add(DynamicTest.dynamicTest(
                     "convert: " + input + " [" + String.join(",", sources) + "]",
                     () -> {
-                        ZhtwConverter conv = converterFor(sources);
+                        ZhtwConverter conv = converterFor(sources, ambiguityMode);
                         assertEquals(expected, conv.convert(input),
                                 "Convert mismatch for '" + input + "'");
                     }
@@ -64,13 +69,14 @@ class GoldenTest {
         for (Map<String, Object> c : cases) {
             String input = (String) c.get("input");
             List<String> sources = (List<String>) c.get("sources");
+            String ambiguityMode = (String) c.get("ambiguity_mode");
             List<Map<String, Object>> expectedMatches =
                     (List<Map<String, Object>>) c.get("expected_matches");
 
             tests.add(DynamicTest.dynamicTest(
                     "check: " + input + " [" + String.join(",", sources) + "]",
                     () -> {
-                        ZhtwConverter conv = converterFor(sources);
+                        ZhtwConverter conv = converterFor(sources, ambiguityMode);
                         List<Match> actual = conv.check(input);
 
                         assertEquals(expectedMatches.size(), actual.size(),
@@ -112,6 +118,7 @@ class GoldenTest {
         for (Map<String, Object> c : cases) {
             String input = (String) c.get("input");
             List<String> sources = (List<String>) c.get("sources");
+            String ambiguityMode = (String) c.get("ambiguity_mode");
             String expectedOutput = (String) c.get("expected_output");
             boolean expectedChanged = (boolean) c.get("expected_changed");
             List<Map<String, Object>> expectedDetails =
@@ -120,7 +127,7 @@ class GoldenTest {
             tests.add(DynamicTest.dynamicTest(
                     "lookup: " + input + " [" + String.join(",", sources) + "]",
                     () -> {
-                        ZhtwConverter conv = converterFor(sources);
+                        ZhtwConverter conv = converterFor(sources, ambiguityMode);
                         LookupResult result = conv.lookup(input);
 
                         assertEquals(expectedOutput, result.getOutput(),

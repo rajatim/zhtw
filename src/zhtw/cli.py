@@ -787,7 +787,13 @@ def stats(source: str, json_output: bool):
     default="cn,hk",
     help="詞庫來源: cn (簡體), hk (港式), 或 cn,hk (預設)",
 )
-def lookup(words: tuple, verbose: bool, json_output: bool, source: str):
+@click.option(
+    "--ambiguity-mode",
+    type=click.Choice(["strict", "balanced"]),
+    default="strict",
+    help="歧義字處理模式 (預設: strict)",
+)
+def lookup(words: tuple, verbose: bool, json_output: bool, source: str, ambiguity_mode: str):
     """
     查詢詞彙的轉換結果與來源歸因。
 
@@ -830,8 +836,13 @@ def lookup(words: tuple, verbose: bool, json_output: bool, source: str):
     # 判斷整句 vs 多個單詞（中文常用詞最多 4-5 字，6 字以上視為句子）
     is_sentence = len(input_words) == 1 and len(input_words[0]) >= 6
 
+    # balanced defaults 是 CN→TW 映射，HK 不適用
+    effective_mode = ambiguity_mode
+    if ambiguity_mode == "balanced" and "cn" not in sources:
+        effective_mode = "strict"
+
     # 執行查詢
-    results = lookup_words(input_words, matcher, char_table)
+    results = lookup_words(input_words, matcher, char_table, effective_mode)
 
     # 輸出
     if json_output:

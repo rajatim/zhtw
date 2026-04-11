@@ -37,6 +37,7 @@ def lookup_word(
     word: str,
     matcher: Matcher,
     char_table: Optional[dict[int, str]] = None,
+    ambiguity_mode: str = "strict",
 ) -> LookupResult:
     """查詢單一詞/句的轉換結果與來源歸因。"""
     if not word:
@@ -56,7 +57,25 @@ def lookup_word(
             )
         )
 
-    # 2. 字元層：逐字掃描未被詞彙層覆蓋的位置
+    # 2. Balanced defaults 層：未被覆蓋的歧義字套用預設值
+    #    balanced_defaults 是 CN→TW 對映，char_table 是 CN 啟用的指標
+    if ambiguity_mode == "balanced" and char_table is not None:
+        from .charconv import get_balanced_defaults
+
+        defaults = get_balanced_defaults()
+        if defaults:
+            for i, ch in enumerate(word):
+                if i not in covered and ch in defaults:
+                    details.append(
+                        ConversionDetail(
+                            source=ch,
+                            target=defaults[ch],
+                            layer="char",
+                            position=i,
+                        )
+                    )
+
+    # 3. 字元層：逐字掃描未被詞彙層覆蓋的位置
     if char_table:
         for i, ch in enumerate(word):
             if i not in covered:
@@ -102,6 +121,7 @@ def lookup_words(
     words: List[str],
     matcher: Matcher,
     char_table: Optional[dict[int, str]] = None,
+    ambiguity_mode: str = "strict",
 ) -> List[LookupResult]:
     """批次查詢多個詞/句。"""
-    return [lookup_word(w, matcher, char_table) for w in words]
+    return [lookup_word(w, matcher, char_table, ambiguity_mode) for w in words]

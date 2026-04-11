@@ -21,16 +21,22 @@ public final class ZhtwConverter {
 
     private final AhoCorasickMatcher matcher;
     private final Map<Integer, String> charmap;    // codepoint -> replacement
+    private final Map<Integer, String> balancedDefaults; // codepoint -> default replacement
     private final boolean charLayerEnabled;
+    private final boolean balancedMode;
     private final List<String> sources;
 
     private ZhtwConverter(AhoCorasickMatcher matcher,
                           Map<Integer, String> charmap,
+                          Map<Integer, String> balancedDefaults,
                           boolean charLayerEnabled,
+                          boolean balancedMode,
                           List<String> sources) {
         this.matcher = matcher;
         this.charmap = charmap;
+        this.balancedDefaults = balancedDefaults;
         this.charLayerEnabled = charLayerEnabled;
+        this.balancedMode = balancedMode;
         this.sources = Collections.unmodifiableList(new ArrayList<>(sources));
     }
 
@@ -73,22 +79,24 @@ public final class ZhtwConverter {
         Set<Integer> covered = matcher.getCoveredPositions(text);
         List<Match> matches = matcher.findMatches(text);
 
+        boolean layersEnabled = charLayerEnabled || balancedMode;
+
         if (matches.isEmpty()) {
-            return charLayerEnabled ? applyCharmapSkipping(text, covered, 0) : text;
+            return layersEnabled ? applyLayersSkipping(text, covered, 0) : text;
         }
 
-        // Gap mode: term targets are inserted verbatim; gaps get char-layer
+        // Gap mode: term targets are inserted verbatim; gaps get char/balanced layers
         // applied only on uncovered positions.
         StringBuilder sb = new StringBuilder(text.length());
         int lastEnd = 0;
         for (Match m : matches) {
             String gap = text.substring(lastEnd, m.getStart());
-            sb.append(charLayerEnabled ? applyCharmapSkipping(gap, covered, lastEnd) : gap);
+            sb.append(layersEnabled ? applyLayersSkipping(gap, covered, lastEnd) : gap);
             sb.append(m.getTarget());
             lastEnd = m.getEnd();
         }
         String tail = text.substring(lastEnd);
-        sb.append(charLayerEnabled ? applyCharmapSkipping(tail, covered, lastEnd) : tail);
+        sb.append(layersEnabled ? applyLayersSkipping(tail, covered, lastEnd) : tail);
         return sb.toString();
     }
 
@@ -115,6 +123,24 @@ public final class ZhtwConverter {
             int cpStart = Character.codePointCount(text, 0, m.getStart());
             int cpEnd = Character.codePointCount(text, 0, m.getEnd());
             result.add(new Match(cpStart, cpEnd, m.getSource(), m.getTarget()));
+        }
+
+        // Balanced defaults matches (skip covered positions)
+        if (balancedMode) {
+            int cpIndex = 0;
+            int i = 0;
+            while (i < text.length()) {
+                int cp = text.codePointAt(i);
+                if (!coveredUtf16.contains(i)) {
+                    String replacement = balancedDefaults.get(cp);
+                    if (replacement != null) {
+                        String original = new String(Character.toChars(cp));
+                        result.add(new Match(cpIndex, cpIndex + 1, original, replacement));
+                    }
+                }
+                cpIndex++;
+                i += Character.charCount(cp);
+            }
         }
 
         // Char-level matches (on original text, skip covered positions)
@@ -161,18 +187,30 @@ public final class ZhtwConverter {
         // Covered positions from ALL automaton hits (including identity terms)
         Set<Integer> coveredUtf16 = matcher.getCoveredPositions(word);
 
-        // 1. Term layer
+        // 1. Term layer — targets stored verbatim (matching Python/TS/Rust).
         List<Match> termMatches = matcher.findMatches(word);
         for (Match m : termMatches) {
-            String target = m.getTarget();
-            // Apply charmap to term target (matching Python pipeline)
-            if (charLayerEnabled) {
-                target = applyCharmap(target);
-            }
-            utf16Details.add(new ConversionDetail(m.getSource(), target, "term", m.getStart()));
+            utf16Details.add(new ConversionDetail(m.getSource(), m.getTarget(), "term", m.getStart()));
         }
 
-        // 2. Char layer: scan uncovered positions
+        // 2. Balanced defaults layer: scan uncovered positions
+        if (balancedMode) {
+            int i = 0;
+            while (i < word.length()) {
+                int cp = word.codePointAt(i);
+                int charLen = Character.charCount(cp);
+                if (!coveredUtf16.contains(i)) {
+                    String replacement = balancedDefaults.get(cp);
+                    if (replacement != null) {
+                        String original = new String(Character.toChars(cp));
+                        utf16Details.add(new ConversionDetail(original, replacement, "char", i));
+                    }
+                }
+                i += charLen;
+            }
+        }
+
+        // 3. Char layer: scan uncovered positions
         if (charLayerEnabled) {
             int i = 0;
             while (i < word.length()) {
@@ -227,32 +265,11 @@ public final class ZhtwConverter {
         return sb.toString();
     }
 
-    /** Apply codepoint-based charmap to text. Handles supplementary plane characters. */
-    private String applyCharmap(String text) {
-        StringBuilder sb = new StringBuilder(text.length());
-        boolean changed = false;
-        int i = 0;
-        while (i < text.length()) {
-            int cp = text.codePointAt(i);
-            String replacement = charmap.get(cp);
-            if (replacement != null) {
-                sb.append(replacement);
-                changed = true;
-            } else {
-                sb.appendCodePoint(cp);
-            }
-            i += Character.charCount(cp);
-        }
-        return changed ? sb.toString() : text;
-    }
-
     /**
-     * Apply charmap to a text segment, skipping positions that are in the covered set.
-     * @param segment text segment to process
-     * @param covered set of covered UTF-16 positions in the ORIGINAL text
-     * @param offset UTF-16 offset of this segment within the original text
+     * Apply balanced defaults and charmap to a text segment, skipping covered positions.
+     * Balanced defaults are checked first (matching Python order).
      */
-    private String applyCharmapSkipping(String segment, Set<Integer> covered, int offset) {
+    private String applyLayersSkipping(String segment, Set<Integer> covered, int offset) {
         StringBuilder sb = new StringBuilder(segment.length());
         boolean changed = false;
         int i = 0;
@@ -262,7 +279,14 @@ public final class ZhtwConverter {
             if (covered.contains(offset + i)) {
                 sb.appendCodePoint(cp);
             } else {
-                String replacement = charmap.get(cp);
+                // Balanced defaults first, then charmap.
+                String replacement = null;
+                if (balancedMode) {
+                    replacement = balancedDefaults.get(cp);
+                }
+                if (replacement == null && charLayerEnabled) {
+                    replacement = charmap.get(cp);
+                }
                 if (replacement != null) {
                     sb.append(replacement);
                     changed = true;
@@ -282,6 +306,7 @@ public final class ZhtwConverter {
 
         private List<String> sources = Arrays.asList("cn", "hk");
         private Map<String, String> customDict = Collections.emptyMap();
+        private String ambiguityMode = "strict";
 
         private Builder() {}
 
@@ -303,6 +328,15 @@ public final class ZhtwConverter {
             return this;
         }
 
+        /**
+         * Set ambiguity handling mode.
+         * @param mode "strict" (default) or "balanced"
+         */
+        public Builder ambiguityMode(String mode) {
+            this.ambiguityMode = mode != null ? mode : "strict";
+            return this;
+        }
+
         /** Build the converter. */
         public ZhtwConverter build() {
             ZhtwData data = ZhtwData.fromClasspath();
@@ -315,11 +349,15 @@ public final class ZhtwConverter {
 
             AhoCorasickMatcher matcher = new AhoCorasickMatcher(allTerms);
             boolean charLayerEnabled = sources.contains("cn");
+            // balanced defaults are CN→TW mappings; degrade to strict when CN not in sources.
+            boolean balanced = "balanced".equals(ambiguityMode) && charLayerEnabled;
 
             return new ZhtwConverter(
                     matcher,
                     data.getCharmap(),
+                    data.getBalancedDefaults(),
                     charLayerEnabled,
+                    balanced,
                     sources
             );
         }

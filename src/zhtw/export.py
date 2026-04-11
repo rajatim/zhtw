@@ -107,9 +107,12 @@ _GOLDEN_CASES = [
         "balanced: \u5f71\u540e protected (not in base dict)",
         "balanced",
     ),
+    # Balanced mode: bare balanced_defaults char (NOT in dictionary, NOT in charmap)
+    ("\u4e30\u6ee1", ["cn"], "balanced: \u4e30 default \u8c50 (bare char)", "balanced"),
 ]
 
 # Lookup test cases — individual words/chars
+# Format: (word, sources) or (word, sources, ambiguity_mode)
 _LOOKUP_CASES = [
     ("\u8f6f\u4ef6", ["cn"]),
     ("\u8fd9", ["cn"]),
@@ -117,6 +120,8 @@ _LOOKUP_CASES = [
     ("\u5934\u53d1", ["cn"]),
     ("\u8edf\u4ef6", ["hk"]),
     ("\u6025\u75c7", ["cn"]),  # identity term: no conversion expected
+    ("\u4f19\u5934", ["cn"]),  # term target contains charmap-convertible char: 伙頭 not 夥頭
+    ("\u4e30\u6ee1", ["cn"], "balanced"),  # balanced: 丰→豐 default + 滿→滿 charmap
 ]
 
 
@@ -189,31 +194,35 @@ def generate_golden_test(
             check_entry["ambiguity_mode"] = mode
         check_cases.append(check_entry)
 
-    for word, srcs in _LOOKUP_CASES:
+    for case in _LOOKUP_CASES:
+        word, srcs = case[0], case[1]
+        mode = case[2] if len(case) > 2 else "strict"
+
         if sources is not None and not all(s in sources for s in srcs):
             continue
         terms = load_dictionary(sources=srcs)
         inject_protect_terms(terms, srcs)
         matcher = Matcher(terms)
         char_table = get_translate_table() if "cn" in srcs else None
-        result = lookup_word(word, matcher, char_table)
-        lookup_cases.append(
-            {
-                "input": word,
-                "sources": srcs,
-                "expected_output": result.output,
-                "expected_changed": result.changed,
-                "expected_details": [
-                    {
-                        "source": d.source,
-                        "target": d.target,
-                        "layer": d.layer,
-                        "position": d.position,
-                    }
-                    for d in result.details
-                ],
-            }
-        )
+        result = lookup_word(word, matcher, char_table, ambiguity_mode=mode)
+        entry: Dict[str, Any] = {
+            "input": word,
+            "sources": srcs,
+            "expected_output": result.output,
+            "expected_changed": result.changed,
+            "expected_details": [
+                {
+                    "source": d.source,
+                    "target": d.target,
+                    "layer": d.layer,
+                    "position": d.position,
+                }
+                for d in result.details
+            ],
+        }
+        if mode != "strict":
+            entry["ambiguity_mode"] = mode
+        lookup_cases.append(entry)
 
     return {
         "version": __version__,

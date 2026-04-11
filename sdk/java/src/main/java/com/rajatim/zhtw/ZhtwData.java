@@ -26,15 +26,18 @@ final class ZhtwData {
     private final String version;
     private final Map<Integer, String> charmap;   // codepoint -> replacement string
     private final Set<Integer> ambiguous;          // ambiguous codepoints
+    private final Map<Integer, String> balancedDefaults; // codepoint -> default replacement
     private final Map<String, Map<String, String>> terms;
 
     private ZhtwData(String version,
                      Map<Integer, String> charmap,
                      Set<Integer> ambiguous,
+                     Map<Integer, String> balancedDefaults,
                      Map<String, Map<String, String>> terms) {
         this.version = version;
         this.charmap = Collections.unmodifiableMap(charmap);
         this.ambiguous = Collections.unmodifiableSet(ambiguous);
+        this.balancedDefaults = Collections.unmodifiableMap(balancedDefaults);
         Map<String, Map<String, String>> unmodTerms = new HashMap<>();
         for (Map.Entry<String, Map<String, String>> e : terms.entrySet()) {
             unmodTerms.put(e.getKey(), Collections.unmodifiableMap(e.getValue()));
@@ -91,6 +94,20 @@ final class ZhtwData {
             }
         }
 
+        // Parse balanced_defaults
+        Map<Integer, String> balancedDefaults = new HashMap<>();
+        @SuppressWarnings("unchecked")
+        Map<String, String> rawBalanced = (Map<String, String>) charmapObj.get("balanced_defaults");
+        if (rawBalanced != null) {
+            for (Map.Entry<String, String> e : rawBalanced.entrySet()) {
+                String key = e.getKey();
+                String val = e.getValue();
+                if (!key.isEmpty() && !val.isEmpty()) {
+                    balancedDefaults.put(key.codePointAt(0), val);
+                }
+            }
+        }
+
         // Parse terms
         @SuppressWarnings("unchecked")
         Map<String, Object> rawTerms = (Map<String, Object>) root.get("terms");
@@ -101,12 +118,13 @@ final class ZhtwData {
             terms.put(e.getKey(), new HashMap<>(sourceTerms));
         }
 
-        return new ZhtwData(version, charmap, ambiguous, terms);
+        return new ZhtwData(version, charmap, ambiguous, balancedDefaults, terms);
     }
 
     String getVersion() { return version; }
     Map<Integer, String> getCharmap() { return charmap; }
     Set<Integer> getAmbiguous() { return ambiguous; }
+    Map<Integer, String> getBalancedDefaults() { return balancedDefaults; }
 
     Map<String, String> getTerms(String source) {
         return terms.getOrDefault(source, Collections.emptyMap());
