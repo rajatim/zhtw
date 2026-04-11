@@ -1,3 +1,4 @@
+<!-- zhtw:disable -->
 # Go SDK 設計規格
 
 **Date:** 2026-04-11
@@ -135,7 +136,7 @@ type zhtwData struct {
         Ambiguous       map[string]any    `json:"ambiguous"`        // 不直接用，但需反序列化
         BalancedDefaults map[string]string `json:"balanced_defaults"` // optional
     } `json:"charmap"`
-    Terms map[string]map[string]string `json:"terms"` // "cn" -> {"軟體": "軟體", ...}, "hk" -> {...}
+    Terms map[string]map[string]string `json:"terms"` // "cn" -> {"\u8f6f\u4ef6": "\u8edf\u9ad4", ...}, "hk" -> {...}
 }
 ```
 
@@ -301,17 +302,17 @@ import (
 
 func main() {
     // 零設定
-    fmt.Println(zhtw.Convert("這個軟體需要最佳化"))
+    fmt.Println(zhtw.Convert("\u8fd9\u4e2a\u8f6f\u4ef6\u9700\u8981\u4f18\u5316"))
     // → "這個軟體需要最佳化"
 
     // 自訂設定
     conv, _ := zhtw.NewBuilder().
         Sources(zhtw.SourceCn).
-        CustomDict(map[string]string{"自訂": "自訂"}).
+        CustomDict(map[string]string{"\u81ea\u5b9a\u4e49": "自訂"}).
         AmbiguityMode(zhtw.AmbiguityBalanced).
         Build()
 
-    fmt.Println(conv.Convert("這個軟體需要最佳化"))
+    fmt.Println(conv.Convert("\u8fd9\u4e2a\u8f6f\u4ef6\u9700\u8981\u4f18\u5316"))
 }
 ```
 
