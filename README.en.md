@@ -24,7 +24,7 @@ Output: 伺服器上的軟體需要最佳化，使用者權限請聯絡管理員
 ```
 <!-- zhtw:enable -->
 
-One line of code, one CLI, seven SDKs — all producing **real Taiwan Traditional Chinese**.
+One line of code, one CLI, five language SDKs — all producing **real Taiwan Traditional Chinese**.
 
 ---
 
@@ -323,7 +323,7 @@ func main() {
 
 ## Multi-language SDKs
 
-ZHTW is primarily implemented in Python and ships native Java, TypeScript, Rust, and Go SDKs. All SDKs share the same dictionary data (`zhtw-data.json`), so conversion results are byte-identical to the Python CLI (cross-SDK byte-for-byte verification via the shared `sdk/data/golden-test.json` fixture is a release gate). All SDKs support balanced mode (ambiguous character disambiguation).
+ZHTW is primarily implemented in Python and ships native Java, TypeScript, Rust, and Go SDKs (5 languages), plus a WebAssembly package (`zhtw-wasm`). All SDKs share the same dictionary data (`zhtw-data.json`), so conversion results are byte-identical to the Python CLI (cross-SDK byte-for-byte verification via the shared `sdk/data/golden-test.json` fixture is a release gate). All SDKs support balanced mode (ambiguous character disambiguation).
 
 | SDK | Install | Throughput (1MB) | Per-call latency | Use cases | Status |
 |-----|---------|-----------------|------------------|-----------|--------|

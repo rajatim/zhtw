@@ -24,7 +24,7 @@
 ```
 <!-- zhtw:enable -->
 
-一行程式、一個 CLI、七種 SDK —— 把簡體轉成**真正的台灣繁體**。
+一行程式、一個 CLI、五種語言 SDK —— 把簡體轉成**真正的台灣繁體**。
 
 ---
 
@@ -323,7 +323,7 @@ func main() {
 
 ## 多語言 SDK
 
-ZHTW 以 Python 實作為主，並提供原生 Java、TypeScript、Rust、Go SDK。所有 SDK 共用同一份詞庫資料（`zhtw-data.json`），轉換結果與 Python CLI 完全一致（跨 SDK 透過共享 `sdk/data/golden-test.json` 做 byte-for-byte 驗證，零偏差為釋出條件）。所有 SDK 均支援 balanced mode（歧義字自動消歧）。
+ZHTW 以 Python 實作為主，並提供原生 Java、TypeScript、Rust、Go 五種語言 SDK；另提供 1 個 WebAssembly 套件（`zhtw-wasm`）。所有 SDK 共用同一份詞庫資料（`zhtw-data.json`），轉換結果與 Python CLI 完全一致（跨 SDK 透過共享 `sdk/data/golden-test.json` 做 byte-for-byte 驗證，零偏差為釋出條件）。所有 SDK 均支援 balanced mode（歧義字自動消歧）。
 
 | SDK | 安裝 | 吞吐量 (1MB) | 單句延遲 | 適用場景 | 狀態 |
 |-----|------|-------------|---------|---------|------|
