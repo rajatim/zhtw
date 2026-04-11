@@ -10,6 +10,8 @@
 [![Downloads](https://img.shields.io/pypi/dm/zhtw.svg)](https://pypi.org/project/zhtw/)
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Java](https://img.shields.io/badge/java-11+-orange.svg)](https://adoptium.net/)
+[![npm](https://img.shields.io/npm/v/zhtw-js.svg?logo=npm)](https://www.npmjs.com/package/zhtw-js)
+[![crates.io](https://img.shields.io/crates/v/zhtw.svg?logo=rust)](https://crates.io/crates/zhtw)
 [![Go](https://img.shields.io/badge/go-1.21+-00ADD8.svg?logo=go)](https://pkg.go.dev/github.com/rajatim/zhtw/sdk/go/v4/zhtw)
 [![NuGet](https://img.shields.io/nuget/v/Zhtw.svg)](https://www.nuget.org/packages/Zhtw)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -327,7 +329,7 @@ No Go environment needed — download pre-built binaries:
 <!-- zhtw:disable -->
 ```bash
 # Download from GitHub Release (e.g., macOS arm64)
-curl -sL https://github.com/rajatim/zhtw/releases/download/sdk%2Fgo%2Fv4.2.0/zhtw-darwin-arm64.tar.gz | tar xz
+curl -sL https://github.com/rajatim/zhtw/releases/download/sdk%2Fgo%2Fv4.3.0/zhtw-darwin-arm64.tar.gz | tar xz
 ./zhtw convert "软件测试"
 # → 軟體測試
 
