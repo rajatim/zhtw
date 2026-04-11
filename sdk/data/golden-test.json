@@ -124,6 +124,14 @@
       ],
       "expected": "公里數很大",
       "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "影后得奖",
+      "sources": [
+        "cn"
+      ],
+      "expected": "影后得獎",
+      "ambiguity_mode": "balanced"
     }
   ],
   "check": [
@@ -372,6 +380,21 @@
           "end": 3,
           "source": "公里数",
           "target": "公里數"
+        }
+      ],
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "影后得奖",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 3,
+          "end": 4,
+          "source": "奖",
+          "target": "獎"
         }
       ],
       "ambiguity_mode": "balanced"

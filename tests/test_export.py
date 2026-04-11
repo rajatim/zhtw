@@ -186,7 +186,7 @@ def test_golden_lookup_has_full_details():
 def test_golden_convert_matches_python_pipeline():
     """Golden convert expected values must match actual Python conversion."""
     from zhtw.charconv import get_translate_table
-    from zhtw.converter import convert_text
+    from zhtw.converter import convert_text, inject_protect_terms
     from zhtw.dictionary import load_dictionary
     from zhtw.export import generate_golden_test
     from zhtw.matcher import Matcher
@@ -195,9 +195,17 @@ def test_golden_convert_matches_python_pipeline():
 
     for case in golden["convert"]:
         terms = load_dictionary(sources=case["sources"])
+        inject_protect_terms(terms, case["sources"])
         matcher = Matcher(terms)
         char_table = get_translate_table() if "cn" in case["sources"] else None
-        result_text, _ = convert_text(case["input"], matcher, fix=True, char_table=char_table)
+        mode = case.get("ambiguity_mode", "strict")
+        result_text, _ = convert_text(
+            case["input"],
+            matcher,
+            fix=True,
+            char_table=char_table,
+            ambiguity_mode=mode,
+        )
         assert result_text == case["expected"], (
             f"Convert mismatch for {case['input']!r}: "
             f"golden={case['expected']!r}, actual={result_text!r}"

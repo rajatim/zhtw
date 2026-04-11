@@ -40,7 +40,17 @@ def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
     for src in sources:
         src_terms = load_directory(DATA_DIR / src)
         terms[src] = src_terms
-        terms_counts[src] = len(src_terms)
+
+    # Bake protect_terms into CN terms so SDKs get them without special code.
+    # Identity entries (source == target) are handled natively by all SDKs'
+    # Aho-Corasick matching — no SDK-side changes needed.
+    if "cn" in terms:
+        for _char, pterms in get_protect_terms().items():
+            for term in pterms:
+                terms["cn"][term] = term
+
+    for src in sources:
+        terms_counts[src] = len(terms[src])
 
     return {
         "version": __version__,
@@ -91,6 +101,12 @@ _GOLDEN_CASES = [
     ("\u7687\u540e\u5f88\u7f8e", ["cn"], "balanced: \u7687\u540e protected", "balanced"),
     ("\u5bb6\u91cc\u5f88\u5927", ["cn"], "balanced: \u91cc default \u88e1", "balanced"),
     ("\u516c\u91cc\u6570\u5f88\u5927", ["cn"], "balanced: \u516c\u91cc protected", "balanced"),
+    (
+        "\u5f71\u540e\u5f97\u5956",
+        ["cn"],
+        "balanced: \u5f71\u540e protected (not in base dict)",
+        "balanced",
+    ),
 ]
 
 # Lookup test cases — individual words/chars
