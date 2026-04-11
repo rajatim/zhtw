@@ -8,6 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.3.0] - 2026-04-11
+
+### Added
+- **C# (.NET) SDK**：全新 `Zhtw` NuGet package，第 6 個語言 SDK
+  - Multi-target `netstandard2.0` + `net8.0`（支援 .NET Framework 4.7.2+、.NET Core、Mono、Unity）
+  - 完整 Convert/Check/Lookup API，與其他 5 語言 SDK 功能對等
+  - Self-implemented Aho-Corasick automaton，三層轉換（詞彙→balanced→字元）
+  - 24 tests，含 golden-test.json 跨語言一致性驗證
+  - CI/CD：GitHub Actions build + test + NuGet publish
+- **Go CLI binary**：standalone `zhtw` 命令列工具，跨平台（macOS/Linux/Windows × amd64/arm64）
+  - `convert`、`check`、`lookup` 子命令，支援 `--json`、`--file`、`--sources`、`--ambiguity-mode`
+  - GitHub Releases 自動編譯 + 上傳 tarball/zip + checksums
+
 ## [4.1.0] - 2026-04-11
 
 ### Added
