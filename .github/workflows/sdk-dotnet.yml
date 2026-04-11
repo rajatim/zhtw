@@ -2,9 +2,9 @@ name: SDK .NET
 
 on:
   push:
-    paths: ['sdk/dotnet/**', 'sdk/data/**']
+    paths: ['sdk/dotnet/**', 'sdk/data/**', '.github/workflows/sdk-dotnet.yml']
   pull_request:
-    paths: ['sdk/dotnet/**', 'sdk/data/**']
+    paths: ['sdk/dotnet/**', 'sdk/data/**', '.github/workflows/sdk-dotnet.yml']
   release:
     types: [published]
 
