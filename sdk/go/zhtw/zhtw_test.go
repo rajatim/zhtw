@@ -190,3 +190,72 @@ func TestDataLoading(t *testing.T) {
 		t.Errorf("balancedDefaults: expected 10, got %d", len(data.balancedDefaults))
 	}
 }
+
+func TestBuilderDefault(t *testing.T) {
+	conv, err := NewBuilder().Build()
+	if err != nil {
+		t.Fatal(err)
+	}
+	got := conv.Convert("\u8f6f\u4ef6\u6d4b\u8bd5") // 软件测试
+	if got != "\u8edf\u9ad4\u6e2c\u8a66" {            // 軟體測試
+		t.Errorf("got %q", got)
+	}
+}
+
+func TestBuilderCustomDict(t *testing.T) {
+	conv, err := NewBuilder().
+		Sources(SourceCn).
+		CustomDict(map[string]string{"\u81ea\u5b9a\u4e49": "\u81ea\u8a02"}).
+		Build()
+	if err != nil {
+		t.Fatal(err)
+	}
+	got := conv.Convert("\u81ea\u5b9a\u4e49") // 自定义 → 自訂
+	if got != "\u81ea\u8a02" {
+		t.Errorf("got %q", got)
+	}
+}
+
+func TestBuilderEmptySourcesError(t *testing.T) {
+	_, err := NewBuilder().Sources().Build()
+	if err == nil {
+		t.Fatal("expected error for empty sources")
+	}
+}
+
+func TestBuilderBalancedMode(t *testing.T) {
+	conv, err := NewBuilder().
+		Sources(SourceCn).
+		SetAmbiguityMode(AmbiguityBalanced).
+		Build()
+	if err != nil {
+		t.Fatal(err)
+	}
+	// "以后再说" → "以後再說" in balanced mode
+	got := conv.Convert("\u4ee5\u540e\u518d\u8bf4")
+	if got != "\u4ee5\u5f8c\u518d\u8aaa" {
+		t.Errorf("got %q", got)
+	}
+}
+
+func TestConvenienceConvert(t *testing.T) {
+	got := Convert("\u8f6f\u4ef6\u6d4b\u8bd5") // 软件测试
+	want := "\u8edf\u9ad4\u6e2c\u8a66"          // 軟體測試
+	if got != want {
+		t.Errorf("Convert() = %q, want %q", got, want)
+	}
+}
+
+func TestConvenienceCheck(t *testing.T) {
+	matches := Check("\u8f6f\u4ef6") // 软件
+	if len(matches) < 1 {
+		t.Fatalf("expected at least 1 match, got %d", len(matches))
+	}
+}
+
+func TestConvenienceLookup(t *testing.T) {
+	result := Lookup("\u8f6f\u4ef6") // 软件
+	if !result.Changed {
+		t.Error("expected changed=true")
+	}
+}
