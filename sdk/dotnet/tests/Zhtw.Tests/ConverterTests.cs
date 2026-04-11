@@ -104,5 +104,39 @@ namespace Zhtw.Tests
             var conv = new ConverterBuilder().Sources(Source.Hk).Build();
             Assert.Equal("軟體工程師", conv.Convert("軟件工程師"));
         }
+
+        [Fact]
+        public void StaticConvert()
+        {
+            Assert.Equal("軟體測試", ZhtwConvert.Convert("软件测试"));
+        }
+
+        [Fact]
+        public void StaticCheck()
+        {
+            var matches = ZhtwConvert.Check("软件测试");
+            Assert.Equal(2, matches.Count);
+        }
+
+        [Fact]
+        public void StaticLookup()
+        {
+            var result = ZhtwConvert.Lookup("软件");
+            Assert.True(result.Changed);
+            Assert.Equal("軟體", result.Output);
+        }
+
+        [Fact]
+        public void DataVersionNotEmpty()
+        {
+            Assert.False(string.IsNullOrEmpty(ZhtwConvert.DataVersion));
+        }
+
+        [Fact]
+        public void EmptySourcesThrows()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                new ConverterBuilder().Sources().Build());
+        }
     }
 }
