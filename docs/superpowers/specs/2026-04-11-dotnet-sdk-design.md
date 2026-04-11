@@ -1,3 +1,4 @@
+# zhtw:disable
 # C# (.NET) SDK Design Spec
 
 > **Status:** Approved | **Date:** 2026-04-11
@@ -92,7 +93,7 @@ public sealed class ConversionDetail
 
 Three-layer model, identical to all other SDKs:
 
-1. **Term layer** — Aho-Corasick automaton matches terms (single-character and multi-character). Sources selected by `Sources` parameter (`terms.cn`, `terms.hk`). Matched targets inserted verbatim — NOT post-processed by charmap. Note: terms include single-char entries (e.g. `這` → `這`); these are matched in the term layer, not the char layer.
+1. **Term layer** — Aho-Corasick automaton matches terms (single-character and multi-character). Sources selected by `Sources` parameter (`terms.cn`, `terms.hk`). Matched targets inserted verbatim — NOT post-processed by charmap. Note: terms include single-char entries (e.g. `这` → `這`); these are matched in the term layer, not the char layer.
 2. **Balanced defaults layer** — Enabled only when `AmbiguityMode == Balanced` AND sources contain `Cn`. For each codepoint NOT covered by AC matches, check `charmap.balanced_defaults`.
 3. **Char layer** — Enabled only when sources contain `Cn`. For each codepoint NOT covered by layers 1-2, check `charmap.chars`.
 
@@ -104,12 +105,12 @@ When `AmbiguityMode == Balanced` AND sources contain `Cn`, the builder must inje
 
 ```json
 "balanced_protect_terms": {
-  "後": ["皇后", "太后", "影後", ...],
-  "裡": ["公里", "英里", "裡程", ...]
+  "后": ["皇后", "太后", "影后", ...],
+  "里": ["公里", "英里", "里程", ...]
 }
 ```
 
-For each term in the lists, inject `term → term` (identity) into the AC dictionary. This causes the AC automaton to "cover" those positions, preventing the balanced-defaults and char layers from converting the ambiguous character within those terms. Example: `皇后很美` — the identity mapping `皇后 → 皇后` covers positions 0-1, so `後` is not converted to `後` by balanced defaults.
+For each term in the lists, inject `term → term` (identity) into the AC dictionary. This causes the AC automaton to "cover" those positions, preventing the balanced-defaults and char layers from converting the ambiguous character within those terms. Example: `皇后很美` — the identity mapping `皇后 → 皇后` covers positions 0-1, so `后` is not converted to `後` by balanced defaults.
 
 ### Check() vs Lookup() ordering
 
@@ -120,9 +121,9 @@ The two APIs use **different ordering rules**:
 | `Check()` | Layer discovery order: term matches first, then balanced, then char. **NOT sorted by position.** | Groups by conversion layer |
 | `Lookup().Details` | **Sorted by position ascending** | Left-to-right reading order |
 
-Example with `"丰滿"` in balanced mode:
-- `Check()` returns: `[滿@1 (term), 丰@0 (char)]` — term layer first
-- `Lookup().Details` returns: `[丰@0 (char), 滿@1 (term)]` — position order
+Example with `"丰满"` in balanced mode:
+- `Check()` returns: `[满@1 (term), 丰@0 (char)]` — term layer first
+- `Lookup().Details` returns: `[丰@0 (char), 满@1 (term)]` — position order
 
 ### Position indexing
 
