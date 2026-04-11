@@ -24,6 +24,7 @@ type zhtwDataJSON struct {
 // ── Parsed data (rune-optimised) ─────────────────────────────────────────────
 
 type parsedData struct {
+	version          string
 	charMap          map[rune]rune
 	balancedDefaults map[rune]rune
 	termsCn          map[string]string
@@ -76,9 +77,15 @@ func mustParseData(raw []byte) *parsedData {
 	}
 
 	return &parsedData{
+		version:          j.Version,
 		charMap:          charMap,
 		balancedDefaults: balancedDefaults,
 		termsCn:          termsCn,
 		termsHk:          termsHk,
 	}
+}
+
+// DataVersion returns the version string from the embedded zhtw-data.json.
+func DataVersion() string {
+	return getParsedData().version
 }

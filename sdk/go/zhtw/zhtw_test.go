@@ -1,6 +1,7 @@
 package zhtw
 
 import (
+	"strings"
 	"testing"
 )
 
@@ -257,5 +258,16 @@ func TestConvenienceLookup(t *testing.T) {
 	result := Lookup("\u8f6f\u4ef6") // 软件
 	if !result.Changed {
 		t.Error("expected changed=true")
+	}
+}
+
+func TestDataVersion(t *testing.T) {
+	v := DataVersion()
+	if v == "" {
+		t.Fatal("DataVersion() returned empty string")
+	}
+	parts := strings.Split(v, ".")
+	if len(parts) != 3 {
+		t.Fatalf("DataVersion() = %q, want X.Y.Z format", v)
 	}
 }
