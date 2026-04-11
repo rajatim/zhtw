@@ -5,7 +5,7 @@ tim Insight 出品 🇹🇼
 """
 
 # zhtw:disable - Python identifiers must not be converted
-__version__ = "4.1.0"
+__version__ = "4.2.0"
 __author__ = "tim Insight"
 
 from .converter import VALID_SOURCES, convert, convert_file, convert_text
