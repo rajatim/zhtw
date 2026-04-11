@@ -88,7 +88,7 @@ jobs:
         working-directory: sdk/typescript
         run: pnpm build
       - name: Upgrade npm to >= 11.5.1 (required for Trusted Publishing OIDC)
-        run: npm install -g npm@latest
+        run: npm install -g npm@11.5.1
       - name: Publish to npm (Trusted Publishing OIDC, no token)
         working-directory: sdk/typescript
         run: npm publish --access public --provenance
