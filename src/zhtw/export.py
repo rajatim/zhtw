@@ -122,6 +122,7 @@ _LOOKUP_CASES = [
     ("\u6025\u75c7", ["cn"]),  # identity term: no conversion expected
     ("\u4f19\u5934", ["cn"]),  # term target contains charmap-convertible char: 伙頭 not 夥頭
     ("\u4e30\u6ee1", ["cn"], "balanced"),  # balanced: 丰→豐 default + 滿→滿 charmap
+    ("\u5f71\u540e", ["cn"], "balanced"),  # balanced: 影後 protect_term → no conversion
 ]
 
 
