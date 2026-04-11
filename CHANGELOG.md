@@ -7,21 +7,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.1.0] - 2026-04-11
+
 ### Added
-- **Rust SDK**: new `zhtw` crate published to crates.io
-  - Feature parity with Java / TypeScript SDK (`convert`, `check`, `lookup`, `sources`, `custom_dict`)
-  - Compile-time `phf::Map` character layer (zero runtime hash construction)
-  - Pre-compiled `daachorse::CharwiseDoubleArrayAhoCorasick` embedded via `build.rs`
+- **Balanced Mode（歧義字語義消歧 v1）**：全新 `ambiguityMode: "balanced"` 選項，10 個高頻歧義字自動套用預設繁體 + protect_terms 例外保護
+  - 10 個已處理歧義字：几→幾、丰→豐、杰→傑、卤→滷、坛→壇、弥→彌、摆→擺、纤→纖、後→後、裡→裡
+  - 17 個 protect_terms：皇后/太后/後妃/後土/影後/歌後/後冠、公里/英里/海里/萬裡長城/千里 等
+  - 三層轉換架構：詞彙層（Aho-Corasick）→ balanced defaults 層 → 字元層（charmap）
+  - CLI：`zhtw fix --ambiguity-mode balanced`、`zhtw check --ambiguity-mode balanced`、`zhtw lookup --ambiguity-mode balanced`
+  - Balanced mode 為 CN→TW 專屬，HK-only 路徑自動降級為 strict（6 處 CN gate）
+  - 全 4 SDK 實作一致，golden-test.json 跨語言驗證
+- **Rust SDK**：全新 `zhtw` crate 釋出至 crates.io
+  - 與 Java / TypeScript SDK 完整功能對等（`convert`、`check`、`lookup`、`sources`、`custom_dict`、`ambiguity_mode`）
+  - Compile-time `phf::Map` 字元層（zero runtime hash construction）
+  - Pre-compiled `daachorse::CharwiseDoubleArrayAhoCorasick` 嵌入 via `build.rs`
   - Byte-for-byte parity verified via shared `sdk/data/golden-test.json`
-- **WASM SDK**: new `zhtw-wasm` npm package (Rust core compiled to WebAssembly)
+- **WASM SDK**：全新 `zhtw-wasm` npm package（Rust core compiled to WebAssembly）
   - Drop-in API compatible with `zhtw-js`
   - Published via npm Trusted Publishing (OIDC)
+- **歧義字擴充 v1.2/v1.3**：18 個歧義字從 charmap 排除至安全名單（仆/尸/赝/镋/镌 等）
+- **SDK 全面對齊**：Python / Java / TypeScript / Rust 四語言 convert/check/lookup 行為完全一致
+  - Covered positions（identity term 保護）跨 SDK 統一
+  - Identity golden cases：尸位素餐、人云亦云、急症、炎症、党太尉吃匾食
+  - 伙頭→伙頭 regression gate（term target 不被 charmap 二次轉換）
+  - 影後 protect-term balanced lookup golden case
+
+### Fixed
+- **pre-commit hook 汙染修復**：`generate_charmap.py` 被 zhtw hook 靜默轉換簡體 key → 繁體，導致 7 個歧義字（後/鹹/醜/捨/劃/闢/公克）洩漏至 safe_chars.json；已修復並加 `# zhtw:disable` header
+- **Java lookup() term target 二次轉換**：移除錯誤的 `applyCharmap(target)` 呼叫，term target 現在與 Python/TS/Rust 一致（verbatim 輸出）
+- **Python lookup_word() 缺 balanced mode**：新增 `ambiguity_mode` 參數 + CN gate 防護
+- **Balanced mode HK 洩漏**：6 處 CN gate 確保 balanced defaults 不在 HK-only 路徑生效
 
 ### Changed
-- `make bump` updates 8 locations (added `sdk/rust/zhtw-wasm/package.json`)
+- 轉換架構從雙層（詞彙+字元）升級為三層（詞彙 + balanced defaults + 字元）
+- `disambiguation.json` 取代 `balanced_defaults.json` 為歧義字資料來源
+- `make bump` updates 8 locations（新增 `sdk/rust/zhtw-wasm/package.json`）
 - `sdk/rust/` converted from single-crate scaffold to workspace
 - `.github/workflows/sdk-rust.yml` replaced fake-green stub with full pipeline
-- CLAUDE.md golden rule 6 updated: 7 → 8 mono-versioning locations
+- CLAUDE.md golden rule 6 updated：7 → 8 mono-versioning locations
+- charmap 字元數：6,344 → 6,360（歧義字重新評估後微調）
 
 ## [4.0.1] - 2026-04-09
 

@@ -23,7 +23,7 @@ Output: 伺服器上的軟體需要最佳化，使用者權限請聯絡管理員
 ```
 <!-- zhtw:enable -->
 
-One line of code, one CLI, one Maven coordinate — three languages, all producing **real Taiwan Traditional Chinese**.
+One line of code, one CLI, six SDKs — all producing **real Taiwan Traditional Chinese**.
 
 ---
 
@@ -35,7 +35,7 @@ Generic converters over-translate and silently corrupt words that were already c
 
 | | |
 |------|------|
-| **Zero false positives** | 31,000+ curated terms + 6,344 character mappings, verified against 52 books / 100M characters with zero mis-conversions |
+| **Zero false positives** | 31,000+ curated terms + 6,360 character mappings, verified against 52 books / 100M characters with zero mis-conversions |
 | **Fast scans** | Sustained 3,100 KB/s throughput; 1 MB of text in under a second |
 | **Fully offline** | Nothing leaves your machine — safe for enterprise intranets |
 | **CI-ready** | One line to add it to GitHub Actions; PRs get checked automatically |
@@ -50,10 +50,10 @@ OpenCC is a general-purpose Simplified/Traditional conversion framework that app
 |---|------|------|
 | **Goal** | General-purpose multi-variant conversion | Simplified → Taiwan Traditional |
 | **Strategy** | Full character + phrase substitution | Vocabulary first, character layer as fallback |
-| **Ambiguity** | Rule ordering | 22 hand-curated dangerous-character exceptions |
+| **Ambiguity** | Rule ordering | 102 ambiguous chars, tiered management + balanced mode disambiguation |
 | **Dictionary** | Built-in char table + phrase list | 31,000+ curated Taiwan-specific terms |
 | **Mis-conversions** | Common cases like `权限 → 許可權` | Zero across 52 books / 100M chars |
-| **Ecosystem** | C++ core with multi-language bindings | CLI + Python Library + Java SDK + pre-commit |
+| **Ecosystem** | C++ core with multi-language bindings | CLI + Python/Java/TS/Rust SDK + pre-commit |
 
 Want to see more side-by-side cases? Run `zhtw lookup 权限 服务器 用户`.
 <!-- zhtw:enable -->
@@ -128,6 +128,9 @@ zhtw check .            # scan the whole project
 zhtw check ./file.py    # scan a single file
 zhtw fix .              # auto-fix
 zhtw lookup 软件 服务器  # look up: 软件→軟體, 服务器→伺服器
+
+# Balanced mode: auto-disambiguate 10 high-frequency ambiguous chars
+zhtw fix . --ambiguity-mode balanced
 ```
 <!-- zhtw:enable -->
 
@@ -169,7 +172,7 @@ The first call loads the dictionary and builds the Aho-Corasick automaton; subse
 <dependency>
     <groupId>com.rajatim</groupId>
     <artifactId>zhtw</artifactId>
-    <version>4.0.1</version>
+    <version>4.1.0</version>
 </dependency>
 ```
 <!-- zhtw:enable -->
@@ -177,13 +180,13 @@ The first call loads the dictionary and builds the Aho-Corasick automaton; subse
 **Gradle (Kotlin DSL):**
 
 ```kotlin
-implementation("com.rajatim:zhtw:4.0.1")
+implementation("com.rajatim:zhtw:4.1.0")
 ```
 
 **Gradle (Groovy DSL):**
 
 ```groovy
-implementation 'com.rajatim:zhtw:4.0.1'
+implementation 'com.rajatim:zhtw:4.1.0'
 ```
 
 <!-- zhtw:disable -->
@@ -198,6 +201,7 @@ String result = ZhtwConverter.getDefault().convert("这个软件需要优化");
 ZhtwConverter conv = ZhtwConverter.builder()
     .sources(List.of("cn", "hk"))
     .customDict(Map.of("自定义", "自訂"))
+    .ambiguityMode("balanced")  // auto-disambiguate ambiguous chars
     .build();
 ```
 <!-- zhtw:enable -->
@@ -240,6 +244,7 @@ import { createConverter } from 'zhtw-js';
 const conv = createConverter({
   sources: ['cn'],                  // default: ['cn', 'hk']
   customDict: { '自定义': '自訂' },  // overrides built-in terms
+  ambiguityMode: 'balanced',        // auto-disambiguate ambiguous chars
 });
 
 conv.convert('...');
@@ -255,21 +260,22 @@ conv.convert('...');
 <!-- zhtw:disable -->
 ```toml
 [dependencies]
-zhtw = "4.0.1"
+zhtw = "4.1.0"
 ```
 <!-- zhtw:enable -->
 
 <!-- zhtw:disable -->
 ```rust
-use zhtw::{Converter, Source};
+use zhtw::{AmbiguityMode, Converter, Source};
 
 // Zero config
 assert_eq!(zhtw::convert("这个软件需要优化"), "這個軟體需要最佳化");
 
-// Builder with custom dict
+// Builder with custom dict + balanced mode
 let conv = Converter::builder()
     .sources([Source::Cn])
     .custom_dict([("自定义", "自訂")])
+    .ambiguity_mode(AmbiguityMode::Balanced)  // auto-disambiguate
     .build()
     .expect("non-empty sources");
 ```
@@ -281,14 +287,16 @@ let conv = Converter::builder()
 
 ## Multi-language SDKs
 
-ZHTW is primarily implemented in Python and ships native Java and TypeScript SDKs. All SDKs share the same dictionary data (`zhtw-data.json`), so conversion results are byte-identical to the Python CLI (cross-SDK byte-for-byte verification via the shared `sdk/data/golden-test.json` fixture is a release gate).
+ZHTW is primarily implemented in Python and ships native Java, TypeScript, and Rust SDKs. All SDKs share the same dictionary data (`zhtw-data.json`), so conversion results are byte-identical to the Python CLI (cross-SDK byte-for-byte verification via the shared `sdk/data/golden-test.json` fixture is a release gate). All SDKs support balanced mode (ambiguous character disambiguation).
 
 | SDK | Install | Throughput (1MB) | Per-call latency | Use cases | Status |
 |-----|---------|-----------------|------------------|-----------|--------|
 | **Python** | `pip install zhtw` | 3.1 MB/s | — | CLI, CI/CD, pre-commit, data pipelines | ✅ Stable |
 | **Java** | [Maven Central](#3-java-sdk) | 17.9 MB/s | 2 μs | Spring Boot, Android, backend services | ✅ Stable |
-| **TypeScript** | `npm install zhtw-js` | ~16 MB/s | — | Node.js ≥20, browser (isomorphic ESM+CJS) | ✅ Stable |
-| **Rust** | [crates.io](#5-rust-sdk) | — | — | High-perf, WebAssembly, embedded | ✅ Stable |
+| **TypeScript** | `npm install zhtw-js` | ~16 MB/s | — | Node.js ≥18, browser (isomorphic ESM+CJS) | ✅ Stable |
+| **Rust** | [crates.io](#5-rust-sdk) | — | — | High-perf, embedded | ✅ Stable |
+| **WASM** | `npm install zhtw-wasm` | — | — | Browser, Edge runtime | ✅ Stable |
+| **Go** | `go get` | — | — | Microservices, CLI tools, cloud-native | 🚧 Planned |
 | **C# (.NET)** | NuGet | — | — | ASP.NET, Unity, desktop apps | 🚧 Planned |
 
 ---
@@ -296,7 +304,7 @@ ZHTW is primarily implemented in Python and ships native Java and TypeScript SDK
 ## Coverage
 
 <!-- zhtw:disable -->
-**31,000+ curated terms + 6,344 character mappings**, spanning IT, medical, legal, finance, gaming, e-commerce, academia, daily life, geography, and Hong Kong usage (10+ domains). Conversion is handled by two layers: a **vocabulary layer** (Aho-Corasick longest-match) for compound words, and a **character layer** (`str.translate`) that fills in any remaining simplified characters. 22 one-to-many danger characters (发/面/里/干 etc.) are disambiguated by the vocabulary layer from surrounding context, so they never mis-convert.
+**31,000+ curated terms + 6,360 character mappings**, spanning IT, medical, legal, finance, gaming, e-commerce, academia, daily life, geography, and Hong Kong usage (10+ domains). Conversion is handled by three layers: a **vocabulary layer** (Aho-Corasick longest-match) for compound words, a **balanced defaults layer** (`--ambiguity-mode balanced`) that handles 10 high-frequency ambiguous characters with default mappings + protect_terms exceptions, and a **character layer** (`str.translate`) that fills in any remaining simplified characters. 102 one-to-many ambiguous characters are managed in tiers — when in doubt, we leave them unconverted.
 <!-- zhtw:enable -->
 
 For the full dictionary taxonomy, two-layer architecture details, one-to-many edge cases, and semantic conflict handling, see [`docs/DICTIONARY-COVERAGE.md`](docs/DICTIONARY-COVERAGE.md).
@@ -350,7 +358,7 @@ Stop issues before they're committed:
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.0.1  # use the latest tag
+    rev: v4.1.0  # use the latest tag
     hooks:
       - id: zhtw-check   # check mode (recommended)
       # - id: zhtw-fix   # or auto-fix mode
@@ -367,7 +375,7 @@ pip install pre-commit && pre-commit install
 ```yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.0.1
+    rev: v4.1.0
     hooks:
       - id: zhtw-check
         types: [python, markdown, yaml]  # only these types

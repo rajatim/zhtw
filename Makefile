@@ -77,6 +77,8 @@ endif
 	@sed -i '' 's|<version>[0-9][0-9.]*</version>|<version>$(VERSION)</version>|g' README.md README.en.md
 	@sed -i '' 's|com.rajatim:zhtw:[0-9][0-9.]*|com.rajatim:zhtw:$(VERSION)|g' README.md README.en.md
 	@sed -i '' 's|rev: v[0-9][0-9.]*|rev: v$(VERSION)|g' README.md README.en.md
+	@# README files: Rust crate version in TOML snippets.
+	@sed -i '' 's|zhtw = "[0-9][0-9.]*"|zhtw = "$(VERSION)"|g' README.md README.en.md
 	@# Java SDK benchmark report header
 	@sed -i '' 's,| SDK Version | [0-9][0-9.]* |,| SDK Version | $(VERSION) |,' sdk/java/BENCHMARK.md
 	@echo "📦 Regenerating sdk/data (embeds version)..."
