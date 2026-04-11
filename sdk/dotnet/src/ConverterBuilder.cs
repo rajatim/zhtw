@@ -30,7 +30,7 @@ namespace Zhtw
         public Converter Build()
         {
             if (_sources == null || _sources.Length == 0)
-                throw new ArgumentException("Sources must not be empty.", nameof(_sources));
+                throw new ArgumentException("Sources must not be empty.", "sources");
 
             var data = ZhtwData.Instance;
 

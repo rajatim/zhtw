@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 
 namespace Zhtw
 {
@@ -7,8 +6,7 @@ namespace Zhtw
     {
         internal static int[] ToCodepoints(string text)
         {
-            var si = new StringInfo(text);
-            int len = si.LengthInTextElements;
+            int len = CodepointLength(text);
             int[] codepoints = new int[len];
             int charIndex = 0;
             for (int i = 0; i < len; i++)
