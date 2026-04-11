@@ -560,12 +560,20 @@ def convert(text: str, sources: Optional[List[str]] = None, ambiguity_mode: str 
             cached = _DEFAULT_CONVERT_CACHE.get(key)
             if cached is None:
                 terms = load_dictionary(sources=sources)
-                matcher = Matcher(terms)
-                char_table = None
+                # Inject protect_terms as identity terms (source == target).
+                # These are no-ops in strict mode (ambiguous chars aren't in
+                # safe_chars) but block balanced-layer default overwrite via
+                # covered positions.
                 if sources is None or "cn" in sources:
-                    from .charconv import get_translate_table
+                    from .charconv import get_protect_terms, get_translate_table
 
+                    for _char, pterms in get_protect_terms().items():
+                        for term in pterms:
+                            terms[term] = term  # identity mapping
                     char_table = get_translate_table()
+                else:
+                    char_table = None
+                matcher = Matcher(terms)
                 cached = (matcher, char_table)
                 _DEFAULT_CONVERT_CACHE[key] = cached
 
