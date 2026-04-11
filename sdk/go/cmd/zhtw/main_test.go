@@ -124,12 +124,13 @@ func TestLookupJSONGolden(t *testing.T) {
 	if err != nil {
 		t.Fatalf("read golden: %v", err)
 	}
+	want := strings.ReplaceAll(string(golden), "\r\n", "\n")
 	stdout, _, code := runCLI(t, "", "lookup", "--json", "软件")
 	if code != 0 {
 		t.Fatalf("want exit 0, got %d", code)
 	}
-	if stdout != string(golden) {
-		t.Errorf("output mismatch\ngot:\n%s\nwant:\n%s", stdout, string(golden))
+	if stdout != want {
+		t.Errorf("output mismatch\ngot:\n%s\nwant:\n%s", stdout, want)
 	}
 }
 
@@ -138,12 +139,13 @@ func TestConvertJSONGolden(t *testing.T) {
 	if err != nil {
 		t.Fatalf("read golden: %v", err)
 	}
+	want := strings.ReplaceAll(string(golden), "\r\n", "\n")
 	stdout, _, code := runCLI(t, "", "convert", "--json", "软件测试")
 	if code != 0 {
 		t.Fatalf("want exit 0, got %d", code)
 	}
-	if stdout != string(golden) {
-		t.Errorf("output mismatch\ngot:\n%s\nwant:\n%s", stdout, string(golden))
+	if stdout != want {
+		t.Errorf("output mismatch\ngot:\n%s\nwant:\n%s", stdout, want)
 	}
 }
 
