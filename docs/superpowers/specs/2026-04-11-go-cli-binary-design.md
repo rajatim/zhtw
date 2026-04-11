@@ -202,7 +202,7 @@ Fields:
 
 The Go SDK's `LookupResult` struct already has matching JSON tags. Implementation: marshal `[]LookupResult` wrapped in `{"results": [...]}`.
 
-**Parity validation:** `lookup --json` output for the same input must produce identical JSON to `python -m zhtw lookup --json` (modulo trailing whitespace). This is a release-gate test.
+**Parity validation:** `lookup --json` output for the same input should produce identical JSON to `python -m zhtw lookup --json` (modulo trailing whitespace). Verified by checked-in golden fixtures; inner `LookupResult` structure is already cross-SDK validated by `sdk/data/golden-test.json`.
 
 ### Plain Text Output (no `--json`)
 
@@ -281,7 +281,7 @@ zhtw dev (data 4.2.0)
 
 Three-tier fallback:
 
-1. **`-ldflags` injection** (GoReleaser builds): `-X main.version=4.2.0` at compile time
+1. **`-ldflags` injection** (CI release builds): `-X main.version=4.2.0` at compile time
 2. **`debug.ReadBuildInfo()`** (`go install` users): reads module version from build metadata
 3. **Fallback:** `"dev"` string
 
@@ -324,6 +324,7 @@ Use `os/exec.Command` to run the compiled binary. Test categories:
    - `lookup --json "软件"` → diff against checked-in expected JSON
    - `convert --json "软件测试"` → diff against checked-in expected JSON
    - Key: validates `SetEscapeHTML(false)` and `SetIndent` formatting
+   - Note: inner `LookupResult` structure is already cross-SDK verified by `sdk/data/golden-test.json` (46 cases). CLI golden fixtures validate the `{"results": [...]}` envelope and formatting only. If Python CLI output changes, fixtures must be manually updated — acceptable for MVP since the envelope is trivially simple.
 
 3. **Input source tests:**
    - Args input
@@ -352,9 +353,9 @@ Library-level conversion correctness is already verified by `sdk/go/zhtw/golden_
 2. **GitHub Release binary** (pre-built):
    Download from the `sdk/go/vX.Y.Z` release page.
 
-### GoReleaser Configuration
+### Cross-Compilation Workflow
 
-**File:** `sdk/go/.goreleaser.yml`
+No GoReleaser — its monorepo tag-prefix support (`sdk/go/v*`) requires GoReleaser Pro. For 5 static Go binaries with zero CGO, a custom `go build` matrix is simpler and has no external dependency.
 
 **Trigger:** `.github/workflows/go-binary.yml`, on push of `sdk/go/v*` tags.
 
@@ -368,15 +369,15 @@ Library-level conversion correctness is already verified by `sdk/go/zhtw/golden_
 | linux | arm64 | `zhtw-linux-arm64.tar.gz` |
 | windows | amd64 | `zhtw-windows-amd64.zip` |
 
-Each archive includes: binary + LICENSE + README.
+Each archive includes: binary + LICENSE.
 
-**Checksums:** `zhtw_checksums.txt` (SHA-256).
+**Checksums:** `zhtw_checksums.txt` (SHA-256), uploaded alongside archives.
 
-**Release model:** GoReleaser creates a **separate GitHub Release** on the `sdk/go/vX.Y.Z` tag. This is independent from the root `vX.Y.Z` release (which triggers PyPI/Maven). Root release notes should include a link:
+**Release model:** The workflow creates a **separate GitHub Release** on the `sdk/go/vX.Y.Z` tag. This is independent from the root `vX.Y.Z` release (which triggers PyPI/Maven). Root release notes should include a link:
 
 > Go CLI binary: see [sdk/go/v4.2.0](link) release.
 
-**Version injection:** GoReleaser sets `-ldflags "-X main.version={{.Version}}"` automatically.
+**Version injection:** The workflow extracts version from the tag (`sdk/go/v4.2.0` → `4.2.0`) and passes `-ldflags "-X main.version=4.2.0"` to `go build`.
 
 ### CI Workflow (`.github/workflows/go-binary.yml`)
 
@@ -386,21 +387,70 @@ on:
   push:
     tags: ['sdk/go/v*']
 jobs:
-  goreleaser:
+  build:
+    strategy:
+      matrix:
+        include:
+          - {goos: darwin, goarch: amd64}
+          - {goos: darwin, goarch: arm64}
+          - {goos: linux, goarch: amd64}
+          - {goos: linux, goarch: arm64}
+          - {goos: windows, goarch: amd64}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - name: Extract version
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#sdk/go/v}" >> "$GITHUB_OUTPUT"
+      - name: Build
+        working-directory: sdk/go
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+          CGO_ENABLED: '0'
+        run: |
+          ext="" && [[ "$GOOS" == "windows" ]] && ext=".exe"
+          go build -ldflags "-X main.version=${{ steps.version.outputs.version }}" \
+            -o "zhtw-${GOOS}-${GOARCH}${ext}" ./cmd/zhtw
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zhtw-${{ matrix.goos }}-${{ matrix.goarch }}
+          path: sdk/go/zhtw-*
+
+  release:
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/download-artifact@v4
         with:
-          go-version: stable
-      - uses: goreleaser/goreleaser-action@v6
-        with:
-          args: release --clean
-          workdir: sdk/go
+          merge-multiple: true
+      - name: Archive and checksum
+        run: |
+          for f in zhtw-*; do
+            if [[ "$f" == *windows* ]]; then
+              zip "${f%.exe}.zip" "$f"
+            else
+              chmod +x "$f"
+              tar czf "${f}.tar.gz" "$f"
+            fi
+          done
+          shasum -a 256 *.tar.gz *.zip > zhtw_checksums.txt
+      - name: Create release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            --repo "${{ github.repository }}" \
+            --title "Go CLI ${GITHUB_REF_NAME#sdk/go/}" \
+            --generate-notes \
+            *.tar.gz *.zip zhtw_checksums.txt
 ```
 
 ---
@@ -415,7 +465,7 @@ jobs:
 - `--sources`, `--ambiguity-mode`, `--json`, `--file`, `--check` flags
 - stdin / args / file input
 - JSON + plain text output
-- GoReleaser cross-compilation (5 targets)
+- Cross-compilation workflow (5 targets, pure `go build`)
 - CLI-level tests (exit codes, JSON format golden, input sources)
 
 ### Explicitly Out of Scope
@@ -432,7 +482,7 @@ jobs:
 
 ### Future Considerations
 
-- **`check` subcommand:** When added, it should be a file scanner matching Python CLI semantics — not a text-level check. The Go SDK's `Check()` method is exposed through `lookup`.
+- **`check` subcommand:** When added, it should be a file scanner matching Python CLI semantics — not a text-level check. The Go SDK's `Check()` method (text-level match detection) has no CLI equivalent in MVP; users who need match details should use `lookup`.
 - **Shell completion:** Can be added later with a `completion` subcommand generating bash/zsh/fish scripts.
 - **`--dict`:** Requires file I/O + JSON parsing in CLI layer; reasonable v2 addition.
 
@@ -445,8 +495,7 @@ jobs:
 | `sdk/go/cmd/zhtw/main.go` | Create | CLI entry point (~250-350 lines) |
 | `sdk/go/cmd/zhtw/main_test.go` | Create | CLI integration tests |
 | `sdk/go/cmd/zhtw/testdata/` | Create | Golden test fixtures (expected JSON outputs) |
-| `sdk/go/.goreleaser.yml` | Create | GoReleaser configuration |
-| `.github/workflows/go-binary.yml` | Create | Release workflow for Go binary |
+| `.github/workflows/go-binary.yml` | Create | Cross-compilation + release workflow |
 | `sdk/go/zhtw/data.go` | Modify | Expose data version (small addition) |
 | `README.md` / `README.en.md` | Modify | Add Go CLI install instructions |
 | `Makefile` | No change | Existing `release` target already creates `sdk/go/v*` tag |
