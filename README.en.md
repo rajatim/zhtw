@@ -10,6 +10,7 @@
 [![Downloads](https://img.shields.io/pypi/dm/zhtw.svg)](https://pypi.org/project/zhtw/)
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Java](https://img.shields.io/badge/java-11+-orange.svg)](https://adoptium.net/)
+[![Go](https://img.shields.io/badge/go-1.21+-00ADD8.svg?logo=go)](https://pkg.go.dev/github.com/rajatim/zhtw/sdk/go/v4/zhtw)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 <!-- zhtw:disable -->
@@ -23,7 +24,7 @@ Output: 伺服器上的軟體需要最佳化，使用者權限請聯絡管理員
 ```
 <!-- zhtw:enable -->
 
-One line of code, one CLI, six SDKs — all producing **real Taiwan Traditional Chinese**.
+One line of code, one CLI, seven SDKs — all producing **real Taiwan Traditional Chinese**.
 
 ---
 
@@ -283,11 +284,46 @@ let conv = Converter::builder()
 
 **Performance**: build-time precompiled `daachorse` automaton + `phf` char map, zero runtime construction cost. See benchmarks (`cargo bench -p zhtw`).
 
+### 6. Go SDK
+
+<!-- zhtw:disable -->
+```bash
+go get github.com/rajatim/zhtw/sdk/go/v4@latest
+```
+<!-- zhtw:enable -->
+
+<!-- zhtw:disable -->
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/rajatim/zhtw/sdk/go/v4/zhtw"
+)
+
+func main() {
+	// Zero config
+	fmt.Println(zhtw.Convert("这个软件需要优化"))
+	// → "這個軟體需要最佳化"
+
+	// Builder: custom dict + balanced mode
+	conv, _ := zhtw.NewBuilder().
+		Sources(zhtw.SourceCn).
+		CustomDict(map[string]string{"自定义": "自訂"}).
+		SetAmbiguityMode(zhtw.AmbiguityBalanced).
+		Build()
+	fmt.Println(conv.Convert("自定义几个里程碑"))
+}
+```
+<!-- zhtw:enable -->
+
+**Highlights:** `go:embed` embedded dictionary, zero external dependencies, goroutine-safe. Go 1.21+, install via `go get`. All indices are Unicode codepoints, cross-SDK golden-test verified.
+
 ---
 
 ## Multi-language SDKs
 
-ZHTW is primarily implemented in Python and ships native Java, TypeScript, and Rust SDKs. All SDKs share the same dictionary data (`zhtw-data.json`), so conversion results are byte-identical to the Python CLI (cross-SDK byte-for-byte verification via the shared `sdk/data/golden-test.json` fixture is a release gate). All SDKs support balanced mode (ambiguous character disambiguation).
+ZHTW is primarily implemented in Python and ships native Java, TypeScript, Rust, and Go SDKs. All SDKs share the same dictionary data (`zhtw-data.json`), so conversion results are byte-identical to the Python CLI (cross-SDK byte-for-byte verification via the shared `sdk/data/golden-test.json` fixture is a release gate). All SDKs support balanced mode (ambiguous character disambiguation).
 
 | SDK | Install | Throughput (1MB) | Per-call latency | Use cases | Status |
 |-----|---------|-----------------|------------------|-----------|--------|
@@ -296,7 +332,7 @@ ZHTW is primarily implemented in Python and ships native Java, TypeScript, and R
 | **TypeScript** | `npm install zhtw-js` | ~16 MB/s | — | Node.js ≥18, browser (isomorphic ESM+CJS) | ✅ Stable |
 | **Rust** | [crates.io](#5-rust-sdk) | — | — | High-perf, embedded | ✅ Stable |
 | **WASM** | `npm install zhtw-wasm` | — | — | Browser, Edge runtime | ✅ Stable |
-| **Go** | `go get` | — | — | Microservices, CLI tools, cloud-native | 🚧 Planned |
+| **Go** | [`go get`](#6-go-sdk) | — | — | Microservices, CLI tools, cloud-native | ✅ Stable |
 | **C# (.NET)** | NuGet | — | — | ASP.NET, Unity, desktop apps | 🚧 Planned |
 
 ---
