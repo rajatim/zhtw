@@ -28,6 +28,29 @@ VALID_SOURCES: frozenset = frozenset({"cn", "hk"})
 # Valid values for the `ambiguity_mode` argument.
 VALID_AMBIGUITY_MODES: frozenset = frozenset({"strict", "balanced"})
 
+
+def inject_protect_terms(
+    terms: dict[str, str],
+    sources: Optional[List[str]] = None,
+) -> None:
+    """注入 disambiguation.json 的 protect_terms 為 identity mapping。
+
+    必須在所有 Matcher 建構之前呼叫。Identity terms（source == target）
+    讓 Aho-Corasick 的 covered positions 保護歧義字不被 term/char/balanced
+    layer 錯誤轉換。
+
+    Args:
+        terms: 詞典 dict，會被 in-place 修改。
+        sources: 來源清單；僅 CN 相關時才注入。
+    """
+    if sources is None or "cn" in sources:
+        from .charconv import get_protect_terms
+
+        for _char, pterms in get_protect_terms().items():
+            for term in pterms:
+                terms[term] = term
+
+
 # Regex to detect Chinese characters
 CHINESE_PATTERN = re.compile(r"[\u4e00-\u9fff]")
 
@@ -560,16 +583,10 @@ def convert(text: str, sources: Optional[List[str]] = None, ambiguity_mode: str 
             cached = _DEFAULT_CONVERT_CACHE.get(key)
             if cached is None:
                 terms = load_dictionary(sources=sources)
-                # Inject protect_terms as identity terms (source == target).
-                # These are no-ops in strict mode (ambiguous chars aren't in
-                # safe_chars) but block balanced-layer default overwrite via
-                # covered positions.
+                inject_protect_terms(terms, sources)
                 if sources is None or "cn" in sources:
-                    from .charconv import get_protect_terms, get_translate_table
+                    from .charconv import get_translate_table
 
-                    for _char, pterms in get_protect_terms().items():
-                        for term in pterms:
-                            terms[term] = term  # identity mapping
                     char_table = get_translate_table()
                 else:
                     char_table = None
@@ -892,6 +909,7 @@ def process_directory(
 
     # Load dictionary and create matcher
     terms = load_dictionary(sources=sources, custom_path=custom_dict)
+    inject_protect_terms(terms, sources)
     matcher = Matcher(terms)
 
     # Load character-level conversion table

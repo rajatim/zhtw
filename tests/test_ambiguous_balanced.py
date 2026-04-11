@@ -383,6 +383,30 @@ class TestProtectTermsIntegration:
         result = convert("\u91cc\u7a0b\u7891", ambiguity_mode="balanced")
         assert result == "里程碑"
 
+    def test_hou_yinghou_protected(self):
+        """影后 被 protect_term 保護（此詞不在詞庫，純靠 inject_protect_terms）。"""
+        result = convert("\u5f71\u540e\u5f97\u5956", ambiguity_mode="balanced")
+        assert result == "影后得獎"
+
+    def test_hou_yinghou_protected_strict(self):
+        """影后 在 strict mode 也被保護。"""
+        result = convert("\u5f71\u540e\u5f97\u5956", ambiguity_mode="strict")
+        assert result == "影后得獎"
+
+    def test_li_licheng_via_convert_text(self):
+        """里程 透過 convert_text + inject_protect_terms 也被保護。"""
+        from zhtw.charconv import get_translate_table
+        from zhtw.converter import convert_text, inject_protect_terms
+        from zhtw.dictionary import load_dictionary
+        from zhtw.matcher import Matcher
+
+        terms = load_dictionary(sources=["cn"])
+        inject_protect_terms(terms, ["cn"])
+        matcher = Matcher(terms)
+        char_table = get_translate_table()
+        result, _ = convert_text("\u91cc\u7a0b\u7891", matcher, fix=True, char_table=char_table)
+        assert result == "里程碑"
+
     def test_strict_mode_unchanged(self):
         """strict mode 下后/里的詞庫層行為與 balanced 一致。
 
@@ -394,6 +418,26 @@ class TestProtectTermsIntegration:
         assert convert("\u7687\u540e\u5f88\u7f8e", ambiguity_mode="strict") == "皇后很美"
         assert convert("\u5bb6\u91cc\u5f88\u5927", ambiguity_mode="strict") == "家裡很大"
         assert convert("\u516c\u91cc\u6570\u5f88\u5927", ambiguity_mode="strict") == "公里數很大"
+
+
+# ──────────────────────────────────────────────
+# TestProcessDirectoryProtection
+# ──────────────────────────────────────────────
+
+
+class TestProcessDirectoryProtection:
+    """process_directory 也正確注入 protect_terms。"""
+
+    def test_yinghou_protected_via_process_directory(self, tmp_path):
+        """影后 透過 process_directory 路徑也被保護（不在詞庫，靠 inject_protect_terms）。"""
+        from zhtw.converter import process_directory
+
+        test_file = tmp_path / "test.txt"
+        # 影后得奖
+        test_file.write_text("\u5f71\u540e\u5f97\u5956", encoding="utf-8")
+        process_directory(tmp_path, sources=["cn"], fix=True, ambiguity_mode="strict")
+        content = test_file.read_text(encoding="utf-8")
+        assert content == "影后得獎"
 
 
 # ──────────────────────────────────────────────

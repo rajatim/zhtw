@@ -800,12 +800,14 @@ def lookup(words: tuple, verbose: bool, json_output: bool, source: str):
     import sys as _sys
 
     from .charconv import get_translate_table
+    from .converter import inject_protect_terms
     from .lookup import lookup_words
     from .matcher import Matcher as _Matcher
 
     # 載入詞庫
     sources = [s.strip() for s in source.split(",")]
     terms = load_dictionary(sources=sources)
+    inject_protect_terms(terms, sources)
     matcher = _Matcher(terms)
 
     # 字元轉換表（僅 cn 來源）

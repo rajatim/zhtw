@@ -14,7 +14,7 @@ from .charconv import (
     get_translate_table,
     load_charmap,
 )
-from .converter import convert_text
+from .converter import convert_text, inject_protect_terms
 from .dictionary import DATA_DIR, load_dictionary, load_directory
 from .lookup import lookup_word
 from .matcher import Matcher
@@ -127,11 +127,7 @@ def generate_golden_test(
             continue
 
         terms = load_dictionary(sources=srcs)
-        # Inject protect_terms as identity terms (matches converter.py behavior)
-        if "cn" in srcs:
-            for _char, pterms in get_protect_terms().items():
-                for term in pterms:
-                    terms[term] = term
+        inject_protect_terms(terms, srcs)
         matcher = Matcher(terms)
         char_table = get_translate_table() if "cn" in srcs else None
 
@@ -181,6 +177,7 @@ def generate_golden_test(
         if sources is not None and not all(s in sources for s in srcs):
             continue
         terms = load_dictionary(sources=srcs)
+        inject_protect_terms(terms, srcs)
         matcher = Matcher(terms)
         char_table = get_translate_table() if "cn" in srcs else None
         result = lookup_word(word, matcher, char_table)
