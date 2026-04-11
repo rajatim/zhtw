@@ -186,8 +186,8 @@ jobs:
           version=$(jq -r .version package.json)
           jq ".version = \"$version\"" pkg/package.json > pkg/package.json.tmp
           mv pkg/package.json.tmp pkg/package.json
-      - name: Upgrade npm for Trusted Publishing
-        run: npm install -g npm@11.5.1
       - name: Publish zhtw-wasm to npm
         working-directory: sdk/rust/zhtw-wasm/pkg
-        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public
