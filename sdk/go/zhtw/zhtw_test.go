@@ -87,3 +87,22 @@ func TestFindTermMatchesIdentityProtection(t *testing.T) {
 		t.Fatalf("expected 0 non-identity matches, got %d: %+v", len(matches), matches)
 	}
 }
+
+func TestDataLoading(t *testing.T) {
+	data := getParsedData()
+	if data == nil {
+		t.Fatal("getParsedData() returned nil")
+	}
+	// charMap should have entries (thousands of simplified→traditional mappings).
+	if len(data.charMap) < 100 {
+		t.Errorf("charMap too small: %d entries", len(data.charMap))
+	}
+	// terms.cn should have entries.
+	if len(data.termsCn) < 100 {
+		t.Errorf("termsCn too small: %d entries", len(data.termsCn))
+	}
+	// balancedDefaults should have 10 entries.
+	if len(data.balancedDefaults) != 10 {
+		t.Errorf("balancedDefaults: expected 10, got %d", len(data.balancedDefaults))
+	}
+}
