@@ -92,11 +92,37 @@ public sealed class ConversionDetail
 
 Three-layer model, identical to all other SDKs:
 
-1. **Term layer** — Aho-Corasick automaton matches multi-character terms. Sources selected by `Sources` parameter (`terms.cn`, `terms.hk`). Matched targets inserted verbatim — NOT post-processed by charmap.
+1. **Term layer** — Aho-Corasick automaton matches terms (single-character and multi-character). Sources selected by `Sources` parameter (`terms.cn`, `terms.hk`). Matched targets inserted verbatim — NOT post-processed by charmap. Note: terms include single-char entries (e.g. `這` → `這`); these are matched in the term layer, not the char layer.
 2. **Balanced defaults layer** — Enabled only when `AmbiguityMode == Balanced` AND sources contain `Cn`. For each codepoint NOT covered by AC matches, check `charmap.balanced_defaults`.
 3. **Char layer** — Enabled only when sources contain `Cn`. For each codepoint NOT covered by layers 1-2, check `charmap.chars`.
 
 A position is "covered" if it falls within any AC match span (including identity mappings). Covered positions skip layers 2 and 3.
+
+### balanced_protect_terms
+
+When `AmbiguityMode == Balanced` AND sources contain `Cn`, the builder must inject **identity mappings** from `charmap.balanced_protect_terms` into the AC automaton before construction. Each entry maps an ambiguous character to a list of protecting terms:
+
+```json
+"balanced_protect_terms": {
+  "後": ["皇后", "太后", "影後", ...],
+  "裡": ["公里", "英里", "裡程", ...]
+}
+```
+
+For each term in the lists, inject `term → term` (identity) into the AC dictionary. This causes the AC automaton to "cover" those positions, preventing the balanced-defaults and char layers from converting the ambiguous character within those terms. Example: `皇后很美` — the identity mapping `皇后 → 皇后` covers positions 0-1, so `後` is not converted to `後` by balanced defaults.
+
+### Check() vs Lookup() ordering
+
+The two APIs use **different ordering rules**:
+
+| Method | Order | Rationale |
+|--------|-------|-----------|
+| `Check()` | Layer discovery order: term matches first, then balanced, then char. **NOT sorted by position.** | Groups by conversion layer |
+| `Lookup().Details` | **Sorted by position ascending** | Left-to-right reading order |
+
+Example with `"丰滿"` in balanced mode:
+- `Check()` returns: `[滿@1 (term), 丰@0 (char)]` — term layer first
+- `Lookup().Details` returns: `[丰@0 (char), 滿@1 (term)]` — position order
 
 ### Position indexing
 
@@ -107,7 +133,7 @@ All public API positions use **Unicode codepoint indices**, not .NET's UTF-16 co
 - `zhtw-data.json` embedded as assembly resource via `<EmbeddedResource>` in `.csproj`
 - Parsed with `System.Text.Json` into internal data structures
 - Default instance initialized via `Lazy<Converter>` (thread-safe, one-time)
-- Each `Build()` call constructs a new AC automaton (merging term sources + custom dict)
+- Each `Build()` call constructs a new AC automaton (merging term sources + custom dict; custom dict entries override built-in terms with same key)
 
 ### Data schema (from `zhtw-data.json`)
 
@@ -117,7 +143,8 @@ All public API positions use **Unicode codepoint indices**, not .NET's UTF-16 co
   "charmap": {
     "chars": { "simplified_char": "traditional_char", ... },
     "ambiguous": ["char1", "char2", ...],
-    "balanced_defaults": { "char": "default_traditional", ... }
+    "balanced_defaults": { "char": "default_traditional", ... },
+    "balanced_protect_terms": { "char": ["term1", "term2", ...], ... }
   },
   "terms": {
     "cn": { "simplified_term": "traditional_term", ... },
@@ -168,7 +195,7 @@ jobs:
         run: dotnet test -c Release --logger "console;verbosity=detailed"
 ```
 
-Test project targets `net8.0` and tests both targets via the library's multi-target build. No publish job for now.
+Test project targets `net8.0`. This exercises the net8.0 build of the library at runtime; the netstandard2.0 target is verified by compilation only (sufficient since the code paths are identical — no `#if` conditionals in v1). No publish job for now.
 
 ## Error Handling
 
@@ -176,7 +203,9 @@ Test project targets `net8.0` and tests both targets via the library's multi-tar
 |----------|----------|
 | `Build()` with empty sources | `ArgumentException` |
 | Embedded resource missing | `InvalidOperationException` (should never happen in normal use) |
-| Null/empty text input | Return input unchanged (no exception) |
+| `Convert(null)` / `Convert("")` | Return `""` |
+| `Check(null)` / `Check("")` | Return empty `IReadOnlyList<Match>` |
+| `Lookup(null)` / `Lookup("")` | Return `LookupResult` with `Input=""`, `Output=""`, `Changed=false`, empty `Details` |
 
 ## Testing Strategy
 
