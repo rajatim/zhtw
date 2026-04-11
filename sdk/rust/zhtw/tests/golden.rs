@@ -102,7 +102,11 @@ fn convert_parity() {
     let mut failures = Vec::new();
 
     for (idx, case) in golden.convert.iter().enumerate() {
-        let conv = build_converter(&case.sources, case.custom_dict.as_ref(), case.ambiguity_mode.as_deref());
+        let conv = build_converter(
+            &case.sources,
+            case.custom_dict.as_ref(),
+            case.ambiguity_mode.as_deref(),
+        );
         let actual = conv.convert(&case.input);
         if actual != case.expected {
             failures.push(format!(

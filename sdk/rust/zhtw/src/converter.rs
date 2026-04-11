@@ -4,7 +4,9 @@ use daachorse::CharwiseDoubleArrayAhoCorasick;
 
 use crate::config::{AmbiguityMode, Config};
 use crate::error::{Error, Result};
-use crate::generated::{AUTOMATON_CNHK_BYTES, BALANCED_DEFAULTS, CHAR_MAP, PATTERN_TABLE_CNHK_BYTES};
+use crate::generated::{
+    AUTOMATON_CNHK_BYTES, BALANCED_DEFAULTS, CHAR_MAP, PATTERN_TABLE_CNHK_BYTES,
+};
 use crate::matcher;
 use crate::source::Source;
 
