@@ -11,6 +11,7 @@
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Java](https://img.shields.io/badge/java-11+-orange.svg)](https://adoptium.net/)
 [![Go](https://img.shields.io/badge/go-1.21+-00ADD8.svg?logo=go)](https://pkg.go.dev/github.com/rajatim/zhtw/sdk/go/v4/zhtw)
+[![NuGet](https://img.shields.io/nuget/v/Zhtw.svg)](https://www.nuget.org/packages/Zhtw)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 <!-- zhtw:disable -->
@@ -24,7 +25,7 @@ Output: 伺服器上的軟體需要最佳化，使用者權限請聯絡管理員
 ```
 <!-- zhtw:enable -->
 
-One line of code, one CLI, five language SDKs — all producing **real Taiwan Traditional Chinese**.
+One line of code, one CLI, six language SDKs — all producing **real Taiwan Traditional Chinese**.
 
 ---
 
@@ -54,7 +55,7 @@ OpenCC is a general-purpose Simplified/Traditional conversion framework that app
 | **Ambiguity** | Rule ordering | 102 ambiguous chars, tiered management + balanced mode disambiguation |
 | **Dictionary** | Built-in char table + phrase list | 31,000+ curated Taiwan-specific terms |
 | **Mis-conversions** | Common cases like `权限 → 許可權` | Zero across 52 books / 100M chars |
-| **Ecosystem** | C++ core with multi-language bindings | CLI + Python/Java/TS/Rust SDK + pre-commit |
+| **Ecosystem** | C++ core with multi-language bindings | CLI + Python/Java/TS/Rust/Go/C# SDK + pre-commit |
 
 Want to see more side-by-side cases? Run `zhtw lookup 权限 服务器 用户`.
 <!-- zhtw:enable -->
@@ -335,11 +336,40 @@ go install github.com/rajatim/zhtw/sdk/go/v4/cmd/zhtw@latest
 ```
 <!-- zhtw:enable -->
 
+### 7. C# (.NET) SDK
+
+**NuGet:**
+
+<!-- zhtw:disable -->
+```bash
+dotnet add package Zhtw
+```
+<!-- zhtw:enable -->
+
+<!-- zhtw:disable -->
+```csharp
+using Zhtw;
+
+// Quick start (thread-safe singleton)
+string result = ZhtwConvert.Convert("这个软件需要优化");
+// → "這個軟體需要最佳化"
+
+// Builder: custom dict + balanced mode
+var conv = new ConverterBuilder()
+    .Sources(Source.Cn, Source.Hk)
+    .CustomDict(new Dictionary<string, string> { ["自定义"] = "自訂" })
+    .AmbiguityMode(AmbiguityMode.Balanced)
+    .Build();
+```
+<!-- zhtw:enable -->
+
+**Highlights:** multi-target netstandard2.0 + net8.0, embedded resource dictionary, zero external dependencies (net8.0+). All indices are Unicode codepoints, cross-SDK golden-test verified.
+
 ---
 
 ## Multi-language SDKs
 
-ZHTW is primarily implemented in Python and ships native Java, TypeScript, Rust, and Go SDKs (5 languages), plus a WebAssembly package (`zhtw-wasm`). All SDKs share the same dictionary data (`zhtw-data.json`), so conversion results are byte-identical to the Python CLI (cross-SDK byte-for-byte verification via the shared `sdk/data/golden-test.json` fixture is a release gate). All SDKs support balanced mode (ambiguous character disambiguation).
+ZHTW is primarily implemented in Python and ships native Java, TypeScript, Rust, Go, and C# (.NET) SDKs (6 languages), plus a WebAssembly package (`zhtw-wasm`). All SDKs share the same dictionary data (`zhtw-data.json`), so conversion results are byte-identical to the Python CLI (cross-SDK byte-for-byte verification via the shared `sdk/data/golden-test.json` fixture is a release gate). All SDKs support balanced mode (ambiguous character disambiguation).
 
 | SDK | Install | Throughput (1MB) | Per-call latency | Use cases | Status |
 |-----|---------|-----------------|------------------|-----------|--------|
@@ -349,7 +379,24 @@ ZHTW is primarily implemented in Python and ships native Java, TypeScript, Rust,
 | **Rust** | [crates.io](#5-rust-sdk) | — | — | High-perf, embedded | ✅ Stable |
 | **WASM** | `npm install zhtw-wasm` | — | — | Browser, Edge runtime | ✅ Stable |
 | **Go** | [`go get`](#6-go-sdk) | — | — | Microservices, CLI tools, cloud-native | ✅ Stable |
-| **C# (.NET)** | NuGet | — | — | ASP.NET, Unity, desktop apps | 🚧 Planned |
+| **C# (.NET)** | [NuGet](#7-c-net-sdk) | — | — | ASP.NET, Unity, desktop apps | ✅ Stable |
+
+### Cross-SDK Performance Benchmark
+
+<!-- zhtw:disable -->
+247 simplified Chinese characters, 10,000 warm iterations, measured on Apple Silicon:
+
+| SDK | Cold Start (ms) | Avg/op (μs) | Ops/sec | vs Python |
+|-----|----------------:|------------:|--------:|----------:|
+| **Rust** | 15.4 | 44.5 | 22,470 | 11.3x |
+| **Go** | 43.1 | 45.0 | 22,233 | 11.1x |
+| **Java** | 135.8 | 53.0 | 18,875 | 9.5x |
+| **C#** | 77.5 | 56.2 | 17,786 | 8.9x |
+| **TypeScript** | 168.2 | 62.1 | 16,094 | 8.1x |
+| **Python** | 121.3 | 501.0 | 1,996 | 1.0x |
+
+> All SDKs produce identical output. Even the slowest (Python at 0.5 ms/call) is imperceptible for CLI usage.
+<!-- zhtw:enable -->
 
 ---
 
