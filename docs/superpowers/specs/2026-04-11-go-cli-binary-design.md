@@ -373,9 +373,7 @@ Each archive includes: binary + LICENSE.
 
 **Checksums:** `zhtw_checksums.txt` (SHA-256), uploaded alongside archives.
 
-**Release model:** The workflow creates a **separate GitHub Release** on the `sdk/go/vX.Y.Z` tag. This is independent from the root `vX.Y.Z` release (which triggers PyPI/Maven). Root release notes should include a link:
-
-> Go CLI binary: see [sdk/go/v4.2.0](link) release.
+**Release model:** The workflow creates a **separate GitHub Release** on the `sdk/go/vX.Y.Z` tag. This is independent from the root `vX.Y.Z` release (which triggers PyPI/Maven). Maintainer may optionally edit the root release notes to link to the Go binary release after it completes.
 
 **Version injection:** The workflow extracts version from the tag (`sdk/go/v4.2.0` → `4.2.0`) and passes `-ldflags "-X main.version=4.2.0"` to `go build`.
 
