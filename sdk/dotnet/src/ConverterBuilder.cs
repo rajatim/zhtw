@@ -6,7 +6,7 @@ namespace Zhtw
     public sealed class ConverterBuilder
     {
         private Source[] _sources = { Source.Cn, Source.Hk };
-        private AmbiguityMode _ambiguityMode = AmbiguityMode.Strict;
+        private global::Zhtw.AmbiguityMode _ambiguityMode = global::Zhtw.AmbiguityMode.Strict;
         private IReadOnlyDictionary<string, string> _customDict;
 
         public ConverterBuilder Sources(params Source[] sources)
@@ -15,7 +15,7 @@ namespace Zhtw
             return this;
         }
 
-        public ConverterBuilder AmbiguityMode(AmbiguityMode mode)
+        public ConverterBuilder AmbiguityMode(global::Zhtw.AmbiguityMode mode)
         {
             _ambiguityMode = mode;
             return this;
@@ -77,7 +77,7 @@ namespace Zhtw
             }
 
             Dictionary<int, int> balanced = null;
-            if (_ambiguityMode == Zhtw.AmbiguityMode.Balanced && hasCn)
+            if (_ambiguityMode == global::Zhtw.AmbiguityMode.Balanced && hasCn)
             {
                 balanced = data.BalancedDefaults;
             }
