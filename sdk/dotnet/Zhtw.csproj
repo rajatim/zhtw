@@ -1,10 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+    <RootNamespace>Zhtw</RootNamespace>
     <PackageId>Zhtw</PackageId>
     <Version>4.2.1</Version>
     <Description>Traditional Chinese converter for Taiwan — .NET SDK</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/rajatim/zhtw</RepositoryUrl>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Zhtw.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../data/zhtw-data.json" Link="zhtw-data.json" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
 </Project>

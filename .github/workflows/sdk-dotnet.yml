@@ -2,9 +2,9 @@ name: SDK .NET
 
 on:
   push:
-    paths: ['sdk/dotnet/**', 'sdk/data/**']
+    paths: ['sdk/dotnet/**', 'sdk/data/**', '.github/workflows/sdk-dotnet.yml']
   pull_request:
-    paths: ['sdk/dotnet/**', 'sdk/data/**']
+    paths: ['sdk/dotnet/**', 'sdk/data/**', '.github/workflows/sdk-dotnet.yml']
   release:
     types: [published]
 
@@ -18,4 +18,7 @@ jobs:
           dotnet-version: '8.0.x'
       - name: Build
         working-directory: sdk/dotnet
-        run: echo "TODO — SDK not yet implemented"
+        run: dotnet build tests/Zhtw.Tests/Zhtw.Tests.csproj -c Release
+      - name: Test
+        working-directory: sdk/dotnet
+        run: dotnet test tests/Zhtw.Tests/Zhtw.Tests.csproj -c Release --logger "console;verbosity=detailed"
