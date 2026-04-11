@@ -319,6 +319,22 @@ func main() {
 
 **Highlights:** `go:embed` embedded dictionary, zero external dependencies, goroutine-safe. Go 1.21+, install via `go get`. All indices are Unicode codepoints, cross-SDK golden-test verified.
 
+#### Standalone Binary
+
+No Go environment needed — download pre-built binaries:
+
+<!-- zhtw:disable -->
+```bash
+# Download from GitHub Release (e.g., macOS arm64)
+curl -sL https://github.com/rajatim/zhtw/releases/download/sdk%2Fgo%2Fv4.2.0/zhtw-darwin-arm64.tar.gz | tar xz
+./zhtw convert "软件测试"
+# → 軟體測試
+
+# Or via go install
+go install github.com/rajatim/zhtw/sdk/go/v4/cmd/zhtw@latest
+```
+<!-- zhtw:enable -->
+
 ---
 
 ## Multi-language SDKs
