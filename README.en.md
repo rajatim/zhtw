@@ -173,7 +173,7 @@ The first call loads the dictionary and builds the Aho-Corasick automaton; subse
 <dependency>
     <groupId>com.rajatim</groupId>
     <artifactId>zhtw</artifactId>
-    <version>4.2.0</version>
+    <version>4.2.1</version>
 </dependency>
 ```
 <!-- zhtw:enable -->
@@ -181,13 +181,13 @@ The first call loads the dictionary and builds the Aho-Corasick automaton; subse
 **Gradle (Kotlin DSL):**
 
 ```kotlin
-implementation("com.rajatim:zhtw:4.2.0")
+implementation("com.rajatim:zhtw:4.2.1")
 ```
 
 **Gradle (Groovy DSL):**
 
 ```groovy
-implementation 'com.rajatim:zhtw:4.2.0'
+implementation 'com.rajatim:zhtw:4.2.1'
 ```
 
 <!-- zhtw:disable -->
@@ -261,7 +261,7 @@ conv.convert('...');
 <!-- zhtw:disable -->
 ```toml
 [dependencies]
-zhtw = "4.2.0"
+zhtw = "4.2.1"
 ```
 <!-- zhtw:enable -->
 
@@ -410,7 +410,7 @@ Stop issues before they're committed:
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.2.0  # use the latest tag
+    rev: v4.2.1  # use the latest tag
     hooks:
       - id: zhtw-check   # check mode (recommended)
       # - id: zhtw-fix   # or auto-fix mode
@@ -427,7 +427,7 @@ pip install pre-commit && pre-commit install
 ```yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.2.0
+    rev: v4.2.1
     hooks:
       - id: zhtw-check
         types: [python, markdown, yaml]  # only these types
