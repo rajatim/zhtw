@@ -92,4 +92,10 @@ brew upgrade zhtw            # Homebrew 更新測試
 
 ---
 
+## 📋 核對清單
+
+每次釋出前請參照 [`docs/RELEASE-CHECKLIST.md`](../../docs/RELEASE-CHECKLIST.md)，逐項確認。
+
+---
+
 *需要時讀取：準備版本釋出*

@@ -517,6 +517,7 @@ test_cases = ["软件", "硬件", "网络"]
 | [`docs/CLI-ADVANCED.md`](docs/CLI-ADVANCED.md) | 完整 CLI 引數、詞彙查詢（`lookup`）、多編碼支援、自訂詞庫格式 |
 | [`docs/CI-CD-INTEGRATION.md`](docs/CI-CD-INTEGRATION.md) | GitHub Actions / GitLab CI / pre-commit 深入設定 |
 | [`sdk/java/BENCHMARK.md`](sdk/java/BENCHMARK.md) | Java SDK 效能測試（JMH） |
+| [`docs/RELEASE-CHECKLIST.md`](docs/RELEASE-CHECKLIST.md) | 版本釋出核對清單 |
 | [`CHANGELOG.md`](CHANGELOG.md) | 版本歷史 |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 貢獻指南 |
 <!-- zhtw:enable -->

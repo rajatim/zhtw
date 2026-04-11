@@ -89,11 +89,24 @@ endif
 	@sed -i '' 's|zhtw = "[0-9][0-9.]*"|zhtw = "$(VERSION)"|g' README.md README.en.md
 	@# Java SDK benchmark report header
 	@sed -i '' 's,| SDK Version | [0-9][0-9.]* |,| SDK Version | $(VERSION) |,' sdk/java/BENCHMARK.md
+	@# README: standalone binary download URL (percent-encoded tag)
+	@sed -i '' 's|sdk%2Fgo%2Fv[0-9][0-9.]*|sdk%2Fgo%2Fv$(VERSION)|g' README.md README.en.md
+	@# SDK READMEs: version strings in install snippets
+	@for f in sdk/java/README.md sdk/go/README.md sdk/dotnet/README.md sdk/rust/zhtw/README.md; do \
+	  if [ -f "$$f" ]; then \
+	    sed -i '' 's|<version>[0-9][0-9.]*</version>|<version>$(VERSION)</version>|g' "$$f"; \
+	    sed -i '' 's|com.rajatim:zhtw:[0-9][0-9.]*|com.rajatim:zhtw:$(VERSION)|g' "$$f"; \
+	    sed -i '' 's|zhtw = "[0-9][0-9.]*"|zhtw = "$(VERSION)"|g' "$$f"; \
+	    sed -i '' 's|sdk%2Fgo%2Fv[0-9][0-9.]*|sdk%2Fgo%2Fv$(VERSION)|g' "$$f"; \
+	  fi; \
+	done
 	@echo "📦 Regenerating sdk/data (embeds version)..."
 	$(PYTHON) -m zhtw export --output sdk/data
 	@mkdir -p sdk/rust/zhtw/data
 	@cp sdk/data/zhtw-data.json sdk/rust/zhtw/data/zhtw-data.json
 	@cp sdk/data/zhtw-data.json sdk/go/zhtw/zhtw-data.json
+	@echo "🔒 Refreshing Cargo.lock..."
+	@cd sdk/rust && cargo check --quiet 2>/dev/null || true
 	@$(MAKE) version-check
 
 # === Release ===

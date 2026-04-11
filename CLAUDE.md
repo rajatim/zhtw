@@ -84,6 +84,7 @@ zhtw validate             # 驗證詞庫
 | 檔案 | 內容 | 讀取時機 |
 |------|------|----------|
 | @.claude/rules/releasing.md | 版本釋出流程 | 準備釋出版本 |
+| `docs/RELEASE-CHECKLIST.md` | 版本釋出核對清單 | 每次升版時逐項勾選 |
 | @.claude/rules/git-workflow.md | 分支策略、提交規範 | 開發分支、合併 |
 | `.claude/guides/vocabulary.md` | 詞庫操作 | 新增/修改詞彙 |
 | `.claude/guides/debugging.md` | 問題排查 | 轉換錯誤 |
