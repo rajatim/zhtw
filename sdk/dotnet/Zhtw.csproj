@@ -10,6 +10,9 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="tests/**" />
+  </ItemGroup>
+  <ItemGroup>
     <InternalsVisibleTo Include="Zhtw.Tests" />
   </ItemGroup>
   <ItemGroup>
