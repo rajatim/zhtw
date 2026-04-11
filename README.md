@@ -319,6 +319,22 @@ func main() {
 
 **特色**：`go:embed` 內嵌字典、零外部依賴、goroutine-safe。Go 1.21+，支援 `go get` 直接安裝。所有索引均為 Unicode codepoint，跨 SDK golden-test 驗證。
 
+#### Standalone Binary
+
+不需要 Go 環境，直接下載預編譯 binary：
+
+<!-- zhtw:disable -->
+```bash
+# 從 GitHub Release 下載（以 macOS arm64 為例）
+curl -sL https://github.com/rajatim/zhtw/releases/download/sdk%2Fgo%2Fv4.2.0/zhtw-darwin-arm64.tar.gz | tar xz
+./zhtw convert "软件测试"
+# → 軟體測試
+
+# 或透過 go install
+go install github.com/rajatim/zhtw/sdk/go/v4/cmd/zhtw@latest
+```
+<!-- zhtw:enable -->
+
 ---
 
 ## 多語言 SDK
