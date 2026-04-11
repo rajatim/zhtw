@@ -10,6 +10,9 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <InternalsVisibleTo Include="Zhtw.Tests" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="../data/zhtw-data.json" Link="zhtw-data.json" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">

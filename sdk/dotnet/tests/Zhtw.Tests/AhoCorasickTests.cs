@@ -18,11 +18,11 @@ namespace Zhtw.Tests
             };
             var ac = AhoCorasickAutomaton.Build(patterns);
             var matches = ac.FindTermMatches("ushers");
-            Assert.Equal(2, matches.Count);
+            // Leftmost-longest greedy: "she"@1-4 wins, "hers"@2-6 overlaps → skipped
+            Assert.Single(matches);
             Assert.Equal("she", matches[0].Source);
             Assert.Equal(1, matches[0].Start);
-            Assert.Equal("hers", matches[1].Source);
-            Assert.Equal(2, matches[1].Start);
+            Assert.Equal(4, matches[0].End);
         }
 
         [Fact]

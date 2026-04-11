@@ -18,7 +18,7 @@ jobs:
           dotnet-version: '8.0.x'
       - name: Build
         working-directory: sdk/dotnet
-        run: dotnet build -c Release
+        run: dotnet build tests/Zhtw.Tests/Zhtw.Tests.csproj -c Release
       - name: Test
         working-directory: sdk/dotnet
-        run: dotnet test -c Release --logger "console;verbosity=detailed"
+        run: dotnet test tests/Zhtw.Tests/Zhtw.Tests.csproj -c Release --logger "console;verbosity=detailed"
