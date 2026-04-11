@@ -92,6 +92,38 @@
         "cn"
       ],
       "expected": "黨太尉吃匹食"
+    },
+    {
+      "input": "以后再说",
+      "sources": [
+        "cn"
+      ],
+      "expected": "以後再說",
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "皇后很美",
+      "sources": [
+        "cn"
+      ],
+      "expected": "皇后很美",
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "家里很大",
+      "sources": [
+        "cn"
+      ],
+      "expected": "家裡很大",
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "公里数很大",
+      "sources": [
+        "cn"
+      ],
+      "expected": "公里數很大",
+      "ambiguity_mode": "balanced"
     }
   ],
   "check": [
@@ -284,6 +316,65 @@
           "target": "黨"
         }
       ]
+    },
+    {
+      "input": "以后再说",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 2,
+          "source": "以后",
+          "target": "以後"
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "source": "说",
+          "target": "說"
+        }
+      ],
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "皇后很美",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [],
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "家里很大",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 2,
+          "source": "家里",
+          "target": "家裡"
+        }
+      ],
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "公里数很大",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 3,
+          "source": "公里数",
+          "target": "公里數"
+        }
+      ],
+      "ambiguity_mode": "balanced"
     }
   ],
   "lookup": [

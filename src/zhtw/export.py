@@ -7,7 +7,13 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from . import __version__
-from .charconv import get_ambiguous_chars, get_balanced_defaults, get_translate_table, load_charmap
+from .charconv import (
+    get_ambiguous_chars,
+    get_balanced_defaults,
+    get_protect_terms,
+    get_translate_table,
+    load_charmap,
+)
 from .converter import convert_text
 from .dictionary import DATA_DIR, load_dictionary, load_directory
 from .lookup import lookup_word
@@ -48,6 +54,7 @@ def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
             "chars": charmap,
             "ambiguous": sorted(ambiguous),
             "balanced_defaults": get_balanced_defaults(),
+            "balanced_protect_terms": get_protect_terms(),
         },
         "terms": terms,
     }
@@ -79,6 +86,11 @@ _GOLDEN_CASES = [
         ["cn"],
         "identity: \u515a\u592a\u5c09\u5403\u5339\u98df protects \u515a (proper name)",
     ),
+    # Balanced mode: disambiguation v2 protect_terms
+    ("\u4ee5\u540e\u518d\u8bf4", ["cn"], "balanced: \u540e default \u5f8c", "balanced"),
+    ("\u7687\u540e\u5f88\u7f8e", ["cn"], "balanced: \u7687\u540e protected", "balanced"),
+    ("\u5bb6\u91cc\u5f88\u5927", ["cn"], "balanced: \u91cc default \u88e1", "balanced"),
+    ("\u516c\u91cc\u6570\u5f88\u5927", ["cn"], "balanced: \u516c\u91cc protected", "balanced"),
 ]
 
 # Lookup test cases — individual words/chars
@@ -107,40 +119,63 @@ def generate_golden_test(
     check_cases = []
     lookup_cases = []
 
-    for input_text, srcs, _desc in _GOLDEN_CASES:
+    for case in _GOLDEN_CASES:
+        input_text, srcs, _desc = case[0], case[1], case[2]
+        mode = case[3] if len(case) > 3 else "strict"
+
         if sources is not None and not all(s in sources for s in srcs):
             continue
+
         terms = load_dictionary(sources=srcs)
+        # Inject protect_terms as identity terms (matches converter.py behavior)
+        if "cn" in srcs:
+            for _char, pterms in get_protect_terms().items():
+                for term in pterms:
+                    terms[term] = term
         matcher = Matcher(terms)
         char_table = get_translate_table() if "cn" in srcs else None
 
         # Convert
-        converted, _ = convert_text(input_text, matcher, fix=True, char_table=char_table)
-        convert_cases.append(
-            {
-                "input": input_text,
-                "sources": srcs,
-                "expected": converted,
-            }
+        converted, _ = convert_text(
+            input_text,
+            matcher,
+            fix=True,
+            char_table=char_table,
+            ambiguity_mode=mode,
         )
+        entry: Dict[str, Any] = {
+            "input": input_text,
+            "sources": srcs,
+            "expected": converted,
+        }
+        if mode != "strict":
+            entry["ambiguity_mode"] = mode
+        convert_cases.append(entry)
 
         # Check — get matches with positions
-        _, matches = convert_text(input_text, matcher, fix=False, char_table=char_table)
-        check_cases.append(
-            {
-                "input": input_text,
-                "sources": srcs,
-                "expected_matches": [
-                    {
-                        "start": m.start,
-                        "end": m.end,
-                        "source": m.source,
-                        "target": m.target,
-                    }
-                    for m, _line, _col in matches
-                ],
-            }
+        _, matches = convert_text(
+            input_text,
+            matcher,
+            fix=False,
+            char_table=char_table,
+            ambiguity_mode=mode,
         )
+        check_entry: Dict[str, Any] = {
+            "input": input_text,
+            "sources": srcs,
+            "expected_matches": [
+                {
+                    "start": m.start,
+                    "end": m.end,
+                    "source": m.source,
+                    "target": m.target,
+                }
+                for m, _line, _col in matches
+            ],
+        }
+        if mode != "strict":
+            check_entry["ambiguity_mode"] = mode
+        check_cases.append(check_entry)
 
     for word, srcs in _LOOKUP_CASES:
         if sources is not None and not all(s in sources for s in srcs):
