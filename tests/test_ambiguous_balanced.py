@@ -27,6 +27,91 @@ def _clear_all_cache():
 
 
 # ──────────────────────────────────────────────
+# TestDisambiguationData
+# ──────────────────────────────────────────────
+
+
+class TestDisambiguationData:
+    """disambiguation.json 資料完整性。"""
+
+    def test_schema_version_exists(self):
+        import json
+        from pathlib import Path
+
+        path = (
+            Path(__file__).parent.parent
+            / "src"
+            / "zhtw"
+            / "data"
+            / "charmap"
+            / "disambiguation.json"
+        )
+        data = json.loads(path.read_text("utf-8"))
+        assert isinstance(data["schema_version"], int)
+
+    def test_every_rule_has_default(self):
+        import json
+        from pathlib import Path
+
+        path = (
+            Path(__file__).parent.parent
+            / "src"
+            / "zhtw"
+            / "data"
+            / "charmap"
+            / "disambiguation.json"
+        )
+        data = json.loads(path.read_text("utf-8"))
+        for char, rule in data["rules"].items():
+            assert "default" in rule, f"{char!r} missing default"
+            assert len(rule["default"]) == 1, f"{char!r} default is not single char"
+
+    def test_protect_terms_contain_their_char(self):
+        import json
+        from pathlib import Path
+
+        path = (
+            Path(__file__).parent.parent
+            / "src"
+            / "zhtw"
+            / "data"
+            / "charmap"
+            / "disambiguation.json"
+        )
+        data = json.loads(path.read_text("utf-8"))
+        for char, rule in data["rules"].items():
+            for term in rule.get("protect_terms", []):
+                assert char in term, f"protect_term {term!r} does not contain {char!r}"
+
+    def test_rule_keys_in_ambiguous_excluded(self):
+        from zhtw.charconv import get_ambiguous_chars
+
+        ambiguous = set(get_ambiguous_chars())
+        import json
+        from pathlib import Path
+
+        path = (
+            Path(__file__).parent.parent
+            / "src"
+            / "zhtw"
+            / "data"
+            / "charmap"
+            / "disambiguation.json"
+        )
+        data = json.loads(path.read_text("utf-8"))
+        for char in data["rules"]:
+            assert char in ambiguous, f"rule key {char!r} not in ambiguous_excluded"
+
+    def test_v1_entries_all_present(self):
+        from zhtw.charconv import get_balanced_defaults
+
+        defaults = get_balanced_defaults()
+        v1_chars = {"几", "丰", "杰", "卤", "坛", "弥", "摆", "纤"}
+        for char in v1_chars:
+            assert char in defaults, f"v1 char {char!r} missing from disambiguation.json"
+
+
+# ──────────────────────────────────────────────
 # TestGetBalancedDefaults
 # ──────────────────────────────────────────────
 
@@ -36,9 +121,9 @@ class TestGetBalancedDefaults:
         defaults = get_balanced_defaults()
         assert isinstance(defaults, dict)
 
-    def test_contains_eight_entries(self):
+    def test_contains_ten_entries(self):
         defaults = get_balanced_defaults()
-        assert len(defaults) == 8
+        assert len(defaults) == 10
 
     def test_keys_and_values(self):
         defaults = get_balanced_defaults()
@@ -50,6 +135,8 @@ class TestGetBalancedDefaults:
         assert defaults.get("几") == "幾"
         assert defaults.get("丰") == "豐"
         assert defaults.get("杰") == "傑"
+        assert defaults.get("后") == "後"
+        assert defaults.get("里") == "裡"
 
     def test_values_are_strings(self):
         defaults = get_balanced_defaults()
@@ -251,6 +338,62 @@ class TestConvertConvenienceBalanced:
         """HK-only source 不應套用 CN balanced defaults。"""
         assert convert("几个人", sources=["hk"], ambiguity_mode="balanced") == "几个人"
         assert convert("卤肉", sources=["hk"], ambiguity_mode="balanced") == "卤肉"
+
+
+# ──────────────────────────────────────────────
+# TestProtectTermsIntegration
+# ──────────────────────────────────────────────
+
+
+class TestProtectTermsIntegration:
+    """protect_terms identity mapping 保護歧義字在 balanced mode 不被錯轉。"""
+
+    def test_hou_default_converts(self):
+        """后 在 balanced mode default 轉為 後。"""
+        result = convert("\u4ee5\u540e\u518d\u8bf4", ambiguity_mode="balanced")
+        assert result == "以後再說"
+
+    def test_hou_huanghou_protected(self):
+        """皇后 被 protect_term 保護。"""
+        result = convert("\u7687\u540e\u5f88\u7f8e", ambiguity_mode="balanced")
+        assert result == "皇后很美"
+
+    def test_hou_taihou_protected(self):
+        """太后 被 protect_term 保護，char layer 仍轉其他字。"""
+        result = convert("\u592a\u540e\u9a7e\u5230", ambiguity_mode="balanced")
+        assert result == "太后駕到"
+
+    def test_li_default_converts(self):
+        """里 在 balanced mode default 轉為 裡。"""
+        result = convert("\u5bb6\u91cc\u5f88\u5927", ambiguity_mode="balanced")
+        assert result == "家裡很大"
+
+    def test_li_gongli_protected(self):
+        """公里 被 protect_term 保護。"""
+        result = convert("\u516c\u91cc\u6570\u5f88\u5927", ambiguity_mode="balanced")
+        assert result == "公里數很大"
+
+    def test_li_yingli_protected(self):
+        """英里 被 protect_term 保護。"""
+        result = convert("\u82f1\u91cc", ambiguity_mode="balanced")
+        assert result == "英里"
+
+    def test_li_licheng_protected(self):
+        """里程 被 protect_term 保護。"""
+        result = convert("\u91cc\u7a0b\u7891", ambiguity_mode="balanced")
+        assert result == "里程碑"
+
+    def test_strict_mode_unchanged(self):
+        """strict mode 下后/里的詞庫層行為與 balanced 一致。
+
+        后→後、里→裡 本來就是詞庫層的單字詞條（非 balanced default），
+        皇后、公里等多字詞條也有 identity mapping 保護。
+        strict/balanced 的差異只在「無詞條覆蓋的歧義字」。
+        """
+        assert convert("\u4ee5\u540e\u518d\u8bf4", ambiguity_mode="strict") == "以後再說"
+        assert convert("\u7687\u540e\u5f88\u7f8e", ambiguity_mode="strict") == "皇后很美"
+        assert convert("\u5bb6\u91cc\u5f88\u5927", ambiguity_mode="strict") == "家裡很大"
+        assert convert("\u516c\u91cc\u6570\u5f88\u5927", ambiguity_mode="strict") == "公里數很大"
 
 
 # ──────────────────────────────────────────────
