@@ -126,8 +126,14 @@ fn main() {
             .collect();
         char_entries.sort_by_key(|(c, _)| *c as u32);
 
-        for (src_char, tgt_char) in &char_entries {
-            map_builder.entry(*src_char, &format!("'\\u{{{:X}}}'", *tgt_char as u32));
+        // phf_codegen 0.13+ borrows the value &str, so we must own the
+        // formatted strings until build() is called.
+        let char_values: Vec<String> = char_entries
+            .iter()
+            .map(|(_, tgt_char)| format!("'\\u{{{:X}}}'", *tgt_char as u32))
+            .collect();
+        for ((src_char, _), value) in char_entries.iter().zip(char_values.iter()) {
+            map_builder.entry(*src_char, value);
         }
 
         writeln!(
@@ -159,8 +165,12 @@ fn main() {
         balanced_entries.sort_by_key(|(c, _)| *c as u32);
 
         let mut balanced_builder = phf_codegen::Map::<char>::new();
-        for (src_char, tgt_char) in &balanced_entries {
-            balanced_builder.entry(*src_char, &format!("'\\u{{{:X}}}'", *tgt_char as u32));
+        let balanced_values: Vec<String> = balanced_entries
+            .iter()
+            .map(|(_, tgt_char)| format!("'\\u{{{:X}}}'", *tgt_char as u32))
+            .collect();
+        for ((src_char, _), value) in balanced_entries.iter().zip(balanced_values.iter()) {
+            balanced_builder.entry(*src_char, value);
         }
 
         writeln!(f).unwrap();
