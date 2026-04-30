@@ -17,7 +17,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 <!-- zhtw:disable -->
-**讓你的程式碼說台灣話** — 專治「許可權」「軟件」等違和用語
+**AI 寫的中文，zhtw 替你把關。**
+
+無論是 Copilot 寫的程式碼、Claude 寫的文件，還是 LLM 翻譯的本地化字串 —— 把「許可權」「軟件」「调用」這類簡體污染自動修成真正的台灣繁體。
+
+一行程式、一個 CLI、六種語言 SDK。
 <!-- zhtw:enable -->
 
 <!-- zhtw:disable -->
@@ -27,7 +31,18 @@
 ```
 <!-- zhtw:enable -->
 
-一行程式、一個 CLI、六種語言 SDK —— 把簡體轉成**真正的台灣繁體**。
+一行 `zhtw scan` / `zhtw fix` 解決 —— 也就是 LLM 給你 100 個檔案後最該做的事。
+
+---
+
+## 使用情境
+
+| 情境 | 說明 |
+|------|------|
+| 🤖 **AI 生成內容後處理** | Copilot / Cursor / Claude / GPT 寫的中文常混簡體用語，zhtw 在 commit 前自動校正 |
+| 📝 **多語系本地化** | i18n 檔案的繁體欄位品質檢查，CI 失敗或自動修正 |
+| 📚 **技術文件與註解** | function name、註解、字串 literal 的繁體一致性，pre-commit hook 自動修正 |
+| 🏢 **企業合規** | 對外文件、客戶交付物的台灣用語標準化，完全離線 |
 
 ---
 

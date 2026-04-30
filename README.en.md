@@ -17,7 +17,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 <!-- zhtw:disable -->
-**Make your code speak Taiwan** — cures awkward phrases like `許可權` and `軟件` that don't belong in Taiwan Traditional Chinese.
+**AI wrote your Chinese? Let zhtw vet it.**
+
+Whether it's Copilot-generated code, Claude-written docs, or LLM-translated localization strings — fix simplified-Chinese leakage like `許可權` and `軟件` into real Taiwan Traditional Chinese.
+
+One line of code, one CLI, six language SDKs.
 <!-- zhtw:enable -->
 
 <!-- zhtw:disable -->
@@ -27,7 +31,18 @@ Output: 伺服器上的軟體需要最佳化，使用者權限請聯絡管理員
 ```
 <!-- zhtw:enable -->
 
-One line of code, one CLI, six language SDKs — all producing **real Taiwan Traditional Chinese**.
+One `zhtw scan` / `zhtw fix` away — exactly what you need after an LLM ships you 100 files.
+
+---
+
+## Use Cases
+
+| Scenario | Why zhtw |
+|----------|----------|
+| 🤖 **AI output post-processing** | Copilot / Cursor / Claude / GPT often emit simplified-Chinese leakage; zhtw fixes it before commit |
+| 📝 **i18n / localization QA** | Traditional Chinese fields in i18n files; CI fails or auto-fixes |
+| 📚 **Tech docs & comments** | Function names, comments, string literals — pre-commit hook keeps them consistent |
+| 🏢 **Enterprise compliance** | External docs and customer deliverables in standardized Taiwan terminology, fully offline |
 
 ---
 
