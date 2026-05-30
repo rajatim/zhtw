@@ -1,5 +1,7 @@
 # ZHTW - AI 開發指南
 
+> **AI instruction source of truth is `AGENTS.md`** — Codex reads it natively (no import). `CLAUDE.md` / `GEMINI.md` are `@AGENTS.md` wrappers.
+
 > **v4.2.1** | 簡轉繁轉換器 | 指南：`.claude/guides/`
 
 ## 🚨 黃金規則
