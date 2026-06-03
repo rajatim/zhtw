@@ -572,7 +572,7 @@ Config → Converter::new:
 
 **關鍵更正：** `daachorse::MatchKind::LeftmostLongest` 只會回「不重疊最長匹配」一次，**會把 identity blocker 直接吃掉**——不能當 protected-range 演算法的 raw input。正確做法是用 **`MatchKind::Standard`** build automaton，掃描時用 **`find_overlapping_iter()`** 收集所有重疊命中（等同 TS `iterEmissions`），再套 Python/TS 那套排序 + 保護區間篩選。
 
-> 這個錯誤本來會悄悄固化進實作：用 LeftmostLongest 的話 `custom dict { '文件': '檔案', '檔案': '檔案' }` 在文字 `無中文檔案` 上會把 `檔案` identity blocker 丟掉，結果變 `無中檔案案`（Python/TS 會保持原字）。spike 時要 assert 這個 case。
+> 這個錯誤本來會悄悄固化進實作：用 LeftmostLongest 的話 `custom dict { '檔案': '檔案', '檔案': '檔案' }` 在文字 `無中文檔案` 上會把 `檔案` identity blocker 丟掉，結果變 `無中檔案案`（Python/TS 會保持原字）。spike 時要 assert 這個 case。
 
 #### 3.5.1 Term 層演算法（port Python `src/zhtw/matcher.py::find_matches` / TS `sdk/typescript/src/core/matcher.ts::findMatches:124-187`）
 
@@ -707,7 +707,7 @@ daachorse 回傳 UTF-8 byte offsets。所有 `Match.start` / `Match.end` / `Conv
 1. Term-only convert
 2. Char-only convert（即 term 層沒命中，全走 char）
 3. Term + char 混合（term 命中區段 + 未覆蓋區段吃 char）
-4. Identity protection（custom dict `檔案→檔案` 阻擋 `文件→檔案`）
+4. Identity protection（custom dict `檔案→檔案` 阻擋 `檔案→檔案`）
 5. HK-only converter（`sources = [Source::Hk]`，assert char 層**不**觸發）
 6. `lookup()` 的 term target post-charmap 行為（`伙頭` → details 看到 `夥頭`）
 

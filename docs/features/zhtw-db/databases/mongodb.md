@@ -33,7 +33,7 @@ zhtw db fix --collection users
 | SQL | MongoDB |
 |-----|---------|
 | 表 (Table) | 集合 (Collection) |
-| 列 (Row) | 文件 (Document) |
+| 列 (Row) | 檔案 (Document) |
 | 欄位 (Column) | 欄位 (Field) |
 
 ---
@@ -65,24 +65,24 @@ db.users.bulkWrite([
 
 ---
 
-## 巢狀文件處理
+## 巢狀檔案處理
 
-MongoDB 文件可以有任意深度的巢狀結構：
+MongoDB 檔案可以有任意深度的巢狀結構：
 
 ```javascript
-// 原始文件
+// 原始檔案
 {
     "_id": ObjectId("..."),
     "profile": {
-        "name": "用户",
+        "name": "使用者",
         "settings": {
-            "language": "简体",
+            "language": "簡體",
             "notifications": {
-                "email": "软件通知"
+                "email": "軟體通知"
             }
         }
     },
-    "tags": ["软件", "程序", "网络"]
+    "tags": ["軟體", "程式", "網路"]
 }
 
 // 轉換後
@@ -107,7 +107,7 @@ zhtw-db 會遞迴處理所有巢狀結構。
 
 ## Sharded Cluster
 
-對於分片集群：
+對於分片叢集：
 
 ```bash
 # 指定 mongos 路由

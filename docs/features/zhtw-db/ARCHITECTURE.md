@@ -2,10 +2,10 @@
 
 ## 確認的決策
 
-| 項目 | 決策 |
+| 專案 | 決策 |
 |------|------|
 | MVP 範圍 | 完整 MVP（SQLite + 策略 A/C' + Checkpoint + 進度條）|
-| 資料類型 | 全部類型（TEXT/JSON/陣列/ENUM）|
+| 資料型別 | 全部型別（TEXT/JSON/陣列/ENUM）|
 | 自動探索 | 提供 `zhtw db scan` 指令 |
 | 測試策略 | 混合模式（單元 Mock + 整合 testcontainers）|
 | CI/CD | Jenkins |
@@ -18,7 +18,7 @@
 zhtw-db/
 ├── src/zhtw_db/
 │   ├── __init__.py              # 版本號、匯出
-│   ├── cli.py                   # CLI 入口（擴展 zhtw）
+│   ├── cli.py                   # CLI 入口（擴充套件 zhtw）
 │   │
 │   ├── core/                    # 核心模組
 │   │   ├── __init__.py
@@ -34,7 +34,7 @@ zhtw-db/
 │   │   ├── shadow.py            # C' - 反向影子
 │   │   ├── newdb.py             # B - 新資料庫
 │   │   ├── audit.py             # E - 審計模式
-│   │   └── instance.py          # F - 新實例
+│   │   └── instance.py          # F - 新例項
 │   │
 │   ├── drivers/                 # 資料庫驅動抽象
 │   │   ├── __init__.py
@@ -44,12 +44,12 @@ zhtw-db/
 │   │   ├── mysql.py             # MySQL 實作
 │   │   └── mongodb.py           # MongoDB 實作
 │   │
-│   ├── types/                   # 資料類型處理
+│   ├── types/                   # 資料型別處理
 │   │   ├── __init__.py
 │   │   ├── text.py              # TEXT/VARCHAR
 │   │   ├── json.py              # JSON/JSONB
-│   │   ├── array.py             # 陣列類型
-│   │   └── enum.py              # ENUM 類型
+│   │   ├── array.py             # 陣列型別
+│   │   └── enum.py              # ENUM 型別
 │   │
 │   └── utils/                   # 工具
 │       ├── __init__.py
@@ -127,7 +127,7 @@ zhtw-db/
 │  │  Inplace   │ │   Shadow   │ │   NewDB    │ │   Audit    │ │  Instance  │ │
 │  │    (A)     │ │    (C')    │ │    (B)     │ │    (E)     │ │    (F)     │ │
 │  │            │ │            │ │            │ │            │ │            │ │
-│  │ UPDATE直接 │ │ 備份→轉換  │ │ 輸出新庫   │ │ 審計記錄   │ │ Clone實例  │ │
+│  │ UPDATE直接 │ │ 備份→轉換  │ │ 輸出新庫   │ │ 審計記錄   │ │ Clone例項  │ │
 │  │ 無法回滾   │ │ 可RENAME回 │ │ 切換連線   │ │ 精確回滾   │ │ 切換連線   │ │
 │  └────────────┘ └────────────┘ └────────────┘ └────────────┘ └────────────┘ │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -275,7 +275,7 @@ class DatabaseDriver(ABC):
 
     @abstractmethod
     def get_foreign_keys_to(self, table: str) -> list[dict]:
-        """取得指向此表的外鍵"""
+        """取得指向此表的外部索引鍵"""
         pass
 
     @abstractmethod
@@ -435,12 +435,12 @@ class CheckpointManager:
         ...
 ```
 
-### 4. TypeHandler（資料類型處理）
+### 4. TypeHandler（資料型別處理）
 
 ```python
 # src/zhtw_db/types/json.py
 class JsonTypeHandler(TypeHandler):
-    """JSON/JSONB 類型處理器"""
+    """JSON/JSONB 型別處理器"""
 
     supported_types = ["JSON", "JSONB", "json", "jsonb"]
 
@@ -606,7 +606,7 @@ class JsonTypeHandler(TypeHandler):
 10. [ ] CheckpointManager
 11. [ ] 進度條/ETA
 
-### Phase 3: 資料類型 (v3.0.0-rc)
+### Phase 3: 資料型別 (v3.0.0-rc)
 12. [ ] TextTypeHandler
 13. [ ] JsonTypeHandler
 14. [ ] ArrayTypeHandler
@@ -617,7 +617,7 @@ class JsonTypeHandler(TypeHandler):
 17. [ ] jobs/resume 指令
 18. [ ] 單元測試完成
 19. [ ] SQLite 整合測試完成
-20. [ ] 文件完成
+20. [ ] 檔案完成
 
 ---
 

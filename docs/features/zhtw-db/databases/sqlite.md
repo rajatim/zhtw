@@ -33,7 +33,7 @@ sqlite:///C:/Users/name/app.db  # Windows
 |------|------|
 | 驅動 | 內建 sqlite3（不需額外安裝）|
 | 鎖定 | 檔案級鎖定 |
-| 外鍵 | 預設關閉（需手動啟用）|
+| 外部索引鍵 | 預設關閉（需手動啟用）|
 | 備份 | 簡單（複製檔案即可）|
 
 ---
@@ -61,7 +61,7 @@ ALTER TABLE users RENAME TO users_backup_20250101;
 -- 建立新表
 CREATE TABLE users AS SELECT
     id,
-    CASE WHEN name = '用户' THEN '使用者' ELSE name END AS name,
+    CASE WHEN name = '使用者' THEN '使用者' ELSE name END AS name,
     ...
 FROM users_backup_20250101;
 ```
@@ -92,10 +92,10 @@ sqlite3.OperationalError: database is locked
 
 確保沒有其他程式正在存取資料庫。
 
-### 外鍵約束
+### 外部索引鍵約束
 
 ```sql
--- 啟用外鍵（預設關閉）
+-- 啟用外部索引鍵（預設關閉）
 PRAGMA foreign_keys = ON;
 ```
 

@@ -296,8 +296,8 @@ on:
 2. **搭配 pre-commit** - 在本機就擋住問題，減少 CI 失敗
 3. **使用 .zhtwignore** - 排除測試資料和第三方程式碼
 4. **加入 cache** - 加速 CI 執行時間
-5. **只檢查有中文的檔案類型** - 避免掃描二進位檔案
+5. **只檢查有中文的檔案型別** - 避免掃描二進位檔案
 
 ---
 
-更多資訊請參考 [README](../README.md) 或 [開 Issue](https://github.com/rajatim/zhtw/issues)。
+更多資訊請參考 [README](../../README.md) 或 [開 Issue](https://github.com/rajatim/zhtw/issues)。

@@ -66,7 +66,7 @@
 <!-- zhtw:disable -->
 ## 相關文件
 
-- [README](../README.md) — 專案總覽與 Quick Start
-- [CLI 進階用法](CLI-ADVANCED.md) — 完整 CLI 引數、多編碼、忽略規則
-- [CI/CD 整合](CI-CD-INTEGRATION.md) — GitHub Actions / GitLab CI 範例
+- [README](../../README.md) — 專案總覽與 Quick Start
+- [CLI 進階用法](../guides/CLI-ADVANCED.md) — 完整 CLI 引數、多編碼、忽略規則
+- [CI/CD 整合](../deployment/CI-CD-INTEGRATION.md) — GitHub Actions / GitLab CI 範例
 <!-- zhtw:enable -->

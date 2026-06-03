@@ -30,7 +30,7 @@ zhtw db fix --table users
 
 ---
 
-## 字元集注意事項
+## 字元集註意事項
 
 ### utf8 vs utf8mb4
 
@@ -64,14 +64,14 @@ SET SESSION sql_log_bin = 0;  -- 可選
 
 UPDATE users SET name = '使用者'
 WHERE id BETWEEN ? AND ?
-AND name = '用户';
+AND name = '使用者';
 
 SET SESSION foreign_key_checks = 1;
 SET SESSION sql_log_bin = 1;
 ANALYZE TABLE users;
 ```
 
-**處理項目**：
+**處理專案**：
 - 引擎：偵測 MyISAM 並警告（表鎖）
 - Binlog：`--skip-binlog` 選項
 - 複製延遲：`--check-replica-lag` 選項
@@ -97,9 +97,9 @@ RENAME TABLE
 
 ---
 
-## 權限需求
+## 許可權需求
 
-| 操作 | 權限 |
+| 操作 | 許可權 |
 |------|------|
 | check | `SELECT` |
 | fix | `SELECT`, `UPDATE`, `CREATE`, `DROP`, `ALTER` |
