@@ -26,7 +26,7 @@ SQLite     PostgreSQL   MySQL       MongoDB     企業級
 
 ### 為什麼 SQLite 優先
 
-- 零設定（不需要帳密）
+- 零配置（不需要帳密）
 - 單檔案（容易測試和展示）
 - 最多獨立開發者使用
 - Django/Flask/Rails 開發環境標配
@@ -46,7 +46,7 @@ SQLite     PostgreSQL   MySQL       MongoDB     企業級
 | v3.1.2 | Instance Clone 輔助（F）|
 | v3.1.3 | JSONB 欄位處理 |
 | v3.1.4 | 分批 + 進度條 + Checkpoint |
-| v3.1.5 | 外部索引鍵/觸發器/許可權自動處理 |
+| v3.1.5 | 外鍵/觸發器/權限自動處理 |
 
 ### PostgreSQL 專屬考量
 
@@ -55,7 +55,7 @@ SQLite     PostgreSQL   MySQL       MongoDB     企業級
 - JSONB 欄位內的中文
 - TEXT[] 陣列欄位
 - 觸發器暫停/恢復
-- 外部索引鍵約束處理
+- 外鍵約束處理
 - VACUUM ANALYZE
 ```
 
@@ -77,16 +77,16 @@ SQLite     PostgreSQL   MySQL       MongoDB     企業級
 | v3.2.1 | fix 所有策略 |
 | v3.2.2 | utf8mb4 自動處理 |
 | v3.2.3 | MariaDB 相容性 |
-| v3.2.4 | 分割槽表支援 |
+| v3.2.4 | 分區表支援 |
 
 ### MySQL 專屬考量
 
 ```python
 # MySQL 特有問題
 - utf8 vs utf8mb4（歷史包袱）
-- ENUM 型別處理
+- ENUM 類型處理
 - FULLTEXT 索引重建
-- 分割槽表支援
+- 分區表支援
 - InnoDB vs MyISAM 偵測
 ```
 
@@ -107,7 +107,7 @@ SQLite     PostgreSQL   MySQL       MongoDB     企業級
 |------|------|
 | v3.3.0 | 連線 + check |
 | v3.3.1 | fix（Collection 備份 ≈ C'）|
-| v3.3.2 | 巢狀檔案遞迴處理 |
+| v3.3.2 | 巢狀文件遞迴處理 |
 | v3.3.3 | Sharded Cluster 支援 |
 
 ### MongoDB 策略調整
@@ -115,7 +115,7 @@ SQLite     PostgreSQL   MySQL       MongoDB     企業級
 ```javascript
 // MongoDB 沒有 RENAME TABLE，改用：
 // 1. 建立 users_backup collection
-// 2. 複製所有檔案
+// 2. 複製所有文件
 // 3. 在原 collection 更新
 ```
 
@@ -191,7 +191,7 @@ DRIVER_PRIORITY = {
 
 ---
 
-## 功能優先順序
+## 功能優先級
 
 ### P0 - MVP 必要
 
@@ -212,7 +212,7 @@ DRIVER_PRIORITY = {
 ### P2 - 進階功能
 
 - [ ] MongoDB 支援
-- [ ] 策略 F（新例項）
+- [ ] 策略 F（新實例）
 - [ ] 陣列欄位處理
 - [ ] 雲端 Clone 整合
 

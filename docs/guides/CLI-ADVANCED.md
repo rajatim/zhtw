@@ -131,7 +131,7 @@ zhtw fix ./src --dict ./my-terms.json
 <!-- zhtw:disable -->
 ## 相關文件
 
-- [README](../../README.md) — 專案總覽、Quick Start、忽略特定程式碼 pragma
-- [詞庫涵蓋範圍](../reports/DICTIONARY-COVERAGE.md) — 31,000+ 詞條分類、雙層架構細節
-- [CI/CD 整合](../deployment/CI-CD-INTEGRATION.md) — GitHub Actions / GitLab CI / pre-commit 完整設定
+- [README](../README.md) — 專案總覽、Quick Start、忽略特定程式碼 pragma
+- [詞庫涵蓋範圍](DICTIONARY-COVERAGE.md) — 31,000+ 詞條分類、雙層架構細節
+- [CI/CD 整合](CI-CD-INTEGRATION.md) — GitHub Actions / GitLab CI / pre-commit 完整設定
 <!-- zhtw:enable -->

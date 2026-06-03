@@ -2,7 +2,7 @@
 
 > **狀態**: 📐 架構設計完成，待實作
 
-將 zhtw 的簡繁轉換功能擴充套件到資料庫，支援掃描和轉換資料庫中的中文內容。
+將 zhtw 的簡繁轉換功能擴展到資料庫，支援掃描和轉換資料庫中的中文內容。
 
 ---
 
@@ -25,9 +25,9 @@ zhtw db fix --table users       # 執行轉換
 
 ---
 
-## 檔案索引
+## 文件索引
 
-| 檔案 | 說明 |
+| 文件 | 說明 |
 |------|------|
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | 專案架構設計 |
 | [STRATEGIES.md](./STRATEGIES.md) | 轉換策略指南（A-F 策略詳解）|
@@ -73,8 +73,8 @@ zhtw db check --table users --column name
 # 輸出
 📋 users.name
    共 1,234 筆，需轉換 56 筆
-   "使用者" → "使用者" (45 筆)
-   "軟體" → "軟體" (11 筆)
+   "用户" → "使用者" (45 筆)
+   "软件" → "軟體" (11 筆)
 ```
 
 ### 3. 轉換 (fix)
@@ -113,4 +113,4 @@ zhtw db rollback --table users
 
 ---
 
-*zhtw-db 是 zhtw 的獨立外掛程式套件*
+*zhtw-db 是 zhtw 的獨立插件套件*

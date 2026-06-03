@@ -1,6 +1,6 @@
 # 轉換策略指南
 
-選擇正確的轉換策略是資料庫轉換最重要的決策。本檔案詳細說明每種策略的優缺點和適用場景。
+選擇正確的轉換策略是資料庫轉換最重要的決策。本文檔詳細說明每種策略的優缺點和適用場景。
 
 ---
 
@@ -13,7 +13,7 @@
 | C' | 反向影子 | 無 | 無 | 可 | 2x 表 | **推薦預設** |
 | D | 版本欄位 | 要改 | 無 | 可 | 1.x | 漸進遷移 |
 | E | 審計表 | 無 | 無 | 精確 | 1.x | 合規需求 |
-| F | 新例項 | 無 | 連線 | 可 | 2x 例項 | 生產環境 |
+| F | 新實例 | 無 | 連線 | 可 | 2x 實例 | 生產環境 |
 
 ---
 
@@ -50,20 +50,20 @@ SET session_replication_role = 'replica';  -- 暫停觸發器
 -- 分批更新（避免長事務）
 UPDATE users SET name = '使用者'
 WHERE id BETWEEN $1 AND $2
-AND name = '使用者';
+AND name = '用户';
 
 COMMIT;
 SET session_replication_role = 'origin';
 VACUUM ANALYZE users;  -- 清理 dead tuples
 ```
 
-| 專案 | 處理方式 |
+| 項目 | 處理方式 |
 |------|---------|
 | 鎖定 | 分批處理（`--batch-size 1000`）|
 | 觸發器 | `SET session_replication_role` 暫停 |
 | MVCC | 完成後自動 `VACUUM ANALYZE` |
 | WAL | 預估大小並警告 |
-| 外部索引鍵 CASCADE | 偵測並警告使用者 |
+| 外鍵 CASCADE | 偵測並警告使用者 |
 
 ### MySQL 實作細節
 
@@ -73,7 +73,7 @@ SET SESSION sql_log_bin = 0;  -- 可選
 
 UPDATE users SET name = '使用者'
 WHERE id BETWEEN ? AND ?
-AND name = '使用者';
+AND name = '用户';
 
 SET SESSION foreign_key_checks = 1;
 SET SESSION sql_log_bin = 1;
@@ -159,7 +159,7 @@ zhtw db fix postgres://... --table users --strategy shadow
  │──────────│   ─────────> │──────────│    ─────────>   │──────────│
  │ id: 1    │   RENAME     │  (已改名為                  │ id: 1    │
  │ name:    │   TO backup  │  users_backup)              │ name:    │
- │ "使用者"   │              │                             │ "使用者"  │
+ │ "用户"   │              │                             │ "使用者"  │
  └──────────┘              └──────────┘                  └──────────┘
                                  │                             ▲
                                  │ Step 2-3                    │
@@ -183,7 +183,7 @@ zhtw db fix postgres://... --table users --strategy shadow
 
 | 優點 | 缺點 |
 |------|------|
-| ✅ 程式不用改、設定不用改 | ❌ 需要處理外部索引鍵 |
+| ✅ 程式不用改、設定不用改 | ❌ 需要處理外鍵 |
 | ✅ 可隨時回滾（RENAME 回去）| ❌ 需要 2 倍表空間 |
 | ✅ 原子切換 | ❌ RENAME 有短暫鎖定 |
 
@@ -192,12 +192,12 @@ zhtw db fix postgres://... --table users --strategy shadow
 ```sql
 BEGIN;
 
--- 1. 記錄外部索引鍵約束
+-- 1. 記錄外鍵約束
 CREATE TEMP TABLE _fk_backup AS
 SELECT conname, conrelid::regclass, confrelid::regclass, pg_get_constraintdef(oid)
 FROM pg_constraint WHERE confrelid = 'users'::regclass;
 
--- 2. 移除指向本表的外部索引鍵
+-- 2. 移除指向本表的外鍵
 DO $$
 DECLARE r RECORD;
 BEGIN
@@ -208,31 +208,31 @@ BEGIN
     END LOOP;
 END $$;
 
--- 3. 重新命名原表
+-- 3. 重命名原表
 ALTER TABLE users RENAME TO users_backup_20250101;
 
 -- 4. 建立新表並轉換
 CREATE TABLE users (LIKE users_backup_20250101 INCLUDING ALL);
 INSERT INTO users SELECT
     id,
-    CASE WHEN name = '使用者' THEN '使用者' ELSE name END,
+    CASE WHEN name = '用户' THEN '使用者' ELSE name END,
     ...
 FROM users_backup_20250101;
 
 -- 5. 修復序列
 SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));
 
--- 6. 重建外部索引鍵
+-- 6. 重建外鍵
 
 COMMIT;
 ```
 
 ### 各資料庫差異
 
-| 專案 | PostgreSQL | MySQL | SQLite |
+| 項目 | PostgreSQL | MySQL | SQLite |
 |------|-----------|-------|--------|
-| 表重新命名 | `ALTER TABLE RENAME` | `RENAME TABLE` | `ALTER TABLE RENAME` |
-| 外部索引鍵處理 | 需手動 DROP/CREATE | 需手動 DROP/CREATE | 無外部索引鍵強制 |
+| 表重命名 | `ALTER TABLE RENAME` | `RENAME TABLE` | `ALTER TABLE RENAME` |
+| 外鍵處理 | 需手動 DROP/CREATE | 需手動 DROP/CREATE | 無外鍵強制 |
 | 序列處理 | `ALTER SEQUENCE` | `AUTO_INCREMENT` | `AUTOINCREMENT` |
 | 索引 | 自動跟隨 | 自動跟隨 | 自動跟隨 |
 
@@ -312,17 +312,17 @@ WHERE batch_id = 'xxx' AND rollback_at IS NULL;
 
 ---
 
-## 策略 F：新例項 (Instance Clone)
+## 策略 F：新實例 (Instance Clone)
 
-複製整個資料庫例項，轉換後切換連線字串。
+複製整個資料庫實例，轉換後切換連線字串。
 
 ### 使用方式
 
 ```bash
-# 1. Clone 例項（使用雲端工具或我們的輔助指令）
+# 1. Clone 實例（使用雲端工具或我們的輔助指令）
 zhtw db clone postgres://source postgres://target
 
-# 2. 轉換新例項
+# 2. 轉換新實例
 zhtw db fix postgres://target --all-tables
 
 # 3. 驗證
@@ -377,14 +377,14 @@ export DATABASE_URL=postgres://target
   否        是
   │         │
   ▼         ▼
-可以接受    有維護視窗嗎？
+可以接受    有維護窗口嗎？
 資料遺失？      │
   │       ┌────┴────┐
 ┌─┴─┐     有        無
 可以 不行   │         │
  │   │    ▼         ▼
  ▼   ▼  策略 C'   策略 F
-策略 策略  反向影子   新例項
+策略 策略  反向影子   新實例
  A   C'
 原地 反向
 更新 影子
@@ -419,14 +419,14 @@ export DATABASE_URL=postgres://target
 | 業務情境 | 推薦策略 | 原因 |
 |---------|---------|------|
 | 24/7 線上服務 | F | 零停機 |
-| 可維護視窗 | C' | 最乾淨 |
+| 可維護窗口 | C' | 最乾淨 |
 | 一次性遷移 | B | 最安全 |
 | 漸進式遷移 | D | 最彈性 |
 | 法規要求 | E | 完整追蹤 |
 
 ### 綜合評估矩陣
 
-| 維度 | A 原地 | B 新庫 | C' 影子 | E 審計 | F 例項 |
+| 維度 | A 原地 | B 新庫 | C' 影子 | E 審計 | F 實例 |
 |------|:-----:|:-----:|:------:|:-----:|:-----:|
 | 實作複雜度 | ⭐ | ⭐⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
 | 回滾能力 | ❌ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |

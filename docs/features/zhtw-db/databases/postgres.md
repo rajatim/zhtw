@@ -40,52 +40,52 @@ SET session_replication_role = 'replica';  -- 暫停觸發器
 
 UPDATE users SET name = '使用者'
 WHERE id BETWEEN $1 AND $2
-AND name = '使用者';
+AND name = '用户';
 
 COMMIT;
 SET session_replication_role = 'origin';
 VACUUM ANALYZE users;
 ```
 
-**處理專案**：
+**處理項目**：
 - 鎖定：分批處理（`--batch-size 1000`）
 - 觸發器：`SET session_replication_role` 暫停
 - MVCC：完成後自動 `VACUUM ANALYZE`
 - WAL：預估大小並警告
-- 外部索引鍵 CASCADE：偵測並警告
+- 外鍵 CASCADE：偵測並警告
 
 ### 策略 C'：反向影子
 
 ```sql
 BEGIN;
 
--- 1. 記錄外部索引鍵約束
+-- 1. 記錄外鍵約束
 CREATE TEMP TABLE _fk_backup AS
 SELECT conname, pg_get_constraintdef(oid)
 FROM pg_constraint WHERE confrelid = 'users'::regclass;
 
--- 2. 移除外部索引鍵
+-- 2. 移除外鍵
 ALTER TABLE orders DROP CONSTRAINT orders_user_id_fkey;
 
--- 3. 重新命名
+-- 3. 重命名
 ALTER TABLE users RENAME TO users_backup_20250101;
 
 -- 4. 建立新表並轉換
 CREATE TABLE users (LIKE users_backup_20250101 INCLUDING ALL);
 INSERT INTO users SELECT ... FROM users_backup_20250101;
 
--- 5. 重建外部索引鍵
+-- 5. 重建外鍵
 ALTER TABLE orders ADD CONSTRAINT orders_user_id_fkey
 FOREIGN KEY (user_id) REFERENCES users(id);
 
 COMMIT;
 ```
 
-**處理專案**：
-- 外部索引鍵：自動 DROP/CREATE
+**處理項目**：
+- 外鍵：自動 DROP/CREATE
 - 序列：自動轉移 OWNED BY
 - 索引：自動跟隨
-- 許可權：自動複製
+- 權限：自動複製
 
 ---
 
@@ -97,9 +97,9 @@ COMMIT;
 # 遞迴處理 JSONB 內的中文
 {
     "user": {
-        "name": "使用者",  # → "使用者"
+        "name": "用户",  # → "使用者"
         "settings": {
-            "language": "簡體"  # → "繁體"
+            "language": "简体"  # → "繁體"
         }
     }
 }
@@ -109,20 +109,20 @@ COMMIT;
 
 ```python
 # 陣列每個元素都處理
-["使用者", "軟體", "程式"]
+["用户", "软件", "程序"]
 # → ["使用者", "軟體", "程式"]
 ```
 
 ---
 
-## 許可權需求
+## 權限需求
 
-| 操作 | 許可權 |
+| 操作 | 權限 |
 |------|------|
 | check | `SELECT` |
 | fix (A) | `SELECT`, `UPDATE` |
 | fix (C') | `SELECT`, `INSERT`, `CREATE`, `DROP`, `ALTER` |
-| fix (E) | 上述 + 審計表許可權 |
+| fix (E) | 上述 + 審計表權限 |
 
 ---
 
@@ -144,13 +144,13 @@ COMMIT;
 # 確認允許連線來源
 ```
 
-### 許可權不足
+### 權限不足
 
 ```sql
 GRANT SELECT, UPDATE ON users TO your_user;
 ```
 
-### 外部索引鍵衝突
+### 外鍵衝突
 
 ```bash
 # 使用策略 C' 自動處理

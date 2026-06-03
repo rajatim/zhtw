@@ -1,6 +1,6 @@
 # Jenkins CI/CD 需求規格
 
-本檔案提供給 Jenkins AI 或 DevOps 團隊建立 CI/CD Pipeline。
+本文件提供給 Jenkins AI 或 DevOps 團隊建立 CI/CD Pipeline。
 
 ---
 
@@ -380,7 +380,7 @@ pipeline {
 
 ---
 
-## docker-compose.test.yml（本機測試）
+## docker-compose.test.yml（本地測試）
 
 ```yaml
 version: '3.8'
@@ -436,7 +436,7 @@ volumes:
   mongo_data:
 ```
 
-### 本機測試流程
+### 本地測試流程
 
 ```bash
 # 啟動所有資料庫
