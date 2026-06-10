@@ -25,7 +25,7 @@ import click
 
 from . import __version__
 from .converter import ConversionResult, Issue, process_directory
-from .dictionary import DATA_DIR, load_dictionary, load_json_file
+from .dictionary import BULK_FILES, DATA_DIR, iter_directory_files, load_dictionary, load_json_file
 
 
 def get_env_bool(name: str, default: bool = False) -> bool:
@@ -1061,36 +1061,61 @@ def validate(source: str, strict: bool):
             )
 
     # Check 3: Duplicate source terms across files
+    # 依實際載入順序（bulk 先、手工後）檢查：
+    # - 同 key 不同值 = 後載檔會無聲覆蓋前載檔 → 真正的 bug（⚠️ 計入 issues）
+    # - 同 key 同值 = 冗餘但無害 → 資訊提示（ℹ️ 不計入）
     click.echo("\n📋 檢查重複來源詞彙...")
-    source_files = {}
-    duplicates = []
+    source_defs: dict = {}  # (src, term) -> (file_stem, target)
+    conflicts = []
+    redundant = []
     for src in sources:
         src_dir = DATA_DIR / src
         if not src_dir.exists():
             continue
 
-        for json_file in src_dir.glob("*.json"):
+        for json_file in iter_directory_files(src_dir):
             terms = load_json_file(json_file)
-            for source_term in terms:
+            for source_term, target_term in terms.items():
                 # Skip comment keys (start with _)
                 if source_term.startswith("_"):
                     continue
                 key = (src, source_term)
-                if key in source_files:
-                    duplicates.append(
-                        f"   ⚠️  {src}/: 「{source_term}」同時出現在 "
-                        f"{source_files[key]}.json 和 {json_file.stem}.json"
-                    )
-                else:
-                    source_files[key] = json_file.stem
+                if key in source_defs:
+                    prev_file, prev_target = source_defs[key]
+                    if prev_target != target_term:
+                        if f"{prev_file}.json" in BULK_FILES:
+                            # 手工檔覆蓋 bulk 匯入檔 = 刻意設計（curated 勝出）
+                            redundant.append(
+                                f"   ℹ️  {src}/: 「{source_term}」手工檔 "
+                                f"{json_file.stem}.json→「{target_term}」覆蓋 "
+                                f"{prev_file}.json→「{prev_target}」（by design）"
+                            )
+                        else:
+                            conflicts.append(
+                                f"   ⚠️  {src}/: 「{source_term}」定義不一致："
+                                f"{prev_file}.json→「{prev_target}」 被 "
+                                f"{json_file.stem}.json→「{target_term}」覆蓋"
+                            )
+                    else:
+                        redundant.append(
+                            f"   ℹ️  {src}/: 「{source_term}」重複定義（同值）於 "
+                            f"{prev_file}.json 和 {json_file.stem}.json"
+                        )
+                # 記錄最後載入者（= 實際勝出者）
+                source_defs[key] = (json_file.stem, target_term)
 
-    if duplicates:
-        for d in duplicates[:10]:
-            click.echo(d)
-        if len(duplicates) > 10:
-            click.echo(f"   ... 還有 {len(duplicates) - 10} 個")
-        issues.extend(duplicates)
-    else:
+    if conflicts:
+        for c in conflicts[:10]:
+            click.echo(c)
+        if len(conflicts) > 10:
+            click.echo(f"   ... 還有 {len(conflicts) - 10} 個")
+        issues.extend(conflicts)
+    if redundant:
+        click.echo(f"   ℹ️  {len(redundant)} 個同值冗餘定義（無害，可清理）")
+        if strict:
+            for r in redundant[:10]:
+                click.echo(r)
+    if not conflicts and not redundant:
         click.echo("   ✅ 無重複")
 
     # Summary

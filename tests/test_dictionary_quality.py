@@ -10,7 +10,7 @@ from pathlib import Path
 import pytest
 
 from zhtw.charconv import load_charmap
-from zhtw.dictionary import load_dictionary
+from zhtw.dictionary import BULK_FILES, load_dictionary
 
 TERMS_DIR = Path(__file__).parent.parent / "src" / "zhtw" / "data" / "terms"
 CN_DIR = TERMS_DIR / "cn"
@@ -29,6 +29,10 @@ VARIANT_FORMS = {
     "綫": "線",
     "鏇": "旋",
 }
+
+# 故意的 identity 保護詞（全簡體形 key，防止字元層錯轉，非漏轉）
+# 云云：文言「如此云云」，云=說 須保持 云
+INTENTIONAL_IDENTITY = {"云云"}
 
 # 常見歧義字：應在詞庫中有對應的複合詞處理
 COMMON_AMBIGUOUS = ["发", "后", "里", "干", "面", "只", "台", "复", "系"]
@@ -110,7 +114,7 @@ class TestNoIdentityMapping:
         """找出所有 CJK 字元都在 charmap 中的 identity mapping（純簡體漏轉）。"""
         bad = {}
         for key, value in terms_to_check.items():
-            if key != value or key.startswith("_"):
+            if key != value or key.startswith("_") or key in INTENTIONAL_IDENTITY:
                 continue
             cjk_chars = [ch for ch in key if "\u4e00" <= ch <= "\u9fff"]
             if cjk_chars and all(ch in charmap for ch in cjk_chars):
@@ -148,7 +152,12 @@ class TestNoDuplicateConflicts:
     """跨檔案重複/衝突偵測。"""
 
     def test_no_conflicting_terms(self):
-        """同一個簡體詞若出現在多個檔案，繁體值必須一致。"""
+        """同一個簡體詞若出現在多個「手工」檔案，繁體值必須一致。
+
+        bulk 匯入檔（BULK_FILES，如 opencc.json）先載入、手工檔後載，
+        手工檔覆蓋 bulk 是刻意設計（curated 勝出），不算衝突；
+        但兩個手工檔之間值不一致仍是 bug。
+        """
         registry: dict[str, list[tuple[str, str]]] = {}
 
         for json_file in CN_FILES:
@@ -158,12 +167,13 @@ class TestNoDuplicateConflicts:
 
         conflicts = {}
         for key, entries in registry.items():
-            values = {v for _, v in entries}
-            if len(values) > 1:
+            curated = [(f, v) for f, v in entries if f not in BULK_FILES]
+            curated_values = {v for _, v in curated}
+            if len(curated_values) > 1:
                 conflicts[key] = entries
 
         assert not conflicts, (
-            f"發現 {len(conflicts)} 條衝突詞彙: " f"{dict(list(conflicts.items())[:5])}"
+            f"發現 {len(conflicts)} 條手工檔衝突詞彙: " f"{dict(list(conflicts.items())[:5])}"
         )
 
 

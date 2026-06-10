@@ -13,6 +13,12 @@ from typing import Dict, List, Optional, Set
 # Built-in terms directory
 DATA_DIR = Path(__file__).parent / "data" / "terms"
 
+# Bulk-imported dictionaries (machine-generated, lower trust) load FIRST so
+# that every hand-curated file overrides them on key collisions. Without an
+# explicit order, alphabetical glob order would let opencc.json (28k imported
+# terms) silently override curated entries.
+BULK_FILES = frozenset({"opencc.json"})
+
 # Reserved top-level keys that must NOT be loaded as term mappings
 # when a JSON file uses the legacy flat format (no "terms" wrapper).
 _METADATA_KEYS = frozenset(
@@ -58,6 +64,18 @@ def load_json_file(path: Path) -> Dict[str, str]:
     return result
 
 
+def iter_directory_files(directory: Path) -> List[Path]:
+    """List JSON files in precedence order: bulk imports first, curated last.
+
+    後載者覆蓋先載者，因此 bulk 匯入檔（BULK_FILES）排最前、
+    手工策展檔按字母序排後 —— key 碰撞時手工詞條必定勝出。
+    """
+    files = sorted(directory.glob("*.json"))
+    return [f for f in files if f.name in BULK_FILES] + [
+        f for f in files if f.name not in BULK_FILES
+    ]
+
+
 def load_directory(directory: Path) -> Dict[str, str]:
     """Load all JSON files from a directory and merge them."""
     merged = {}
@@ -65,7 +83,7 @@ def load_directory(directory: Path) -> Dict[str, str]:
     if not directory.exists():
         return merged
 
-    for json_file in sorted(directory.glob("*.json")):
+    for json_file in iter_directory_files(directory):
         terms = load_json_file(json_file)
         merged.update(terms)
 
