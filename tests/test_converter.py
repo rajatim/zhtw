@@ -203,3 +203,36 @@ class TestIgnoreDirectives:
         assert "软件" in result_text
         assert "硬件" in result_text
         assert len(matches) == 0
+
+
+class TestProcessDirectoryDefaults:
+    """process_directory 預設參數行為（API 與 convert() 一致性）。"""
+
+    def test_sources_none_applies_char_layer(self, tmp_path: Path):
+        """sources=None（預設=全來源）必須啟用字元層轉換。
+
+        回歸測試：舊版條件 `sources and "cn" in sources` 在 sources=None
+        時為 falsy，導致字元層靜默關閉，與 convert() 的語義不一致。
+        """
+        from zhtw.converter import process_directory
+
+        f = tmp_path / "sample.md"
+        # 「学」不在詞庫層（純字元級轉換），可分辨字元層是否生效
+        f.write_text("学", encoding="utf-8")
+
+        result = process_directory(tmp_path, fix=True)
+
+        assert result.files_modified == 1
+        assert f.read_text(encoding="utf-8") == "學"
+
+    def test_sources_hk_only_disables_char_layer(self, tmp_path: Path):
+        """sources=["hk"] 不應套用 CN 字元表。"""
+        from zhtw.converter import process_directory
+
+        f = tmp_path / "sample.md"
+        f.write_text("学", encoding="utf-8")
+
+        result = process_directory(tmp_path, sources=["hk"], fix=True)
+
+        assert result.files_modified == 0
+        assert f.read_text(encoding="utf-8") == "学"

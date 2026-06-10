@@ -565,7 +565,7 @@ def convert(text: str, sources: Optional[List[str]] = None, ambiguity_mode: str 
         invalid = sorted({s for s in sources if s not in VALID_SOURCES})
         if invalid:
             raise ValueError(
-                f"Invalid source(s): {invalid}. " f"Valid sources are: {sorted(VALID_SOURCES)}"
+                f"Invalid source(s): {invalid}. Valid sources are: {sorted(VALID_SOURCES)}"
             )
 
     if ambiguity_mode not in VALID_AMBIGUITY_MODES:
@@ -912,16 +912,19 @@ def process_directory(
     inject_protect_terms(terms, sources)
     matcher = Matcher(terms)
 
-    # Load character-level conversion table
+    # Load character-level conversion table.
+    # sources=None means "all sources" (which includes cn) — must match
+    # convert()'s semantics, otherwise the char layer silently turns off
+    # for API callers that rely on the default.
     char_table = None
-    if char_convert and sources and "cn" in sources:
+    if char_convert and (sources is None or "cn" in sources):
         from .charconv import get_translate_table
 
         char_table = get_translate_table()
 
     # balanced defaults are CN→TW mappings; disable when cn not in sources
     effective_mode = ambiguity_mode
-    if ambiguity_mode == "balanced" and sources and "cn" not in sources:
+    if ambiguity_mode == "balanced" and sources is not None and "cn" not in sources:
         effective_mode = "strict"
 
     result = ConversionResult()
