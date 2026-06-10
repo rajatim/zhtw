@@ -1,6 +1,10 @@
 #!/bin/bash
 # pre-commit hook: 自動將簡體字轉換為繁體
-# 統一使用 zhtw 原生排除機制（# zhtw:disable）
+# 統一使用 zhtw 原生排除機制（# zhtw:disable + .zhtwignore）
+#
+# 重要：用 PYTHONPATH 指向 repo 的 src/，確保跑的是「當前版本」的
+# 程式碼與詞庫。過去直接 import 系統安裝的舊版 zhtw，曾用已修正的
+# 舊詞條反覆腐化文件（如 380e5d4 修復的 docs 損毀）。
 
 set -e
 
@@ -23,7 +27,9 @@ if [ -z "$PYTHON" ]; then
     exit 0
 fi
 
-$PYTHON - "${files[@]}" << 'PYTHON_SCRIPT'
+REPO_ROOT=$(git rev-parse --show-toplevel)
+
+PYTHONPATH="$REPO_ROOT/src" $PYTHON - "${files[@]}" << 'PYTHON_SCRIPT'
 import sys
 import subprocess
 from pathlib import Path
@@ -31,14 +37,25 @@ from pathlib import Path
 try:
     from zhtw.dictionary import load_dictionary
     from zhtw.matcher import Matcher
-    from zhtw.converter import convert_file
+    from zhtw.converter import (
+        convert_file,
+        inject_protect_terms,
+        is_ignored_by_patterns,
+        load_zhtwignore,
+    )
 except ImportError:
     sys.exit(0)
 
 terms = load_dictionary(sources=["cn", "hk"])
+inject_protect_terms(terms, ["cn", "hk"])
 matcher = Matcher(terms)
 
 EXTENSIONS = {".py", ".md", ".txt", ".rst", ".html", ".yaml", ".yml", ".toml"}
+
+# pre-commit 的 cwd 是 repo root；尊重 .zhtwignore（過去未讀取，
+# 導致 tests/、詞庫範例文件被 hook 錯誤轉換）
+repo_root = Path.cwd()
+ignore_patterns = load_zhtwignore(repo_root)
 
 modified_files = []
 
@@ -49,6 +66,9 @@ for filepath in sys.argv[1:]:
         continue
 
     if not path.exists():
+        continue
+
+    if is_ignored_by_patterns(path, repo_root, ignore_patterns):
         continue
 
     # 自動轉換（zhtw 會處理 # zhtw:disable 等排除規則）
