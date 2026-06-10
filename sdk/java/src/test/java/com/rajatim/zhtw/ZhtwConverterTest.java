@@ -68,7 +68,10 @@ class ZhtwConverterTest {
         ZhtwConverter conv = ZhtwConverter.builder()
                 .sources(Collections.singletonList("cn"))
                 .build();
-        assertEquals("\u982d\u9aee\u5f88\u5e79", conv.convert("\u5934\u53d1\u5f88\u5e72"));
+        // 头发 converts via term (\u53d1\u2192\u9aee); bare \u5e72 is three-way
+        // ambiguous (\u4e7e/\u5e79/\u5e72) and intentionally left unconverted
+        // per the golden rule (2026-06 vocabulary audit).
+        assertEquals("\u982d\u9aee\u5f88\u5e72", conv.convert("\u5934\u53d1\u5f88\u5e72"));
     }
 
     @Test
