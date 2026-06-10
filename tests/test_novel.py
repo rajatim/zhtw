@@ -198,7 +198,7 @@ class TestKeyTermConversions:
         ("服务器", "伺服器"),
         ("视频", "影片"),
         ("博客", "部落格"),
-        ("默认", "預設"),
+        ("默认", "默認"),  # 裸詞不轉（他默认了指控）；IT 語境用長詞 默认值→預設值
     ]
 
     @pytest.mark.parametrize("src,expected", TERM_CASES, ids=[c[0] for c in TERM_CASES])

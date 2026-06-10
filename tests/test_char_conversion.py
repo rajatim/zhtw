@@ -132,10 +132,10 @@ class TestFu:
             assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
 
     def test_fu_recover(self, matcher: Matcher):
-        """復原轉「復」，恢复軟體用語轉「還原」"""
+        """復原轉「復」，恢复一律轉「恢復」（通用正確轉換）"""
         cases = {
             "复原": "復原",
-            "恢复": "還原",  # base.json 的軟體特定翻譯
+            "恢复": "恢復",  # 裸詞不做軟體在地化（恢复健康→還原健康 是錯轉）
         }
         for src, expected in cases.items():
             assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
@@ -206,7 +206,7 @@ class TestMixedText:
             "测试时间是10公里": "測試時間是10公里",
             "发送头发图片": "傳送頭髮圖片",  # 发送 → 傳送（base.json）
             "面试之后吃面条": "面試之後吃麵條",
-            "复杂的恢复过程": "複雜的還原過程",  # 恢复軟體用語轉「還原」
+            "复杂的恢复过程": "複雜的恢復過程",  # 恢复通用轉換（不做軟體在地化）
         }
         for src, expected in cases.items():
             assert matcher.replace_all(src) == expected, f"{src} should convert to {expected}"
@@ -605,7 +605,8 @@ class TestRealText:
         cases = {
             "软件开发文档": "軟體開發文件",
             "用户可以通过简单的操作完成任务": "使用者可以透過簡單的操作完成任務",
-            "安装完成后，请尽快配置相关参数": "安裝完成後，請儘快設定相關參數",
+            # 配置是台灣正當詞（資產配置），裸詞不轉
+            "安装完成后，请尽快配置相关参数": "安裝完成後，請儘快配置相關參數",
         }
         for src, expected in cases.items():
             assert matcher.replace_all(src) == expected, f"Failed: {src}"

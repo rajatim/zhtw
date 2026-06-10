@@ -151,7 +151,7 @@ CONTEXT_CASES = [
     pytest.param("台风", "颱風", id="台-typhoon"),
     pytest.param("台湾", "臺灣", id="台-taiwan"),
     # 复：歧義字，復(recover) vs 複(complex)
-    pytest.param("恢复", "還原", id="复-recover"),
+    pytest.param("恢复", "恢復", id="复-recover"),
     pytest.param("复杂", "複雜", id="复-complex"),
     # 系：歧義字，係(relation) vs 系(system)
     pytest.param("关系", "關係", id="系-relation"),
