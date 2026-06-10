@@ -2,10 +2,11 @@
 """
 從 OpenCC 和 MediaWiki 匯入簡繁詞彙到 zhtw 詞庫。
 
-資料來源：
-  1. OpenCC STPhrases.txt   — ~49K 簡→繁通用詞彙 (Apache-2.0)
-  2. OpenCC TWPhrases.txt   — ~520 台灣特定詞彙 (Apache-2.0)
-  3. zhconv (MediaWiki)     — ~7K+ 繁體詞彙 + ~964 台灣詞彙 (GPL-2.0+)
+資料來源（僅 Apache-2.0；MediaWiki/zhconv GPL 資料已於 2026-06 移除，
+不可再加回 — 與本專案 MIT 授權不相容，見 THIRD_PARTY_NOTICES.md）：
+  1. OpenCC STPhrases.txt           — ~49K 簡→繁通用詞彙 (Apache-2.0)
+  2. OpenCC TWPhrases.txt           — ~700 台灣特定詞彙 (Apache-2.0)
+  3. OpenCC TWVariantsRevPhrases.txt — ~1K 變體正規化 (Apache-2.0)
 
 用法：
   python scripts/import_opencc.py [--dry-run] [--output PATH]
@@ -93,42 +94,6 @@ def load_charmap_keys() -> set[str]:
         return set()
 
 
-def try_load_zhconv() -> dict[str, str]:
-    """Try to load MediaWiki conversion tables via zhconv package."""
-    try:
-        import json as _json
-        import os
-
-        import zhconv as _zhconv
-
-        pkg_dir = os.path.dirname(_zhconv.__file__)
-        dict_file = os.path.join(pkg_dir, "zhcdict.json")
-        data = _json.load(open(dict_file, encoding="utf-8"))
-
-        tables = {}
-
-        # zh2Hant: generic simplified→traditional phrases
-        zh2hant = data.get("zh2Hant", {})
-        for k, v in zh2hant.items():
-            if len(k) > 1:  # phrase only
-                tables[k] = v
-        print(
-            f"  zh2Hant: {len(zh2hant):,} entries ({sum(1 for k in zh2hant if len(k)>1):,} phrases)"
-        )
-
-        # zh2TW: Taiwan-specific (higher priority, override)
-        zh2tw = data.get("zh2TW", {})
-        for k, v in zh2tw.items():
-            tables[k] = v  # override generic with TW-specific
-        print(f"  zh2TW: {len(zh2tw):,} entries")
-
-        print(f"  zhconv 合併: {len(tables):,} entries")
-        return tables
-    except Exception as e:
-        print(f"  zhconv load failed: {e}, skipping MediaWiki data")
-        return {}
-
-
 def filter_terms(
     candidates: dict[str, str],
     existing: dict[str, str],
@@ -142,7 +107,7 @@ def filter_terms(
     - Single-char already in charmap
     - Conflicts with existing terms (existing wins)
     - **Taiwan conformance**: if the candidate value uses non-Taiwan forms
-      for subterms that zhtw already knows (e.g., OpenCC 軟件 vs zhtw 軟體)
+      for subterms that zhtw already knows (e.g., OpenCC 軟體 vs zhtw 軟體)
     """
     filtered = {}
     stats = {
@@ -196,7 +161,7 @@ def filter_terms(
         # Taiwan conformance check:
         # Convert the key using existing zhtw terms. If the result differs
         # from the candidate value, the candidate uses non-Taiwan forms
-        # (e.g., generic 軟件 instead of Taiwan 軟體).
+        # (e.g., generic 軟體 instead of Taiwan 軟體).
         tw_converted = existing_matcher.replace_all(key)
         if tw_converted != key and tw_converted != val:
             # Existing terms produce a different result → candidate is non-TW
@@ -226,14 +191,14 @@ def main():
     print("=" * 60)
 
     # 1. Load existing terms
-    print("\n[1/4] 載入現有詞庫...")
+    print("\n[1/3] 載入現有詞庫...")
     existing = load_existing_terms()
     charmap_keys = load_charmap_keys()
     print(f"  現有詞彙: {len(existing):,}")
-    print(f"  字元映射: {len(charmap_keys):,}")
+    print(f"  字元對映: {len(charmap_keys):,}")
 
     # 2. Download OpenCC data
-    print("\n[2/4] 下載 OpenCC 詞庫...")
+    print("\n[2/3] 下載 OpenCC 詞庫...")
     all_candidates: dict[str, str] = {}
 
     # TWPhrases first (Taiwan-specific, highest priority)
@@ -255,17 +220,8 @@ def main():
 
     print(f"  OpenCC 總計: {len(all_candidates):,}")
 
-    # 3. Try zhconv (MediaWiki)
-    print("\n[3/4] 載入 MediaWiki 詞庫...")
-    zhconv_terms = try_load_zhconv()
-    # MediaWiki TW terms override OpenCC generic
-    for k, v in zhconv_terms.items():
-        all_candidates[k] = v
-
-    print(f"  合併後總計: {len(all_candidates):,}")
-
-    # 4. Filter
-    print("\n[4/4] 過濾與去重...")
+    # 3. Filter
+    print("\n[3/3] 過濾與去重...")
     filtered, stats = filter_terms(all_candidates, existing, charmap_keys)
 
     print(f"  Identity (跳過):     {stats['identity']:,}")
