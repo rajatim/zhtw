@@ -13,6 +13,7 @@ from __future__ import annotations
 import fnmatch
 import re
 import threading
+from bisect import bisect_right
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable, Iterator, List, Optional, Set
@@ -356,10 +357,47 @@ def _apply_term_layer(text: str, matcher: Matcher) -> tuple[str, set[int]]:
     return replaced, covered
 
 
+# 合併（balanced defaults ∘ char_table）後的 translate 表快取。
+# value 同時持有來源 dict 的強引用，確保 id() 在快取存活期間不被回收重用。
+_MERGED_TABLE_CACHE: dict = {}
+
+
+def _merged_translate_table(
+    char_table: Optional[dict[int, str]],
+    defaults: Optional[dict[str, str]],
+) -> dict[int, str]:
+    """組合 balanced defaults 與 char_table 為單一 str.translate 表。
+
+    語義等價於逐字「先查 defaults，再把結果過 char_table」，
+    讓未被 covered 的整段文字可走 C 層級的 str.translate fast path。
+    """
+    key = (id(char_table), id(defaults))
+    cached = _MERGED_TABLE_CACHE.get(key)
+    if cached is not None:
+        return cached[2]
+
+    merged: dict[int, str] = {}
+    if defaults:
+        for c, d in defaults.items():
+            final = char_table.get(ord(d), d) if char_table else d
+            if final != c:
+                merged[ord(c)] = final
+    if char_table:
+        for cp, t in char_table.items():
+            if not defaults or chr(cp) not in defaults:
+                merged[cp] = t
+
+    if len(_MERGED_TABLE_CACHE) > 8:
+        _MERGED_TABLE_CACHE.clear()
+    _MERGED_TABLE_CACHE[key] = (char_table, defaults, merged)
+    return merged
+
+
 def _transform_uncovered_segment(
     segment: str,
     start_offset: int,
     covered_positions: set[int],
+    sorted_covered: list[int],
     char_table: Optional[dict[int, str]] = None,
     ambiguity_mode: str = "strict",
 ) -> str:
@@ -373,22 +411,24 @@ def _transform_uncovered_segment(
 
         defaults = get_balanced_defaults()
 
+    merged = _merged_translate_table(char_table, defaults)
+
+    # Fast path：區段與 covered 無交集（絕大多數情況）→ C 層級 translate。
+    # covered 來自 identity 保護詞與未被選上的重疊命中，通常稀疏。
+    if sorted_covered:
+        idx = bisect_right(sorted_covered, start_offset - 1)
+        intersects = idx < len(sorted_covered) and sorted_covered[idx] < start_offset + len(segment)
+    else:
+        intersects = False
+    if not intersects:
+        return segment.translate(merged)
+
+    # Slow path：逐字並跳過 covered 位置（identity 保護區內）
     chars = list(segment)
     for i, ch in enumerate(chars):
         if start_offset + i in covered_positions:
             continue
-
-        updated = ch
-        if defaults and updated in defaults:
-            updated = defaults[updated]
-
-        if char_table:
-            mapped = char_table.get(ord(updated))
-            if mapped is not None and mapped != updated:
-                updated = mapped
-
-        chars[i] = updated
-
+        chars[i] = merged.get(ord(ch), ch)
     return "".join(chars)
 
 
@@ -397,16 +437,27 @@ def _apply_conversion_layers(
     matcher: Matcher,
     char_table: Optional[dict[int, str]] = None,
     ambiguity_mode: str = "strict",
+    scan: Optional[tuple[List[Match], set[int]]] = None,
 ) -> str:
-    """Apply term, balanced, and char layers while preserving term-covered output."""
+    """Apply term, balanced, and char layers while preserving term-covered output.
+
+    Args:
+        scan: 預先計算的 ``matcher.scan(text)`` 結果。傳入可避免重複的
+            automaton 掃描（convert_text 熱路徑）；None 則自行掃描。
+    """
     if not text:
         return text
 
-    covered = matcher.get_covered_positions(text)
-    matches = list(matcher.find_matches(text))
+    if scan is None:
+        matches, covered = matcher.scan(text)
+    else:
+        matches, covered = scan
+    sorted_covered = sorted(covered) if covered else []
 
     if not matches:
-        return _transform_uncovered_segment(text, 0, covered, char_table, ambiguity_mode)
+        return _transform_uncovered_segment(
+            text, 0, covered, sorted_covered, char_table, ambiguity_mode
+        )
 
     parts: list[str] = []
     last_end = 0
@@ -416,6 +467,7 @@ def _apply_conversion_layers(
                 text[last_end : match.start],
                 last_end,
                 covered,
+                sorted_covered,
                 char_table,
                 ambiguity_mode,
             )
@@ -428,6 +480,7 @@ def _apply_conversion_layers(
             text[last_end:],
             last_end,
             covered,
+            sorted_covered,
             char_table,
             ambiguity_mode,
         )
@@ -466,17 +519,37 @@ def convert_text(
     if ignored_lines is None:
         ignored_lines = set()
 
-    all_matches = list(matcher.find_matches_with_lines(text))
+    # 單次 automaton 掃描：matches 供回報，covered 供字元層跳過。
+    # 舊版在這裡 + _apply_conversion_layers + _find_balanced_matches
+    # 共跑 3 次掃描，automaton.iter 是整條管線的主要成本。
+    scan_matches, covered_positions = matcher.scan(text)
+
+    # 行號索引（與 Matcher.find_matches_with_lines 等價，但重用同一次掃描）
+    line_starts = [0]
+    for i, ch in enumerate(text):
+        if ch == "\n":
+            line_starts.append(i + 1)
+
+    all_matches = []
+    for m in scan_matches:
+        li = bisect_right(line_starts, m.start) - 1
+        all_matches.append((m, li + 1, m.start - line_starts[li] + 1))
 
     # Filter out matches on ignored lines
     matches = [(m, line, col) for m, line, col in all_matches if line not in ignored_lines]
 
     if fix and (matches or char_table or ambiguity_mode == "balanced"):
-        text = _replace_with_ignores(text, matcher, ignored_lines, char_table, ambiguity_mode)
+        text = _replace_with_ignores(
+            text,
+            matcher,
+            ignored_lines,
+            char_table,
+            ambiguity_mode,
+            scan=(scan_matches, covered_positions),
+        )
 
     # In check mode, also detect char-level and balanced-level conversions
     if not fix:
-        covered_positions = matcher.get_covered_positions(text)
         if char_table:
             char_matches = _find_char_matches(
                 text,
@@ -486,7 +559,9 @@ def convert_text(
             )
             matches = matches + char_matches
         if ambiguity_mode == "balanced":
-            balanced_matches = _find_balanced_matches(text, matcher, ignored_lines)
+            balanced_matches = _find_balanced_matches(
+                text, matcher, ignored_lines, covered=covered_positions
+            )
             matches = matches + balanced_matches
 
     return text, matches
@@ -641,15 +716,21 @@ def _find_balanced_matches(
     text: str,
     matcher: Matcher,
     ignored_lines: Set[int],
+    covered: Optional[set[int]] = None,
 ) -> List[tuple[Match, int, int]]:
-    """Find chars that would be converted by balanced defaults (for check mode)."""
+    """Find chars that would be converted by balanced defaults (for check mode).
+
+    Args:
+        covered: 預先計算的 covered positions；None 則自行掃描。
+    """
     from .charconv import get_balanced_defaults
 
     defaults = get_balanced_defaults()
     if not defaults:
         return []
 
-    covered = matcher.get_covered_positions(text)
+    if covered is None:
+        covered = matcher.get_covered_positions(text)
     results: List[tuple[Match, int, int]] = []
     lines = text.split("\n")
     pos = 0
@@ -675,10 +756,16 @@ def _replace_with_ignores(
     ignored_lines: Set[int],
     char_table: Optional[dict[int, str]] = None,
     ambiguity_mode: str = "strict",
+    scan: Optional[tuple[List[Match], set[int]]] = None,
 ) -> str:
-    """Replace matches while respecting ignored lines."""
+    """Replace matches while respecting ignored lines.
+
+    Args:
+        scan: 預先計算的整段 ``matcher.scan(text)``。只在無 ignored_lines
+            的快路徑重用；逐行路徑因座標系不同仍逐行掃描。
+    """
     if not ignored_lines:
-        return _apply_conversion_layers(text, matcher, char_table, ambiguity_mode)
+        return _apply_conversion_layers(text, matcher, char_table, ambiguity_mode, scan=scan)
 
     lines = text.split("\n")
     result_lines = []

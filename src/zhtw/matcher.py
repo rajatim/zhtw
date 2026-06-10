@@ -56,6 +56,32 @@ class Matcher:
         automaton.make_automaton()
         return automaton
 
+    def scan(self, text: str) -> tuple[list[Match], set[int]]:
+        """單次 Aho-Corasick 掃描，同時產出選定 matches 與 covered positions。
+
+        等價於 ``(list(find_matches(text)), get_covered_positions(text))``，
+        但 automaton 只走訪一次。fix/check 熱路徑應優先使用本方法，
+        避免重複掃描（automaton.iter 是整條轉換管線的主要成本）。
+
+        Returns:
+            Tuple of (selected non-identity matches, covered positions)。
+            covered 含「所有」命中位置（含 identity 與未被選上的重疊命中），
+            供字元層跳過詞庫層已處理的區段。
+        """
+        if not self.terms:
+            return [], set()
+
+        all_matches = []
+        covered: set[int] = set()
+        for end_pos, (source, target) in self.automaton.iter(text):
+            start_pos = end_pos - len(source) + 1
+            all_matches.append(
+                Match(start=start_pos, end=end_pos + 1, source=source, target=target)
+            )
+            covered.update(range(start_pos, end_pos + 1))
+
+        return list(self._select(all_matches)), covered
+
     def find_matches(self, text: str) -> Iterator[Match]:
         """
         Find all matches in text.
@@ -86,6 +112,10 @@ class Matcher:
                 )
             )
 
+        yield from self._select(all_matches)
+
+    def _select(self, all_matches: list[Match]) -> Iterator[Match]:
+        """從全部命中中選出實際要套用的轉換（共用的選擇邏輯）。"""
         # Sort by start position, then by length (longer first)
         all_matches.sort(key=lambda m: (m.start, -(m.end - m.start)))
 
