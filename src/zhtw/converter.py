@@ -3,7 +3,7 @@ Converter module for processing files and text.
 
 Supports:
 - Single file processing
-- Directory scanning with parallel processing
+- Directory scanning (sequential; see convert_directory for the workers note)
 - Pre-filtering (skip non-Chinese files)
 - .zhtwignore file support
 """
@@ -817,7 +817,9 @@ def convert_directory(
         fix: Whether to apply fixes.
         extensions: Allowed file extensions.
         excludes: Directory names to exclude.
-        workers: Number of parallel workers.
+        workers: 保留參數，目前未使用（實作為循序處理）。
+            歷史上文件宣稱平行處理但從未實作；保留簽名以維持
+            向後相容，未來實作平行化時沿用。
         on_progress: Callback for progress updates (current, total).
         input_encoding: Input encoding (None or "auto" for auto-detect).
         output_encoding: Output encoding strategy.

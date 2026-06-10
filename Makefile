@@ -80,6 +80,8 @@ endif
 	@sed -i '' '/^\[workspace\.package\]/,/^\[/ s|^version = "[0-9][0-9.]*"|version = "$(VERSION)"|' sdk/rust/Cargo.toml
 	@sed -i '' 's/"version": "[^"]*"/"version": "$(VERSION)"/' sdk/rust/zhtw-wasm/package.json
 	@sed -i '' 's|<Version>[^<]*</Version>|<Version>$(VERSION)</Version>|' sdk/dotnet/Zhtw.csproj
+	@# AGENTS.md 標頭版本（曾因不在 bump 清單而漂移）
+	@sed -i '' 's|^> \*\*v[0-9][0-9.]*\*\*|> **v$(VERSION)**|' AGENTS.md
 	@# README files: Maven dep version, Gradle (Kotlin + Groovy), pre-commit rev tag.
 	@# Pattern requires the version starts with a digit so we never touch placeholders.
 	@sed -i '' 's|<version>[0-9][0-9.]*</version>|<version>$(VERSION)</version>|g' README.md README.en.md
