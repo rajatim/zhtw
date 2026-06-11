@@ -8,6 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- 詞庫根因稽核：22 個雙語境裸詞長詞化（收藏/返回/保存/评论/质量/支持/对象/文件/程序/项目 等）、
+  歧義字防火牆補洞（克→公克 等災難級預設移除；干/复/舍/咸/范/伙/佣/沈/姜/症 改逐詞列舉）、
+  保護詞擴充（天后/后羿/辛丑）與簡繁形盲點修復（邻里→鄰里）、opencc 變體字清洗 126 條
+- 詞庫載入優先序明確化：手工詞庫必定覆蓋 bulk 匯入（opencc.json）
+- `process_directory(sources=None)` 字元層靜默關閉
+- pre-commit zhtw hook 改用 repo 當前程式碼並尊重 `.zhtwignore`（文件反覆損毀的根因）
+
+### Changed
+- 轉換效能 2.1x（單次 Aho-Corasick 掃描 + str.translate fast path），公開 API 不變
+- opencc.json 純 Apache-2.0 化：移除 1,372 條 MediaWiki（GPL-2.0+）詞條，新增 THIRD_PARTY_NOTICES.md
+- 釋出流程腳本化：`make release` 強化（CHANGELOG/分支/乾淨樹閘門、Java 驗證、雙 tag）、
+  新增 `make release-dry` 與 `make release-verify`（workflow + 6 registry + Homebrew 驗證）
+
+### Added
+- `tests/test_golden_rule_battery.py`：172 句「寧可少轉，不要錯轉」回歸驗收
+
 ## [4.3.0] - 2026-04-11
 
 ### Added

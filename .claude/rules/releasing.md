@@ -52,49 +52,51 @@ make bump VERSION=X.Y.Z
 - `cd sdk/java && mvn -q verify --batch-mode` 確保 Java SDK 建置透過
 - Commit + Push 到 main
 
-### 2. 手動釋出（Maintainer 操作）
+### 2. 釋出（Maintainer 操作）
+
+**方法 A：一鍵釋出（推薦，`scripts/release.sh`）**
 
 ```bash
-# 建立 Tag
+make release-dry VERSION=X.Y.Z   # 先預演：閘門 + 測試，不做任何變更
+make release VERSION=X.Y.Z       # 正式釋出（含 y/N 確認）
+```
+
+指令碼閘門：main 分支、工作樹乾淨、與 origin 同步、tag 不存在、
+CHANGELOG 有內容（自動把 [Unreleased] 升級為 [X.Y.Z]）、pytest + mvn verify。
+通過後自動：bump → commit → 雙 tag（vX.Y.Z + sdk/go/vX.Y.Z）→ push →
+GitHub Release（notes 取自 CHANGELOG）。
+
+**方法 B：手動（fallback）**
+
+```bash
 git tag -a vX.Y.Z -m "vX.Y.Z: 簡短說明"
-git push origin vX.Y.Z
-
-# 建立 GitHub Release
-gh release create vX.Y.Z \
-  --title "vX.Y.Z: 標題" \
-  --notes "變更內容（可從 CHANGELOG 複製）"
+git tag -a sdk/go/vX.Y.Z -m "sdk/go vX.Y.Z"   # Go 子目錄 module 需要
+git push origin vX.Y.Z sdk/go/vX.Y.Z
+gh release create vX.Y.Z --title "vX.Y.Z: 標題" --notes "（從 CHANGELOG 複製）"
 ```
 
-> Push tag 會自動觸發 `.github/workflows/publish.yml` 釋出到 PyPI。
+> **GitHub Release（published 事件）會同時觸發全部 6 個 SDK 的發布**：
+> PyPI、Maven Central、npm（zhtw-js + zhtw-wasm）、crates.io、NuGet；
+> `sdk/go/v*` tag 另觸發 Go binaries 建置。
 
-### 3. 更新 Homebrew Tap（Maintainer 操作）
-
-PyPI 釋出成功後，更新 `rajatim/homebrew-tap`：
+### 3. 釋出後驗證 + Homebrew（一鍵）
 
 ```bash
-cd ~/GitHub/homebrew-tap
-
-# 取得新版 tarball SHA256
-curl -sL https://files.pythonhosted.org/packages/source/z/zhtw/zhtw-X.Y.Z.tar.gz | shasum -a 256
-
-# 更新 Formula/zhtw.rb 的 url 和 sha256
-# commit + push
+make release-verify VERSION=X.Y.Z
 ```
 
-### 4. 釋出後驗證
+自動：等待 6 個 workflow 全綠 → 逐一驗證 registry artifact
+（PyPI / npm×2 / crates.io / NuGet / Maven / Go proxy）→
+半自動更新 `~/GitHub/homebrew-tap`（算 sha256、改 formula、確認後推送）。
+Maven Central 同步可能落後 30 分鐘以上，未齊時稍後重跑同一指令即可。
 
-```bash
-pip install zhtw==X.Y.Z    # PyPI 安裝測試
-zhtw --version              # 版本確認
-zhtw check .                # 基本功能
-brew upgrade zhtw            # Homebrew 更新測試
-```
+煙霧測試（自選）：`pip install zhtw==X.Y.Z && zhtw --version`、`brew upgrade zhtw`
 
 ---
 
 ## 📋 核對清單
 
-每次釋出前請參照 [`docs/RELEASE-CHECKLIST.md`](../../docs/RELEASE-CHECKLIST.md)，逐項確認。
+每次釋出前請參照 [`docs/releases/RELEASE-CHECKLIST.md`](../../docs/releases/RELEASE-CHECKLIST.md)，逐項確認。
 
 ---
 

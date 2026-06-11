@@ -113,24 +113,23 @@ endif
 
 # === Release ===
 
-release: ## One-command release: make release VERSION=x.y.z
+release: ## One-command release（閘門+測試+bump+tag+GH Release）: make release VERSION=x.y.z
 ifndef VERSION
 	$(error VERSION is required. Usage: make release VERSION=4.0.0)
 endif
-	@echo "🔍 Validating..."
-	$(PYTHON) -m pytest tests/ -q
-	@if git tag -l "v$(VERSION)" | grep -q "v$(VERSION)"; then \
-		echo "❌ Tag v$(VERSION) already exists"; exit 1; \
-	fi
-	@$(MAKE) bump VERSION=$(VERSION)
-	@echo "📋 Commit, tag, and push..."
-	git add -A
-	git commit -m "chore: release v$(VERSION)"
-	git tag -a "v$(VERSION)" -m "v$(VERSION)"
-	git tag -a "sdk/go/v$(VERSION)" -m "sdk/go v$(VERSION)"
-	git push && git push origin "v$(VERSION)" "sdk/go/v$(VERSION)"
-	gh release create "v$(VERSION)" --title "v$(VERSION)" --generate-notes
-	@echo "✅ Released v$(VERSION)"
+	@bash scripts/release.sh $(VERSION)
+
+release-dry: ## Release 預演（只跑閘門與測試，不做任何變更）: make release-dry VERSION=x.y.z
+ifndef VERSION
+	$(error VERSION is required. Usage: make release-dry VERSION=4.0.0)
+endif
+	@DRY_RUN=1 bash scripts/release.sh $(VERSION)
+
+release-verify: ## 發布後驗證（workflows + 6 registry + Homebrew）: make release-verify VERSION=x.y.z
+ifndef VERSION
+	$(error VERSION is required. Usage: make release-verify VERSION=4.0.0)
+endif
+	@bash scripts/release-verify.sh $(VERSION)
 
 # === Help ===
 
