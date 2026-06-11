@@ -54,6 +54,19 @@ ok "tag v$VERSION / sdk/go/v$VERSION 均不存在"
 gh auth status >/dev/null 2>&1 || die "gh 未登入（gh auth login）"
 ok "gh 已認證"
 
+# Dependabot 弱點閘門：medium 以上開放警報 → 擋下（ALLOW_VULNS=1 可逃生，不建議）
+ALERTS="$(gh api 'repos/{owner}/{repo}/dependabot/alerts?state=open&per_page=100' \
+    --jq '[.[] | select(.security_advisory.severity=="critical" or .security_advisory.severity=="high" or .security_advisory.severity=="medium")] | length' 2>/dev/null || echo "?")"
+if [ "$ALERTS" = "?" ]; then
+    echo "  ⚠️  無法讀取 Dependabot alerts（API/權限）— 請自行確認 GitHub Security 頁面"
+elif [ "$ALERTS" -gt 0 ] && [ "${ALLOW_VULNS:-0}" != "1" ]; then
+    gh api 'repos/{owner}/{repo}/dependabot/alerts?state=open&per_page=100' \
+        --jq '.[] | "     - [\(.security_advisory.severity)] \(.dependency.package.name) (\(.dependency.manifest_path))"' 2>/dev/null || true
+    die "有 $ALERTS 個開放中的 Dependabot 弱點（medium+）— 先修掉，或 ALLOW_VULNS=1 略過（不建議）"
+else
+    ok "Dependabot 無 medium+ 開放弱點"
+fi
+
 # ────────────────────────── 閘門 2：CHANGELOG ──────────────────────────
 say "[2/7] CHANGELOG 檢查"
 if grep -q "^## \[$VERSION\]" CHANGELOG.md; then

@@ -20,7 +20,7 @@ make release VERSION=X.Y.Z       # 正式（含 y/N 確認）
 
 指令碼自動把關，失敗即中止、不留半成品：
 main 分支 ✓ 工作樹乾淨 ✓ 與 origin 同步 ✓ tag 不存在 ✓
-CHANGELOG 非空 ✓ pytest ✓ mvn verify ✓ → bump → commit →
+Dependabot 無 medium+ 弱點 ✓ CHANGELOG 非空 ✓ pytest ✓ mvn verify ✓ → bump → commit →
 雙 tag（`vX.Y.Z` + `sdk/go/vX.Y.Z`）→ push → GitHub Release
 
 ## 釋出後
