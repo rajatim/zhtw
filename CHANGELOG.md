@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.4.0] - 2026-06-11
+
 ### Fixed
 - 詞庫根因稽核：22 個雙語境裸詞長詞化（收藏/返回/保存/评论/质量/支持/对象/文件/程序/项目 等）、
   歧義字防火牆補洞（克→公克 等災難級預設移除；干/复/舍/咸/范/伙/佣/沈/姜/症 改逐詞列舉）、
