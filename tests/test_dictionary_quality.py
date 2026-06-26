@@ -10,7 +10,14 @@ from pathlib import Path
 import pytest
 
 from zhtw.charconv import load_charmap
-from zhtw.dictionary import BULK_FILES, load_dictionary
+from zhtw.converter import convert
+from zhtw.dictionary import (
+    BULK_FILES,
+    DATA_DIR,
+    iter_directory_files,
+    load_dictionary,
+    load_json_file,
+)
 
 TERMS_DIR = Path(__file__).parent.parent / "src" / "zhtw" / "data" / "terms"
 CN_DIR = TERMS_DIR / "cn"
@@ -174,6 +181,56 @@ class TestNoDuplicateConflicts:
 
         assert not conflicts, (
             f"發現 {len(conflicts)} 條手工檔衝突詞彙: " f"{dict(list(conflicts.items())[:5])}"
+        )
+
+
+# ──────────────────────────────────────────────
+# Target 冪等性
+# ──────────────────────────────────────────────
+
+
+class TestTargetIdempotency:
+    """手工詞庫的 target 不應被第二輪 convert() 改壞。"""
+
+    @staticmethod
+    def _effective_terms_with_source(sources: list[str]) -> dict[str, tuple[str, str, str]]:
+        merged: dict[str, tuple[str, str, str]] = {}
+        for source_name in sources:
+            for json_file in iter_directory_files(DATA_DIR / source_name):
+                terms = load_json_file(json_file)
+                for source, target in terms.items():
+                    if source.startswith("_"):
+                        continue
+                    merged[source] = (target, source_name, json_file.name)
+        return merged
+
+    @pytest.mark.parametrize(
+        "sources",
+        [
+            pytest.param(["cn"], id="cn"),
+            pytest.param(["hk"], id="hk"),
+            pytest.param(["cn", "hk"], id="cn-hk"),
+        ],
+    )
+    def test_curated_targets_are_idempotent(self, sources: list[str]):
+        """排除 opencc.json 後，所有手工 target 都必須能穩定保留。"""
+        terms = self._effective_terms_with_source(sources)
+        converted_cache: dict[str, str] = {}
+        bad: list[tuple[str, str, str, str]] = []
+
+        for source, (target, source_name, file_name) in terms.items():
+            if file_name in BULK_FILES:
+                continue
+            converted = converted_cache.get(target)
+            if converted is None:
+                converted = convert(target, sources=sources)
+                converted_cache[target] = converted
+            if converted != target:
+                bad.append((f"{source_name}/{file_name}", source, target, converted))
+
+        assert not bad, (
+            "手工詞庫 target 被第二輪 convert() 改變，請補 identity mapping 或修正詞條: "
+            f"{bad[:20]}"
         )
 
 
