@@ -976,16 +976,21 @@ def validate(source: str, strict: bool):
         if not src_dir.exists():
             continue
 
-        for json_file in src_dir.glob("*.json"):
+        # Use the same precedence as runtime loading: bulk imports first,
+        # curated files later. Target/source conflict checks must inspect the
+        # effective dictionary, not superseded OpenCC entries.
+        for json_file in iter_directory_files(src_dir):
             terms = load_json_file(json_file)
             for source_term, target_term in terms.items():
                 # Skip comment keys (start with _)
                 if source_term.startswith("_"):
                     continue
                 all_sources[source_term] = (src, json_file.stem, target_term)
-                if target_term not in all_targets:
-                    all_targets[target_term] = []
-                all_targets[target_term].append((src, json_file.stem, source_term))
+
+    for source_term, (src, file_stem, target_term) in all_sources.items():
+        if target_term not in all_targets:
+            all_targets[target_term] = []
+        all_targets[target_term].append((src, file_stem, source_term))
 
     issues = []
 

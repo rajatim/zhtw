@@ -220,9 +220,8 @@ class TestValidateCommand:
         """Validate command runs without error."""
         result = runner.invoke(main, ["validate"])
 
-        # May exit 0 or 1 depending on dictionary state
-        assert result.exit_code in [0, 1]
-        assert "驗證" in result.output or "檢查" in result.output
+        assert result.exit_code == 0
+        assert "詞庫驗證通過" in result.output
 
 
 class TestVersionOption:
@@ -682,8 +681,8 @@ class TestValidateCommandExtended:
         """Validate with cn source only."""
         result = runner.invoke(main, ["validate", "--source", "cn"])
 
-        assert result.exit_code in [0, 1]
-        assert "驗證" in result.output or "檢查" in result.output
+        assert result.exit_code == 0
+        assert "詞庫驗證通過" in result.output
 
 
 # =============================================================================
@@ -840,10 +839,8 @@ class TestValidateCommandExtended2:
         """Test validate command runs successfully."""
         result = runner.invoke(main, ["validate"])
 
-        # validate uses real dictionary files
-        # Exit 0 = no issues, Exit 1 = issues found
-        assert result.exit_code in (0, 1)
-        assert "驗證" in result.output or "檢查" in result.output
+        assert result.exit_code == 0
+        assert "詞庫驗證通過" in result.output
 
 
 class TestEncodingConversionWarning:

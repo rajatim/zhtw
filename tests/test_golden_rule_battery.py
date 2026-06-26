@@ -76,6 +76,25 @@ BATTERY: list[tuple[str, str]] = [
     ("替换零件", "替換零件"),
     ("民众关注此案", "民眾關注此案"),
     ("关注我们的频道", "追蹤我們的頻道"),
+    # ── 冪等性：輸出不應被第二輪 convert 再改壞 ──
+    ("请联系管理员", "請聯絡管理員"),
+    ("采样率设置", "取樣率設定"),
+    ("采样数据", "取樣資料"),
+    ("实时数据同步", "即時資料同步"),
+    ("录像功能开启", "錄影功能開啟"),
+    ("布尔类型", "布林類型"),
+    ("复选按钮", "核取按鈕"),
+    ("权限设置", "權限設定"),
+    ("点击按钮", "點擊按鈕"),
+    ("参数设置", "參數設定"),
+    ("创建实例", "建立實例"),
+    ("抛出异常", "拋出例外"),
+    ("指针类型", "指針類型"),
+    ("表达式解析", "表達式解析"),
+    ("调色板设置", "調色板設定"),
+    ("注销公司登记", "註銷公司登記"),
+    ("外键约束", "外鍵約束"),
+    ("性价比很高", "性價比很高"),
     # ── 克：唯數字語境轉公克（巧克力災難回歸）──
     ("巧克力蛋糕", "巧克力蛋糕"),
     ("扑克牌局", "撲克牌局"),
@@ -223,3 +242,8 @@ BATTERY: list[tuple[str, str]] = [
 @pytest.mark.parametrize("src,expected", BATTERY, ids=[c[0] for c in BATTERY])
 def test_golden_rule(src: str, expected: str) -> None:
     assert convert(src) == expected
+
+
+@pytest.mark.parametrize("src,expected", BATTERY, ids=[c[0] for c in BATTERY])
+def test_golden_rule_idempotent(src: str, expected: str) -> None:
+    assert convert(convert(src)) == expected
