@@ -16,12 +16,16 @@ import pytest
 from zhtw.converter import convert
 
 CORPUS_DIR = Path(__file__).parent / "data" / "corpus"
+CURATED_CATEGORIES = ("news", "regressions", "social", "tech", "wiki")
 
 
 def _sample_files() -> list[Path]:
     if not CORPUS_DIR.exists():
         return []
-    return sorted(CORPUS_DIR.glob("*/samples.json"))
+    files: list[Path] = []
+    for category in CURATED_CATEGORIES:
+        files.extend((CORPUS_DIR / category).glob("*.json"))
+    return sorted(files)
 
 
 def _load_cases() -> list[Any]:

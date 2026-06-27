@@ -1,5 +1,11 @@
 # zhtw 多書籍品質審計報告
 
+> 狀態更新（2026-06-27）：本報告是 2026-03-22 生成的歷史審計結果。
+> 當時列出的 `週到 -> 周到` 過度轉換已由後續 `周到` identity 保護與
+> `每/本/上/下週到` 長詞覆蓋修復，並已納入 Golden/corpus regression。
+> 目前 release gate 以 `docs/precision-standard.md` 的最新基線為準；
+> 本檔保留作為歷史紀錄，不代表仍有 open blocking issue。
+
 **生成時間**: 2026-03-22 18:16
 **語料來源**: Nan-nx/Book GitHub repo
 
