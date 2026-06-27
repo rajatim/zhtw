@@ -23,8 +23,8 @@ zhtw 的「精準度」不是追求把所有可疑字詞都轉掉，而是：
 
 | 項目 | 基線 | 性質 |
 |------|------|------|
-| Golden battery | 225 句，且一次轉換與二次轉換都必須通過 | release gate |
-| 精選 corpus | 21 筆人工 expected，且一次轉換與二次轉換都必須通過 | release gate |
+| Golden battery | 228 句，且一次轉換與二次轉換都必須通過 | release gate |
+| 精選 corpus | 50 筆人工 expected，且一次轉換與二次轉換都必須通過 | release gate |
 | 手工詞庫 target 冪等性 | 0 issue | release gate |
 | `zhtw validate` | 0 blocking issue | release gate |
 | OpenCC 匯入詞庫 target 非冪等 | 404 issue | report-only |
@@ -91,8 +91,8 @@ make version-check
 短期目標：
 
 - Golden battery 持續 100%。
-- 精選 corpus 從 21 筆擴到至少 100 筆。
-- `news`、`tech`、`social`、`wiki`、`regressions` 每類至少 20 筆人工 expected。
+- 精選 corpus 從 50 筆擴到至少 100 筆。
+- `news`、`tech`、`social`、`wiki`、`regressions` 每類從 10 筆擴到至少 20 筆人工 expected。
 - 手工詞庫 target 冪等性維持 0 issue。
 
 中期目標：
