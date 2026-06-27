@@ -35,10 +35,17 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
-    "happy-dom": "^20.8.9",
+    "happy-dom": "^20.10.6",
     "tsup": "^8.5.1",
-    "tsx": "^4.7.0",
+    "tsx": "^4.22.4",
     "typescript": "^5.4.0",
-    "vitest": "^4.1.4"
+    "vite": "8.0.16",
+    "vitest": "^4.1.9"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.28.1",
+      "vite": "8.0.16"
+    }
   }
 }
