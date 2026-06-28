@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Phase 0 spike 精準度修復（held-out 真實書籍語料盲測發現，非 corpus 自我循環）：
+  - **過度轉換**：`临时` 由 `暫時` 修正為 `臨時`（暫時 zànshí ≠ 臨時 línshí；連帶 `临时工/临时演员/临时服务`），違反「寧可少轉，不要錯轉」的舊詞條
+  - **殘留簡體字**：`卧` 補進安全字元層（`卧室→臥室`）；Unihan kTraditionalVariant 未收此 1:1，新增 `generate_charmap.py` 的 `MANUAL_ADDITIONS` 防 regenerate 遺失
+  - **漏在地化**：新增醫療術語 `超声波→超音波`
+- `.zhtwignore` 補上 `src/zhtw/data/charmap/`（字元映射 key 為簡體，先前未排除，有被自身 hook 轉換之虞）
+
+### Added
+- `tests/test_golden_rule_battery.py`：新增 8 句 Phase 0 spike 回歸案例（247→255 句）
+
 ## [4.4.0] - 2026-06-11
 
 ### Fixed

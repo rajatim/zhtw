@@ -544,6 +544,13 @@ def print_report(
     print()
 
 
+# Unihan kTraditionalVariant 未收錄、但確為安全一對一的手動補充。
+# 由 main() 於生成後合併，確保 regenerate（overwrite-only）不會遺失。
+MANUAL_ADDITIONS = {
+    "卧": "臥",  # U+5367→U+81E5；Unihan 視為 unifiable variant 未列入，台灣正體一律作臥
+}
+
+
 def main():
     parser = argparse.ArgumentParser(description="生成安全的簡繁字元映射表")
     parser.add_argument(
@@ -578,6 +585,11 @@ def main():
     # 3. 生成映射
     print("⚙️  生成安全映射表...")
     safe_chars, ambiguous = generate_charmap(traditional_map, simplified_map)
+
+    # 合併手動補充（Unihan 未收的安全 1:1），確保不在歧義排除清單中
+    for _s, _t in MANUAL_ADDITIONS.items():
+        if _s not in ambiguous:
+            safe_chars[_s] = _t
 
     # 4. 載入現有詞庫比對
     existing = load_existing_term_chars()
