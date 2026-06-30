@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- CI：升級 `central-publishing-maven-plugin` 0.7.0 → 0.11.0。Sonatype Central API 新增 `warnings` 欄位，舊版 plugin 嚴格解析會丟 `UnrecognizedPropertyException` 導致 Java 發布流程誤報 BUILD FAILURE（v4.4.1 artifact 其實已成功發布到 Maven Central，僅回應無法解析）
+
 ## [4.4.1] - 2026-06-30
 
 ### Fixed
