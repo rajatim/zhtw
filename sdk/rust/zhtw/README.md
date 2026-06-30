@@ -9,7 +9,7 @@ Simplified Chinese / HK Traditional to Taiwan Traditional Chinese converter. Bui
 <!-- zhtw:disable -->
 ```toml
 [dependencies]
-zhtw = "4.4.0"
+zhtw = "4.4.1"
 ```
 <!-- zhtw:enable -->
 

@@ -51,7 +51,7 @@ Pre-built binaries available on [GitHub Releases](https://github.com/rajatim/zht
 <!-- zhtw:disable -->
 ```bash
 # macOS arm64
-curl -sL https://github.com/rajatim/zhtw/releases/download/sdk%2Fgo%2Fv4.4.0/zhtw-darwin-arm64.tar.gz | tar xz
+curl -sL https://github.com/rajatim/zhtw/releases/download/sdk%2Fgo%2Fv4.4.1/zhtw-darwin-arm64.tar.gz | tar xz
 ./zhtw convert "软件测试"
 
 # Or via go install

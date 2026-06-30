@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.4.1] - 2026-06-30
+
 ### Fixed
 - Phase 0 spike 精準度修復（held-out 真實書籍語料盲測發現，非 corpus 自我循環）：
   - **過度轉換**：`临时` 由 `暫時` 修正為 `臨時`（暫時 zànshí ≠ 臨時 línshí；連帶 `临时工/临时演员/临时服务`），違反「寧可少轉，不要錯轉」的舊詞條
