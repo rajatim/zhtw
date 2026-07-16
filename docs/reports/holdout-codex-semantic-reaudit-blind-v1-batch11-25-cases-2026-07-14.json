@@ -1,0 +1,261 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "reviewer": "codex",
+  "review_stage": "semantic_correctness_reaudit_after_overcorrection_concern",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-851-cases-2026-07-14.json",
+  "source_gemini_independent_review": "docs/reports/holdout-gemini-independent-semantic-reaudit-blind-v1-batch11-25-cases-2026-07-14.json",
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": true
+  },
+  "revised_policy": {
+    "measure_conversion_correctness_not_house_style": true,
+    "valid_taiwan_synonyms_are_acceptable": true,
+    "do_not_tune_from_strict_style_preference": true,
+    "maintainer_explicit_preferences_override_ai_advisory": true
+  },
+  "summary": {
+    "total_cases": 25,
+    "by_revised_action": {
+      "add_zhtw_output_as_acceptable_variant": 4,
+      "move_to_public_regression_candidate": 10,
+      "keep_as_strict_private_holdout_signal": 11
+    },
+    "explicit_maintainer_preferences_recorded": 19,
+    "pending_maintainer_confirmation": 6,
+    "promotion_allowed": false
+  },
+  "cases": [
+    {
+      "id": "blind-it-0238",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "revised_action": "add_zhtw_output_as_acceptable_variant",
+      "reason_code": "semantic_equivalence_or_taiwan_accepted_style_variant",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0242",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "revised_action": "add_zhtw_output_as_acceptable_variant",
+      "reason_code": "semantic_equivalence_or_taiwan_accepted_style_variant",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0244",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0246",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "revised_action": "add_zhtw_output_as_acceptable_variant",
+      "reason_code": "semantic_equivalence_or_taiwan_accepted_style_variant",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0249",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "revised_action": "keep_as_strict_private_holdout_signal",
+      "reason_code": "maintainer_preference_is_stricter_but_tuning_would_risk_overcorrection",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0252",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0256",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "revised_action": "keep_as_strict_private_holdout_signal",
+      "reason_code": "maintainer_preference_is_stricter_but_tuning_would_risk_overcorrection",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0257",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0260",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "revised_action": "keep_as_strict_private_holdout_signal",
+      "reason_code": "maintainer_preference_is_stricter_but_tuning_would_risk_overcorrection",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0262",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0188",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "revised_action": "keep_as_strict_private_holdout_signal",
+      "reason_code": "maintainer_preference_is_stricter_but_tuning_would_risk_overcorrection",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0189",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "revised_action": "add_zhtw_output_as_acceptable_variant",
+      "reason_code": "semantic_equivalence_or_taiwan_accepted_style_variant",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0193",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "revised_action": "keep_as_strict_private_holdout_signal",
+      "reason_code": "maintainer_preference_is_stricter_but_tuning_would_risk_overcorrection",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0199",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "revised_action": "keep_as_strict_private_holdout_signal",
+      "reason_code": "maintainer_preference_is_stricter_but_tuning_would_risk_overcorrection",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0140",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0145",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "revised_action": "keep_as_strict_private_holdout_signal",
+      "reason_code": "maintainer_preference_is_stricter_but_tuning_would_risk_overcorrection",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0152",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0144",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0145",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0146",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "revised_action": "keep_as_strict_private_holdout_signal",
+      "reason_code": "maintainer_preference_is_stricter_but_tuning_would_risk_overcorrection",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0149",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "revised_action": "keep_as_strict_private_holdout_signal",
+      "reason_code": "maintainer_preference_is_stricter_but_tuning_would_risk_overcorrection",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0151",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0152",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0139",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "revised_action": "keep_as_strict_private_holdout_signal",
+      "reason_code": "maintainer_preference_is_stricter_but_tuning_would_risk_overcorrection",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0143",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "revised_action": "keep_as_strict_private_holdout_signal",
+      "reason_code": "maintainer_preference_is_stricter_but_tuning_would_risk_overcorrection",
+      "maintainer_status": "explicit_preference_recorded",
+      "sealed_values_omitted": true
+    }
+  ]
+}

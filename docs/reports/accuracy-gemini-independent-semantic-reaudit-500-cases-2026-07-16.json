@@ -1,0 +1,30 @@
+{
+  "generated_date": "2026-07-16",
+  "report_type": "accuracy_gemini_independent_semantic_reaudit",
+  "reviewer": "gemini_cli",
+  "model": "gemini-2.5-pro",
+  "scope": "annotation-backlog-v1 current 500 reviewed input/expected pairs",
+  "independence": {
+    "saw_codex_findings": false,
+    "used_project_tools": false,
+    "tool_calls": 0
+  },
+  "summary": {
+    "reviewed_cases": 500,
+    "flagged_cases": 10,
+    "already_matching_gemini_suggestion": 10,
+    "new_ground_truth_corrections": 0
+  },
+  "flagged_case_ids": [
+    "it-api-cli-0121",
+    "ui-i18n-0091",
+    "formal-high-risk-0040",
+    "formal-high-risk-0085",
+    "social-daily-0001",
+    "social-daily-0002",
+    "social-daily-0009",
+    "social-daily-0013",
+    "social-daily-0033",
+    "mixed-ambiguity-0001"
+  ]
+}

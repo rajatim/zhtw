@@ -1,0 +1,651 @@
+{
+  "report_type": "holdout_miss_classification_338_case_sanity",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-09",
+  "review_stage": "private_miss_classification_first_pass_after_batch5",
+  "reviewer": "codex",
+  "source_benchmark": "docs/reports/holdout-private-benchmark-sanity-blind-v1-after-batch5-2026-07-09.json",
+  "source_reports": [
+    "docs/reports/holdout-maintainer-final-decision-blind-v1-batch5-100-cases-2026-07-09.json",
+    "docs/reports/holdout-private-benchmark-sanity-blind-v1-after-batch5-2026-07-09.json"
+  ],
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": true
+  },
+  "classification_policy": {
+    "keep_as_holdout_signal": "High-risk or over-conversion guard signals must not drive dictionary tuning while sealed.",
+    "move_to_public_regression_candidate": "Candidate may be moved out of sealed holdout and into public regression before tuning.",
+    "requires_expected_recheck": "Potential acceptable variant or style-sensitive wording; recheck expected/acceptable before tuning."
+  },
+  "gemini_review_policy": "Run sanitized Gemini policy review before maintainer confirmation or any public promotion.",
+  "summary": {
+    "current_sealed_cases": 338,
+    "current_accepted": 301,
+    "current_misses": 37,
+    "accepted_accuracy": 0.8905325443786982,
+    "classified_misses": 37,
+    "by_action": {
+      "keep_as_holdout_signal": 22,
+      "move_to_public_regression_candidate": 12,
+      "requires_expected_recheck": 3
+    },
+    "by_priority": {
+      "P1": 3,
+      "P2": 34
+    },
+    "by_domain_action": {
+      "formal": {
+        "keep_as_holdout_signal": 5,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      },
+      "high_risk": {
+        "keep_as_holdout_signal": 3,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      },
+      "it": {
+        "keep_as_holdout_signal": 2,
+        "move_to_public_regression_candidate": 7,
+        "requires_expected_recheck": 2
+      },
+      "llm": {
+        "keep_as_holdout_signal": 4,
+        "move_to_public_regression_candidate": 1,
+        "requires_expected_recheck": 0
+      },
+      "social": {
+        "keep_as_holdout_signal": 5,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      },
+      "ui": {
+        "keep_as_holdout_signal": 3,
+        "move_to_public_regression_candidate": 4,
+        "requires_expected_recheck": 1
+      }
+    },
+    "by_risk_action": {
+      "baseline_guard": {
+        "keep_as_holdout_signal": 0,
+        "move_to_public_regression_candidate": 1,
+        "requires_expected_recheck": 0
+      },
+      "candidate_gap": {
+        "keep_as_holdout_signal": 0,
+        "move_to_public_regression_candidate": 11,
+        "requires_expected_recheck": 3
+      },
+      "over_conversion_guard": {
+        "keep_as_holdout_signal": 22,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      }
+    },
+    "idempotency_followup_cases": 0,
+    "expected_recheck_cases": 3,
+    "safe_public_candidate_cases": 12,
+    "holdout_signal_cases": 22,
+    "high_risk_cases": 3,
+    "over_conversion_guard_cases": 22
+  },
+  "case_classifications": [
+    {
+      "id": "blind-llm-0026",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0028",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taipei_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0029",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "formal_taipei_name_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "formal"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0025",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "social_taiwan_place_name_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0026",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "existing_taiwan_friend_phrase_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0083",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "taichung_address_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "it"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0060",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "brand_store_name_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "ui"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0061",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "user_custom_label_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "ui"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0043",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "example_output_taiwan_postal_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "llm"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0044",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "user_provided_taipei_address_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "llm"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0043",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "formal_taipei_legal_name_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "formal"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0044",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "proper_name_taiwan_university_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "formal"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0045",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "raw_taichung_address_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "formal"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0046",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "contract_identifier_tainan_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "formal"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0042",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "nickname_taiwan_phrase_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0043",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "photo_caption_taipei_phrase_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0044",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "social_hashtag_taichung_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0026",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P1",
+      "reason_code": "medical_facility_name_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "high_risk"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0027",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P1",
+      "reason_code": "contract_company_name_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "high_risk"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0088",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "platform_term_should_remain_platform_not_taiwan_variant",
+      "flags": [
+        "regional_term",
+        "it"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0089",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "identity_token_and_refresh_terms",
+      "flags": [
+        "it_term",
+        "regional_term"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0090",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "requires_expected_recheck",
+      "priority": "P2",
+      "reason_code": "debug_log_term_variant",
+      "flags": [
+        "it_term",
+        "style_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_recheck_expected_or_add_acceptable_variant_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0092",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "support_and_default_terms",
+      "flags": [
+        "it_term",
+        "regional_term"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0094",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "requires_expected_recheck",
+      "priority": "P2",
+      "reason_code": "rollback_term_variant",
+      "flags": [
+        "it_term",
+        "style_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_recheck_expected_or_add_acceptable_variant_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0095",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "application_and_readonly_terms",
+      "flags": [
+        "it_term",
+        "regional_term"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0096",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "api_return_term",
+      "flags": [
+        "it_term",
+        "regional_term"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0097",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "pipeline_and_skip_terms",
+      "flags": [
+        "it_term",
+        "regional_term"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0105",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "configuration_volume_terms",
+      "flags": [
+        "it_term",
+        "regional_term"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0108",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "node_name_taipei_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "it"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0070",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "ui_support_and_filter_terms",
+      "flags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0073",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "requires_expected_recheck",
+      "priority": "P2",
+      "reason_code": "pagination_control_component_variant",
+      "flags": [
+        "ui_term",
+        "style_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_recheck_expected_or_add_acceptable_variant_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0074",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "table_column_header_terms",
+      "flags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0079",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "message_term_in_notification_center",
+      "flags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0081",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "example_account_surrounding_text_with_identifier_guard",
+      "flags": [
+        "over_conversion_guard",
+        "ui"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0087",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "qr_code_spacing_and_term",
+      "flags": [
+        "ui_term",
+        "punctuation"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0051",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "llm_tool_return_term",
+      "flags": [
+        "it_term",
+        "regional_term"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_remove_from_sealed_pool_then_promote_to_public_regression_before_tuning",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0039",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P1",
+      "reason_code": "medical_attachment_code_and_taipei_guard",
+      "flags": [
+        "over_conversion_guard",
+        "high_risk"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    }
+  ],
+  "codex_followup": [
+    "Run Gemini policy review on this sanitized classification report.",
+    "Ask maintainer to confirm public-regression candidates before removing them from sealed holdout.",
+    "Do not tune dictionary entries from keep_as_holdout_signal or requires_expected_recheck cases."
+  ]
+}

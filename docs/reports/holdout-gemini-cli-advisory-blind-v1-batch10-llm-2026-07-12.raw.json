@@ -1,0 +1,94 @@
+{
+  "session_id": "b93f7e58-1294-4a3e-ad91-c9f2655e9677",
+  "response": "{\n  \"review_stage\": \"independent_holdout_expected_review\",\n  \"domain\": \"llm\",\n  \"cases\": [\n    {\n      \"id\": \"blind-llm-0123\",\n      \"gemini_expected\": \"檢索器會優先回傳與問題語意相近的段落。\",\n      \"acceptable\": [\n        \"檢索器會優先傳回與問題語意相近的段落。\",\n        \"檢索器會優先返回與問題語意相近的段落。\",\n        \"檢索器會優先回傳與問題語義相近 of 段落。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"將「检索器」與「语义」轉換為台灣資工標準「檢索器」與「語意」（「語義」亦可），「返回」常譯為「回傳」或「傳回」。\"\n    },\n    {\n      \"id\": \"blind-llm-0124\",\n      \"gemini_expected\": \"提示詞範本需要區分系統指令和使用者輸入。\",\n      \"acceptable\": [\n        \"提示詞樣板需要區分系統指令和使用者輸入。\",\n        \"提示詞模板需要區分系統指令 and 使用者輸入。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「提示词」對應「提示詞」，「模板」在台灣資訊科技中常對應為「範本」或「樣板」，「使用者输入」對應「使用者輸入」。\"\n    },\n    {\n      \"id\": \"blind-llm-0125\",\n      \"gemini_expected\": \"評測腳本會比較模型回答與參考答案。\",\n      \"acceptable\": [\n        \"評測指令碼會比較模型回答與參考答案。\",\n        \"評估腳本會比較模型回答與參考答案。\",\n        \"評估指令碼會比較模型回答與參考答案。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「评测」轉換為「評測」或「評估」，「脚本」在台灣一般作「腳本」或「指令碼」。\"\n    },\n    {\n      \"id\": \"blind-llm-0126\",\n      \"gemini_expected\": \"向量索引更新後需要重新載入檢索服務。\",\n      \"acceptable\": [\n        \"向量索引更新後需要重新讀取檢索服務。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「向量索引」與「檢索服務」為標準科技詞彙，「后」與「载入」分別對應為「後」與「載入」（或口語「讀取」）。\"\n    },\n    {\n      \"id\": \"blind-llm-0127\",\n      \"gemini_expected\": \"請避免把內部推理過程寫入最終回答。\",\n      \"acceptable\": [\n        \"請避免將內部推理過程寫入最終回答。\",\n        \"請避免把內部推理過程寫入最終回覆。\",\n        \"請避免將內部推理過程寫入最終回覆。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"將「请」與「内部」轉換為「請」與「內部」，「推理过程」對應「推理過程」，「回答」亦可作「回覆」。\"\n    },\n    {\n      \"id\": \"blind-llm-0128\",\n      \"gemini_expected\": \"模型路由器會根據任務類型選擇不同端點。\",\n      \"acceptable\": [\n        \"模型路由器會依據任務類型選擇不同端點。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「模型路由器」與「端点」皆為標準台灣資工術語（對應 Model Router 與 Endpoint），「根据」對應為「根據」或「依據」。\"\n    },\n    {\n      \"id\": \"blind-llm-0129\",\n      \"gemini_expected\": \"長上下文摘要應保留關鍵限制和日期。\",\n      \"acceptable\": [\n        \"長上下文摘要應保留關鍵約束和日期。\",\n        \"長脈絡摘要應保留關鍵限制和日期。\",\n        \"長脈絡摘要應保留關鍵約束和日期。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「长上下文」對應「長上下文」（亦可作「長脈絡」），「约束」在台灣常對應「限制」或「約束」。\"\n    },\n    {\n      \"id\": \"blind-llm-0130\",\n      \"gemini_expected\": \"資料切塊策略會影響檢索命中率。\",\n      \"acceptable\": [\n        \"資料分塊策略會影響檢索命中率。\",\n        \"資料切分策略會影響檢索命中率。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「资料」與「检索」對應為「資料」與「檢索」，「切块」在台灣 LLM RAG 語境中常對應「切塊」或「分塊」。\"\n    },\n    {\n      \"id\": \"blind-llm-0131\",\n      \"gemini_expected\": \"安全過濾器會攔截包含隱私資料的提示。\",\n      \"acceptable\": [\n        \"安全篩選器會攔截包含隱私資料的提示。\",\n        \"安全過濾器會攔截包含隱私資料的提示詞。\",\n        \"安全篩選器會攔截包含隱私資料的提示詞。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「安全过滤器」常對應「安全過濾器」或「安全篩選器」，「隐私资料」對應「隱私資料」，「提示」對應「提示」或「提示詞」。\"\n    },\n    {\n      \"id\": \"blind-llm-0132\",\n      \"gemini_expected\": \"微調資料集需要移除重複樣本。\",\n      \"acceptable\": [\n        \"微調數據集需要移除重複樣本。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「微调」與「资料集」對應為「微調」與「資料集」（數據集亦容許但較不推薦），「重复」對應「重複」，「样本」對應「樣本」。\"\n    },\n    {\n      \"id\": \"blind-llm-0133\",\n      \"gemini_expected\": \"代理流程會在工具失敗時要求模型改寫查詢。\",\n      \"acceptable\": [\n        \"代理流程會在工具失效時要求模型改寫查詢。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「代理流程」為 Agent Workflow 之合適對應，「查询」對應「查詢」，「失败」與「改写」對應為「失敗」與「改寫」。\"\n    },\n    {\n      \"id\": \"blind-llm-0134\",\n      \"gemini_expected\": \"請把引用來源附在回答結尾。\",\n      \"acceptable\": [\n        \"請將引用來源附在回答結尾。\",\n        \"請把引用來源附在回覆結尾。\",\n        \"請將引用來源附在回覆結尾。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「请」與「来源」繁體化為「請」與「來源」，「回答」亦常作「回覆」，「结尾」對應「結尾」。\"\n    },\n    {\n      \"id\": \"blind-llm-0135\",\n      \"gemini_expected\": \"函式呼叫參數必須符合工具定義的結構。\",\n      \"acceptable\": [\n        \"函數呼叫參數必須符合工具定義的結構。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「函数调用」轉換為台灣標準資工術語「函式呼叫」（「函數呼叫」亦可），「参数」對應「參數」，「结构」對應「結構」。\"\n    },\n    {\n      \"id\": \"blind-llm-0136\",\n      \"gemini_expected\": \"模型輸出解析器會檢查 JSON 格式是否有效。\",\n      \"acceptable\": [\n        \"模型輸出剖析器會檢查 JSON 格式是否有效。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「解析器」對應為「解析器」或「剖析器」（Parser），「输出」繁體化為「輸出」，「检查」繁體化為「檢查」。\"\n    },\n    {\n      \"id\": \"blind-llm-0137\",\n      \"gemini_expected\": \"系統訊息不可由外部檔案覆寫。\",\n      \"acceptable\": [\n        \"系統訊息不可由外部檔案覆蓋。\",\n        \"系統消息不可由外部檔案覆寫。\",\n        \"系統訊息不可由外部文件覆寫。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「系统消息」對應為「系統訊息」，「外部文件」對應為「外部檔案」，「覆盖」在 IT 檔案/設定操作中常對應「覆寫」。\"\n    }\n  ]\n}",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 23,
+          "totalErrors": 0,
+          "totalLatencyMs": 98612
+        },
+        "tokens": {
+          "input": 141058,
+          "prompt": 737196,
+          "candidates": 2825,
+          "total": 750095,
+          "cached": 596138,
+          "thoughts": 10074,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 23,
+            "totalErrors": 0,
+            "totalLatencyMs": 98612,
+            "tokens": {
+              "input": 141058,
+              "prompt": 737196,
+              "candidates": 2825,
+              "total": 750095,
+              "cached": 596138,
+              "thoughts": 10074,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 22,
+      "totalSuccess": 22,
+      "totalFail": 0,
+      "totalDurationMs": 772,
+      "totalDecisions": {
+        "accept": 22,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {
+        "read_file": {
+          "count": 5,
+          "success": 5,
+          "fail": 0,
+          "durationMs": 16,
+          "decisions": {
+            "accept": 5,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        },
+        "glob": {
+          "count": 1,
+          "success": 1,
+          "fail": 0,
+          "durationMs": 12,
+          "decisions": {
+            "accept": 1,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        },
+        "grep_search": {
+          "count": 16,
+          "success": 16,
+          "fail": 0,
+          "durationMs": 744,
+          "decisions": {
+            "accept": 16,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        }
+      }
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

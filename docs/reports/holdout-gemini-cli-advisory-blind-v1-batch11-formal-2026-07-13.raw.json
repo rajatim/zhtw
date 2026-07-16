@@ -1,0 +1,162 @@
+{
+  "model_observed": "gemini-2.5-pro",
+  "cases": [
+    {
+      "id": "blind-formal-0139",
+      "gemini_expected": "會議通知應註明線上與實體出席方式。",
+      "acceptable": [
+        "會議通知應註明線上及實體出席方式。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準用語轉換，「線上」與「實體」為台灣常用詞。"
+    },
+    {
+      "id": "blind-formal-0140",
+      "gemini_expected": "機關收文編號不得重複使用。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準公文用語轉換。"
+    },
+    {
+      "id": "blind-formal-0141",
+      "gemini_expected": "公告附件請依編號順序排列。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準用語轉換。"
+    },
+    {
+      "id": "blind-formal-0142",
+      "gemini_expected": "採購案評選結果將另行通知得標廠商。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準公文與商業用語轉換。"
+    },
+    {
+      "id": "blind-formal-0143",
+      "gemini_expected": "申請人應於期限內補正缺漏文件。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準法律及公文用語轉換。"
+    },
+    {
+      "id": "blind-formal-0144",
+      "gemini_expected": "本案預算經核定後方可動支。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準公文與會計用語轉換。"
+    },
+    {
+      "id": "blind-formal-0145",
+      "gemini_expected": "合作備忘錄應載明雙方聯絡窗口。",
+      "acceptable": [
+        "合作備忘錄應載明雙方聯絡人。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「聯絡窗口」為台灣商務及公務情境常用詞，指負責接洽的對口。"
+    },
+    {
+      "id": "blind-formal-0146",
+      "gemini_expected": "統計報告發布前須完成資料校驗。",
+      "acceptable": [
+        "統計報告發布前須完成資料驗證。",
+        "統計報告發佈前須完成資料校驗。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「校驗」在台灣軟體及技術領域常用於 data validation，轉換正確。"
+    },
+    {
+      "id": "blind-formal-0147",
+      "gemini_expected": "正式函文中的日期格式應保持一致。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準用語轉換。"
+    },
+    {
+      "id": "blind-formal-0148",
+      "gemini_expected": "附表一已經使用繁體，請勿改寫。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "idempotency"
+      ],
+      "rationale": "輸入內容已大部分為繁體，僅將簡體字「经」、「请」、「写」轉換為對應的「經」、「請」、「寫」，以確保完全繁體化。"
+    },
+    {
+      "id": "blind-formal-0149",
+      "gemini_expected": "該說明文字只用於內部測試。",
+      "acceptable": [
+        "該說明文字僅用於內部測試。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準用語轉換。"
+    },
+    {
+      "id": "blind-formal-0150",
+      "gemini_expected": "承辦單位應保存簽收回執以備查。",
+      "acceptable": [
+        "承辦單位應保存簽收單以備查。",
+        "承辦單位應保存收執聯以備查。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「回執」在台灣較少用，多稱為「簽收單」或「收執聯」。依「寧可少轉」原則先保留，但標記審核。"
+    },
+    {
+      "id": "blind-formal-0151",
+      "gemini_expected": "文件標題中的「计划」應依核定名稱呈現。",
+      "acceptable": [
+        "文件標題中的「計畫」應依核定名稱呈現。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "proper_noun"
+      ],
+      "rationale": "內文提示「应依核定名称呈现」，暗示「计划」可能為專有名稱的一部分。依「不轉換專有名詞」原則，建議不轉。但若此處為一般用詞，則應轉為「計畫」。"
+    },
+    {
+      "id": "blind-formal-0152",
+      "gemini_expected": "請以電子郵件通知各機關聯絡人。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「联系人」在台灣的對應標準用語為「聯絡人」。"
+    },
+    {
+      "id": "blind-formal-0153",
+      "gemini_expected": "會議紀錄頁面應保留修訂歷史。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「修訂歷史」為台灣軟體界常用詞 (Revision History)。"
+    }
+  ]
+}

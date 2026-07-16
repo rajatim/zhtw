@@ -1,0 +1,203 @@
+{
+  "generated_date": "2026-07-10",
+  "dataset": "blind-v1",
+  "scope": "batch6_miss_classification_after_426_case_sanity",
+  "review_stage": "maintainer_confirmation_packet",
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-426-cases-2026-07-10.json",
+  "source_gemini_policy_review": "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-426-cases-2026-07-10.json",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": true
+  },
+  "summary": {
+    "total_review_cases": 13,
+    "public_regression_candidate_cases": 11,
+    "expected_recheck_cases": 2,
+    "no_immediate_question": 24,
+    "gemini_policy_passed": true,
+    "classification_changes_recommended_by_gemini": 0,
+    "promotion_allowed": false
+  },
+  "cases": [
+    {
+      "id": "blind-it-0113",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "request_and_response_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0115",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "tenant_identifier_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0117",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "database_migration_off_peak_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0119",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "structured_object_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0121",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "message_queue_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0123",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "debug_info_log_file_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0124",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "container_scheduling_instance_terminology_gap",
+      "flags": [
+        "non_idempotent_output"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0125",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "api_return_file_summary_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0126",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "region_code_overconversion_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0136",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "save_changes_ui_wording_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0089",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "table_row_detail_view_wording_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0096",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_acceptable_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0071",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_technical_style_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    }
+  ],
+  "no_immediate_question_case_ids": [
+    "blind-llm-0026",
+    "blind-llm-0028",
+    "blind-formal-0029",
+    "blind-social-0025",
+    "blind-social-0026",
+    "blind-it-0083",
+    "blind-ui-0060",
+    "blind-ui-0061",
+    "blind-llm-0043",
+    "blind-llm-0044",
+    "blind-formal-0043",
+    "blind-formal-0044",
+    "blind-formal-0045",
+    "blind-formal-0046",
+    "blind-social-0042",
+    "blind-social-0043",
+    "blind-social-0044",
+    "blind-high-risk-0026",
+    "blind-high-risk-0027",
+    "blind-it-0108",
+    "blind-ui-0081",
+    "blind-high-risk-0039",
+    "blind-it-0131",
+    "blind-ui-0102"
+  ]
+}

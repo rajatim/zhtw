@@ -1,0 +1,1240 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "report_type": "holdout_gemini_cli_advisory",
+  "review_stage": "independent_holdout_expected_review",
+  "scope": "batch12_100_cases",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-pro",
+  "model_observed": [
+    "gemini-2.5-pro"
+  ],
+  "gemini_cli_version": "0.50.0",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_expansion": "docs/reports/holdout-input-pool-expansion-blind-v1-batch12-100-cases-2026-07-14.json",
+  "raw_reports": [
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch12-formal-2026-07-14.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch12-high_risk-2026-07-14.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch12-social-2026-07-14.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch12-it-2026-07-14.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch12-ui-2026-07-14.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch12-llm-2026-07-14.raw.json"
+  ],
+  "independence_policy": {
+    "codex_values_seen": false,
+    "current_expected_seen": false,
+    "zhtw_output_seen": false,
+    "competitor_output_seen": false,
+    "workspace_files_seen": false,
+    "input_only_cases_seen": true,
+    "tool_calls": 0
+  },
+  "summary": {
+    "total_cases": 100,
+    "by_domain": {
+      "formal": 20,
+      "high_risk": 20,
+      "it": 15,
+      "llm": 10,
+      "social": 20,
+      "ui": 15
+    },
+    "by_confidence": {
+      "high": 100
+    },
+    "review_needed": 0,
+    "acceptable_variants_proposed": 32,
+    "quality_flags": 1,
+    "promotion_allowed": false
+  },
+  "quality_flags": [
+    {
+      "issue": "empty_rationale_fields",
+      "case_ids": [
+        "blind-ui-0209",
+        "blind-ui-0211",
+        "blind-ui-0213",
+        "blind-ui-0214",
+        "blind-ui-0216",
+        "blind-ui-0217",
+        "blind-ui-0218",
+        "blind-ui-0219",
+        "blind-ui-0220"
+      ],
+      "expected_values_present": true,
+      "requires_rerun": false
+    }
+  ],
+  "model_stats": {
+    "formal": {
+      "api": {
+        "totalRequests": 1,
+        "totalErrors": 0,
+        "totalLatencyMs": 47232
+      },
+      "tokens": {
+        "input": 10926,
+        "prompt": 10926,
+        "candidates": 1876,
+        "total": 17196,
+        "cached": 0,
+        "thoughts": 4394,
+        "tool": 0
+      },
+      "roles": {
+        "main": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 47232,
+          "tokens": {
+            "input": 10926,
+            "prompt": 10926,
+            "candidates": 1876,
+            "total": 17196,
+            "cached": 0,
+            "thoughts": 4394,
+            "tool": 0
+          }
+        }
+      }
+    },
+    "high_risk": {
+      "api": {
+        "totalRequests": 1,
+        "totalErrors": 0,
+        "totalLatencyMs": 30949
+      },
+      "tokens": {
+        "input": 11030,
+        "prompt": 11030,
+        "candidates": 1813,
+        "total": 15925,
+        "cached": 0,
+        "thoughts": 3082,
+        "tool": 0
+      },
+      "roles": {
+        "main": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 30949,
+          "tokens": {
+            "input": 11030,
+            "prompt": 11030,
+            "candidates": 1813,
+            "total": 15925,
+            "cached": 0,
+            "thoughts": 3082,
+            "tool": 0
+          }
+        }
+      }
+    },
+    "social": {
+      "api": {
+        "totalRequests": 1,
+        "totalErrors": 0,
+        "totalLatencyMs": 145049
+      },
+      "tokens": {
+        "input": 11001,
+        "prompt": 11001,
+        "candidates": 1877,
+        "total": 16621,
+        "cached": 0,
+        "thoughts": 3743,
+        "tool": 0
+      },
+      "roles": {
+        "main": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 145049,
+          "tokens": {
+            "input": 11001,
+            "prompt": 11001,
+            "candidates": 1877,
+            "total": 16621,
+            "cached": 0,
+            "thoughts": 3743,
+            "tool": 0
+          }
+        }
+      }
+    },
+    "it": {
+      "api": {
+        "totalRequests": 1,
+        "totalErrors": 0,
+        "totalLatencyMs": 47995
+      },
+      "tokens": {
+        "input": 10697,
+        "prompt": 10697,
+        "candidates": 1614,
+        "total": 17001,
+        "cached": 0,
+        "thoughts": 4690,
+        "tool": 0
+      },
+      "roles": {
+        "main": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 47995,
+          "tokens": {
+            "input": 10697,
+            "prompt": 10697,
+            "candidates": 1614,
+            "total": 17001,
+            "cached": 0,
+            "thoughts": 4690,
+            "tool": 0
+          }
+        }
+      }
+    },
+    "ui": {
+      "api": {
+        "totalRequests": 1,
+        "totalErrors": 0,
+        "totalLatencyMs": 28636
+      },
+      "tokens": {
+        "input": 10762,
+        "prompt": 10762,
+        "candidates": 1450,
+        "total": 15343,
+        "cached": 0,
+        "thoughts": 3131,
+        "tool": 0
+      },
+      "roles": {
+        "main": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 28636,
+          "tokens": {
+            "input": 10762,
+            "prompt": 10762,
+            "candidates": 1450,
+            "total": 15343,
+            "cached": 0,
+            "thoughts": 3131,
+            "tool": 0
+          }
+        }
+      }
+    },
+    "llm": {
+      "api": {
+        "totalRequests": 1,
+        "totalErrors": 0,
+        "totalLatencyMs": 32058
+      },
+      "tokens": {
+        "input": 10498,
+        "prompt": 10498,
+        "candidates": 1024,
+        "total": 14410,
+        "cached": 0,
+        "thoughts": 2888,
+        "tool": 0
+      },
+      "roles": {
+        "main": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 32058,
+          "tokens": {
+            "input": 10498,
+            "prompt": 10498,
+            "candidates": 1024,
+            "total": 14410,
+            "cached": 0,
+            "thoughts": 2888,
+            "tool": 0
+          }
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "blind-formal-0154",
+      "gemini_expected": "本計畫經主管機關核定後分階段執行。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「計畫」是臺灣常用詞彙。"
+    },
+    {
+      "id": "blind-formal-0155",
+      "gemini_expected": "申請文件如有缺漏，應於通知期限內補正。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。"
+    },
+    {
+      "id": "blind-formal-0156",
+      "gemini_expected": "會議紀錄須載明出席人員及決議事項。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「紀錄」作為名詞使用。"
+    },
+    {
+      "id": "blind-formal-0157",
+      "gemini_expected": "承辦單位應彙整各部門的回饋意見。",
+      "acceptable": [
+        "承辦單位應彙整各部門的意見。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "semantic_nuance"
+      ],
+      "rationale": "「回饋意見」在臺灣比「反饋意見」更常用。"
+    },
+    {
+      "id": "blind-formal-0158",
+      "gemini_expected": "新聞稿發布前應完成事實查核。",
+      "acceptable": [
+        "新聞稿發佈前應完成事實查核。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「事實查核」是臺灣的標準用法。"
+    },
+    {
+      "id": "blind-formal-0159",
+      "gemini_expected": "本案相關資料僅供審議委員參考。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。"
+    },
+    {
+      "id": "blind-formal-0160",
+      "gemini_expected": "採購需求變更時，應重新辦理估價。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。"
+    },
+    {
+      "id": "blind-formal-0161",
+      "gemini_expected": "各機關應指定專人維護資料清冊。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。"
+    },
+    {
+      "id": "blind-formal-0162",
+      "gemini_expected": "年度成果報告應說明預算執行情形。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。"
+    },
+    {
+      "id": "blind-formal-0163",
+      "gemini_expected": "活動延期消息將另行公告。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準用詞轉換。"
+    },
+    {
+      "id": "blind-formal-0164",
+      "gemini_expected": "請勿變更附件中的專案名稱。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「專案」是臺灣的標準用詞。"
+    },
+    {
+      "id": "blind-formal-0165",
+      "gemini_expected": "本辦法自發布日施行。",
+      "acceptable": [
+        "本辦法自發佈日施行。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。"
+    },
+    {
+      "id": "blind-formal-0166",
+      "gemini_expected": "委員會決定維持原審查結果。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。"
+    },
+    {
+      "id": "blind-formal-0167",
+      "gemini_expected": "該報導引用了公開會議的發言紀錄。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「報導」和「紀錄」為名詞用法。"
+    },
+    {
+      "id": "blind-formal-0168",
+      "gemini_expected": "請依原文件標題建立電子檔案。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「檔案」是臺灣的標準用詞。"
+    },
+    {
+      "id": "blind-formal-0169",
+      "gemini_expected": "表決結果為贊成十五票、反對三票。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準用詞轉換。"
+    },
+    {
+      "id": "blind-formal-0170",
+      "gemini_expected": "公告內容應使用正體中文。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「正體中文」是臺灣的官方或正式稱謂之一。"
+    },
+    {
+      "id": "blind-formal-0171",
+      "gemini_expected": "合約正本已送交法務部門保管。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_word"
+      ],
+      "rationale": "「合約」是臺灣的標準用詞。"
+    },
+    {
+      "id": "blind-formal-0172",
+      "gemini_expected": "預算書中的金額均以新臺幣列示。",
+      "acceptable": [
+        "預算書中的金額均以新台幣列示。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "formality"
+      ],
+      "rationale": "「新臺幣」為正式寫法，尤其在官方或財務文件中。"
+    },
+    {
+      "id": "blind-formal-0173",
+      "gemini_expected": "公文附件已完成用印程序。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入句的簡體寫法與繁體寫法完全相同。"
+    },
+    {
+      "id": "blind-high-risk-0101",
+      "gemini_expected": "病歷摘要不得包含與治療無關的個人資料。",
+      "acceptable": [
+        "病歷摘要不得包含和治療無關的個人資料。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0102",
+      "gemini_expected": "藥品開封後應依標籤註明的溫度保存。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0103",
+      "gemini_expected": "投保人應據實填寫健康告知事項。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0104",
+      "gemini_expected": "銀行應於扣款前揭露手續費計算方式。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0105",
+      "gemini_expected": "雇主不得扣留勞動者的身分證件。",
+      "acceptable": [
+        "雇主不得扣留勞動者的身份證件。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「身分」為法律用語，但「身份」亦可接受。"
+    },
+    {
+      "id": "blind-high-risk-0106",
+      "gemini_expected": "手術同意書應由醫師說明風險後簽署。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0107",
+      "gemini_expected": "契約解除不影響已經發生的損害賠償請求。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0108",
+      "gemini_expected": "信用報告更正申請應附上證明文件。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0109",
+      "gemini_expected": "發生職業災害時應立即通報主管機關。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0110",
+      "gemini_expected": "檢體運輸過程必須維持規定溫度。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0111",
+      "gemini_expected": "受託人處理個人資料不得逾越委託範圍。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0112",
+      "gemini_expected": "貸款提前清償違約金應記載於契約。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0113",
+      "gemini_expected": "醫師確認病人意識清楚後再詢問意願。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0114",
+      "gemini_expected": "法院命令停止執行原處分。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0115",
+      "gemini_expected": "保險給付不得重複計算同一項損失。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0116",
+      "gemini_expected": "護理紀錄中的原始數值不得改寫。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0117",
+      "gemini_expected": "匯款備註欄請保留案件編號 A-204。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0118",
+      "gemini_expected": "當事人聲明其意思表示未受強迫。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0119",
+      "gemini_expected": "診斷證明書已由醫院加蓋關防。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "字元轉換"
+    },
+    {
+      "id": "blind-high-risk-0120",
+      "gemini_expected": "新臺幣存款受到存款保險保障。",
+      "acceptable": [
+        "新台幣存款受到存款保險保障。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「臺」為正式寫法，但「台」亦可接受。"
+    },
+    {
+      "id": "blind-social-0154",
+      "gemini_expected": "我把定位傳到群組，你到了再說。",
+      "acceptable": [
+        "我把位置傳到群組，你到了再說。",
+        "我把定位發到群組，你到了再說。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「發」轉換為「傳」更符合臺灣傳送數位訊息的說法，「定位」可接受，口語中也常用「位置」。"
+    },
+    {
+      "id": "blind-social-0155",
+      "gemini_expected": "這家店週末不能預約，只能現場排隊。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確。"
+    },
+    {
+      "id": "blind-social-0156",
+      "gemini_expected": "麻煩把收據拍清楚一點傳給我。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確。"
+    },
+    {
+      "id": "blind-social-0157",
+      "gemini_expected": "包裹放管理室就好，我晚點去拿。",
+      "acceptable": [
+        "包裹放管理室就好，我晚一點去拿。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「晚點」在臺灣常用，與「晚一點」同義。"
+    },
+    {
+      "id": "blind-social-0158",
+      "gemini_expected": "捷運臨時停駛，我們改搭公車吧。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入文字已是自然且正確的臺灣用語。"
+    },
+    {
+      "id": "blind-social-0159",
+      "gemini_expected": "影片聲音太小，我戴耳機還是聽不清楚。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確。"
+    },
+    {
+      "id": "blind-social-0160",
+      "gemini_expected": "他說改天請客，但沒有說哪一天。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入文字已是自然且正確的臺灣用語。"
+    },
+    {
+      "id": "blind-social-0161",
+      "gemini_expected": "這個帳號只是用來追蹤訂單。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確。"
+    },
+    {
+      "id": "blind-social-0162",
+      "gemini_expected": "照片後面那個人不是我同事。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入文字已是自然且正確的臺灣用語。"
+    },
+    {
+      "id": "blind-social-0163",
+      "gemini_expected": "我只是提醒你，不是在催你。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入文字已是自然且正確的臺灣用語。"
+    },
+    {
+      "id": "blind-social-0164",
+      "gemini_expected": "她頭髮剪短以後看起來很有精神。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確。"
+    },
+    {
+      "id": "blind-social-0165",
+      "gemini_expected": "這碗麵有點乾，不過味道還不錯。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確，包含「面」到「麵」的轉換。"
+    },
+    {
+      "id": "blind-social-0166",
+      "gemini_expected": "群組名稱先不要改，大家會找不到。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確。"
+    },
+    {
+      "id": "blind-social-0167",
+      "gemini_expected": "我後天才有空，不是明天。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確。"
+    },
+    {
+      "id": "blind-social-0168",
+      "gemini_expected": "你只要帶一支筆，其他東西不用。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確。"
+    },
+    {
+      "id": "blind-social-0169",
+      "gemini_expected": "咖啡放涼以後沒有那麼苦。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確。"
+    },
+    {
+      "id": "blind-social-0170",
+      "gemini_expected": "週末去臺中看展覽。",
+      "acceptable": [
+        "週末去台中看展覽。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「臺中」雖為官方標準，但「台中」在民間更為常用，兩者皆可。"
+    },
+    {
+      "id": "blind-social-0171",
+      "gemini_expected": "我已經把檔案傳到雲端硬碟。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入文字已是自然且正確的臺灣用語。"
+    },
+    {
+      "id": "blind-social-0172",
+      "gemini_expected": "這間早餐店可以使用行動支付。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確。"
+    },
+    {
+      "id": "blind-social-0173",
+      "gemini_expected": "下班前記得把冷氣關掉。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準轉換，語意正確。"
+    },
+    {
+      "id": "blind-it-0263",
+      "gemini_expected": "服務網格會記錄跨命名空間的請求延遲。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語翻譯。"
+    },
+    {
+      "id": "blind-it-0264",
+      "gemini_expected": "物件儲存的生命週期規則會自動刪除舊版本。",
+      "acceptable": [
+        "對象儲存的生命週期規則會自動刪除舊版本。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「物件儲存」是臺灣更通用的術語。"
+    },
+    {
+      "id": "blind-it-0265",
+      "gemini_expected": "部署流水線應在合併前執行靜態檢查。",
+      "acceptable": [
+        "部署管線應在合併前執行靜態檢查。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「流水線」和「管線」均為 pipeline 的常見翻譯。"
+    },
+    {
+      "id": "blind-it-0266",
+      "gemini_expected": "資料庫連線池耗盡時應拒絕新的寫入請求。",
+      "acceptable": [
+        "資料庫連接池耗盡時應拒絕新的寫入請求。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「連線池」和「連接池」均可接受。"
+    },
+    {
+      "id": "blind-it-0267",
+      "gemini_expected": "遙測代理會批次上傳追蹤資料。",
+      "acceptable": [
+        "遙測代理會批量上傳追蹤資料。",
+        "遙測代理會批次上傳追蹤數據。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「批次」是 batch 在臺灣 IT 領域更常見的說法。"
+    },
+    {
+      "id": "blind-it-0268",
+      "gemini_expected": "容器映像標籤不得使用浮動版本。",
+      "acceptable": [
+        "容器映像檔標籤不得使用浮動版本。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「容器映像」是 container image 的臺灣慣用術語。"
+    },
+    {
+      "id": "blind-it-0269",
+      "gemini_expected": "訊息代理應儲存尚未確認的事件。",
+      "acceptable": [
+        "訊息代理應保存尚未確認的事件。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「訊息」是 message 的標準翻譯；「儲存」和「保存」在此情境皆可。"
+    },
+    {
+      "id": "blind-it-0270",
+      "gemini_expected": "快取失效通知會透過發布訂閱通道傳播。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「快取」是 cache 的標準翻譯。"
+    },
+    {
+      "id": "blind-it-0271",
+      "gemini_expected": "提交訊息中的 fixup! 前綴必須保留。",
+      "acceptable": [
+        "Commit 訊息中的 fixup! 前綴必須保留。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "保留程式關鍵字，並使用更精準的「訊息」。"
+    },
+    {
+      "id": "blind-it-0272",
+      "gemini_expected": "環境變數 NO_PROXY 的值區分大小寫。",
+      "acceptable": [
+        "環境變數 NO_PROXY 的值有區分大小寫。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "保留環境變數名稱，翻譯為標準術語。"
+    },
+    {
+      "id": "blind-it-0273",
+      "gemini_expected": "函式名稱 renderPage 不應翻譯。",
+      "acceptable": [
+        "函數名稱 renderPage 不應翻譯。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "在程式設計領域，「函式」比「函數」更常用。"
+    },
+    {
+      "id": "blind-it-0274",
+      "gemini_expected": "設定鍵 feature.preview.enabled 維持原樣。",
+      "acceptable": [
+        "配置鍵 feature.preview.enabled 維持原樣。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "保留設定鍵，並使用臺灣慣用的「設定鍵」。"
+    },
+    {
+      "id": "blind-it-0275",
+      "gemini_expected": "錯誤訊息包含原始欄位名 user_id。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「欄位」是 field 的標準翻譯。"
+    },
+    {
+      "id": "blind-it-0276",
+      "gemini_expected": "應用程式已部署到測試環境。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準翻譯。"
+    },
+    {
+      "id": "blind-it-0277",
+      "gemini_expected": "使用者可以下載除錯日誌。",
+      "acceptable": [
+        "使用者可以下載除錯紀錄。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「日誌」和「紀錄」均為 log 的可接受翻譯。"
+    },
+    {
+      "id": "blind-ui-0208",
+      "gemini_expected": "篩選面板收合後仍應保留已選條件。",
+      "acceptable": [
+        "篩選面板摺疊後仍應保留已選條件。",
+        "篩選面板收起後仍應保留已選條件。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「收合」在臺灣UI語境中很自然，但「摺疊」、「收起」也常用。"
+    },
+    {
+      "id": "blind-ui-0209",
+      "gemini_expected": "拖放失敗時要顯示可重試的錯誤提示。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": ""
+    },
+    {
+      "id": "blind-ui-0210",
+      "gemini_expected": "表格凍結欄不應遮住水平捲軸。",
+      "acceptable": [
+        "表格凍結列不應遮住水平捲動條。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "表格的 column 慣稱「欄」；scrollbar 慣稱「捲軸」。"
+    },
+    {
+      "id": "blind-ui-0211",
+      "gemini_expected": "日期選擇器應依使用者時區顯示月份。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": ""
+    },
+    {
+      "id": "blind-ui-0212",
+      "gemini_expected": "批次操作完成後要更新選中項目數量。",
+      "acceptable": [
+        "批次操作完成後要更新所選項目數量。",
+        "大量操作完成後要更新選取項目數量。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「批量」對應「批次」；「选中」對應「選中」或「所選」。"
+    },
+    {
+      "id": "blind-ui-0213",
+      "gemini_expected": "空白狀態應提供建立第一個項目的入口。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": ""
+    },
+    {
+      "id": "blind-ui-0214",
+      "gemini_expected": "按鈕文字 Save draft 必須保持英文。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": ""
+    },
+    {
+      "id": "blind-ui-0215",
+      "gemini_expected": "預留位置 {team_name} 不得改寫。",
+      "acceptable": [
+        "版面配置區 {team_name} 不得改寫。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "Placeholder 慣稱「預留位置」。"
+    },
+    {
+      "id": "blind-ui-0216",
+      "gemini_expected": "分頁標籤中的 Beta 字樣維持原樣。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": ""
+    },
+    {
+      "id": "blind-ui-0217",
+      "gemini_expected": "圖表圖例只顯示系列名稱，不顯示數值。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": ""
+    },
+    {
+      "id": "blind-ui-0218",
+      "gemini_expected": "開啟後，開關右側顯示綠色圓點。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": ""
+    },
+    {
+      "id": "blind-ui-0219",
+      "gemini_expected": "上傳區後方的說明文字不屬於按鈕。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": ""
+    },
+    {
+      "id": "blind-ui-0220",
+      "gemini_expected": "側邊欄已固定在畫面左側。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": ""
+    },
+    {
+      "id": "blind-ui-0221",
+      "gemini_expected": "對話方塊關閉後焦點回到原按鈕。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "Dialog box 慣稱「對話方塊」。"
+    },
+    {
+      "id": "blind-ui-0222",
+      "gemini_expected": "使用者可以調整字型大小。",
+      "acceptable": [
+        "使用者可以調整字體大小。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "Input 已是臺灣慣用詞「字型」，僅需轉簡體字。Font size 也常稱「字體大小」。"
+    },
+    {
+      "id": "blind-llm-0153",
+      "gemini_expected": "代理在執行工具前應檢查參數是否完整。",
+      "acceptable": [
+        "代理執行工具前應檢查參數是否完整。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "語意通順，詞彙轉換自然。"
+    },
+    {
+      "id": "blind-llm-0154",
+      "gemini_expected": "檢索結果應附上來源片段與文件編號。",
+      "acceptable": [
+        "檢索結果應附加來源片段與文件編號。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "語意通順，詞彙轉換自然。"
+    },
+    {
+      "id": "blind-llm-0155",
+      "gemini_expected": "模型輸出被截斷時應標記為未完成狀態。",
+      "acceptable": [
+        "模型輸出被截斷時應標記未完成狀態。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "語意通順，詞彙轉換自然。"
+    },
+    {
+      "id": "blind-llm-0156",
+      "gemini_expected": "評測腳本必須區分拒答與空白回答。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "語意通順，詞彙轉換自然。"
+    },
+    {
+      "id": "blind-llm-0157",
+      "gemini_expected": "系統提示更新後應重新執行安全測試。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "語意通順，詞彙轉換自然。"
+    },
+    {
+      "id": "blind-llm-0158",
+      "gemini_expected": "工具名稱 web.run 不得在地化。",
+      "acceptable": [
+        "工具名稱 web.run 不得本地化。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "在地化為臺灣常用詞。"
+    },
+    {
+      "id": "blind-llm-0159",
+      "gemini_expected": "對話中的角色 assistant 必須保持英文。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "語意通順，詞彙轉換自然。"
+    },
+    {
+      "id": "blind-llm-0160",
+      "gemini_expected": "引用標記 [source:3] 應原樣保留。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "語意通順，詞彙轉換自然。"
+    },
+    {
+      "id": "blind-llm-0161",
+      "gemini_expected": "摘要後面只附一行風險說明。",
+      "acceptable": [
+        "摘要後方只附一行風險說明。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "語意通順，詞彙轉換自然。"
+    },
+    {
+      "id": "blind-llm-0162",
+      "gemini_expected": "模型回應已通過人工複核。",
+      "acceptable": [
+        "模型回應已通過人工審核。",
+        "模型回應已通過人工審閱。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "語意通順，詞彙轉換自然。"
+    }
+  ]
+}

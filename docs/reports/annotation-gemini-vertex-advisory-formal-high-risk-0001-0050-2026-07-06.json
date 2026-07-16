@@ -1,0 +1,691 @@
+{
+  "generated_date": "2026-07-06",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_backlog": "benchmarks/accuracy/annotation-backlog-v1.json",
+  "raw_report": "docs/reports/annotation-gemini-vertex-advisory-formal-high-risk-0001-0050-2026-07-06.json",
+  "case_range": "formal-high-risk-0001-formal-high-risk-0050",
+  "usage_metadata": {
+    "promptTokenCount": 3580,
+    "candidatesTokenCount": 1747,
+    "totalTokenCount": 8915,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3580
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1747
+      }
+    ],
+    "thoughtsTokenCount": 3588
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_expected_review",
+    "cases": [
+      {
+        "id": "formal-high-risk-0001",
+        "expected": "市政府發布防災公告。",
+        "notes": "「發布」為台灣常用詞。"
+      },
+      {
+        "id": "formal-high-risk-0002",
+        "expected": "氣象局發布海上颱風警報。",
+        "notes": "「氣象局」、「發出」改為「發布」、「颱風」為台灣常用詞。"
+      },
+      {
+        "id": "formal-high-risk-0003",
+        "expected": "強降雨可能造成道路積水。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0004",
+        "expected": "請民眾避免前往山區。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0005",
+        "expected": "災害應變中心二級開設。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0006",
+        "expected": "停班停課資訊將於晚間公布。",
+        "notes": "「信息」改為「資訊」，繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0007",
+        "expected": "學校暫停戶外課程。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0008",
+        "expected": "會議紀錄將上傳至機關網站。",
+        "notes": "「会议纪要」改為「會議紀錄」，繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0009",
+        "expected": "本公告自發布日起生效。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0010",
+        "expected": "記者會改為線上舉行。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0011",
+        "expected": "主管機關將召開說明會。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0012",
+        "expected": "請下載最新申請表。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0013",
+        "expected": "資料不全者將退回補件。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0014",
+        "expected": "窗口受理時間延長至下午五點。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0015",
+        "expected": "申請人應攜帶身分證明文件。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0016",
+        "expected": "戶籍資料不得任意外洩。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0017",
+        "expected": "公文附件請依序編號。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0018",
+        "expected": "審查結果將以電子郵件通知。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0019",
+        "expected": "隱私權聲明已更新。",
+        "notes": "「隐私声明」改為「隱私權聲明」，繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0020",
+        "expected": "繳費期限不得逾期。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0021",
+        "expected": "本合約經雙方簽署後生效。",
+        "notes": "「合同」改為「合約」，繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0022",
+        "expected": "合約條款應以書面為準。",
+        "notes": "「合同」改為「合約」，繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0023",
+        "expected": "違約金計算方式如下。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0024",
+        "expected": "爭議應提交管轄法院處理。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0025",
+        "expected": "當事人應履行通知義務。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0026",
+        "expected": "授權書需載明委託事項。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0027",
+        "expected": "登記完成後不得擅自變更。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0028",
+        "expected": "申請許可前請確認資格。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0029",
+        "expected": "行政處分書已送達。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0030",
+        "expected": "權利義務不得轉讓。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0031",
+        "expected": "訴訟期間仍須繳納費用。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0032",
+        "expected": "法院裁定駁回申請。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0033",
+        "expected": "證據目錄請另行附上。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0034",
+        "expected": "本案適用簡易程序。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0035",
+        "expected": "罰款應於期限內繳清。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0036",
+        "expected": "公司章程修正案已備案。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0037",
+        "expected": "股東會決議應保存備查。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0038",
+        "expected": "營業執照影本需附印章。",
+        "notes": "「副本」改為「影本」，繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0039",
+        "expected": "債權人可依法請求清償。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0040",
+        "expected": "不得以格式條款排除責任。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0041",
+        "expected": "請確認銀行帳戶號碼。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0042",
+        "expected": "轉帳失敗時不會扣款。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0043",
+        "expected": "跨行匯款手續費由使用者承擔。",
+        "notes": "「用户」改為「使用者」，繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0044",
+        "expected": "貸款利率按年利率計算。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0045",
+        "expected": "帳單明細可線上查詢。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0046",
+        "expected": "餘額不足將導致付款失敗。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0047",
+        "expected": "電子發票已寄送至信箱。",
+        "notes": "「邮箱」改為「信箱」，繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0048",
+        "expected": "稅務資料請妥善保存。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0049",
+        "expected": "證券交易風險請自行評估。",
+        "notes": "繁體字轉換。"
+      },
+      {
+        "id": "formal-high-risk-0050",
+        "expected": "基金淨值每個交易日更新。",
+        "notes": "繁體字轉換。"
+      }
+    ]
+  },
+  "comparison_summary": {
+    "cases": 50,
+    "exact_matches_with_codex_draft": 43,
+    "differences_from_codex_draft": 7
+  },
+  "comparisons": [
+    {
+      "id": "formal-high-risk-0001",
+      "input": "市政府发布防灾公告。",
+      "codex_expected": "市政府發布防災公告。",
+      "gemini_expected": "市政府發布防災公告。",
+      "gemini_notes": "「發布」為台灣常用詞。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0002",
+      "input": "气象局发出海上台风警报。",
+      "codex_expected": "氣象局發出海上颱風警報。",
+      "gemini_expected": "氣象局發布海上颱風警報。",
+      "gemini_notes": "「氣象局」、「發出」改為「發布」、「颱風」為台灣常用詞。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "formal-high-risk-0003",
+      "input": "强降雨可能造成道路积水。",
+      "codex_expected": "強降雨可能造成道路積水。",
+      "gemini_expected": "強降雨可能造成道路積水。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0004",
+      "input": "请民众避免前往山区。",
+      "codex_expected": "請民眾避免前往山區。",
+      "gemini_expected": "請民眾避免前往山區。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0005",
+      "input": "灾害应变中心二级开设。",
+      "codex_expected": "災害應變中心二級開設。",
+      "gemini_expected": "災害應變中心二級開設。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0006",
+      "input": "停班停课信息将于晚间公布。",
+      "codex_expected": "停班停課資訊將於晚間公布。",
+      "gemini_expected": "停班停課資訊將於晚間公布。",
+      "gemini_notes": "「信息」改為「資訊」，繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0007",
+      "input": "学校暂停户外课程。",
+      "codex_expected": "學校暫停戶外課程。",
+      "gemini_expected": "學校暫停戶外課程。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0008",
+      "input": "会议纪要将上传至机关网站。",
+      "codex_expected": "會議紀要將上傳至機關網站。",
+      "gemini_expected": "會議紀錄將上傳至機關網站。",
+      "gemini_notes": "「会议纪要」改為「會議紀錄」，繁體字轉換。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "formal-high-risk-0009",
+      "input": "本公告自发布日起生效。",
+      "codex_expected": "本公告自發布日起生效。",
+      "gemini_expected": "本公告自發布日起生效。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0010",
+      "input": "记者会改为线上举行。",
+      "codex_expected": "記者會改為線上舉行。",
+      "gemini_expected": "記者會改為線上舉行。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0011",
+      "input": "主管机关将召开说明会。",
+      "codex_expected": "主管機關將召開說明會。",
+      "gemini_expected": "主管機關將召開說明會。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0012",
+      "input": "请下载最新申请表。",
+      "codex_expected": "請下載最新申請表。",
+      "gemini_expected": "請下載最新申請表。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0013",
+      "input": "资料不全者将退回补件。",
+      "codex_expected": "資料不全者將退回補件。",
+      "gemini_expected": "資料不全者將退回補件。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0014",
+      "input": "窗口受理时间延长至下午五点。",
+      "codex_expected": "窗口受理時間延長至下午五點。",
+      "gemini_expected": "窗口受理時間延長至下午五點。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0015",
+      "input": "申请人应携带身份证明文件。",
+      "codex_expected": "申請人應攜帶身分證明文件。",
+      "gemini_expected": "申請人應攜帶身分證明文件。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0016",
+      "input": "户籍资料不得任意外泄。",
+      "codex_expected": "戶籍資料不得任意外洩。",
+      "gemini_expected": "戶籍資料不得任意外洩。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0017",
+      "input": "公文附件请依序编号。",
+      "codex_expected": "公文附件請依序編號。",
+      "gemini_expected": "公文附件請依序編號。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0018",
+      "input": "审查结果将以电子邮件通知。",
+      "codex_expected": "審查結果將以電子郵件通知。",
+      "gemini_expected": "審查結果將以電子郵件通知。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0019",
+      "input": "隐私声明已更新。",
+      "codex_expected": "隱私聲明已更新。",
+      "gemini_expected": "隱私權聲明已更新。",
+      "gemini_notes": "「隐私声明」改為「隱私權聲明」，繁體字轉換。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "formal-high-risk-0020",
+      "input": "缴费期限不得逾期。",
+      "codex_expected": "繳費期限不得逾期。",
+      "gemini_expected": "繳費期限不得逾期。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0021",
+      "input": "本合同经双方签署后生效。",
+      "codex_expected": "本合約經雙方簽署後生效。",
+      "gemini_expected": "本合約經雙方簽署後生效。",
+      "gemini_notes": "「合同」改為「合約」，繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0022",
+      "input": "合同条款应以书面为准。",
+      "codex_expected": "合約條款應以書面為準。",
+      "gemini_expected": "合約條款應以書面為準。",
+      "gemini_notes": "「合同」改為「合約」，繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0023",
+      "input": "违约金计算方式如下。",
+      "codex_expected": "違約金計算方式如下。",
+      "gemini_expected": "違約金計算方式如下。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0024",
+      "input": "争议应提交管辖法院处理。",
+      "codex_expected": "爭議應提交管轄法院處理。",
+      "gemini_expected": "爭議應提交管轄法院處理。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0025",
+      "input": "当事人应履行通知义务。",
+      "codex_expected": "當事人應履行通知義務。",
+      "gemini_expected": "當事人應履行通知義務。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0026",
+      "input": "授权书需载明委托事项。",
+      "codex_expected": "授權書需載明委託事項。",
+      "gemini_expected": "授權書需載明委託事項。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0027",
+      "input": "登记完成后不得擅自变更。",
+      "codex_expected": "登記完成後不得擅自變更。",
+      "gemini_expected": "登記完成後不得擅自變更。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0028",
+      "input": "申请许可前请确认资格。",
+      "codex_expected": "申請許可前請確認資格。",
+      "gemini_expected": "申請許可前請確認資格。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0029",
+      "input": "行政处分书已送达。",
+      "codex_expected": "行政處分書已送達。",
+      "gemini_expected": "行政處分書已送達。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0030",
+      "input": "权利义务不得转让。",
+      "codex_expected": "權利義務不得轉讓。",
+      "gemini_expected": "權利義務不得轉讓。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0031",
+      "input": "诉讼期间仍须缴纳费用。",
+      "codex_expected": "訴訟期間仍須繳納費用。",
+      "gemini_expected": "訴訟期間仍須繳納費用。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0032",
+      "input": "法院裁定驳回申请。",
+      "codex_expected": "法院裁定駁回申請。",
+      "gemini_expected": "法院裁定駁回申請。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0033",
+      "input": "证据目录请另行附上。",
+      "codex_expected": "證據目錄請另行附上。",
+      "gemini_expected": "證據目錄請另行附上。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0034",
+      "input": "本案适用简易程序。",
+      "codex_expected": "本案適用簡易程序。",
+      "gemini_expected": "本案適用簡易程序。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0035",
+      "input": "罚款应于期限内缴清。",
+      "codex_expected": "罰鍰應於期限內繳清。",
+      "gemini_expected": "罰款應於期限內繳清。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "formal-high-risk-0036",
+      "input": "公司章程修正案已备案。",
+      "codex_expected": "公司章程修正案已備案。",
+      "gemini_expected": "公司章程修正案已備案。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0037",
+      "input": "股东会决议应保存备查。",
+      "codex_expected": "股東會決議應保存備查。",
+      "gemini_expected": "股東會決議應保存備查。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0038",
+      "input": "营业执照副本需附印章。",
+      "codex_expected": "營業執照副本需附印章。",
+      "gemini_expected": "營業執照影本需附印章。",
+      "gemini_notes": "「副本」改為「影本」，繁體字轉換。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "formal-high-risk-0039",
+      "input": "债权人可依法请求清偿。",
+      "codex_expected": "債權人可依法請求清償。",
+      "gemini_expected": "債權人可依法請求清償。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0040",
+      "input": "不得以格式条款排除责任。",
+      "codex_expected": "不得以定型化契約條款排除責任。",
+      "gemini_expected": "不得以格式條款排除責任。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "formal-high-risk-0041",
+      "input": "请确认银行账户号码。",
+      "codex_expected": "請確認銀行帳戶號碼。",
+      "gemini_expected": "請確認銀行帳戶號碼。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0042",
+      "input": "转账失败时不会扣款。",
+      "codex_expected": "轉帳失敗時不會扣款。",
+      "gemini_expected": "轉帳失敗時不會扣款。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0043",
+      "input": "跨行汇款手续费由用户承担。",
+      "codex_expected": "跨行匯款手續費由使用者負擔。",
+      "gemini_expected": "跨行匯款手續費由使用者承擔。",
+      "gemini_notes": "「用户」改為「使用者」，繁體字轉換。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "formal-high-risk-0044",
+      "input": "贷款利率按年利率计算。",
+      "codex_expected": "貸款利率按年利率計算。",
+      "gemini_expected": "貸款利率按年利率計算。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0045",
+      "input": "账单明细可在线查询。",
+      "codex_expected": "帳單明細可線上查詢。",
+      "gemini_expected": "帳單明細可線上查詢。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0046",
+      "input": "余额不足将导致付款失败。",
+      "codex_expected": "餘額不足將導致付款失敗。",
+      "gemini_expected": "餘額不足將導致付款失敗。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0047",
+      "input": "电子发票已寄送至邮箱。",
+      "codex_expected": "電子發票已寄送至信箱。",
+      "gemini_expected": "電子發票已寄送至信箱。",
+      "gemini_notes": "「邮箱」改為「信箱」，繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0048",
+      "input": "税务资料请妥善保存。",
+      "codex_expected": "稅務資料請妥善保存。",
+      "gemini_expected": "稅務資料請妥善保存。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0049",
+      "input": "证券交易风险请自行评估。",
+      "codex_expected": "證券交易風險請自行評估。",
+      "gemini_expected": "證券交易風險請自行評估。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0050",
+      "input": "基金净值每个交易日更新。",
+      "codex_expected": "基金淨值每個交易日更新。",
+      "gemini_expected": "基金淨值每個交易日更新。",
+      "gemini_notes": "繁體字轉換。",
+      "exact_match_with_codex_draft": true
+    }
+  ]
+}

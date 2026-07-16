@@ -1,0 +1,39 @@
+{
+  "generated_date": "2026-07-12",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-flash",
+  "model_observed": [
+    "gemini-3.5-flash"
+  ],
+  "review_stage": "gemini_policy_review_batch9_miss_classification",
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-683-cases-2026-07-12.json",
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": true,
+    "sealed_values_seen_by_gemini": false
+  },
+  "policy_passed": true,
+  "summary": "All 53 miss classifications are categorized in strict compliance with the stated policies. Over-conversion guard cases (28) are properly retained as private holdout signals. High-risk domain cases (7) are correctly kept as private holdout signals. Candidate gap promotions (16) and expected rechecks (6) are appropriately flagged as requiring maintainer review with correct next-step workflows.",
+  "classification_changes_recommended": [],
+  "findings": [
+    {
+      "case_id": "blind-ui-0147",
+      "severity": "info",
+      "finding": "Case with non-idempotent output is correctly handled under over_conversion_guard policy first (retained as private holdout signal)."
+    },
+    {
+      "case_id": "blind-it-0190",
+      "severity": "info",
+      "finding": "Non-idempotent candidate gap correctly routed to public regression candidate with mandatory maintainer confirmation flag."
+    },
+    {
+      "case_id": "blind-it-0200",
+      "severity": "info",
+      "finding": "Non-idempotent candidate gap correctly routed to public regression candidate with mandatory maintainer confirmation flag."
+    }
+  ],
+  "sealed_content_policy_confirmed": true
+}

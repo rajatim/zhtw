@@ -62,8 +62,9 @@ make release VERSION=X.Y.Z       # 正式釋出（含 y/N 確認）
 ```
 
 指令碼閘門：main 分支、工作樹乾淨、與 origin 同步、tag 不存在、
-Dependabot 無 medium+ 開放弱點、CHANGELOG 有內容（自動把 [Unreleased]
-升級為 [X.Y.Z]）、pytest + mvn verify。
+Dependabot 無 medium+ 開放弱點、CHANGELOG 有內容、版本同步、SDK data 與 fresh
+export 完全一致、詞庫驗證、curated target idempotency、pytest + mvn verify。
+正式流程會自動把 `[Unreleased]` 升級為 `[X.Y.Z]`。
 通過後自動：bump → commit → 雙 tag（vX.Y.Z + sdk/go/vX.Y.Z）→ push →
 GitHub Release（notes 取自 CHANGELOG）。
 

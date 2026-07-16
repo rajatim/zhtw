@@ -1,0 +1,119 @@
+{
+  "report_type": "holdout_maintainer_final_decision_338_miss_classification",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-09",
+  "review_stage": "maintainer_final_decision_338_miss_classification",
+  "maintainer": "tim",
+  "decision": "review_ok",
+  "scope": "338_case_miss_classification_after_batch5",
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-338-cases-2026-07-09.json",
+  "source_gemini_policy_review": "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-338-cases-2026-07-09.json",
+  "source_private_benchmark_sanity": "docs/reports/holdout-private-benchmark-sanity-blind-v1-after-batch5-2026-07-09.json",
+  "sealed_pool_update_report": "docs/reports/holdout-sealed-pool-update-blind-v1-338-miss-review-2026-07-09.json",
+  "promotion_gate_report": "docs/reports/holdout-regression-promotion-gate-blind-v1-338-miss-review-2026-07-09.json",
+  "public_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "private_expected_path": "benchmarks/accuracy/blind-v1.expected.json",
+  "private_expected_updated": true,
+  "expected_values_included": false,
+  "acceptable_values_included": false,
+  "inputs_included": false,
+  "outputs_included": false,
+  "benchmark_rows_included": false,
+  "source_inputs_sha256_before": "29200c136659fecd27e8efb59390d18f53a33508962848845c4eb78de6cd0f41",
+  "source_inputs_sha256_after": "2d69cf2ceb90dff8b41e9806cfe7c642d8e3e64947ea83045a8fd41be705a5a2",
+  "private_expected_sha256_before": "8682ef7b0a2cf1bc61a75628eadc16d196d7d64b6ebc3f28fc0ae447ae913fdf",
+  "private_expected_sha256_after": "899b3d87ef8dc551f2ac517646d76c990ca9ae9a303599ea7d5e11a7e399fd3c",
+  "public_candidates_sha256_before": "52b1bff7309588f8301cad9be2eff73a307968340304e560333290abc7974e2b",
+  "public_candidates_sha256_after": "320fada855ba6fb53489e46d82b021978666b560ae385e412c84f3ba7bfcd726",
+  "sealed_content_policy": {
+    "case_ids_and_aggregate_counts_only": true,
+    "expected_values_omitted": true,
+    "acceptable_values_omitted": true,
+    "input_values_omitted": true,
+    "actual_values_omitted": true,
+    "remaining_sealed_rows_omitted": true,
+    "removed_cases_are_public_candidates_after_decision": true
+  },
+  "summary": {
+    "reviewed_maintainer_cases": 15,
+    "maintainer_confirmed_acceptable_variants": 3,
+    "private_expected_cases_updated": 3,
+    "removed_from_sealed_to_public_regression_candidates": 12,
+    "converter_or_dictionary_changed": false,
+    "private_expected_updated": true,
+    "previous_private_expected_cases": 338,
+    "remaining_private_expected_cases": 326,
+    "previous_sealed_input_cases": 338,
+    "remaining_sealed_input_cases": 326,
+    "public_candidates_added": 12,
+    "public_candidates_requiring_zhtw_fix_before_tuning": 12,
+    "kept_as_private_holdout_signal": 22,
+    "by_domain_confirmed_acceptable_variant": {
+      "it": 2,
+      "ui": 1
+    },
+    "by_domain_removed_to_public_regression_candidate": {
+      "it": 7,
+      "llm": 1,
+      "ui": 4
+    },
+    "by_risk_confirmed_acceptable_variant": {
+      "candidate_gap": 3
+    },
+    "by_risk_removed_to_public_regression_candidate": {
+      "baseline_guard": 1,
+      "candidate_gap": 11
+    },
+    "projected_remaining_private_benchmark": {
+      "case_count": 326,
+      "accepted": 304,
+      "misses": 22,
+      "accepted_accuracy": 0.9325153374233128
+    },
+    "public_candidates_final_status": "promoted",
+    "public_candidates_promoted_to_regression": 12
+  },
+  "confirmed_acceptable_variant_case_ids": [
+    "blind-it-0090",
+    "blind-it-0094",
+    "blind-ui-0073"
+  ],
+  "removed_to_public_regression_candidate_case_ids": [
+    "blind-it-0088",
+    "blind-it-0089",
+    "blind-it-0092",
+    "blind-it-0095",
+    "blind-it-0096",
+    "blind-it-0097",
+    "blind-it-0105",
+    "blind-ui-0070",
+    "blind-ui-0074",
+    "blind-ui-0079",
+    "blind-ui-0087",
+    "blind-llm-0051"
+  ],
+  "kept_sealed_holdout_signal_case_ids": [
+    "blind-llm-0026",
+    "blind-llm-0028",
+    "blind-formal-0029",
+    "blind-social-0025",
+    "blind-social-0026",
+    "blind-it-0083",
+    "blind-ui-0060",
+    "blind-ui-0061",
+    "blind-llm-0043",
+    "blind-llm-0044",
+    "blind-formal-0043",
+    "blind-formal-0044",
+    "blind-formal-0045",
+    "blind-formal-0046",
+    "blind-social-0042",
+    "blind-social-0043",
+    "blind-social-0044",
+    "blind-high-risk-0026",
+    "blind-high-risk-0027",
+    "blind-it-0108",
+    "blind-ui-0081",
+    "blind-high-risk-0039"
+  ]
+}

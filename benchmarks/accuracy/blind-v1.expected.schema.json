@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v1.expected.schema.json",
+  "title": "zhtw sealed holdout expected dataset",
+  "type": "object",
+  "required": [
+    "version",
+    "name",
+    "dataset",
+    "description",
+    "generated_date",
+    "status",
+    "source_inputs",
+    "source_inputs_sha256",
+    "expected_policy",
+    "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "name": { "type": "string", "const": "blind-v1.expected" },
+    "dataset": { "type": "string", "const": "blind-v1" },
+    "description": { "type": "string", "minLength": 1 },
+    "generated_date": { "type": "string", "format": "date" },
+    "status": {
+      "type": "string",
+      "enum": ["annotating", "adjudicating", "sealed_private", "published_public"]
+    },
+    "source_inputs": { "type": "string", "minLength": 1 },
+    "source_inputs_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "expected_policy": {
+      "type": "object",
+      "required": [
+        "expected_source",
+        "approval_policy",
+        "forbidden_expected_sources",
+        "minimum_human_reviewers",
+        "second_human_review_required",
+        "ai_advisory_review_allowed",
+        "adjudication_required_on_disagreement",
+        "normalization"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "expected_source": { "type": "string", "const": "human_review_only" },
+        "approval_policy": {
+          "type": "string",
+          "enum": ["two_human_reviewers", "single_human_with_ai_advisory"]
+        },
+        "forbidden_expected_sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "minimum_human_reviewers": { "type": "integer", "minimum": 1 },
+        "second_human_review_required": { "type": "boolean" },
+        "ai_advisory_review_allowed": { "type": "boolean" },
+        "adjudication_required_on_disagreement": { "type": "boolean", "const": true },
+        "normalization": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "expected", "acceptable", "annotation", "issue_tags"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "expected": { "type": "string", "minLength": 1 },
+          "acceptable": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "annotation": {
+            "type": "object",
+            "required": [
+              "expected_source",
+              "approval_policy",
+              "first_reviewer",
+              "second_reviewer",
+              "ai_advisory_reviewers",
+              "source_reports",
+              "adjudicator",
+              "disagreement",
+              "decision_date",
+              "notes"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "expected_source": {
+                "type": "string",
+                "enum": ["human_first_pass", "human_adjudication"]
+              },
+              "approval_policy": {
+                "type": "string",
+                "enum": ["two_human_reviewers", "single_human_with_ai_advisory"]
+              },
+              "first_reviewer": { "type": "string", "minLength": 1 },
+              "second_reviewer": { "type": "string" },
+              "ai_advisory_reviewers": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": ["codex", "gemini_vertex", "gemini_cli"]
+                }
+              },
+              "source_reports": {
+                "type": "array",
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "adjudicator": { "type": "string" },
+              "disagreement": { "type": "boolean" },
+              "decision_date": { "type": "string", "format": "date" },
+              "notes": { "type": "string" }
+            }
+          },
+          "issue_tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "over_conversion",
+                "under_conversion",
+                "regional_term",
+                "it_term",
+                "ui_term",
+                "formal_term",
+                "high_risk_term",
+                "punctuation",
+                "ambiguous_context",
+                "other"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

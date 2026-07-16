@@ -1,0 +1,47 @@
+{
+  "reviewer": "gemini_vertex",
+  "model": "gemini-2.5-flash",
+  "review_stage": "sanitized_remaining_signal_policy_review",
+  "sealed_values_seen": false,
+  "summary": {
+    "total_cases": 6,
+    "policy_consistent": true,
+    "needs_codex_followup": 0
+  },
+  "findings": [],
+  "notes": "All remaining sealed holdout signal cases are consistent with the sealed-holdout policy. No direct tuning, private expected updates, or premature public promotion is allowed. All cases are marked to remain sealed and not to be tuned against.",
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "source_signal_report": "docs/reports/holdout-remaining-signal-summary-blind-v1-2026-07-09.json",
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "gemini_received_sanitized_metadata_only": true
+  },
+  "raw_response_usage_metadata": {
+    "promptTokenCount": 2892,
+    "candidatesTokenCount": 154,
+    "totalTokenCount": 4855,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2892
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 154
+      }
+    ],
+    "thoughtsTokenCount": 1809
+  },
+  "raw_review_metadata": {
+    "reviewer_field": "gemini_vertex",
+    "model_field": "gemini_vertex"
+  }
+}

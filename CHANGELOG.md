@@ -8,7 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- 新增可稽核的 accuracy pipeline：500 筆人工 annotation、1,008 筆 sealed holdout、
+  1,251 筆公開 regression，以及 Codex → Gemini → maintainer 的 advisory 流程。
+- 新增 release `export-check`，確保所有 SDK data 與當前詞庫的 fresh export 完全一致。
+
+### Changed
+- 擴充 IT、UI、正式文書與日常語境的保守轉換保護；同一批 1,008 筆私有案例相較
+  v4.4.1 淨增 4 筆 accepted、0 筆 accepted regression（約 +0.40 個百分點）。
+- Java release gate 由 `mvn test` 強化為 `mvn verify`；發版前新增詞庫、target
+  idempotency、版本同步與 SDK export freshness 驗證。
+- 精準度文件改以可重現樣本結果表述，不再使用「零誤判／零錯轉」絕對宣稱。
+
 ### Fixed
+- 修正 3 筆 expert re-audit 發現的語意 ground truth：rollback 不再誤作「回溯」、
+  `future` 型別不再直譯成「未來物件」、物業管理單位不再偷換成管委會。
+- 移除 4 筆已由泛化規則覆蓋的冗餘完整句 source mapping，保留必要 identity 防止
+  二次轉換破壞「發布／分區／命名空間／綁定」。
 - CI：升級 `central-publishing-maven-plugin` 0.7.0 → 0.11.0。Sonatype Central API 新增 `warnings` 欄位，舊版 plugin 嚴格解析會丟 `UnrecognizedPropertyException` 導致 Java 發布流程誤報 BUILD FAILURE（v4.4.1 artifact 其實已成功發布到 Maven Central，僅回應無法解析）
 
 ## [4.4.1] - 2026-06-30

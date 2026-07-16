@@ -1,0 +1,57 @@
+{
+  "session_id": "a836e9a0-460b-478c-a8c1-4a7134c20ab5",
+  "response": "```json\n{\n  \"generated_date\": \"2026-07-12\",\n  \"dataset\": \"blind-v1\",\n  \"batch\": \"batch9_100_cases\",\n  \"domain\": \"social\",\n  \"reviewer\": \"gemini\",\n  \"review_stage\": \"advisory\",\n  \"ground_truth\": false,\n  \"promotion_allowed\": false,\n  \"model_requested\": \"gemini\",\n  \"cases\": [\n    {\n      \"id\": \"blind-social-0109\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"我晚点把截图发给你。\",\n      \"gemini_expected\": \"我晚點把截圖傳給你。\",\n      \"acceptable\": [\n        \"我晚點把截圖發給你。\",\n        \"我晚點把螢幕截圖傳給你。\"\n      ],\n      \"issue_tags\": [\n        \"term-mapping\",\n        \"idiom-local\"\n      ],\n      \"confidence\": 0.95,\n      \"review_needed\": false,\n      \"rationale\": \"「截图」轉換為「截圖」或「螢幕截圖」，日常對話中「發給你」台灣更常用「傳給你」或「發給你」。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0110\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"这家店的菜单更新了吗？\",\n      \"gemini_expected\": \"這家店的菜單更新了嗎？\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"char-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"純字元轉換，無特有術語差異。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0111\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"你先帮我把行程加到日历。\",\n      \"gemini_expected\": \"你先幫我把行程加到行事曆。\",\n      \"acceptable\": [\n        \"你先幫我把行程加到日曆。\"\n      ],\n      \"issue_tags\": [\n        \"term-mapping\"\n      ],\n      \"confidence\": 0.95,\n      \"review_needed\": false,\n      \"rationale\": \"在數位或軟體情境中，台灣習慣將 schedule/calendar app 稱為「行事曆」而非「日曆」，但「日曆」仍屬可接受譯法。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0112\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"他刚刚在群里说要改时间。\",\n      \"gemini_expected\": \"他剛剛在群組裡說要改時間。\",\n      \"acceptable\": [\n        \"他剛剛在群組中說要改時間。\",\n        \"他剛剛在群裡說要改時間。\"\n      ],\n      \"issue_tags\": [\n        \"term-mapping\",\n        \"idiom-local\"\n      ],\n      \"confidence\": 0.95,\n      \"review_needed\": false,\n      \"rationale\": \"台灣將「群」（chat group）稱為「群組」，「在群組裡」為最道地的說法。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0113\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"这张照片不要上传到公开相册。\",\n      \"gemini_expected\": \"這張照片不要上傳到公開相簿。\",\n      \"acceptable\": [\n        \"這張照片不要上傳到公開相冊。\"\n      ],\n      \"issue_tags\": [\n        \"term-mapping\"\n      ],\n      \"confidence\": 0.95,\n      \"review_needed\": false,\n      \"rationale\": \"台灣數位介面中「相册」（photo album）常對應為「相簿」，「相冊」亦通。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0114\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"我已经把地址贴到聊天窗口。\",\n      \"gemini_expected\": \"我已經把地址貼到聊天視窗。\",\n      \"acceptable\": [\n        \"我已經把地址貼到聊天視窗裡。\"\n      ],\n      \"issue_tags\": [\n        \"term-mapping\"\n      ],\n      \"confidence\": 0.98,\n      \"review_needed\": false,\n      \"rationale\": \"UI 術語「窗口」在台灣翻譯為「視窗」，故「聊天窗口」應轉換為「聊天視窗」。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0115\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"周末如果下雨就改成线上聚会。\",\n      \"gemini_expected\": \"週末如果下雨就改成線上聚會。\",\n      \"acceptable\": [\n        \"周末如果下雨就改成線上聚會。\"\n      ],\n      \"issue_tags\": [\n        \"char-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"「周末」字元轉換為「週末」或「周末」，「线上聚会」轉換為「線上聚會」。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0116\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"你看一下这个优惠券还能不能用。\",\n      \"gemini_expected\": \"你看一下這個優惠券還能不能用。\",\n      \"acceptable\": [\n        \"你看一下這個折價券還能不能用。\"\n      ],\n      \"issue_tags\": [\n        \"char-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"純字元與常用詞轉換，「优惠券」對應「優惠券」（或日常亦稱「折價券」）。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0117\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"我把票券存在手机钱包里。\",\n      \"gemini_expected\": \"我把票券存在手機錢包裡。\",\n      \"acceptable\": [\n        \"我把票券存在手機錢包中。\"\n      ],\n      \"issue_tags\": [\n        \"char-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"「手机」轉換為「手機」，「钱包里」轉換為「錢包裡」，無特別術語歧義。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0118\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"这则贴文先不要分享出去。\",\n      \"gemini_expected\": \"這則貼文先不要分享出去。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"char-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"字元轉換，「贴文」轉換為「貼文」，「这则」轉換為「這則」。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0119\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"他在留言区回复得很快。\",\n      \"gemini_expected\": \"他在留言區回覆得很快。\",\n      \"acceptable\": [\n        \"他在留言區回得快。\"\n      ],\n      \"issue_tags\": [\n        \"char-conversion\"\n      ],\n      \"confidence\": 0.98,\n      \"review_needed\": false,\n      \"rationale\": \"「留言区」轉換為「留言區」，「回复」在回覆訊息、留言情境下應轉換為「回覆」（而非恢復、回復原狀的「回復」）。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0120\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"晚餐要不要改订附近的餐厅？\",\n      \"gemini_expected\": \"晚餐要不要改訂附近的餐廳？\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"char-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"「改订」對應台灣繁體「改訂」（預訂之意），「餐厅」對應「餐廳」。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0121\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"我们先把名单整理到共享表格。\",\n      \"gemini_expected\": \"我們先把名單整理到共用表格。\",\n      \"acceptable\": [\n        \"我們先把名單整理到共享表格。\",\n        \"我們先把名單整理到共用試算表。\"\n      ],\n      \"issue_tags\": [\n        \"term-mapping\"\n      ],\n      \"confidence\": 0.95,\n      \"review_needed\": false,\n      \"rationale\": \"軟體/雲端分享功能在台灣繁體中多用「共用」而非「共享」（如「共用雲端硬碟」），「表格」亦可翻成「試算表」。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0122\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"这个账号昨天已经解除绑定。\",\n      \"gemini_expected\": \"這個帳號昨天已經解除綁定。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"char-conversion\",\n        \"term-mapping\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"「账号」在台灣慣用「帳號」，「绑定」轉換為「綁定」。\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-social-0123\",\n      \"batch\": \"blind-social-daily\",\n      \"domain\": \"social\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"你帮我确认包裹是不是送到了。\",\n      \"gemini_expected\": \"你幫我確認包裹是不是送到了。\",\n      \"acceptable\": [\n        \"你幫我確認包裹是不是寄到了。\"\n      ],\n      \"issue_tags\": [\n        \"char-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"純字元與常用詞轉換，「确认」對應「確認」，其餘無特定術語差異。\",\n      \"promotion_allowed\": false\n    }\n  ]\n}\n```",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 44491
+        },
+        "tokens": {
+          "input": 9407,
+          "prompt": 17605,
+          "candidates": 2893,
+          "total": 27151,
+          "cached": 8198,
+          "thoughts": 6653,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 44491,
+            "tokens": {
+              "input": 9407,
+              "prompt": 17605,
+              "candidates": 2893,
+              "total": 27151,
+              "cached": 8198,
+              "thoughts": 6653,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

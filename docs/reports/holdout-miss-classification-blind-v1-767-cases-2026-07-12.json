@@ -1,0 +1,1118 @@
+{
+  "generated_date": "2026-07-12",
+  "dataset": "blind-v1",
+  "report_type": "holdout_miss_classification_767_case_sanity",
+  "review_stage": "private_miss_classification_first_pass_after_batch10",
+  "reviewer": "codex",
+  "source_benchmark": {
+    "path": "/tmp/zhtw-blind-v1-private-benchmark-after-batch10-2026-07-12.json",
+    "in_repo": false,
+    "rows_used_for_classification_only": true
+  },
+  "source_reports": [
+    "docs/reports/holdout-private-benchmark-sanity-blind-v1-after-batch10-2026-07-12.json",
+    "docs/reports/holdout-maintainer-final-decision-blind-v1-batch10-100-cases-2026-07-12.json"
+  ],
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": true
+  },
+  "classification_policy": {
+    "over_conversion_guard_default": "keep_as_holdout_signal",
+    "high_risk_domain_default": "keep_as_holdout_signal",
+    "candidate_gap_default": "move_to_public_regression_candidate_after_maintainer_confirmation",
+    "plausible_variant_default": "requires_expected_recheck",
+    "no_tuning_from_sealed_signal": true,
+    "public_candidates_must_be_removed_from_sealed_before_tuning": true
+  },
+  "gemini_review_policy": {
+    "status": "completed_on_sanitized_metadata",
+    "review_report": "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-767-cases-2026-07-12.json",
+    "sealed_values_seen_by_gemini": false,
+    "policy_passed": true,
+    "classification_changes_recommended": 0,
+    "reason": "Gemini reviewed case ids and classification metadata only; private expected, inputs, and converter outputs were not sent."
+  },
+  "summary": {
+    "current_sealed_cases": 767,
+    "current_accepted": 715,
+    "current_misses": 52,
+    "accepted_accuracy": 0.9322033898305084,
+    "classified_misses": 52,
+    "by_action": {
+      "keep_as_holdout_signal": 32,
+      "move_to_public_regression_candidate": 16,
+      "requires_expected_recheck": 4
+    },
+    "by_priority": {
+      "P1": 28,
+      "P2": 24
+    },
+    "by_domain_action": {
+      "formal": {
+        "keep_as_holdout_signal": 6,
+        "move_to_public_regression_candidate": 3,
+        "requires_expected_recheck": 0
+      },
+      "high_risk": {
+        "keep_as_holdout_signal": 8,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      },
+      "it": {
+        "keep_as_holdout_signal": 3,
+        "move_to_public_regression_candidate": 7,
+        "requires_expected_recheck": 2
+      },
+      "llm": {
+        "keep_as_holdout_signal": 4,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 2
+      },
+      "social": {
+        "keep_as_holdout_signal": 6,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      },
+      "ui": {
+        "keep_as_holdout_signal": 5,
+        "move_to_public_regression_candidate": 6,
+        "requires_expected_recheck": 0
+      }
+    },
+    "by_risk_action": {
+      "baseline_guard": {
+        "keep_as_holdout_signal": 1,
+        "move_to_public_regression_candidate": 3,
+        "requires_expected_recheck": 0
+      },
+      "candidate_gap": {
+        "keep_as_holdout_signal": 2,
+        "move_to_public_regression_candidate": 13,
+        "requires_expected_recheck": 4
+      },
+      "over_conversion_guard": {
+        "keep_as_holdout_signal": 29,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      }
+    },
+    "idempotency_followup_cases": 2,
+    "expected_recheck_cases": 4,
+    "safe_public_candidate_cases": 16,
+    "holdout_signal_cases": 32,
+    "high_risk_cases": 8,
+    "over_conversion_guard_cases": 29
+  },
+  "idempotency_notes": [
+    {
+      "id": "blind-ui-0147",
+      "recommended_action": "keep_as_holdout_signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0230",
+      "recommended_action": "move_to_public_regression_candidate",
+      "sealed_values_omitted": true
+    }
+  ],
+  "case_classifications": [
+    {
+      "id": "blind-llm-0026",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-llm-0028",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-formal-0029",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-social-0025",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-social-0026",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-it-0083",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "it_term"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-ui-0060",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "ui_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-ui-0061",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "ui_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-llm-0043",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "it_term"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-llm-0044",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "it_term"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-formal-0043",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-formal-0044",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-formal-0045",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "formal_term"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-formal-0046",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-social-0042",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-social-0043",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-social-0044",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-high-risk-0026",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P1",
+      "reason_code": "high_risk_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "High-risk miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-high-risk-0027",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P1",
+      "reason_code": "high_risk_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "High-risk miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-it-0108",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "over_conversion",
+        "it_term",
+        "regional_term"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-ui-0081",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "over_conversion",
+        "ui_term",
+        "regional_term"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-high-risk-0039",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "over_conversion",
+        "high_risk_term",
+        "formal_term",
+        "regional_term"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P1",
+      "reason_code": "high_risk_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "High-risk miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-it-0131",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "over_conversion",
+        "it_term",
+        "regional_term"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-ui-0102",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "over_conversion",
+        "ui_term",
+        "regional_term"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-high-risk-0053",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "high_risk_term"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P1",
+      "reason_code": "high_risk_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "High-risk miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-high-risk-0058",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "high_risk_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P1",
+      "reason_code": "high_risk_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "High-risk miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-ui-0147",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "ui_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune",
+        "idempotency_followup"
+      ],
+      "zhtw_output_idempotent": false,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-formal-0105",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "formal_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-high-risk-0064",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "high_risk_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P1",
+      "reason_code": "high_risk_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "High-risk miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-high-risk-0068",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "issue_tags": [
+        "regional_term",
+        "high_risk_term",
+        "baseline_guard"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P1",
+      "reason_code": "high_risk_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "High-risk miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-social-0110",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "social_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "over_conversion_guard_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Over-conversion guard miss remains private holdout signal; do not tune from sealed data."
+    },
+    {
+      "id": "blind-it-0217",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "it_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "it_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common IT storage/signature wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-it-0220",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "it_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "it_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common messaging/idempotency wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-it-0222",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "it_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_acceptable_variant",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "zhtw output may be a valid technical variant after maintainer review."
+    },
+    {
+      "id": "blind-it-0223",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "it_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "it_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common configuration/feature-flag wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-it-0230",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "it_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "it_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal",
+        "idempotency_followup"
+      ],
+      "zhtw_output_idempotent": false,
+      "sealed_values_omitted": true,
+      "rationale": "Common CLI/config-file wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-it-0232",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "it_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "combined_acceptable_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "zhtw output combines separately accepted variants; maintainer should confirm whether the combination is acceptable."
+    },
+    {
+      "id": "blind-it-0235",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "it_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "it_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common converter/code-block wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-it-0236",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "it_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "it_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common monitoring/reporting wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-it-0237",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "it_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "it_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common background-task wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-ui-0169",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "ui_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common UI pagination wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-ui-0170",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "ui_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common UI save prompt wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-ui-0175",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "ui_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common UI keyboard support wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-ui-0181",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "ui_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common breadcrumb/navigation wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-ui-0183",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "ui_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common UI current-field wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-ui-0184",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "ui_term_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Common table/frozen-column wording gap; remove before tuning."
+    },
+    {
+      "id": "blind-llm-0123",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "llm_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "semantic_term_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "zhtw output uses a plausible LLM/NLP wording variant that may be acceptable."
+    },
+    {
+      "id": "blind-llm-0137",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "llm_term",
+        "candidate_gap"
+      ],
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "file_message_overwrite_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "zhtw output combines plausible LLM/file wording variants; maintainer should confirm strictness."
+    },
+    {
+      "id": "blind-formal-0129",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "issue_tags": [
+        "regional_term",
+        "formal_term",
+        "baseline_guard"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "baseline_guard_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Non-high-risk baseline miss with incorrect formal wording; remove before tuning."
+    },
+    {
+      "id": "blind-formal-0131",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "issue_tags": [
+        "regional_term",
+        "formal_term",
+        "baseline_guard"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "baseline_guard_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Non-high-risk baseline miss with formal wording mismatch; remove before tuning."
+    },
+    {
+      "id": "blind-formal-0134",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "issue_tags": [
+        "regional_term",
+        "formal_term",
+        "baseline_guard"
+      ],
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "baseline_guard_public_regression",
+      "flags": [
+        "safe_public_candidate_after_sealed_removal"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "Non-high-risk baseline miss with physical-service wording mismatch; remove before tuning."
+    },
+    {
+      "id": "blind-high-risk-0084",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "formal_term",
+        "high_risk_term",
+        "over_conversion"
+      ],
+      "recommended_action": "keep_as_holdout_signal",
+      "priority": "P1",
+      "reason_code": "high_risk_holdout_signal",
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "zhtw_output_idempotent": true,
+      "sealed_values_omitted": true,
+      "rationale": "High-risk miss remains private holdout signal; do not tune from sealed data."
+    }
+  ],
+  "codex_followup": {
+    "gemini_policy_review_required": true,
+    "maintainer_confirmation_required_for_actions": [
+      "move_to_public_regression_candidate",
+      "requires_expected_recheck"
+    ],
+    "holdout_signal_cases_must_not_be_used_for_tuning": true
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "session_id": "0905fe75-3b61-44cc-a11d-b311e0767a37",
+  "response": "{\n  \"review_stage\": \"independent_holdout_expected_review\",\n  \"domain\": \"it\",\n  \"cases\": [\n    {\n      \"id\": \"blind-it-0213\",\n      \"gemini_expected\": \"這個 API 閘道會把請求 ID 傳遞到下游服務。\",\n      \"acceptable\": [\n        \"這個 API 閘道會把請求識別碼傳遞到下游服務。\",\n        \"這個 API 閘道會把要求 ID 傳遞到下游服務。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"網關譯為閘道，請求譯為請求或要求。\"\n    },\n    {\n      \"id\": \"blind-it-0214\",\n      \"gemini_expected\": \"部署管線會在單元測試失敗時中止發布。\",\n      \"acceptable\": [\n        \"部署管線會在單元測試失敗時中斷發布。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"部署流水線譯為部署管線，中止亦可作中斷。\"\n    },\n    {\n      \"id\": \"blind-it-0215\",\n      \"gemini_expected\": \"請將快取命中率寫入指標儀表板。\",\n      \"acceptable\": [\n        \"請把快取命中率寫入指標儀表板。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"快取、指標、儀表板皆為台灣標準 IT 術語，請把可換為請將。\"\n    },\n    {\n      \"id\": \"blind-it-0216\",\n      \"gemini_expected\": \"日誌聚合器需要保留原始時間戳記。\",\n      \"acceptable\": [\n        \"記錄檔聚合器需要保留原始時間戳記。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"日志譯為日誌或記錄檔，时间戳譯為時間戳記。\"\n    },\n    {\n      \"id\": \"blind-it-0217\",\n      \"gemini_expected\": \"物件儲存會為每個檔案產生存取簽章。\",\n      \"acceptable\": [\n        \"物件儲存會為每個檔案產生存取簽名。\",\n        \"物件儲存會為每個檔案生成存取簽章。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"对象存储譯為物件儲存，文件譯為檔案，生成通常譯為產生，签名可為簽章或簽名。\"\n    },\n    {\n      \"id\": \"blind-it-0218\",\n      \"gemini_expected\": \"服務網格會根據路由規則切分流量。\",\n      \"acceptable\": [\n        \"服務網格會根據路由規則分割流量。\",\n        \"服務網格會根據路由規則劃分流量。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"服務網格與路由規則皆為標準用語，切分可作分割或劃分。\"\n    },\n    {\n      \"id\": \"blind-it-0219\",\n      \"gemini_expected\": \"資料庫唯讀複本延遲時請切回主資料庫查詢。\",\n      \"acceptable\": [\n        \"資料庫讀取複本延遲時請切回主庫查詢。\",\n        \"資料庫唯讀副本延遲時請切回主庫查詢。\",\n        \"資料庫唯讀複本延遲時請切回主庫查詢。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"讀副本對應 Read Replica，台灣常譯為唯讀複本或讀取複本，主庫可譯為主資料庫或主庫。\"\n    },\n    {\n      \"id\": \"blind-it-0220\",\n      \"gemini_expected\": \"訊息生產者必須設定冪等鍵避免重複寫入。\",\n      \"acceptable\": [\n        \"訊息生產者必須設定冪等索引鍵避免重複寫入。\",\n        \"訊息生產者必須設定等冪鍵避免重複寫入。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"消息譯為訊息，冪等可作等冪，鍵可譯為鍵或索引鍵。\"\n    },\n    {\n      \"id\": \"blind-it-0221\",\n      \"gemini_expected\": \"這個 SDK 會自動重試暫時性的網路錯誤。\",\n      \"acceptable\": [\n        \"這個 SDK 會自動重試暫時性網路錯誤。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"网络譯為網路，重试譯為重試。\"\n    },\n    {\n      \"id\": \"blind-it-0222\",\n      \"gemini_expected\": \"請在健康檢查端點回傳相依服務狀態。\",\n      \"acceptable\": [\n        \"請在健康檢查端點傳回相依服務狀態。\",\n        \"請在健康檢查端點返回相依服務狀態。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"健康檢查、端點皆為標準詞，返回在 API 語境常譯為回傳或傳回，依赖譯為相依。\"\n    },\n    {\n      \"id\": \"blind-it-0223\",\n      \"gemini_expected\": \"設定中心會按環境發送不同的功能開關。\",\n      \"acceptable\": [\n        \"設定中心會按環境下發不同的功能開關。\",\n        \"組態中心會按環境派送不同的功能開關。\",\n        \"配置中心會按環境發送不同的功能開關。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"配置中心對應設定中心或組態中心，下發可作發送、派送或保留下發。\"\n    },\n    {\n      \"id\": \"blind-it-0224\",\n      \"gemini_expected\": \"索引重建任務會佔用較高的磁碟 I/O。\",\n      \"acceptable\": [\n        \"索引重建工作會佔用較高的磁碟 I/O。\",\n        \"索引重建任務會占用較高的磁碟 I/O。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"磁盘譯為磁碟，占用作佔用，任务可作任務或工作。\"\n    },\n    {\n      \"id\": \"blind-it-0225\",\n      \"gemini_expected\": \"這個 WebSocket 連線需要定期傳送心跳包。\",\n      \"acceptable\": [\n        \"這個 WebSocket 連線需要定期發送心跳訊號。\",\n        \"這個 WebSocket 連線需要定期傳送心跳訊號。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"连接譯為連線，发送譯為傳送或發送，心跳包亦可稱心跳訊號。\"\n    },\n    {\n      \"id\": \"blind-it-0226\",\n      \"gemini_expected\": \"映像檔儲存庫會掃描上傳的容器映像檔。\",\n      \"acceptable\": [\n        \"映像檔倉庫會掃描上傳的容器映像檔。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"镜像譯為映像檔，容器映像檔為標準詞，倉庫對應儲存庫或倉庫。\"\n    },\n    {\n      \"id\": \"blind-it-0227\",\n      \"gemini_expected\": \"權限中介軟體會拒絕缺少角色宣告的請求。\",\n      \"acceptable\": [\n        \"權限中介軟體會拒絕缺少角色宣告的要求。\",\n        \"權限中介軟體會拒絕缺少角色聲明的請求。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"中间件譯為中介軟體，声明在此譯為宣告較符合權限宣告語境。\"\n    },\n    {\n      \"id\": \"blind-it-0228\",\n      \"gemini_expected\": \"請將例外追蹤 ID 顯示在錯誤頁面底部。\",\n      \"acceptable\": [\n        \"請把異常追蹤 ID 顯示在錯誤頁面底部。\",\n        \"請將異常追蹤 ID 顯示在錯誤頁面底部。\",\n        \"請將例外追蹤識別碼顯示在錯誤頁面底部。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"异常譯為例外或異常，追踪對應追蹤，请把可作請將。\"\n    },\n    {\n      \"id\": \"blind-it-0229\",\n      \"gemini_expected\": \"非同步佇列會延後處理超過速率限制的任務。\",\n      \"acceptable\": [\n        \"非同步佇列會延後處理超過速率限制的工作。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"异步譯為非同步，队列譯為佇列，任务可譯為任務或工作。\"\n    },\n    {\n      \"id\": \"blind-it-0230\",\n      \"gemini_expected\": \"命令列參數會覆寫預設設定檔。\",\n      \"acceptable\": [\n        \"命令列參數會覆寫預設配置檔。\",\n        \"命令列參數會覆寫預設組態檔。\",\n        \"命令列參數會覆蓋預設設定檔。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"命令行譯為命令列，覆盖譯為覆寫或覆蓋，配置文件可為設定檔、配置檔或組態檔。\"\n    },\n    {\n      \"id\": \"blind-it-0231\",\n      \"gemini_expected\": \"這個連線集區會回收閒置太久的連線。\",\n      \"acceptable\": [\n        \"這個連線池會回收閒置太久的連線。\",\n        \"這個連線集區會回收閒置太久的連接。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"连接池對應連線集區（微軟風格）或連線池，闲置作閒置。\"\n    },\n    {\n      \"id\": \"blind-it-0232\",\n      \"gemini_expected\": \"套件管理員需要驗證鎖定檔案的完整性。\",\n      \"acceptable\": [\n        \"套件管理員需要驗證鎖定檔的完整性。\",\n        \"包管理器需要驗證鎖定檔案的完整性。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"包管理器譯為套件管理員，锁定文件可為鎖定檔案或鎖定檔。\"\n    },\n    {\n      \"id\": \"blind-it-0233\",\n      \"gemini_expected\": \"請在發布說明中列出破壞性變更。\",\n      \"acceptable\": [\n        \"請在版本說明中列出破壞性變更。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"发布说明對應發布說明或版本說明，破坏性变更譯為破壞性變更。\"\n    },\n    {\n      \"id\": \"blind-it-0234\",\n      \"gemini_expected\": \"事件處理器會忽略已經過期的通知。\",\n      \"acceptable\": [\n        \"事件處理常式會忽略已經過期的通知。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"事件处理器譯為事件處理器，或事件處理常式（微軟風格）。\"\n    },\n    {\n      \"id\": \"blind-it-0235\",\n      \"gemini_expected\": \"這個轉換器不應該修改程式碼區塊裡的路徑。\",\n      \"acceptable\": [\n        \"這個轉換器不應該修改程式碼區塊中的路徑。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"代码块譯為程式碼區塊，路径譯為路徑。\"\n    },\n    {\n      \"id\": \"blind-it-0236\",\n      \"gemini_expected\": \"監控代理會批次回報主機資源用量。\",\n      \"acceptable\": [\n        \"監控代理會批次上報主機資源用量。\",\n        \"監控代理程式會批次回報主機資源用量。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"批量譯為批次，上报常譯為回報或上報，代理可譯為代理或代理程式。\"\n    },\n    {\n      \"id\": \"blind-it-0237\",\n      \"gemini_expected\": \"請為背景任務設定獨立的逾時時間。\",\n      \"acceptable\": [\n        \"請為背景工作設定獨立的逾時時間。\",\n        \"請為背景任務設定獨立的超時時間。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"后台任务譯為背景任務或背景工作，超时时间譯為逾時時間。\"\n    }\n  ]\n}",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 24,
+          "totalErrors": 0,
+          "totalLatencyMs": 141878
+        },
+        "tokens": {
+          "input": 176863,
+          "prompt": 854770,
+          "candidates": 3561,
+          "total": 876865,
+          "cached": 677907,
+          "thoughts": 18534,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 24,
+            "totalErrors": 0,
+            "totalLatencyMs": 141878,
+            "tokens": {
+              "input": 176863,
+              "prompt": 854770,
+              "candidates": 3561,
+              "total": 876865,
+              "cached": 677907,
+              "thoughts": 18534,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 23,
+      "totalSuccess": 23,
+      "totalFail": 0,
+      "totalDurationMs": 983,
+      "totalDecisions": {
+        "accept": 23,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {
+        "glob": {
+          "count": 1,
+          "success": 1,
+          "fail": 0,
+          "durationMs": 12,
+          "decisions": {
+            "accept": 1,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        },
+        "read_file": {
+          "count": 2,
+          "success": 2,
+          "fail": 0,
+          "durationMs": 9,
+          "decisions": {
+            "accept": 2,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        },
+        "grep_search": {
+          "count": 20,
+          "success": 20,
+          "fail": 0,
+          "durationMs": 962,
+          "decisions": {
+            "accept": 20,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        }
+      }
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

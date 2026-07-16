@@ -1,0 +1,42 @@
+{
+  "report_type": "holdout_gemini_policy_review_remaining_40_public_promotion",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-09",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-flash",
+  "model_reported_by_cli_stats": "gemini-3.5-flash",
+  "review_stage": "public_regression_promotion_policy_review",
+  "source_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "source_promotion_gate": "docs/reports/holdout-regression-promotion-gate-blind-v1-remaining-40-final-review-2026-07-09.json",
+  "sealed_values_seen": false,
+  "public_values_seen": true,
+  "sealed_content_policy": {
+    "reviewed_cases_removed_from_sealed_before_tuning": true,
+    "remaining_sealed_holdout_signal_cases_used_for_tuning": false,
+    "opencc_or_competitor_outputs_used_for_expected": false,
+    "gemini_received_public_candidate_values_only": true
+  },
+  "summary": {
+    "checked": 18,
+    "promotion_ready": 18,
+    "policy_consistent": true,
+    "risk_level": "low",
+    "blocking_findings": 0,
+    "info_findings": 2
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "id": "all",
+      "message": "Gemini found the update policy-consistent: the cases were removed from sealed holdout before tuning and the implementation uses sentence-level mappings with corresponding sentence-level identity mappings."
+    },
+    {
+      "severity": "info",
+      "id": "all",
+      "message": "Gemini found no broad naked-term mapping risk in the 18-case public promotion update."
+    }
+  ],
+  "tool_notes": [
+    "Gemini CLI attempted one unavailable run_shell_command tool call, then completed the policy review successfully."
+  ]
+}

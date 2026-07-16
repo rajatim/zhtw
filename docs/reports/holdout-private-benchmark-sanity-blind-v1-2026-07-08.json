@@ -1,0 +1,74 @@
+{
+  "generated_date": "2026-07-08",
+  "dataset": "blind-v1",
+  "report_type": "private_benchmark_sanity_summary",
+  "expected_values_included": false,
+  "rows_included": false,
+  "source_private_benchmark": "/tmp/zhtw-blind-v1-private-benchmark-2026-07-08.json",
+  "inputs": {
+    "path": "benchmarks/accuracy/blind-v1.inputs.json",
+    "sha256": "6ed7102cb31128c6f9bdbaa0be65e5c6ea6278733b329d5e32967116079cd4fd",
+    "name": "blind-v1.inputs",
+    "status": "collecting_inputs",
+    "publish_state": "public_inputs_only"
+  },
+  "expected": {
+    "path": "benchmarks/accuracy/blind-v1.expected.json",
+    "sha256": "efb8ee42152eacede683dbfa357ace86b3b649ce611eef0d3362646ae8ba7e65",
+    "status": "sealed_private"
+  },
+  "summary": {
+    "case_count": 100,
+    "engine": "zhtw",
+    "accepted": 57,
+    "misses": 43,
+    "accepted_accuracy": 0.57,
+    "primary_exact_accuracy": 0.57,
+    "idempotency_rate": 0.94,
+    "by_domain": {
+      "formal": {
+        "total": 15,
+        "accepted": 10,
+        "accepted_accuracy": 0.6666666666666666
+      },
+      "high_risk": {
+        "total": 10,
+        "accepted": 10,
+        "accepted_accuracy": 1.0
+      },
+      "it": {
+        "total": 25,
+        "accepted": 8,
+        "accepted_accuracy": 0.32
+      },
+      "llm": {
+        "total": 15,
+        "accepted": 9,
+        "accepted_accuracy": 0.6
+      },
+      "social": {
+        "total": 15,
+        "accepted": 12,
+        "accepted_accuracy": 0.8
+      },
+      "ui": {
+        "total": 20,
+        "accepted": 8,
+        "accepted_accuracy": 0.4
+      }
+    },
+    "misses_by_risk": {
+      "baseline_guard": 5,
+      "candidate_gap": 35,
+      "over_conversion_guard": 3
+    },
+    "misses_by_issue_tag": {
+      "formal_term": 9,
+      "high_risk_term": 1,
+      "it_term": 26,
+      "regional_term": 43,
+      "ui_term": 17
+    }
+  },
+  "publication_note": "Aggregate-only sanity summary. Full benchmark rows remain outside the repo because they include private expected values."
+}

@@ -1,0 +1,159 @@
+{
+  "model_observed": "gemini-2.5-pro",
+  "cases": [
+    {
+      "id": "blind-llm-0138",
+      "gemini_expected": "提示詞變數會在執行前被替換。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。「提示詞」為台灣 AI 領域常用詞，「變數」為標準翻譯。"
+    },
+    {
+      "id": "blind-llm-0139",
+      "gemini_expected": "系統訊息應優先於開發者訊息。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入已接近繁體，僅進行簡轉繁校正。"
+    },
+    {
+      "id": "blind-llm-0140",
+      "gemini_expected": "工具結果摘要需要保留錯誤代碼。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。"
+    },
+    {
+      "id": "blind-llm-0141",
+      "gemini_expected": "檢索片段會依相關性分數排序。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。「檢索」、「相關性」、「分數」均為台灣常用詞。"
+    },
+    {
+      "id": "blind-llm-0142",
+      "gemini_expected": "代理在呼叫外部工具前應檢查權限。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換，「代理」為 agent 的通用翻譯。"
+    },
+    {
+      "id": "blind-llm-0143",
+      "gemini_expected": "回覆格式必須符合指定 JSON schema。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "code"
+      ],
+      "rationale": "依據規則，保留程式碼關鍵字 `JSON schema` 不翻譯。"
+    },
+    {
+      "id": "blind-llm-0144",
+      "gemini_expected": "上下文壓縮後仍要保留使用者最新問題。",
+      "acceptable": [
+        "上下文壓縮後仍要保留用戶最新問題。"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "將「用户」轉換為台灣軟體領域更慣用的「使用者」，但「用戶」也可接受。"
+    },
+    {
+      "id": "blind-llm-0145",
+      "gemini_expected": "提示模板裡的預留位置不能被翻譯。",
+      "acceptable": [
+        "提示模板裡的佔位符不能被翻譯。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「占位符」在台灣軟體界對應「預留位置」或「佔位符」，前者在 UI 說明中更常見，後者在開發者之間也通用。"
+    },
+    {
+      "id": "blind-llm-0146",
+      "gemini_expected": "安全策略會拒絕請求中的敏感資料。",
+      "acceptable": [
+        "安全策略會拒絕請求中的敏感資訊。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。「資料」和「資訊」在此情境下均可接受。"
+    },
+    {
+      "id": "blind-llm-0147",
+      "gemini_expected": "token 預算不足時，模型會要求縮短輸入。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "code"
+      ],
+      "rationale": "依據規則，保留技術名詞 `token` 不翻譯。"
+    },
+    {
+      "id": "blind-llm-0148",
+      "gemini_expected": "這段繁體系統規則必須保持原樣。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入文字已是繁體，僅需將簡體字「段」、「体」、「统」、「规则」轉換為繁體。"
+    },
+    {
+      "id": "blind-llm-0149",
+      "gemini_expected": "請不要改寫 `tool_call_id` 欄位。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term",
+        "code"
+      ],
+      "rationale": "保留程式碼 `tool_call_id`，並將中國大陸用語「字段」轉換為台灣慣用的「欄位」。"
+    },
+    {
+      "id": "blind-llm-0150",
+      "gemini_expected": "模型輸出中的 Markdown 表格要維持對齊。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "保留專有名詞 `Markdown`，其餘為標準轉換。"
+    },
+    {
+      "id": "blind-llm-0151",
+      "gemini_expected": "回答引用來源時應避免編造連結。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "將中國大陸用語「链接」轉換為台灣慣用的「連結」。"
+    },
+    {
+      "id": "blind-llm-0152",
+      "gemini_expected": "多輪對話摘要應標註遺漏的不確定資訊。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入已接近繁體，僅進行簡轉繁校正。"
+    }
+  ]
+}

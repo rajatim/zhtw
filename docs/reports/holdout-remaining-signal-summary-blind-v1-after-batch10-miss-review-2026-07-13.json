@@ -1,0 +1,651 @@
+{
+  "report_type": "holdout_remaining_signal_summary_after_batch10_miss_review",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-13",
+  "review_stage": "after_batch10_miss_review_remaining_signal_summary",
+  "source_benchmark": {
+    "path": "/tmp/zhtw-blind-v1-private-benchmark-after-batch10-miss-review-2026-07-13.json",
+    "in_repo": false,
+    "rows_used_for_aggregate_and_case_id_metadata_only": true
+  },
+  "source_reports": [
+    "docs/reports/holdout-private-benchmark-sanity-blind-v1-after-batch10-miss-review-2026-07-13.json",
+    "docs/reports/holdout-miss-classification-blind-v1-767-cases-2026-07-12.json",
+    "docs/reports/holdout-maintainer-final-decision-batch10-miss-classification-blind-v1-2026-07-13.json"
+  ],
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "benchmark_rows_included": false,
+    "case_ids_and_metadata_only": true
+  },
+  "policy": {
+    "converter_or_dictionary_updated_from_remaining_signals": false,
+    "private_expected_updated_from_remaining_signals": false,
+    "public_promotion_allowed": false,
+    "requires_independent_public_reproduction_before_tuning": true,
+    "do_not_use_sealed_text_for_dictionary_or_converter_changes": true
+  },
+  "summary": {
+    "current_sealed_cases": 751,
+    "current_accepted": 719,
+    "current_misses": 32,
+    "remaining_signal_cases": 32,
+    "all_remaining_misses_are_holdout_signals": true,
+    "maintainer_review_cases": 0,
+    "public_regression_candidate_cases": 0,
+    "expected_recheck_cases": 0,
+    "converter_or_dictionary_updated_from_remaining_signals": false,
+    "private_expected_updated_from_remaining_signals": false,
+    "by_domain": {
+      "formal": 6,
+      "high_risk": 8,
+      "it": 3,
+      "llm": 4,
+      "social": 6,
+      "ui": 5
+    },
+    "by_risk": {
+      "baseline_guard": 1,
+      "candidate_gap": 2,
+      "over_conversion_guard": 29
+    },
+    "by_signal_category": {
+      "high_risk_holdout_signal": 8,
+      "over_conversion_guard_holdout_signal": 24
+    },
+    "by_issue_tag": {
+      "baseline_guard": 1,
+      "candidate_gap": 1,
+      "formal_term": 10,
+      "high_risk_term": 8,
+      "it_term": 5,
+      "over_conversion": 29,
+      "regional_term": 32,
+      "social_term": 1,
+      "ui_term": 5
+    },
+    "idempotent_signal_cases": 31,
+    "non_idempotent_signal_cases": 1,
+    "non_idempotent_signal_case_ids": [
+      "blind-ui-0147"
+    ]
+  },
+  "case_signals": [
+    {
+      "id": "blind-llm-0026",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0028",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0029",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0025",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0026",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0083",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "it_term"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0060",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "ui_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0061",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "ui_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0043",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "it_term"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0044",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "it_term"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0043",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0044",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0045",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "formal_term"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0046",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0042",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0043",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0044",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0026",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "high_risk_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0027",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "high_risk_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0108",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "over_conversion",
+        "it_term",
+        "regional_term"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0081",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "over_conversion",
+        "ui_term",
+        "regional_term"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0039",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "over_conversion",
+        "high_risk_term",
+        "formal_term",
+        "regional_term"
+      ],
+      "signal_category": "high_risk_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0131",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "over_conversion",
+        "it_term",
+        "regional_term"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0102",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "over_conversion",
+        "ui_term",
+        "regional_term"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0053",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "high_risk_term"
+      ],
+      "signal_category": "high_risk_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0058",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "high_risk_term",
+        "over_conversion"
+      ],
+      "signal_category": "high_risk_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0147",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "ui_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": false,
+      "flags": [
+        "holdout_signal_do_not_tune",
+        "idempotency_followup"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0105",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "formal_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0064",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "high_risk_term",
+        "candidate_gap"
+      ],
+      "signal_category": "high_risk_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0068",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "issue_tags": [
+        "regional_term",
+        "high_risk_term",
+        "baseline_guard"
+      ],
+      "signal_category": "high_risk_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0110",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "social_term",
+        "over_conversion"
+      ],
+      "signal_category": "over_conversion_guard_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0084",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "regional_term",
+        "formal_term",
+        "high_risk_term",
+        "over_conversion"
+      ],
+      "signal_category": "high_risk_holdout_signal",
+      "recommended_action": "keep_as_private_holdout_signal",
+      "next_step": "use_independent_public_inputs_before_any_converter_or_dictionary_change",
+      "zhtw_output_idempotent": true,
+      "flags": [
+        "holdout_signal_do_not_tune"
+      ],
+      "sealed_values_omitted": true
+    }
+  ]
+}

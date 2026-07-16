@@ -1,0 +1,94 @@
+{
+  "session_id": "1f4db54a-f6fc-40d2-b7de-517b73198979",
+  "response": "{\n  \"review_stage\": \"independent_holdout_expected_review\",\n  \"domain\": \"ui\",\n  \"cases\": [\n    {\n      \"id\": \"blind-ui-0168\",\n      \"gemini_expected\": \"搜尋框取得焦點後會展開最近查詢。\",\n      \"acceptable\": [\n        \"搜尋框獲得焦點後會展開最近查詢。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「搜尋」與「取得焦點」為臺灣標準 UI 用語。\"\n    },\n    {\n      \"id\": \"blind-ui-0169\",\n      \"gemini_expected\": \"分頁器需要顯示目前頁碼和總頁數。\",\n      \"acceptable\": [\n        \"分頁控制項需要顯示目前頁碼和總頁數。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「分頁」及「目前頁碼」為臺灣軟體慣用語。\"\n    },\n    {\n      \"id\": \"blind-ui-0170\",\n      \"gemini_expected\": \"拖曳排序完成後請顯示儲存提示。\",\n      \"acceptable\": [\n        \"拖拽排序完成後請顯示儲存提示。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「拖曳排序」與「儲存提示」符合臺灣 UI 常見文案。\"\n    },\n    {\n      \"id\": \"blind-ui-0171\",\n      \"gemini_expected\": \"下拉式選單開啟時應聚焦第一個選項。\",\n      \"acceptable\": [\n        \"下拉選單開啟時應聚焦第一個選項。\",\n        \"下拉式選單打開時應聚焦第一個選項。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「下拉式選單」或「下拉選單」及「開啟」為臺灣常用語。\"\n    },\n    {\n      \"id\": \"blind-ui-0172\",\n      \"gemini_expected\": \"錯誤橫幅可以透過關閉按鈕隱藏。\",\n      \"acceptable\": [\n        \"錯誤橫幅可以經由關閉按鈕隱藏。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「錯誤橫幅」與「透過」符合臺灣軟體中文用法。\"\n    },\n    {\n      \"id\": \"blind-ui-0173\",\n      \"gemini_expected\": \"表單驗證失敗時請保留使用者輸入。\",\n      \"acceptable\": [\n        \"表單驗證失敗時請保留用戶輸入。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「表單驗證」及「使用者輸入」為臺灣軟體工程常用語。\"\n    },\n    {\n      \"id\": \"blind-ui-0174\",\n      \"gemini_expected\": \"側邊欄釘選後主內容寬度會自動調整。\",\n      \"acceptable\": [\n        \"側邊欄固定後主內容寬度會自動調整。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「側邊欄」、「釘選」（或固定）與「主內容」為臺灣 UI 用語。\"\n    },\n    {\n      \"id\": \"blind-ui-0175\",\n      \"gemini_expected\": \"日期選擇器應支援鍵盤方向鍵切換日期。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"「日期選擇器」、「支援」與「鍵盤方向鍵」皆為臺灣標準用語。\"\n    },\n    {\n      \"id\": \"blind-ui-0176\",\n      \"gemini_expected\": \"清單為空時請顯示空狀態插圖。\",\n      \"acceptable\": [\n        \"列表為空時請顯示空狀態插圖。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「清單」與「空狀態插圖」為台灣 UI 設計慣用語。\"\n    },\n    {\n      \"id\": \"blind-ui-0177\",\n      \"gemini_expected\": \"上傳進度條需要顯示剩餘時間。\",\n      \"acceptable\": [\n        \"上傳進度列需要顯示剩餘時間。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「上傳」、「進度條」（或進度列）與「剩餘時間」為標準臺灣翻譯。\"\n    },\n    {\n      \"id\": \"blind-ui-0178\",\n      \"gemini_expected\": \"請把批次操作工具列固定在表格上方。\",\n      \"acceptable\": [\n        \"請將批次操作工具列固定在表格上方。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「批次操作」及「工具列」為臺灣標準軟體用語。\"\n    },\n    {\n      \"id\": \"blind-ui-0179\",\n      \"gemini_expected\": \"切換分頁時不要重設篩選條件。\",\n      \"acceptable\": [\n        \"切換分頁標籤時不要重設篩選條件。\",\n        \"切換頁籤時不要重設篩選條件。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"Tab 常用「分頁」、「頁籤」或「分頁標籤」，重置在台灣常用「重設」。\"\n    },\n    {\n      \"id\": \"blind-ui-0180\",\n      \"gemini_expected\": \"通知抽屜關閉後應保留未讀狀態。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"通知抽屜與未讀狀態為標準臺灣 UI 說法。\"\n    },\n    {\n      \"id\": \"blind-ui-0181\",\n      \"gemini_expected\": \"麵包屑導覽的最後一層不需要連結。\",\n      \"acceptable\": [\n        \"麵包屑導航的最後一層不需要連結。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「麵包屑導覽」與「連結」為臺灣軟體 UI 慣用語。\"\n    },\n    {\n      \"id\": \"blind-ui-0182\",\n      \"gemini_expected\": \"確認對話方塊應明確列出將刪除的項目數。\",\n      \"acceptable\": [\n        \"確認對話框應明確列出將刪除的項目數。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"確認對話方塊（或對話框）與項目數皆為臺灣標準用語。\"\n    },\n    {\n      \"id\": \"blind-ui-0183\",\n      \"gemini_expected\": \"工具提示不應遮擋目前輸入框。\",\n      \"acceptable\": [\n        \"工具提示不應遮蔽目前輸入框。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「工具提示」、「目前」與「輸入框」為臺灣慣用詞。\"\n    },\n    {\n      \"id\": \"blind-ui-0184\",\n      \"gemini_expected\": \"表格凍結欄會在橫向捲動時保持可見。\",\n      \"acceptable\": [\n        \"表格固定欄會在橫向捲動時保持可見。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「列」在 Simplified Chinese 為 column，對應臺灣為「欄」。捲動為 scroll 標準翻譯。\"\n    },\n    {\n      \"id\": \"blind-ui-0185\",\n      \"gemini_expected\": \"請在成功送出後重設上傳區域。\",\n      \"acceptable\": [\n        \"請在成功提交後重設上傳區域。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「送出」（或提交）與「重設」符合臺灣常見 UI 文案。\"\n    },\n    {\n      \"id\": \"blind-ui-0186\",\n      \"gemini_expected\": \"篩選面板收合時仍要顯示已套用條件數。\",\n      \"acceptable\": [\n        \"篩選面板折疊時仍要顯示已套用條件數。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「篩選面板」、「收合」（或折疊）與「已套用條件數」符合臺灣用語。\"\n    },\n    {\n      \"id\": \"blind-ui-0187\",\n      \"gemini_expected\": \"卡片標題過長時應換行而不是截斷。\",\n      \"acceptable\": [\n        \"卡片標題過長時應換行而非截斷。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"卡片標題、換行與截斷為標準排版用語。\"\n    }\n  ]\n}",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 17,
+          "totalErrors": 0,
+          "totalLatencyMs": 84868
+        },
+        "tokens": {
+          "input": 107084,
+          "prompt": 548500,
+          "candidates": 2593,
+          "total": 561595,
+          "cached": 441416,
+          "thoughts": 10502,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 17,
+            "totalErrors": 0,
+            "totalLatencyMs": 84868,
+            "tokens": {
+              "input": 107084,
+              "prompt": 548500,
+              "candidates": 2593,
+              "total": 561595,
+              "cached": 441416,
+              "thoughts": 10502,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 16,
+      "totalSuccess": 15,
+      "totalFail": 1,
+      "totalDurationMs": 383,
+      "totalDecisions": {
+        "accept": 15,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {
+        "grep_search": {
+          "count": 8,
+          "success": 7,
+          "fail": 1,
+          "durationMs": 351,
+          "decisions": {
+            "accept": 7,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        },
+        "glob": {
+          "count": 4,
+          "success": 4,
+          "fail": 0,
+          "durationMs": 20,
+          "decisions": {
+            "accept": 4,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        },
+        "read_file": {
+          "count": 4,
+          "success": 4,
+          "fail": 0,
+          "durationMs": 12,
+          "decisions": {
+            "accept": 4,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        }
+      }
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

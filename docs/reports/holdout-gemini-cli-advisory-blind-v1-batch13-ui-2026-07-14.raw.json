@@ -1,0 +1,57 @@
+{
+  "session_id": "2ca1baa0-2b87-4f22-93df-53b20009cc7b",
+  "response": "```json\n{\n  \"cases\": [\n    {\n      \"id\": \"blind-ui-0223\",\n      \"gemini_expected\": \"搜尋框沒有結果時顯示空白狀態。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"標準用語轉換。\"\n    },\n    {\n      \"id\": \"blind-ui-0224\",\n      \"gemini_expected\": \"點擊篩選圖示可展開條件面板。\",\n      \"acceptable\": [\n        \"點擊篩選圖標可展開條件面板。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"在臺灣 UI 語境中，「圖示」比「圖標」更常用。\"\n    },\n    {\n      \"id\": \"blind-ui-0225\",\n      \"gemini_expected\": \"日期選擇器應支援鍵盤操作。\",\n      \"acceptable\": [\n        \"日期選擇器應支持鍵盤操作。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「支援」在技術文件中比「支持」更常用。\"\n    },\n    {\n      \"id\": \"blind-ui-0226\",\n      \"gemini_expected\": \"上傳失敗後保留已經選擇的檔案。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"在臺灣，「檔案」是比「文件」更常用來指電腦 file 的詞。\"\n    },\n    {\n      \"id\": \"blind-ui-0227\",\n      \"gemini_expected\": \"表單欄位錯誤時將焦點移至第一個問題。\",\n      \"acceptable\": [\n        \"表單欄位錯誤時將焦點移到第一個問題。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"在臺灣 UI 語境中，form field 通常翻譯為「欄位」而非「字段」。「移至」比「移到」更常用於書面。\"\n    },\n    {\n      \"id\": \"blind-ui-0228\",\n      \"gemini_expected\": \"切換深色模式後不要重設頁面位置。\",\n      \"acceptable\": [\n        \"切換深色模式後不要重置頁面位置。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"在臺灣 UI 語境中，「重設」比「重置」更常用。\"\n    },\n    {\n      \"id\": \"blind-ui-0229\",\n      \"gemini_expected\": \"通知中心按時間倒序顯示未讀訊息。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"在臺灣，「訊息」是比「消息」更常用來指 message 的詞。\"\n    },\n    {\n      \"id\": \"blind-ui-0230\",\n      \"gemini_expected\": \"刪除按鈕只在選取項目後啟用。\",\n      \"acceptable\": [\n        \"刪除按鈕只在選中項目後啟用。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"在臺灣 UI 操作中，「選取」比「選中」更常用。\"\n    },\n    {\n      \"id\": \"blind-ui-0231\",\n      \"gemini_expected\": \"側邊欄收合後仍顯示功能圖示。\",\n      \"acceptable\": [\n        \"側邊欄收起後仍顯示功能圖示。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"針對可伸縮的 UI 元素，「收合」是比「收起」更精確的翻譯。「圖示」為臺灣常用詞。\"\n    },\n    {\n      \"id\": \"blind-ui-0232\",\n      \"gemini_expected\": \"進度條完成時應向輔助技術傳送狀態更新。\",\n      \"acceptable\": [\n        \"進度條完成時應向輔助技術發送狀態更新。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「傳送」和「發送」皆可，前者在描述資料傳輸時很常見。\"\n    },\n    {\n      \"id\": \"blind-ui-0233\",\n      \"gemini_expected\": \"手機號碼輸入框不得自動加入空格。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"標準用語轉換。\"\n    },\n    {\n      \"id\": \"blind-ui-0234\",\n      \"gemini_expected\": \"下拉式選單開啟後高亮目前選項。\",\n      \"acceptable\": [\n        \"下拉列表開啟後高亮目前選項。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「下拉式選單」是 dropdown list 的標準說法。「目前」比「當前」更口語、常用。「高亮」為常用詞。\"\n    },\n    {\n      \"id\": \"blind-ui-0235\",\n      \"gemini_expected\": \"預覽區域應完整顯示檔案第一頁。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"在臺灣，「檔案」是比「文件」更常用來指電腦 file 的詞。\"\n    },\n    {\n      \"id\": \"blind-ui-0236\",\n      \"gemini_expected\": \"關閉彈出式視窗前提示尚未儲存的變更。\",\n      \"acceptable\": [\n        \"關閉彈窗前提示尚未儲存的變更。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「彈出式視窗」是 pop-up window 的標準說法。「儲存」為 save 的標準翻譯。「變更」為 changes 的標準翻譯。\"\n    },\n    {\n      \"id\": \"blind-ui-0237\",\n      \"gemini_expected\": \"分頁元件應保留使用者選擇的每頁筆數。\",\n      \"acceptable\": [\n        \"分頁組件應保留使用者選擇的每頁筆數。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"在臺灣，component 通常翻譯為「元件」。「使用者」比「用戶」更常用。\"\n    }\n  ]\n}\n```",
+  "stats": {
+    "models": {
+      "gemini-2.5-pro": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 191007
+        },
+        "tokens": {
+          "input": 10557,
+          "prompt": 10557,
+          "candidates": 1703,
+          "total": 15178,
+          "cached": 0,
+          "thoughts": 2918,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 191007,
+            "tokens": {
+              "input": 10557,
+              "prompt": 10557,
+              "candidates": 1703,
+              "total": 15178,
+              "cached": 0,
+              "thoughts": 2918,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

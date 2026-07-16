@@ -1,0 +1,998 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "review_stage": "maintainer_confirmation_packet",
+  "scope": "batch5_100_cases",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_diff_review": "docs/reports/holdout-codex-gemini-diff-review-blind-v1-batch5-100-cases-2026-07-09.json",
+  "summary": {
+    "total_review_cases": 50,
+    "difference_cases": 8,
+    "policy_review_cases": 42,
+    "no_immediate_question": 50,
+    "difference_recommendations": {
+      "gemini": 3,
+      "codex": 5
+    },
+    "by_domain": {
+      "it": 9,
+      "ui": 11,
+      "llm": 7,
+      "formal": 6,
+      "social": 7,
+      "high_risk": 10
+    },
+    "by_risk": {
+      "candidate_gap": 23,
+      "over_conversion_guard": 25,
+      "baseline_guard": 2
+    },
+    "by_policy_reason": {
+      "Codex confidence medium": 16,
+      "Gemini confidence medium": 4,
+      "over-conversion guard": 25,
+      "high-risk domain": 9
+    },
+    "zhtw_current_status_for_differences": {
+      "needs_followup_if_confirmed": 2,
+      "in_recommended_acceptable": 5,
+      "matches_recommended": 1
+    },
+    "promotion_allowed": false
+  },
+  "cases": [
+    {
+      "id": "blind-it-0089",
+      "kind": "exact_but_policy_review",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个 SDK 会缓存身份令牌并在过期前刷新。",
+      "zhtw_current": "這個 SDK 會快取身份權杖並在過期前刷新。",
+      "codex_expected": "這個 SDK 會快取身分權杖並在過期前重新整理。",
+      "gemini_expected": "這個 SDK 會快取身分權杖並在過期前重新整理。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "這個 SDK 會快取身分權杖並在過期前重新整理。",
+      "recommended_acceptable": [
+        "這個 SDK 會快取身分權杖並在過期前更新。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed",
+      "reason": "Codex confidence medium, Gemini confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-it-0091",
+      "kind": "exact_but_policy_review",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "服务发现组件会定期更新节点清单。",
+      "zhtw_current": "服務發現元件會定期更新節點清單。",
+      "codex_expected": "服務探索元件會定期更新節點清單。",
+      "gemini_expected": "服務探索元件會定期更新節點清單。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "服務探索元件會定期更新節點清單。",
+      "recommended_acceptable": [
+        "服務發現元件會定期更新節點清單。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "Codex confidence medium, Gemini confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-it-0094",
+      "kind": "difference",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请在迁移脚本里新增回滚步骤。",
+      "zhtw_current": "請在遷移指令碼裡新增回滾步驟。",
+      "codex_expected": "請在移轉指令碼裡新增復原步驟。",
+      "gemini_expected": "請在遷移指令碼裡新增復原步驟。",
+      "recommendation": "gemini",
+      "recommended_expected": "請在遷移指令碼裡新增復原步驟。",
+      "recommended_acceptable": [
+        "請在移轉指令碼裡新增復原步驟。",
+        "請在遷移腳本裡新增復原步驟。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed",
+      "reason": "Gemini uses the recent holdout style for engineering migration as 「遷移指令碼」; both AI reviewers prefer 「復原步驟」 over current zhtw 「回滾步驟」 for this deployment rollback context.",
+      "maintainer_action": "confirm_or_edit"
+    },
+    {
+      "id": "blind-it-0102",
+      "kind": "exact_but_policy_review",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请把静态资源上传到对象存储桶。",
+      "zhtw_current": "請把靜態資源上傳到物件儲存桶。",
+      "codex_expected": "請把靜態資源上傳到物件儲存桶。",
+      "gemini_expected": "請把靜態資源上傳到物件儲存桶。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "請把靜態資源上傳到物件儲存桶。",
+      "recommended_acceptable": [
+        "請把靜態資源上傳到物件儲存體。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "Codex confidence medium, Gemini confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-it-0105",
+      "kind": "exact_but_policy_review",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "容器启动前会先挂载配置卷。",
+      "zhtw_current": "容器啟動前會先掛載配置卷。",
+      "codex_expected": "容器啟動前會先掛載設定磁碟區。",
+      "gemini_expected": "容器啟動前會先掛載設定磁碟區。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "容器啟動前會先掛載設定磁碟區。",
+      "recommended_acceptable": [
+        "容器啟動前會先掛載設定卷。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed",
+      "reason": "Codex confidence medium, Gemini confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-it-0106",
+      "kind": "exact_but_policy_review",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "日志中的 TaipeiService 标识必须保持原样。",
+      "zhtw_current": "日誌中的 TaipeiService 標識必須保持原樣。",
+      "codex_expected": "日誌中的 TaipeiService 識別碼必須保持原樣。",
+      "gemini_expected": "日誌中的 TaipeiService 識別碼必須保持原樣。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "日誌中的 TaipeiService 識別碼必須保持原樣。",
+      "recommended_acceptable": [
+        "日誌中的 TaipeiService 識別必須保持原樣。",
+        "日誌中的 TaipeiService 標識必須保持原樣。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-it-0107",
+      "kind": "exact_but_policy_review",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "请不要翻译 README 里的 CloudToken 参数名。",
+      "zhtw_current": "請不要翻譯 README 裡的 CloudToken 參數名。",
+      "codex_expected": "請不要翻譯 README 裡的 CloudToken 參數名稱。",
+      "gemini_expected": "請不要翻譯 README 裡的 CloudToken 參數名稱。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "請不要翻譯 README 裡的 CloudToken 參數名稱。",
+      "recommended_acceptable": [
+        "請不要翻譯 README 裡的 CloudToken 參數名。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-it-0108",
+      "kind": "exact_but_policy_review",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "错误样本里的台北节点名称不应改写。",
+      "zhtw_current": "錯誤樣本裡的臺北節點名稱不應改寫。",
+      "codex_expected": "錯誤樣本裡的台北節點名稱不應改寫。",
+      "gemini_expected": "錯誤樣本裡的台北節點名稱不應改寫。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "錯誤樣本裡的台北節點名稱不應改寫。",
+      "recommended_acceptable": [
+        "錯誤樣本裡的台北節點名稱不應修改。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-it-0109",
+      "kind": "exact_but_policy_review",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "配置文件中的 zh_TW_locale 键必须保留。",
+      "zhtw_current": "設定檔中的 zh_TW_locale 鍵必須保留。",
+      "codex_expected": "設定檔中的 zh_TW_locale 鍵必須保留。",
+      "gemini_expected": "設定檔中的 zh_TW_locale 鍵必須保留。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "設定檔中的 zh_TW_locale 鍵必須保留。",
+      "recommended_acceptable": [
+        "設定檔中的 zh_TW_locale 鍵必須保留。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-ui-0068",
+      "kind": "difference",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "设置页面会显示当前订阅方案。",
+      "zhtw_current": "設定頁面會顯示當前訂閱方案。",
+      "codex_expected": "設定頁面會顯示目前訂閱方案。",
+      "gemini_expected": "設定頁面會顯示當前訂閱方案。",
+      "recommendation": "codex",
+      "recommended_expected": "設定頁面會顯示目前訂閱方案。",
+      "recommended_acceptable": [
+        "設定頁面會顯示當前訂閱方案。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "Prefer Taiwan UI wording 「目前」 for current subscription plan; 「當前」 is understandable but less idiomatic for this product UI sentence.",
+      "maintainer_action": "confirm_or_edit"
+    },
+    {
+      "id": "blind-ui-0069",
+      "kind": "difference",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "点击重试按钮后会重新加载列表。",
+      "zhtw_current": "點擊重試按鈕後會重新載入清單。",
+      "codex_expected": "點選重試按鈕後會重新載入清單。",
+      "gemini_expected": "點擊重試按鈕後會重新載入清單。",
+      "recommendation": "codex",
+      "recommended_expected": "點選重試按鈕後會重新載入清單。",
+      "recommended_acceptable": [
+        "點擊重試按鈕後會重新載入清單。",
+        "點擊重試按鈕後會重新載入列表。",
+        "點選重試按鈕後會重新載入列表。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "For direct UI control interaction, prior holdout notes prefer 「點選」 as primary while 「點擊」 remains a valid acceptable variant.",
+      "maintainer_action": "confirm_or_edit"
+    },
+    {
+      "id": "blind-ui-0073",
+      "kind": "exact_but_policy_review",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "分页控件会显示总页数。",
+      "zhtw_current": "分頁控制元件會顯示總頁數。",
+      "codex_expected": "分頁控制項會顯示總頁數。",
+      "gemini_expected": "分頁控制項會顯示總頁數。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "分頁控制項會顯示總頁數。",
+      "recommended_acceptable": [
+        "分頁元件會顯示總頁數。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed",
+      "reason": "Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-ui-0074",
+      "kind": "difference",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "拖动列标题可以调整显示顺序。",
+      "zhtw_current": "拖動列標題可以調整顯示順序。",
+      "codex_expected": "拖曳欄標題可以調整顯示順序。",
+      "gemini_expected": "拖曳欄位標題可以調整顯示順序。",
+      "recommendation": "gemini",
+      "recommended_expected": "拖曳欄位標題可以調整顯示順序。",
+      "recommended_acceptable": [
+        "拖曳欄標題可以調整顯示順序。",
+        "拖曳列標題可以調整顯示順序。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed",
+      "reason": "「欄位標題」 is clearer for a table column header than the shorter 「欄標題」.",
+      "maintainer_action": "confirm_or_edit"
+    },
+    {
+      "id": "blind-ui-0077",
+      "kind": "difference",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "用户可以在侧边栏固定常用项目。",
+      "zhtw_current": "使用者可以在側邊欄固定常用項目。",
+      "codex_expected": "使用者可以在側邊欄釘選常用項目。",
+      "gemini_expected": "使用者可以在側邊欄固定常用項目。",
+      "recommendation": "codex",
+      "recommended_expected": "使用者可以在側邊欄釘選常用項目。",
+      "recommended_acceptable": [
+        "使用者可以在側邊欄固定常用項目。",
+        "用戶可以在側邊欄固定常用項目。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "Sidebar favorites are usually pinned in UI copy; existing regression style uses 「釘選」 for this concept.",
+      "maintainer_action": "confirm_or_edit"
+    },
+    {
+      "id": "blind-ui-0080",
+      "kind": "exact_but_policy_review",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "按钮标签里的 Taiwan Pass 不要翻译。",
+      "zhtw_current": "按鈕標籤裡的 Taiwan Pass 不要翻譯。",
+      "codex_expected": "按鈕標籤裡的 Taiwan Pass 不要翻譯。",
+      "gemini_expected": "按鈕標籤裡的 Taiwan Pass 不要翻譯。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "按鈕標籤裡的 Taiwan Pass 不要翻譯。",
+      "recommended_acceptable": [
+        "按鈕標籤中的 Taiwan Pass 不要翻譯。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-ui-0081",
+      "kind": "exact_but_policy_review",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "示例账号 TaipeiAdmin 必须维持原样。",
+      "zhtw_current": "示例帳號 TaipeiAdmin 必須維持原樣。",
+      "codex_expected": "範例帳號 TaipeiAdmin 必須維持原樣。",
+      "gemini_expected": "範例帳號 TaipeiAdmin 必須維持原樣。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "範例帳號 TaipeiAdmin 必須維持原樣。",
+      "recommended_acceptable": [
+        "範例帳號 TaipeiAdmin 必須維持原貌。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-ui-0082",
+      "kind": "exact_but_policy_review",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "占位符里的 user_name 变量不应转换。",
+      "zhtw_current": "佔位符裡的 user_name 變數不應轉換。",
+      "codex_expected": "預留位置裡的 user_name 變數不應轉換。",
+      "gemini_expected": "預留位置裡的 user_name 變數不應轉換。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "預留位置裡的 user_name 變數不應轉換。",
+      "recommended_acceptable": [
+        "預留位置中的 user_name 變數不應轉換。",
+        "佔位符裡的 user_name 變數不應轉換。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-ui-0083",
+      "kind": "exact_but_policy_review",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "页面标题中的台中活动保持原文。",
+      "zhtw_current": "頁面標題中的臺中活動保持原文。",
+      "codex_expected": "頁面標題中的台中活動保持原文。",
+      "gemini_expected": "頁面標題中的台中活動保持原文。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "頁面標題中的台中活動保持原文。",
+      "recommended_acceptable": [
+        "頁面標題中的臺中活動保持原文。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-ui-0084",
+      "kind": "exact_but_policy_review",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "请保留按钮上的 Beta 字样。",
+      "zhtw_current": "請保留按鈕上的 Beta 字樣。",
+      "codex_expected": "請保留按鈕上的 Beta 字樣。",
+      "gemini_expected": "請保留按鈕上的 Beta 字樣。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "請保留按鈕上的 Beta 字樣。",
+      "recommended_acceptable": [
+        "請保留按鈕上的 Beta 字樣。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-ui-0087",
+      "kind": "exact_but_policy_review",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "二维码失效后会显示提示文字。",
+      "zhtw_current": "QR Code失效後會顯示提示文字。",
+      "codex_expected": "QR Code 失效後會顯示提示文字。",
+      "gemini_expected": "QR Code 失效後會顯示提示文字。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "QR Code 失效後會顯示提示文字。",
+      "recommended_acceptable": [
+        "二維條碼失效後會顯示提示文字。",
+        "二維碼失效後會顯示提示文字。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed",
+      "reason": "Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-llm-0049",
+      "kind": "exact_but_policy_review",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请让助理用条列方式回答问题。",
+      "zhtw_current": "請讓助理用條列方式回答問題。",
+      "codex_expected": "請讓助理用條列方式回答問題。",
+      "gemini_expected": "請讓助理用條列方式回答問題。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "請讓助理用條列方式回答問題。",
+      "recommended_acceptable": [],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-llm-0051",
+      "kind": "exact_but_policy_review",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "这个代理会读取工具返回的 JSON 结果。",
+      "zhtw_current": "這個代理會讀取工具返回的 JSON 結果。",
+      "codex_expected": "這個代理會讀取工具回傳的 JSON 結果。",
+      "gemini_expected": "這個代理會讀取工具回傳的 JSON 結果。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "這個代理會讀取工具回傳的 JSON 結果。",
+      "recommended_acceptable": [
+        "這個代理會讀取工具傳回的 JSON 結果。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed",
+      "reason": "Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-llm-0055",
+      "kind": "difference",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "聊天记录会保留最近五轮对话。",
+      "zhtw_current": "聊天記錄會保留最近五輪對話。",
+      "codex_expected": "聊天紀錄會保留最近五輪對話。",
+      "gemini_expected": "聊天記錄會保留最近五輪對話。",
+      "recommendation": "gemini",
+      "recommended_expected": "聊天記錄會保留最近五輪對話。",
+      "recommended_acceptable": [
+        "聊天紀錄會保留最近五輪對話。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "Messaging-app copy commonly uses 「聊天記錄」; 「聊天紀錄」 can remain an acceptable stylistic variant.",
+      "maintainer_action": "confirm_or_edit"
+    },
+    {
+      "id": "blind-llm-0057",
+      "kind": "exact_but_policy_review",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "提示词里的 TaipeiBot 名称不得改写。",
+      "zhtw_current": "提示詞裡的 TaipeiBot 名稱不得改寫。",
+      "codex_expected": "提示詞裡的 TaipeiBot 名稱不得改寫。",
+      "gemini_expected": "提示詞裡的 TaipeiBot 名稱不得改寫。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "提示詞裡的 TaipeiBot 名稱不得改寫。",
+      "recommended_acceptable": [
+        "提示詞中的 TaipeiBot 名稱不得改寫。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-llm-0058",
+      "kind": "exact_but_policy_review",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "请保留 Markdown 表格中的 zhTW 字段。",
+      "zhtw_current": "請保留 Markdown 表格中的 zhTW 欄位。",
+      "codex_expected": "請保留 Markdown 表格中的 zhTW 欄位。",
+      "gemini_expected": "請保留 Markdown 表格中的 zhTW 欄位。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "請保留 Markdown 表格中的 zhTW 欄位。",
+      "recommended_acceptable": [],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-llm-0059",
+      "kind": "exact_but_policy_review",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "引用标题里的台湾 AI 年会保持原样。",
+      "zhtw_current": "引用標題裡的臺灣 AI 年會保持原樣。",
+      "codex_expected": "引用標題裡的台灣 AI 年會保持原樣。",
+      "gemini_expected": "引用標題裡的台灣 AI 年會保持原樣。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "引用標題裡的台灣 AI 年會保持原樣。",
+      "recommended_acceptable": [
+        "引用標題裡的臺灣 AI 年會保持原樣。",
+        "引用標題中的台灣 AI 年會保持原樣。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-llm-0060",
+      "kind": "exact_but_policy_review",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "变量 assistant_name 不应该被翻译。",
+      "zhtw_current": "變數 assistant_name 不應該被翻譯。",
+      "codex_expected": "變數 assistant_name 不應該被翻譯。",
+      "gemini_expected": "變數 assistant_name 不應該被翻譯。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "變數 assistant_name 不應該被翻譯。",
+      "recommended_acceptable": [
+        "變數 assistant_name 不應被翻譯。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-formal-0050",
+      "kind": "exact_but_policy_review",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "申请文件须附最近三个月的缴费证明。",
+      "zhtw_current": "申請文件須附最近三個月的繳費證明。",
+      "codex_expected": "申請文件須附最近三個月的繳費證明。",
+      "gemini_expected": "申請文件須附最近三個月的繳費證明。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "申請文件須附最近三個月的繳費證明。",
+      "recommended_acceptable": [
+        "申請文件需附最近三個月的繳費證明。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-formal-0055",
+      "kind": "exact_but_policy_review",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "调查报告建议提高资料保存年限。",
+      "zhtw_current": "調查報告建議提高資料保存年限。",
+      "codex_expected": "調查報告建議提高資料保存年限。",
+      "gemini_expected": "調查報告建議提高資料保存年限。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "調查報告建議提高資料保存年限。",
+      "recommended_acceptable": [
+        "調查報告建議提高數據保存年限。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-formal-0057",
+      "kind": "exact_but_policy_review",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "附件中的 Taipei Office 名称不得翻译。",
+      "zhtw_current": "附件中的 Taipei Office 名稱不得翻譯。",
+      "codex_expected": "附件中的 Taipei Office 名稱不得翻譯。",
+      "gemini_expected": "附件中的 Taipei Office 名稱不得翻譯。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "附件中的 Taipei Office 名稱不得翻譯。",
+      "recommended_acceptable": [],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-formal-0058",
+      "kind": "exact_but_policy_review",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "法规标题中的台湾关系法保持原文。",
+      "zhtw_current": "法規標題中的臺灣關係法保持原文。",
+      "codex_expected": "法規標題中的台灣關係法保持原文。",
+      "gemini_expected": "法規標題中的台灣關係法保持原文。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "法規標題中的台灣關係法保持原文。",
+      "recommended_acceptable": [
+        "法規標題中的臺灣關係法保持原文。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-formal-0059",
+      "kind": "exact_but_policy_review",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "请保留公告里的 Taichung Branch 英文名称。",
+      "zhtw_current": "請保留公告裡的 Taichung Branch 英文名稱。",
+      "codex_expected": "請保留公告裡的 Taichung Branch 英文名稱。",
+      "gemini_expected": "請保留公告裡的 Taichung Branch 英文名稱。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "請保留公告裡的 Taichung Branch 英文名稱。",
+      "recommended_acceptable": [],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-formal-0060",
+      "kind": "exact_but_policy_review",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "会议纪录中的 #台北专案 标签不应改写。",
+      "zhtw_current": "會議紀錄中的 #臺北專案 標籤不應改寫。",
+      "codex_expected": "會議紀錄中的 #台北專案 標籤不應改寫。",
+      "gemini_expected": "會議紀錄中的 #台北專案 標籤不應改寫。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "會議紀錄中的 #台北專案 標籤不應改寫。",
+      "recommended_acceptable": [
+        "會議紀錄中的 #臺北專案 標籤不應改寫。",
+        "會議記錄中的 #台北專案 標籤不應改寫。",
+        "會議記錄中的 #臺北專案 標籤不應改寫。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-social-0049",
+      "kind": "exact_but_policy_review",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "我晚点再把订位信息传给你。",
+      "zhtw_current": "我晚點再把訂位資訊傳給你。",
+      "codex_expected": "我晚點再把訂位資訊傳給你。",
+      "gemini_expected": "我晚點再把訂位資訊傳給你。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "我晚點再把訂位資訊傳給你。",
+      "recommended_acceptable": [
+        "我晚點再把訂位訊息傳給你。",
+        "我晚一點再把訂位資訊傳給你。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-social-0052",
+      "kind": "difference",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "朋友说这部剧的结局很催泪。",
+      "zhtw_current": "朋友說這部劇的結局很催淚。",
+      "codex_expected": "朋友說這部影集的結局很催淚。",
+      "gemini_expected": "朋友說這部劇的結局很催淚。",
+      "recommendation": "codex",
+      "recommended_expected": "朋友說這部影集的結局很催淚。",
+      "recommended_acceptable": [
+        "朋友說這部劇的結局很催淚。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "Existing social regression for 「這部劇」 in streaming context promotes 「這部影集」 as the primary Taiwan wording, with 「這部劇」 acceptable in colloquial use.",
+      "maintainer_action": "confirm_or_edit"
+    },
+    {
+      "id": "blind-social-0056",
+      "kind": "exact_but_policy_review",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "这条动态的留言已经关闭。",
+      "zhtw_current": "這條動態的留言已經關閉。",
+      "codex_expected": "這則動態的留言已經關閉。",
+      "gemini_expected": "這則動態的留言已經關閉。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "這則動態的留言已經關閉。",
+      "recommended_acceptable": [
+        "這篇動態的留言已經關閉。",
+        "這條動態的留言已經關閉。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-social-0057",
+      "kind": "exact_but_policy_review",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "照片说明里的台南小吃保持原样。",
+      "zhtw_current": "照片說明裡的臺南小吃保持原樣。",
+      "codex_expected": "照片說明裡的台南小吃保持原樣。",
+      "gemini_expected": "照片說明裡的台南小吃保持原樣。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "照片說明裡的台南小吃保持原樣。",
+      "recommended_acceptable": [
+        "照片說明裡的臺南小吃保持原樣。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-social-0058",
+      "kind": "exact_but_policy_review",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "昵称 TaipeiWalker 不要自动翻译。",
+      "zhtw_current": "暱稱 TaipeiWalker 不要自動翻譯。",
+      "codex_expected": "暱稱 TaipeiWalker 不要自動翻譯。",
+      "gemini_expected": "暱稱 TaipeiWalker 不要自動翻譯。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "暱稱 TaipeiWalker 不要自動翻譯。",
+      "recommended_acceptable": [],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-social-0059",
+      "kind": "exact_but_policy_review",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "请保留朋友写的 Happy Taiwan Day。",
+      "zhtw_current": "請保留朋友寫的 Happy Taiwan Day。",
+      "codex_expected": "請保留朋友寫的 Happy Taiwan Day。",
+      "gemini_expected": "請保留朋友寫的 Happy Taiwan Day。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "請保留朋友寫的 Happy Taiwan Day。",
+      "recommended_acceptable": [],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-social-0060",
+      "kind": "exact_but_policy_review",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "标签 #台湾旅行 不要被改成其他词。",
+      "zhtw_current": "標籤 #臺灣旅行 不要被改成其他詞。",
+      "codex_expected": "標籤 #台灣旅行 不要被改成其他詞。",
+      "gemini_expected": "標籤 #台灣旅行 不要被改成其他詞。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "標籤 #台灣旅行 不要被改成其他詞。",
+      "recommended_acceptable": [
+        "標籤 #臺灣旅行 不要被改成其他詞。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-high-risk-0031",
+      "kind": "difference",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "医师应向患者说明手术风险和替代方案。",
+      "zhtw_current": "醫師應向患者說明手術風險和替代方案。",
+      "codex_expected": "醫師應向病患說明手術風險和替代方案。",
+      "gemini_expected": "醫師應向患者說明手術風險和替代方案。",
+      "recommendation": "codex",
+      "recommended_expected": "醫師應向病患說明手術風險和替代方案。",
+      "recommended_acceptable": [
+        "醫師應向患者說明手術風險和替代方案。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable",
+      "reason": "Prior high-risk holdout decisions prefer Taiwan medical wording 「病患」 as primary; 「患者」 remains acceptable but should not be the primary expected without maintainer approval.",
+      "maintainer_action": "confirm_or_edit"
+    },
+    {
+      "id": "blind-high-risk-0032",
+      "kind": "exact_but_policy_review",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "保险公司须在期限内回复理赔申请。",
+      "zhtw_current": "保險公司須在期限內回覆理賠申請。",
+      "codex_expected": "保險公司須在期限內回覆理賠申請。",
+      "gemini_expected": "保險公司須在期限內回覆理賠申請。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "保險公司須在期限內回覆理賠申請。",
+      "recommended_acceptable": [
+        "保險公司需在期限內回覆理賠申請。",
+        "保險公司須在期限內答覆理賠申請。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "high-risk domain",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-high-risk-0033",
+      "kind": "exact_but_policy_review",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "银行不得在未告知前提下调整手续费。",
+      "zhtw_current": "銀行不得在未告知前提下調整手續費。",
+      "codex_expected": "銀行不得在未告知前提下調整手續費。",
+      "gemini_expected": "銀行不得在未告知前提下調整手續費。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "銀行不得在未告知前提下調整手續費。",
+      "recommended_acceptable": [
+        "銀行不得在未告知情況下調整手續費。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "high-risk domain, Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-high-risk-0034",
+      "kind": "exact_but_policy_review",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "契约解除通知应以书面送达。",
+      "zhtw_current": "契約解除通知應以書面送達。",
+      "codex_expected": "契約解除通知應以書面送達。",
+      "gemini_expected": "契約解除通知應以書面送達。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "契約解除通知應以書面送達。",
+      "recommended_acceptable": [],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "high-risk domain",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-high-risk-0035",
+      "kind": "exact_but_policy_review",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "药品说明应列明常见副作用。",
+      "zhtw_current": "藥品說明應列明常見副作用。",
+      "codex_expected": "藥品說明應列明常見副作用。",
+      "gemini_expected": "藥品說明應列明常見副作用。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "藥品說明應列明常見副作用。",
+      "recommended_acceptable": [
+        "藥品說明應載明常見副作用。",
+        "藥品說明應標明常見副作用。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "high-risk domain, Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-high-risk-0036",
+      "kind": "exact_but_policy_review",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "病例编号 TW-Clinic-01 不得自动转换。",
+      "zhtw_current": "病例編號 TW-Clinic-01 不得自動轉換。",
+      "codex_expected": "病例編號 TW-Clinic-01 不得自動轉換。",
+      "gemini_expected": "病例編號 TW-Clinic-01 不得自動轉換。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "病例編號 TW-Clinic-01 不得自動轉換。",
+      "recommended_acceptable": [
+        "病歷編號 TW-Clinic-01 不得自動轉換。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "high-risk domain, over-conversion guard, Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-high-risk-0037",
+      "kind": "exact_but_policy_review",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "契约中的 Taipei Holdings 名称应保持原样。",
+      "zhtw_current": "契約中的 Taipei Holdings 名稱應保持原樣。",
+      "codex_expected": "契約中的 Taipei Holdings 名稱應保持原樣。",
+      "gemini_expected": "契約中的 Taipei Holdings 名稱應保持原樣。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "契約中的 Taipei Holdings 名稱應保持原樣。",
+      "recommended_acceptable": [
+        "契約中的 Taipei Holdings 名稱應保持原貌。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "high-risk domain, over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-high-risk-0038",
+      "kind": "exact_but_policy_review",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "汇款附言里的 Taiwan Relief Fund 不需翻译。",
+      "zhtw_current": "匯款附言裡的 Taiwan Relief Fund 不需翻譯。",
+      "codex_expected": "匯款附言裡的 Taiwan Relief Fund 不需翻譯。",
+      "gemini_expected": "匯款附言裡的 Taiwan Relief Fund 不需翻譯。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "匯款附言裡的 Taiwan Relief Fund 不需翻譯。",
+      "recommended_acceptable": [
+        "匯款備註裡的 Taiwan Relief Fund 不需翻譯。",
+        "匯款留言裡的 Taiwan Relief Fund 不需翻譯。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "high-risk domain, over-conversion guard",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-high-risk-0039",
+      "kind": "exact_but_policy_review",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "病历附件里的台北院区代码不可改写。",
+      "zhtw_current": "病歷附件裡的臺北院區程式碼不可改寫。",
+      "codex_expected": "病歷附件裡的台北院區代碼不可改寫。",
+      "gemini_expected": "病歷附件裡的台北院區代碼不可改寫。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "病歷附件裡的台北院區代碼不可改寫。",
+      "recommended_acceptable": [
+        "病歷附件裡的臺北院區代碼不可改寫。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed",
+      "reason": "high-risk domain, over-conversion guard, Codex confidence medium",
+      "maintainer_action": "quick_confirm_or_edit"
+    },
+    {
+      "id": "blind-high-risk-0040",
+      "kind": "exact_but_policy_review",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "input": "申请人应亲自签署授权书。",
+      "zhtw_current": "申請人應親自簽署授權書。",
+      "codex_expected": "申請人應親自簽署授權書。",
+      "gemini_expected": "申請人應親自簽署授權書。",
+      "recommendation": "codex_gemini_match",
+      "recommended_expected": "申請人應親自簽署授權書。",
+      "recommended_acceptable": [],
+      "zhtw_current_status_vs_recommendation": "matches_recommended",
+      "reason": "high-risk domain",
+      "maintainer_action": "quick_confirm_or_edit"
+    }
+  ],
+  "no_immediate_question_case_ids": [
+    "blind-it-0088",
+    "blind-it-0090",
+    "blind-it-0092",
+    "blind-it-0093",
+    "blind-it-0095",
+    "blind-it-0096",
+    "blind-it-0097",
+    "blind-it-0098",
+    "blind-it-0099",
+    "blind-it-0100",
+    "blind-it-0101",
+    "blind-it-0103",
+    "blind-it-0104",
+    "blind-it-0110",
+    "blind-it-0111",
+    "blind-it-0112",
+    "blind-ui-0070",
+    "blind-ui-0071",
+    "blind-ui-0072",
+    "blind-ui-0075",
+    "blind-ui-0076",
+    "blind-ui-0078",
+    "blind-ui-0079",
+    "blind-ui-0085",
+    "blind-ui-0086",
+    "blind-llm-0048",
+    "blind-llm-0050",
+    "blind-llm-0052",
+    "blind-llm-0053",
+    "blind-llm-0054",
+    "blind-llm-0056",
+    "blind-llm-0061",
+    "blind-llm-0062",
+    "blind-formal-0049",
+    "blind-formal-0051",
+    "blind-formal-0052",
+    "blind-formal-0053",
+    "blind-formal-0054",
+    "blind-formal-0056",
+    "blind-formal-0061",
+    "blind-formal-0062",
+    "blind-formal-0063",
+    "blind-social-0050",
+    "blind-social-0051",
+    "blind-social-0053",
+    "blind-social-0054",
+    "blind-social-0055",
+    "blind-social-0061",
+    "blind-social-0062",
+    "blind-social-0063"
+  ]
+}

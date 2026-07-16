@@ -54,7 +54,7 @@ Generic converters over-translate and silently corrupt words that were already c
 
 | | |
 |------|------|
-| **Zero false positives** | 31,000+ curated terms + 6,360 character mappings, verified against 52 books / 100M characters with zero mis-conversions |
+| **Low-misconversion priority** | 31,000+ curated terms + 6,360 character mappings; no mis-conversion observed in the designated 52-book / 100M-character corpus |
 | **Fast scans** | Sustained 3,100 KB/s throughput; 1 MB of text in under a second |
 | **Fully offline** | Nothing leaves your machine — safe for enterprise intranets |
 | **CI-ready** | One line to add it to GitHub Actions; PRs get checked automatically |
@@ -71,8 +71,35 @@ OpenCC is a general-purpose Simplified/Traditional conversion framework that app
 | **Strategy** | Full character + phrase substitution | Vocabulary first, character layer as fallback |
 | **Ambiguity** | Rule ordering | 102 ambiguous chars, tiered management + balanced mode disambiguation |
 | **Dictionary** | Built-in char table + phrase list | 31,000+ curated Taiwan-specific terms |
-| **Mis-conversions** | Common cases like `权限 → 許可權` | Zero across 52 books / 100M chars |
+| **Mis-conversions** | Common cases like `权限 → 許可權` | None observed in the designated 52-book / 100M-character corpus |
 | **Ecosystem** | C++ core with multi-language bindings | CLI + Python/Java/TS/Rust/Go/C# SDK + pre-commit |
+
+#### Precision Cases
+
+The cases below come from the 2026-07-03 competitor-diff run over 500 curated corpus samples. Result: `candidate_gap = 0`, `zhtw_advantage = 308`. In this sample, no competitor matched the human expected output while ZHTW missed it; the differences mostly show generic converters over-converting or keeping Mainland terms.
+
+On the latest like-for-like private set, v4.4.1 accepted 951/1,008 cases and the
+current dictionary accepts 955/1,008: a net gain of four with no accepted-case
+regression (about +0.40 percentage points). The 369 exact-sentence mappings are
+conservative protection for known public regressions and are not counted as
+fresh-blind generalization. These results do not establish a market-best claim.
+
+| Input | Generic-converter risk | ZHTW |
+|-------|------------------------|------|
+| 写程序前先看法律程序 | 寫程式前先看法律程式 | 寫程式前先看法律程序 |
+| 政府发布官方文件 | 政府釋出官方檔案 | 政府發布官方文件 |
+| 保存文化遗产 | 儲存文化遺產 | 保存文化遺產 |
+| 他的结婚对象很温柔 | 他的結婚物件很溫柔 | 他的結婚對象很溫柔 |
+| 注销账户不是注销公司 | 登出賬戶不是登出公司 / 註銷帳戶不是註銷公司 | 登出帳戶不是註銷公司 |
+| 通过异步回调来处理网络请求 | 通過異步回調來處理網絡請求 | 透過非同步回呼來處理網路請求 |
+| 服务器证书即将过期 | 伺服器證書即將過期 | 伺服器憑證即將過期 |
+| 后端服务返回状态码 | 後端服務返回狀態碼 | 後端服務回傳狀態碼 |
+| 这个函数会抛出异常 | 這個函數會拋出異常 | 這個函式會拋出例外 |
+| 撤销操作成功 | 撤銷操作成功 | 復原操作成功 |
+| 评论区有人分享链接 | 評論區有人分享連結 | 留言區有人分享連結 |
+| 台积电宣布扩大先进制程投资 | 臺積電宣布擴大先進位程投資 | 台積電宣布擴大先進製程投資 |
+
+Full reports: `docs/reports/competitor-diffs-full-2026-07-03.md` and `docs/reports/competitor-advantage-review-2026-07-03.md`.
 
 Want to see more side-by-side cases? Run `zhtw lookup 权限 服务器 用户`.
 <!-- zhtw:enable -->

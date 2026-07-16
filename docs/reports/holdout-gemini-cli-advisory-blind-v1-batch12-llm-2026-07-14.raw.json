@@ -1,0 +1,57 @@
+{
+  "session_id": "098c5dac-b058-4243-a0bf-2e1f4a6d5027",
+  "response": "```json\n{\n  \"cases\": [\n    {\n      \"id\": \"blind-llm-0153\",\n      \"gemini_expected\": \"代理在執行工具前應檢查參數是否完整。\",\n      \"acceptable\": [\n        \"代理執行工具前應檢查參數是否完整。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"語意通順，詞彙轉換自然。\"\n    },\n    {\n      \"id\": \"blind-llm-0154\",\n      \"gemini_expected\": \"檢索結果應附上來源片段與文件編號。\",\n      \"acceptable\": [\n        \"檢索結果應附加來源片段與文件編號。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"語意通順，詞彙轉換自然。\"\n    },\n    {\n      \"id\": \"blind-llm-0155\",\n      \"gemini_expected\": \"模型輸出被截斷時應標記為未完成狀態。\",\n      \"acceptable\": [\n        \"模型輸出被截斷時應標記未完成狀態。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"語意通順，詞彙轉換自然。\"\n    },\n    {\n      \"id\": \"blind-llm-0156\",\n      \"gemini_expected\": \"評測腳本必須區分拒答與空白回答。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"語意通順，詞彙轉換自然。\"\n    },\n    {\n      \"id\": \"blind-llm-0157\",\n      \"gemini_expected\": \"系統提示更新後應重新執行安全測試。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"語意通順，詞彙轉換自然。\"\n    },\n    {\n      \"id\": \"blind-llm-0158\",\n      \"gemini_expected\": \"工具名稱 web.run 不得在地化。\",\n      \"acceptable\": [\n        \"工具名稱 web.run 不得本地化。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"在地化為臺灣常用詞。\"\n    },\n    {\n      \"id\": \"blind-llm-0159\",\n      \"gemini_expected\": \"對話中的角色 assistant 必須保持英文。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"語意通順，詞彙轉換自然。\"\n    },\n    {\n      \"id\": \"blind-llm-0160\",\n      \"gemini_expected\": \"引用標記 [source:3] 應原樣保留。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"語意通順，詞彙轉換自然。\"\n    },\n    {\n      \"id\": \"blind-llm-0161\",\n      \"gemini_expected\": \"摘要後面只附一行風險說明。\",\n      \"acceptable\": [\n        \"摘要後方只附一行風險說明。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"語意通順，詞彙轉換自然。\"\n    },\n    {\n      \"id\": \"blind-llm-0162\",\n      \"gemini_expected\": \"模型回應已通過人工複核。\",\n      \"acceptable\": [\n        \"模型回應已通過人工審核。\",\n        \"模型回應已通過人工審閱。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"語意通順，詞彙轉換自然。\"\n    }\n  ]\n}\n```",
+  "stats": {
+    "models": {
+      "gemini-2.5-pro": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 32058
+        },
+        "tokens": {
+          "input": 10498,
+          "prompt": 10498,
+          "candidates": 1024,
+          "total": 14410,
+          "cached": 0,
+          "thoughts": 2888,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 32058,
+            "tokens": {
+              "input": 10498,
+              "prompt": 10498,
+              "candidates": 1024,
+              "total": 14410,
+              "cached": 0,
+              "thoughts": 2888,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

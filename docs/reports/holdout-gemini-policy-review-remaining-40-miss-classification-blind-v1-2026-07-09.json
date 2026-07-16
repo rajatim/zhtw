@@ -1,0 +1,69 @@
+{
+  "report_type": "holdout_gemini_policy_review_remaining_40_miss_classification",
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "reviewer": "gemini_vertex",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "review_stage": "sanitized_remaining_40_miss_classification_policy_review",
+  "source_classification_report": "docs/reports/holdout-remaining-40-miss-classification-blind-v1-2026-07-09.json",
+  "sealed_values_seen": false,
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "gemini_received_sanitized_metadata_only": true
+  },
+  "summary": {
+    "total_cases": 40,
+    "policy_consistent": true,
+    "needs_codex_followup": 0,
+    "findings": 2,
+    "info_findings": 2,
+    "warning_findings": 0,
+    "error_findings": 0
+  },
+  "needs_codex_followup": [],
+  "findings": [
+    {
+      "id": "blind-it-0070",
+      "severity": "info",
+      "issue": "Case is non-idempotent, as indicated by current_benchmark_result.idempotent: false.",
+      "recommendation": "Acknowledge non-idempotency for potential future tuning considerations, as flagged by 'idempotency_followup'."
+    },
+    {
+      "id": "blind-social-0034",
+      "severity": "info",
+      "issue": "Case is non-idempotent, as indicated by current_benchmark_result.idempotent: false.",
+      "recommendation": "Acknowledge non-idempotency for potential future tuning considerations, as flagged by 'idempotency_followup'."
+    }
+  ],
+  "notes": "The report's recommendations and associated next steps are consistent with the stated policies:\n- Cases recommended for converter/dictionary tuning ('maintainer_confirm_move_to_public_regression_candidate') correctly require maintainer confirmation and removal from sealed holdout before tuning.\n- Acceptable variant additions ('maintainer_confirm_add_acceptable_variant') correctly require maintainer confirmation.\n- 'keep_as_holdout_signal' cases are explicitly marked not to be used for tuning.\n- High-risk and over-conversion guard cases are consistently treated conservatively by being recommended to 'keep_as_holdout_signal'.\n- All cases requiring maintainer action ('maintainer_confirm_add_acceptable_variant', 'maintainer_confirm_move_to_public_regression_candidate', 'requires_expected_recheck') have 'needs_maintainer_review: true'.",
+  "raw_response_usage_metadata": {
+    "promptTokenCount": 11933,
+    "candidatesTokenCount": 406,
+    "totalTokenCount": 19522,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 11933
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 406
+      }
+    ],
+    "thoughtsTokenCount": 7183
+  },
+  "raw_review_metadata": {
+    "raw_response_path": "/tmp/zhtw-gemini-policy-review-remaining-40-raw-2026-07-09.json",
+    "raw_response_in_repo": false,
+    "raw_response_contains_sealed_values": false
+  }
+}

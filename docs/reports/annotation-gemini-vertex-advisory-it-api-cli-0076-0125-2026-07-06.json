@@ -1,0 +1,691 @@
+{
+  "generated_date": "2026-07-06",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_backlog": "benchmarks/accuracy/annotation-backlog-v1.json",
+  "raw_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0076-0125-2026-07-06.json",
+  "case_range": "it-api-cli-0076-it-api-cli-0125",
+  "usage_metadata": {
+    "promptTokenCount": 3608,
+    "candidatesTokenCount": 2835,
+    "totalTokenCount": 11544,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3608
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2835
+      }
+    ],
+    "thoughtsTokenCount": 5101
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_expected_review",
+    "cases": [
+      {
+        "id": "it-api-cli-0076",
+        "expected": "請在回應標頭中加入快取控制欄位。",
+        "notes": "「响应头」轉為「回應標頭」，「缓存」轉為「快取」，「字段」轉為「欄位」。"
+      },
+      {
+        "id": "it-api-cli-0077",
+        "expected": "這個端點會傳回剩餘配額。",
+        "notes": "「这个」轉為「這個」，「返回」轉為「傳回」，「剩余」轉為「剩餘」。"
+      },
+      {
+        "id": "it-api-cli-0078",
+        "expected": "回呼網址必須使用 HTTPS。",
+        "notes": "「回调地址」轉為「回呼網址」，「必须」轉為「必須」。"
+      },
+      {
+        "id": "it-api-cli-0079",
+        "expected": "請驗證請求簽章和時間戳記。",
+        "notes": "「请」轉為「請」，「验证」轉為「驗證」，「签名」轉為「簽章」，「时间戳」轉為「時間戳記」。"
+      },
+      {
+        "id": "it-api-cli-0080",
+        "expected": "用戶端會自動重新整理存取權杖。",
+        "notes": "「客户端」轉為「用戶端」，「刷新」轉為「重新整理」，「访问令牌」轉為「存取權杖」。"
+      },
+      {
+        "id": "it-api-cli-0081",
+        "expected": "如果重新整理失敗，請重新登入。",
+        "notes": "「刷新」轉為「重新整理」，「请」轉為「請」，「登录」轉為「登入」。"
+      },
+      {
+        "id": "it-api-cli-0082",
+        "expected": "設定檔支援 YAML 和 JSON。",
+        "notes": "「配置文件」轉為「設定檔」，「支持」轉為「支援」。"
+      },
+      {
+        "id": "it-api-cli-0083",
+        "expected": "指令會輸出機器可讀的 JSON。",
+        "notes": "「命令」轉為「指令」，「机器可读」轉為「機器可讀」。"
+      },
+      {
+        "id": "it-api-cli-0084",
+        "expected": "請在安裝指令碼裡檢查作業系統版本。",
+        "notes": "「请」轉為「請」，「脚本」轉為「指令碼」，「操作系统」轉為「作業系統」。"
+      },
+      {
+        "id": "it-api-cli-0085",
+        "expected": "這個旗標會強制覆寫目標檔案。",
+        "notes": "「这个」轉為「這個」，「标志」轉為「旗標」，「覆盖」轉為「覆寫」，「文件」轉為「檔案」。"
+      },
+      {
+        "id": "it-api-cli-0086",
+        "expected": "外掛程式載入失敗時會顯示堆疊追蹤。",
+        "notes": "「插件」轉為「外掛程式」，「加载」轉為「載入」，「堆栈跟踪」轉為「堆疊追蹤」。"
+      },
+      {
+        "id": "it-api-cli-0087",
+        "expected": "請將記錄層級調整為詳細模式。",
+        "notes": "「请」轉為「請」，「把」轉為「將」，「日志级别」轉為「記錄層級」，「调成」轉為「調整為」。"
+      },
+      {
+        "id": "it-api-cli-0088",
+        "expected": "伺服器會將請求寫入稽核記錄。",
+        "notes": "「服务器」轉為「伺服器」，「把」轉為「將」，「审计日志」轉為「稽核記錄」。"
+      },
+      {
+        "id": "it-api-cli-0089",
+        "expected": "背景工作會定期清除過期工作階段。",
+        "notes": "「后台任务」轉為「背景工作」，「清理」轉為「清除」，「会话」轉為「工作階段」。"
+      },
+      {
+        "id": "it-api-cli-0090",
+        "expected": "佇列取用者會批次確認訊息。",
+        "notes": "「队列」轉為「佇列」，「消费者」轉為「取用者」，「批量」轉為「批次」，「消息」轉為「訊息」。"
+      },
+      {
+        "id": "it-api-cli-0091",
+        "expected": "生產者需要設定訊息金鑰。",
+        "notes": "「生产者」轉為「生產者」，「设置」轉為「設定」，「消息键」轉為「訊息金鑰」。"
+      },
+      {
+        "id": "it-api-cli-0092",
+        "expected": "資料庫交易提交後才會發佈事件。",
+        "notes": "「数据库」轉為「資料庫」，「事务」轉為「交易」，「发布」轉為「發佈」。"
+      },
+      {
+        "id": "it-api-cli-0093",
+        "expected": "索引重建期間查詢可能會變慢。",
+        "notes": "「查询」轉為「查詢」，「变慢」轉為「變慢」。"
+      },
+      {
+        "id": "it-api-cli-0094",
+        "expected": "請避免在主執行緒執行阻斷作業。",
+        "notes": "「请」轉為「請」，「线程」轉為「執行緒」，「阻塞操作」轉為「阻斷作業」。"
+      },
+      {
+        "id": "it-api-cli-0095",
+        "expected": "這個執行緒集區會重複使用工作執行緒。",
+        "notes": "「这个」轉為「這個」，「线程池」轉為「執行緒集區」，「复用」轉為「重複使用」，「工作线程」轉為「工作執行緒」。"
+      },
+      {
+        "id": "it-api-cli-0096",
+        "expected": "容器啟動前會提取最新映像。",
+        "notes": "「启动」轉為「啟動」，「拉取」轉為「提取」，「镜像」轉為「映像」。"
+      },
+      {
+        "id": "it-api-cli-0097",
+        "expected": "映像標籤必須包含版本號。",
+        "notes": "「镜像标签」轉為「映像標籤」，「必须」轉為「必須」，「版本号」轉為「版本號」。"
+      },
+      {
+        "id": "it-api-cli-0098",
+        "expected": "部署資訊清單會宣告資源限制。",
+        "notes": "「清单」轉為「資訊清單」，「声明」轉為「宣告」。"
+      },
+      {
+        "id": "it-api-cli-0099",
+        "expected": "請檢查命名空間是否存在。",
+        "notes": "「请」轉為「請」，「命名空间」轉為「命名空間」。"
+      },
+      {
+        "id": "it-api-cli-0100",
+        "expected": "探測失敗後容器會重新啟動。",
+        "notes": "「探针」轉為「探測」，「启动」轉為「啟動」。"
+      },
+      {
+        "id": "it-api-cli-0101",
+        "expected": "服務探索會傳回可用節點清單。",
+        "notes": "「服务发现」轉為「服務探索」，「返回」轉為「傳回」，「节点列表」轉為「節點清單」。"
+      },
+      {
+        "id": "it-api-cli-0102",
+        "expected": "負載平衡器會跳過不健全的執行個體。",
+        "notes": "「负载均衡器」轉為「負載平衡器」，「实例」轉為「執行個體」。"
+      },
+      {
+        "id": "it-api-cli-0103",
+        "expected": "閘道會將路徑前置詞轉送到後端。",
+        "notes": "「网关」轉為「閘道」，「把」轉為「將」，「路径前缀」轉為「路徑前置詞」，「转发」轉為「轉送」。"
+      },
+      {
+        "id": "it-api-cli-0104",
+        "expected": "Proxy 會保留原始用戶端位址。",
+        "notes": "「代理」轉為「Proxy」（常見於 IT 領域），「客户端地址」轉為「用戶端位址」。"
+      },
+      {
+        "id": "it-api-cli-0105",
+        "expected": "憑證撤銷清單會定期更新。",
+        "notes": "「证书」轉為「憑證」，「吊销列表」轉為「撤銷清單」。"
+      },
+      {
+        "id": "it-api-cli-0106",
+        "expected": "私密金鑰必須存放在金鑰儲存庫中。",
+        "notes": "「私钥」轉為「私密金鑰」，「必须」轉為「必須」，「密钥库」轉為「金鑰儲存庫」。"
+      },
+      {
+        "id": "it-api-cli-0107",
+        "expected": "請輪替長期有效的存取金鑰。",
+        "notes": "「请」轉為「請」，「轮换」轉為「輪替」，「访问密钥」轉為「存取金鑰」。"
+      },
+      {
+        "id": "it-api-cli-0108",
+        "expected": "這個錯誤碼表示資源不存在。",
+        "notes": "「这个」轉為「這個」，「错误码」轉為「錯誤碼」。"
+      },
+      {
+        "id": "it-api-cli-0109",
+        "expected": "錯誤回應會包含追蹤編號。",
+        "notes": "「错误响应」轉為「錯誤回應」，「追踪编号」轉為「追蹤編號」。"
+      },
+      {
+        "id": "it-api-cli-0110",
+        "expected": "請在工單中附上請求編號。",
+        "notes": "「请」轉為「請」，「工单」轉為「工單」。"
+      },
+      {
+        "id": "it-api-cli-0111",
+        "expected": "分頁游標會於下一個請求中使用。",
+        "notes": "「分页游标」轉為「分頁游標」，「会在」轉為「會於」，「下一次」轉為「下一個」。"
+      },
+      {
+        "id": "it-api-cli-0112",
+        "expected": "批次 API 最多接受一千個項目。",
+        "notes": "「批量接口」轉為「批次 API」。"
+      },
+      {
+        "id": "it-api-cli-0113",
+        "expected": "上傳 API 會檢查檔案大小限制。",
+        "notes": "「上传接口」轉為「上傳 API」，「文件」轉為「檔案」。"
+      },
+      {
+        "id": "it-api-cli-0114",
+        "expected": "下載連結會於十分鐘後過期。",
+        "notes": "「下载链接」轉為「下載連結」，「会在」轉為「會於」。"
+      },
+      {
+        "id": "it-api-cli-0115",
+        "expected": "這個參數接受逗號分隔的字串。",
+        "notes": "「这个」轉為「這個」，「参数」轉為「參數」，「字符串」轉為「字串」。"
+      },
+      {
+        "id": "it-api-cli-0116",
+        "expected": "布林選項可以省略等號。",
+        "notes": "「布尔选项」轉為「布林選項」，「等号」轉為「等號」。"
+      },
+      {
+        "id": "it-api-cli-0117",
+        "expected": "請將輸出重新導向至檔案。",
+        "notes": "「请」轉為「請」，「把」轉為「將」，「重定向到」轉為「重新導向至」，「文件」轉為「檔案」。"
+      },
+      {
+        "id": "it-api-cli-0118",
+        "expected": "標準錯誤會顯示警告訊息。",
+        "notes": "「标准错误」轉為「標準錯誤」，「消息」轉為「訊息」。"
+      },
+      {
+        "id": "it-api-cli-0119",
+        "expected": "指令結束碼為零表示成功。",
+        "notes": "「命令」轉為「指令」，「退出码」轉為「結束碼」。"
+      },
+      {
+        "id": "it-api-cli-0120",
+        "expected": "子程序繼承目前的環境變數。",
+        "notes": "「子进程」轉為「子程序」，「当前」轉為「目前的」，「环境变量」轉為「環境變數」。"
+      },
+      {
+        "id": "it-api-cli-0121",
+        "expected": "常駐程式會於背景監聽通訊端。",
+        "notes": "「守护进程」轉為「常駐程式」，「会在」轉為「會於」，「后台」轉為「背景」，「套接字」轉為「通訊端」。"
+      },
+      {
+        "id": "it-api-cli-0122",
+        "expected": "請不要在組態中寫入純文字密碼。",
+        "notes": "「请」轉為「請」，「配置」轉為「組態」，「明文密码」轉為「純文字密碼」。"
+      },
+      {
+        "id": "it-api-cli-0123",
+        "expected": "敏感欄位會於記錄中被遮蔽。",
+        "notes": "「敏感字段」轉為「敏感欄位」，「会在」轉為「會於」，「日志」轉為「記錄」。"
+      },
+      {
+        "id": "it-api-cli-0124",
+        "expected": "這個掛鉤會於提交前執行格式化工具。",
+        "notes": "「这个」轉為「這個」，「钩子」轉為「掛鉤」，「会在」轉為「會於」，「运行」轉為「執行」，「格式化程序」轉為「格式化工具」。"
+      },
+      {
+        "id": "it-api-cli-0125",
+        "expected": "預檢檢查會驗證相依性程式庫版本。",
+        "notes": "「预检检查」轉為「預檢檢查」，「验证」轉為「驗證」，「依赖库」轉為「相依性程式庫」。"
+      }
+    ]
+  },
+  "comparison_summary": {
+    "cases": 50,
+    "exact_matches_with_codex_draft": 24,
+    "differences_from_codex_draft": 26
+  },
+  "comparisons": [
+    {
+      "id": "it-api-cli-0076",
+      "input": "请在响应头中加入缓存控制字段。",
+      "codex_expected": "請在回應標頭中加入快取控制欄位。",
+      "gemini_expected": "請在回應標頭中加入快取控制欄位。",
+      "gemini_notes": "「响应头」轉為「回應標頭」，「缓存」轉為「快取」，「字段」轉為「欄位」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0077",
+      "input": "这个端点会返回剩余配额。",
+      "codex_expected": "這個端點會傳回剩餘配額。",
+      "gemini_expected": "這個端點會傳回剩餘配額。",
+      "gemini_notes": "「这个」轉為「這個」，「返回」轉為「傳回」，「剩余」轉為「剩餘」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0078",
+      "input": "回调地址必须使用 HTTPS。",
+      "codex_expected": "回呼位址必須使用 HTTPS。",
+      "gemini_expected": "回呼網址必須使用 HTTPS。",
+      "gemini_notes": "「回调地址」轉為「回呼網址」，「必须」轉為「必須」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0079",
+      "input": "请验证请求签名和时间戳。",
+      "codex_expected": "請驗證要求簽章和時間戳記。",
+      "gemini_expected": "請驗證請求簽章和時間戳記。",
+      "gemini_notes": "「请」轉為「請」，「验证」轉為「驗證」，「签名」轉為「簽章」，「时间戳」轉為「時間戳記」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0080",
+      "input": "客户端会自动刷新访问令牌。",
+      "codex_expected": "用戶端會自動重新整理存取權杖。",
+      "gemini_expected": "用戶端會自動重新整理存取權杖。",
+      "gemini_notes": "「客户端」轉為「用戶端」，「刷新」轉為「重新整理」，「访问令牌」轉為「存取權杖」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0081",
+      "input": "如果刷新失败，请重新登录。",
+      "codex_expected": "如果重新整理失敗，請重新登入。",
+      "gemini_expected": "如果重新整理失敗，請重新登入。",
+      "gemini_notes": "「刷新」轉為「重新整理」，「请」轉為「請」，「登录」轉為「登入」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0082",
+      "input": "配置文件支持 YAML 和 JSON。",
+      "codex_expected": "設定檔支援 YAML 和 JSON。",
+      "gemini_expected": "設定檔支援 YAML 和 JSON。",
+      "gemini_notes": "「配置文件」轉為「設定檔」，「支持」轉為「支援」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0083",
+      "input": "命令会输出机器可读的 JSON。",
+      "codex_expected": "指令會輸出機器可讀的 JSON。",
+      "gemini_expected": "指令會輸出機器可讀的 JSON。",
+      "gemini_notes": "「命令」轉為「指令」，「机器可读」轉為「機器可讀」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0084",
+      "input": "请在安装脚本里检查操作系统版本。",
+      "codex_expected": "請在安裝指令碼裡檢查作業系統版本。",
+      "gemini_expected": "請在安裝指令碼裡檢查作業系統版本。",
+      "gemini_notes": "「请」轉為「請」，「脚本」轉為「指令碼」，「操作系统」轉為「作業系統」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0085",
+      "input": "这个标志会强制覆盖目标文件。",
+      "codex_expected": "這個旗標會強制覆寫目標檔案。",
+      "gemini_expected": "這個旗標會強制覆寫目標檔案。",
+      "gemini_notes": "「这个」轉為「這個」，「标志」轉為「旗標」，「覆盖」轉為「覆寫」，「文件」轉為「檔案」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0086",
+      "input": "插件加载失败时会显示堆栈跟踪。",
+      "codex_expected": "外掛程式載入失敗時會顯示堆疊追蹤。",
+      "gemini_expected": "外掛程式載入失敗時會顯示堆疊追蹤。",
+      "gemini_notes": "「插件」轉為「外掛程式」，「加载」轉為「載入」，「堆栈跟踪」轉為「堆疊追蹤」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0087",
+      "input": "请把日志级别调成详细模式。",
+      "codex_expected": "請將記錄等級調成詳細模式。",
+      "gemini_expected": "請將記錄層級調整為詳細模式。",
+      "gemini_notes": "「请」轉為「請」，「把」轉為「將」，「日志级别」轉為「記錄層級」，「调成」轉為「調整為」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0088",
+      "input": "服务器会把请求写入审计日志。",
+      "codex_expected": "伺服器會將請求寫入稽核記錄檔。",
+      "gemini_expected": "伺服器會將請求寫入稽核記錄。",
+      "gemini_notes": "「服务器」轉為「伺服器」，「把」轉為「將」，「审计日志」轉為「稽核記錄」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0089",
+      "input": "后台任务会定期清理过期会话。",
+      "codex_expected": "背景任務會定期清理過期工作階段。",
+      "gemini_expected": "背景工作會定期清除過期工作階段。",
+      "gemini_notes": "「后台任务」轉為「背景工作」，「清理」轉為「清除」，「会话」轉為「工作階段」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0090",
+      "input": "队列消费者会批量确认消息。",
+      "codex_expected": "佇列消費者會批次確認訊息。",
+      "gemini_expected": "佇列取用者會批次確認訊息。",
+      "gemini_notes": "「队列」轉為「佇列」，「消费者」轉為「取用者」，「批量」轉為「批次」，「消息」轉為「訊息」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0091",
+      "input": "生产者需要设置消息键。",
+      "codex_expected": "生產者需要設定訊息索引鍵。",
+      "gemini_expected": "生產者需要設定訊息金鑰。",
+      "gemini_notes": "「生产者」轉為「生產者」，「设置」轉為「設定」，「消息键」轉為「訊息金鑰」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0092",
+      "input": "数据库事务提交后才会发布事件。",
+      "codex_expected": "資料庫交易提交後才會發布事件。",
+      "gemini_expected": "資料庫交易提交後才會發佈事件。",
+      "gemini_notes": "「数据库」轉為「資料庫」，「事务」轉為「交易」，「发布」轉為「發佈」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0093",
+      "input": "索引重建期间查询可能变慢。",
+      "codex_expected": "索引重建期間查詢可能變慢。",
+      "gemini_expected": "索引重建期間查詢可能會變慢。",
+      "gemini_notes": "「查询」轉為「查詢」，「变慢」轉為「變慢」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0094",
+      "input": "请避免在主线程执行阻塞操作。",
+      "codex_expected": "請避免在主執行緒執行阻塞操作。",
+      "gemini_expected": "請避免在主執行緒執行阻斷作業。",
+      "gemini_notes": "「请」轉為「請」，「线程」轉為「執行緒」，「阻塞操作」轉為「阻斷作業」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0095",
+      "input": "这个线程池会复用工作线程。",
+      "codex_expected": "這個執行緒集區會重複使用工作執行緒。",
+      "gemini_expected": "這個執行緒集區會重複使用工作執行緒。",
+      "gemini_notes": "「这个」轉為「這個」，「线程池」轉為「執行緒集區」，「复用」轉為「重複使用」，「工作线程」轉為「工作執行緒」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0096",
+      "input": "容器启动前会拉取最新镜像。",
+      "codex_expected": "容器啟動前會拉取最新映像檔。",
+      "gemini_expected": "容器啟動前會提取最新映像。",
+      "gemini_notes": "「启动」轉為「啟動」，「拉取」轉為「提取」，「镜像」轉為「映像」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0097",
+      "input": "镜像标签必须包含版本号。",
+      "codex_expected": "映像檔標籤必須包含版本號。",
+      "gemini_expected": "映像標籤必須包含版本號。",
+      "gemini_notes": "「镜像标签」轉為「映像標籤」，「必须」轉為「必須」，「版本号」轉為「版本號」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0098",
+      "input": "部署清单会声明资源限制。",
+      "codex_expected": "部署資訊清單會宣告資源限制。",
+      "gemini_expected": "部署資訊清單會宣告資源限制。",
+      "gemini_notes": "「清单」轉為「資訊清單」，「声明」轉為「宣告」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0099",
+      "input": "请检查命名空间是否存在。",
+      "codex_expected": "請檢查命名空間是否存在。",
+      "gemini_expected": "請檢查命名空間是否存在。",
+      "gemini_notes": "「请」轉為「請」，「命名空间」轉為「命名空間」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0100",
+      "input": "探针失败后容器会重新启动。",
+      "codex_expected": "探針失敗後容器會重新啟動。",
+      "gemini_expected": "探測失敗後容器會重新啟動。",
+      "gemini_notes": "「探针」轉為「探測」，「启动」轉為「啟動」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0101",
+      "input": "服务发现会返回可用节点列表。",
+      "codex_expected": "服務探索會傳回可用節點清單。",
+      "gemini_expected": "服務探索會傳回可用節點清單。",
+      "gemini_notes": "「服务发现」轉為「服務探索」，「返回」轉為「傳回」，「节点列表」轉為「節點清單」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0102",
+      "input": "负载均衡器会跳过不健康实例。",
+      "codex_expected": "負載平衡器會略過不健康實例。",
+      "gemini_expected": "負載平衡器會跳過不健全的執行個體。",
+      "gemini_notes": "「负载均衡器」轉為「負載平衡器」，「实例」轉為「執行個體」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0103",
+      "input": "网关会把路径前缀转发到后端。",
+      "codex_expected": "閘道會將路徑前置詞轉送到後端。",
+      "gemini_expected": "閘道會將路徑前置詞轉送到後端。",
+      "gemini_notes": "「网关」轉為「閘道」，「把」轉為「將」，「路径前缀」轉為「路徑前置詞」，「转发」轉為「轉送」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0104",
+      "input": "代理会保留原始客户端地址。",
+      "codex_expected": "代理會保留原始用戶端位址。",
+      "gemini_expected": "Proxy 會保留原始用戶端位址。",
+      "gemini_notes": "「代理」轉為「Proxy」（常見於 IT 領域），「客户端地址」轉為「用戶端位址」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0105",
+      "input": "证书吊销列表会定期更新。",
+      "codex_expected": "憑證撤銷清單會定期更新。",
+      "gemini_expected": "憑證撤銷清單會定期更新。",
+      "gemini_notes": "「证书」轉為「憑證」，「吊销列表」轉為「撤銷清單」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0106",
+      "input": "私钥必须存放在密钥库中。",
+      "codex_expected": "私鑰必須存放在金鑰庫中。",
+      "gemini_expected": "私密金鑰必須存放在金鑰儲存庫中。",
+      "gemini_notes": "「私钥」轉為「私密金鑰」，「必须」轉為「必須」，「密钥库」轉為「金鑰儲存庫」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0107",
+      "input": "请轮换长期有效的访问密钥。",
+      "codex_expected": "請輪替長期有效的存取金鑰。",
+      "gemini_expected": "請輪替長期有效的存取金鑰。",
+      "gemini_notes": "「请」轉為「請」，「轮换」轉為「輪替」，「访问密钥」轉為「存取金鑰」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0108",
+      "input": "这个错误码表示资源不存在。",
+      "codex_expected": "這個錯誤碼表示資源不存在。",
+      "gemini_expected": "這個錯誤碼表示資源不存在。",
+      "gemini_notes": "「这个」轉為「這個」，「错误码」轉為「錯誤碼」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0109",
+      "input": "错误响应会包含追踪编号。",
+      "codex_expected": "錯誤回應會包含追蹤編號。",
+      "gemini_expected": "錯誤回應會包含追蹤編號。",
+      "gemini_notes": "「错误响应」轉為「錯誤回應」，「追踪编号」轉為「追蹤編號」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0110",
+      "input": "请在工单中附上请求编号。",
+      "codex_expected": "請在工單中附上請求編號。",
+      "gemini_expected": "請在工單中附上請求編號。",
+      "gemini_notes": "「请」轉為「請」，「工单」轉為「工單」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0111",
+      "input": "分页游标会在下一次请求中使用。",
+      "codex_expected": "分頁游標會在下一次請求中使用。",
+      "gemini_expected": "分頁游標會於下一個請求中使用。",
+      "gemini_notes": "「分页游标」轉為「分頁游標」，「会在」轉為「會於」，「下一次」轉為「下一個」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0112",
+      "input": "批量接口最多接受一千个项目。",
+      "codex_expected": "批次介面最多接受一千個項目。",
+      "gemini_expected": "批次 API 最多接受一千個項目。",
+      "gemini_notes": "「批量接口」轉為「批次 API」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0113",
+      "input": "上传接口会检查文件大小限制。",
+      "codex_expected": "上傳介面會檢查檔案大小限制。",
+      "gemini_expected": "上傳 API 會檢查檔案大小限制。",
+      "gemini_notes": "「上传接口」轉為「上傳 API」，「文件」轉為「檔案」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0114",
+      "input": "下载链接会在十分钟后过期。",
+      "codex_expected": "下載連結會在十分鐘後過期。",
+      "gemini_expected": "下載連結會於十分鐘後過期。",
+      "gemini_notes": "「下载链接」轉為「下載連結」，「会在」轉為「會於」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0115",
+      "input": "这个参数接受逗号分隔的字符串。",
+      "codex_expected": "這個參數接受逗號分隔的字串。",
+      "gemini_expected": "這個參數接受逗號分隔的字串。",
+      "gemini_notes": "「这个」轉為「這個」，「参数」轉為「參數」，「字符串」轉為「字串」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0116",
+      "input": "布尔选项可以省略等号。",
+      "codex_expected": "布林選項可以省略等號。",
+      "gemini_expected": "布林選項可以省略等號。",
+      "gemini_notes": "「布尔选项」轉為「布林選項」，「等号」轉為「等號」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0117",
+      "input": "请把输出重定向到文件。",
+      "codex_expected": "請將輸出重新導向到檔案。",
+      "gemini_expected": "請將輸出重新導向至檔案。",
+      "gemini_notes": "「请」轉為「請」，「把」轉為「將」，「重定向到」轉為「重新導向至」，「文件」轉為「檔案」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0118",
+      "input": "标准错误会显示警告消息。",
+      "codex_expected": "標準錯誤會顯示警告訊息。",
+      "gemini_expected": "標準錯誤會顯示警告訊息。",
+      "gemini_notes": "「标准错误」轉為「標準錯誤」，「消息」轉為「訊息」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0119",
+      "input": "命令退出码为零表示成功。",
+      "codex_expected": "指令結束碼為零表示成功。",
+      "gemini_expected": "指令結束碼為零表示成功。",
+      "gemini_notes": "「命令」轉為「指令」，「退出码」轉為「結束碼」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0120",
+      "input": "子进程继承当前环境变量。",
+      "codex_expected": "子處理程序繼承目前環境變數。",
+      "gemini_expected": "子程序繼承目前的環境變數。",
+      "gemini_notes": "「子进程」轉為「子程序」，「当前」轉為「目前的」，「环境变量」轉為「環境變數」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0121",
+      "input": "守护进程会在后台监听套接字。",
+      "codex_expected": "常駐處理程序會在背景監聽 Socket。",
+      "gemini_expected": "常駐程式會於背景監聽通訊端。",
+      "gemini_notes": "「守护进程」轉為「常駐程式」，「会在」轉為「會於」，「后台」轉為「背景」，「套接字」轉為「通訊端」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0122",
+      "input": "请不要在配置中写入明文密码。",
+      "codex_expected": "請不要在設定中寫入明文密碼。",
+      "gemini_expected": "請不要在組態中寫入純文字密碼。",
+      "gemini_notes": "「请」轉為「請」，「配置」轉為「組態」，「明文密码」轉為「純文字密碼」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0123",
+      "input": "敏感字段会在日志中被遮蔽。",
+      "codex_expected": "敏感欄位會在記錄檔中被遮蔽。",
+      "gemini_expected": "敏感欄位會於記錄中被遮蔽。",
+      "gemini_notes": "「敏感字段」轉為「敏感欄位」，「会在」轉為「會於」，「日志」轉為「記錄」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0124",
+      "input": "这个钩子会在提交前运行格式化程序。",
+      "codex_expected": "這個掛鉤會在提交前執行格式化程式。",
+      "gemini_expected": "這個掛鉤會於提交前執行格式化工具。",
+      "gemini_notes": "「这个」轉為「這個」，「钩子」轉為「掛鉤」，「会在」轉為「會於」，「运行」轉為「執行」，「格式化程序」轉為「格式化工具」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0125",
+      "input": "预检检查会验证依赖库版本。",
+      "codex_expected": "預檢檢查會驗證相依性程式庫版本。",
+      "gemini_expected": "預檢檢查會驗證相依性程式庫版本。",
+      "gemini_notes": "「预检检查」轉為「預檢檢查」，「验证」轉為「驗證」，「依赖库」轉為「相依性程式庫」。",
+      "exact_match_with_codex_draft": true
+    }
+  ]
+}

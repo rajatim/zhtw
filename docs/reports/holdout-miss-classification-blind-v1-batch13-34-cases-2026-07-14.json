@@ -1,0 +1,389 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "report_type": "holdout_miss_classification",
+  "review_stage": "codex_first_pass_miss_classification",
+  "scope": "batch13_34_fresh_misses",
+  "reviewer": "codex",
+  "source_private_benchmark": {
+    "path": "/tmp/zhtw-blind-v1-private-benchmark-after-batch13-2026-07-14.json",
+    "in_repo": false
+  },
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "zhtw_outputs_included": false,
+    "classification_metadata_only": true
+  },
+  "summary": {
+    "total_misses": 34,
+    "by_action": {
+      "add_zhtw_output_as_acceptable_variant": 5,
+      "keep_strict_private_signal": 9,
+      "move_to_public_regression_candidate": 20
+    },
+    "by_domain": {
+      "formal": 2,
+      "high_risk": 5,
+      "it": 10,
+      "llm": 6,
+      "social": 3,
+      "ui": 8
+    },
+    "by_risk": {
+      "baseline_guard": 4,
+      "candidate_gap": 28,
+      "over_conversion_guard": 2
+    },
+    "by_confidence": {
+      "high": 20,
+      "medium": 14
+    },
+    "promotion_allowed": false
+  },
+  "cases": [
+    {
+      "id": "blind-formal-0179",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0188",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0121",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "action": "keep_strict_private_signal",
+      "confidence": "medium",
+      "reason": "涉及風格、術語邊界或語境推論；保留為 strict signal，避免過度擬合或縮分母。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0122",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0125",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "action": "add_zhtw_output_as_acceptable_variant",
+      "confidence": "medium",
+      "reason": "實際輸出保留原意且可視為當代臺灣可接受變體；需 maintainer 確認後才可加入。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0129",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0135",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "action": "add_zhtw_output_as_acceptable_variant",
+      "confidence": "medium",
+      "reason": "實際輸出保留原意且可視為當代臺灣可接受變體；需 maintainer 確認後才可加入。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0278",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "keep_strict_private_signal",
+      "confidence": "medium",
+      "reason": "涉及風格、術語邊界或語境推論；保留為 strict signal，避免過度擬合或縮分母。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0279",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "keep_strict_private_signal",
+      "confidence": "medium",
+      "reason": "涉及風格、術語邊界或語境推論；保留為 strict signal，避免過度擬合或縮分母。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0280",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0282",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0286",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "add_zhtw_output_as_acceptable_variant",
+      "confidence": "medium",
+      "reason": "實際輸出保留原意且可視為當代臺灣可接受變體；需 maintainer 確認後才可加入。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0288",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0291",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0292",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0294",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "keep_strict_private_signal",
+      "confidence": "medium",
+      "reason": "涉及風格、術語邊界或語境推論；保留為 strict signal，避免過度擬合或縮分母。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0297",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "keep_strict_private_signal",
+      "confidence": "medium",
+      "reason": "涉及風格、術語邊界或語境推論；保留為 strict signal，避免過度擬合或縮分母。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0225",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0226",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0227",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "keep_strict_private_signal",
+      "confidence": "medium",
+      "reason": "涉及風格、術語邊界或語境推論；保留為 strict signal，避免過度擬合或縮分母。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0229",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0230",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0234",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0235",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0236",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0184",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0186",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "action": "add_zhtw_output_as_acceptable_variant",
+      "confidence": "medium",
+      "reason": "實際輸出保留原意且可視為當代臺灣可接受變體；需 maintainer 確認後才可加入。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0191",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0165",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "add_zhtw_output_as_acceptable_variant",
+      "confidence": "medium",
+      "reason": "實際輸出保留原意且可視為當代臺灣可接受變體；需 maintainer 確認後才可加入。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0166",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "keep_strict_private_signal",
+      "confidence": "medium",
+      "reason": "涉及風格、術語邊界或語境推論；保留為 strict signal，避免過度擬合或縮分母。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0173",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0175",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "keep_strict_private_signal",
+      "confidence": "medium",
+      "reason": "涉及風格、術語邊界或語境推論；保留為 strict signal，避免過度擬合或縮分母。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0176",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "reason": "屬可公開重現的明確區域詞、語義或字形錯誤；必須先移出 sealed 才能調整。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0177",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "action": "keep_strict_private_signal",
+      "confidence": "medium",
+      "reason": "涉及風格、術語邊界或語境推論；保留為 strict signal，避免過度擬合或縮分母。",
+      "ground_truth": false,
+      "promotion_allowed": false
+    }
+  ]
+}

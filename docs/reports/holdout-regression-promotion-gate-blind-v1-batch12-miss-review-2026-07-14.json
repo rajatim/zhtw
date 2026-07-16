@@ -1,0 +1,45 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "report_type": "holdout_regression_promotion_gate",
+  "review_stage": "after_batch12_miss_review",
+  "source_final_decision": "docs/reports/holdout-maintainer-final-decision-blind-v1-batch12-miss-review-2026-07-14.json",
+  "source_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "source_candidates_sha256": "74461c47e7dcc1c1f6296bbc82eeabb4eb13f9dafe821eaefa478776296fc1a7",
+  "regression_path": "benchmarks/accuracy/regression-v1.json",
+  "regression_sha256": "e3313f2dc54c0e0f5d7adfb7688528913f3a3118655457bfa0567f121fb6754c",
+  "dictionary_strategy": "full_sentence_mapping_with_identity",
+  "dictionary_files": [
+    "src/zhtw/data/terms/cn/formal.json",
+    "src/zhtw/data/terms/cn/social.json",
+    "src/zhtw/data/terms/cn/it.json",
+    "src/zhtw/data/terms/cn/ui.json"
+  ],
+  "expected_values_included": false,
+  "inputs_included": false,
+  "summary": {
+    "candidate_cases": 11,
+    "zhtw_exact_matches": 11,
+    "expected_idempotent": 11,
+    "promotion_ready": 11,
+    "promoted_to_regression": 11,
+    "full_sentence_mappings_added": 11,
+    "identity_mappings_added": 11,
+    "candidate_dataset_total_cases": 197,
+    "regression_total_cases": 1229,
+    "gate_passed": true
+  },
+  "promoted_case_ids": [
+    "blind-formal-0154",
+    "blind-formal-0158",
+    "blind-high-risk-0117",
+    "blind-it-0269",
+    "blind-it-0271",
+    "blind-it-0274",
+    "blind-llm-0158",
+    "blind-llm-0162",
+    "blind-social-0165",
+    "blind-social-0172",
+    "blind-ui-0210"
+  ]
+}

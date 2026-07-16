@@ -1,0 +1,169 @@
+{
+  "model_observed": "gemini-2.5-pro",
+  "cases": [
+    {
+      "id": "blind-social-0139",
+      "gemini_expected": "朋友把聚餐地點發到群組裡。",
+      "acceptable": [
+        "朋友把聚餐地點傳到群組裡。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「群組」為台灣社群軟體常用詞。"
+    },
+    {
+      "id": "blind-social-0140",
+      "gemini_expected": "我等一下再把照片傳給大家。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "純粹字元轉換，語意和用法在台灣很自然。"
+    },
+    {
+      "id": "blind-social-0141",
+      "gemini_expected": "這個短影片的留言不要關閉。",
+      "acceptable": [
+        "這個短影音的留言不要關閉。",
+        "這支短影片的留言不要關閉。"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「短影音」在台灣更為流行，但「短影片」也能被理解。"
+    },
+    {
+      "id": "blind-social-0142",
+      "gemini_expected": "他把暱稱改成公司英文名。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「暱稱」是台灣對 'nickname' 的標準用法。"
+    },
+    {
+      "id": "blind-social-0143",
+      "gemini_expected": "明天如果下雨就改約室內。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "純粹字元轉換，符合台灣日常用語。"
+    },
+    {
+      "id": "blind-social-0144",
+      "gemini_expected": "直播結束後可以看重播嗎？",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "純粹字元轉換，語句通順自然。"
+    },
+    {
+      "id": "blind-social-0145",
+      "gemini_expected": "這則貼文先設成僅朋友可見。",
+      "acceptable": [
+        "這則貼文先設成僅限朋友可見。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「貼文」是台灣對社群 'post' 的標準用法。"
+    },
+    {
+      "id": "blind-social-0146",
+      "gemini_expected": "我已經把路線截圖傳到聊天室。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「截圖」是台灣對 'screenshot' 的標準用法。"
+    },
+    {
+      "id": "blind-social-0147",
+      "gemini_expected": "晚一點再提醒我帶充電線。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "純粹字元轉換，符合台灣口語習慣。"
+    },
+    {
+      "id": "blind-social-0148",
+      "gemini_expected": "這段繁體留言請保持原樣。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "idempotency"
+      ],
+      "rationale": "冪等性測試，應正確轉換簡體字「这」和「体」，並保留其餘繁體字。"
+    },
+    {
+      "id": "blind-social-0149",
+      "gemini_expected": "請不要把 Taipei Main Station 翻成中文。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_english"
+      ],
+      "rationale": "英文專有名詞應按規則保留，不進行翻譯。"
+    },
+    {
+      "id": "blind-social-0150",
+      "gemini_expected": "活動報名連結不要傳到公開社群。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「連結」是台灣對 'link' 的標準用法，而非「链接」。"
+    },
+    {
+      "id": "blind-social-0151",
+      "gemini_expected": "我把購物清單同步到手機。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "純粹字元轉換，符合台灣用語習慣。"
+    },
+    {
+      "id": "blind-social-0152",
+      "gemini_expected": "這個貼圖包已經下載好了。",
+      "acceptable": [
+        "這組貼圖已經下載好了。"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「貼圖包」可理解，但「這組貼圖」在台灣口語中可能更常見。"
+    },
+    {
+      "id": "blind-social-0153",
+      "gemini_expected": "你先把票券截圖存起來。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「截圖」是台灣對 'screenshot' 的標準用法。"
+    }
+  ]
+}

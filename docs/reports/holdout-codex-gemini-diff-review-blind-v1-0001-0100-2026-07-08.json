@@ -1,0 +1,1124 @@
+{
+  "generated_date": "2026-07-08",
+  "dataset": "blind-v1",
+  "reviewer": "codex",
+  "review_stage": "codex_gemini_difference_review",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_gemini_report": "docs/reports/holdout-gemini-vertex-advisory-blind-v1-0001-0100-2026-07-08.json",
+  "summary": {
+    "total_cases": 100,
+    "exact_matches": 70,
+    "differences": 30,
+    "exact_but_policy_review": 29,
+    "no_immediate_question": 41,
+    "maintainer_queue_total": 59,
+    "difference_recommendations": {
+      "codex": 24,
+      "gemini": 5,
+      "third_value": 1
+    },
+    "promotion_allowed": false
+  },
+  "differences": [
+    {
+      "id": "blind-it-0003",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "如果缓存过期，客户端应该重新请求配置文件。",
+      "codex_expected": "如果快取過期，客戶端應該重新請求設定檔。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「缓存」轉「快取」，「配置文件」轉「設定檔」。",
+      "gemini_expected": "如果快取過期，用戶端應該重新要求組態檔。",
+      "gemini_acceptable": [
+        "如果緩存過期，用戶端應該重新請求配置文件。",
+        "如果快取過期，用戶端應該重新請求配置文件。",
+        "如果緩存過期，用戶端應該重新要求組態檔。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「缓存」轉為「快取」（IT術語），「客户端」轉為「用戶端」（IT術語），「应该」轉為「應該」，「重新请求」轉為「重新要求」（IT術語），「配置文件」轉為「組態檔」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "API/設定檔語境中「客戶端」「請求」「設定檔」較自然；Gemini 的「要求」「組態檔」偏正式/微軟風格。"
+    },
+    {
+      "id": "blind-it-0008",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "新版 SDK 支持批量上传文件和取消请求。",
+      "codex_expected": "新版 SDK 支援批次上傳檔案和取消請求。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「支持」轉「支援」，「批量」轉「批次」，「文件」轉「檔案」。",
+      "gemini_expected": "新版 SDK 支援批次上傳檔案和取消要求。",
+      "gemini_acceptable": [
+        "新版 SDK 支持批量上傳文件和取消請求。",
+        "新版 SDK 支援批量上傳文件和取消請求。",
+        "新版 SDK 支持批次上傳檔案和取消請求。",
+        "新版 SDK 支持批量上傳檔案和取消要求。",
+        "新版 SDK 支援批量上傳檔案和取消要求。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「支持」轉為「支援」（IT術語），「批量上传」轉為「批次上傳」（IT術語），「文件」轉為「檔案」（IT術語），「请求」轉為「要求」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "API request 在台灣技術文件通常譯「請求」，不是「要求」。"
+    },
+    {
+      "id": "blind-it-0009",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个命令会覆盖本地设置，请先备份原始文件。",
+      "codex_expected": "這個命令會覆蓋本機設定，請先備份原始檔案。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「本地设置」轉「本機設定」。",
+      "gemini_expected": "這個命令會覆寫本機設定，請先備份原始檔案。",
+      "gemini_acceptable": [
+        "這個命令會覆蓋本地設置，請先備份原始文件。",
+        "這個命令會覆寫本地設置，請先備份原始文件。",
+        "這個命令會覆蓋本機設定，請先備份原始文件。",
+        "這個命令會覆蓋本地設置，請先備份原始檔案。",
+        "這個命令會覆寫本地設置，請先備份原始檔案。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「这个」轉為「這個」，「覆盖」轉為「覆寫」（IT術語），「本地设置」轉為「本機設定」（IT術語），「请」轉為「請」，「备份」轉為「備份」，「文件」轉為「檔案」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "gemini",
+      "codex_recommendation_reason": "「覆寫本機設定」比「覆蓋本機設定」更貼近 overwrite/override 的技術語境。"
+    },
+    {
+      "id": "blind-it-0011",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "日志里显示用户权限不足，无法删除这个资源。",
+      "codex_expected": "日誌裡顯示使用者權限不足，無法刪除這個資源。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「日志」轉「日誌」，「用户」轉「使用者」。",
+      "gemini_expected": "記錄檔裡顯示使用者權限不足，無法刪除這個資源。",
+      "gemini_acceptable": [
+        "日誌裡顯示用戶權限不足，無法刪除這個資源。",
+        "記錄檔裡顯示用戶權限不足，無法刪除這個資源。",
+        "日誌裡顯示使用者權限不足，無法刪除這個資源。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「日志」轉為「記錄檔」（IT術語），「里」轉為「裡」，「用户」轉為「使用者」（UI/IT術語），「显示」轉為「顯示」，「这个」轉為「這個」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "原文是「日志里」不是明確「日志文件」，「日誌裡」比「記錄檔裡」保留語義。"
+    },
+    {
+      "id": "blind-it-0012",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "如果消息队列阻塞，消费者会延迟处理通知。",
+      "codex_expected": "如果訊息佇列阻塞，消費者會延遲處理通知。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "訊息佇列/消費者為技術術語；「阻塞」在程式語境可保留。",
+      "gemini_expected": "如果訊息佇列阻塞，取用者會延遲處理通知。",
+      "gemini_acceptable": [
+        "如果消息隊列阻塞，消費者會延遲處理通知。",
+        "如果訊息隊列阻塞，消費者會延遲處理通知。",
+        "如果消息佇列阻塞，消費者會延遲處理通知。",
+        "如果消息隊列阻塞，取用者會延遲處理通知。",
+        "如果訊息隊列阻塞，取用者會延遲處理通知。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「消息队列」轉為「訊息佇列」（IT術語），「消费者」轉為「取用者」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "訊息佇列 consumer 台灣工程語境常用「消費者」，「取用者」較少見。"
+    },
+    {
+      "id": "blind-it-0014",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "合并请求通过检查后，机器人会自动发布预览版本。",
+      "codex_expected": "合併請求通過檢查後，機器人會自動發布預覽版本。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "Git/CI 語境使用「合併請求」「檢查」「發布」。",
+      "gemini_expected": "合併要求通過檢查後，機器人會自動發佈預覽版本。",
+      "gemini_acceptable": [
+        "合併請求通過檢查後，機器人會自動發布預覽版本。",
+        "合併要求通過檢查後，機器人會自動發布預覽版本。",
+        "合併請求通過檢查後，機器人會自動發佈預覽版本。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「合并请求」轉為「合併要求」（IT術語），「机器人」轉為「機器人」，「发布」轉為「發佈」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "GitLab/Git 語境「合併請求」比「合併要求」自然；「發布」也可接受。"
+    },
+    {
+      "id": "blind-it-0015",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "你可以用配置文件指定默认语言和时区。",
+      "codex_expected": "你可以用設定檔指定預設語言和時區。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「配置文件」轉「設定檔」，「默认」轉「預設」。",
+      "gemini_expected": "你可以用組態檔指定預設語言和時區。",
+      "gemini_acceptable": [
+        "你可以用配置文件指定默認語言和時區。",
+        "你可以用組態檔指定默認語言和時區。",
+        "你可以用配置文件指定預設語言和時區。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「配置文件」轉為「組態檔」（IT術語），「默认语言」轉為「預設語言」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "一般 config file 在產品/開發文件中「設定檔」較常見；「組態檔」偏特定風格。"
+    },
+    {
+      "id": "blind-it-0016",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "数据迁移完成后，请验证索引是否已经重建。",
+      "codex_expected": "資料遷移完成後，請驗證索引是否已經重建。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「数据迁移」轉「資料遷移」。",
+      "gemini_expected": "資料移轉完成後，請驗證索引是否已經重建。",
+      "gemini_acceptable": [
+        "數據遷移完成後，請驗證索引是否已經重建。",
+        "資料遷移完成後，請驗證索引是否已經重建。",
+        "數據移轉完成後，請驗證索引是否已經重建。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「数据」轉為「資料」（IT術語），「迁移」轉為「移轉」（IT術語），「请」轉為「請」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "「資料遷移」在資料庫/開發者文件中常見；Gemini「資料移轉」可列 acceptable。"
+    },
+    {
+      "id": "blind-it-0017",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个端点需要签名，否则网关会拒绝请求。",
+      "codex_expected": "這個端點需要簽章，否則閘道會拒絕請求。",
+      "codex_acceptable": [
+        "這個端點需要簽名，否則閘道會拒絕請求。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "API 安全語境「signature」多譯「簽章」，但也可能依產品用「簽名」。",
+      "gemini_expected": "這個端點需要簽章，否則閘道會拒絕要求。",
+      "gemini_acceptable": [
+        "這個端點需要簽名，否則網關會拒絕請求。",
+        "這個端點需要簽章，否則網關會拒絕請求。",
+        "這個端點需要簽名，否則閘道會拒絕請求。",
+        "這個端點需要簽名，否則網關會拒絕要求。",
+        "這個端點需要簽章，否則網關會拒絕要求。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「这个」轉為「這個」，「端点」轉為「端點」（IT術語），「签名」轉為「簽章」（IT術語），「网关」轉為「閘道」（IT術語），「请求」轉為「要求」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "API request 應用「請求」，不是「要求」；「簽章」「閘道」採 Gemini/Codex 一致部分。"
+    },
+    {
+      "id": "blind-it-0018",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "我们把支付回调放进独立的工作线程处理。",
+      "codex_expected": "我們把付款回呼放進獨立的工作執行緒處理。",
+      "codex_acceptable": [
+        "我們把支付回呼放進獨立的工作執行緒處理。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「回调」轉「回呼」；付款/支付需依產品金融用語確認。",
+      "gemini_expected": "我們把支付回呼放進獨立的工作執行緒處理。",
+      "gemini_acceptable": [
+        "我們把支付回調放進獨立的工作線程處理。",
+        "我們把支付回呼放進獨立的工作線程處理。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「我们」轉為「我們」，「回调」轉為「回呼」（IT術語），「放进」轉為「放進」，「工作线程」轉為「工作執行緒」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "台灣金融/付款流程常用「付款」，「支付」較偏中國用語或泛稱。"
+    },
+    {
+      "id": "blind-it-0019",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "发生冲突时，客户端应该重新下载最新记录。",
+      "codex_expected": "發生衝突時，客戶端應該重新下載最新記錄。",
+      "codex_acceptable": [
+        "發生衝突時，客戶端應該重新下載最新紀錄。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "資料庫 record 可用「記錄」；一般語境也可見「紀錄」。",
+      "gemini_expected": "發生衝突時，用戶端應該重新下載最新記錄。",
+      "gemini_acceptable": [
+        "發生衝突時，客戶端應該重新下載最新記錄。",
+        "發生衝突時，用戶端應該重新下載最新紀錄。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「发生」轉為「發生」，「客户端」轉為「用戶端」（IT術語），「应该」轉為「應該」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "gemini",
+      "codex_recommendation_reason": "client-side/客户端 在台灣技術文件常用「用戶端」，比「客戶端」更少歧義。"
+    },
+    {
+      "id": "blind-it-0020",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请在测试环境启用详细日志，线上环境保持关闭。",
+      "codex_expected": "請在測試環境啟用詳細日誌，正式環境保持關閉。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「线上环境」在部署語境轉「正式環境」。",
+      "gemini_expected": "請在測試環境啟用詳細記錄檔，線上環境保持關閉。",
+      "gemini_acceptable": [
+        "請在測試環境啟用詳細日誌，線上環境保持關閉。",
+        "請在測試環境啟用詳細記錄檔，線上環境保持關閉。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「请」轉為「請」，「日志」轉為「記錄檔」（IT術語），「线上环境」轉為「線上環境」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "中國「线上环境」在部署語境通常是 production，台灣寫「正式環境」較準；「記錄檔」不適合詳細 log 泛稱。"
+    },
+    {
+      "id": "blind-it-0021",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "压缩包解开后，把二进制文件移动到系统路径。",
+      "codex_expected": "壓縮檔解開後，把二進位檔案移動到系統路徑。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「压缩包」轉「壓縮檔」，「二进制文件」轉「二進位檔案」。",
+      "gemini_expected": "壓縮檔解壓縮後，把二進位檔案移動到系統路徑。",
+      "gemini_acceptable": [
+        "壓縮包解開後，把二進位文件移動到系統路徑。",
+        "壓縮檔解開後，把二進位文件移動到系統路徑。",
+        "壓縮包解壓縮後，把二進位文件移動到系統路徑。",
+        "壓縮包解開後，把二進位檔案移動到系統路徑。",
+        "壓縮檔解開後，把二進位檔案移動到系統路徑。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「压缩包」轉為「壓縮檔」（IT術語），「解开」轉為「解壓縮」（IT術語），「二进制文件」轉為「二進位檔案」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "gemini",
+      "codex_recommendation_reason": "「解壓縮」比「解開」更明確對應壓縮檔操作。"
+    },
+    {
+      "id": "blind-it-0022",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个插件会在保存文件时格式化代码。",
+      "codex_expected": "這個外掛會在儲存檔案時格式化程式碼。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「插件」轉「外掛」，「代码」轉「程式碼」。",
+      "gemini_expected": "這個外掛程式會在儲存檔案時格式化程式碼。",
+      "gemini_acceptable": [
+        "這個插件會在保存文件時格式化代碼。",
+        "這個外掛程式會在保存文件時格式化代碼。",
+        "這個插件會在儲存檔案時格式化代碼。",
+        "這個插件會在保存文件時格式化程式碼。",
+        "這個外掛程式會在保存文件時格式化程式碼。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「这个」轉為「這個」，「插件」轉為「外掛程式」（IT術語），「保存文件」轉為「儲存檔案」（IT術語），「代码」轉為「程式碼」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "「外掛」較簡潔自然；「外掛程式」可接受但較冗。"
+    },
+    {
+      "id": "blind-it-0023",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "任务失败后，调度器会在五分钟后再次尝试。",
+      "codex_expected": "任務失敗後，排程器會在五分鐘後再次嘗試。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「调度器」轉「排程器」。",
+      "gemini_expected": "工作失敗後，排程器會在五分鐘後再次嘗試。",
+      "gemini_acceptable": [
+        "任務失敗後，調度器會在五分鐘後再次嘗試。",
+        "工作失敗後，調度器會在五分鐘後再次嘗試。",
+        "任務失敗後，排程器會在五分鐘後再次嘗試。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「任务」轉為「工作」（IT術語），「调度器」轉為「排程器」（IT術語），「五分钟」轉為「五分鐘」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "scheduler task 可譯「任務」，「工作失敗」會稍微改變語感。"
+    },
+    {
+      "id": "blind-it-0025",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "如果版本号不匹配，安装程序会停止更新。",
+      "codex_expected": "如果版本號不相符，安裝程式會停止更新。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「不匹配」轉自然台灣用語「不相符」。",
+      "gemini_expected": "如果版本號不符，安裝程式會停止更新。",
+      "gemini_acceptable": [
+        "如果版本號不匹配，安裝程序會停止更新。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "formal_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「版本号」轉為「版本號」，「不匹配」轉為「不符」（IT/正式用語），「安装程序」轉為「安裝程式」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "gemini",
+      "codex_recommendation_reason": "「版本號不符」是台灣正式/技術文件中更精簡自然的寫法。"
+    },
+    {
+      "id": "blind-ui-0001",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "点击保存后，页面会显示上次更新时间。",
+      "codex_expected": "點選儲存後，頁面會顯示上次更新時間。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "UI 動作用「點選」「儲存」。",
+      "gemini_expected": "點擊儲存後，頁面會顯示上次更新時間。",
+      "gemini_acceptable": [
+        "點擊保存後，頁面會顯示上次更新時間。",
+        "點擊儲存後，頁面會顯示上次更新時間。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「点击」轉為「點擊」（UI術語），「保存」轉為「儲存」（UI術語），「页面」轉為「頁面」，「显示」轉為「顯示」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "UI 操作中「點選」較符合台灣介面文案風格。"
+    },
+    {
+      "id": "blind-ui-0004",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "拖动滑块调整音量，然后点击应用。",
+      "codex_expected": "拖曳滑桿調整音量，然後點選套用。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "UI 元件用「拖曳滑桿」「套用」。",
+      "gemini_expected": "拖曳滑桿調整音量，然後點擊套用。",
+      "gemini_acceptable": [
+        "拖動滑塊調整音量，然後點擊應用。",
+        "拖曳滑塊調整音量，然後點擊應用。",
+        "拖動滑桿調整音量，然後點擊應用。",
+        "拖動滑塊調整音量，然後點擊套用。",
+        "拖曳滑塊調整音量，然後點擊套用。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「拖动」轉為「拖曳」（UI術語），「滑块」轉為「滑桿」（UI術語），「点击」轉為「點擊」（UI術語），「应用」轉為「套用」（UI術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "同上，UI 操作用「點選套用」較穩定。"
+    },
+    {
+      "id": "blind-ui-0006",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "这个对话框会在离开页面前提醒尚未保存的更改。",
+      "codex_expected": "這個對話框會在離開頁面前提醒尚未儲存的變更。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「更改」在 UI 文字轉「變更」。",
+      "gemini_expected": "這個對話方塊會在離開頁面前提醒尚未儲存的變更。",
+      "gemini_acceptable": [
+        "這個對話框會在離開頁面前提醒尚未保存的更改。",
+        "這個對話方塊會在離開頁面前提醒尚未保存的更改。",
+        "這個對話框會在離開頁面前提醒尚未儲存的更改。",
+        "這個對話框會在離開頁面前提醒尚未保存的變更。",
+        "這個對話方塊會在離開頁面前提醒尚未保存的變更。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「这个」轉為「這個」，「对话框」轉為「對話方塊」（UI術語），「保存」轉為「儲存」（UI術語），「更改」轉為「變更」（UI術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "Web/產品文案常用「對話框」；「對話方塊」偏 Windows/微軟風格。"
+    },
+    {
+      "id": "blind-ui-0008",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "会员可以在个人资料里修改头像。",
+      "codex_expected": "會員可以在個人資料裡修改大頭貼。",
+      "codex_acceptable": [
+        "會員可以在個人資料裡修改頭像。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "台灣消費者 UI 常見「大頭貼」，但部分產品仍用「頭像」。",
+      "gemini_expected": "會員可以在個人檔案裡修改大頭貼。",
+      "gemini_acceptable": [
+        "會員可以在個人資料裡修改頭像。",
+        "會員可以在個人檔案裡修改頭像。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「个人资料」轉為「個人檔案」（UI術語），「里」轉為「裡」，「头像」轉為「大頭貼」（UI術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "原文「个人资料」直譯台灣產品常用「個人資料」；「個人檔案」較偏 profile 特定產品。"
+    },
+    {
+      "id": "blind-ui-0010",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "如果密码太短，输入框下方会显示错误消息。",
+      "codex_expected": "如果密碼太短，輸入框下方會顯示錯誤訊息。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「错误消息」轉「錯誤訊息」。",
+      "gemini_expected": "如果密碼太短，輸入方塊下方會顯示錯誤訊息。",
+      "gemini_acceptable": [
+        "如果密碼太短，輸入框下方會顯示錯誤消息。",
+        "如果密碼太短，輸入方塊下方會顯示錯誤消息。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「输入框」轉為「輸入方塊」（UI術語），「显示」轉為「顯示」，「错误消息」轉為「錯誤訊息」（UI術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "台灣產品文案常用「輸入框」；「輸入方塊」較偏微軟風格。"
+    },
+    {
+      "id": "blind-ui-0011",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "点击返回箭头会回到上一层目录。",
+      "codex_expected": "點選返回箭頭會回到上一層目錄。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "UI 動作用「點選」。",
+      "gemini_expected": "點擊返回箭頭會回到上一層目錄。",
+      "gemini_acceptable": [
+        "點擊返回箭頭會回到上一層目錄。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「点击」轉為「點擊」（UI術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "UI 操作用「點選」較一致。"
+    },
+    {
+      "id": "blind-ui-0018",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "管理页面左侧菜单可以折叠。",
+      "codex_expected": "管理頁面左側選單可以收合。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「菜单」轉「選單」，「折叠」轉「收合」。",
+      "gemini_expected": "管理頁面左側選單可以摺疊。",
+      "gemini_acceptable": [
+        "管理頁面左側菜單可以折疊。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「菜单」轉為「選單」（UI術語），「折叠」轉為「摺疊」（UI術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "選單狀態用「收合」較自然；「摺疊」較機械直譯。"
+    },
+    {
+      "id": "blind-llm-0001",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "这段说明可以放在 README 的快速开始章节。",
+      "codex_expected": "這段說明可以放在 README 的快速開始章節。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "技術文件語境「快速开始」轉「快速開始」。",
+      "gemini_expected": "這段說明可以放在 README 的快速入門章節。",
+      "gemini_acceptable": [
+        "這段說明可以放在 README 的快速開始章節。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "formal_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「这段」轉為「這段」，「快速开始」轉為「快速入門」（IT/正式用語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "README section 名稱可用「快速開始」，比「快速入門章節」更貼近 quick start。"
+    },
+    {
+      "id": "blind-llm-0002",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请把客服回复改写成更自然的台湾用语。",
+      "codex_expected": "請把客服回覆改寫成更自然的台灣用語。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「台湾用语」轉「台灣用語」。",
+      "gemini_expected": "請把客服回覆改寫成更自然的臺灣用語。",
+      "gemini_acceptable": [
+        "請把客服回复改寫成更自然的台灣用语。",
+        "請把客服回覆改寫成更自然的台灣用语。",
+        "請把客服回复改寫成更自然的臺灣用语。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "將「请」轉為「請」，「回复」轉為「回覆」，「改写」轉為「改寫」，「台湾用语」轉為「臺灣用語」（臺灣的正式寫法）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "專案文件與既有用語多使用「台灣」；不改成較正式的「臺灣」。"
+    },
+    {
+      "id": "blind-llm-0010",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "这份教程适合第一次部署服务的开发者。",
+      "codex_expected": "這份教學適合第一次部署服務的開發者。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「教程」轉台灣常用「教學」。",
+      "gemini_expected": "這份教學課程適合第一次部署服務的開發者。",
+      "gemini_acceptable": [
+        "這份教程適合第一次部署服務的開發者。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "formal_term",
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「这份」轉為「這份」，「教程」轉為「教學課程」（正式/IT用語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "「教程」在台灣常轉「教學」；「教學課程」多了課程語意。"
+    },
+    {
+      "id": "blind-llm-0012",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "模型输出的代码片段应该包含必要的导入语句。",
+      "codex_expected": "模型輸出的程式碼片段應該包含必要的匯入語句。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "程式語境「代码」轉「程式碼」，「导入」轉「匯入」。",
+      "gemini_expected": "模型輸出的程式碼片段應該包含必要的匯入陳述式。",
+      "gemini_acceptable": [
+        "模型輸出的代碼片段應該包含必要的導入語句。",
+        "模型輸出的程式碼片段應該包含必要的導入語句。",
+        "模型輸出的代碼片段應該包含必要的匯入語句。",
+        "模型輸出的程式碼片段應該包含必要的匯入語句。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「输出」轉為「輸出」（IT術語），「代码片段」轉為「程式碼片段」（IT術語），「应该」轉為「應該」，「导入语句」轉為「匯入陳述式」（IT術語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "gemini",
+      "codex_recommendation_reason": "程式語境 import statement 譯為「匯入陳述式」較精確。"
+    },
+    {
+      "id": "blind-llm-0013",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "这条系统消息限制助理不能泄露内部规则。",
+      "codex_expected": "這則系統訊息限制助理不能洩露內部規則。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「消息」轉「訊息」，「泄露」轉「洩露」。",
+      "gemini_expected": "這條系統訊息限制助理不能洩漏內部規則。",
+      "gemini_acceptable": [
+        "這條系統消息限制助理不能泄露內部規則。",
+        "這條系統訊息限制助理不能泄露內部規則。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「这条」轉為「這條」，「系统消息」轉為「系統訊息」（IT術語），「泄露」轉為「洩漏」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "third_value",
+      "codex_recommendation_reason": "建議第三版：「這則系統訊息限制助理不能洩漏內部規則。」；Codex 的「這則」較自然，Gemini 的「洩漏」較自然。"
+    },
+    {
+      "id": "blind-formal-0012",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "合同签署前，双方应确认付款条件。",
+      "codex_expected": "契約簽署前，雙方應確認付款條件。",
+      "codex_acceptable": [
+        "合約簽署前，雙方應確認付款條件。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "法律/正式文件中「合同」可譯「契約」或「合約」，需依文件性質確認。",
+      "gemini_expected": "合約簽署前，雙方應確認付款條件。",
+      "gemini_acceptable": [
+        "合同簽署前，雙方應確認付款條件。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「合同」轉為「合約」（正式/法律用語）。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "正式/法律語境「契約」較適合；也與高風險 legal 用語一致。"
+    },
+    {
+      "id": "blind-social-0015",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "今天的直播回放什么时候会上架？",
+      "codex_expected": "今天的直播重播什麼時候會上架？",
+      "codex_acceptable": [
+        "今天的直播回放什麼時候會上架？"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「直播回放」在台灣較常改為「直播重播」，但產品用語可能保留「回放」。",
+      "gemini_expected": "今天的直播回放什麼時候會上架？",
+      "gemini_acceptable": [
+        "今天的直播回放什麼時候會上架？"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "將「什么时候」轉為「什麼時候」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "codex_recommendation_reason": "台灣日常/影音語境「直播重播」比「直播回放」自然。"
+    }
+  ],
+  "exact_but_policy_review": [
+    {
+      "id": "blind-it-0002",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "expected": "使用者登入後，伺服器會回傳存取權杖和重新整理權杖。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-it-0004",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "expected": "部署指令碼需要讀取環境變數裡的資料庫憑證。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-it-0005",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "expected": "這個介面會分頁回傳訂單清單，每頁最多五十筆。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-it-0006",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "expected": "當連線逾時發生時，請不要重複送出表單。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-it-0007",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "expected": "我們在背景工作裡記錄每一次重試的原因。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-it-0010",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "expected": "管理員可以在主控台停用異常的 API 金鑰。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-ui-0012",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "expected": "你可以把常用頁面加入我的最愛。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-ui-0017",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "expected": "請在刪除帳號前再次輸入你的電子郵件。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-ui-0020",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "expected": "系統會在工作階段即將過期時彈出提示。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-llm-0005",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "expected": "如果回答涉及醫療建議，請提醒使用者諮詢專業人員。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-llm-0006",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "expected": "產生測試資料時，不要使用真實的個人資訊。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-llm-0011",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "expected": "自動回覆需要避免承諾無法保證的處理時間。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-formal-0004",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "expected": "主管機關提醒業者不得誤導消費者。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-formal-0007",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "expected": "申請人須在期限內補交相關證明文件。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-formal-0010",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "expected": "新聞稿指出，合作專案不會影響現有使用者權益。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-formal-0015",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "expected": "本聲明不構成任何投資建議。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-social-0007",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "expected": "我剛剛在便利商店看到同款充電線。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-social-0009",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "expected": "這首歌的副歌很洗腦，大家都在哼。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-social-0011",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "expected": "我們先在捷運站出口集合。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-high-risk-0001",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "expected": "不得以定型化契約條款排除責任。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-high-risk-0002",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "expected": "跨行匯款手續費由使用者負擔。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-high-risk-0003",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "expected": "請依醫師指示服用本藥，並留意過敏反應。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-high-risk-0004",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "expected": "投保前應詳閱保單條款和除外責任。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-high-risk-0005",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "expected": "申請補助時，必須提供有效的身分證明文件。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-high-risk-0006",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "expected": "病人出現胸痛或呼吸困難時，應立即就醫。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-high-risk-0007",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "expected": "貸款利率可能隨市場條件調整。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-high-risk-0008",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "expected": "個人資料不得用於原申請目的以外的用途。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-high-risk-0009",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "expected": "本合約爭議適用中華民國法律。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    },
+    {
+      "id": "blind-high-risk-0010",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "expected": "醫療紀錄應依法保存，不得任意刪除。",
+      "reason": "Codex/Gemini 一致，但屬 high_risk、over_conversion_guard 或前序 medium confidence，仍建議 maintainer 快速確認。"
+    }
+  ],
+  "no_immediate_question": [
+    "blind-it-0001",
+    "blind-it-0013",
+    "blind-it-0024",
+    "blind-ui-0002",
+    "blind-ui-0003",
+    "blind-ui-0005",
+    "blind-ui-0007",
+    "blind-ui-0009",
+    "blind-ui-0013",
+    "blind-ui-0014",
+    "blind-ui-0015",
+    "blind-ui-0016",
+    "blind-ui-0019",
+    "blind-llm-0003",
+    "blind-llm-0004",
+    "blind-llm-0007",
+    "blind-llm-0008",
+    "blind-llm-0009",
+    "blind-llm-0014",
+    "blind-llm-0015",
+    "blind-formal-0001",
+    "blind-formal-0002",
+    "blind-formal-0003",
+    "blind-formal-0005",
+    "blind-formal-0006",
+    "blind-formal-0008",
+    "blind-formal-0009",
+    "blind-formal-0011",
+    "blind-formal-0013",
+    "blind-formal-0014",
+    "blind-social-0001",
+    "blind-social-0002",
+    "blind-social-0003",
+    "blind-social-0004",
+    "blind-social-0005",
+    "blind-social-0006",
+    "blind-social-0008",
+    "blind-social-0010",
+    "blind-social-0012",
+    "blind-social-0013",
+    "blind-social-0014"
+  ]
+}

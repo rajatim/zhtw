@@ -1,0 +1,32 @@
+{
+  "report_type": "holdout_gemini_policy_review_remaining_signal_after_batch6_miss_review",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-10",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-flash",
+  "review_stage": "sanitized_remaining_signal_policy_review_after_batch6_miss_review",
+  "sealed_values_seen": false,
+  "source_signal_report": "docs/reports/holdout-remaining-signal-summary-blind-v1-after-batch6-miss-review-2026-07-10.json",
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "gemini_received_sanitized_metadata_only": true
+  },
+  "summary": {
+    "total_cases": 24,
+    "policy_passed": true,
+    "findings": 0,
+    "changes_recommended": 0
+  },
+  "gemini_summary": "The remaining sealed holdout signal summary is fully compliant with all security and evaluation policies. No sealed inputs, expected values, acceptable values, or actual outputs are exposed. All 24 misses are correctly retained as sealed holdout signals, with explicit prohibitions against model tuning or dictionary modification. Any future tuning on these cases strictly requires prior removal from the sealed pool, and the Gemini policy review requirement is properly enforced.",
+  "findings": [],
+  "changes_recommended": [],
+  "tool_notes": [
+    "Gemini CLI was run with GEMINI_API_KEY, GOOGLE_API_KEY, and GOOGLE_GENERATIVE_AI_API_KEY unset; no API-key mode was used.",
+    "Gemini was instructed not to use tools or read repository files and reviewed only sanitized signal metadata supplied on stdin.",
+    "Gemini CLI emitted a non-review tool availability line before the JSON payload: Ripgrep is not available. Falling back to GrepTool."
+  ]
+}

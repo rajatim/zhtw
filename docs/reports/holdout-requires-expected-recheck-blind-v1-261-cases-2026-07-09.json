@@ -1,0 +1,623 @@
+{
+  "report_type": "holdout_requires_expected_recheck",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-09",
+  "review_stage": "codex_private_recheck_first_pass",
+  "source_benchmark": {
+    "path": "/tmp/zhtw-blind-v1-private-benchmark-2026-07-09.json",
+    "in_repo": false,
+    "rows_used_for_private_recheck_only": true
+  },
+  "source_reports": [
+    "docs/reports/holdout-miss-classification-blind-v1-261-cases-2026-07-09.json",
+    "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-261-cases-2026-07-09.json"
+  ],
+  "private_review_packet": "/tmp/zhtw-holdout-261-case-recheck-maintainer-review-packet-2026-07-09.md",
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "case_recommendations_include_only_ids_and_metadata": true
+  },
+  "policy": {
+    "codex_is_advisory_only": true,
+    "private_expected_updated": false,
+    "converter_or_dictionary_updated": false,
+    "gemini_review_required_before_maintainer": true,
+    "maintainer_confirmation_required_for_acceptable_variants": true,
+    "move_to_public_requires_sealed_removal_before_tuning": true,
+    "strict_cases_must_not_be_used_for_tuning": true
+  },
+  "summary": {
+    "current_sealed_cases": 261,
+    "current_accepted": 207,
+    "current_misses": 54,
+    "recheck_cases": 16,
+    "maintainer_review_required": 16,
+    "recommended_acceptable_variant_candidates": 9,
+    "recommended_move_to_public_regression_candidate": 5,
+    "recommended_keep_strict_primary_expected": 2,
+    "by_recommendation": {
+      "maintainer_confirm_add_acceptable_variant": 9,
+      "maintainer_confirm_keep_strict_primary_expected": 2,
+      "maintainer_confirm_move_to_public_regression_candidate": 5
+    },
+    "by_priority": {
+      "P1": 5,
+      "P2": 10,
+      "P3": 1
+    },
+    "by_domain_recommendation": {
+      "formal": {
+        "maintainer_confirm_add_acceptable_variant": 2,
+        "maintainer_confirm_keep_strict_primary_expected": 1
+      },
+      "high_risk": {
+        "maintainer_confirm_add_acceptable_variant": 2,
+        "maintainer_confirm_move_to_public_regression_candidate": 2
+      },
+      "it": {
+        "maintainer_confirm_add_acceptable_variant": 2,
+        "maintainer_confirm_move_to_public_regression_candidate": 3
+      },
+      "llm": {
+        "maintainer_confirm_add_acceptable_variant": 2
+      },
+      "ui": {
+        "maintainer_confirm_add_acceptable_variant": 1,
+        "maintainer_confirm_keep_strict_primary_expected": 1
+      }
+    },
+    "by_risk_recommendation": {
+      "baseline_guard": {
+        "maintainer_confirm_add_acceptable_variant": 1,
+        "maintainer_confirm_move_to_public_regression_candidate": 1
+      },
+      "candidate_gap": {
+        "maintainer_confirm_add_acceptable_variant": 6,
+        "maintainer_confirm_keep_strict_primary_expected": 2
+      },
+      "over_conversion_guard": {
+        "maintainer_confirm_add_acceptable_variant": 2,
+        "maintainer_confirm_move_to_public_regression_candidate": 4
+      }
+    },
+    "hypothetical_if_all_acceptable_recommendations_confirmed": {
+      "accepted": 216,
+      "misses": 45,
+      "accepted_accuracy": 0.8275862068965517,
+      "note": "This is not an updated benchmark result; private expected is unchanged until maintainer confirms acceptable variants."
+    }
+  },
+  "case_recommendations": [
+    {
+      "id": "blind-it-0080",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taiwan-term",
+        "readme",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "it_term",
+        "over_conversion"
+      ],
+      "source_classification_reason": "over_conversion_guard_with_example_term_requires_recheck",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_category": "clear_example_term_and_graph_variant_gap_after_recheck",
+      "flags": [
+        "over_conversion_guard",
+        "graph_variant",
+        "multi_term_gap",
+        "gemini_policy_followup"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "remove_from_sealed_holdout_before_any_converter_or_dictionary_tuning",
+      "recommended_acceptable_variant_in_private_packet": false
+    },
+    {
+      "id": "blind-it-0081",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "variable-name",
+        "preserve",
+        "translation"
+      ],
+      "issue_tags": [
+        "it_term",
+        "over_conversion",
+        "regional_term"
+      ],
+      "source_classification_reason": "over_conversion_guard_with_variable_name_term_requires_recheck",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_variable_name_term_variant",
+      "flags": [
+        "over_conversion_guard",
+        "it_term_variant",
+        "gemini_policy_followup"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update",
+      "recommended_acceptable_variant_in_private_packet": true
+    },
+    {
+      "id": "blind-it-0082",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "project-name",
+        "taipei",
+        "preserve"
+      ],
+      "issue_tags": [
+        "it_term",
+        "over_conversion",
+        "regional_term"
+      ],
+      "source_classification_reason": "over_conversion_guard_with_project_code_term_requires_recheck",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_category": "clear_project_term_gap_after_recheck",
+      "flags": [
+        "over_conversion_guard",
+        "it_term_gap",
+        "gemini_policy_followup"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "remove_from_sealed_holdout_before_any_converter_or_dictionary_tuning",
+      "recommended_acceptable_variant_in_private_packet": false
+    },
+    {
+      "id": "blind-it-0084",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "localized-text",
+        "button",
+        "preserve"
+      ],
+      "issue_tags": [
+        "ui_term",
+        "it_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "source_classification_reason": "over_conversion_guard_with_localization_term_requires_recheck",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_category": "clear_localization_term_gap_after_recheck",
+      "flags": [
+        "over_conversion_guard",
+        "it_term_gap",
+        "ui_term_gap",
+        "gemini_policy_followup"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "remove_from_sealed_holdout_before_any_converter_or_dictionary_tuning",
+      "recommended_acceptable_variant_in_private_packet": false
+    },
+    {
+      "id": "blind-it-0085",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "tags": [
+        "cli",
+        "summary",
+        "output"
+      ],
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "source_classification_reason": "possible_cli_command_acceptable_variant",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_cli_command_term_variant",
+      "flags": [
+        "style_variant",
+        "it_term_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update",
+      "recommended_acceptable_variant_in_private_packet": true
+    },
+    {
+      "id": "blind-ui-0048",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "tags": [
+        "filter",
+        "button",
+        "list"
+      ],
+      "issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "source_classification_reason": "possible_click_wording_acceptable_variant",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_keep_strict_primary_expected",
+      "priority": "P2",
+      "reason_category": "preserve_strict_ui_click_action_wording_signal",
+      "flags": [
+        "style_variant",
+        "strict_ui_wording"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "keep_strict_private_expected_and_do_not_tune_from_this_case",
+      "recommended_acceptable_variant_in_private_packet": false
+    },
+    {
+      "id": "blind-ui-0059",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "tags": [
+        "breadcrumb",
+        "category",
+        "navigation"
+      ],
+      "issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "source_classification_reason": "possible_breadcrumb_navigation_acceptable_variant",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P3",
+      "reason_category": "valid_breadcrumb_navigation_term_variant",
+      "flags": [
+        "style_variant",
+        "ui_term_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update",
+      "recommended_acceptable_variant_in_private_packet": true
+    },
+    {
+      "id": "blind-llm-0035",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "tags": [
+        "generation",
+        "summary",
+        "chronology"
+      ],
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "source_classification_reason": "possible_generate_term_acceptable_variant",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_ai_generation_term_variant",
+      "flags": [
+        "style_variant",
+        "llm_term_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update",
+      "recommended_acceptable_variant_in_private_packet": true
+    },
+    {
+      "id": "blind-llm-0042",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "prompt",
+        "variable-name",
+        "preserve"
+      ],
+      "issue_tags": [
+        "it_term",
+        "over_conversion",
+        "regional_term"
+      ],
+      "source_classification_reason": "over_conversion_guard_with_variable_name_term_requires_recheck",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_variable_name_term_variant",
+      "flags": [
+        "over_conversion_guard",
+        "it_term_variant",
+        "gemini_policy_followup"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update",
+      "recommended_acceptable_variant_in_private_packet": true
+    },
+    {
+      "id": "blind-formal-0035",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "tags": [
+        "application",
+        "identity",
+        "deadline"
+      ],
+      "issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "source_classification_reason": "possible_identity_term_acceptable_variant",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_keep_strict_primary_expected",
+      "priority": "P2",
+      "reason_category": "preserve_formal_identity_term_signal",
+      "flags": [
+        "formal_term_recheck",
+        "strict_formal_wording"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "keep_strict_private_expected_and_do_not_tune_from_this_case",
+      "recommended_acceptable_variant_in_private_packet": false
+    },
+    {
+      "id": "blind-formal-0036",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "tags": [
+        "meeting-minutes",
+        "resolution",
+        "formal"
+      ],
+      "issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "source_classification_reason": "possible_record_term_acceptable_variant",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_record_graph_variant",
+      "flags": [
+        "formal_term_variant",
+        "style_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update",
+      "recommended_acceptable_variant_in_private_packet": true
+    },
+    {
+      "id": "blind-formal-0041",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "tags": [
+        "announcement",
+        "agency",
+        "notification"
+      ],
+      "issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "source_classification_reason": "possible_send_term_acceptable_variant",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_send_term_variant",
+      "flags": [
+        "formal_term_variant",
+        "style_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update",
+      "recommended_acceptable_variant_in_private_packet": true
+    },
+    {
+      "id": "blind-high-risk-0022",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "tags": [
+        "finance",
+        "transaction",
+        "notification"
+      ],
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "regional_term"
+      ],
+      "source_classification_reason": "high_risk_send_term_requires_recheck",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P1",
+      "reason_category": "valid_high_risk_finance_send_term_variant_needs_confirmation",
+      "flags": [
+        "high_risk",
+        "finance_term_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update",
+      "recommended_acceptable_variant_in_private_packet": true
+    },
+    {
+      "id": "blind-high-risk-0024",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "tags": [
+        "medical",
+        "follow-up",
+        "discharge"
+      ],
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "regional_term"
+      ],
+      "source_classification_reason": "high_risk_patient_term_requires_recheck",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P1",
+      "reason_category": "valid_high_risk_medical_patient_term_variant_needs_confirmation",
+      "flags": [
+        "high_risk",
+        "medical_term_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update",
+      "recommended_acceptable_variant_in_private_packet": true
+    },
+    {
+      "id": "blind-high-risk-0028",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "finance",
+        "branch-name",
+        "preserve"
+      ],
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "over_conversion",
+        "regional_term"
+      ],
+      "source_classification_reason": "high_risk_over_conversion_guard_requires_recheck",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_category": "clear_high_risk_finance_note_term_gap_after_recheck",
+      "flags": [
+        "high_risk",
+        "formal_term_gap",
+        "over_conversion_guard",
+        "gemini_policy_followup"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "remove_from_sealed_holdout_before_any_converter_or_dictionary_tuning",
+      "recommended_acceptable_variant_in_private_packet": false
+    },
+    {
+      "id": "blind-high-risk-0030",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "tags": [
+        "medical-record",
+        "audit",
+        "access"
+      ],
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "it_term",
+        "regional_term"
+      ],
+      "source_classification_reason": "high_risk_medical_audit_record_term_requires_recheck",
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_category": "clear_high_risk_medical_audit_record_term_gap_after_recheck",
+      "flags": [
+        "high_risk",
+        "formal_term_gap",
+        "it_term_gap",
+        "gemini_policy_followup"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "remove_from_sealed_holdout_before_any_converter_or_dictionary_tuning",
+      "recommended_acceptable_variant_in_private_packet": false
+    }
+  ],
+  "gemini_review_policy": {
+    "status": "completed_on_sanitized_metadata",
+    "review_report": "docs/reports/holdout-gemini-policy-review-requires-expected-recheck-blind-v1-261-cases-2026-07-09.json",
+    "sealed_values_seen_by_gemini": false,
+    "policy_consistent": true,
+    "needs_codex_followup": 0,
+    "reason": "Gemini reviewed case ids and recheck recommendation metadata only; private expected, inputs, and converter outputs were not sent."
+  }
+}

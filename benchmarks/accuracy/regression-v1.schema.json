@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/regression-v1.schema.json",
+  "title": "zhtw accuracy regression dataset",
+  "type": "object",
+  "required": [
+    "version",
+    "name",
+    "description",
+    "generated_date",
+    "source_report",
+    "selection",
+    "stats",
+    "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "name": { "type": "string", "const": "regression-v1" },
+    "description": { "type": "string", "minLength": 1 },
+    "generated_date": { "type": "string", "format": "date" },
+    "source_report": { "type": "string", "minLength": 1 },
+    "selection": {
+      "type": "object",
+      "required": [
+        "classification",
+        "required_zhtw_match",
+        "categories",
+        "per_category",
+        "sort",
+        "total_cases"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "classification": {
+          "type": "string",
+          "const": "curated corpus cases plus approved annotation backlog, holdout regression promotions, and public reproduction promotions"
+        },
+        "required_zhtw_match": { "type": "boolean", "const": true },
+        "categories": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "per_category": { "type": ["integer", "null"], "minimum": 1 },
+        "sort": { "type": "string", "minLength": 1 },
+        "total_cases": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "stats": {
+      "type": "object",
+      "required": [
+        "total_cases",
+        "by_domain",
+        "by_risk",
+        "by_classification",
+        "by_competitor_miss_count"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "total_cases": { "type": "integer", "minimum": 1 },
+        "by_domain": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "by_risk": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "by_classification": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "by_competitor_miss_count": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "domain",
+          "input",
+          "expected",
+          "risk",
+          "source",
+          "tags",
+          "notes",
+          "competitor_misses"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "domain": { "type": "string", "minLength": 1 },
+          "input": { "type": "string", "minLength": 1 },
+          "expected": { "type": "string", "minLength": 1 },
+          "risk": {
+            "type": "string",
+            "enum": ["baseline_guard", "over_conversion_guard", "candidate_gap"]
+          },
+          "source": {
+            "type": "object",
+            "required": [
+              "report",
+              "source_file",
+              "case_id",
+              "sample_seed",
+              "classification"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "report": { "type": "string", "minLength": 1 },
+              "source_file": { "type": "string", "minLength": 1 },
+              "case_id": { "type": "string", "minLength": 1 },
+              "sample_seed": { "type": ["integer", "null"] },
+              "classification": {
+                "type": "string",
+                "enum": [
+                  "all_match",
+                  "zhtw_advantage",
+                  "annotation_promoted",
+                  "holdout_regression_promoted",
+                  "public_reproduction_promoted"
+                ]
+              }
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "notes": { "type": "string" },
+          "competitor_misses": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["opencc-s2twp", "zhconv-zh-tw"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "report_type": "holdout_gemini_policy_review_batch8_miss_public_promotion",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-11",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-flash",
+  "model_reported_by_cli_stats": "gemini-3.5-flash",
+  "review_stage": "public_regression_promotion_policy_review",
+  "source_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "source_promotion_gate": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch8-miss-review-2026-07-11.json",
+  "sealed_values_seen": false,
+  "public_values_seen": true,
+  "sealed_content_policy": {
+    "reviewed_cases_removed_from_sealed_before_tuning": true,
+    "remaining_sealed_holdout_signal_cases_used_for_tuning": false,
+    "opencc_or_competitor_outputs_used_for_expected": false,
+    "gemini_received_public_candidate_values_only": true
+  },
+  "summary": {
+    "checked": 15,
+    "promotion_ready": 15,
+    "policy_consistent": true,
+    "risk_level": "low",
+    "blocking_findings": 0,
+    "info_findings": 0
+  },
+  "findings": [],
+  "tool_notes": [
+    "Gemini CLI was run with GEMINI_API_KEY unset; no invalid API-key mode was used.",
+    "Gemini reviewed only public candidate/gate values supplied on stdin.",
+    "Gemini CLI emitted a non-review tool availability line before the JSON payload: Ripgrep is not available. Falling back to GrepTool."
+  ],
+  "gemini_summary": "All 15 cases in the promotion gate report are policy_consistent and promotion_ready. For each case, the converter output (actual) matches the expected output, and the conversion is fully idempotent. The translation decisions rigorously adhere to traditional Taiwan conventions across all domains, including precise localization for IT terminology ('快取', '非同步', '相依套件', '熱重新載入'), UI terminology ('大頭貼', '釘選', '醒目提示', '相符字詞'), LLM terminology ('文件區塊'), and formal legal terms ('檢附', '身分'). The mapping strategy is conservative and fully consistent with the project's golden rules and identity protection policy, without relying on OpenCC or simple majority voting. No remaining sealed values were exposed or seen in the report; all cases are correct and safe for promotion."
+}

@@ -1,0 +1,1006 @@
+{
+  "report_type": "holdout_remaining_signal_summary",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-10",
+  "review_stage": "after_batch6_miss_review_remaining_signal_summary",
+  "source_benchmark": {
+    "path": "/tmp/zhtw-blind-v1-private-benchmark-after-batch6-miss-review-2026-07-10.json",
+    "sha256": "bb7fc28cb05dda9d8e1b6169ddb459bd320acd7963f43d289e211c4ca811b4bb",
+    "in_repo": false,
+    "rows_used_for_local_summary": true
+  },
+  "source_reports": [
+    "docs/reports/holdout-private-benchmark-sanity-blind-v1-after-batch6-miss-review-2026-07-10.json",
+    "docs/reports/holdout-miss-classification-blind-v1-426-cases-2026-07-10.json",
+    "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-426-cases-2026-07-10.json",
+    "docs/reports/holdout-maintainer-final-decision-batch6-miss-classification-blind-v1-2026-07-10.json",
+    "docs/reports/holdout-sealed-pool-update-blind-v1-batch6-miss-review-2026-07-10.json"
+  ],
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "case_signals_include_only_ids_and_metadata": true
+  },
+  "policy": {
+    "summary_only": true,
+    "private_expected_updated": false,
+    "converter_or_dictionary_updated": false,
+    "do_not_tune_from_these_cases": true,
+    "must_remove_from_sealed_before_any_future_tuning": true,
+    "gemini_policy_review_required": true
+  },
+  "summary": {
+    "current_sealed_cases": 415,
+    "current_accepted": 391,
+    "current_misses": 24,
+    "remaining_signal_cases": 24,
+    "converter_or_dictionary_updated": false,
+    "private_expected_updated": false,
+    "all_remaining_misses_are_holdout_signals": true,
+    "by_domain": {
+      "formal": 5,
+      "high_risk": 3,
+      "it": 3,
+      "llm": 4,
+      "social": 5,
+      "ui": 4
+    },
+    "by_risk": {
+      "over_conversion_guard": 24
+    },
+    "by_signal_category": {
+      "existing_taiwan_term_over_conversion_signal": 21,
+      "high_risk_existing_term_over_conversion_signal": 3
+    },
+    "by_issue_tag": {
+      "formal_term": 8,
+      "high_risk_term": 3,
+      "it_term": 5,
+      "over_conversion": 24,
+      "regional_term": 24,
+      "ui_term": 4
+    },
+    "idempotent_signal_cases": 24,
+    "non_idempotent_signal_cases": 0
+  },
+  "case_signals": [
+    {
+      "id": "blind-llm-0026",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taiwan-term",
+        "preserve",
+        "prompt"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-llm-0028",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "example-output",
+        "taipei",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-formal-0029",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taipei",
+        "regulation",
+        "terminology"
+      ],
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-social-0025",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "comment",
+        "taiwan-place-name",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-social-0026",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "post",
+        "traditional-text",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-it-0083",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taiwan-place-name",
+        "test-data",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "it_term"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-ui-0060",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "brand",
+        "taipei",
+        "preserve"
+      ],
+      "issue_tags": [
+        "ui_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-ui-0061",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "user-tag",
+        "taiwan-term",
+        "preserve"
+      ],
+      "issue_tags": [
+        "ui_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-llm-0043",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "example-output",
+        "taiwan-term",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "it_term"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-llm-0044",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taipei",
+        "address",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "it_term"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-formal-0043",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taipei",
+        "regulation",
+        "preserve"
+      ],
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-formal-0044",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "institution-name",
+        "taiwan-term",
+        "preserve"
+      ],
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-formal-0045",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taichung",
+        "address",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion",
+        "formal_term"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-formal-0046",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "contract-id",
+        "tainan",
+        "preserve"
+      ],
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-social-0042",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "nickname",
+        "taiwan-term",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-social-0043",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "caption",
+        "taipei",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-social-0044",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "hashtag",
+        "taichung",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-high-risk-0026",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "medical",
+        "taipei",
+        "preserve"
+      ],
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "high_risk_existing_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "high_risk"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-high-risk-0027",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "contract",
+        "taiwan-term",
+        "preserve"
+      ],
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "high_risk_existing_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "high_risk"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-it-0108",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "proper-noun",
+        "node",
+        "identity"
+      ],
+      "issue_tags": [
+        "over_conversion",
+        "it_term",
+        "regional_term"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-ui-0081",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "account",
+        "proper-noun",
+        "identity"
+      ],
+      "issue_tags": [
+        "over_conversion",
+        "ui_term",
+        "regional_term"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-high-risk-0039",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "medical",
+        "code",
+        "identity"
+      ],
+      "issue_tags": [
+        "over_conversion",
+        "high_risk_term",
+        "formal_term",
+        "regional_term"
+      ],
+      "signal_category": "high_risk_existing_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "high_risk"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-it-0131",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "readme",
+        "locale",
+        "path"
+      ],
+      "issue_tags": [
+        "over_conversion",
+        "it_term",
+        "regional_term"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-ui-0102",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "localization",
+        "traditional-text",
+        "identity"
+      ],
+      "issue_tags": [
+        "over_conversion",
+        "ui_term",
+        "regional_term"
+      ],
+      "signal_category": "existing_taiwan_term_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "sealed_values_omitted": true,
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    }
+  ]
+}

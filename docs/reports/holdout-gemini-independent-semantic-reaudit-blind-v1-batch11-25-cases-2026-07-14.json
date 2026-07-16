@@ -1,0 +1,246 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-pro",
+  "model_observed": "gemini-pro",
+  "review_stage": "independent_input_only_semantic_reaudit",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_input_packet": "/tmp/zhtw-batch11-semantic-reaudit.input-only.json",
+  "source_raw_report": "docs/reports/holdout-gemini-independent-semantic-reaudit-blind-v1-batch11-25-cases-2026-07-14.raw.json",
+  "independence_policy": {
+    "codex_values_seen": false,
+    "current_expected_seen": false,
+    "zhtw_output_seen": false,
+    "prior_miss_classification_seen": false,
+    "input_only_cases_seen": true
+  },
+  "summary": {
+    "total_cases": 25,
+    "by_confidence": {
+      "high": 24,
+      "medium": 1
+    },
+    "ground_truth": false
+  },
+  "cases": [
+    {
+      "id": "blind-it-0238",
+      "primary_expected": "資料庫讀寫延遲超過閾值時，監控系統會傳送警報。",
+      "acceptable": [
+        "資料庫讀寫延遲超過閾值時，監控系統會發送警報。",
+        "資料庫讀寫延遲超過臨界值時，監控系統會傳送警報。"
+      ],
+      "semantic_notes": "「閾值」和「臨界值」在 IT 領域可互換。「傳送」警報比「發送」在自動化情境中更常用。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-it-0242",
+      "primary_expected": "反向代理會將請求標頭轉發給後端服務。",
+      "acceptable": [
+        "反向代理會將 request header 轉發給後端服務。"
+      ],
+      "semantic_notes": "「請求標頭」是 Request Header 的標準翻譯。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-it-0244",
+      "primary_expected": "快取鍵應包含租戶編號和語言代碼。",
+      "acceptable": [
+        "快取鍵應包含租戶編號與語言代碼。"
+      ],
+      "semantic_notes": "「快取」是 Cache 的臺灣標準術語。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-it-0246",
+      "primary_expected": "日誌取樣率可以在控制台調整。",
+      "acceptable": [
+        "記錄檔取樣率可以在主控台調整。"
+      ],
+      "semantic_notes": "「日誌」與「記錄檔」皆指 Log；「控制台」與「主控台」皆指 Console。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-it-0249",
+      "primary_expected": "權限中介軟體會拒絕缺少作用域的權杖。",
+      "acceptable": [
+        "權限 middleware 會拒絕缺少 scope 的 token。"
+      ],
+      "semantic_notes": "「中介軟體」(Middleware)、「作用域」(Scope)、「權杖」(Token) 是臺灣 IT 常用翻譯。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-it-0252",
+      "primary_expected": "訊息消費者應避免重複確認同一批事件。",
+      "acceptable": [
+        "訊息 consumer 應避免重複確認同一批 event。"
+      ],
+      "semantic_notes": "「訊息」是 Message 的通用翻譯。在技術文件中，保留英文 Message Consumer / Event 也很常見。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-it-0256",
+      "primary_expected": "TLS 交握失敗會記錄遠端位址。",
+      "acceptable": [
+        "TLS 握手失敗會記錄遠端地址。"
+      ],
+      "semantic_notes": "TLS Handshake 譯為「交握」較精確，但「握手」亦可。網路 Address 譯為「位址」較精確，但「地址」亦可。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-it-0257",
+      "primary_expected": "依賴鎖定檔案不應包含本機絕對路徑。",
+      "acceptable": [
+        "相依性鎖定檔案不應包含本機絕對路徑。"
+      ],
+      "semantic_notes": "「依賴」和「相依性」都指 Dependency，前者較口語，後者較正式。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-it-0260",
+      "primary_expected": "請保留 AzureBlobStorage 這個類別名稱。",
+      "acceptable": [
+        "請保留 AzureBlobStorage 這個類別名。"
+      ],
+      "semantic_notes": "「類別名稱」是 class name 的完整翻譯，「類別名」是常見簡稱。AzureBlobStorage 為專有名詞，不應轉換。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-it-0262",
+      "primary_expected": "指令範例中的 --dry-run 參數必須保持原樣。",
+      "acceptable": [
+        "命令範例中的 --dry-run 參數必須保持原樣。"
+      ],
+      "semantic_notes": "CLI 的 command 在臺灣多稱「指令」而非「命令」。`--dry-run` 為參數，不得翻譯。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-ui-0188",
+      "primary_expected": "設定頁面會顯示目前帳號的安全等級。",
+      "acceptable": [
+        "設定頁面會顯示當前帳號的安全等級。"
+      ],
+      "semantic_notes": "「設定」為 Settings 的標準翻譯。「目前」比「當前」在臺灣 UI 中更常用。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-ui-0189",
+      "primary_expected": "搜尋框取得焦點後會顯示最近查詢。",
+      "acceptable": [
+        "搜尋框獲得焦點後會顯示最近查詢。"
+      ],
+      "semantic_notes": "「搜尋」為 Search 的標準翻譯。「取得焦點」和「獲得焦點」皆可。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-ui-0193",
+      "primary_expected": "日期選擇器開啟後，焦點應停在今天。",
+      "acceptable": [
+        "日期選擇器打開後，焦點應停在今天。"
+      ],
+      "semantic_notes": "「開啟」和「打開」在此情境下可互換。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-ui-0199",
+      "primary_expected": "空狀態插圖下方要顯示重新載入按鈕。",
+      "acceptable": [
+        "空狀態插圖下方要顯示重新整理按鈕。"
+      ],
+      "semantic_notes": "「重新載入」(Reload) 和「重新整理」(Refresh) 在此情境下皆可。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-llm-0140",
+      "primary_expected": "工具結果摘要需要保留錯誤代碼。",
+      "acceptable": [
+        "工具結果摘要需要保留錯誤碼。"
+      ],
+      "semantic_notes": "「錯誤代碼」和「錯誤碼」皆指 error code。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-llm-0145",
+      "primary_expected": "提示範本裡的預留位置不能被翻譯。",
+      "acceptable": [
+        "提示模板裡的預留位置不能被翻譯。",
+        "提示範本裡的 placeholder 不能被翻譯。"
+      ],
+      "semantic_notes": "Template 在臺灣多譯為「範本」。Placeholder 譯為「預留位置」，或直接使用原文。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-llm-0152",
+      "primary_expected": "多輪對話摘要應標註遺漏的不確定資訊。",
+      "acceptable": [],
+      "semantic_notes": "原文用詞「資訊」已是臺灣常用詞，僅需做簡繁字元轉換。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-formal-0144",
+      "primary_expected": "本案預算經核定後方可動支。",
+      "acceptable": [],
+      "semantic_notes": "此為臺灣公文和商業常用語，簡繁直接對應即可。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-formal-0145",
+      "primary_expected": "合作備忘錄應載明雙方聯絡窗口。",
+      "acceptable": [],
+      "semantic_notes": "「備忘錄」和「聯絡窗口」為臺灣常用詞。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-formal-0146",
+      "primary_expected": "統計報告發布前須完成資料校驗。",
+      "acceptable": [
+        "統計報告發布前須完成資料驗證。"
+      ],
+      "semantic_notes": "「校驗」和「驗證」在此情境下意義相近，皆可使用。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-formal-0149",
+      "primary_expected": "該說明文字僅用於內部測試。",
+      "acceptable": [
+        "該說明文字只用於內部測試。"
+      ],
+      "semantic_notes": "「僅」比「只」更正式，兩者皆可。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-formal-0151",
+      "primary_expected": "文件標題中的「計畫」應依核定名稱呈現。",
+      "acceptable": [
+        "文件標題中的「計劃」應依核定名稱呈現。"
+      ],
+      "semantic_notes": "臺灣常用「計畫」指正式的專案（noun），「計劃」多為動詞（verb）。由於原文提及「依核定名稱呈現」，暗示其可能為專有名詞，保守轉換為「計畫」較安全，但「計劃」也偶爾通用於名詞。",
+      "confidence": "medium"
+    },
+    {
+      "id": "blind-formal-0152",
+      "primary_expected": "請以電子郵件通知各機關聯絡人。",
+      "acceptable": [],
+      "semantic_notes": "「以」、「電子郵件」、「機關」、「聯絡人」均為臺灣正式場合常用詞。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-social-0139",
+      "primary_expected": "朋友把聚餐地點傳到群組裡。",
+      "acceptable": [
+        "朋友把聚餐地點發到群組裡。"
+      ],
+      "semantic_notes": "在即時通訊情境中，「傳」比「發」更常用，但兩者皆可。",
+      "confidence": "high"
+    },
+    {
+      "id": "blind-social-0143",
+      "primary_expected": "明天如果下雨就改約室內。",
+      "acceptable": [],
+      "semantic_notes": "口語用法，簡繁直接對應即可。",
+      "confidence": "high"
+    }
+  ]
+}

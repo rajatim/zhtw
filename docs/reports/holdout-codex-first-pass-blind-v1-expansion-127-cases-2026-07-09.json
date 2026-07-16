@@ -1,0 +1,2199 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_report": "docs/reports/holdout-codex-first-pass-blind-v1-expansion-127-cases-2026-07-09.md",
+  "source_expansion_report": "docs/reports/holdout-input-pool-expansion-blind-v1-2026-07-09.json",
+  "reviewer": "codex",
+  "review_stage": "first_pass_advisory",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "policy": "Codex recommendations are advisory only. Maintainer confirmation is required before writing any private expected file.",
+  "summary": {
+    "total_cases": 127,
+    "by_domain": {
+      "formal": 18,
+      "high_risk": 10,
+      "it": 37,
+      "llm": 17,
+      "social": 18,
+      "ui": 27
+    },
+    "by_confidence": {
+      "high": 87,
+      "medium": 40
+    },
+    "review_needed": 71,
+    "promotion_allowed": false
+  },
+  "cases": [
+    {
+      "id": "blind-it-0026",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个接口会在请求超时后返回默认配置。",
+      "codex_expected": "這個介面會在請求逾時後回傳預設設定。",
+      "acceptable": [
+        "這個 API 會在請求逾時後回傳預設設定。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「接口」可依語境作「介面」或 API；HTTP「请求超时」採「請求逾時」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0027",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请把访问令牌保存到安全的密钥管理服务。",
+      "codex_expected": "請把存取權杖儲存到安全的金鑰管理服務。",
+      "acceptable": [
+        "請把存取權杖保存到安全的金鑰管理服務。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "身分驗證語境採「存取權杖」「金鑰管理服務」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0028",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "命令行工具支持批量上传日志文件。",
+      "codex_expected": "命令列工具支援批次上傳日誌檔案。",
+      "acceptable": [
+        "命令列工具支援批次上傳記錄檔。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「日志文件」在台灣 IT 語境可作「日誌檔案」或「記錄檔」，需看產品用語。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0029",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "如果依赖版本冲突，构建流程会直接失败。",
+      "codex_expected": "如果相依套件版本衝突，建置流程會直接失敗。",
+      "acceptable": [
+        "如果依賴版本衝突，建置流程會直接失敗。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「依赖版本」可指相依套件版本；台灣工程文件常用「建置」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0030",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "新的 SDK 会在初始化时检查运行环境。",
+      "codex_expected": "新的 SDK 會在初始化時檢查執行環境。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「运行环境」轉為台灣 IT 常用「執行環境」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0031",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请在合并分支前先执行单元测试。",
+      "codex_expected": "請在合併分支前先執行單元測試。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "版本控制語境「合并分支」採「合併分支」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0032",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "服务器会根据请求头选择响应格式。",
+      "codex_expected": "伺服器會根據請求標頭選擇回應格式。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "HTTP 語境採「請求標頭」「回應格式」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0033",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个插件会扫描项目里的本地化资源。",
+      "codex_expected": "這個外掛會掃描專案裡的在地化資源。",
+      "acceptable": [
+        "這個外掛會掃描專案裡的本地化資源。"
+      ],
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "台灣產品語境常用「在地化」，但開發文件也常保留「本地化」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0034",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "发布任务完成后，系统会发送部署摘要。",
+      "codex_expected": "發布工作完成後，系統會傳送部署摘要。",
+      "acceptable": [
+        "發布任務完成後，系統會傳送部署摘要。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「任务」可作「工作」或「任務」；此處偏工作流程語境。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0035",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "当网络中断时，客户端会排队重试。",
+      "codex_expected": "當網路中斷時，用戶端會排隊重試。",
+      "acceptable": [
+        "當網路中斷時，客戶端會排隊重試。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「客户端」台灣技術文件常見「用戶端」，但部分產品用「客戶端」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0036",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请在配置文件里关闭调试模式。",
+      "codex_expected": "請在設定檔裡關閉偵錯模式。",
+      "acceptable": [
+        "請在設定檔裡關閉除錯模式。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "debug 在台灣常見「偵錯」與「除錯」兩種譯法，需看專案慣例。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0037",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "后台服务每天凌晨清理过期会话。",
+      "codex_expected": "背景服務每天凌晨清理過期工作階段。",
+      "acceptable": [
+        "背景服務每天凌晨清理過期會話。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「会话」在網頁/伺服器語境多作「工作階段」，但「會話」也可能被採用。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0038",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个参数只影响增量同步的批次大小。",
+      "codex_expected": "這個參數只影響增量同步的批次大小。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「参数」「批次大小」為台灣技術文件常用語；「增量同步」保留技術術語。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0039",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "代理服务器会缓存静态资源以降低延迟。",
+      "codex_expected": "代理伺服器會快取靜態資源以降低延遲。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「代理服务器」「缓存」分別轉為「代理伺服器」「快取」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0040",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "我们需要记录每个请求的追踪编号。",
+      "codex_expected": "我們需要記錄每個請求的追蹤編號。",
+      "acceptable": [
+        "我們需要記錄每個請求的追蹤 ID。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "trace id 可譯「追蹤編號」或保留 ID，需看產品風格。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0041",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "如果数据库连接池耗尽，接口会暂时拒绝请求。",
+      "codex_expected": "如果資料庫連線池耗盡，API 會暫時拒絕請求。",
+      "acceptable": [
+        "如果資料庫連線池耗盡，介面會暫時拒絕請求。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「接口」在此接近 API endpoint，先採 API；可接受「介面」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0042",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "迁移脚本会先备份旧表再修改字段。",
+      "codex_expected": "遷移指令碼會先備份舊資料表再修改欄位。",
+      "acceptable": [
+        "移轉指令碼會先備份舊資料表再修改欄位。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "資料庫 migration 在台灣文件可見「遷移」與「移轉」；需看專案慣例。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0043",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "容器启动失败时，请检查镜像标签是否正确。",
+      "codex_expected": "容器啟動失敗時，請檢查映像檔標籤是否正確。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "容器語境「镜像标签」採「映像檔標籤」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0044",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个钩子会在提交前格式化源代码。",
+      "codex_expected": "這個鉤子會在提交前格式化原始碼。",
+      "acceptable": [
+        "這個 hook 會在提交前格式化原始碼。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "Git hook 可譯「鉤子」或保留英文 hook，需確認文件風格。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0045",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "监控面板显示队列长度持续升高。",
+      "codex_expected": "監控儀表板顯示佇列長度持續升高。",
+      "acceptable": [
+        "監控面板顯示佇列長度持續升高。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "dashboard 可作「儀表板」或「面板」；queue 採「佇列」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0046",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请把错误报告附加到问题单里。",
+      "codex_expected": "請把錯誤報告附加到問題單裡。",
+      "acceptable": [
+        "請把錯誤報告附加到議題裡。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「问题单」可作 issue/問題單/議題；先採較直觀的「問題單」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0047",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "服务端会验证回调地址的签名。",
+      "codex_expected": "伺服器端會驗證回呼網址的簽章。",
+      "acceptable": [
+        "服務端會驗證回呼網址的簽章。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「服务端」台灣技術文件多用「伺服器端」；callback address 採「回呼網址」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0048",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "测试环境使用独立的对象存储桶。",
+      "codex_expected": "測試環境使用獨立的物件儲存桶。",
+      "acceptable": [
+        "測試環境使用獨立的物件儲存貯體。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "object storage bucket 在不同雲端文件譯法不同，需確認產品採「儲存桶」或「貯體」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0049",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "如果证书即将过期，系统会提前发出告警。",
+      "codex_expected": "如果憑證即將過期，系統會提前發出警示。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "憑證/警示為台灣技術與安全語境常用語。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0050",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个 API 端点只接受 JSON 请求体。",
+      "codex_expected": "這個 API 端點只接受 JSON 請求本文。",
+      "acceptable": [
+        "這個 API 端點只接受 JSON 請求主體。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "request body 有「請求本文」「請求主體」兩種常見譯法。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0051",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "脚本会把临时文件写入工作目录。",
+      "codex_expected": "指令碼會把暫存檔寫入工作目錄。",
+      "acceptable": [
+        "腳本會把暫存檔寫入工作目錄。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "script 可作「指令碼」或「腳本」，需看文件風格。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0052",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请确认防火墙规则允许健康检查请求。",
+      "codex_expected": "請確認防火牆規則允許健康檢查請求。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「防火墙」「健康检查」皆有穩定台灣 IT 對應。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0053",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "这个程序会保留用户自定义的模板名称。",
+      "codex_expected": "這個程式會保留使用者自訂的範本名稱。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；「模板」在台灣軟體語境作「範本」，但重點是保留自訂名稱。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0054",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "日志页面显示的项目名称不应该自动翻译。",
+      "codex_expected": "日誌頁面顯示的專案名稱不應該自動翻譯。",
+      "acceptable": [
+        "記錄檔頁面顯示的專案名稱不應該自動翻譯。"
+      ],
+      "issue_tags": [
+        "it_term",
+        "over_conversion"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "over-conversion guard；log 可作日誌或記錄檔，專案名稱不得被改。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0055",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "测试资料里包含台北市政府开放资料的字段名。",
+      "codex_expected": "測試資料裡包含台北市政府開放資料的欄位名稱。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；台灣機關與開放資料語境需保守。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0056",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "请不要修改已经本地化的菜单文字。",
+      "codex_expected": "請不要修改已經在地化的選單文字。",
+      "acceptable": [
+        "請不要修改已經本地化的選單文字。"
+      ],
+      "issue_tags": [
+        "ui_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "over-conversion guard；在地化/本地化需依產品用語確認。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0057",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "这个仓库同时保存英文和台湾繁体 README。",
+      "codex_expected": "這個儲存庫同時保存英文和台灣繁體 README。",
+      "acceptable": [
+        "這個倉庫同時保存英文和台灣繁體 README。"
+      ],
+      "issue_tags": [
+        "it_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "repository 在台灣常見「儲存庫」，但開發者口語也用「倉庫」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0058",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "每次构建都会生成新的校验和。",
+      "codex_expected": "每次建置都會產生新的校驗和。",
+      "acceptable": [
+        "每次建置都會產生新的檢查碼。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "checksum 可作「校驗和」或「檢查碼」，需確認技術文件慣例。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0059",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "这个目录只保存临时缓存。",
+      "codex_expected": "這個目錄只保存暫存快取。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「临时缓存」轉「暫存快取」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0060",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "管理员可以撤销过期的访问权限。",
+      "codex_expected": "管理員可以撤銷過期的存取權限。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "權限管理語境採「存取權限」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0061",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "请在安装完成后重新启动服务。",
+      "codex_expected": "請在安裝完成後重新啟動服務。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "一般軟體安裝語境，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0062",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "系统会在七天后删除未使用的令牌。",
+      "codex_expected": "系統會在七天後刪除未使用的權杖。",
+      "acceptable": [
+        "系統會在七天後刪除未使用的令牌。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "token 在安全語境多採「權杖」，但部分產品保留「令牌」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0021",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "点击刷新按钮后，列表会重新加载。",
+      "codex_expected": "點擊重新整理按鈕後，清單會重新載入。",
+      "acceptable": [
+        "點擊重新整理按鈕後，列表會重新載入。"
+      ],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "UI 語境「刷新」採「重新整理」；list 可作清單或列表。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0022",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请输入手机号码以接收验证码。",
+      "codex_expected": "請輸入手機號碼以接收驗證碼。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "登入/驗證流程常用「手機號碼」「驗證碼」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0023",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "这个选项会影响通知的显示方式。",
+      "codex_expected": "這個選項會影響通知的顯示方式。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "一般 UI 設定語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0024",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "如果上传失败，请稍后再试。",
+      "codex_expected": "如果上傳失敗，請稍後再試。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "常見 UI 錯誤訊息。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0025",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "用户可以在设置页管理订阅方案。",
+      "codex_expected": "使用者可以在設定頁管理訂閱方案。",
+      "acceptable": [
+        "使用者可以在設定頁管理訂閱計畫。"
+      ],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "subscription plan 可作「訂閱方案」或「訂閱計畫」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0026",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "搜索框会在输入三个字后显示建议。",
+      "codex_expected": "搜尋框會在輸入三個字後顯示建議。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「搜索框」採台灣 UI 常用「搜尋框」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0027",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请先同意服务条款再继续。",
+      "codex_expected": "請先同意服務條款再繼續。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term",
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "服務條款流程用語穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0028",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "弹窗关闭后不会保存草稿内容。",
+      "codex_expected": "彈出視窗關閉後不會儲存草稿內容。",
+      "acceptable": [
+        "彈窗關閉後不會儲存草稿內容。"
+      ],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「弹窗」正式 UI 可作「彈出視窗」，產品短文案也可能用「彈窗」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0029",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "这个页面会显示最近使用的文件。",
+      "codex_expected": "這個頁面會顯示最近使用的檔案。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term",
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「文件」在軟體 UI 語境轉「檔案」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0030",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "付款完成后，收据会寄到你的邮箱。",
+      "codex_expected": "付款完成後，收據會寄到你的信箱。",
+      "acceptable": [
+        "付款完成後，收據會寄到你的電子信箱。"
+      ],
+      "issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "email inbox 可作「信箱」或「電子信箱」，需看產品文案風格。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0031",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请选择要导出的资料范围。",
+      "codex_expected": "請選擇要匯出的資料範圍。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term",
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "資料匯出 UI 語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0032",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "删除账号前需要再次输入密码。",
+      "codex_expected": "刪除帳號前需要再次輸入密碼。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "帳號/密碼 UI 用語穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0033",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "管理员可以隐藏侧边栏里的测试功能。",
+      "codex_expected": "管理員可以隱藏側邊欄裡的測試功能。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「侧边栏」採「側邊欄」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0034",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "表单提交成功后会返回首页。",
+      "codex_expected": "表單送出成功後會返回首頁。",
+      "acceptable": [
+        "表單提交成功後會返回首頁。"
+      ],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "台灣 UI 常用「送出表單」，但技術語境也可能保留「提交」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0035",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "如果没有网络，应用会显示离线提示。",
+      "codex_expected": "如果沒有網路，應用程式會顯示離線提示。",
+      "acceptable": [
+        "如果沒有網路，App 會顯示離線提示。"
+      ],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「应用」可作「應用程式」或 App，需依產品語氣確認。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0036",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请拖动滑块调整音量。",
+      "codex_expected": "請拖曳滑桿調整音量。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "UI 控制項語境採「拖曳」「滑桿」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0037",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "系统会根据语言设置显示日期格式。",
+      "codex_expected": "系統會根據語言設定顯示日期格式。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "語言設定/日期格式用語穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0038",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "登录逾时后，请重新验证身份。",
+      "codex_expected": "登入逾時後，請重新驗證身分。",
+      "acceptable": [
+        "登入逾時後，請重新驗證身份。"
+      ],
+      "issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "台灣正式用字偏「身分」，但「身份」也常見；需確認產品用字。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0039",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "请确认收藏夹里的名称没有被自动替换。",
+      "codex_expected": "請確認我的最愛裡的名稱沒有被自動替換。",
+      "acceptable": [
+        "請確認收藏夾裡的名稱沒有被自動替換。"
+      ],
+      "issue_tags": [
+        "ui_term",
+        "over_conversion"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "over-conversion guard；favorite UI 可作「我的最愛」或「收藏夾」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0040",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "这个按钮文字已经由台湾团队审核。",
+      "codex_expected": "這個按鈕文字已經由台灣團隊審核。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；已審核台灣文案不可再改壞。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0041",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "页面标题里的品牌名称必须保持原样。",
+      "codex_expected": "頁面標題裡的品牌名稱必須保持原樣。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；品牌名稱應保留。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0042",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "用户自订标签不会套用地区词转换。",
+      "codex_expected": "使用者自訂標籤不會套用地區詞轉換。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；自訂標籤不應被地區詞規則改寫。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0043",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "请保留繁体说明中的专有名词。",
+      "codex_expected": "請保留繁體說明中的專有名詞。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；繁體說明中的專有名詞需保留。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0044",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "导览列中的 OpenAPI 字样不需要转换。",
+      "codex_expected": "導覽列中的 OpenAPI 字樣不需要轉換。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；英文技術名稱保留。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0045",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "这个页面目前没有任何通知。",
+      "codex_expected": "這個頁面目前沒有任何通知。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "空狀態 UI 語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0046",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "取消操作后会回到上一页。",
+      "codex_expected": "取消操作後會回到上一頁。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "常見 UI 流程用語。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0047",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "密码长度必须至少八个字符。",
+      "codex_expected": "密碼長度必須至少八個字元。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "密碼驗證訊息用語穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0016",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请把下面这段说明改写成更适合开发者阅读的版本。",
+      "codex_expected": "請把下面這段說明改寫成更適合開發者閱讀的版本。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "LLM rewrite 指令，開發者文件語境穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0017",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "这个模型会根据上下文生成摘要。",
+      "codex_expected": "這個模型會根據上下文產生摘要。",
+      "acceptable": [
+        "這個模型會根據脈絡產生摘要。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "context 可作「上下文」或「脈絡」；LLM 文件常見兩者。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0018",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "回答时请先列出假设，再提供解决步骤。",
+      "codex_expected": "回答時請先列出假設，再提供解決步驟。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "提示詞指令語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0019",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "如果用户没有提供日志，请说明需要哪些信息。",
+      "codex_expected": "如果使用者沒有提供日誌，請說明需要哪些資訊。",
+      "acceptable": [
+        "如果使用者沒有提供記錄檔，請說明需要哪些資訊。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「日志」可作日誌或記錄檔，需看產品用語。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0020",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "这段提示词会要求模型输出 JSON 格式。",
+      "codex_expected": "這段提示詞會要求模型輸出 JSON 格式。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "提示詞/JSON 格式用語穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0021",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请把客服回复改成简短且礼貌的语气。",
+      "codex_expected": "請把客服回覆改成簡短且禮貌的語氣。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "客服回覆與語氣調整語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0022",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "模型可能会把函数名称误认为普通词语。",
+      "codex_expected": "模型可能會把函式名稱誤認為普通詞語。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "IT 語境「函数」採「函式」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0023",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "生成的说明需要包含安装步骤和常见错误。",
+      "codex_expected": "產生的說明需要包含安裝步驟和常見錯誤。",
+      "acceptable": [
+        "生成的說明需要包含安裝步驟和常見錯誤。"
+      ],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "LLM output 可作「產生」或「生成」，需看文件風格。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0024",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请根据会议记录整理三点行动项目。",
+      "codex_expected": "請根據會議紀錄整理三點行動項目。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "會議紀錄與行動項目用語穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0025",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "如果资料不足，请不要编造版本号。",
+      "codex_expected": "如果資料不足，請不要編造版本號。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "LLM groundedness 指令，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0026",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "请保留原文中的台湾用语，不要自动改写。",
+      "codex_expected": "請保留原文中的台灣用語，不要自動改寫。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；明確要求保留台灣用語。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0027",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "系统提示词要求保留产品名称和变量名。",
+      "codex_expected": "系統提示詞要求保留產品名稱和變數名稱。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；產品名稱與變數名稱不可改。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0028",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "范例输出里的台北地址应保持原样。",
+      "codex_expected": "範例輸出裡的台北地址應保持原樣。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；地名與地址需保守。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0029",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "请勿把已审核的繁体摘要再转换一次。",
+      "codex_expected": "請勿把已審核的繁體摘要再轉換一次。",
+      "acceptable": [],
+      "issue_tags": [
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；已審核繁體不可二次轉壞。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0030",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "这段内容混合了英文 API 名称和中文说明。",
+      "codex_expected": "這段內容混合了英文 API 名稱和中文說明。",
+      "acceptable": [],
+      "issue_tags": [
+        "it_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；英文 API 名稱保留。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0031",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "baseline_guard",
+      "input": "请用两句话总结这篇文章。",
+      "codex_expected": "請用兩句話總結這篇文章。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "一般摘要指令，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0032",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "baseline_guard",
+      "input": "如果答案不确定，请明确说明限制。",
+      "codex_expected": "如果答案不確定，請明確說明限制。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "一般回答限制指令，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0016",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "本公司将于下周发布年度营运报告。",
+      "codex_expected": "本公司將於下週發布年度營運報告。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "正式公告語境採「營運報告」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0017",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "申请人应于期限内补交相关证明文件。",
+      "codex_expected": "申請人應於期限內補交相關證明文件。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "正式文件語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0018",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "会议主席宣布本案延后审议。",
+      "codex_expected": "會議主席宣布本案延後審議。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "會議與審議用語穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0019",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "该计划预计提升公共服务效率。",
+      "codex_expected": "該計畫預計提升公共服務效率。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "正式文件「计划」採「計畫」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0020",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "新闻稿表示，双方将建立长期合作机制。",
+      "codex_expected": "新聞稿表示，雙方將建立長期合作機制。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "新聞稿語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0021",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "委员会要求各部门提出改善方案。",
+      "codex_expected": "委員會要求各部門提出改善方案。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "正式文件語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0022",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "本次调查结果将作为后续政策参考。",
+      "codex_expected": "本次調查結果將作為後續政策參考。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "政策文件語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0023",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "承办单位应保存完整申请记录。",
+      "codex_expected": "承辦單位應保存完整申請紀錄。",
+      "acceptable": [
+        "承辦單位應保存完整申請記錄。"
+      ],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "正式文件可用「紀錄」或「記錄」，需確認用字慣例。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0024",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "报告指出，资料质量会影响统计结果。",
+      "codex_expected": "報告指出，資料品質會影響統計結果。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「资料质量」採台灣常用「資料品質」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0025",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "公告内容将同步发布于官方网站。",
+      "codex_expected": "公告內容將同步發布於官方網站。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "公告語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0026",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "契约条款不得排除消费者依法享有的权利。",
+      "codex_expected": "契約條款不得排除消費者依法享有的權利。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term",
+        "high_risk_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "法律/消保語境使用「契約條款」；over-conversion guard。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0027",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "既有用户权益不因系统更新而受影响。",
+      "codex_expected": "既有使用者權益不因系統更新而受影響。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "formal + over-conversion guard；「既有使用者權益」需保留台灣產品語氣。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0028",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "文件中的机关名称应依原核定名称记载。",
+      "codex_expected": "文件中的機關名稱應依原核定名稱記載。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "正式文件中的機關名稱不得任意改寫。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0029",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "本案涉及台北市既有法规用语。",
+      "codex_expected": "本案涉及台北市既有法規用語。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "台灣地名與法規用語需保守。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0030",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "公文附件内的专有名词不得任意改写。",
+      "codex_expected": "公文附件內的專有名詞不得任意改寫。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；公文專有名詞需保留。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0031",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "本通知自发布日起生效。",
+      "codex_expected": "本通知自發布日起生效。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "正式通知語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0032",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "请各单位依限完成资料汇整。",
+      "codex_expected": "請各單位依限完成資料彙整。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "公文語氣常用「依限」「彙整」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0033",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "相关费用由申请人自行负担。",
+      "codex_expected": "相關費用由申請人自行負擔。",
+      "acceptable": [],
+      "issue_tags": [
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "正式文件費用負擔語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0016",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "周末要不要一起去看展？",
+      "codex_expected": "週末要不要一起去看展？",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "日常口語，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0017",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "你有收到群组里的活动通知吗？",
+      "codex_expected": "你有收到群組裡的活動通知嗎？",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "社群聊天語境採「群組」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0018",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "这家店的外带速度比上次快很多。",
+      "codex_expected": "這家店的外帶速度比上次快很多。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "消費日常語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0019",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "我晚点再把照片上传到共享相册。",
+      "codex_expected": "我晚點再把照片上傳到共享相簿。",
+      "acceptable": [
+        "我晚點再把照片上傳到共用相簿。"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "shared album 可作「共享相簿」或「共用相簿」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0020",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "今天通勤时间比平常多了二十分钟。",
+      "codex_expected": "今天通勤時間比平常多了二十分鐘。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "日常語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0021",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "朋友说这部影片的字幕翻得不错。",
+      "codex_expected": "朋友說這部影片的字幕翻得不錯。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "影音日常語境，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0022",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "如果下雨，我们就改约室内场地。",
+      "codex_expected": "如果下雨，我們就改約室內場地。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "日常約見語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0023",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "这杯饮料甜度可以调整吗？",
+      "codex_expected": "這杯飲料甜度可以調整嗎？",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "台灣飲料店語境，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0024",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "我已经把购物清单发到聊天窗口了。",
+      "codex_expected": "我已經把購物清單傳到聊天視窗了。",
+      "acceptable": [
+        "我已經把購物清單發到聊天視窗了。"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "「发到聊天窗口」可作「傳到聊天視窗」或「發到聊天視窗」，需看口語程度。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0025",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "留言里提到的台湾地名不要被改成其他说法。",
+      "codex_expected": "留言裡提到的台灣地名不要被改成其他說法。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；台灣地名不可改。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0026",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "这段贴文已经是台湾朋友写的繁体版本。",
+      "codex_expected": "這段貼文已經是台灣朋友寫的繁體版本。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；已是台灣繁體版本。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0027",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "昵称和频道名称应该保持原样。",
+      "codex_expected": "暱稱和頻道名稱應該保持原樣。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；暱稱與頻道名稱需保留。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0028",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "请不要把社群里的品牌标签自动转换。",
+      "codex_expected": "請不要把社群裡的品牌標籤自動轉換。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；品牌標籤不可改。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0029",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "影片标题里的台语罗马字不要改。",
+      "codex_expected": "影片標題裡的台語羅馬字不要改。",
+      "acceptable": [
+        "影片標題裡的臺語羅馬字不要改。"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "over-conversion guard；「台語/臺語」用字需看文件風格，羅馬字不可改。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0030",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "用户自订表情名称需要原样保留。",
+      "codex_expected": "使用者自訂表情名稱需要原樣保留。",
+      "acceptable": [],
+      "issue_tags": [
+        "ui_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；自訂表情名稱需保留。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0031",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "这则评论混合了繁体和简体，先只作为输入保留。",
+      "codex_expected": "這則評論混合了繁體和簡體，先只作為輸入保留。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "over-conversion guard；混合文本先作輸入，不應用來調詞庫。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0032",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "baseline_guard",
+      "input": "明天早上记得带雨伞。",
+      "codex_expected": "明天早上記得帶雨傘。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "日常短句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0033",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "baseline_guard",
+      "input": "我先把晚餐订好，晚点再确认人数。",
+      "codex_expected": "我先把晚餐訂好，晚點再確認人數。",
+      "acceptable": [],
+      "issue_tags": [
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "日常語句，轉換穩定。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0011",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "医师建议患者按时回诊并记录症状变化。",
+      "codex_expected": "醫師建議病患按時回診並記錄症狀變化。",
+      "acceptable": [
+        "醫師建議患者按時回診並記錄症狀變化。"
+      ],
+      "issue_tags": [
+        "high_risk_term",
+        "regional_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "醫療高風險；「患者/病患」需由 maintainer 確認，但台灣醫療語境常用「病患」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0012",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "银行会在交易完成后发送电子对账单。",
+      "codex_expected": "銀行會在交易完成後傳送電子對帳單。",
+      "acceptable": [],
+      "issue_tags": [
+        "high_risk_term",
+        "regional_term"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "金融高風險；「对账单」採「對帳單」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0013",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "申请贷款前，请确认利率和还款期限。",
+      "codex_expected": "申請貸款前，請確認利率和還款期限。",
+      "acceptable": [],
+      "issue_tags": [
+        "high_risk_term"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "金融高風險；貸款/利率/還款期限用語穩定但仍需人工確認。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0014",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "药品说明应清楚标示使用剂量和禁忌。",
+      "codex_expected": "藥品說明應清楚標示使用劑量和禁忌。",
+      "acceptable": [],
+      "issue_tags": [
+        "high_risk_term"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "醫療高風險；藥品劑量與禁忌用語需人工確認。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0015",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "保险契约变更需要经双方书面同意。",
+      "codex_expected": "保險契約變更需要經雙方書面同意。",
+      "acceptable": [],
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "保險/契約高風險；採台灣法律語境「契約」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0016",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "不得以格式条款免除故意或重大过失责任。",
+      "codex_expected": "不得以定型化契約條款免除故意或重大過失責任。",
+      "acceptable": [],
+      "issue_tags": [
+        "high_risk_term",
+        "formal_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "法律高風險；「格式条款」在台灣法規語境對應「定型化契約條款」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0017",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "病历中的专有缩写不得任意改写。",
+      "codex_expected": "病歷中的專有縮寫不得任意改寫。",
+      "acceptable": [],
+      "issue_tags": [
+        "high_risk_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "醫療高風險 + over-conversion guard；病歷縮寫不得改。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0018",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "金融机构应保留客户原始签署文件。",
+      "codex_expected": "金融機構應保留客戶原始簽署文件。",
+      "acceptable": [],
+      "issue_tags": [
+        "high_risk_term",
+        "over_conversion"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "金融高風險 + over-conversion guard；簽署文件需保守。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0019",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "input": "请妥善保管个人身份证件。",
+      "codex_expected": "請妥善保管個人身分證件。",
+      "acceptable": [
+        "請妥善保管個人身份證件。"
+      ],
+      "issue_tags": [
+        "high_risk_term",
+        "regional_term"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "rationale": "身分/身份用字需確認；正式台灣用字偏「身分」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0020",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "input": "未成年人开户需由法定代理人陪同。",
+      "codex_expected": "未成年人開戶需由法定代理人陪同。",
+      "acceptable": [],
+      "issue_tags": [
+        "high_risk_term"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "rationale": "金融/法律高風險；需人工確認。",
+      "promotion_allowed": false
+    }
+  ]
+}

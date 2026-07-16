@@ -1,0 +1,691 @@
+{
+  "generated_date": "2026-07-06",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_backlog": "benchmarks/accuracy/annotation-backlog-v1.json",
+  "raw_report": "docs/reports/annotation-gemini-vertex-advisory-ui-i18n-0051-0100-2026-07-06.json",
+  "case_range": "ui-i18n-0051-ui-i18n-0100",
+  "usage_metadata": {
+    "promptTokenCount": 3900,
+    "candidatesTokenCount": 2250,
+    "totalTokenCount": 11444,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3900
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2250
+      }
+    ],
+    "thoughtsTokenCount": 5294
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_expected_review",
+    "cases": [
+      {
+        "id": "ui-i18n-0051",
+        "expected": "高對比模式已啟用。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0052",
+        "expected": "字體大小會影響所有頁面。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0053",
+        "expected": "請調整顯示比例。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0054",
+        "expected": "全螢幕模式下隱藏工具列。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0055",
+        "expected": "剪貼簿內容已複製。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0056",
+        "expected": "貼上前請檢查格式。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0057",
+        "expected": "復原操作不會刪除檔案。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0058",
+        "expected": "重做按鈕目前無法使用。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0059",
+        "expected": "快速鍵衝突需要重新指派。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0060",
+        "expected": "請按住 Shift 進行多選。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0061",
+        "expected": "拖曳檔案到上傳區域。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0062",
+        "expected": "上傳佇列正在等候網路連線。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0063",
+        "expected": "下載完成後會顯示提示。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0064",
+        "expected": "附件大小超出限制。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0065",
+        "expected": "請選擇資料夾位置。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0066",
+        "expected": "檔名包含不支援的字元。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0067",
+        "expected": "收藏已同步。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0068",
+        "expected": "加入收藏後可離線查看。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0069",
+        "expected": "書籤列可以隱藏。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0070",
+        "expected": "取消星號不會刪除項目。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0071",
+        "expected": "釘選項目會顯示在列表最上方。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0072",
+        "expected": "封存後的對話可以復原。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0073",
+        "expected": "請檢舉不當內容。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0074",
+        "expected": "封鎖使用者後不會收到訊息。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0075",
+        "expected": "隱私設定會影響個人資料可見度。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0076",
+        "expected": "定位權限僅在使用時開啟。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0077",
+        "expected": "付款方式需要重新驗證。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0078",
+        "expected": "發票資訊可以在帳單頁面編輯。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0079",
+        "expected": "訂閱將在下個月續訂。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0080",
+        "expected": "免費試用還剩三天。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0081",
+        "expected": "購物車中的商品已更新。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0082",
+        "expected": "優惠券代碼無效。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0083",
+        "expected": "寄送地址缺少郵遞區號。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0084",
+        "expected": "訂單摘要會顯示稅金。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0085",
+        "expected": "表單提交前會驗證必填欄位。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0086",
+        "expected": "預留位置文字不會被提交。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0087",
+        "expected": "輸入框會自動修剪空格。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0088",
+        "expected": "錯誤訊息顯示在欄位下方。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0089",
+        "expected": "驗證碼已傳送到手機。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0090",
+        "expected": "QR Code 將在一分鐘後失效。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0091",
+        "expected": "請掃描 QR Code 完成綁定。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0092",
+        "expected": "綁定成功後會顯示綠色勾號。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0093",
+        "expected": "版本更新說明已開啟。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0094",
+        "expected": "新功能導覽可以跳過。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0095",
+        "expected": "空白狀態插圖會顯示在清單中。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0096",
+        "expected": "骨架螢幕會在資料載入前顯示。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0097",
+        "expected": "分頁控制項位於表格底部。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0098",
+        "expected": "表格欄寬可以調整。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0099",
+        "expected": "行內編輯會保留原始格式。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0100",
+        "expected": "在地化字串缺少翻譯。",
+        "notes": ""
+      }
+    ]
+  },
+  "comparison_summary": {
+    "cases": 50,
+    "exact_matches_with_codex_draft": 29,
+    "differences_from_codex_draft": 21
+  },
+  "comparisons": [
+    {
+      "id": "ui-i18n-0051",
+      "input": "高对比度模式已启用。",
+      "codex_expected": "高對比模式已啟用。",
+      "gemini_expected": "高對比模式已啟用。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0052",
+      "input": "字体大小会影响所有页面。",
+      "codex_expected": "字型大小會影響所有頁面。",
+      "gemini_expected": "字體大小會影響所有頁面。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0053",
+      "input": "请调整显示比例。",
+      "codex_expected": "請調整顯示比例。",
+      "gemini_expected": "請調整顯示比例。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0054",
+      "input": "全屏模式下隐藏工具栏。",
+      "codex_expected": "全螢幕模式下隱藏工具列。",
+      "gemini_expected": "全螢幕模式下隱藏工具列。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0055",
+      "input": "剪贴板内容已复制。",
+      "codex_expected": "剪貼簿內容已複製。",
+      "gemini_expected": "剪貼簿內容已複製。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0056",
+      "input": "粘贴前请检查格式。",
+      "codex_expected": "貼上前請檢查格式。",
+      "gemini_expected": "貼上前請檢查格式。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0057",
+      "input": "撤销操作不会删除文件。",
+      "codex_expected": "復原操作不會刪除檔案。",
+      "gemini_expected": "復原操作不會刪除檔案。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0058",
+      "input": "重做按钮当前不可用。",
+      "codex_expected": "重做按鈕目前無法使用。",
+      "gemini_expected": "重做按鈕目前無法使用。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0059",
+      "input": "快捷键冲突需要重新分配。",
+      "codex_expected": "快捷鍵衝突需要重新指派。",
+      "gemini_expected": "快速鍵衝突需要重新指派。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0060",
+      "input": "请按住 Shift 进行多选。",
+      "codex_expected": "請按住 Shift 進行多選。",
+      "gemini_expected": "請按住 Shift 進行多選。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0061",
+      "input": "拖放文件到上传区域。",
+      "codex_expected": "將檔案拖放到上傳區域。",
+      "gemini_expected": "拖曳檔案到上傳區域。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0062",
+      "input": "上传队列正在等待网络连接。",
+      "codex_expected": "上傳佇列正在等待網路連線。",
+      "gemini_expected": "上傳佇列正在等候網路連線。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0063",
+      "input": "下载完成后会显示提示。",
+      "codex_expected": "下載完成後會顯示提示。",
+      "gemini_expected": "下載完成後會顯示提示。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0064",
+      "input": "附件大小超过限制。",
+      "codex_expected": "附件大小超過限制。",
+      "gemini_expected": "附件大小超出限制。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0065",
+      "input": "请选择文件夹位置。",
+      "codex_expected": "請選擇資料夾位置。",
+      "gemini_expected": "請選擇資料夾位置。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0066",
+      "input": "文件名包含不支持的字符。",
+      "codex_expected": "檔案名稱包含不支援的字元。",
+      "gemini_expected": "檔名包含不支援的字元。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0067",
+      "input": "收藏夹已同步。",
+      "codex_expected": "我的最愛已同步。",
+      "gemini_expected": "收藏已同步。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0068",
+      "input": "加入收藏后可离线查看。",
+      "codex_expected": "加入收藏後可離線檢視。",
+      "gemini_expected": "加入收藏後可離線查看。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0069",
+      "input": "书签栏可以隐藏。",
+      "codex_expected": "書籤列可以隱藏。",
+      "gemini_expected": "書籤列可以隱藏。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0070",
+      "input": "取消星标不会删除项目。",
+      "codex_expected": "取消星號不會刪除項目。",
+      "gemini_expected": "取消星號不會刪除項目。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0071",
+      "input": "置顶项目会显示在列表最上方。",
+      "codex_expected": "釘選項目會顯示在清單最上方。",
+      "gemini_expected": "釘選項目會顯示在列表最上方。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0072",
+      "input": "归档后的对话可以恢复。",
+      "codex_expected": "封存後的對話可以還原。",
+      "gemini_expected": "封存後的對話可以復原。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0073",
+      "input": "请举报不当内容。",
+      "codex_expected": "請檢舉不當內容。",
+      "gemini_expected": "請檢舉不當內容。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0074",
+      "input": "屏蔽用户后不会收到消息。",
+      "codex_expected": "封鎖使用者後不會收到訊息。",
+      "gemini_expected": "封鎖使用者後不會收到訊息。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0075",
+      "input": "隐私设置会影响个人资料可见性。",
+      "codex_expected": "隱私權設定會影響個人資料可見度。",
+      "gemini_expected": "隱私設定會影響個人資料可見度。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0076",
+      "input": "位置权限仅在使用时开启。",
+      "codex_expected": "位置權限僅在使用時開啟。",
+      "gemini_expected": "定位權限僅在使用時開啟。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0077",
+      "input": "支付方式需要重新验证。",
+      "codex_expected": "付款方式需要重新驗證。",
+      "gemini_expected": "付款方式需要重新驗證。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0078",
+      "input": "发票信息可以在账单页面编辑。",
+      "codex_expected": "發票資訊可以在帳單頁面編輯。",
+      "gemini_expected": "發票資訊可以在帳單頁面編輯。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0079",
+      "input": "订阅将在下个月续费。",
+      "codex_expected": "訂閱將在下個月續費。",
+      "gemini_expected": "訂閱將在下個月續訂。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0080",
+      "input": "免费试用还剩三天。",
+      "codex_expected": "免費試用還剩三天。",
+      "gemini_expected": "免費試用還剩三天。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0081",
+      "input": "购物车中的商品已更新。",
+      "codex_expected": "購物車中的商品已更新。",
+      "gemini_expected": "購物車中的商品已更新。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0082",
+      "input": "优惠券代码无效。",
+      "codex_expected": "優惠券代碼無效。",
+      "gemini_expected": "優惠券代碼無效。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0083",
+      "input": "配送地址缺少邮政编码。",
+      "codex_expected": "配送地址缺少郵遞區號。",
+      "gemini_expected": "寄送地址缺少郵遞區號。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0084",
+      "input": "订单摘要会显示税费。",
+      "codex_expected": "訂單摘要會顯示稅費。",
+      "gemini_expected": "訂單摘要會顯示稅金。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0085",
+      "input": "表单提交前会验证必填字段。",
+      "codex_expected": "表單送出前會驗證必填欄位。",
+      "gemini_expected": "表單提交前會驗證必填欄位。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0086",
+      "input": "占位符文本不会被提交。",
+      "codex_expected": "預留位置文字不會被送出。",
+      "gemini_expected": "預留位置文字不會被提交。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0087",
+      "input": "输入框会自动修剪空格。",
+      "codex_expected": "輸入框會自動修剪空白。",
+      "gemini_expected": "輸入框會自動修剪空格。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0088",
+      "input": "错误消息显示在字段下方。",
+      "codex_expected": "錯誤訊息顯示在欄位下方。",
+      "gemini_expected": "錯誤訊息顯示在欄位下方。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0089",
+      "input": "验证码已发送到手机。",
+      "codex_expected": "驗證碼已傳送到手機。",
+      "gemini_expected": "驗證碼已傳送到手機。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0090",
+      "input": "二维码将在一分钟后失效。",
+      "codex_expected": "QR Code 將在一分鐘後失效。",
+      "gemini_expected": "QR Code 將在一分鐘後失效。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0091",
+      "input": "请扫描二维码完成绑定。",
+      "codex_expected": "請掃描 QR Code 完成綁定。",
+      "gemini_expected": "請掃描 QR Code 完成綁定。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0092",
+      "input": "绑定成功后会显示绿色勾号。",
+      "codex_expected": "綁定成功後會顯示綠色勾號。",
+      "gemini_expected": "綁定成功後會顯示綠色勾號。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0093",
+      "input": "版本更新说明已打开。",
+      "codex_expected": "版本更新說明已開啟。",
+      "gemini_expected": "版本更新說明已開啟。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0094",
+      "input": "新功能引导可以跳过。",
+      "codex_expected": "新功能導覽可以略過。",
+      "gemini_expected": "新功能導覽可以跳過。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0095",
+      "input": "空状态插图会显示在列表中。",
+      "codex_expected": "空狀態插圖會顯示在清單中。",
+      "gemini_expected": "空白狀態插圖會顯示在清單中。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0096",
+      "input": "骨架屏会在数据加载前显示。",
+      "codex_expected": "骨架畫面會在資料載入前顯示。",
+      "gemini_expected": "骨架螢幕會在資料載入前顯示。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0097",
+      "input": "分页控件位于表格底部。",
+      "codex_expected": "分頁控制項位於表格底部。",
+      "gemini_expected": "分頁控制項位於表格底部。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0098",
+      "input": "表格列宽可以调整。",
+      "codex_expected": "表格欄寬可以調整。",
+      "gemini_expected": "表格欄寬可以調整。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0099",
+      "input": "行内编辑会保留原始格式。",
+      "codex_expected": "行內編輯會保留原始格式。",
+      "gemini_expected": "行內編輯會保留原始格式。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0100",
+      "input": "本地化字符串缺少翻译。",
+      "codex_expected": "在地化字串缺少翻譯。",
+      "gemini_expected": "在地化字串缺少翻譯。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    }
+  ]
+}

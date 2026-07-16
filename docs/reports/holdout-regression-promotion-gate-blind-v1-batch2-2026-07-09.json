@@ -1,0 +1,89 @@
+{
+  "report_type": "holdout_regression_promotion_gate",
+  "generated_date": "2026-07-09",
+  "batch": "batch2",
+  "source_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "summary": {
+    "checked": 5,
+    "promotion_ready": 5,
+    "needs_zhtw_fix": 0,
+    "convert_matches": 5,
+    "convert_mismatches": 0,
+    "expected_idempotent": 5,
+    "expected_not_idempotent": 0,
+    "output_idempotent": 5,
+    "output_not_idempotent": 0
+  },
+  "cases": [
+    {
+      "id": "blind-it-0014",
+      "domain": "it",
+      "input": "合并请求通过检查后，机器人会自动发布预览版本。",
+      "expected": "合併請求通過檢查後，機器人會自動發布預覽版本。",
+      "actual": "合併請求通過檢查後，機器人會自動發布預覽版本。",
+      "status": "promotion_ready",
+      "convert_matches": true,
+      "expected_idempotent": true,
+      "output_idempotent": true,
+      "expected_after_convert": "合併請求通過檢查後，機器人會自動發布預覽版本。",
+      "output_after_convert": "合併請求通過檢查後，機器人會自動發布預覽版本。",
+      "promoted_id": "holdout/blind-it-0014"
+    },
+    {
+      "id": "blind-ui-0002",
+      "domain": "ui",
+      "input": "请输入验证码，系统会发送简讯到你的手机。",
+      "expected": "請輸入驗證碼，系統會傳送簡訊到你的手機。",
+      "actual": "請輸入驗證碼，系統會傳送簡訊到你的手機。",
+      "status": "promotion_ready",
+      "convert_matches": true,
+      "expected_idempotent": true,
+      "output_idempotent": true,
+      "expected_after_convert": "請輸入驗證碼，系統會傳送簡訊到你的手機。",
+      "output_after_convert": "請輸入驗證碼，系統會傳送簡訊到你的手機。",
+      "promoted_id": "holdout/blind-ui-0002"
+    },
+    {
+      "id": "blind-formal-0006",
+      "domain": "formal",
+      "input": "会议记录应列明出席人员和决议事项。",
+      "expected": "會議紀錄應列明出席人員和決議事項。",
+      "actual": "會議紀錄應列明出席人員和決議事項。",
+      "status": "promotion_ready",
+      "convert_matches": true,
+      "expected_idempotent": true,
+      "output_idempotent": true,
+      "expected_after_convert": "會議紀錄應列明出席人員和決議事項。",
+      "output_after_convert": "會議紀錄應列明出席人員和決議事項。",
+      "promoted_id": "holdout/blind-formal-0006"
+    },
+    {
+      "id": "blind-formal-0010",
+      "domain": "formal",
+      "input": "新闻稿指出，合作项目不会影响现有用户权益。",
+      "expected": "新聞稿指出，合作專案不會影響現有使用者權益。",
+      "actual": "新聞稿指出，合作專案不會影響現有使用者權益。",
+      "status": "promotion_ready",
+      "convert_matches": true,
+      "expected_idempotent": true,
+      "output_idempotent": true,
+      "expected_after_convert": "新聞稿指出，合作專案不會影響現有使用者權益。",
+      "output_after_convert": "新聞稿指出，合作專案不會影響現有使用者權益。",
+      "promoted_id": "holdout/blind-formal-0010"
+    },
+    {
+      "id": "blind-social-0015",
+      "domain": "social",
+      "input": "今天的直播回放什么时候会上架？",
+      "expected": "今天的直播重播什麼時候會上架？",
+      "actual": "今天的直播重播什麼時候會上架？",
+      "status": "promotion_ready",
+      "convert_matches": true,
+      "expected_idempotent": true,
+      "output_idempotent": true,
+      "expected_after_convert": "今天的直播重播什麼時候會上架？",
+      "output_after_convert": "今天的直播重播什麼時候會上架？",
+      "promoted_id": "holdout/blind-social-0015"
+    }
+  ]
+}

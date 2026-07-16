@@ -1,0 +1,366 @@
+{
+  "generated_date": "2026-07-06",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_backlog": "benchmarks/accuracy/annotation-backlog-v1.json",
+  "raw_report": "docs/reports/annotation-gemini-vertex-advisory-ui-i18n-0101-0125-2026-07-06.json",
+  "case_range": "ui-i18n-0101-ui-i18n-0125",
+  "usage_metadata": {
+    "promptTokenCount": 2030,
+    "candidatesTokenCount": 763,
+    "totalTokenCount": 5483,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2030
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 763
+      }
+    ],
+    "thoughtsTokenCount": 2690
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_expected_review",
+    "cases": [
+      {
+        "id": "ui-i18n-0101",
+        "expected": "語言包下載完成。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0102",
+        "expected": "目前地區設定使用繁體中文。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0103",
+        "expected": "日期格式會根據地區變化。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0104",
+        "expected": "請將時區設定為台北。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0105",
+        "expected": "數字分位符號可自訂。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0106",
+        "expected": "貨幣符號顯示在金額前。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0107",
+        "expected": "翻譯遺失時會回復為預設語言。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0108",
+        "expected": "字串鍵不可重複。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0109",
+        "expected": "請為每個語言新增說明。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0110",
+        "expected": "匯入翻譯檔案前請預覽差異。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0111",
+        "expected": "匯出檔案會包含未翻譯項目。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0112",
+        "expected": "預留位置名稱必須保持一致。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0113",
+        "expected": "請不要翻譯變數名稱。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0114",
+        "expected": "文字方向會影響版面配置。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0115",
+        "expected": "從右到左語言需要鏡像圖示。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0116",
+        "expected": "語言切換後頁面會重新載入。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0117",
+        "expected": "預覽模式不會儲存變更。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0118",
+        "expected": "文案長度超過按鈕寬度。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0119",
+        "expected": "請檢查換行是否正確。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0120",
+        "expected": "空白字元會被保留。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0121",
+        "expected": "本機快取會儲存最近使用的語言。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0122",
+        "expected": "搜尋翻譯鍵時忽略大小寫。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0123",
+        "expected": "批次更新會覆寫人工翻譯。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0124",
+        "expected": "審核狀態會顯示在翻譯清單。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0125",
+        "expected": "請在發布前鎖定語言版本。",
+        "notes": ""
+      }
+    ]
+  },
+  "comparison_summary": {
+    "cases": 25,
+    "exact_matches_with_codex_draft": 18,
+    "differences_from_codex_draft": 7
+  },
+  "comparisons": [
+    {
+      "id": "ui-i18n-0101",
+      "input": "语言包下载完成。",
+      "codex_expected": "語言套件下載完成。",
+      "gemini_expected": "語言包下載完成。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0102",
+      "input": "当前区域设置使用繁体中文。",
+      "codex_expected": "目前地區設定使用繁體中文。",
+      "gemini_expected": "目前地區設定使用繁體中文。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0103",
+      "input": "日期格式会根据地区变化。",
+      "codex_expected": "日期格式會根據地區變化。",
+      "gemini_expected": "日期格式會根據地區變化。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0104",
+      "input": "请将时区设置为台北。",
+      "codex_expected": "請將時區設定為台北。",
+      "gemini_expected": "請將時區設定為台北。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0105",
+      "input": "数字分组符号可以自定义。",
+      "codex_expected": "數字分組符號可以自訂。",
+      "gemini_expected": "數字分位符號可自訂。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0106",
+      "input": "货币符号显示在金额前。",
+      "codex_expected": "貨幣符號顯示在金額前。",
+      "gemini_expected": "貨幣符號顯示在金額前。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0107",
+      "input": "翻译缺失时会回退到默认语言。",
+      "codex_expected": "翻譯缺漏時會改用預設語言。",
+      "gemini_expected": "翻譯遺失時會回復為預設語言。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0108",
+      "input": "字符串键不能重复。",
+      "codex_expected": "字串鍵不能重複。",
+      "gemini_expected": "字串鍵不可重複。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0109",
+      "input": "请为每个语言添加说明。",
+      "codex_expected": "請為每種語言新增說明。",
+      "gemini_expected": "請為每個語言新增說明。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0110",
+      "input": "导入翻译文件前请预览差异。",
+      "codex_expected": "匯入翻譯檔前請預覽差異。",
+      "gemini_expected": "匯入翻譯檔案前請預覽差異。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0111",
+      "input": "导出文件会包含未翻译项目。",
+      "codex_expected": "匯出檔案會包含未翻譯項目。",
+      "gemini_expected": "匯出檔案會包含未翻譯項目。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0112",
+      "input": "占位符名称必须保持一致。",
+      "codex_expected": "預留位置名稱必須保持一致。",
+      "gemini_expected": "預留位置名稱必須保持一致。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0113",
+      "input": "请不要翻译变量名。",
+      "codex_expected": "請不要翻譯變數名稱。",
+      "gemini_expected": "請不要翻譯變數名稱。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0114",
+      "input": "文本方向会影响布局。",
+      "codex_expected": "文字方向會影響版面配置。",
+      "gemini_expected": "文字方向會影響版面配置。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0115",
+      "input": "从右到左语言需要镜像图标。",
+      "codex_expected": "從右到左語言需要鏡像圖示。",
+      "gemini_expected": "從右到左語言需要鏡像圖示。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0116",
+      "input": "语言切换后页面会重新加载。",
+      "codex_expected": "語言切換後頁面會重新載入。",
+      "gemini_expected": "語言切換後頁面會重新載入。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0117",
+      "input": "预览模式不会保存更改。",
+      "codex_expected": "預覽模式不會儲存變更。",
+      "gemini_expected": "預覽模式不會儲存變更。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0118",
+      "input": "文案长度超过按钮宽度。",
+      "codex_expected": "文案長度超過按鈕寬度。",
+      "gemini_expected": "文案長度超過按鈕寬度。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0119",
+      "input": "请检查换行是否正确。",
+      "codex_expected": "請檢查換行是否正確。",
+      "gemini_expected": "請檢查換行是否正確。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0120",
+      "input": "空白字符会被保留。",
+      "codex_expected": "空白字元會被保留。",
+      "gemini_expected": "空白字元會被保留。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0121",
+      "input": "本地缓存会存储最近使用的语言。",
+      "codex_expected": "本機快取會儲存最近使用的語言。",
+      "gemini_expected": "本機快取會儲存最近使用的語言。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0122",
+      "input": "搜索翻译键时忽略大小写。",
+      "codex_expected": "搜尋翻譯鍵時忽略大小寫。",
+      "gemini_expected": "搜尋翻譯鍵時忽略大小寫。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0123",
+      "input": "批量更新会覆盖人工翻译。",
+      "codex_expected": "批次更新會覆寫人工翻譯。",
+      "gemini_expected": "批次更新會覆寫人工翻譯。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0124",
+      "input": "审核状态会显示在翻译列表。",
+      "codex_expected": "審核狀態會顯示在翻譯清單。",
+      "gemini_expected": "審核狀態會顯示在翻譯清單。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0125",
+      "input": "请在发布前锁定语言版本。",
+      "codex_expected": "請在發佈前鎖定語言版本。",
+      "gemini_expected": "請在發布前鎖定語言版本。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    }
+  ]
+}

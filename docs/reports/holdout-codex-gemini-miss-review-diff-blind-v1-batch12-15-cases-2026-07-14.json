@@ -1,0 +1,196 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "report_type": "holdout_codex_gemini_miss_review_difference",
+  "review_stage": "codex_gemini_semantic_miss_review_difference",
+  "scope": "batch12_15_new_misses",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_codex": "docs/reports/holdout-miss-classification-blind-v1-batch12-15-cases-2026-07-14.json",
+  "source_gemini": "docs/reports/holdout-gemini-independent-semantic-review-blind-v1-batch12-15-misses-2026-07-14.json",
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "zhtw_outputs_included": false,
+    "classification_metadata_only": true
+  },
+  "summary": {
+    "total_cases": 15,
+    "classification_agreements": 7,
+    "classification_differences": 8,
+    "recommended_acceptable_variants": 7,
+    "recommended_public_regression_candidates": 8,
+    "recommended_strict_private_signals": 0,
+    "maintainer_queue": 6,
+    "no_immediate_question": 7,
+    "promotion_allowed": false,
+    "maintainer_resolved": 2
+  },
+  "differences": [
+    {
+      "id": "blind-high-risk-0103",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "臺灣保險法規角色名稱是有效領域同義詞，建議接受。"
+    },
+    {
+      "id": "blind-high-risk-0105",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "勞動者／勞工與身分／身份均未改變法律禁止事項的語義。"
+    },
+    {
+      "id": "blind-social-0172",
+      "domain": "social",
+      "risk": "baseline_guard",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "行動付款與行動支付在此消費語境語義等價。"
+    },
+    {
+      "id": "blind-it-0271",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_explicitly_listed_zhtw_output": true,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "Gemini 明確把實際輸出用語列為 acceptable，改列有效變體。"
+    },
+    {
+      "id": "blind-it-0274",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_explicitly_listed_zhtw_output": true,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "Gemini 明確把實際輸出用語列為 acceptable，改列有效變體。"
+    },
+    {
+      "id": "blind-llm-0156",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "臺灣技術文件對 script 有多個譯法，實際輸出語義完整。"
+    }
+  ],
+  "no_immediate_question": [
+    {
+      "id": "blind-high-risk-0117",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "move_to_public_regression_candidate",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0165",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "move_to_public_regression_candidate",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0268",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_explicitly_listed_zhtw_output": true,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0269",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "move_to_public_regression_candidate",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0210",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "move_to_public_regression_candidate",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0158",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "move_to_public_regression_candidate",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0162",
+      "domain": "llm",
+      "risk": "baseline_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "move_to_public_regression_candidate",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    }
+  ],
+  "maintainer_resolved": [
+    {
+      "id": "blind-formal-0154",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "move_to_public_regression_candidate",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "Maintainer confirmed the rare orthographic form is not acceptable for contemporary Taiwan usage.",
+      "maintainer_decision": "reject_as_acceptable_variant"
+    },
+    {
+      "id": "blind-formal-0158",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "move_to_public_regression_candidate",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "Maintainer confirmed the rare orthographic form is not acceptable for contemporary Taiwan usage.",
+      "maintainer_decision": "reject_as_acceptable_variant"
+    }
+  ],
+  "source_maintainer_partial_decision": "docs/reports/holdout-maintainer-partial-decision-blind-v1-batch12-miss-review-2026-07-14.json"
+}

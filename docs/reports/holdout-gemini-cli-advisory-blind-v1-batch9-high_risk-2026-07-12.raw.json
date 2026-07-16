@@ -1,0 +1,57 @@
+{
+  "session_id": "8abf6e8b-a253-4a4f-87bd-af58805abe14",
+  "response": "{\n  \"generated_date\": \"2026-07-12\",\n  \"dataset\": \"blind-v1\",\n  \"batch\": \"batch9_100_cases\",\n  \"domain\": \"high_risk\",\n  \"reviewer\": \"gemini\",\n  \"review_stage\": \"advisory\",\n  \"ground_truth\": false,\n  \"promotion_allowed\": false,\n  \"model_requested\": \"gemini\",\n  \"cases\": [\n    {\n      \"id\": \"blind-high-risk-0071\",\n      \"batch\": \"blind-high-risk\",\n      \"domain\": \"high_risk\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"医师会依据检查结果调整用药剂量。\",\n      \"gemini_expected\": \"醫師會依據檢查結果調整用藥劑量。\",\n      \"acceptable\": [\n        \"醫師會根據檢查結果調整用藥劑量。\"\n      ],\n      \"issue_tags\": [\n        \"medical_dosage\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Straightforward medical terminology conversion. '醫師' (physician), '檢查' (examination), '用藥劑量' (dosage) are all standard Traditional Chinese (Taiwan) terms. No specialized localized vocabulary translation issues.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-high-risk-0072\",\n      \"batch\": \"blind-high-risk\",\n      \"domain\": \"high_risk\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"投资人应自行评估汇率波动风险。\",\n      \"gemini_expected\": \"投資人應自行評估匯率波動風險。\",\n      \"acceptable\": [\n        \"投資者應自行評估匯率波動風險。\"\n      ],\n      \"issue_tags\": [\n        \"finance_risk\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Financial terminology translation. '投資人' (investors) is highly standard in Taiwanese financial contexts, and '匯率波動風險' (exchange rate fluctuation risk) is the correct localized expression.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-high-risk-0073\",\n      \"batch\": \"blind-high-risk\",\n      \"domain\": \"high_risk\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"未经授权不得调阅病历资料。\",\n      \"gemini_expected\": \"未經授權不得調閱病歷資料。\",\n      \"acceptable\": [\n        \"未經授權不得調閱病歷紀錄。\"\n      ],\n      \"issue_tags\": [\n        \"medical_privacy\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Medical and privacy term. '病歷資料' (medical records/data) is the direct and standard translation in Taiwan.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-high-risk-0074\",\n      \"batch\": \"blind-high-risk\",\n      \"domain\": \"high_risk\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"保险契约的除外责任应以条款载明。\",\n      \"gemini_expected\": \"保險契約的除外責任應以條款載明。\",\n      \"acceptable\": [\n        \"保險合約的除外責任應以條款載明。\"\n      ],\n      \"issue_tags\": [\n        \"insurance_contract\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Insurance and contract law term. '保險契約' (insurance contract) and '除外責任' (exclusions/exclusionary liability) are standard legal terms in Taiwan.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-high-risk-0075\",\n      \"batch\": \"blind-high-risk\",\n      \"domain\": \"high_risk\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"借款人逾期未缴时，银行得依约催收。\",\n      \"gemini_expected\": \"借款人逾期未繳時，銀行得依約催收。\",\n      \"acceptable\": [\n        \"借款人逾期未付時，銀行得依約催收。\"\n      ],\n      \"issue_tags\": [\n        \"banking_debt\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Banking and credit terms. '得依約' (is entitled to by contract) uses the specific legal '得' (may/shall be entitled to) which is standard in Taiwan banking contracts.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-high-risk-0076\",\n      \"batch\": \"blind-high-risk\",\n      \"domain\": \"high_risk\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"药品保存条件应符合仿单说明。\",\n      \"gemini_expected\": \"藥品保存條件應符合仿單說明。\",\n      \"acceptable\": [\n        \"藥品保存條件應符合仿單。\"\n      ],\n      \"issue_tags\": [\n        \"medicine_label\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Medical and pharmaceutical terms. '仿單' (package insert/leaflet) is the standard and legal terminology in Taiwan (as regulated by the Taiwan FDA). Mainland China typically uses '說明書' (instruction manual). Since the input already used the highly specific Taiwanese term '仿单', the direct Traditional conversion '仿單' is perfect.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-high-risk-0077\",\n      \"batch\": \"blind-high-risk\",\n      \"domain\": \"high_risk\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"受监护宣告者应由法定代理人签署。\",\n      \"gemini_expected\": \"受監護宣告者應由法定代理人簽署。\",\n      \"acceptable\": [\n        \"受監護宣告之人應由法定代理人簽署。\"\n      ],\n      \"issue_tags\": [\n        \"legal_guardian\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Civil law legal terms. '受監護宣告' (declaration of guardianship) and '法定代理人' (legal guardian/agent) are precise legal terms under the Taiwan Civil Code.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-high-risk-0078\",\n      \"batch\": \"blind-high-risk\",\n      \"domain\": \"high_risk\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"跨境汇款可能产生中转银行费用。\",\n      \"gemini_expected\": \"跨境匯款可能產生中轉銀行費用。\",\n      \"acceptable\": [\n        \"跨境匯款可能產生轉匯銀行費用。\",\n        \"跨境匯款可能產生中間銀行費用。\"\n      ],\n      \"issue_tags\": [\n        \"finance_remittance\"\n      ],\n      \"confidence\": 0.95,\n      \"review_needed\": false,\n      \"rationale\": \"Financial transaction term. '中轉銀行' (intermediary/routing bank) is standard, though '中間銀行' or '轉匯銀行' are also widely used in Taiwan banking context.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-high-risk-0079\",\n      \"batch\": \"blind-high-risk\",\n      \"domain\": \"high_risk\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"手术同意书应由本人或家属签名。\",\n      \"gemini_expected\": \"手術同意書應由本人或家屬簽名。\",\n      \"acceptable\": [\n        \"手術同意書應由本人或家屬簽署。\"\n      ],\n      \"issue_tags\": [\n        \"medical_consent\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Medical law and medical ethics terms. '手術同意書' (surgical consent form) and '家屬' (family members) are standard Taiwanese medical-legal terminology.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-high-risk-0080\",\n      \"batch\": \"blind-high-risk\",\n      \"domain\": \"high_risk\",\n      \"risk\": \"over_conversion_guard\",\n      \"input\": \"个人资料删除请求应在法定期限内处理。\",\n      \"gemini_expected\": \"個人資料刪除請求應在法定期限內處理。\",\n      \"acceptable\": [\n        \"個人資料刪除要求應在法定期限內處理。\"\n      ],\n      \"issue_tags\": [\n        \"privacy_legal\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Privacy and personal data protection law terminology. Under Taiwan's Personal Data Protection Act, '個人資料' (personal data) and '刪除請求' or '請求刪除' (request for deletion) are highly standardized terms.\",\n      \"promotion_allowed\": false\n    }\n  ]\n}",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 29094
+        },
+        "tokens": {
+          "input": 8838,
+          "prompt": 17036,
+          "candidates": 2207,
+          "total": 23573,
+          "cached": 8198,
+          "thoughts": 4330,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 29094,
+            "tokens": {
+              "input": 8838,
+              "prompt": 17036,
+              "candidates": 2207,
+              "total": 23573,
+              "cached": 8198,
+              "thoughts": 4330,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

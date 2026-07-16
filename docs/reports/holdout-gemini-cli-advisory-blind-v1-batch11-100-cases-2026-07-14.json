@@ -1,0 +1,1165 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_expansion_report": "docs/reports/holdout-input-pool-expansion-blind-v1-batch11-100-cases-2026-07-13.json",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-pro",
+  "model_observed": [
+    "gemini-2.5-pro",
+    "gemini-1.5-pro"
+  ],
+  "review_stage": "independent_holdout_expected_review",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "chunking": {
+    "strategy": "by_domain",
+    "domain_order": [
+      "it",
+      "ui",
+      "llm",
+      "formal",
+      "social",
+      "high_risk"
+    ]
+  },
+  "source_raw_reports": [
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch11-it-2026-07-13.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch11-ui-2026-07-13.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch11-llm-2026-07-13.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch11-formal-2026-07-13.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch11-social-2026-07-13.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch11-high_risk-2026-07-13.raw.json"
+  ],
+  "tool_notes": [
+    "Gemini CLI was run in the working Vertex configuration; no invalid API-key mode was used.",
+    "Gemini reviewed public batch11 input-only cases; Codex first-pass values were not included in the prompts.",
+    "Raw markdown fences were removed only while parsing the combined report.",
+    "The high-risk response self-reported gemini-1.5-pro despite the CLI command requesting gemini-2.5-pro; the mismatch is retained as a quality flag."
+  ],
+  "summary": {
+    "total_cases": 100,
+    "by_domain": {
+      "it": 25,
+      "ui": 20,
+      "llm": 15,
+      "formal": 15,
+      "social": 15,
+      "high_risk": 10
+    },
+    "by_confidence": {
+      "high": 94,
+      "medium": 6
+    },
+    "review_needed": 12,
+    "quality_flags": 1,
+    "promotion_allowed": false
+  },
+  "quality_flags": [
+    {
+      "id": null,
+      "issue": "self_reported_model_metadata_mismatch",
+      "requested": "gemini-2.5-pro",
+      "observed": [
+        "gemini-2.5-pro",
+        "gemini-1.5-pro"
+      ],
+      "note": "CLI command is authoritative for the requested model; model-authored metadata is retained for audit only."
+    }
+  ],
+  "cases": [
+    {
+      "id": "blind-it-0238",
+      "gemini_expected": "資料庫讀寫延遲超過閾值時，監控系統會傳送警示。",
+      "acceptable": [
+        "資料庫讀寫延遲超過門檻值時，監控系統會發送警報。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「資料庫」、「閾值」、「警示」為台灣軟體界常用術語。"
+    },
+    {
+      "id": "blind-it-0239",
+      "gemini_expected": "CLI 參數解析失敗時，應顯示可執行的修復建議。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_identifier"
+      ],
+      "rationale": "保留「CLI」專有名稱，其餘為標準術語轉換。"
+    },
+    {
+      "id": "blind-it-0240",
+      "gemini_expected": "SDK 初始化會讀取環境變數中的區域設定。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_identifier"
+      ],
+      "rationale": "保留「SDK」專有名稱，其餘為標準術語轉換。"
+    },
+    {
+      "id": "blind-it-0241",
+      "gemini_expected": "Webhook 重試佇列需要記錄最後一次回應狀態。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term",
+        "preserve_identifier"
+      ],
+      "rationale": "「佇列」(Queue)、「回應」(Response) 為台灣常用法。保留 Webhook。"
+    },
+    {
+      "id": "blind-it-0242",
+      "gemini_expected": "反向代理會將請求標頭轉發給後端服務。",
+      "acceptable": [
+        "反向代理會將請求檔頭轉發給後端服務。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「請求標頭」(Request Header) 為台灣網路術語慣例。"
+    },
+    {
+      "id": "blind-it-0243",
+      "gemini_expected": "啟動指令碼會先檢查設定檔是否存在。",
+      "acceptable": [
+        "啟動腳本會先檢查設定檔是否存在。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「指令碼」(Script)、「設定檔」(Config File) 是台灣常用術語。"
+    },
+    {
+      "id": "blind-it-0244",
+      "gemini_expected": "快取鍵應包含租戶編號和語言代碼。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「快取」(Cache) 是台灣標準術語。"
+    },
+    {
+      "id": "blind-it-0245",
+      "gemini_expected": "容器部署完成後，健康狀況檢查會持續輪詢。",
+      "acceptable": [
+        "容器部署完成後，健康檢查會持續輪詢。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「健康狀況檢查」(Health Check) 為標準翻譯。"
+    },
+    {
+      "id": "blind-it-0246",
+      "gemini_expected": "日誌取樣率可以在控制台調整。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「日誌」(Log)、「取樣」(Sampling) 是標準術語。"
+    },
+    {
+      "id": "blind-it-0247",
+      "gemini_expected": "前端建置產物會上傳到靜態資源桶。",
+      "acceptable": [
+        "前端建置成品會上傳到靜態資源 Bucket。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「建置產物」(Build Artifacts) 是標準術語，保留「桶」(Bucket) 的直譯符合雲端服務用法。"
+    },
+    {
+      "id": "blind-it-0248",
+      "gemini_expected": "這個 API 會回傳分頁游標和下一頁連結。",
+      "acceptable": [
+        "這個 API 會回傳分頁指標和下一頁鏈結。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_identifier"
+      ],
+      "rationale": "輸入已接近繁體，僅需微調。「回傳」、「游標」、「連結」是台灣常用詞。保留 API。"
+    },
+    {
+      "id": "blind-it-0249",
+      "gemini_expected": "權限中介軟體會拒絕缺少作用域的權杖。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「中介軟體」(Middleware)、「權杖」(Token) 是台灣資安和軟體開發的標準術語。"
+    },
+    {
+      "id": "blind-it-0250",
+      "gemini_expected": "資料遷移任務會在失敗時寫入補償事件。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準 IT 術語轉換。"
+    },
+    {
+      "id": "blind-it-0251",
+      "gemini_expected": "搜尋索引重建期間，查詢結果可能暫時延遲。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「搜尋」(Search) 為台灣常用詞。"
+    },
+    {
+      "id": "blind-it-0252",
+      "gemini_expected": "訊息消費者應避免重複確認同一批事件。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "在佇列(Queue)或事件驅動架構中，「訊息」(Message) 是台灣的標準翻譯。"
+    },
+    {
+      "id": "blind-it-0253",
+      "gemini_expected": "HTTP 狀態碼 429 表示請求過於頻繁。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_identifier"
+      ],
+      "rationale": "保留 HTTP 和 429，僅轉換通用名詞。"
+    },
+    {
+      "id": "blind-it-0254",
+      "gemini_expected": "JSON 欄位名稱必須與公開文件保持一致。",
+      "acceptable": [
+        "JSON 欄位名稱必須和公開文件保持一致。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term",
+        "preserve_identifier"
+      ],
+      "rationale": "「欄位」(Field) 為台灣常用詞。保留 JSON。"
+    },
+    {
+      "id": "blind-it-0255",
+      "gemini_expected": "版本號解析失敗時，請保留原始字串。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。"
+    },
+    {
+      "id": "blind-it-0256",
+      "gemini_expected": "TLS 握手失敗會記錄遠端位址。",
+      "acceptable": [
+        "TLS 交握失敗會記錄遠端地址。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term",
+        "preserve_identifier"
+      ],
+      "rationale": "「位址」(Address) 為台灣網路術語慣例。保留 TLS。"
+    },
+    {
+      "id": "blind-it-0257",
+      "gemini_expected": "依賴鎖定檔不應包含本機絕對路徑。",
+      "acceptable": [
+        "相依性鎖定檔不應包含本機絕對路徑。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「依賴鎖定檔」(Dependency Lock File) 為直譯，符合台灣開發者用語。"
+    },
+    {
+      "id": "blind-it-0258",
+      "gemini_expected": "程式碼區塊裡的 URL 不應該被自動改寫。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "idempotency",
+        "no_change"
+      ],
+      "rationale": "輸入已是正確的台灣繁體，應保持不變，此為冪等性測試。"
+    },
+    {
+      "id": "blind-it-0259",
+      "gemini_expected": "這個 README 已經使用台灣繁體術語。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "idempotency",
+        "no_change"
+      ],
+      "rationale": "輸入已是正確的台灣繁體，應保持不變，此為冪等性測試。"
+    },
+    {
+      "id": "blind-it-0260",
+      "gemini_expected": "請保留 AzureBlobStorage 這個類別名稱。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_identifier"
+      ],
+      "rationale": "「類別名稱」(Class Name) 為標準翻譯，並按照指示保留 AzureBlobStorage。"
+    },
+    {
+      "id": "blind-it-0261",
+      "gemini_expected": "錯誤碼 E_RATE_LIMIT 不需要翻譯。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_identifier"
+      ],
+      "rationale": "「錯誤碼」(Error Code) 為標準翻譯，並按照指示保留 E_RATE_LIMIT。"
+    },
+    {
+      "id": "blind-it-0262",
+      "gemini_expected": "指令範例中的 --dry-run 參數必須保持原樣。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_identifier"
+      ],
+      "rationale": "「指令範例」(Command Example) 為標準翻譯，並按照指示保留 --dry-run 參數。"
+    },
+    {
+      "id": "blind-ui-0188",
+      "gemini_expected": "設定頁面會顯示目前帳號的安全等級。",
+      "acceptable": [
+        "設定頁面會顯示當前帳號的安全等級。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「設置」、「帳號」為大陸用語，轉換為台灣常用詞「設定」、「帳號」。「當前」轉換為更自然的「目前」。"
+    },
+    {
+      "id": "blind-ui-0189",
+      "gemini_expected": "搜尋框取得焦點後會顯示最近查詢。",
+      "acceptable": [
+        "搜尋框在取得焦點後會顯示最近的查詢紀錄。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「搜索框」轉換為台灣常用詞「搜尋框」。「获得焦点」在台灣UI較少見，但「取得焦點」是可接受的技術用語。"
+    },
+    {
+      "id": "blind-ui-0190",
+      "gemini_expected": "下拉式選單關閉時，應保留使用者剛選擇的項目。",
+      "acceptable": [
+        "下拉選單關閉時，應保留用戶剛選擇的項目。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「菜单」轉換為「選單」，「用户」轉換為台灣UI更常用的「使用者」。"
+    },
+    {
+      "id": "blind-ui-0191",
+      "gemini_expected": "上傳按鈕停用時應顯示原因說明。",
+      "acceptable": [
+        "上傳按鈕被禁用時，應顯示原因說明。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「禁用」在台灣UI多用「停用」替代。"
+    },
+    {
+      "id": "blind-ui-0192",
+      "gemini_expected": "表格篩選器會記住上次套用的條件。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "僅作繁化，「筛选器」為大陸用語，但「篩選器」在台灣已廣泛通用。"
+    },
+    {
+      "id": "blind-ui-0193",
+      "gemini_expected": "日期選擇器開啟後，焦點應停在今天。",
+      "acceptable": [
+        "日期選擇器打開後，焦點應停在今天。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「打开」轉換為台灣軟體介面更常用的「開啟」。"
+    },
+    {
+      "id": "blind-ui-0194",
+      "gemini_expected": "成功提示消失前，使用者可以手動關閉。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入文字符合台灣用語習慣，僅需繁化。"
+    },
+    {
+      "id": "blind-ui-0195",
+      "gemini_expected": "側邊欄展開狀態會同步到本機儲存。",
+      "acceptable": [
+        "側邊欄的展開狀態會同步至本機儲存空間。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「侧边栏」轉換為「側邊欄」，「本机储存」直譯可，但「本機儲存空間」更完整。"
+    },
+    {
+      "id": "blind-ui-0196",
+      "gemini_expected": "確認對話方塊應說明刪除後無法復原。",
+      "acceptable": [
+        "確認對話框應說明刪除後無法復原。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「对话框」依台灣微軟官方術語應為「對話方塊」，但「對話框」也普遍被接受。"
+    },
+    {
+      "id": "blind-ui-0197",
+      "gemini_expected": "語言切換器會依瀏覽器偏好設定排序。",
+      "acceptable": [
+        "語言切換器會依瀏覽器偏好排序。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "ambiguity"
+      ],
+      "rationale": "「偏好」可理解，但「偏好設定」更精確傳達 browser preference setting 的意思，建議使用後者。"
+    },
+    {
+      "id": "blind-ui-0198",
+      "gemini_expected": "分頁按鈕在最後一頁時應停用。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入文字符合台灣用語習慣，僅需繁化。"
+    },
+    {
+      "id": "blind-ui-0199",
+      "gemini_expected": "空白狀態插圖下方應顯示重新載入按鈕。",
+      "acceptable": [
+        "空狀態插圖下方應顯示重新載入按鈕。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「空状态」在台灣UI不常用，「空白狀態」或「無資料時」較常見，建議使用「空白狀態」。"
+    },
+    {
+      "id": "blind-ui-0200",
+      "gemini_expected": "標題文字已經是繁體，請不要再次改寫。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "idempotency"
+      ],
+      "rationale": "此為 idempotency 測試，應正確繁化，不應更動內容。"
+    },
+    {
+      "id": "blind-ui-0201",
+      "gemini_expected": "輸入框 placeholder 不應覆蓋使用者輸入。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_code"
+      ],
+      "rationale": "保留技術術語 `placeholder` 不進行翻譯，符合「寧可少轉，不要錯轉」原則。"
+    },
+    {
+      "id": "blind-ui-0202",
+      "gemini_expected": "表單送出後會返回列表頁。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「表单」在台灣對應「表單」，「列表页」對應「列表頁」，其餘通用。"
+    },
+    {
+      "id": "blind-ui-0203",
+      "gemini_expected": "按鈕標籤「取消」已經通過台灣審核。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準繁化，詞彙在兩岸間通用。"
+    },
+    {
+      "id": "blind-ui-0204",
+      "gemini_expected": "請保留 i18n key：settings.saveButton。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_code"
+      ],
+      "rationale": "保留 i18n key 不做任何翻譯，以確保程式功能正常。"
+    },
+    {
+      "id": "blind-ui-0205",
+      "gemini_expected": "這個工具列圖示不需要翻譯。",
+      "acceptable": [
+        "這個工具列圖標不需要翻譯。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "台灣軟體界普遍使用「圖示」而非「圖標」。"
+    },
+    {
+      "id": "blind-ui-0206",
+      "gemini_expected": "已選項目數量會顯示在列表上方。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準繁化，詞彙在兩岸間通用。"
+    },
+    {
+      "id": "blind-ui-0207",
+      "gemini_expected": "彈出視窗關閉後不應清除草稿。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「弹出视窗」在台灣對應「彈出視窗」，其餘詞彙通用，僅作繁化。"
+    },
+    {
+      "id": "blind-llm-0138",
+      "gemini_expected": "提示詞變數會在執行前被替換。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。「提示詞」為台灣 AI 領域常用詞，「變數」為標準翻譯。"
+    },
+    {
+      "id": "blind-llm-0139",
+      "gemini_expected": "系統訊息應優先於開發者訊息。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入已接近繁體，僅進行簡轉繁校正。"
+    },
+    {
+      "id": "blind-llm-0140",
+      "gemini_expected": "工具結果摘要需要保留錯誤代碼。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。"
+    },
+    {
+      "id": "blind-llm-0141",
+      "gemini_expected": "檢索片段會依相關性分數排序。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。「檢索」、「相關性」、「分數」均為台灣常用詞。"
+    },
+    {
+      "id": "blind-llm-0142",
+      "gemini_expected": "代理在呼叫外部工具前應檢查權限。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換，「代理」為 agent 的通用翻譯。"
+    },
+    {
+      "id": "blind-llm-0143",
+      "gemini_expected": "回覆格式必須符合指定 JSON schema。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "code"
+      ],
+      "rationale": "依據規則，保留程式碼關鍵字 `JSON schema` 不翻譯。"
+    },
+    {
+      "id": "blind-llm-0144",
+      "gemini_expected": "上下文壓縮後仍要保留使用者最新問題。",
+      "acceptable": [
+        "上下文壓縮後仍要保留用戶最新問題。"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "將「用户」轉換為台灣軟體領域更慣用的「使用者」，但「用戶」也可接受。"
+    },
+    {
+      "id": "blind-llm-0145",
+      "gemini_expected": "提示模板裡的預留位置不能被翻譯。",
+      "acceptable": [
+        "提示模板裡的佔位符不能被翻譯。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「占位符」在台灣軟體界對應「預留位置」或「佔位符」，前者在 UI 說明中更常見，後者在開發者之間也通用。"
+    },
+    {
+      "id": "blind-llm-0146",
+      "gemini_expected": "安全策略會拒絕請求中的敏感資料。",
+      "acceptable": [
+        "安全策略會拒絕請求中的敏感資訊。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準術語轉換。「資料」和「資訊」在此情境下均可接受。"
+    },
+    {
+      "id": "blind-llm-0147",
+      "gemini_expected": "token 預算不足時，模型會要求縮短輸入。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "code"
+      ],
+      "rationale": "依據規則，保留技術名詞 `token` 不翻譯。"
+    },
+    {
+      "id": "blind-llm-0148",
+      "gemini_expected": "這段繁體系統規則必須保持原樣。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入文字已是繁體，僅需將簡體字「段」、「体」、「统」、「规则」轉換為繁體。"
+    },
+    {
+      "id": "blind-llm-0149",
+      "gemini_expected": "請不要改寫 `tool_call_id` 欄位。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term",
+        "code"
+      ],
+      "rationale": "保留程式碼 `tool_call_id`，並將中國大陸用語「字段」轉換為台灣慣用的「欄位」。"
+    },
+    {
+      "id": "blind-llm-0150",
+      "gemini_expected": "模型輸出中的 Markdown 表格要維持對齊。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "保留專有名詞 `Markdown`，其餘為標準轉換。"
+    },
+    {
+      "id": "blind-llm-0151",
+      "gemini_expected": "回答引用來源時應避免編造連結。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "將中國大陸用語「链接」轉換為台灣慣用的「連結」。"
+    },
+    {
+      "id": "blind-llm-0152",
+      "gemini_expected": "多輪對話摘要應標註遺漏的不確定資訊。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入已接近繁體，僅進行簡轉繁校正。"
+    },
+    {
+      "id": "blind-formal-0139",
+      "gemini_expected": "會議通知應註明線上與實體出席方式。",
+      "acceptable": [
+        "會議通知應註明線上及實體出席方式。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準用語轉換，「線上」與「實體」為台灣常用詞。"
+    },
+    {
+      "id": "blind-formal-0140",
+      "gemini_expected": "機關收文編號不得重複使用。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準公文用語轉換。"
+    },
+    {
+      "id": "blind-formal-0141",
+      "gemini_expected": "公告附件請依編號順序排列。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準用語轉換。"
+    },
+    {
+      "id": "blind-formal-0142",
+      "gemini_expected": "採購案評選結果將另行通知得標廠商。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準公文與商業用語轉換。"
+    },
+    {
+      "id": "blind-formal-0143",
+      "gemini_expected": "申請人應於期限內補正缺漏文件。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準法律及公文用語轉換。"
+    },
+    {
+      "id": "blind-formal-0144",
+      "gemini_expected": "本案預算經核定後方可動支。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準公文與會計用語轉換。"
+    },
+    {
+      "id": "blind-formal-0145",
+      "gemini_expected": "合作備忘錄應載明雙方聯絡窗口。",
+      "acceptable": [
+        "合作備忘錄應載明雙方聯絡人。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「聯絡窗口」為台灣商務及公務情境常用詞，指負責接洽的對口。"
+    },
+    {
+      "id": "blind-formal-0146",
+      "gemini_expected": "統計報告發布前須完成資料校驗。",
+      "acceptable": [
+        "統計報告發布前須完成資料驗證。",
+        "統計報告發佈前須完成資料校驗。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「校驗」在台灣軟體及技術領域常用於 data validation，轉換正確。"
+    },
+    {
+      "id": "blind-formal-0147",
+      "gemini_expected": "正式函文中的日期格式應保持一致。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準用語轉換。"
+    },
+    {
+      "id": "blind-formal-0148",
+      "gemini_expected": "附表一已經使用繁體，請勿改寫。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "idempotency"
+      ],
+      "rationale": "輸入內容已大部分為繁體，僅將簡體字「经」、「请」、「写」轉換為對應的「經」、「請」、「寫」，以確保完全繁體化。"
+    },
+    {
+      "id": "blind-formal-0149",
+      "gemini_expected": "該說明文字只用於內部測試。",
+      "acceptable": [
+        "該說明文字僅用於內部測試。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準用語轉換。"
+    },
+    {
+      "id": "blind-formal-0150",
+      "gemini_expected": "承辦單位應保存簽收回執以備查。",
+      "acceptable": [
+        "承辦單位應保存簽收單以備查。",
+        "承辦單位應保存收執聯以備查。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「回執」在台灣較少用，多稱為「簽收單」或「收執聯」。依「寧可少轉」原則先保留，但標記審核。"
+    },
+    {
+      "id": "blind-formal-0151",
+      "gemini_expected": "文件標題中的「计划」應依核定名稱呈現。",
+      "acceptable": [
+        "文件標題中的「計畫」應依核定名稱呈現。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "proper_noun"
+      ],
+      "rationale": "內文提示「应依核定名称呈现」，暗示「计划」可能為專有名稱的一部分。依「不轉換專有名詞」原則，建議不轉。但若此處為一般用詞，則應轉為「計畫」。"
+    },
+    {
+      "id": "blind-formal-0152",
+      "gemini_expected": "請以電子郵件通知各機關聯絡人。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「联系人」在台灣的對應標準用語為「聯絡人」。"
+    },
+    {
+      "id": "blind-formal-0153",
+      "gemini_expected": "會議紀錄頁面應保留修訂歷史。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「修訂歷史」為台灣軟體界常用詞 (Revision History)。"
+    },
+    {
+      "id": "blind-social-0139",
+      "gemini_expected": "朋友把聚餐地點發到群組裡。",
+      "acceptable": [
+        "朋友把聚餐地點傳到群組裡。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「群組」為台灣社群軟體常用詞。"
+    },
+    {
+      "id": "blind-social-0140",
+      "gemini_expected": "我等一下再把照片傳給大家。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "純粹字元轉換，語意和用法在台灣很自然。"
+    },
+    {
+      "id": "blind-social-0141",
+      "gemini_expected": "這個短影片的留言不要關閉。",
+      "acceptable": [
+        "這個短影音的留言不要關閉。",
+        "這支短影片的留言不要關閉。"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「短影音」在台灣更為流行，但「短影片」也能被理解。"
+    },
+    {
+      "id": "blind-social-0142",
+      "gemini_expected": "他把暱稱改成公司英文名。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「暱稱」是台灣對 'nickname' 的標準用法。"
+    },
+    {
+      "id": "blind-social-0143",
+      "gemini_expected": "明天如果下雨就改約室內。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "純粹字元轉換，符合台灣日常用語。"
+    },
+    {
+      "id": "blind-social-0144",
+      "gemini_expected": "直播結束後可以看重播嗎？",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "純粹字元轉換，語句通順自然。"
+    },
+    {
+      "id": "blind-social-0145",
+      "gemini_expected": "這則貼文先設成僅朋友可見。",
+      "acceptable": [
+        "這則貼文先設成僅限朋友可見。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「貼文」是台灣對社群 'post' 的標準用法。"
+    },
+    {
+      "id": "blind-social-0146",
+      "gemini_expected": "我已經把路線截圖傳到聊天室。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「截圖」是台灣對 'screenshot' 的標準用法。"
+    },
+    {
+      "id": "blind-social-0147",
+      "gemini_expected": "晚一點再提醒我帶充電線。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "純粹字元轉換，符合台灣口語習慣。"
+    },
+    {
+      "id": "blind-social-0148",
+      "gemini_expected": "這段繁體留言請保持原樣。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "idempotency"
+      ],
+      "rationale": "冪等性測試，應正確轉換簡體字「这」和「体」，並保留其餘繁體字。"
+    },
+    {
+      "id": "blind-social-0149",
+      "gemini_expected": "請不要把 Taipei Main Station 翻成中文。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_english"
+      ],
+      "rationale": "英文專有名詞應按規則保留，不進行翻譯。"
+    },
+    {
+      "id": "blind-social-0150",
+      "gemini_expected": "活動報名連結不要傳到公開社群。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「連結」是台灣對 'link' 的標準用法，而非「链接」。"
+    },
+    {
+      "id": "blind-social-0151",
+      "gemini_expected": "我把購物清單同步到手機。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "純粹字元轉換，符合台灣用語習慣。"
+    },
+    {
+      "id": "blind-social-0152",
+      "gemini_expected": "這個貼圖包已經下載好了。",
+      "acceptable": [
+        "這組貼圖已經下載好了。"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「貼圖包」可理解，但「這組貼圖」在台灣口語中可能更常見。"
+    },
+    {
+      "id": "blind-social-0153",
+      "gemini_expected": "你先把票券截圖存起來。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「截圖」是台灣對 'screenshot' 的標準用法。"
+    },
+    {
+      "id": "blind-high-risk-0091",
+      "gemini_expected": "銀行辦理貸款前會確認收入證明。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，語意無變化，為台灣金融常用語句。"
+    },
+    {
+      "id": "blind-high-risk-0092",
+      "gemini_expected": "醫師開立處方前應確認過敏史。",
+      "acceptable": [
+        "醫生開立處方前應確認過敏史。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，『醫師』為台灣醫療正式用法。"
+    },
+    {
+      "id": "blind-high-risk-0093",
+      "gemini_expected": "法院送達通知會載明應到日期。",
+      "acceptable": [
+        "法院送達通知會載明應到庭日期。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，為台灣法律標準用語。"
+    },
+    {
+      "id": "blind-high-risk-0094",
+      "gemini_expected": "投保前請詳閱除外責任說明。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，為台灣保險標準用語。"
+    },
+    {
+      "id": "blind-high-risk-0095",
+      "gemini_expected": "個人資料刪除請求應留下處理紀錄。",
+      "acceptable": [
+        "個資刪除請求應留下處理紀錄。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字詞轉換，「紀錄」在台灣用作名詞，「個人資料」也常簡稱「個資」。"
+    },
+    {
+      "id": "blind-high-risk-0096",
+      "gemini_expected": "工安事故通報應於期限內完成。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，為台灣勞動部標準用語。"
+    },
+    {
+      "id": "blind-high-risk-0097",
+      "gemini_expected": "藥品保存溫度不得超過標示範圍。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，語意無變化。"
+    },
+    {
+      "id": "blind-high-risk-0098",
+      "gemini_expected": "契約變更須經雙方書面同意。",
+      "acceptable": [
+        "合約變更須經雙方書面同意。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字詞轉換，『契約』與『合約』在台灣法律與商業文件中均常用。"
+    },
+    {
+      "id": "blind-high-risk-0099",
+      "gemini_expected": "身分證件影本應加註用途限制。",
+      "acceptable": [
+        "身份證件影本應加註用途限制。"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "『影本』為台灣用語（對應『复印件』）；『身分』為台灣官方標準寫法，但『身份』亦通用。"
+    },
+    {
+      "id": "blind-high-risk-0100",
+      "gemini_expected": "病歷不得任意提供給第三方。",
+      "acceptable": [
+        "醫療紀錄不得任意提供給第三方。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "『病歷』是台灣對『医疗纪录』(medical record) 的標準且常用術語，『醫療紀錄』亦可理解但較不常用。"
+    }
+  ]
+}

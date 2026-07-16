@@ -1,0 +1,548 @@
+{
+  "version": 1,
+  "name": "public-reproduction-seeds-v1",
+  "description": "Independent public input-only reproduction seeds for themes observed in sealed holdout remaining-signal metadata. These cases are original public test inputs and do not contain sealed holdout text, expected values, acceptable variants, converter output, or benchmark rows.",
+  "generated_date": "2026-07-13",
+  "status": "input_only_needs_review",
+  "source_policy": {
+    "source_signal_report": "docs/reports/holdout-remaining-signal-summary-blind-v1-after-batch10-miss-review-2026-07-13.json",
+    "gemini_policy_review": "docs/reports/holdout-gemini-policy-review-remaining-signal-blind-v1-after-batch10-miss-review-2026-07-13.json",
+    "sealed_values_used": false,
+    "sealed_case_ids_used_as_case_inputs": false,
+    "derived_from_metadata_only": [
+      "domain",
+      "risk",
+      "issue_tags",
+      "signal_category",
+      "zhtw_output_idempotent"
+    ],
+    "forbidden_source_fields": [
+      "input",
+      "expected",
+      "acceptable",
+      "actual",
+      "output",
+      "normalized_output",
+      "benchmark_rows"
+    ]
+  },
+  "review_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "converter_outputs_included": false,
+    "codex_first_pass_required": true,
+    "gemini_advisory_required": true,
+    "maintainer_confirmation_required": true,
+    "may_tune_converter_or_dictionary_now": false,
+    "eligible_for_public_regression_only_after_human_expected_review": true
+  },
+  "stats": {
+    "total_cases": 32,
+    "by_domain": {
+      "formal": 6,
+      "high_risk": 8,
+      "it": 3,
+      "llm": 4,
+      "social": 6,
+      "ui": 5
+    },
+    "by_risk": {
+      "baseline_guard": 1,
+      "candidate_gap": 2,
+      "over_conversion_guard": 29
+    },
+    "by_signal_theme": {
+      "formal_regional_over_conversion": 6,
+      "high_risk_baseline_guard": 1,
+      "high_risk_candidate_gap": 2,
+      "high_risk_over_conversion": 5,
+      "it_term_over_conversion": 3,
+      "llm_term_over_conversion": 4,
+      "social_regional_over_conversion": 6,
+      "ui_term_over_conversion": 4,
+      "ui_idempotency_followup": 1
+    }
+  },
+  "cases": [
+    {
+      "id": "public-repro-20260713-formal-0001",
+      "domain": "formal",
+      "input": "请在公告发布前确认所有附件名称与页面标题一致。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["formal_term", "regional_term", "over_conversion"],
+      "signal_theme": "formal_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public formal-domain seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-formal-0002",
+      "domain": "formal",
+      "input": "请将会议记录归档，并通知各部门负责人确认版本。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["formal_term", "regional_term", "over_conversion"],
+      "signal_theme": "formal_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public formal-domain seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-formal-0003",
+      "domain": "formal",
+      "input": "申请表送出后，承办单位会在三个工作日内回复。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["formal_term", "regional_term", "over_conversion"],
+      "signal_theme": "formal_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public formal-domain seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-formal-0004",
+      "domain": "formal",
+      "input": "采购公告应列明交货地点、验收标准与联系窗口。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["formal_term", "regional_term", "over_conversion"],
+      "signal_theme": "formal_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public formal-domain seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-formal-0005",
+      "domain": "formal",
+      "input": "本次修正条文将于核定后另行公告实施日期。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["formal_term", "regional_term", "over_conversion"],
+      "signal_theme": "formal_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public formal-domain seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-formal-0006",
+      "domain": "formal",
+      "input": "请依照作业说明填写编号，并保留纸本签收记录。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["formal_term", "regional_term", "over_conversion"],
+      "signal_theme": "formal_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public formal-domain seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0001",
+      "domain": "high_risk",
+      "input": "医师评估后建议病人持续监测血压并记录用药时间。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["high_risk_term", "formal_term", "regional_term", "over_conversion"],
+      "signal_theme": "high_risk_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public high-risk medical seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0002",
+      "domain": "high_risk",
+      "input": "药袋上应标示每日剂量、服用方式与注意事项。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["high_risk_term", "formal_term", "regional_term", "over_conversion"],
+      "signal_theme": "high_risk_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public high-risk medical seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0003",
+      "domain": "high_risk",
+      "input": "保险理赔文件需要附上诊断证明与收据正本。",
+      "risk": "candidate_gap",
+      "issue_tags": ["high_risk_term", "regional_term"],
+      "signal_theme": "high_risk_candidate_gap",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public high-risk insurance seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0004",
+      "domain": "high_risk",
+      "input": "银行审核大额转账时，会要求客户补充资金来源说明。",
+      "risk": "candidate_gap",
+      "issue_tags": ["high_risk_term", "regional_term", "candidate_gap"],
+      "signal_theme": "high_risk_candidate_gap",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public high-risk finance seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0005",
+      "domain": "high_risk",
+      "input": "法院通知当事人携带身份证明文件出庭说明。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["high_risk_term", "formal_term", "regional_term", "over_conversion"],
+      "signal_theme": "high_risk_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public high-risk legal seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0006",
+      "domain": "high_risk",
+      "input": "税务资料若有遗漏，应在期限内补正并保存凭证。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["high_risk_term", "formal_term", "regional_term", "over_conversion"],
+      "signal_theme": "high_risk_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public high-risk tax seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0007",
+      "domain": "high_risk",
+      "input": "工地主管应确认安全帽、护目镜与警示标志齐备。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["high_risk_term", "regional_term", "over_conversion"],
+      "signal_theme": "high_risk_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public high-risk workplace-safety seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0008",
+      "domain": "high_risk",
+      "input": "个人资料同意书应说明使用目的、保存期间与撤回方式。",
+      "risk": "baseline_guard",
+      "issue_tags": ["high_risk_term", "regional_term", "baseline_guard"],
+      "signal_theme": "high_risk_baseline_guard",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public high-risk privacy seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-it-0001",
+      "domain": "it",
+      "input": "API 回应包含分页资讯、错误代码与请求识别码。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["it_term", "regional_term", "over_conversion"],
+      "signal_theme": "it_term_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public IT seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-it-0002",
+      "domain": "it",
+      "input": "服务器更新 TLS 证书后，请重新启动反向代理服务。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["it_term", "regional_term", "over_conversion"],
+      "signal_theme": "it_term_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public IT seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-it-0003",
+      "domain": "it",
+      "input": "缓存失效后，前端页面会重新读取设定档内容。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["it_term", "regional_term", "over_conversion"],
+      "signal_theme": "it_term_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public IT seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-llm-0001",
+      "domain": "llm",
+      "input": "提示模板会插入使用者问题、系统规则与输出格式。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["it_term", "regional_term", "over_conversion"],
+      "signal_theme": "llm_term_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public LLM seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-llm-0002",
+      "domain": "llm",
+      "input": "模型回覆前会先读取上下文、工具结果与安全规则。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["it_term", "regional_term", "over_conversion"],
+      "signal_theme": "llm_term_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public LLM seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-llm-0003",
+      "domain": "llm",
+      "input": "工具调用失败时，代理会回传错误摘要并停止后续步骤。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["it_term", "regional_term", "over_conversion"],
+      "signal_theme": "llm_term_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public LLM seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-llm-0004",
+      "domain": "llm",
+      "input": "长对话超过 token 预算后，系统会压缩较早的讯息。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["regional_term", "over_conversion"],
+      "signal_theme": "llm_term_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public LLM seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-social-0001",
+      "domain": "social",
+      "input": "朋友在群组聊天室分享照片，并提醒大家周末见面。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["social_term", "regional_term", "over_conversion"],
+      "signal_theme": "social_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public social seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-social-0002",
+      "domain": "social",
+      "input": "贴文设为仅好友可见后，搜寻结果不会显示内容预览。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["regional_term", "over_conversion"],
+      "signal_theme": "social_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public social seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-social-0003",
+      "domain": "social",
+      "input": "短影片下方的评论很快增加，创作者决定关闭通知。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["regional_term", "over_conversion"],
+      "signal_theme": "social_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public social seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-social-0004",
+      "domain": "social",
+      "input": "昵称变更后，旧连结仍会导向同一个个人页面。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["regional_term", "over_conversion"],
+      "signal_theme": "social_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public social seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-social-0005",
+      "domain": "social",
+      "input": "直播开始前，主持人先确认麦克风和聊天室状态。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["regional_term", "over_conversion"],
+      "signal_theme": "social_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public social seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-social-0006",
+      "domain": "social",
+      "input": "活动邀请送出后，参与者可以修改人数与饮食偏好。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["regional_term", "over_conversion"],
+      "signal_theme": "social_regional_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public social seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-ui-0001",
+      "domain": "ui",
+      "input": "点击保存按钮后，页面右上角会显示成功提示。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["ui_term", "regional_term", "over_conversion"],
+      "signal_theme": "ui_term_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public UI seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-ui-0002",
+      "domain": "ui",
+      "input": "下拉选单展开时，当前选项会以蓝色边框标示。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["ui_term", "regional_term", "over_conversion"],
+      "signal_theme": "ui_term_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public UI seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-ui-0003",
+      "domain": "ui",
+      "input": "分页列出二十笔资料，并在底部显示总页数。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["ui_term", "regional_term", "over_conversion"],
+      "signal_theme": "ui_term_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public UI seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-ui-0004",
+      "domain": "ui",
+      "input": "确认对话框关闭后，焦点应回到原本的输入框。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["ui_term", "regional_term", "over_conversion"],
+      "signal_theme": "ui_term_over_conversion",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public UI seed based on metadata theme only."
+    },
+    {
+      "id": "public-repro-20260713-ui-0005",
+      "domain": "ui",
+      "input": "侧边栏筛选条件重置后，表格资料应立即重新整理。",
+      "risk": "over_conversion_guard",
+      "issue_tags": ["ui_term", "regional_term", "over_conversion"],
+      "signal_theme": "ui_idempotency_followup",
+      "source": {
+        "type": "independent_public_reproduction_seed",
+        "license": "MIT-compatible project original text",
+        "sealed_text_used": false
+      },
+      "review": {"status": "needs_codex_first_pass"},
+      "notes": "Original public UI seed for idempotency follow-up theme based on metadata only."
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+<!-- zhtw:disable -->
+# Holdout Input Pool Expansion - Batch5 100 Cases
+
+Generated: `2026-07-09`
+
+This report records the next public input-only expansion for blind-v1. It does not include expected values, input text, converter outputs, or benchmark rows.
+
+## Summary
+
+- previous_input_cases: 238
+- added_input_cases: 100
+- current_input_cases: 338
+- target_total: 2000
+- added_by_domain:
+  - `formal`: 15
+  - `high_risk`: 10
+  - `it`: 25
+  - `llm`: 15
+  - `social`: 15
+  - `ui`: 20
+- current_by_domain:
+  - `formal`: 54
+  - `high_risk`: 36
+  - `it`: 68
+  - `llm`: 57
+  - `social`: 55
+  - `ui`: 68
+- added_by_risk:
+  - `baseline_guard`: 15
+  - `candidate_gap`: 60
+  - `over_conversion_guard`: 25
+- current_by_risk:
+  - `baseline_guard`: 53
+  - `candidate_gap`: 197
+  - `over_conversion_guard`: 88
+
+## New Case IDs
+
+- `blind-it-0088`
+- `blind-it-0089`
+- `blind-it-0090`
+- `blind-it-0091`
+- `blind-it-0092`
+- `blind-it-0093`
+- `blind-it-0094`
+- `blind-it-0095`
+- `blind-it-0096`
+- `blind-it-0097`
+- `blind-it-0098`
+- `blind-it-0099`
+- `blind-it-0100`
+- `blind-it-0101`
+- `blind-it-0102`
+- `blind-it-0103`
+- `blind-it-0104`
+- `blind-it-0105`
+- `blind-it-0106`
+- `blind-it-0107`
+- `blind-it-0108`
+- `blind-it-0109`
+- `blind-it-0110`
+- `blind-it-0111`
+- `blind-it-0112`
+- `blind-ui-0068`
+- `blind-ui-0069`
+- `blind-ui-0070`
+- `blind-ui-0071`
+- `blind-ui-0072`
+- `blind-ui-0073`
+- `blind-ui-0074`
+- `blind-ui-0075`
+- `blind-ui-0076`
+- `blind-ui-0077`
+- `blind-ui-0078`
+- `blind-ui-0079`
+- `blind-ui-0080`
+- `blind-ui-0081`
+- `blind-ui-0082`
+- `blind-ui-0083`
+- `blind-ui-0084`
+- `blind-ui-0085`
+- `blind-ui-0086`
+- `blind-ui-0087`
+- `blind-llm-0048`
+- `blind-llm-0049`
+- `blind-llm-0050`
+- `blind-llm-0051`
+- `blind-llm-0052`
+- `blind-llm-0053`
+- `blind-llm-0054`
+- `blind-llm-0055`
+- `blind-llm-0056`
+- `blind-llm-0057`
+- `blind-llm-0058`
+- `blind-llm-0059`
+- `blind-llm-0060`
+- `blind-llm-0061`
+- `blind-llm-0062`
+- `blind-formal-0049`
+- `blind-formal-0050`
+- `blind-formal-0051`
+- `blind-formal-0052`
+- `blind-formal-0053`
+- `blind-formal-0054`
+- `blind-formal-0055`
+- `blind-formal-0056`
+- `blind-formal-0057`
+- `blind-formal-0058`
+- `blind-formal-0059`
+- `blind-formal-0060`
+- `blind-formal-0061`
+- `blind-formal-0062`
+- `blind-formal-0063`
+- `blind-social-0049`
+- `blind-social-0050`
+- `blind-social-0051`
+- `blind-social-0052`
+- `blind-social-0053`
+- `blind-social-0054`
+- `blind-social-0055`
+- `blind-social-0056`
+- `blind-social-0057`
+- `blind-social-0058`
+- `blind-social-0059`
+- `blind-social-0060`
+- `blind-social-0061`
+- `blind-social-0062`
+- `blind-social-0063`
+- `blind-high-risk-0031`
+- `blind-high-risk-0032`
+- `blind-high-risk-0033`
+- `blind-high-risk-0034`
+- `blind-high-risk-0035`
+- `blind-high-risk-0036`
+- `blind-high-risk-0037`
+- `blind-high-risk-0038`
+- `blind-high-risk-0039`
+- `blind-high-risk-0040`
+
+## Policy
+
+- source: `project-original synthetic input sentences`
+- expected_not_generated: `true`
+- converter_outputs_not_used: `true`
+- annotation_required_before_benchmark: `true`
+- codex_gemini_advisory_required_before_maintainer_review: `true`

@@ -1,0 +1,96 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "review_stage": "maintainer_final_decision_post_batch3_recheck",
+  "maintainer": "tim",
+  "source_recheck_report": "docs/reports/holdout-post-batch3-miss-recheck-blind-v1-2026-07-09.json",
+  "source_gemini_policy_review": "docs/reports/holdout-gemini-policy-review-post-batch3-recheck-blind-v1-2026-07-09.json",
+  "private_review_packet": {
+    "path": "/tmp/zhtw-holdout-post-batch3-maintainer-review-packet-2026-07-09.json",
+    "in_repo": false,
+    "contains_sealed_values": true
+  },
+  "private_expected_path": "benchmarks/accuracy/blind-v1.expected.json",
+  "private_expected_updated": true,
+  "expected_values_included": false,
+  "acceptable_values_included": false,
+  "inputs_included": false,
+  "outputs_included": false,
+  "benchmark_rows_included": false,
+  "private_expected_sha256_before": "169fa6f072f5d059659439e5ce65ca8a285fc971cac971308910ecf5a45335da",
+  "private_expected_sha256_after": "029e375f6098fc151962086df2200ad4245ab10296bef424b671de381ad2e9fb",
+  "summary": {
+    "reviewed_recheck_cases": 17,
+    "maintainer_confirmed_acceptable_variants": 11,
+    "private_expected_cases_updated": 11,
+    "skipped_existing_variants": 0,
+    "kept_as_holdout_signal": 6,
+    "primary_expected_changed": 0,
+    "converter_or_dictionary_changed": false,
+    "private_expected_updated": true,
+    "by_domain": {
+      "formal": 1,
+      "high_risk": 2,
+      "it": 2,
+      "llm": 2,
+      "social": 1,
+      "ui": 3
+    },
+    "by_risk": {
+      "candidate_gap": 9,
+      "over_conversion_guard": 2
+    },
+    "by_priority": {
+      "P1": 3,
+      "P2": 8
+    },
+    "by_reason_category": {
+      "valid_ai_generation_term_variant": 2,
+      "valid_current_state_term_variant": 1,
+      "valid_debug_mode_term_variant": 1,
+      "valid_finance_delivery_verb_variant_needs_confirmation": 1,
+      "valid_medical_patient_term_variant_needs_confirmation": 1,
+      "valid_page_position_term_variant": 1,
+      "valid_record_graph_variant": 1,
+      "valid_replace_verb_variant": 1,
+      "valid_send_to_chat_variant_needs_confirmation": 1,
+      "valid_taipei_and_field_name_variant_needs_confirmation": 1
+    }
+  },
+  "confirmed_case_ids": [
+    "blind-formal-0023",
+    "blind-high-risk-0011",
+    "blind-high-risk-0012",
+    "blind-it-0036",
+    "blind-it-0055",
+    "blind-llm-0017",
+    "blind-llm-0023",
+    "blind-social-0024",
+    "blind-ui-0014",
+    "blind-ui-0016",
+    "blind-ui-0039"
+  ],
+  "updated_case_ids": [
+    "blind-formal-0023",
+    "blind-high-risk-0011",
+    "blind-high-risk-0012",
+    "blind-it-0036",
+    "blind-it-0055",
+    "blind-llm-0017",
+    "blind-llm-0023",
+    "blind-social-0024",
+    "blind-ui-0014",
+    "blind-ui-0016",
+    "blind-ui-0039"
+  ],
+  "skipped_existing_variant_case_ids": [],
+  "kept_as_holdout_signal_case_ids": [
+    "blind-formal-0029",
+    "blind-llm-0026",
+    "blind-llm-0028",
+    "blind-social-0025",
+    "blind-social-0026",
+    "blind-ui-0011"
+  ],
+  "publication_note": "Expected values, acceptable variants, inputs, converter outputs, and benchmark rows are intentionally omitted. This summary records maintainer approval of acceptable variants only; primary expected values are unchanged."
+}

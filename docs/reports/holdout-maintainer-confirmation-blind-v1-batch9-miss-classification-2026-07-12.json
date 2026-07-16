@@ -1,0 +1,337 @@
+{
+  "generated_date": "2026-07-12",
+  "dataset": "blind-v1",
+  "review_stage": "maintainer_confirmation_packet",
+  "scope": "batch9_miss_classification",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-683-cases-2026-07-12.json",
+  "source_gemini_policy_review": "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-683-cases-2026-07-12.json",
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": true
+  },
+  "summary": {
+    "total_review_cases": 22,
+    "public_regression_candidate_cases": 16,
+    "expected_recheck_cases": 6,
+    "no_immediate_question": 31,
+    "gemini_policy_passed": true,
+    "classification_changes_recommended_by_gemini": 0,
+    "by_action": {
+      "move_to_public_regression_candidate": 16,
+      "requires_expected_recheck": 6
+    },
+    "by_domain": {
+      "formal": 2,
+      "it": 12,
+      "llm": 2,
+      "ui": 6
+    },
+    "by_risk": {
+      "baseline_guard": 2,
+      "candidate_gap": 20
+    },
+    "non_idempotent_review_cases": 2
+  },
+  "cases": [
+    {
+      "id": "blind-it-0189",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "mapping_term_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0190",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "queue_priority_message_terminology_gap",
+      "flags": [
+        "non_idempotent_output"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0195",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "repository_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0197",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "service_discovery_return_instance_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0200",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "event_bus_terminology_gap",
+      "flags": [
+        "non_idempotent_output"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0201",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "background_job_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0202",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "timestamp_term_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0203",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "shared_config_template_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0206",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "load_balancer_node_orthography_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0208",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "queue_message_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0209",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "monitoring_backend_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0210",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "runtime_config_source_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0148",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "refresh_button_punctuation_style_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0150",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "save_draft_status_label_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0157",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "sidebar_collapse_icon_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0160",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "table_column_drag_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0164",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "current_view_navigation_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0166",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "archived_item_tab_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0116",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "merge_document_chunk_character_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0122",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "system_message_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0115",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "formal_standard_character_gap",
+      "flags": [
+        "baseline_guard_miss"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0116",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "formal_contact_window_overconversion_gap",
+      "flags": [
+        "baseline_guard_miss"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    }
+  ],
+  "no_immediate_question_case_ids": [
+    "blind-llm-0026",
+    "blind-llm-0028",
+    "blind-formal-0029",
+    "blind-social-0025",
+    "blind-social-0026",
+    "blind-it-0083",
+    "blind-ui-0060",
+    "blind-ui-0061",
+    "blind-llm-0043",
+    "blind-llm-0044",
+    "blind-formal-0043",
+    "blind-formal-0044",
+    "blind-formal-0045",
+    "blind-formal-0046",
+    "blind-social-0042",
+    "blind-social-0043",
+    "blind-social-0044",
+    "blind-high-risk-0026",
+    "blind-high-risk-0027",
+    "blind-it-0108",
+    "blind-ui-0081",
+    "blind-high-risk-0039",
+    "blind-it-0131",
+    "blind-ui-0102",
+    "blind-high-risk-0053",
+    "blind-high-risk-0058",
+    "blind-ui-0147",
+    "blind-formal-0105",
+    "blind-high-risk-0064",
+    "blind-high-risk-0068",
+    "blind-social-0110"
+  ]
+}

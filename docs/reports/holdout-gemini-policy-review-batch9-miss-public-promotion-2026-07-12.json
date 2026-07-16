@@ -1,0 +1,53 @@
+{
+  "report_type": "holdout_gemini_policy_review_batch9_miss_public_promotion",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-12",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-flash",
+  "model_reported_by_cli_stats": "gemini-3.5-flash",
+  "review_stage": "public_regression_promotion_policy_review",
+  "source_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "source_promotion_gate": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch9-miss-review-2026-07-12.json",
+  "sealed_values_seen": false,
+  "public_values_seen": true,
+  "sealed_content_policy": {
+    "reviewed_cases_removed_from_sealed_before_tuning": true,
+    "remaining_sealed_holdout_signal_cases_used_for_tuning": false,
+    "opencc_or_competitor_outputs_used_for_expected": false,
+    "gemini_received_public_candidate_values_only": true
+  },
+  "summary": {
+    "checked": 16,
+    "promotion_ready": 16,
+    "policy_consistent": true,
+    "risk_level": "low",
+    "blocking_findings": 0,
+    "info_findings": 3
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "case_id": "blind-ui-0160",
+      "issue": "Highly accurate localization of technical UI concepts: '列宽' (column width) is correctly converted to '欄寬' (as '列' means row in Taiwan context, while '欄' means column), and '拖拽' (drag) is correctly converted to '拖曳'.",
+      "recommendation": "Retain as is. Exceptional adherence to local UI vocabulary."
+    },
+    {
+      "severity": "info",
+      "case_id": "blind-it-0210",
+      "issue": "Correct runtime localization: '运行时' is accurately translated to '執行階段' rather than a literal '運行時' character translation.",
+      "recommendation": "Retain as is."
+    },
+    {
+      "severity": "info",
+      "case_id": "blind-it-0201",
+      "issue": "Correct job and concurrency localization: '后台作业' is correctly mapped to '背景作業', and '并发' is mapped to '並行' which aligns with standard Taiwan IT practices.",
+      "recommendation": "Retain as is."
+    }
+  ],
+  "tool_notes": [
+    "Gemini CLI was run with GEMINI_API_KEY, GOOGLE_API_KEY, and GOOGLE_GENAI_API_KEY unset; no invalid API-key mode was used.",
+    "Gemini reviewed only public candidate/gate values supplied on stdin after those cases were removed from sealed holdout.",
+    "Gemini CLI emitted a non-review tool availability line before/during the JSON run: Ripgrep is not available. Falling back to GrepTool."
+  ],
+  "gemini_summary": "All 16 candidates in batch9_miss_review show 100% consistency with traditional Taiwan localization guidelines. There is zero evidence of naive character-for-character OpenCC translations or incorrect mainland terminologies. Localized terms such as '任務佇列' (queue), '連線字串' (connection string), '儲存庫' (repository), '事件匯流排' (event bus), '背景作業' (background job), '並行' (concurrency), '外掛程式' (plugin), '執行階段' (runtime), '欄寬' (column width), and '釘選' (pin) are flawlessly applied. These cases are fully safe to be promoted to the public regression test suite."
+}

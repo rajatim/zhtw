@@ -1,0 +1,81 @@
+{
+  "report_type": "holdout_sealed_pool_update",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-09",
+  "expected_values_included": false,
+  "inputs_included": false,
+  "private_expected_updated": true,
+  "public_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "summary": {
+    "original_input_cases": 100,
+    "removed_to_public_regression_candidates": 22,
+    "remaining_sealed_input_cases": 78,
+    "old_stats": {
+      "total_collected": 100,
+      "by_domain": {
+        "formal": 15,
+        "high_risk": 10,
+        "it": 25,
+        "llm": 15,
+        "social": 15,
+        "ui": 20
+      },
+      "by_risk": {
+        "baseline_guard": 15,
+        "candidate_gap": 65,
+        "over_conversion_guard": 20
+      }
+    },
+    "removed_by_domain": {
+      "formal": 1,
+      "it": 11,
+      "llm": 2,
+      "social": 2,
+      "ui": 6
+    },
+    "removed_by_risk": {
+      "baseline_guard": 2,
+      "candidate_gap": 19,
+      "over_conversion_guard": 1
+    },
+    "remaining_by_domain": {
+      "formal": 14,
+      "high_risk": 10,
+      "it": 14,
+      "llm": 13,
+      "social": 13,
+      "ui": 14
+    },
+    "remaining_by_risk": {
+      "baseline_guard": 13,
+      "candidate_gap": 46,
+      "over_conversion_guard": 19
+    },
+    "source_inputs_sha256": "f3572ff591046f6890baa1cd9cfe5732ac44fa3a4bb9707ffea102a392cf81c9",
+    "private_expected_sha256": "4700b294de9a9fdac211f53b471ad9de765620bcdc5452d04f8f766156a3741a"
+  },
+  "removed_case_ids": [
+    "blind-it-0002",
+    "blind-it-0005",
+    "blind-it-0006",
+    "blind-it-0008",
+    "blind-it-0009",
+    "blind-it-0010",
+    "blind-it-0015",
+    "blind-it-0021",
+    "blind-it-0023",
+    "blind-it-0024",
+    "blind-it-0025",
+    "blind-ui-0001",
+    "blind-ui-0004",
+    "blind-ui-0006",
+    "blind-ui-0009",
+    "blind-ui-0019",
+    "blind-ui-0020",
+    "blind-llm-0010",
+    "blind-llm-0013",
+    "blind-formal-0003",
+    "blind-social-0005",
+    "blind-social-0007"
+  ]
+}

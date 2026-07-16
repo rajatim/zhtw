@@ -1,0 +1,1928 @@
+{
+  "generated_date": "2026-07-12",
+  "dataset": "blind-v1",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_expansion_report": "docs/reports/holdout-input-pool-expansion-blind-v1-batch9-100-cases-2026-07-12.json",
+  "reviewer": "gemini_cli",
+  "review_stage": "independent_holdout_expected_review",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "model_requested": "gemini-2.5-flash",
+  "model_observed": [
+    "gemini-3.5-flash"
+  ],
+  "chunking": {
+    "strategy": "by_domain",
+    "domain_order": [
+      "it",
+      "ui",
+      "llm",
+      "formal",
+      "social",
+      "high_risk"
+    ]
+  },
+  "model_stats_by_domain": [
+    {
+      "domain": "it",
+      "raw_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-it-2026-07-12.raw.json",
+      "stderr_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-it-2026-07-12.stderr.txt",
+      "model_observed": [
+        "gemini-3.5-flash"
+      ]
+    },
+    {
+      "domain": "ui",
+      "raw_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-ui-2026-07-12.raw.json",
+      "stderr_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-ui-2026-07-12.stderr.txt",
+      "model_observed": [
+        "gemini-3.5-flash"
+      ]
+    },
+    {
+      "domain": "llm",
+      "raw_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-llm-2026-07-12.raw.json",
+      "stderr_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-llm-2026-07-12.stderr.txt",
+      "model_observed": [
+        "gemini-3.5-flash"
+      ]
+    },
+    {
+      "domain": "formal",
+      "raw_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-formal-2026-07-12.raw.json",
+      "stderr_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-formal-2026-07-12.stderr.txt",
+      "model_observed": [
+        "gemini-3.5-flash"
+      ]
+    },
+    {
+      "domain": "social",
+      "raw_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-social-2026-07-12.raw.json",
+      "stderr_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-social-2026-07-12.stderr.txt",
+      "model_observed": [
+        "gemini-3.5-flash"
+      ]
+    },
+    {
+      "domain": "high_risk",
+      "raw_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-high_risk-2026-07-12.raw.json",
+      "stderr_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch9-high_risk-2026-07-12.stderr.txt",
+      "model_observed": [
+        "gemini-3.5-flash"
+      ]
+    }
+  ],
+  "policy": "Gemini CLI recommendations are advisory only. Maintainer confirmation is required before writing any private expected file. The CLI was run with GEMINI_API_KEY, GOOGLE_API_KEY, and GOOGLE_GENERATIVE_AI_API_KEY unset to avoid the known invalid API-key mode.",
+  "summary": {
+    "total_cases": 100,
+    "by_domain": {
+      "it": 25,
+      "ui": 20,
+      "llm": 15,
+      "formal": 15,
+      "social": 15,
+      "high_risk": 10
+    },
+    "by_risk": {
+      "candidate_gap": 60,
+      "baseline_guard": 15,
+      "over_conversion_guard": 25
+    },
+    "by_confidence": {
+      "high": 100
+    },
+    "review_needed": 0,
+    "promotion_allowed": false
+  },
+  "cases": [
+    {
+      "id": "blind-it-0188",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个 SDK 会在请求失败时自动刷新访问令牌。",
+      "gemini_expected": "這個 SDK 會在請求失敗時自動重新整理存取權杖。",
+      "acceptable": [
+        "這個 SDK 會在請求失敗時自動更新存取權杖。",
+        "這個 SDK 會在請求失敗時自動刷新存取權杖。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '这个' to '這個', '请求' to '請求', '刷新' to '重新整理' (or '更新'), and '访问令牌' to '存取權杖' (access token).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0189",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请把错误码映射到统一的异常类型。",
+      "gemini_expected": "請把錯誤碼對應到統一的例外類型。",
+      "acceptable": [
+        "請將錯誤碼對應到統一的例外類型。",
+        "請把錯誤碼對應到統一的異常類型。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '请把' to '請把' or '請將', '错误码' to '錯誤碼', '映射' to '對應', and '异常类型' to '例外類型' (standard in exception handling) or '異常類型'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0190",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "任务队列会根据优先级重新排序消息。",
+      "gemini_expected": "任務佇列會根據優先順序重新排序訊息。",
+      "acceptable": [
+        "任務佇列會根據優先權重新排序訊息。",
+        "任務佇列會根據優先級重新排序訊息。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '任务' to '任務', '队列' to '佇列' (queue), '优先级' to '優先順序' or '優先權', and '消息' to '訊息' (message).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0191",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "如果配置文件缺少字段，启动检查会失败。",
+      "gemini_expected": "如果設定檔缺少欄位，啟動檢查會失敗。",
+      "acceptable": [
+        "如果配置檔案缺少欄位，啟動檢查會失敗。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '配置文件' to '設定檔' (config file), '字段' to '欄位' (field), and '启动' to '啟動' (startup).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0192",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请在命令行参数里保留原始文件名。",
+      "gemini_expected": "請在命令列參數裡保留原始檔案名稱。",
+      "acceptable": [
+        "請在命令列參數中保留原始檔名。",
+        "請在命令列參數裡保留原始檔名。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '命令行参数' to '命令列參數' (command line argument), '里' to '裡' or '中', and '文件名' to '檔案名稱' or '檔名'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0193",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个中间件会记录每个请求的追踪编号。",
+      "gemini_expected": "這個中介軟體會記錄每個請求的追蹤編號。",
+      "acceptable": [
+        "這個中間件會記錄每個請求的追蹤編號。",
+        "這個中介軟體會記錄每個請求的追蹤 ID。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '中间件' to '中介軟體' (middleware), '请求' to '請求', and '追踪编号' to '追蹤編號'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0194",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "缓存预热完成后再切换流量。",
+      "gemini_expected": "快取預熱完成後再切換流量。",
+      "acceptable": [],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '缓存' to '快取' (cache) and '预热' to '預熱' (warm up). The rest are standard character conversions.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0195",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "数据库连接字符串不应该写入仓库。",
+      "gemini_expected": "資料庫連線字串不應該寫入存放庫。",
+      "acceptable": [
+        "資料庫連線字串不應該寫入儲存庫。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '数据库' to '資料庫', '连接字符串' to '連線字串' (connection string), and '仓库' to '存放庫' or '儲存庫' (repository).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0196",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请把批处理任务拆成可重试的步骤。",
+      "gemini_expected": "請把批次處理任務拆成可重試的步驟。",
+      "acceptable": [
+        "請將批次處理任務拆成可重試的步驟。",
+        "請把批次任務拆成可重試的步驟。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '批处理' to '批次處理' (batch processing), '任务' to '任務', and '步骤' to '步驟'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0197",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "服务发现会返回健康的实例列表。",
+      "gemini_expected": "服務發現會回傳健康的執行個體清單。",
+      "acceptable": [
+        "服務發現會返回健康的執行個體清單。",
+        "服務發現會回傳健康的實例清單。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '服务发现' to '服務發現', '返回' to '回傳' or '返回', '实例' to '執行個體' (instance), and '列表' to '清單'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0198",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "构建产物会上传到内部制品库。",
+      "gemini_expected": "建置產物會上傳到內部製品庫。",
+      "acceptable": [
+        "組建產物會上傳到內部製品庫。",
+        "建置產物會上傳到內部成品庫。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '构建' to '建置' or '組建' (build), '产物' to '產物' or '成品' (artifact), and '制品库' to '製品庫' or '成品庫' (artifact repository).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0199",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "如果锁文件变更，依赖安装会重新执行。",
+      "gemini_expected": "如果鎖定檔變更，相依性安裝會重新執行。",
+      "acceptable": [
+        "如果鎖定檔案變更，相依性安裝會重新執行。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '锁文件' to '鎖定檔' (lockfile) and '依赖' to '相依性' (dependency).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0200",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "事件总线会广播订单状态变更。",
+      "gemini_expected": "事件匯流排會廣播訂單狀態變更。",
+      "acceptable": [],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '事件总线' to '事件匯流排' (event bus) and '订单' to '訂單'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0201",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请限制后台作业的最大并发数。",
+      "gemini_expected": "請限制背景作業的最大並行數。",
+      "acceptable": [
+        "請限制背景工作吞吐量/最大並行數。",
+        "請限制背景作業的最大併發數。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '后台作业' to '背景作業' (background job/task) and '并发数' to '並行數' or '併發數' (concurrency).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0202",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个 Webhook 会验证时间戳避免重放攻击。",
+      "gemini_expected": "這個 Webhook 會驗證時間戳記以避免重送攻擊。",
+      "acceptable": [
+        "這個 Webhook 會驗證時間戳記避免重送攻擊。",
+        "這個 Webhook 會驗證時間戳記避免重放攻擊。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '时间戳' to '時間戳記' (timestamp) and '重放攻击' to '重送攻擊' or '重放攻擊' (replay attack).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0203",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "部署清单会引用共享的配置模板。",
+      "gemini_expected": "部署清單會參照共用的設定範本。",
+      "acceptable": [
+        "部署清單會引用共用的設定範本。",
+        "部署資訊清單會引用共用的設定範本。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '清单' to '清單' or '資訊清單' (manifest), '共享' to '共用' (shared), and '配置模板' to '設定範本' (configuration template).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0204",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "日志聚合服务会按租户切分索引。",
+      "gemini_expected": "日誌彙總服務會依租戶切分索引。",
+      "acceptable": [
+        "日誌聚合服務會按租戶切分索引。",
+        "Log 彙總服務會依租戶切分索引。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '日志' to '日誌' or 'Log', '聚合' to '彙總' or '聚合' (aggregation), and '按' to '依' or '按'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0205",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个端点只允许服务账号调用。",
+      "gemini_expected": "這個端點只允許服務帳號呼叫。",
+      "acceptable": [
+        "這個端點僅允許服務帳號呼叫。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '端点' to '端點' (endpoint), '服务账号' to '服務帳號' (service account), and '调用' to '呼叫' (invoke/call).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0206",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "负载均衡器会把长连接转发到同一台节点。",
+      "gemini_expected": "負載平衡器會把長連線轉發到同一台節點。",
+      "acceptable": [
+        "負載平衡器會將長連線轉發到同一個節點。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '负载均衡器' to '負載平衡器' (load balancer), '长连接' to '長連線' (long/persistent connection), and '节点' to '節點' (node).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0207",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请在回滚前确认迁移版本号。",
+      "gemini_expected": "請在回滾前確認遷移版本號。",
+      "acceptable": [
+        "請在復原前確認遷移版本號。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '回滚' to '回滾' (DevOps rollback) or '復原', and '迁移' to '遷移' (migration).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0208",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "队列堆积时，消费者会按批次拉取消息。",
+      "gemini_expected": "佇列堆積時，消費者會按批次拉取訊息。",
+      "acceptable": [
+        "佇列積壓時，消費者會按批次拉取訊息。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '队列' to '佇列' (queue), '堆积' to '堆積' or '積壓', '按批次' to '按批次' or '依批次', and '消息' to '訊息' (message).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0209",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个插件会把错误报告发送到监控后台。",
+      "gemini_expected": "這個外掛程式會把錯誤報告傳送到監控後台。",
+      "acceptable": [
+        "這個外掛會把錯誤報告傳送到監控後台。",
+        "這個插件會把錯誤報告傳送到監控後台。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '插件' to '外掛程式' or '外掛' or '插件' (plugin), '发送到' to '傳送到', and '监控后台' to '監控後台'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0210",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "运行时会根据环境加载不同的配置源。",
+      "gemini_expected": "執行階段會根據環境載入不同的設定來源。",
+      "acceptable": [
+        "執行期會根據環境載入不同的設定來源。",
+        "執行階段會根據環境載入不同的配置來源。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '运行时' to '執行階段' or '執行期' (runtime), '加载' to '載入' (load), and '配置源' to '設定來源' or '配置來源' (config source).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0211",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请为上传接口增加幂等键。",
+      "gemini_expected": "請為上傳介面增加冪等鍵。",
+      "acceptable": [
+        "請為上傳 API 增加冪等鍵。",
+        "請為上傳介面新增等冪鍵。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '上传' to '上傳', '接口' to '介面' (interface/API), and '幂等键' to '冪等鍵' or '等冪鍵' (idempotency key).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0212",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "容器启动失败时会输出初始化日志。",
+      "gemini_expected": "容器啟動失敗時會輸出初始化日誌。",
+      "acceptable": [
+        "容器啟動失敗時會輸出初始化紀錄。"
+      ],
+      "issue_tags": [
+        "vocabulary"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translates '启动' to '啟動' (startup) and '日志' to '日誌' or '紀錄' (log).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0148",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "点击刷新按钮后列表会重新加载。",
+      "gemini_expected": "點擊重新整理按鈕後，清單會重新載入。",
+      "acceptable": [
+        "點選重新整理按鈕後，清單會重新載入。",
+        "點擊重新整理按鈕後，列表會重新載入。",
+        "點選重新整理按鈕後，列表會重新載入。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Converted Simplified terms to localized Taiwan Traditional UI terms: 点击 -> 點擊 / 點選, 刷新 -> 重新整理, 按钮 -> 按鈕, 列表 -> 清單 / 列表, 重新加载 -> 重新載入.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0149",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请在下拉菜单里显示最近使用的项目。",
+      "gemini_expected": "請在下拉式選單裡顯示最近使用的項目。",
+      "acceptable": [
+        "請在下拉選單中顯示最近使用的項目。",
+        "請在下拉式選單中顯示最近使用的項目。",
+        "請在下拉選單裡顯示最近使用的項目。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Converted Simplified terms to localized Taiwan Traditional UI terms: 请 -> 請, 下拉菜单 -> 下拉式選單 / 下拉選單, 里 -> 裡 / 中, 显示 -> 顯示, 项目 -> 項目.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0150",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "保存草稿后状态标签会变成已保存。",
+      "gemini_expected": "儲存草稿後，狀態標籤會變成已儲存。",
+      "acceptable": [
+        "儲存草稿後狀態標籤會變成已儲存。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Converted UI 'save' action to Taiwan Traditional standard '儲存' instead of '保存'. Adjusted '标签' to '標籤' and '状态' to '狀態'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0151",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "这个开关控制是否显示高级选项。",
+      "gemini_expected": "這個開關控制是否顯示進階選項。",
+      "acceptable": [
+        "此開關控制是否顯示進階選項。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Converted '高级' to '進階' (advanced settings standard) and Simplified characters to Traditional.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0152",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "拖动滑块可以调整预览大小。",
+      "gemini_expected": "拖曳滑桿可以調整預覽大小。",
+      "acceptable": [
+        "拖動滑塊可以調整預覽大小。",
+        "拖曳滑塊可以調整預覽大小。",
+        "拖動滑桿可以調整預覽大小。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "In Taiwan UI, '拖曳' is more common than '拖動' for drag-and-drop, and '滑桿' is the standard translation for '滑块' (slider).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0153",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "错误提示会固定在表单顶部。",
+      "gemini_expected": "錯誤提示會固定在表單頂部。",
+      "acceptable": [
+        "錯誤提示會固定在表單上方。"
+      ],
+      "issue_tags": [
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Basic translation to Traditional characters: 错误提示 -> 錯誤提示, 会固定在 -> 會固定在, 表单 -> 表單, 顶部 -> 頂部.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0154",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请把已选标签显示在搜索框下方。",
+      "gemini_expected": "請將已選標籤顯示在搜尋框下方。",
+      "acceptable": [
+        "請把已選標籤顯示在搜尋框下方。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translated '搜索框' to Taiwan standard UI term '搜尋框'. '请把' is more idiomatically translated as '請將' in formal UI instructions.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0155",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "空状态页面会引导用户建立第一笔记录。",
+      "gemini_expected": "空白狀態頁面會引導使用者建立第一筆記錄。",
+      "acceptable": [
+        "空狀態頁面會引導使用者建立第一筆記錄。",
+        "空白狀態頁面會引導使用者建立第一筆紀錄。",
+        "空狀態頁面會引導使用者建立第一筆紀錄。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Converted '空状态' to '空白狀態' (empty state) and '用户' to '使用者' (user). Adjusted character variants: 笔 -> 筆, 记录 -> 記錄 / 紀錄.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0156",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "删除确认对话框需要显示项目名称。",
+      "gemini_expected": "刪除確認對話框需要顯示項目名稱。",
+      "acceptable": [
+        "刪除確認對話方塊需要顯示項目名稱。",
+        "刪除確認對話框需要顯示專案名稱。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Converted Simplified characters to Traditional. Added common UI variants: 对话框 -> 對話方塊 (Windows-style) and 项目 -> 專案 (project-level context).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0157",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "侧边栏折叠后只保留图标。",
+      "gemini_expected": "側邊欄收合後只保留圖示。",
+      "acceptable": [
+        "側邊欄折疊後只保留圖示。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "In Taiwan UI, '收合' is highly idiomatic for '折叠' (collapse), and '圖示' is standard for '图标' (icon).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0158",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "分页组件会显示总笔数。",
+      "gemini_expected": "分頁元件會顯示總筆數。",
+      "acceptable": [
+        "分頁組件會顯示總筆數。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Converted '组件' to Taiwan standard term '元件' (component), and Simplified to Traditional: 分页 -> 分頁, 总笔数 -> 總筆數.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0159",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请选择要套用的通知模板。",
+      "gemini_expected": "請選擇要套用的通知範本。",
+      "acceptable": [
+        "請選擇要套用的通知模板。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translated '模板' to Taiwan standard '範本' (template) and converted Simplified characters.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0160",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "表格列宽可以通过拖拽边界调整。",
+      "gemini_expected": "表格欄寬可以透過拖曳邊界調整。",
+      "acceptable": [
+        "表格欄寬可以透過拖動邊界調整。",
+        "表格列寬可以透過拖曳邊界調整。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Crucial UI distinction: '列宽' (column width) in Chinese translates to '欄寬' in Taiwan, as '欄' means column and '列' means row in localized terminology. '拖拽' is converted to '拖曳'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0161",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "新手引导会在第一次登录后出现。",
+      "gemini_expected": "新手導覽會在第一次登入後出現。",
+      "acceptable": [
+        "新手引導會在第一次登入後出現。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translated '新手引导' to '新手導覽' (or '新手引導') and '登录' to '登入' (login).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0162",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "上传失败时进度条会变成红色。",
+      "gemini_expected": "上傳失敗時進度條會變成紅色。",
+      "acceptable": [],
+      "issue_tags": [
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Straightforward conversion of Simplified characters to Traditional (上传 -> 上傳, 失败时 -> 失敗時, 进度条 -> 進度條).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0163",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "筛选面板会记住上次展开的分组。",
+      "gemini_expected": "篩選面板會記住上次展開的群組。",
+      "acceptable": [
+        "篩選面板會記住上次展開的分組。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "In Taiwan UI, '群組' is more common than '分組' for groups/grouping, though both are acceptable depending on implementation details.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0164",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请把当前视图固定到导航栏。",
+      "gemini_expected": "請將目前視圖固定到導覽列。",
+      "acceptable": [
+        "請將目前檢視固定到導覽列。",
+        "請把目前視圖固定到導覽列。",
+        "請將目前視圖釘選到導覽列。",
+        "請將目前檢視釘選到導覽列。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Adapted terminology: 当前 -> 目前, 视图 -> 視圖 / 檢視, 导航栏 -> 導覽列. '固定到' can also be idiomatically translated as '釘選到' (pinned to).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0165",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "鼠标悬停时会显示完整文件名。",
+      "gemini_expected": "滑鼠懸停時會顯示完整檔案名稱。",
+      "acceptable": [
+        "滑鼠懸停時會顯示完整檔名。",
+        "滑鼠游標移上時會顯示完整檔案名稱。",
+        "滑鼠移過時會顯示完整檔案名稱。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Converted terms: 鼠标 -> 滑鼠, 文件名 -> 檔案名稱 / 檔名. '悬停' (hover) is translated to '懸停' or described as '游標移上 / 移過'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0166",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "已归档项目会移动到单独的标签页。",
+      "gemini_expected": "已封存項目會移動到獨立的頁籤。",
+      "acceptable": [
+        "已歸檔項目會移動到單獨的頁籤。",
+        "已封存專案會移動到獨立的頁籤。",
+        "已封存項目會移動到單獨的標籤頁。",
+        "已歸檔項目會移動到單獨的標籤頁。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "In Taiwan UI, 'archive' is commonly translated as '封存', and 'tab' is '頁籤'. Character variants: 已归档 -> 已歸檔.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0167",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "搜索框为空时不要显示清除按钮。",
+      "gemini_expected": "搜尋框為空時不要顯示清除按鈕。",
+      "acceptable": [
+        "搜尋框為空白時不要顯示清除按鈕。"
+      ],
+      "issue_tags": [
+        "terminology",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Translated '搜索框' to '搜尋框' and converted Simplified characters to Traditional.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0108",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "系统提示词会限制模型输出 JSON。",
+      "gemini_expected": "系統提示詞會限制模型輸出 JSON。",
+      "acceptable": [
+        "系統提示會限制模型輸出 JSON。"
+      ],
+      "issue_tags": [
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard orthographic conversion of '系统提示词' to '系統提示詞' and '输出' to '輸出'. '提示詞' is the standard terminology in Taiwan.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0109",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请把用户问题改写成检索查询。",
+      "gemini_expected": "請把使用者問題改寫成檢索查詢。",
+      "acceptable": [
+        "請把用戶問題改寫成檢索查詢。",
+        "請將使用者問題改寫為檢索查詢。"
+      ],
+      "issue_tags": [
+        "lexicon"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "In Taiwan's IT/software context, '用户' is typically translated as '使用者' for end-users, though '用戶' is also widely understood and acceptable.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0110",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "摘要需要保留每个段落的关键数字。",
+      "gemini_expected": "摘要需要保留每個段落的關鍵數字。",
+      "acceptable": [
+        "摘要需要保留每段的關鍵數字。"
+      ],
+      "issue_tags": [
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard orthographic conversion: '每个' -> '每個', '段落' -> '段落', '关键数字' -> '關鍵數字'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0111",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "工具调用失败时，助理应该解释下一步。",
+      "gemini_expected": "工具呼叫失敗時，助理應該解釋下一步。",
+      "acceptable": [
+        "工具呼叫失敗時，助理應解釋下一步。"
+      ],
+      "issue_tags": [
+        "lexicon"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "The term '调用' in software context is translated as '呼叫' in Taiwan Traditional Chinese.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0112",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "提示词模板会把上下文插入占位符。",
+      "gemini_expected": "提示詞範本會把上下文插入預留位置。",
+      "acceptable": [
+        "提示詞模板會把上下文插入佔位符。",
+        "提示詞範本會把上下文插入佔位符。"
+      ],
+      "issue_tags": [
+        "lexicon"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "'模板' is typically translated as '範本' in Taiwan IT localizations, and '占位符' maps to '預留位置' or '佔位符'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0113",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请根据评分规则输出结构化评语。",
+      "gemini_expected": "請根據評分規則輸出結構化評語。",
+      "acceptable": [
+        "請依據評分規則輸出結構化評語。"
+      ],
+      "issue_tags": [
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Direct character conversion: '请' -> '請', '根据' -> '根據', '规则' -> '規則', '输出' -> '輸出', '结构' -> '結構', '评语' -> '評語'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0114",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "这个代理会先读取文件再回答问题。",
+      "gemini_expected": "這個代理會先讀取檔案再回答問題。",
+      "acceptable": [
+        "這個 Agent 會先讀取檔案再回答問題。",
+        "這個代理會先讀取文件再回答問題。"
+      ],
+      "issue_tags": [
+        "lexicon"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "'文件' in reference to computer files is translated to '檔案' in Taiwan, while '代理' (Agent) is standard, though the English word 'Agent' is also extremely common.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0115",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "训练样本不应该包含真实客户资料。",
+      "gemini_expected": "訓練樣本不應該包含真實客戶資料。",
+      "acceptable": [
+        "訓練樣本不應包含真實客戶資料。"
+      ],
+      "issue_tags": [
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Direct conversion with standard localization of '客户资料' to '客戶資料'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0116",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "检索增强流程会合并多个文档片段。",
+      "gemini_expected": "檢索增強流程會合併多個文件片段。",
+      "acceptable": [
+        "檢索增強流程會合併多個檔案片段。"
+      ],
+      "issue_tags": [
+        "lexicon"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "'文档' is translated as '文件' in Taiwan. '检索增强流程' is the localization for RAG-related processes.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0117",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请把长答案压缩成三条要点。",
+      "gemini_expected": "請把長答案壓縮成三條要點。",
+      "acceptable": [
+        "請將長答案壓縮成三條要點。"
+      ],
+      "issue_tags": [
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard orthographic conversion: '请' -> '請', '长' -> '長', '压缩' -> '壓縮', '条要点' -> '條要點'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0118",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "评测脚本会比较模型输出和参考答案。",
+      "gemini_expected": "評測腳本會比較模型輸出和參考答案。",
+      "acceptable": [
+        "評測腳本會比對模型輸出和參考答案。"
+      ],
+      "issue_tags": [
+        "lexicon"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "'脚本' is translated to '腳本' in Taiwan. '比较' is standard, while '比對' is also highly natural and common in testing contexts.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0119",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "用户意图识别失败时需要回问。",
+      "gemini_expected": "使用者意圖辨識失敗時需要回問。",
+      "acceptable": [
+        "用戶意圖辨識失敗時需要回問。",
+        "使用者意圖識別失敗時需要回問。",
+        "用戶意圖識別失敗時需要回問。"
+      ],
+      "issue_tags": [
+        "lexicon"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "'用户' is mapped to '使用者' and '识别' is mapped to '辨識' or '識別' in Taiwan Traditional Chinese for standard NLP contexts.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0120",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请保留 Markdown 表格里的代码片段。",
+      "gemini_expected": "請保留 Markdown 表格裡的程式碼片段。",
+      "acceptable": [
+        "請保留 Markdown 表格中的程式碼片段。"
+      ],
+      "issue_tags": [
+        "lexicon"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "The term '代码' (code) is translated to '程式碼' in Taiwan. Markdown is kept as-is.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0121",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "对话记忆只保存用户明确同意的内容。",
+      "gemini_expected": "對話記憶只保存使用者明確同意的內容。",
+      "acceptable": [
+        "對話記憶僅保存使用者明確同意的內容。",
+        "對話記憶只保存用戶明確同意的內容。"
+      ],
+      "issue_tags": [
+        "lexicon"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Direct conversion of '对话记忆' to '對話記憶', and localizing '用户' to '使用者' and '内容' to '內容'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0122",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "模型回答不能泄露隐藏的系统消息。",
+      "gemini_expected": "模型回答不能洩漏隱藏的系統訊息。",
+      "acceptable": [
+        "模型回答不能洩露隱藏的系統訊息。",
+        "模型回答不得洩漏隱藏的系統訊息。"
+      ],
+      "issue_tags": [
+        "lexicon"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "'泄露' is translated to '洩漏' or '洩露' in Taiwan, and '系统消息' is translated to '系統訊息'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0109",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "本公告自发布日起生效。",
+      "gemini_expected": "本公告自發布日起生效。",
+      "acceptable": [
+        "本公告自發佈日起生效。"
+      ],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Convert Simplified Chinese characters to Taiwan Traditional Chinese. '发布' is standardly converted to '發布' or '發佈' in Traditional Chinese.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0110",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "申请资料不完整者，将通知补正。",
+      "gemini_expected": "申請資料不完整者，將通知補正。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. '申请' becomes '申請', '资料' becomes '資料', '将' becomes '將', and '补正' becomes '補正' (an administrative/legal term in Taiwan).",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0111",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "会议记录应保存三年以上。",
+      "gemini_expected": "會議紀錄應保存三年以上。",
+      "acceptable": [
+        "會議記錄應保存三年以上。"
+      ],
+      "issue_tags": [
+        "character-conversion",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. For '会议记录', both '會議紀錄' and '會議記錄' are acceptable orthographies in Taiwan, with '紀錄' being preferred for nouns.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0112",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "本公司保留调整服务内容的权利。",
+      "gemini_expected": "本公司保留調整服務內容的權利。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. '调整' to '調整', '服务' to '服務', '内容' to '內容', '权利' to '權利'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0113",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "请于期限内完成线上确认程序。",
+      "gemini_expected": "請於期限內完成線上確認程序。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. '请' to '請', '于' to '於', '内' to '內', '线上' to '線上' (standard term for online in Taiwan), '确认' to '確認'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0114",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "委员会将依规定审查申请案件。",
+      "gemini_expected": "委員會將依規定審查申請案件。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. '委员会' to '委員會', '将' to '將', '规定' to '規定', '审查' to '審查', '申请' to '申請'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0115",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "相关费用以官网公告为准。",
+      "gemini_expected": "相關費用以官網公告為準。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. '相关' to '相關', '费用' to '費用', '官网' to '官網', '为准' to '為準'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0116",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "如有疑义，请洽承办窗口。",
+      "gemini_expected": "如有疑義，請洽承辦窗口。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. '疑义' to '疑義', '请' to '請', '承办' to '承辦'. '窗口' is the standard terminology in Taiwan.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0117",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "资料更新后将以电子邮件通知。",
+      "gemini_expected": "資料更新後將以電子郵件通知。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion and terminology preservation. '资料' to '資料', '后' to '後', '将' to '將', '电子邮件' to '電子郵件'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0118",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "本条款未尽事宜，依相关法令办理。",
+      "gemini_expected": "本條款未盡事宜，依相關法令辦理。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion for legal/formal text. '条款' to '條款', '未尽事宜' to '未盡事宜', '相关' to '相關', '办理' to '辦理'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0119",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "参加者应遵守现场工作人员指示。",
+      "gemini_expected": "參加者應遵守現場工作人員指示。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. '参加者' to '參加者', '应' to '應', '现场' to '現場', '工作人员' to '工作人員'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0120",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "采购案得依预算额度分阶段执行。",
+      "gemini_expected": "採購案得依預算額度分階段執行。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. '采购案' to '採購案', '预算' to '預算', '额度' to '額度', '阶段' to '階段', '执行' to '執行'. '得' is a formal/legal term in Taiwan meaning 'may'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0121",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "得奖名单将于活动页面公布。",
+      "gemini_expected": "得獎名單將於活動頁面公布。",
+      "acceptable": [
+        "得獎名單將於活動頁面公佈。"
+      ],
+      "issue_tags": [
+        "character-conversion",
+        "orthography"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. '得奖' to '得獎', '名单' to '名單', '将于' to '將於', '活动' to '活動', '页面' to '頁面'. '公布' is the preferred standard form, with '公佈' as an acceptable variant in Taiwan.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0122",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "本说明仅供参考，不构成投资建议。",
+      "gemini_expected": "本說明僅供參考，不構成投資建議。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. '说明' to '說明', '仅供参考' to '僅供參考', '构成' to '構成', '投资' to '投資', '建议' to '建議'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0123",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "审核结果将以书面方式通知申请人。",
+      "gemini_expected": "審核結果將以書面方式通知申請人。",
+      "acceptable": [],
+      "issue_tags": [
+        "character-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Standard character conversion. '审核' to '審核', '结果' to '結果', '将' to '將', '书面' to '書面', '申请人' to '申請人'.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0109",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "我晚点把截图发给你。",
+      "gemini_expected": "我晚點把截圖傳給你。",
+      "acceptable": [
+        "我晚點把截圖發給你。",
+        "我晚點把螢幕截圖傳給你。"
+      ],
+      "issue_tags": [
+        "term-mapping",
+        "idiom-local"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「截图」轉換為「截圖」或「螢幕截圖」，日常對話中「發給你」台灣更常用「傳給你」或「發給你」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0110",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "这家店的菜单更新了吗？",
+      "gemini_expected": "這家店的菜單更新了嗎？",
+      "acceptable": [],
+      "issue_tags": [
+        "char-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "純字元轉換，無特有術語差異。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0111",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "你先帮我把行程加到日历。",
+      "gemini_expected": "你先幫我把行程加到行事曆。",
+      "acceptable": [
+        "你先幫我把行程加到日曆。"
+      ],
+      "issue_tags": [
+        "term-mapping"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "在數位或軟體情境中，台灣習慣將 schedule/calendar app 稱為「行事曆」而非「日曆」，但「日曆」仍屬可接受譯法。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0112",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "他刚刚在群里说要改时间。",
+      "gemini_expected": "他剛剛在群組裡說要改時間。",
+      "acceptable": [
+        "他剛剛在群組中說要改時間。",
+        "他剛剛在群裡說要改時間。"
+      ],
+      "issue_tags": [
+        "term-mapping",
+        "idiom-local"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "台灣將「群」（chat group）稱為「群組」，「在群組裡」為最道地的說法。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0113",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "这张照片不要上传到公开相册。",
+      "gemini_expected": "這張照片不要上傳到公開相簿。",
+      "acceptable": [
+        "這張照片不要上傳到公開相冊。"
+      ],
+      "issue_tags": [
+        "term-mapping"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "台灣數位介面中「相册」（photo album）常對應為「相簿」，「相冊」亦通。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0114",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "我已经把地址贴到聊天窗口。",
+      "gemini_expected": "我已經把地址貼到聊天視窗。",
+      "acceptable": [
+        "我已經把地址貼到聊天視窗裡。"
+      ],
+      "issue_tags": [
+        "term-mapping"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "UI 術語「窗口」在台灣翻譯為「視窗」，故「聊天窗口」應轉換為「聊天視窗」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0115",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "周末如果下雨就改成线上聚会。",
+      "gemini_expected": "週末如果下雨就改成線上聚會。",
+      "acceptable": [
+        "周末如果下雨就改成線上聚會。"
+      ],
+      "issue_tags": [
+        "char-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「周末」字元轉換為「週末」或「周末」，「线上聚会」轉換為「線上聚會」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0116",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "你看一下这个优惠券还能不能用。",
+      "gemini_expected": "你看一下這個優惠券還能不能用。",
+      "acceptable": [
+        "你看一下這個折價券還能不能用。"
+      ],
+      "issue_tags": [
+        "char-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "純字元與常用詞轉換，「优惠券」對應「優惠券」（或日常亦稱「折價券」）。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0117",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "我把票券存在手机钱包里。",
+      "gemini_expected": "我把票券存在手機錢包裡。",
+      "acceptable": [
+        "我把票券存在手機錢包中。"
+      ],
+      "issue_tags": [
+        "char-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「手机」轉換為「手機」，「钱包里」轉換為「錢包裡」，無特別術語歧義。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0118",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "这则贴文先不要分享出去。",
+      "gemini_expected": "這則貼文先不要分享出去。",
+      "acceptable": [],
+      "issue_tags": [
+        "char-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "字元轉換，「贴文」轉換為「貼文」，「这则」轉換為「這則」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0119",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "他在留言区回复得很快。",
+      "gemini_expected": "他在留言區回覆得很快。",
+      "acceptable": [
+        "他在留言區回得快。"
+      ],
+      "issue_tags": [
+        "char-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「留言区」轉換為「留言區」，「回复」在回覆訊息、留言情境下應轉換為「回覆」（而非恢復、回復原狀的「回復」）。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0120",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "晚餐要不要改订附近的餐厅？",
+      "gemini_expected": "晚餐要不要改訂附近的餐廳？",
+      "acceptable": [],
+      "issue_tags": [
+        "char-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「改订」對應台灣繁體「改訂」（預訂之意），「餐厅」對應「餐廳」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0121",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "我们先把名单整理到共享表格。",
+      "gemini_expected": "我們先把名單整理到共用表格。",
+      "acceptable": [
+        "我們先把名單整理到共享表格。",
+        "我們先把名單整理到共用試算表。"
+      ],
+      "issue_tags": [
+        "term-mapping"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "軟體/雲端分享功能在台灣繁體中多用「共用」而非「共享」（如「共用雲端硬碟」），「表格」亦可翻成「試算表」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0122",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "这个账号昨天已经解除绑定。",
+      "gemini_expected": "這個帳號昨天已經解除綁定。",
+      "acceptable": [],
+      "issue_tags": [
+        "char-conversion",
+        "term-mapping"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「账号」在台灣慣用「帳號」，「绑定」轉換為「綁定」。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0123",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "你帮我确认包裹是不是送到了。",
+      "gemini_expected": "你幫我確認包裹是不是送到了。",
+      "acceptable": [
+        "你幫我確認包裹是不是寄到了。"
+      ],
+      "issue_tags": [
+        "char-conversion"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "純字元與常用詞轉換，「确认」對應「確認」，其餘無特定術語差異。",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0071",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "医师会依据检查结果调整用药剂量。",
+      "gemini_expected": "醫師會依據檢查結果調整用藥劑量。",
+      "acceptable": [
+        "醫師會根據檢查結果調整用藥劑量。"
+      ],
+      "issue_tags": [
+        "medical_dosage"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Straightforward medical terminology conversion. '醫師' (physician), '檢查' (examination), '用藥劑量' (dosage) are all standard Traditional Chinese (Taiwan) terms. No specialized localized vocabulary translation issues.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0072",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "投资人应自行评估汇率波动风险。",
+      "gemini_expected": "投資人應自行評估匯率波動風險。",
+      "acceptable": [
+        "投資者應自行評估匯率波動風險。"
+      ],
+      "issue_tags": [
+        "finance_risk"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Financial terminology translation. '投資人' (investors) is highly standard in Taiwanese financial contexts, and '匯率波動風險' (exchange rate fluctuation risk) is the correct localized expression.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0073",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "未经授权不得调阅病历资料。",
+      "gemini_expected": "未經授權不得調閱病歷資料。",
+      "acceptable": [
+        "未經授權不得調閱病歷紀錄。"
+      ],
+      "issue_tags": [
+        "medical_privacy"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Medical and privacy term. '病歷資料' (medical records/data) is the direct and standard translation in Taiwan.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0074",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "保险契约的除外责任应以条款载明。",
+      "gemini_expected": "保險契約的除外責任應以條款載明。",
+      "acceptable": [
+        "保險合約的除外責任應以條款載明。"
+      ],
+      "issue_tags": [
+        "insurance_contract"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Insurance and contract law term. '保險契約' (insurance contract) and '除外責任' (exclusions/exclusionary liability) are standard legal terms in Taiwan.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0075",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "借款人逾期未缴时，银行得依约催收。",
+      "gemini_expected": "借款人逾期未繳時，銀行得依約催收。",
+      "acceptable": [
+        "借款人逾期未付時，銀行得依約催收。"
+      ],
+      "issue_tags": [
+        "banking_debt"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Banking and credit terms. '得依約' (is entitled to by contract) uses the specific legal '得' (may/shall be entitled to) which is standard in Taiwan banking contracts.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0076",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "药品保存条件应符合仿单说明。",
+      "gemini_expected": "藥品保存條件應符合仿單說明。",
+      "acceptable": [
+        "藥品保存條件應符合仿單。"
+      ],
+      "issue_tags": [
+        "medicine_label"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Medical and pharmaceutical terms. '仿單' (package insert/leaflet) is the standard and legal terminology in Taiwan (as regulated by the Taiwan FDA). Mainland China typically uses '說明書' (instruction manual). Since the input already used the highly specific Taiwanese term '仿单', the direct Traditional conversion '仿單' is perfect.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0077",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "受监护宣告者应由法定代理人签署。",
+      "gemini_expected": "受監護宣告者應由法定代理人簽署。",
+      "acceptable": [
+        "受監護宣告之人應由法定代理人簽署。"
+      ],
+      "issue_tags": [
+        "legal_guardian"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Civil law legal terms. '受監護宣告' (declaration of guardianship) and '法定代理人' (legal guardian/agent) are precise legal terms under the Taiwan Civil Code.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0078",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "跨境汇款可能产生中转银行费用。",
+      "gemini_expected": "跨境匯款可能產生中轉銀行費用。",
+      "acceptable": [
+        "跨境匯款可能產生轉匯銀行費用。",
+        "跨境匯款可能產生中間銀行費用。"
+      ],
+      "issue_tags": [
+        "finance_remittance"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Financial transaction term. '中轉銀行' (intermediary/routing bank) is standard, though '中間銀行' or '轉匯銀行' are also widely used in Taiwan banking context.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0079",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "手术同意书应由本人或家属签名。",
+      "gemini_expected": "手術同意書應由本人或家屬簽名。",
+      "acceptable": [
+        "手術同意書應由本人或家屬簽署。"
+      ],
+      "issue_tags": [
+        "medical_consent"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Medical law and medical ethics terms. '手術同意書' (surgical consent form) and '家屬' (family members) are standard Taiwanese medical-legal terminology.",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0080",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "个人资料删除请求应在法定期限内处理。",
+      "gemini_expected": "個人資料刪除請求應在法定期限內處理。",
+      "acceptable": [
+        "個人資料刪除要求應在法定期限內處理。"
+      ],
+      "issue_tags": [
+        "privacy_legal"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "Privacy and personal data protection law terminology. Under Taiwan's Personal Data Protection Act, '個人資料' (personal data) and '刪除請求' or '請求刪除' (request for deletion) are highly standardized terms.",
+      "promotion_allowed": false
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "generated_date": "2026-07-12",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-flash",
+  "model_observed": [
+    "gemini-2.5-flash"
+  ],
+  "review_stage": "sanitized_miss_classification_policy_review_after_batch10",
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-767-cases-2026-07-12.json",
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "benchmark_rows_included": false,
+    "case_ids_and_metadata_only": true,
+    "sealed_values_seen_by_gemini": false
+  },
+  "policy_passed": true,
+  "summary": "The Codex miss-classification policy for the zhtw sealed holdout is safe, consistent, and strictly compliant with all defined safety and security rules. All over-conversion guard cases and high-risk domain cases are correctly preserved as holdout signals to prevent any tuning on sealed datasets. Plausible variant cases are properly routed to expect rechecks, and all candidate gap transitions to public candidates are flagged as requiring maintainer confirmation and sealed removal.",
+  "classification_changes_recommended": [],
+  "findings": [
+    {
+      "severity": "INFO",
+      "id": "blind-ui-0147",
+      "message": "Case blind-ui-0147 is flagged with non-idempotent converter output. Since the recommended action is 'keep_as_holdout_signal', debugging must be conducted using independent public inputs rather than the sealed text to comply with the no-tuning policy."
+    },
+    {
+      "severity": "INFO",
+      "id": "blind-it-0230",
+      "message": "Case blind-it-0230 is non-idempotent and recommended for transition to public regression candidates. This will be safe to debug publicly only after maintainer confirmation and complete removal of the case from the sealed holdout dataset."
+    },
+    {
+      "severity": "INFO",
+      "id": "expected-rechecks",
+      "message": "Four cases (blind-it-0222, blind-it-0232, blind-llm-0123, and blind-llm-0137) properly trigger Rule 5, requiring expected value validation prior to any updates."
+    }
+  ],
+  "sealed_content_policy_confirmed": true,
+  "source_summary": {
+    "current_sealed_cases": 767,
+    "current_accepted": 715,
+    "current_misses": 52,
+    "accepted_accuracy": 0.9322033898305084,
+    "classified_misses": 52,
+    "by_action": {
+      "keep_as_holdout_signal": 32,
+      "move_to_public_regression_candidate": 16,
+      "requires_expected_recheck": 4
+    },
+    "by_priority": {
+      "P1": 28,
+      "P2": 24
+    },
+    "by_domain_action": {
+      "formal": {
+        "keep_as_holdout_signal": 6,
+        "move_to_public_regression_candidate": 3,
+        "requires_expected_recheck": 0
+      },
+      "high_risk": {
+        "keep_as_holdout_signal": 8,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      },
+      "it": {
+        "keep_as_holdout_signal": 3,
+        "move_to_public_regression_candidate": 7,
+        "requires_expected_recheck": 2
+      },
+      "llm": {
+        "keep_as_holdout_signal": 4,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 2
+      },
+      "social": {
+        "keep_as_holdout_signal": 6,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      },
+      "ui": {
+        "keep_as_holdout_signal": 5,
+        "move_to_public_regression_candidate": 6,
+        "requires_expected_recheck": 0
+      }
+    },
+    "by_risk_action": {
+      "baseline_guard": {
+        "keep_as_holdout_signal": 1,
+        "move_to_public_regression_candidate": 3,
+        "requires_expected_recheck": 0
+      },
+      "candidate_gap": {
+        "keep_as_holdout_signal": 2,
+        "move_to_public_regression_candidate": 13,
+        "requires_expected_recheck": 4
+      },
+      "over_conversion_guard": {
+        "keep_as_holdout_signal": 29,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      }
+    },
+    "idempotency_followup_cases": 2,
+    "expected_recheck_cases": 4,
+    "safe_public_candidate_cases": 16,
+    "holdout_signal_cases": 32,
+    "high_risk_cases": 8,
+    "over_conversion_guard_cases": 29
+  }
+}

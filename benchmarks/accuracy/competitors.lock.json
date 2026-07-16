@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "generated_date": "2026-07-07",
+  "status": "draft",
+  "policy": "Formal accuracy reports must record exact package versions, invocation commands, locale/config names, runner environment, and dataset hashes.",
+  "competitors": [
+    {
+      "id": "zhtw",
+      "display_name": "zhtw",
+      "included_in_m2_runner": true,
+      "adapter": "python_package",
+      "package": "zhtw",
+      "version_source": "local package metadata at run time",
+      "command": "from zhtw import convert; convert(text)",
+      "locale_or_config": "default Simplified/HK Traditional to Taiwan Traditional rules",
+      "reproducibility": "Report records package version and source tree context.",
+      "notes": "Primary engine under test."
+    },
+    {
+      "id": "opencc-s2twp",
+      "display_name": "OpenCC s2twp",
+      "included_in_m2_runner": true,
+      "adapter": "python_package_optional",
+      "package": "opencc-python-reimplemented or opencc",
+      "version_source": "Python package metadata at run time",
+      "command": "opencc.OpenCC('s2twp').convert(text)",
+      "locale_or_config": "s2twp",
+      "reproducibility": "Skipped with an explicit error if no compatible Python binding is installed.",
+      "notes": "Comparison only; never a source of expected output or dictionary terms."
+    },
+    {
+      "id": "zhconv-zh-tw",
+      "display_name": "zhconv zh-tw",
+      "included_in_m2_runner": true,
+      "adapter": "python_package_optional",
+      "package": "zhconv",
+      "version_source": "Python package metadata at run time",
+      "command": "zhconv.convert(text, 'zh-tw')",
+      "locale_or_config": "zh-tw",
+      "reproducibility": "Skipped with an explicit error if the Python package is not installed.",
+      "notes": "Comparison only; never a source of expected output or dictionary terms."
+    },
+    {
+      "id": "opencc-js-cn-twp",
+      "display_name": "opencc-js cn -> twp",
+      "included_in_m2_runner": false,
+      "adapter": "pending_node_adapter",
+      "package": "opencc-js",
+      "version_source": "not locked yet",
+      "command": "pending exact Node invocation",
+      "locale_or_config": "cn -> twp",
+      "reproducibility": "Must be locked before entering formal ranking.",
+      "notes": "M2 parity target after Python runner is stable."
+    },
+    {
+      "id": "zhconv-rs",
+      "display_name": "zhconv-rs",
+      "included_in_m2_runner": false,
+      "adapter": "pending_cli_adapter",
+      "package": "zhconv-rs",
+      "version_source": "not locked yet",
+      "command": "pending exact CLI invocation",
+      "locale_or_config": "pending exact ruleset/config",
+      "reproducibility": "Must be locked before entering formal ranking.",
+      "notes": "M2 parity target after CLI adapter behavior is pinned."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "report_type": "holdout_gemini_policy_review_batch7_miss_public_promotion",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-10",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-flash",
+  "model_reported_by_cli_stats": "gemini-3.5-flash",
+  "review_stage": "public_regression_promotion_policy_review",
+  "source_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "source_promotion_gate": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch7-miss-review-2026-07-10.json",
+  "sealed_values_seen": false,
+  "public_values_seen": true,
+  "sealed_content_policy": {
+    "reviewed_cases_removed_from_sealed_before_tuning": true,
+    "remaining_sealed_holdout_signal_cases_used_for_tuning": false,
+    "opencc_or_competitor_outputs_used_for_expected": false,
+    "gemini_received_public_candidate_values_only": true
+  },
+  "summary": {
+    "checked": 17,
+    "promotion_ready": 17,
+    "policy_consistent": true,
+    "risk_level": "low",
+    "blocking_findings": 0,
+    "info_findings": 0
+  },
+  "findings": [],
+  "tool_notes": [
+    "Gemini CLI was run with GEMINI_API_KEY unset; no invalid API-key mode was used.",
+    "Gemini reviewed only public candidate/gate values supplied on stdin.",
+    "Gemini CLI emitted a non-review tool availability line before the JSON payload: Ripgrep is not available. Falling back to GrepTool."
+  ],
+  "gemini_summary": "經審查，17 筆已從 sealed holdout 移出的公測候選案例完全符合 ZHTW 轉換規範與推廣政策。所有案例狀態均為 promotion_ready，其實際轉換輸出（actual）與預期結果（expected）完全一致，且雙邊皆通過 100% 冪等性驗證。術語轉換極其道地，精準採用台灣本地 IT 與日常社群用語（如：中介軟體、設定對應、相依套件、管線、執行個體、共享相簿等），無任何 OpenCC 機器過度轉換、競品污染或多數決生成之跡象。此審查未涉及或洩露任何其餘未解鎖的保留測試集資料，且無任何阻擋推廣的政策性問題，合規通過。"
+}

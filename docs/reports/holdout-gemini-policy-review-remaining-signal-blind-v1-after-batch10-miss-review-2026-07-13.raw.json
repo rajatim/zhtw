@@ -1,0 +1,33 @@
+{
+  "policy_passed": true,
+  "sealed_values_seen": false,
+  "findings": [
+    {
+      "severity": "INFO",
+      "id": "sealed_content_policy",
+      "message": "The 'sealed_content_policy' section correctly confirms that sealed data like inputs, expected values, and full benchmark rows are not included, and only case IDs and metadata are present."
+    },
+    {
+      "severity": "INFO",
+      "id": "case_data_omission",
+      "message": "All 32 entries in the 'case_signals' array correctly have the 'sealed_values_omitted' flag set to true, confirming no sealed data leakage at the case level."
+    },
+    {
+      "severity": "INFO",
+      "id": "main_tuning_policy",
+      "message": "The main 'policy' object correctly specifies that neither the converter nor the dictionary has been updated, public promotion is disallowed, and independent reproduction is required before any tuning."
+    },
+    {
+      "severity": "INFO",
+      "id": "case_recommendations",
+      "message": "All 32 case signals consistently have 'recommended_action' as 'keep_as_private_holdout_signal' and 'next_step' requiring independent public reproduction, which aligns with the sealed holdout policy."
+    },
+    {
+      "severity": "LOW",
+      "id": "idempotency_followup",
+      "message": "Case 'blind-ui-0147' is correctly flagged as a non-idempotent signal. While not a policy violation, the 'idempotency_followup' flag appropriately marks it for separate investigation."
+    }
+  ],
+  "changes_recommended": [],
+  "summary": "Policy review passed. The report adheres to the sealed holdout workflow policy by ensuring no sealed values are present and confirming that all 32 remaining signal cases are correctly marked as private holdout signals, pending independent public reproduction before any tuning. No changes are recommended."
+}

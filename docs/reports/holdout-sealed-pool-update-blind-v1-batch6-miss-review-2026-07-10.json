@@ -1,0 +1,96 @@
+{
+  "report_type": "holdout_sealed_pool_update",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-10",
+  "review_stage": "batch6_miss_review_public_candidate_removal",
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-426-cases-2026-07-10.json",
+  "source_gemini_policy_review": "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-426-cases-2026-07-10.json",
+  "source_final_decision": "docs/reports/holdout-maintainer-final-decision-batch6-miss-classification-blind-v1-2026-07-10.json",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_expected": "benchmarks/accuracy/blind-v1.expected.json",
+  "public_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "private_expected_updated": true,
+  "expected_values_included": false,
+  "acceptable_values_included": false,
+  "inputs_included": false,
+  "outputs_included": false,
+  "benchmark_rows_included": false,
+  "sealed_content_policy": {
+    "removed_case_ids_only": true,
+    "aggregate_counts_only": true,
+    "expected_values_omitted": true,
+    "acceptable_values_omitted": true,
+    "input_values_omitted": true,
+    "actual_values_omitted": true,
+    "remaining_sealed_rows_omitted": true
+  },
+  "summary": {
+    "original_input_cases": 426,
+    "removed_to_public_regression_candidates": 11,
+    "remaining_sealed_input_cases": 415,
+    "private_expected_acceptable_variants_added": 2,
+    "public_candidate_cases_added": 11,
+    "old_stats": {
+      "total_collected": 426,
+      "by_domain": {
+        "formal": 69,
+        "high_risk": 46,
+        "it": 86,
+        "llm": 71,
+        "social": 70,
+        "ui": 84
+      },
+      "by_risk": {
+        "baseline_guard": 67,
+        "candidate_gap": 246,
+        "over_conversion_guard": 113
+      }
+    },
+    "removed_by_domain": {
+      "it": 10,
+      "ui": 1
+    },
+    "removed_by_risk": {
+      "baseline_guard": 1,
+      "candidate_gap": 10
+    },
+    "remaining_by_domain": {
+      "formal": 69,
+      "high_risk": 46,
+      "it": 76,
+      "llm": 71,
+      "social": 70,
+      "ui": 83
+    },
+    "remaining_by_risk": {
+      "baseline_guard": 66,
+      "candidate_gap": 236,
+      "over_conversion_guard": 113
+    },
+    "source_inputs_sha256_before": "be3ab808d2f2bb71b1c86e66cd95eb182446693412c1ebbecdf5aa632f35d35e",
+    "source_inputs_sha256_after": "18153aa5d4bafad940734bf19754d1948f4a9562979e7c668ecf855c1c683a20",
+    "private_expected_sha256_before": "ac7200fde2a7a304a311704bf0da90fb526181b73f9c402c87736c6369eee91e",
+    "private_expected_sha256_after": "ea711964cc187a0f28672cb1610f0f9d8da2b5f79c6a6655e8063a07aeb585f2",
+    "public_candidates_sha256_before": "320fada855ba6fb53489e46d82b021978666b560ae385e412c84f3ba7bfcd726",
+    "public_candidates_sha256_after": "7960b41a511b63de97e85111235a1136937fdd3e4bcdf698ac2d244a8b8a111a",
+    "public_candidates_final_status": "promoted",
+    "public_candidates_promoted_to_regression": 11
+  },
+  "removed_case_ids": [
+    "blind-it-0113",
+    "blind-it-0115",
+    "blind-it-0117",
+    "blind-it-0119",
+    "blind-it-0121",
+    "blind-it-0123",
+    "blind-it-0124",
+    "blind-it-0125",
+    "blind-it-0126",
+    "blind-it-0136",
+    "blind-ui-0089"
+  ],
+  "private_expected_acceptable_variant_case_ids": [
+    "blind-ui-0096",
+    "blind-llm-0071"
+  ]
+}

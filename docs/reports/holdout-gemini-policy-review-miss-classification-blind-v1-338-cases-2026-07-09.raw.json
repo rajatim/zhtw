@@ -1,0 +1,16 @@
+{
+  "command": [
+    "direnv",
+    "exec",
+    ".",
+    "gemini",
+    "--skip-trust",
+    "--model",
+    "gemini-2.5-flash",
+    "-p",
+    "<prompt omitted>"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"session_id\": \"8c36ca96-5688-4639-9bf7-ca00e675dbbc\",\n  \"response\": \"{\\n  \\\"policy_passed\\\": true,\\n  \\\"summary\\\": \\\"本密封測試集（Sealed Holdout）未命中分類報告完全符合安全與合規政策。報告未洩漏任何敏感的輸入、預期值、實際值或可接受值。所有 37 個未命中案例均依據其風險與領域特徵完成了精確且保守的分類：22 個過度轉換防護案例皆妥善標記為 `keep_as_holdout_signal` 以避免在密封狀態下驅動詞庫調整；12 個安全候選案例標記為 `move_to_public_regression_candidate`；3 個潛在樣式變體標記為 `requires_expected_recheck`。統計數據完全一致，未發現任何政策衝突。\\\",\\n  \\\"findings\\\": [\\n    {\\n      \\\"severity\\\": \\\"low\\\",\\n      \\\"case_id\\\": null,\\n      \\\"issue\\\": \\\"密封測試集之文本內容脫敏完全合規，未發現任何洩漏預期值或實際值的風險。\\\",\\n      \\\"recommendation\\\": \\\"請繼續保持現行的脫敏與遮蔽原則，確保後續的所有變更與審查均不引入任何密封文本。\\\"\\n    },\\n    {\\n      \\\"severity\\\": \\\"low\\\",\\n      \\\"case_id\\\": null,\\n      \\\"issue\\\": \\\"所有高風險及過度轉換防護（over_conversion_guard）案例之分類策略極為保守，嚴格遵守黃金規則。\\\",\\n      \\\"recommendation\\\": \\\"確認這 22 個 over_conversion_guard 案例將繼續保留為私有壓力信號（keep_as_holdout_signal），絕不直接進行詞庫微調，此做法完全正確。\\\"\\n    }\\n  ],\\n  \\\"classification_changes_recommended\\\": []\\n}\",\n  \"stats\": {\n    \"models\": {\n      \"gemini-3.5-flash\": {\n        \"api\": {\n          \"totalRequests\": 1,\n          \"totalErrors\": 0,\n          \"totalLatencyMs\": 27764\n        },\n        \"tokens\": {\n          \"input\": 22660,\n          \"prompt\": 22660,\n          \"candidates\": 372,\n          \"total\": 28155,\n          \"cached\": 0,\n          \"thoughts\": 5123,\n          \"tool\": 0\n        },\n        \"roles\": {\n          \"main\": {\n            \"totalRequests\": 1,\n            \"totalErrors\": 0,\n            \"totalLatencyMs\": 27764,\n            \"tokens\": {\n              \"input\": 22660,\n              \"prompt\": 22660,\n              \"candidates\": 372,\n              \"total\": 28155,\n              \"cached\": 0,\n              \"thoughts\": 5123,\n              \"tool\": 0\n            }\n          }\n        }\n      }\n    },\n    \"tools\": {\n      \"totalCalls\": 0,\n      \"totalSuccess\": 0,\n      \"totalFail\": 0,\n      \"totalDurationMs\": 0,\n      \"totalDecisions\": {\n        \"accept\": 0,\n        \"reject\": 0,\n        \"modify\": 0,\n        \"auto_accept\": 0\n      },\n      \"byName\": {}\n    },\n    \"files\": {\n      \"totalLinesAdded\": 0,\n      \"totalLinesRemoved\": 0\n    }\n  }\n}",
+  "stderr": "\u001b[0mdirenv: loading ~/GitHub/zhtw/.envrc\nRipgrep is not available. Falling back to GrepTool.\n"
+}

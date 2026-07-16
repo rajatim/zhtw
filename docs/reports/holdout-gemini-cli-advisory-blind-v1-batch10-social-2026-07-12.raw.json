@@ -1,0 +1,57 @@
+{
+  "session_id": "6f3718e7-d543-4c86-a25b-96d8fa7679d5",
+  "response": "```json\n{\n  \"review_stage\": \"independent_holdout_expected_review\",\n  \"domain\": \"social\",\n  \"cases\": [\n    {\n      \"id\": \"blind-social-0124\",\n      \"gemini_expected\": \"我剛剛把照片發到群組裡了。\",\n      \"acceptable\": [\n        \"我剛剛把照片發到群組裏了。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"剛剛/發/群組/裡 的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0125\",\n      \"gemini_expected\": \"這個週末要不要一起去看展？\",\n      \"acceptable\": [\n        \"這個周末要不要一起去看展？\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"這個、週末的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0126\",\n      \"gemini_expected\": \"你先幫我把位置分享給司機。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"幫/給/司機 的標準繁體轉換，分享位置符合臺灣習慣。\"\n    },\n    {\n      \"id\": \"blind-social-0127\",\n      \"gemini_expected\": \"晚餐訂位改到七點半可以嗎？\",\n      \"acceptable\": [\n        \"晚餐訂位改到七點半可以嗎？\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"訂位/點/嗎 的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0128\",\n      \"gemini_expected\": \"我等一下會把明細傳給你。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"會/明細/傳/給 的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0129\",\n      \"gemini_expected\": \"這件外套顏色很適合今天的天氣。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"這/顏色/適合 的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0130\",\n      \"gemini_expected\": \"如果雨太大，我們就改搭捷運。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"我們/捷運 的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0131\",\n      \"gemini_expected\": \"幫我確認一下包裹有沒有送到。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"幫/確認/沒 的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0132\",\n      \"gemini_expected\": \"你到門口的時候再打電話給我。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"門口/時候/電話/給 的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0133\",\n      \"gemini_expected\": \"這家店的甜點比我想像中好吃。\",\n      \"acceptable\": [\n        \"這家店的甜點比我想像中好吃。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"這/甜點/想像 的標準繁體轉換，想像與想像於臺灣皆通用。\"\n    },\n    {\n      \"id\": \"blind-social-0134\",\n      \"gemini_expected\": \"我已經把票券存到手機裡。\",\n      \"acceptable\": [\n        \"我已經把票券存到手機裏。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"已經/手機/裡 的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0135\",\n      \"gemini_expected\": \"下次聚會可以換一個安靜一點的地方。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"聚會/換/個/點 的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0136\",\n      \"gemini_expected\": \"這個影片先不要傳到公開頻道。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"這個/傳/頻道 的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0137\",\n      \"gemini_expected\": \"麻煩你順手把燈關掉。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"麻煩/順手/燈/關 的標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-social-0138\",\n      \"gemini_expected\": \"我明天早上再回你完整內容。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"內容 的標準繁體轉換（採用臺灣教育部「內」字標準字形）。\"\n    }\n  ]\n}\n```",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 25561
+        },
+        "tokens": {
+          "input": 8641,
+          "prompt": 16839,
+          "candidates": 1216,
+          "total": 21887,
+          "cached": 8198,
+          "thoughts": 3832,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 25561,
+            "tokens": {
+              "input": 8641,
+              "prompt": 16839,
+              "candidates": 1216,
+              "total": 21887,
+              "cached": 8198,
+              "thoughts": 3832,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "report_type": "holdout_maintainer_final_decision_batch6_miss_classification",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-10",
+  "review_stage": "maintainer_final_decision_batch6_miss_classification",
+  "maintainer": "tim",
+  "decision": "review_ok",
+  "scope": "batch6_miss_classification_after_426_case_sanity",
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-426-cases-2026-07-10.json",
+  "source_gemini_policy_review": "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-426-cases-2026-07-10.json",
+  "source_gemini_public_promotion_policy_review": "docs/reports/holdout-gemini-policy-review-batch6-miss-public-promotion-2026-07-10.json",
+  "source_private_benchmark_sanity": "docs/reports/holdout-private-benchmark-sanity-blind-v1-after-batch6-2026-07-10.json",
+  "sealed_pool_update_report": "docs/reports/holdout-sealed-pool-update-blind-v1-batch6-miss-review-2026-07-10.json",
+  "promotion_gate_report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch6-miss-review-2026-07-10.json",
+  "public_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "private_expected_path": "benchmarks/accuracy/blind-v1.expected.json",
+  "private_expected_updated": true,
+  "expected_values_included": false,
+  "acceptable_values_included": false,
+  "inputs_included": false,
+  "outputs_included": false,
+  "benchmark_rows_included": false,
+  "source_inputs_sha256_before": "be3ab808d2f2bb71b1c86e66cd95eb182446693412c1ebbecdf5aa632f35d35e",
+  "source_inputs_sha256_after": "18153aa5d4bafad940734bf19754d1948f4a9562979e7c668ecf855c1c683a20",
+  "private_expected_sha256_before": "ac7200fde2a7a304a311704bf0da90fb526181b73f9c402c87736c6369eee91e",
+  "private_expected_sha256_after": "ea711964cc187a0f28672cb1610f0f9d8da2b5f79c6a6655e8063a07aeb585f2",
+  "public_candidates_sha256_before": "320fada855ba6fb53489e46d82b021978666b560ae385e412c84f3ba7bfcd726",
+  "public_candidates_sha256_after": "7960b41a511b63de97e85111235a1136937fdd3e4bcdf698ac2d244a8b8a111a",
+  "sealed_content_policy": {
+    "case_ids_and_aggregate_counts_only": true,
+    "expected_values_omitted": true,
+    "acceptable_values_omitted": true,
+    "input_values_omitted": true,
+    "actual_values_omitted": true,
+    "remaining_sealed_rows_omitted": true,
+    "removed_cases_are_public_candidates_after_decision": true
+  },
+  "summary": {
+    "reviewed_maintainer_cases": 13,
+    "maintainer_confirmed_acceptable_variants": 2,
+    "private_expected_cases_updated": 2,
+    "removed_from_sealed_to_public_regression_candidates": 11,
+    "converter_or_dictionary_changed": true,
+    "private_expected_updated": true,
+    "previous_private_expected_cases": 426,
+    "remaining_private_expected_cases": 415,
+    "previous_sealed_input_cases": 426,
+    "remaining_sealed_input_cases": 415,
+    "public_candidates_added": 11,
+    "public_candidates_requiring_zhtw_fix_before_tuning": 11,
+    "kept_as_private_holdout_signal": 24,
+    "by_domain_confirmed_acceptable_variant": {
+      "llm": 1,
+      "ui": 1
+    },
+    "by_domain_removed_to_public_regression_candidate": {
+      "it": 10,
+      "ui": 1
+    },
+    "by_risk_confirmed_acceptable_variant": {
+      "candidate_gap": 2
+    },
+    "by_risk_removed_to_public_regression_candidate": {
+      "baseline_guard": 1,
+      "candidate_gap": 10
+    },
+    "projected_remaining_private_benchmark": {
+      "case_count": 415,
+      "accepted": 391,
+      "misses": 24,
+      "accepted_accuracy": 0.9421686746987952
+    },
+    "public_candidates_final_status": "promoted",
+    "public_candidates_promoted_to_regression": 11
+  },
+  "confirmed_acceptable_variant_case_ids": [
+    "blind-ui-0096",
+    "blind-llm-0071"
+  ],
+  "removed_to_public_regression_candidate_case_ids": [
+    "blind-it-0113",
+    "blind-it-0115",
+    "blind-it-0117",
+    "blind-it-0119",
+    "blind-it-0121",
+    "blind-it-0123",
+    "blind-it-0124",
+    "blind-it-0125",
+    "blind-it-0126",
+    "blind-it-0136",
+    "blind-ui-0089"
+  ],
+  "kept_sealed_holdout_signal_case_ids": [
+    "blind-llm-0026",
+    "blind-llm-0028",
+    "blind-formal-0029",
+    "blind-social-0025",
+    "blind-social-0026",
+    "blind-it-0083",
+    "blind-ui-0060",
+    "blind-ui-0061",
+    "blind-llm-0043",
+    "blind-llm-0044",
+    "blind-formal-0043",
+    "blind-formal-0044",
+    "blind-formal-0045",
+    "blind-formal-0046",
+    "blind-social-0042",
+    "blind-social-0043",
+    "blind-social-0044",
+    "blind-high-risk-0026",
+    "blind-high-risk-0027",
+    "blind-it-0108",
+    "blind-ui-0081",
+    "blind-high-risk-0039",
+    "blind-it-0131",
+    "blind-ui-0102"
+  ]
+}

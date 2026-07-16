@@ -1,0 +1,32 @@
+{
+  "generated_date": "2026-07-16",
+  "report_type": "accuracy_ground_truth_corrections",
+  "review_stage": "maintainer_adjudication_after_expert_review",
+  "maintainer": "tim",
+  "decision": "fix_all",
+  "approval_policy": "single_human_with_ai_advisory_and_authoritative_sources",
+  "summary": {
+    "corrected_cases": 3,
+    "historical_reports_rewritten": false,
+    "current_backlog_updated": true,
+    "public_regression_updated": true,
+    "dictionary_updated": true
+  },
+  "cases": [
+    {
+      "id": "it-api-cli-0043",
+      "reason": "rollback is restoration/reversion, not trace-back",
+      "authoritative_source": "https://learn.microsoft.com/zh-tw/windows-server/administration/windows-commands/scwcmd-rollback"
+    },
+    {
+      "id": "it-api-cli-0170",
+      "reason": "future is a programming type name and must not be translated literally as a future-time object",
+      "authoritative_source": "https://learn.microsoft.com/zh-tw/cpp/standard-library/future-class?view=msvc-170"
+    },
+    {
+      "id": "social-daily-0038",
+      "reason": "property management and an owners committee are distinct organizations",
+      "authoritative_source": "https://ws.moi.gov.tw/Download.ashx?n=Y29tcGxldGUucGRm&u=LzAwMS9VcGxvYWQvT2xkRmlsZV9BYnJpX0dvdi9yZXNlYXJjaC83MjEvMTQ0NzkyOTgzNzEucGRm"
+    }
+  ]
+}

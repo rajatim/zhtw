@@ -1,0 +1,181 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "report_type": "holdout_miss_classification",
+  "review_stage": "codex_semantic_miss_classification_after_batch12",
+  "scope": "batch12_15_new_misses",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_sanity": "docs/reports/holdout-private-benchmark-sanity-blind-v1-after-batch12-2026-07-14.json",
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "zhtw_outputs_included": false,
+    "classification_metadata_only": true
+  },
+  "semantic_policy": {
+    "measure_conversion_correctness_not_house_style": true,
+    "valid_taiwan_synonyms_are_acceptable": true,
+    "do_not_tune_from_strict_style_preference": true,
+    "remove_public_candidates_from_sealed_before_tuning": true
+  },
+  "summary": {
+    "total_misses": 15,
+    "by_action": {
+      "add_zhtw_output_as_acceptable_variant": 7,
+      "move_to_public_regression_candidate": 8
+    },
+    "by_domain": {
+      "formal": 2,
+      "high_risk": 3,
+      "it": 4,
+      "llm": 3,
+      "social": 2,
+      "ui": 1
+    },
+    "by_risk": {
+      "baseline_guard": 2,
+      "candidate_gap": 8,
+      "over_conversion_guard": 5
+    },
+    "promotion_allowed": false
+  },
+  "cases": [
+    {
+      "id": "blind-formal-0154",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "codex_reason": "正體字形存在語義相同的傳統異體，不應以單一 house style 判錯。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0158",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "codex_reason": "查核用字存在語義相同的正體異體，不應用於詞庫 tuning。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0103",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "codex_reason": "保險領域存在臺灣法規常用的同義角色名稱，語義未改變。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0105",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "codex_reason": "勞動與身分用語雖不同於 primary，但在臺灣語境語義等價。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0117",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "codex_reason": "備註欄位用字未符合臺灣通行正體，屬可公開重現的區域詞缺口。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0165",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "codex_reason": "乾濕語境的多義字未依上下文轉換，屬真正語意缺口。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0172",
+      "domain": "social",
+      "risk": "baseline_guard",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "codex_reason": "消費付款語境的臺灣同義表達語意一致，不應強制單一用詞。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0268",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "codex_reason": "容器映像術語存在帶「檔」與不帶「檔」的臺灣常見變體。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0269",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "codex_action": "move_to_public_regression_candidate",
+      "codex_reason": "核心訊息系統術語仍保留非臺灣區域詞，屬明確能力缺口。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0271",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "codex_reason": "Git commit message 的領域詞被轉成不同概念，應作公開回歸案例。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0274",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "codex_reason": "設定項目的臺灣術語未完成區域轉換。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0210",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "codex_action": "move_to_public_regression_candidate",
+      "codex_reason": "UI 方位詞出現語義錯置，且表格欄位術語不正確。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0156",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "codex_reason": "script 在臺灣技術文件有多個可接受譯法，語義一致。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0158",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "codex_reason": "localization 被轉成 local-machine 概念，屬明確語義錯置。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0162",
+      "domain": "llm",
+      "risk": "baseline_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "codex_reason": "原句表示通過複核，現有轉換弱化為經由複核，結果語義不同。",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "generated_date": "2026-07-08",
+  "dataset": "blind-v1",
+  "review_stage": "maintainer_final_decision_summary",
+  "private_expected_path": "benchmarks/accuracy/blind-v1.expected.json",
+  "private_expected_sha256": "efb8ee42152eacede683dbfa357ace86b3b649ce611eef0d3362646ae8ba7e65",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_inputs_sha256": "6ed7102cb31128c6f9bdbaa0be65e5c6ea6278733b329d5e32967116079cd4fd",
+  "source_reports": [
+    "docs/reports/holdout-codex-first-pass-blind-v1-0001-0100-2026-07-08.json",
+    "docs/reports/holdout-gemini-vertex-advisory-blind-v1-0001-0100-2026-07-08.json",
+    "docs/reports/holdout-codex-gemini-diff-review-blind-v1-0001-0100-2026-07-08.json",
+    "docs/reports/holdout-maintainer-confirmation-blind-v1-0001-0100-2026-07-08.json"
+  ],
+  "summary": {
+    "cases": 100,
+    "status": "sealed_private",
+    "approval_policy": "single_human_with_ai_advisory",
+    "minimum_human_reviewers": 1,
+    "ai_advisory_review_allowed": true,
+    "by_expected_source": {
+      "human_adjudication": 30,
+      "human_first_pass": 70
+    },
+    "by_disagreement": {
+      "false": 70,
+      "true": 30
+    },
+    "by_issue_tag": {
+      "formal_term": 31,
+      "high_risk_term": 13,
+      "it_term": 39,
+      "regional_term": 100,
+      "ui_term": 28
+    }
+  },
+  "expected_values_included": false,
+  "publication_note": "Private expected values are intentionally omitted from this public decision summary."
+}

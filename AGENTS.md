@@ -49,6 +49,22 @@ make version-check   # 任一檔案不一致就 exit 1
 
 **理由：** Git tag push 會同時觸發 `publish.yml`（PyPI）和 `sdk-java.yml`（Maven Central），兩邊的版本必須跟 tag 對齊，否則釋出會失敗或語意混亂。共享的 `sdk/data/zhtw-data.json` 也嵌入版本號，多語言 SDK 讀這份資料會做版本比對。
 
+## 🎯 準確度 Review 預設流程
+
+使用者說「根據你的建議進行」且任務涉及 accuracy / expected / annotation review
+時，預設採用以下順序：
+
+1. **Codex 先做第一輪建議**：先產出 expected 建議、風險判斷與理由。
+2. **再交給 Gemini 獨立看**：Gemini 只看 input 與規則，不先看 Codex 結論。
+3. **Codex 彙整差異**：比對 Codex/Gemini 結果，整理一致、差異、低信心案例。
+4. **只把需要確認的列給 maintainer**：一致且低風險的案例可列為建議採用；差異、
+   高風險、語境不明的案例必須列出讓使用者確認。
+5. **使用者確認才算 human decision**：Codex/Gemini 都只能是 advisory；不可把 AI
+   輸出直接當作 ground truth。若進入 sealed holdout，必須清楚標示這是
+   `single_human_with_ai_advisory`，除非另有第二位 human reviewer。
+
+下一步提案時，先主動建議這個流程，不要直接要求使用者從空白 expected 開始填。
+
 ## 📍 檔案定位
 
 | 任務 | 檔案 |

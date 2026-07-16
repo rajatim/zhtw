@@ -1,0 +1,293 @@
+{
+  "generated_date": "2026-07-10",
+  "dataset": "blind-v1",
+  "scope": "batch8_miss_classification",
+  "review_stage": "maintainer_confirmation_packet",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-598-cases-2026-07-10.json",
+  "source_gemini_policy_review": "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-598-cases-2026-07-10.json",
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": true
+  },
+  "summary": {
+    "total_review_cases": 19,
+    "public_regression_candidate_cases": 15,
+    "expected_recheck_cases": 4,
+    "no_immediate_question": 30,
+    "gemini_policy_passed": true,
+    "classification_changes_recommended_by_gemini": 0,
+    "by_action": {
+      "move_to_public_regression_candidate": 15,
+      "requires_expected_recheck": 4
+    },
+    "by_domain": {
+      "formal": 1,
+      "it": 10,
+      "llm": 2,
+      "social": 1,
+      "ui": 5
+    },
+    "by_risk": {
+      "candidate_gap": 19
+    },
+    "non_idempotent_review_cases": 1
+  },
+  "cases": [
+    {
+      "id": "blind-it-0165",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "cli_support_config_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0166",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "tenant_identifier_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0167",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "log_sampling_style_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0168",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "audit_event_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0169",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "migration_script_support_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0171",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "webhook_signature_generation_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0173",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "package_manager_dependency_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0174",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "dev_server_file_reload_terminology_gap",
+      "flags": [
+        "non_idempotent_output"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0175",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "observability_platform_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0177",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "object_storage_access_policy_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0130",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "avatar_crop_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0131",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "saved_filter_current_view_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0136",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "dialog_save_draft_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0138",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "pin_sidebar_item_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0139",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "search_highlight_match_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0097",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "placeholder_term_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0098",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "vector_database_document_chunk_terminology_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0101",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "identity_document_formal_term_gap",
+      "flags": [],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0095",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "group_message_send_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    }
+  ],
+  "no_immediate_question_case_ids": [
+    "blind-llm-0026",
+    "blind-llm-0028",
+    "blind-formal-0029",
+    "blind-social-0025",
+    "blind-social-0026",
+    "blind-it-0083",
+    "blind-ui-0060",
+    "blind-ui-0061",
+    "blind-llm-0043",
+    "blind-llm-0044",
+    "blind-formal-0043",
+    "blind-formal-0044",
+    "blind-formal-0045",
+    "blind-formal-0046",
+    "blind-social-0042",
+    "blind-social-0043",
+    "blind-social-0044",
+    "blind-high-risk-0026",
+    "blind-high-risk-0027",
+    "blind-it-0108",
+    "blind-ui-0081",
+    "blind-high-risk-0039",
+    "blind-it-0131",
+    "blind-ui-0102",
+    "blind-high-risk-0053",
+    "blind-high-risk-0058",
+    "blind-ui-0147",
+    "blind-formal-0105",
+    "blind-high-risk-0064",
+    "blind-high-risk-0068"
+  ]
+}

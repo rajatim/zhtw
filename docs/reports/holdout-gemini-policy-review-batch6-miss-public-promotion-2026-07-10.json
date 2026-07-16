@@ -1,0 +1,49 @@
+{
+  "report_type": "holdout_gemini_policy_review_batch6_miss_public_promotion",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-10",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-flash",
+  "model_reported_by_cli_stats": "not_reported_by_headless_text_output",
+  "review_stage": "public_regression_promotion_policy_review",
+  "source_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "source_promotion_gate": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch6-miss-review-2026-07-10.json",
+  "sealed_values_seen": false,
+  "public_values_seen": true,
+  "sealed_content_policy": {
+    "reviewed_cases_removed_from_sealed_before_tuning": true,
+    "remaining_sealed_holdout_signal_cases_used_for_tuning": false,
+    "opencc_or_competitor_outputs_used_for_expected": false,
+    "gemini_received_public_candidate_values_only": true
+  },
+  "summary": {
+    "checked": 11,
+    "promotion_ready": 11,
+    "policy_consistent": true,
+    "risk_level": "low",
+    "blocking_findings": 0,
+    "info_findings": 3
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "id": "all",
+      "message": "All 11 cases successfully passed the promotion gate requirements (zhtw_output_equals_expected, expected_idempotent, output_idempotent)."
+    },
+    {
+      "severity": "info",
+      "id": "all",
+      "message": "No OpenCC or competitor outputs were used to generate the expected values, in accordance with the project's guidelines."
+    },
+    {
+      "severity": "info",
+      "id": "all",
+      "message": "IT and UI regional terms such as '閘道' (gateway), '租戶識別碼' (tenant identifier), '執行個體' (instance), and '表格列' (row/column mapping) were correctly mapped to standard Taiwan localization phrases."
+    }
+  ],
+  "tool_notes": [
+    "Gemini CLI was run with GEMINI_API_KEY, GOOGLE_API_KEY, and GOOGLE_GENERATIVE_AI_API_KEY unset; no API-key mode was used.",
+    "Gemini was instructed not to use tools or read repository files and reviewed only public candidate/gate values supplied on stdin.",
+    "Gemini CLI emitted a non-review tool availability line before the JSON payload: Ripgrep is not available. Falling back to GrepTool."
+  ]
+}

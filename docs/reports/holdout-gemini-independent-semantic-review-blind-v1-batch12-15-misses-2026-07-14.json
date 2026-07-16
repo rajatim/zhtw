@@ -1,0 +1,182 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "report_type": "holdout_gemini_independent_semantic_review",
+  "review_stage": "independent_input_only_semantic_review_after_batch12",
+  "scope": "batch12_15_new_misses",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-pro",
+  "model_observed": [
+    "gemini-2.5-pro"
+  ],
+  "gemini_cli_version": "0.50.0",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "independence_policy": {
+    "codex_classification_seen": false,
+    "current_expected_seen": false,
+    "zhtw_output_seen": false,
+    "competitor_output_seen": false,
+    "workspace_files_seen": false,
+    "input_only_cases_seen": true,
+    "tool_calls": 0
+  },
+  "raw_report": "docs/reports/holdout-gemini-independent-semantic-review-blind-v1-batch12-15-misses-2026-07-14.raw.json",
+  "summary": {
+    "total_cases": 15,
+    "high_confidence": 15,
+    "medium_confidence": 0,
+    "semantic_ambiguity": 0,
+    "promotion_allowed": false
+  },
+  "cases": [
+    {
+      "id": "blind-formal-0154",
+      "gemini_expected": "本計畫經主管機關核定後分階段執行。",
+      "acceptable": [
+        "本計畫案經主管機關核定後分階段執行。"
+      ],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "「計畫」是「计划」的標準對應詞。「計畫案」在正式文件中也是可接受的同義詞。"
+    },
+    {
+      "id": "blind-formal-0158",
+      "gemini_expected": "新聞稿發布前應完成事實查核。",
+      "acceptable": [
+        "新聞稿發佈前應完成事實查核。"
+      ],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "「發布」與「發佈」在臺灣均為通用且正確的「发布」對應詞。「事實查核」是「fact-checking」的標準說法。"
+    },
+    {
+      "id": "blind-high-risk-0103",
+      "gemini_expected": "投保人應據實填寫健康告知事項。",
+      "acceptable": [],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "此為保險領域的標準用語，對應直接且無歧義。"
+    },
+    {
+      "id": "blind-high-risk-0105",
+      "gemini_expected": "雇主不得扣留勞工的身分證件。",
+      "acceptable": [
+        "雇主不得扣留勞動者的身分證件。",
+        "雇主不得扣留勞工之身分證明文件。"
+      ],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "在臺灣的法律與日常語境中，「勞工」比「勞動者」更為常用。「身分證明文件」是「身分證件」的正式同義詞。"
+    },
+    {
+      "id": "blind-high-risk-0117",
+      "gemini_expected": "匯款備註欄請保留案件編號 A-204。",
+      "acceptable": [],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "語意直接，無變體或歧義。"
+    },
+    {
+      "id": "blind-social-0165",
+      "gemini_expected": "這碗麵有點乾，不過味道還不錯。",
+      "acceptable": [],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "「麵」對應食物 noodles，「乾」對應 dry，均為正確用字，語氣自然。"
+    },
+    {
+      "id": "blind-social-0172",
+      "gemini_expected": "這間早餐店可以使用行動支付。",
+      "acceptable": [],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "「行動支付」是臺灣對「mobile payment」的標準說法。原句除了簡體字外，用法與臺灣繁體中文一致。"
+    },
+    {
+      "id": "blind-it-0268",
+      "gemini_expected": "容器映像標籤不得使用浮動版本。",
+      "acceptable": [
+        "容器映像檔標籤不得使用浮動版本。",
+        "容器鏡像標籤不得使用浮動版本。"
+      ],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "在臺灣 IT 術語中，「映像」或「映像檔」是「software image」最慣用的詞。「鏡像」雖字面正確但較少用在此情境。"
+    },
+    {
+      "id": "blind-it-0269",
+      "gemini_expected": "訊息代理應儲存尚未確認的事件。",
+      "acceptable": [
+        "訊息代理應保存尚未確認的事件。",
+        "消息代理應儲存尚未確認的事件。"
+      ],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "在 IT 領域，「訊息」 (message) 比「消息」 (news/info) 更常用。「儲存」 (store) 比「保存」 (preserve) 在描述資料儲存時更精確。"
+    },
+    {
+      "id": "blind-it-0271",
+      "gemini_expected": "提交訊息中的 fixup! 前綴必須保留。",
+      "acceptable": [
+        "提交資訊中的 fixup! 前綴必須保留。"
+      ],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "「提交訊息」是臺灣 Git 使用者對「commit message」的標準說法。「資訊」 (information) 在此語境下不如「訊息」 (message) 精準。"
+    },
+    {
+      "id": "blind-it-0274",
+      "gemini_expected": "設定鍵 feature.preview.enabled 維持原樣。",
+      "acceptable": [
+        "組態鍵 feature.preview.enabled 維持原樣。",
+        "配置鍵 feature.preview.enabled 維持原樣。"
+      ],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "「設定」 (setting) 和「組態」 (configuration) 是臺灣 IT 術語中對「config」最慣用的翻譯。「配置」也可接受，但較不普遍。"
+    },
+    {
+      "id": "blind-ui-0210",
+      "gemini_expected": "表格的凍結欄不應遮住水平捲軸。",
+      "acceptable": [
+        "表格凍結欄不應遮住水平捲軸。",
+        "表格的凍結欄不應遮住水平滾動條。"
+      ],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "在臺灣的試算表與表格術語中，「欄」指 column，「列」指 row。「捲軸」是「scrollbar」的標準慣用詞。加上「的」使語句更通順。"
+    },
+    {
+      "id": "blind-llm-0156",
+      "gemini_expected": "評測腳本必須區分拒答與空白回答。",
+      "acceptable": [
+        "評測腳本必須區分拒答和空白回答。"
+      ],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "技術術語翻譯直接。「與」和「和」在此處可互換。"
+    },
+    {
+      "id": "blind-llm-0158",
+      "gemini_expected": "工具名稱 web.run 不得本地化。",
+      "acceptable": [
+        "工具名稱 web.run 不得在地化。"
+      ],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "「本地化」與「在地化」都是臺灣對於「localize」的通用正確翻譯。"
+    },
+    {
+      "id": "blind-llm-0162",
+      "gemini_expected": "模型回應已通過人工複核。",
+      "acceptable": [
+        "模型回應已通過人工審核。",
+        "模型回應已通過人工覆核。"
+      ],
+      "confidence": "high",
+      "semantic_ambiguity": false,
+      "rationale": "原句除簡體字外，與臺灣用法幾乎一致。「複核」 (re-check)、「審核」 (audit/review)、「覆核」 (review) 均為此語境下的合理同義詞。"
+    }
+  ]
+}

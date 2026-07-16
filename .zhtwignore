@@ -10,6 +10,46 @@ sdk/data/
 # 測試目錄（測試用的簡體輸入）
 tests/
 
+# 精準度競品 benchmark（保留簡體輸入與人工 expected）
+benchmarks/precision_cases.json
+benchmarks/accuracy/
+docs/reports/
+docs/reports/competitor-benchmark-*
+docs/reports/competitor-diffs-*
+docs/reports/competitor-advantage-review-*
+docs/reports/accuracy-benchmark-*
+docs/reports/accuracy-audit-*
+docs/reports/annotation-first-pass-ai-draft-*
+docs/reports/annotation-blind-review-packet-*
+docs/reports/annotation-gemini-cli-advisory-*
+docs/reports/annotation-gemini-vertex-advisory-*
+docs/reports/annotation-promotion-gate-*
+docs/reports/holdout-annotation-packet-*
+docs/reports/holdout-codex-first-pass-*
+docs/reports/holdout-codex-gemini-diff-review-*
+docs/reports/holdout-gemini-vertex-advisory-*
+docs/reports/holdout-maintainer-confirmation-*
+docs/reports/holdout-maintainer-final-decision-*
+docs/reports/holdout-private-benchmark-sanity-*
+docs/reports/holdout-miss-classification-*
+docs/reports/holdout-expected-recheck-*
+docs/reports/holdout-remaining-miss-classification-*
+docs/reports/holdout-regression-promotion-gate-*
+docs/reports/holdout-sealed-pool-update-*
+docs/reports/market-claim-evidence-*
+
+# 精準度工具含簡體測試輸入、模型 prompt 與歷史輸出
+scripts/accuracy_annotation_status.py
+scripts/check_accuracy_backlog.py
+scripts/competitor_benchmark.py
+scripts/create_blind_review_packet.py
+scripts/create_holdout_annotation_packet.py
+scripts/discover_competitor_diffs.py
+scripts/generate_gemini_vertex_advisory.py
+scripts/generate_holdout_gemini_vertex_advisory.py
+scripts/promote_accuracy_backlog.py
+scripts/run_accuracy_benchmark.py
+
 # 程式碼中的範例（docstring 中的簡體範例）
 src/zhtw/matcher.py
 src/zhtw/llm/client.py

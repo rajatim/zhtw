@@ -1,0 +1,111 @@
+{
+  "model_observed": "gemini-1.5-pro",
+  "cases": [
+    {
+      "id": "blind-high-risk-0091",
+      "gemini_expected": "銀行辦理貸款前會確認收入證明。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，語意無變化，為台灣金融常用語句。"
+    },
+    {
+      "id": "blind-high-risk-0092",
+      "gemini_expected": "醫師開立處方前應確認過敏史。",
+      "acceptable": [
+        "醫生開立處方前應確認過敏史。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，『醫師』為台灣醫療正式用法。"
+    },
+    {
+      "id": "blind-high-risk-0093",
+      "gemini_expected": "法院送達通知會載明應到日期。",
+      "acceptable": [
+        "法院送達通知會載明應到庭日期。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，為台灣法律標準用語。"
+    },
+    {
+      "id": "blind-high-risk-0094",
+      "gemini_expected": "投保前請詳閱除外責任說明。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，為台灣保險標準用語。"
+    },
+    {
+      "id": "blind-high-risk-0095",
+      "gemini_expected": "個人資料刪除請求應留下處理紀錄。",
+      "acceptable": [
+        "個資刪除請求應留下處理紀錄。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字詞轉換，「紀錄」在台灣用作名詞，「個人資料」也常簡稱「個資」。"
+    },
+    {
+      "id": "blind-high-risk-0096",
+      "gemini_expected": "工安事故通報應於期限內完成。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，為台灣勞動部標準用語。"
+    },
+    {
+      "id": "blind-high-risk-0097",
+      "gemini_expected": "藥品保存溫度不得超過標示範圍。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字元轉換，語意無變化。"
+    },
+    {
+      "id": "blind-high-risk-0098",
+      "gemini_expected": "契約變更須經雙方書面同意。",
+      "acceptable": [
+        "合約變更須經雙方書面同意。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準字詞轉換，『契約』與『合約』在台灣法律與商業文件中均常用。"
+    },
+    {
+      "id": "blind-high-risk-0099",
+      "gemini_expected": "身分證件影本應加註用途限制。",
+      "acceptable": [
+        "身份證件影本應加註用途限制。"
+      ],
+      "confidence": "high",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "『影本』為台灣用語（對應『复印件』）；『身分』為台灣官方標準寫法，但『身份』亦通用。"
+    },
+    {
+      "id": "blind-high-risk-0100",
+      "gemini_expected": "病歷不得任意提供給第三方。",
+      "acceptable": [
+        "醫療紀錄不得任意提供給第三方。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "『病歷』是台灣對『医疗纪录』(medical record) 的標準且常用術語，『醫療紀錄』亦可理解但較不常用。"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/holdout-regression-candidates-v1.schema.json",
+  "title": "zhtw holdout regression candidates",
+  "type": "object",
+  "required": [
+    "version",
+    "name",
+    "description",
+    "generated_date",
+    "status",
+    "source_holdout",
+    "promotion_policy",
+    "stats",
+    "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "name": { "type": "string", "const": "holdout-regression-candidates-v1" },
+    "description": { "type": "string", "minLength": 1 },
+    "generated_date": { "type": "string", "format": "date" },
+    "status": {
+      "type": "string",
+      "enum": ["needs_zhtw_fix", "promotion_ready", "promoted"]
+    },
+    "source_holdout": {
+      "type": "object",
+      "required": [
+        "dataset",
+        "removed_from_sealed_on",
+        "classification_report",
+        "sealed_pool_update_report"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "dataset": { "type": "string", "const": "blind-v1" },
+        "removed_from_sealed_on": { "type": "string", "format": "date" },
+        "classification_report": { "type": "string", "minLength": 1 },
+        "sealed_pool_update_report": { "type": "string", "minLength": 1 }
+      }
+    },
+    "promotion_policy": {
+      "type": "object",
+      "required": [
+        "required_zhtw_match",
+        "required_expected_idempotent",
+        "promotion_gate",
+        "promotion_target",
+        "dictionary_strategy"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "required_zhtw_match": { "type": "boolean", "const": true },
+        "required_expected_idempotent": { "type": "boolean", "const": true },
+        "promotion_gate": { "type": "string", "minLength": 1 },
+        "promotion_target": { "type": "string", "minLength": 1 },
+        "dictionary_strategy": { "type": "string", "minLength": 1 }
+      }
+    },
+    "stats": {
+      "type": "object",
+      "required": [
+        "total_cases",
+        "by_domain",
+        "by_risk",
+        "by_promotion_status",
+        "by_expected_source"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "total_cases": { "type": "integer", "minimum": 1 },
+        "by_domain": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "by_risk": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "by_promotion_status": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "by_expected_source": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "domain",
+          "input",
+          "expected",
+          "acceptable",
+          "risk",
+          "issue_tags",
+          "source",
+          "review",
+          "promotion"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "domain": { "type": "string", "minLength": 1 },
+          "input": { "type": "string", "minLength": 1 },
+          "expected": { "type": "string", "minLength": 1 },
+          "acceptable": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "risk": {
+            "type": "string",
+            "enum": ["baseline_guard", "over_conversion_guard", "candidate_gap"]
+          },
+          "issue_tags": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "source": {
+            "type": "object",
+            "required": [
+              "type",
+              "source_dataset",
+              "source_inputs",
+              "source_expected",
+              "classification_report",
+              "original_case_id",
+              "license"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "type": { "type": "string", "const": "sealed_holdout_removed_case" },
+              "source_dataset": { "type": "string", "const": "blind-v1" },
+              "source_inputs": { "type": "string", "minLength": 1 },
+              "source_expected": { "type": "string", "minLength": 1 },
+              "classification_report": { "type": "string", "minLength": 1 },
+              "original_case_id": { "type": "string", "minLength": 1 },
+              "license": { "type": "string", "minLength": 1 }
+            }
+          },
+          "review": {
+            "type": "object",
+            "required": [
+              "expected_source",
+              "approval_policy",
+              "first_reviewer",
+              "second_reviewer",
+              "ai_advisory_reviewers",
+              "source_reports",
+              "adjudicator",
+              "disagreement",
+              "decision_date",
+              "notes"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "expected_source": {
+                "type": "string",
+                "enum": ["human_first_pass", "human_adjudication"]
+              },
+              "approval_policy": {
+                "type": "string",
+                "const": "single_human_with_ai_advisory"
+              },
+              "first_reviewer": { "type": "string", "minLength": 1 },
+              "second_reviewer": { "type": "string" },
+              "ai_advisory_reviewers": {
+                "type": "array",
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "source_reports": {
+                "type": "array",
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "adjudicator": { "type": "string" },
+              "disagreement": { "type": "boolean" },
+              "decision_date": { "type": "string", "format": "date" },
+              "notes": { "type": "string" }
+            }
+          },
+          "promotion": {
+            "type": "object",
+            "required": [
+              "status",
+              "gate_report",
+              "promoted_to",
+              "promoted_id",
+              "promoted_date",
+              "converter_strategy"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": ["needs_zhtw_fix", "promotion_ready", "promoted_to_regression"]
+              },
+              "gate_report": { "type": "string", "minLength": 1 },
+              "promoted_to": { "type": "string", "minLength": 1 },
+              "promoted_id": { "type": "string", "minLength": 1 },
+              "promoted_date": { "type": "string", "format": "date" },
+              "converter_strategy": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

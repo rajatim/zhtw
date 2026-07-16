@@ -1,0 +1,5468 @@
+{
+  "generated_date": "2026-07-03",
+  "corpus_dir": "tests/data/corpus",
+  "categories": [
+    "news",
+    "regressions",
+    "social",
+    "tech",
+    "wiki"
+  ],
+  "limit": 300,
+  "sample_seed": 42,
+  "total_cases": 500,
+  "scanned_cases": 300,
+  "cases_with_expected": 300,
+  "diff_rows": 188,
+  "engines": {
+    "zhtw": {
+      "available": true,
+      "version": "4.4.1",
+      "error": null
+    },
+    "opencc-s2twp": {
+      "available": true,
+      "version": "0.1.7",
+      "error": null
+    },
+    "zhconv-zh-tw": {
+      "available": true,
+      "version": "1.4.3",
+      "error": null
+    }
+  },
+  "scanned_summary": {
+    "all_match": 112,
+    "zhtw_advantage": 188
+  },
+  "diff_summary": {
+    "zhtw_advantage": 188
+  },
+  "summary": {
+    "zhtw_advantage": 188
+  },
+  "rows": [
+    {
+      "id": "regressions/regression_045",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_045",
+      "sample_seed": 42,
+      "input": "写程序前先看法律程序",
+      "corpus_expected": "寫程式前先看法律程序",
+      "outputs": {
+        "zhtw": "寫程式前先看法律程序",
+        "opencc-s2twp": "寫程式前先看法律程式",
+        "zhconv-zh-tw": "寫程序前先看法律程序"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "程序"
+      ],
+      "notes": "程式/程序雙語境"
+    },
+    {
+      "id": "tech/tech_004",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/samples.json",
+      "case_id": "tech_004",
+      "sample_seed": 42,
+      "input": "通过异步回调来处理网络请求。",
+      "corpus_expected": "透過非同步回呼來處理網路請求。",
+      "outputs": {
+        "zhtw": "透過非同步回呼來處理網路請求。",
+        "opencc-s2twp": "透過非同步回撥來處理網路請求。",
+        "zhconv-zh-tw": "通過異步回調來處理網絡請求。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "programming",
+        "async"
+      ],
+      "notes": "异步→非同步, 回调→回呼, 网络→網路"
+    },
+    {
+      "id": "regressions/regression_037",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_037",
+      "sample_seed": 42,
+      "input": "刷新页面看看",
+      "corpus_expected": "重新整理頁面看看",
+      "outputs": {
+        "zhtw": "重新整理頁面看看",
+        "opencc-s2twp": "重新整理頁面看看",
+        "zhconv-zh-tw": "刷新頁面看看"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "刷新"
+      ],
+      "notes": "UI 刷新頁面→重新整理頁面"
+    },
+    {
+      "id": "news/news_053",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27.json",
+      "case_id": "news_053",
+      "sample_seed": 42,
+      "input": "官方说明数据统计方式。",
+      "corpus_expected": "官方說明資料統計方式。",
+      "outputs": {
+        "zhtw": "官方說明資料統計方式。",
+        "opencc-s2twp": "官方說明資料統計方式。",
+        "zhconv-zh-tw": "官方說明數據統計方式。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "data"
+      ],
+      "notes": "数据→數據，统计→統計"
+    },
+    {
+      "id": "tech/tech_076",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_076",
+      "sample_seed": 42,
+      "input": "服务器证书即将过期。",
+      "corpus_expected": "伺服器憑證即將過期。",
+      "outputs": {
+        "zhtw": "伺服器憑證即將過期。",
+        "opencc-s2twp": "伺服器證書即將過期。",
+        "zhconv-zh-tw": "伺服器證書即將過期。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "security"
+      ],
+      "notes": "服务器→伺服器，证书→憑證"
+    },
+    {
+      "id": "social/social_070",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_070",
+      "sample_seed": 42,
+      "input": "刷新页面后就能登录。",
+      "corpus_expected": "重新整理頁面後就能登入。",
+      "outputs": {
+        "zhtw": "重新整理頁面後就能登入。",
+        "opencc-s2twp": "重新整理頁面後就能登入。",
+        "zhconv-zh-tw": "刷新頁面後就能登錄。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "ui"
+      ],
+      "notes": "刷新页面→重新整理頁面"
+    },
+    {
+      "id": "news/news_055",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27.json",
+      "case_id": "news_055",
+      "sample_seed": 42,
+      "input": "选务机关公布投票注意事项。",
+      "corpus_expected": "選務機關公布投票注意事項。",
+      "outputs": {
+        "zhtw": "選務機關公布投票注意事項。",
+        "opencc-s2twp": "選務機關公佈投票注意事項。",
+        "zhconv-zh-tw": "選務機關公布投票注意事項。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "election"
+      ],
+      "notes": "公布保持公布，事项→事項"
+    },
+    {
+      "id": "tech/tech_094",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_094",
+      "sample_seed": 42,
+      "input": "这个库提供加密函数。",
+      "corpus_expected": "這個函式庫提供加密函式。",
+      "outputs": {
+        "zhtw": "這個函式庫提供加密函式。",
+        "opencc-s2twp": "這個庫提供加密函式。",
+        "zhconv-zh-tw": "這個庫提供加密函數。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "programming"
+      ],
+      "notes": "库→函式庫，函数→函式"
+    },
+    {
+      "id": "wiki/wiki_064",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27-500.json",
+      "case_id": "wiki_064",
+      "sample_seed": 42,
+      "input": "人工智能系统依赖大量数据。",
+      "corpus_expected": "人工智慧系統依賴大量資料。",
+      "outputs": {
+        "zhtw": "人工智慧系統依賴大量資料。",
+        "opencc-s2twp": "人工智慧系統依賴大量資料。",
+        "zhconv-zh-tw": "人工智慧系統依賴大量數據。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "ai"
+      ],
+      "notes": "人工智能→人工智慧"
+    },
+    {
+      "id": "social/social_076",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_076",
+      "sample_seed": 42,
+      "input": "注销公司需要准备文件。",
+      "corpus_expected": "註銷公司需要準備文件。",
+      "outputs": {
+        "zhtw": "註銷公司需要準備文件。",
+        "opencc-s2twp": "登出公司需要準備檔案。",
+        "zhconv-zh-tw": "註銷公司需要準備文件。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "legal"
+      ],
+      "notes": "注销公司→註銷公司"
+    },
+    {
+      "id": "wiki/wiki_060",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27.json",
+      "case_id": "wiki_060",
+      "sample_seed": 42,
+      "input": "博物馆保存历史文物。",
+      "corpus_expected": "博物館保存歷史文物。",
+      "outputs": {
+        "zhtw": "博物館保存歷史文物。",
+        "opencc-s2twp": "博物館儲存歷史文物。",
+        "zhconv-zh-tw": "博物館保存歷史文物。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "culture",
+        "history"
+      ],
+      "notes": "博物馆→博物館，历史→歷史"
+    },
+    {
+      "id": "news/news_040",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27.json",
+      "case_id": "news_040",
+      "sample_seed": 42,
+      "input": "劳动部提醒雇主依法给付工资。",
+      "corpus_expected": "勞動部提醒雇主依法給付工資。",
+      "outputs": {
+        "zhtw": "勞動部提醒雇主依法給付工資。",
+        "opencc-s2twp": "勞動部提醒僱主依法給付工資。",
+        "zhconv-zh-tw": "勞動部提醒僱主依法給付工資。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "labor"
+      ],
+      "notes": "劳动→勞動，工资→工資"
+    },
+    {
+      "id": "tech/tech_049",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_049",
+      "sample_seed": 42,
+      "input": "日志等级可以通过参数调整。",
+      "corpus_expected": "日誌等級可以透過參數調整。",
+      "outputs": {
+        "zhtw": "日誌等級可以透過參數調整。",
+        "opencc-s2twp": "日誌等級可以透過引數調整。",
+        "zhconv-zh-tw": "日誌等級可以通過參數調整。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "logging",
+        "cli"
+      ],
+      "notes": "通过参数→透過參數，调整→調整"
+    },
+    {
+      "id": "regressions/regression_044",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_044",
+      "sample_seed": 42,
+      "input": "政府发布官方文件",
+      "corpus_expected": "政府發布官方文件",
+      "outputs": {
+        "zhtw": "政府發布官方文件",
+        "opencc-s2twp": "政府釋出官方檔案",
+        "zhconv-zh-tw": "政府發布官方文件"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "文件"
+      ],
+      "notes": "正式文件保持文件"
+    },
+    {
+      "id": "social/social_071",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_071",
+      "sample_seed": 42,
+      "input": "评论区有人分享链接。",
+      "corpus_expected": "留言區有人分享連結。",
+      "outputs": {
+        "zhtw": "留言區有人分享連結。",
+        "opencc-s2twp": "評論區有人分享連結。",
+        "zhconv-zh-tw": "評論區有人分享連結。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "social"
+      ],
+      "notes": "评论区→留言區"
+    },
+    {
+      "id": "wiki/wiki_024",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27.json",
+      "case_id": "wiki_024",
+      "sample_seed": 42,
+      "input": "网络协议定义设备之间的通信规则。",
+      "corpus_expected": "網路協議定義設備之間的通訊規則。",
+      "outputs": {
+        "zhtw": "網路協議定義設備之間的通訊規則。",
+        "opencc-s2twp": "網路協議定義裝置之間的通訊規則。",
+        "zhconv-zh-tw": "網絡協議定義設備之間的通信規則。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "network"
+      ],
+      "notes": "网络协议→網路協定，通信→通訊"
+    },
+    {
+      "id": "tech/tech_081",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_081",
+      "sample_seed": 42,
+      "input": "消息队列处理失败事件。",
+      "corpus_expected": "訊息佇列處理失敗事件。",
+      "outputs": {
+        "zhtw": "訊息佇列處理失敗事件。",
+        "opencc-s2twp": "訊息佇列處理失敗事件。",
+        "zhconv-zh-tw": "消息隊列處理失敗事件。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "queue"
+      ],
+      "notes": "消息队列→訊息佇列"
+    },
+    {
+      "id": "social/social_010",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/samples.json",
+      "case_id": "social_010",
+      "sample_seed": 42,
+      "input": "默认头像太丑了。",
+      "corpus_expected": "預設頭像太醜了。",
+      "outputs": {
+        "zhtw": "預設頭像太醜了。",
+        "opencc-s2twp": "預設頭像太醜了。",
+        "zhconv-zh-tw": "默認頭像太醜了。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "ui"
+      ],
+      "notes": "默认头像→預設頭像, 丑→醜"
+    },
+    {
+      "id": "tech/tech_010",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/samples.json",
+      "case_id": "tech_010",
+      "sample_seed": 42,
+      "input": "日志文件记录错误信息。",
+      "corpus_expected": "日誌文件記錄錯誤資訊。",
+      "outputs": {
+        "zhtw": "日誌文件記錄錯誤資訊。",
+        "opencc-s2twp": "日誌檔案記錄錯誤資訊。",
+        "zhconv-zh-tw": "日誌文件記錄錯誤信息。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "logging",
+        "debugging"
+      ],
+      "notes": "日志→日誌, 记录→記錄, 错误→錯誤, 信息→資訊"
+    },
+    {
+      "id": "news/news_068",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27-500.json",
+      "case_id": "news_068",
+      "sample_seed": 42,
+      "input": "央行宣布维持利率政策不变。",
+      "corpus_expected": "央行宣布維持利率政策不變。",
+      "outputs": {
+        "zhtw": "央行宣布維持利率政策不變。",
+        "opencc-s2twp": "央行宣佈維持利率政策不變。",
+        "zhconv-zh-tw": "央行宣布維持利率政策不變。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "finance"
+      ],
+      "notes": "宣布保持宣布"
+    },
+    {
+      "id": "wiki/wiki_043",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27.json",
+      "case_id": "wiki_043",
+      "sample_seed": 42,
+      "input": "云计算提供弹性的计算资源。",
+      "corpus_expected": "雲端運算提供彈性的計算資源。",
+      "outputs": {
+        "zhtw": "雲端運算提供彈性的計算資源。",
+        "opencc-s2twp": "雲端計算提供彈性的計算資源。",
+        "zhconv-zh-tw": "雲計算提供彈性的計算資源。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "cloud"
+      ],
+      "notes": "云计算→雲端運算，资源→資源"
+    },
+    {
+      "id": "social/social_030",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_030",
+      "sample_seed": 42,
+      "input": "这个链接可以直接打开。",
+      "corpus_expected": "這個連結可以直接打開。",
+      "outputs": {
+        "zhtw": "這個連結可以直接打開。",
+        "opencc-s2twp": "這個連結可以直接開啟。",
+        "zhconv-zh-tw": "這個連結可以直接打開。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "web"
+      ],
+      "notes": "链接→連結，打开→打開"
+    },
+    {
+      "id": "social/social_026",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_026",
+      "sample_seed": 42,
+      "input": "这个账号终于恢复了。",
+      "corpus_expected": "這個帳號終於恢復了。",
+      "outputs": {
+        "zhtw": "這個帳號終於恢復了。",
+        "opencc-s2twp": "這個賬號終於恢復了。",
+        "zhconv-zh-tw": "這個帳號終於恢復了。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "account"
+      ],
+      "notes": "账号→帳號，恢复保持恢復"
+    },
+    {
+      "id": "regressions/regression_090",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_090",
+      "sample_seed": 42,
+      "input": "用户端和服务器端通信",
+      "corpus_expected": "用戶端和伺服器端通訊",
+      "outputs": {
+        "zhtw": "用戶端和伺服器端通訊",
+        "opencc-s2twp": "使用者端和伺服器端通訊",
+        "zhconv-zh-tw": "用戶端和伺服器端通信"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "it"
+      ],
+      "notes": "端點與通訊術語"
+    },
+    {
+      "id": "regressions/regression_043",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_043",
+      "sample_seed": 42,
+      "input": "文件系统损坏",
+      "corpus_expected": "檔案系統損壞",
+      "outputs": {
+        "zhtw": "檔案系統損壞",
+        "opencc-s2twp": "檔案系統損壞",
+        "zhconv-zh-tw": "文件系統損壞"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "文件"
+      ],
+      "notes": "文件系统→檔案系統"
+    },
+    {
+      "id": "social/social_084",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_084",
+      "sample_seed": 42,
+      "input": "这个频道每周更新一次。",
+      "corpus_expected": "這個頻道每週更新一次。",
+      "outputs": {
+        "zhtw": "這個頻道每週更新一次。",
+        "opencc-s2twp": "這個頻道每週更新一次。",
+        "zhconv-zh-tw": "這個頻道每周更新一次。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "media"
+      ],
+      "notes": "每周→每週"
+    },
+    {
+      "id": "news/news_022",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27.json",
+      "case_id": "news_022",
+      "sample_seed": 42,
+      "input": "台积电宣布扩大先进制程投资。",
+      "corpus_expected": "台積電宣布擴大先進製程投資。",
+      "outputs": {
+        "zhtw": "台積電宣布擴大先進製程投資。",
+        "opencc-s2twp": "臺積電宣佈擴大先進製程投資。",
+        "zhconv-zh-tw": "臺積電宣布擴大先進位程投資。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "business",
+        "semiconductor"
+      ],
+      "notes": "宣布保持宣布，制程→製程"
+    },
+    {
+      "id": "social/social_059",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_059",
+      "sample_seed": 42,
+      "input": "刚才网络突然断线。",
+      "corpus_expected": "剛才網路突然斷線。",
+      "outputs": {
+        "zhtw": "剛才網路突然斷線。",
+        "opencc-s2twp": "剛才網路突然斷線。",
+        "zhconv-zh-tw": "剛才網絡突然斷線。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "network"
+      ],
+      "notes": "网络→網路，断线→斷線"
+    },
+    {
+      "id": "social/social_088",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_088",
+      "sample_seed": 42,
+      "input": "默认头像和昵称都要改。",
+      "corpus_expected": "預設頭像和暱稱都要改。",
+      "outputs": {
+        "zhtw": "預設頭像和暱稱都要改。",
+        "opencc-s2twp": "預設頭像和暱稱都要改。",
+        "zhconv-zh-tw": "默認頭像和暱稱都要改。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "ui"
+      ],
+      "notes": "默认头像→預設頭像"
+    },
+    {
+      "id": "regressions/regression_032",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_032",
+      "sample_seed": 42,
+      "input": "我支持这个决定",
+      "corpus_expected": "我支持這個決定",
+      "outputs": {
+        "zhtw": "我支持這個決定",
+        "opencc-s2twp": "我支援這個決定",
+        "zhconv-zh-tw": "我支持這個決定"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "支持"
+      ],
+      "notes": "一般語境支持保持支持"
+    },
+    {
+      "id": "tech/tech_050",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_050",
+      "sample_seed": 42,
+      "input": "这个模块负责数据同步。",
+      "corpus_expected": "這個模組負責資料同步。",
+      "outputs": {
+        "zhtw": "這個模組負責資料同步。",
+        "opencc-s2twp": "這個模組負責資料同步。",
+        "zhconv-zh-tw": "這個模塊負責數據同步。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "architecture",
+        "data"
+      ],
+      "notes": "模块→模組，数据→資料"
+    },
+    {
+      "id": "social/social_078",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_078",
+      "sample_seed": 42,
+      "input": "手机网络突然变慢。",
+      "corpus_expected": "手機網路突然變慢。",
+      "outputs": {
+        "zhtw": "手機網路突然變慢。",
+        "opencc-s2twp": "手機網路突然變慢。",
+        "zhconv-zh-tw": "手機網絡突然變慢。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "device"
+      ],
+      "notes": "网络→網路"
+    },
+    {
+      "id": "regressions/regression_035",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_035",
+      "sample_seed": 42,
+      "input": "保存文件成功",
+      "corpus_expected": "儲存檔案成功",
+      "outputs": {
+        "zhtw": "儲存檔案成功",
+        "opencc-s2twp": "儲存檔案成功",
+        "zhconv-zh-tw": "保存文件成功"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "保存"
+      ],
+      "notes": "UI 檔案語境保存→儲存"
+    },
+    {
+      "id": "tech/tech_087",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_087",
+      "sample_seed": 42,
+      "input": "网络请求通过代理服务器转发。",
+      "corpus_expected": "網路請求透過代理伺服器轉發。",
+      "outputs": {
+        "zhtw": "網路請求透過代理伺服器轉發。",
+        "opencc-s2twp": "網路請求透過代理伺服器轉發。",
+        "zhconv-zh-tw": "網絡請求通過代理伺服器轉發。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "network"
+      ],
+      "notes": "通过代理→透過代理"
+    },
+    {
+      "id": "regressions/regression_051",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_051",
+      "sample_seed": 42,
+      "input": "好消息传来",
+      "corpus_expected": "好消息傳來",
+      "outputs": {
+        "zhtw": "好消息傳來",
+        "opencc-s2twp": "好訊息傳來",
+        "zhconv-zh-tw": "好消息傳來"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "消息"
+      ],
+      "notes": "好消息保持消息"
+    },
+    {
+      "id": "news/news_009",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/samples.json",
+      "case_id": "news_009",
+      "sample_seed": 42,
+      "input": "该公司裁员计划已经启动。",
+      "corpus_expected": "該公司裁員計畫已經啟動。",
+      "outputs": {
+        "zhtw": "該公司裁員計畫已經啟動。",
+        "opencc-s2twp": "該公司裁員計劃已經啟動。",
+        "zhconv-zh-tw": "該公司裁員計劃已經啟動。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "business"
+      ],
+      "notes": "该→該, 计划→計畫, 已经→已經, 启动→啟動"
+    },
+    {
+      "id": "wiki/wiki_100",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27-500.json",
+      "case_id": "wiki_100",
+      "sample_seed": 42,
+      "input": "统计学用于分析大量数据。",
+      "corpus_expected": "統計學用於分析大量資料。",
+      "outputs": {
+        "zhtw": "統計學用於分析大量資料。",
+        "opencc-s2twp": "統計學用於分析大量資料。",
+        "zhconv-zh-tw": "統計學用於分析大量數據。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "statistics"
+      ],
+      "notes": "数据→資料"
+    },
+    {
+      "id": "tech/tech_064",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_064",
+      "sample_seed": 42,
+      "input": "缓存键包含用户编号。",
+      "corpus_expected": "快取鍵包含使用者編號。",
+      "outputs": {
+        "zhtw": "快取鍵包含使用者編號。",
+        "opencc-s2twp": "快取鍵包含使用者編號。",
+        "zhconv-zh-tw": "緩存鍵包含用戶編號。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "cache"
+      ],
+      "notes": "缓存→快取，用户→使用者"
+    },
+    {
+      "id": "regressions/regression_020",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/samples.json",
+      "case_id": "regression_020",
+      "sample_seed": 42,
+      "input": "后台程序里的日志文件",
+      "corpus_expected": "背景程式裡的日誌文件",
+      "outputs": {
+        "zhtw": "背景程式裡的日誌文件",
+        "opencc-s2twp": "後臺程式裡的日誌檔案",
+        "zhconv-zh-tw": "後臺程序裡的日誌文件"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "it",
+        "logging"
+      ],
+      "notes": "后台程序→背景程式, 里的→裡的, 日志→日誌"
+    },
+    {
+      "id": "regressions/regression_092",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_092",
+      "sample_seed": 42,
+      "input": "这周到店不是这周到的安排",
+      "corpus_expected": "這週到店不是這周到的安排",
+      "outputs": {
+        "zhtw": "這週到店不是這周到的安排",
+        "opencc-s2twp": "這周到店不是這周到的安排",
+        "zhconv-zh-tw": "這周到店不是這周到的安排"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "周到"
+      ],
+      "notes": "週到店/周到安排雙語境"
+    },
+    {
+      "id": "regressions/regression_081",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_081",
+      "sample_seed": 42,
+      "input": "注销账户不是注销公司",
+      "corpus_expected": "登出帳戶不是註銷公司",
+      "outputs": {
+        "zhtw": "登出帳戶不是註銷公司",
+        "opencc-s2twp": "登出賬戶不是登出公司",
+        "zhconv-zh-tw": "註銷帳戶不是註銷公司"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "注销"
+      ],
+      "notes": "登出/註銷雙語境"
+    },
+    {
+      "id": "tech/tech_039",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_039",
+      "sample_seed": 42,
+      "input": "这个接口返回状态码和响应头。",
+      "corpus_expected": "這個介面回傳狀態碼和回應標頭。",
+      "outputs": {
+        "zhtw": "這個介面回傳狀態碼和回應標頭。",
+        "opencc-s2twp": "這個介面返回狀態碼和響應頭。",
+        "zhconv-zh-tw": "這個接口返回狀態碼和響應頭。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "api",
+        "http"
+      ],
+      "notes": "返回状态码→回傳狀態碼，响应头→回應標頭"
+    },
+    {
+      "id": "tech/tech_051",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_051",
+      "sample_seed": 42,
+      "input": "请确认网络接口是否启用。",
+      "corpus_expected": "請確認網路介面是否啟用。",
+      "outputs": {
+        "zhtw": "請確認網路介面是否啟用。",
+        "opencc-s2twp": "請確認網路介面是否啟用。",
+        "zhconv-zh-tw": "請確認網絡接口是否啟用。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "network"
+      ],
+      "notes": "网络接口→網路介面，启用→啟用"
+    },
+    {
+      "id": "regressions/regression_041",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_041",
+      "sample_seed": 42,
+      "input": "注销账户流程",
+      "corpus_expected": "登出帳戶流程",
+      "outputs": {
+        "zhtw": "登出帳戶流程",
+        "opencc-s2twp": "登出賬戶流程",
+        "zhconv-zh-tw": "註銷帳戶流程"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "注销"
+      ],
+      "notes": "帳戶語境→登出"
+    },
+    {
+      "id": "news/news_065",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27-500.json",
+      "case_id": "news_065",
+      "sample_seed": 42,
+      "input": "调查显示年轻族群支持远程办公。",
+      "corpus_expected": "調查顯示年輕族群支持遠端辦公。",
+      "outputs": {
+        "zhtw": "調查顯示年輕族群支持遠端辦公。",
+        "opencc-s2twp": "調查顯示年輕族群支援遠端辦公。",
+        "zhconv-zh-tw": "調查顯示年輕族群支持遠程辦公。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "work"
+      ],
+      "notes": "一般支持保持支持"
+    },
+    {
+      "id": "tech/tech_065",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_065",
+      "sample_seed": 42,
+      "input": "前端组件监听点击事件。",
+      "corpus_expected": "前端元件監聽點擊事件。",
+      "outputs": {
+        "zhtw": "前端元件監聽點擊事件。",
+        "opencc-s2twp": "前端元件監聽點選事件。",
+        "zhconv-zh-tw": "前端組件監聽點擊事件。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "frontend"
+      ],
+      "notes": "组件→元件"
+    },
+    {
+      "id": "regressions/regression_009",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/samples.json",
+      "case_id": "regression_009",
+      "sample_seed": 42,
+      "input": "刷新页面后再登录",
+      "corpus_expected": "重新整理頁面後再登入",
+      "outputs": {
+        "zhtw": "重新整理頁面後再登入",
+        "opencc-s2twp": "重新整理頁面後再登入",
+        "zhconv-zh-tw": "刷新頁面後再登錄"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "ui",
+        "login"
+      ],
+      "notes": "刷新页面→重新整理頁面, 后→後, 登录→登入"
+    },
+    {
+      "id": "tech/tech_021",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_021",
+      "sample_seed": 42,
+      "input": "持续集成流水线已经通过。",
+      "corpus_expected": "持續整合管線已經通過。",
+      "outputs": {
+        "zhtw": "持續整合管線已經通過。",
+        "opencc-s2twp": "持續整合流水線已經透過。",
+        "zhconv-zh-tw": "持續集成流水線已經通過。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "ci",
+        "pipeline"
+      ],
+      "notes": "持续集成流水线→持續整合管線"
+    },
+    {
+      "id": "wiki/wiki_069",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27-500.json",
+      "case_id": "wiki_069",
+      "sample_seed": 42,
+      "input": "生态环境影响物种分布。",
+      "corpus_expected": "生態環境影響物種分布。",
+      "outputs": {
+        "zhtw": "生態環境影響物種分布。",
+        "opencc-s2twp": "生態環境影響物種分佈。",
+        "zhconv-zh-tw": "生態環境影響物種分布。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "biology"
+      ],
+      "notes": "生态→生態"
+    },
+    {
+      "id": "regressions/regression_088",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_088",
+      "sample_seed": 42,
+      "input": "数据中心和数据结构都不同",
+      "corpus_expected": "資料中心和資料結構都不同",
+      "outputs": {
+        "zhtw": "資料中心和資料結構都不同",
+        "opencc-s2twp": "資料中心和資料結構都不同",
+        "zhconv-zh-tw": "數據中心和數據結構都不同"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "数据"
+      ],
+      "notes": "IT 資料語境"
+    },
+    {
+      "id": "news/news_067",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27-500.json",
+      "case_id": "news_067",
+      "sample_seed": 42,
+      "input": "环保署公布空气污染监测结果。",
+      "corpus_expected": "環保署公布空氣汙染監測結果。",
+      "outputs": {
+        "zhtw": "環保署公布空氣汙染監測結果。",
+        "opencc-s2twp": "環保署公佈空氣汙染監測結果。",
+        "zhconv-zh-tw": "環保署公布空氣汙染監測結果。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "environment"
+      ],
+      "notes": "公布保持公布"
+    },
+    {
+      "id": "wiki/wiki_023",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27.json",
+      "case_id": "wiki_023",
+      "sample_seed": 42,
+      "input": "编译器会把源代码转换为机器代码。",
+      "corpus_expected": "編譯器會把原始碼轉換為機器程式碼。",
+      "outputs": {
+        "zhtw": "編譯器會把原始碼轉換為機器程式碼。",
+        "opencc-s2twp": "編譯器會把原始碼轉換為機器程式碼。",
+        "zhconv-zh-tw": "編譯器會把原始碼轉換為機器代碼。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "computing"
+      ],
+      "notes": "编译器→編譯器，源代码→原始碼"
+    },
+    {
+      "id": "social/social_027",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_027",
+      "sample_seed": 42,
+      "input": "我把文件上传到群组了。",
+      "corpus_expected": "我把文件上傳到群組了。",
+      "outputs": {
+        "zhtw": "我把文件上傳到群組了。",
+        "opencc-s2twp": "我把檔案上傳到群組了。",
+        "zhconv-zh-tw": "我把文件上傳到群組了。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "file"
+      ],
+      "notes": "上传→上傳，群组→群組"
+    },
+    {
+      "id": "tech/tech_017",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/samples.json",
+      "case_id": "tech_017",
+      "sample_seed": 42,
+      "input": "数据库迁移脚本失败了。",
+      "corpus_expected": "資料庫遷移指令碼失敗了。",
+      "outputs": {
+        "zhtw": "資料庫遷移指令碼失敗了。",
+        "opencc-s2twp": "資料庫遷移指令碼失敗了。",
+        "zhconv-zh-tw": "資料庫遷移腳本失敗了。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "database",
+        "migration"
+      ],
+      "notes": "数据库→資料庫, 脚本→指令碼, 失败→失敗"
+    },
+    {
+      "id": "tech/tech_026",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_026",
+      "sample_seed": 42,
+      "input": "这个函数会抛出异常。",
+      "corpus_expected": "這個函式會拋出例外。",
+      "outputs": {
+        "zhtw": "這個函式會拋出例外。",
+        "opencc-s2twp": "這個函式會丟擲異常。",
+        "zhconv-zh-tw": "這個函數會拋出異常。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "programming"
+      ],
+      "notes": "函数→函式，异常→例外"
+    },
+    {
+      "id": "wiki/wiki_087",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27-500.json",
+      "case_id": "wiki_087",
+      "sample_seed": 42,
+      "input": "悉尼港是澳大利亚重要港口。",
+      "corpus_expected": "雪梨港是澳大利亞重要港口。",
+      "outputs": {
+        "zhtw": "雪梨港是澳大利亞重要港口。",
+        "opencc-s2twp": "悉尼港是澳大利亞重要港口。",
+        "zhconv-zh-tw": "雪梨港是澳大利亞重要港口。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "geography"
+      ],
+      "notes": "悉尼→雪梨"
+    },
+    {
+      "id": "regressions/regression_005",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/samples.json",
+      "case_id": "regression_005",
+      "sample_seed": 42,
+      "input": "优盘和U盘",
+      "corpus_expected": "隨身碟和隨身碟",
+      "outputs": {
+        "zhtw": "隨身碟和隨身碟",
+        "opencc-s2twp": "優盤和隨身碟",
+        "zhconv-zh-tw": "優盤和U盤"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "synonym",
+        "usb"
+      ],
+      "notes": "优盘和U盘都應轉為隨身碟"
+    },
+    {
+      "id": "social/social_043",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_043",
+      "sample_seed": 42,
+      "input": "这个菜单选项藏太深。",
+      "corpus_expected": "這個選單選項藏太深。",
+      "outputs": {
+        "zhtw": "這個選單選項藏太深。",
+        "opencc-s2twp": "這個選單選項藏太深。",
+        "zhconv-zh-tw": "這個菜單選項藏太深。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "ui"
+      ],
+      "notes": "菜单→選單，选项→選項"
+    },
+    {
+      "id": "social/social_068",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_068",
+      "sample_seed": 42,
+      "input": "保存文件前先检查格式。",
+      "corpus_expected": "儲存檔案前先檢查格式。",
+      "outputs": {
+        "zhtw": "儲存檔案前先檢查格式。",
+        "opencc-s2twp": "儲存檔案前先檢查格式。",
+        "zhconv-zh-tw": "保存文件前先檢查格式。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "file"
+      ],
+      "notes": "保存文件→儲存檔案"
+    },
+    {
+      "id": "regressions/regression_061",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_061",
+      "sample_seed": 42,
+      "input": "升级设备之后再次检查设备",
+      "corpus_expected": "升級設備之後再次檢查設備",
+      "outputs": {
+        "zhtw": "升級設備之後再次檢查設備",
+        "opencc-s2twp": "升級裝置之後再次檢查裝置",
+        "zhconv-zh-tw": "升級設備之後再次檢查設備"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "設備"
+      ],
+      "notes": "設備 target 冪等"
+    },
+    {
+      "id": "tech/tech_015",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/samples.json",
+      "case_id": "tech_015",
+      "sample_seed": 42,
+      "input": "这个算法的时间复杂度很高。",
+      "corpus_expected": "這個演算法的時間複雜度很高。",
+      "outputs": {
+        "zhtw": "這個演算法的時間複雜度很高。",
+        "opencc-s2twp": "這個演算法的時間複雜度很高。",
+        "zhconv-zh-tw": "這個算法的時間複雜度很高。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "algorithm"
+      ],
+      "notes": "算法→演算法, 复杂度→複雜度"
+    },
+    {
+      "id": "regressions/regression_036",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_036",
+      "sample_seed": 42,
+      "input": "保存文化遗产",
+      "corpus_expected": "保存文化遺產",
+      "outputs": {
+        "zhtw": "保存文化遺產",
+        "opencc-s2twp": "儲存文化遺產",
+        "zhconv-zh-tw": "保存文化遺產"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "保存"
+      ],
+      "notes": "一般保存不應轉儲存"
+    },
+    {
+      "id": "social/social_091",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_091",
+      "sample_seed": 42,
+      "input": "他发消息提醒我下周到场。",
+      "corpus_expected": "他傳訊息提醒我下週到場。",
+      "outputs": {
+        "zhtw": "他傳訊息提醒我下週到場。",
+        "opencc-s2twp": "他發訊息提醒我下週到場。",
+        "zhconv-zh-tw": "他發消息提醒我下周到場。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "chat"
+      ],
+      "notes": "下周到→下週到"
+    },
+    {
+      "id": "tech/tech_043",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_043",
+      "sample_seed": 42,
+      "input": "服务器证书将在明天过期。",
+      "corpus_expected": "伺服器憑證將在明天過期。",
+      "outputs": {
+        "zhtw": "伺服器憑證將在明天過期。",
+        "opencc-s2twp": "伺服器證書將在明天過期。",
+        "zhconv-zh-tw": "伺服器證書將在明天過期。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "security",
+        "server"
+      ],
+      "notes": "服务器→伺服器，证书→憑證"
+    },
+    {
+      "id": "social/social_098",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_098",
+      "sample_seed": 42,
+      "input": "刚才网络突然断线。",
+      "corpus_expected": "剛才網路突然斷線。",
+      "outputs": {
+        "zhtw": "剛才網路突然斷線。",
+        "opencc-s2twp": "剛才網路突然斷線。",
+        "zhconv-zh-tw": "剛才網絡突然斷線。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "network"
+      ],
+      "notes": "网络→網路"
+    },
+    {
+      "id": "tech/tech_034",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_034",
+      "sample_seed": 42,
+      "input": "用户端会保存会话令牌。",
+      "corpus_expected": "用戶端會保存會話權杖。",
+      "outputs": {
+        "zhtw": "用戶端會保存會話權杖。",
+        "opencc-s2twp": "使用者端會儲存會話令牌。",
+        "zhconv-zh-tw": "用戶端會保存會話令牌。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "client",
+        "auth"
+      ],
+      "notes": "用户端→用戶端，会话→工作階段"
+    },
+    {
+      "id": "tech/tech_084",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_084",
+      "sample_seed": 42,
+      "input": "模块加载顺序会影响性能。",
+      "corpus_expected": "模組載入順序會影響效能。",
+      "outputs": {
+        "zhtw": "模組載入順序會影響效能。",
+        "opencc-s2twp": "模組載入順序會影響效能。",
+        "zhconv-zh-tw": "模塊加載順序會影響性能。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "architecture"
+      ],
+      "notes": "性能→效能"
+    },
+    {
+      "id": "tech/tech_014",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/samples.json",
+      "case_id": "tech_014",
+      "sample_seed": 42,
+      "input": "后端服务返回状态码。",
+      "corpus_expected": "後端服務回傳狀態碼。",
+      "outputs": {
+        "zhtw": "後端服務回傳狀態碼。",
+        "opencc-s2twp": "後端服務返回狀態碼。",
+        "zhconv-zh-tw": "後端服務返回狀態碼。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "backend",
+        "api"
+      ],
+      "notes": "后端→後端, 服务→服務, 返回状态码→回傳狀態碼"
+    },
+    {
+      "id": "regressions/regression_034",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_034",
+      "sample_seed": 42,
+      "input": "他的结婚对象很温柔",
+      "corpus_expected": "他的結婚對象很溫柔",
+      "outputs": {
+        "zhtw": "他的結婚對象很溫柔",
+        "opencc-s2twp": "他的結婚物件很溫柔",
+        "zhconv-zh-tw": "他的結婚對象很溫柔"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "对象"
+      ],
+      "notes": "一般對象不應轉物件"
+    },
+    {
+      "id": "tech/tech_074",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_074",
+      "sample_seed": 42,
+      "input": "响应时间超过阈值。",
+      "corpus_expected": "回應時間超過閾值。",
+      "outputs": {
+        "zhtw": "回應時間超過閾值。",
+        "opencc-s2twp": "響應時間超過閾值。",
+        "zhconv-zh-tw": "響應時間超過閾值。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "performance"
+      ],
+      "notes": "响应时间→回應時間"
+    },
+    {
+      "id": "news/news_099",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27-500.json",
+      "case_id": "news_099",
+      "sample_seed": 42,
+      "input": "消费纠纷调解会议下周召开。",
+      "corpus_expected": "消費糾紛調解會議下週召開。",
+      "outputs": {
+        "zhtw": "消費糾紛調解會議下週召開。",
+        "opencc-s2twp": "消費糾紛調解會議下週召開。",
+        "zhconv-zh-tw": "消費糾紛調解會議下周召開。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "consumer"
+      ],
+      "notes": "下周→下週"
+    },
+    {
+      "id": "tech/tech_013",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/samples.json",
+      "case_id": "tech_013",
+      "sample_seed": 42,
+      "input": "前端组件需要支持深色模式。",
+      "corpus_expected": "前端元件需要支援深色模式。",
+      "outputs": {
+        "zhtw": "前端元件需要支援深色模式。",
+        "opencc-s2twp": "前端元件需要支援深色模式。",
+        "zhconv-zh-tw": "前端組件需要支持深色模式。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "frontend",
+        "ui"
+      ],
+      "notes": "组件→元件, 支持深色模式→支援深色模式"
+    },
+    {
+      "id": "regressions/regression_067",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_067",
+      "sample_seed": 42,
+      "input": "请先登录系统再注销账户",
+      "corpus_expected": "請先登入系統再登出帳戶",
+      "outputs": {
+        "zhtw": "請先登入系統再登出帳戶",
+        "opencc-s2twp": "請先登入系統再登出賬戶",
+        "zhconv-zh-tw": "請先登錄系統再註銷帳戶"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "login"
+      ],
+      "notes": "登录系统→登入系統"
+    },
+    {
+      "id": "tech/tech_029",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_029",
+      "sample_seed": 42,
+      "input": "数据库连接池已经耗尽。",
+      "corpus_expected": "資料庫連線池已經耗盡。",
+      "outputs": {
+        "zhtw": "資料庫連線池已經耗盡。",
+        "opencc-s2twp": "資料庫連線池已經耗盡。",
+        "zhconv-zh-tw": "資料庫連接池已經耗盡。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "database"
+      ],
+      "notes": "数据库→資料庫，连接池→連線池"
+    },
+    {
+      "id": "wiki/wiki_010",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/samples.json",
+      "case_id": "wiki_010",
+      "sample_seed": 42,
+      "input": "互联网协议定义了数据传输规则。",
+      "corpus_expected": "網際網路協定定義了資料傳輸規則。",
+      "outputs": {
+        "zhtw": "網際網路協定定義了資料傳輸規則。",
+        "opencc-s2twp": "網際網路協議定義了資料傳輸規則。",
+        "zhconv-zh-tw": "網際網路協議定義了數據傳輸規則。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "computing"
+      ],
+      "notes": "互联网协议→網際網路協定, 数据→資料, 传输→傳輸, 规则→規則"
+    },
+    {
+      "id": "regressions/regression_039",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_039",
+      "sample_seed": 42,
+      "input": "撤销操作成功",
+      "corpus_expected": "復原操作成功",
+      "outputs": {
+        "zhtw": "復原操作成功",
+        "opencc-s2twp": "撤銷操作成功",
+        "zhconv-zh-tw": "撤銷操作成功"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "撤销"
+      ],
+      "notes": "UI 撤销操作→復原操作"
+    },
+    {
+      "id": "social/social_025",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_025",
+      "sample_seed": 42,
+      "input": "刚刚看到一个超好笑的视频。",
+      "corpus_expected": "剛剛看到一個超好笑的影片。",
+      "outputs": {
+        "zhtw": "剛剛看到一個超好笑的影片。",
+        "opencc-s2twp": "剛剛看到一個超好笑的影片。",
+        "zhconv-zh-tw": "剛剛看到一個超好笑的視頻。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "media"
+      ],
+      "notes": "视频→影片"
+    },
+    {
+      "id": "social/social_048",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_048",
+      "sample_seed": 42,
+      "input": "周末要不要去看电影？",
+      "corpus_expected": "週末要不要去看電影？",
+      "outputs": {
+        "zhtw": "週末要不要去看電影？",
+        "opencc-s2twp": "週末要不要去看電影？",
+        "zhconv-zh-tw": "周末要不要去看電影？"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "entertainment"
+      ],
+      "notes": "周末→週末，电影→電影"
+    },
+    {
+      "id": "wiki/wiki_062",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27-500.json",
+      "case_id": "wiki_062",
+      "sample_seed": 42,
+      "input": "操作系统提供文件系统接口。",
+      "corpus_expected": "作業系統提供檔案系統介面。",
+      "outputs": {
+        "zhtw": "作業系統提供檔案系統介面。",
+        "opencc-s2twp": "作業系統提供檔案系統介面。",
+        "zhconv-zh-tw": "作業系統提供文件系統接口。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "computing"
+      ],
+      "notes": "文件系统→檔案系統"
+    },
+    {
+      "id": "social/social_012",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/samples.json",
+      "case_id": "social_012",
+      "sample_seed": 42,
+      "input": "周末想去骑自行车。",
+      "corpus_expected": "週末想去騎腳踏車。",
+      "outputs": {
+        "zhtw": "週末想去騎腳踏車。",
+        "opencc-s2twp": "週末想去騎腳踏車。",
+        "zhconv-zh-tw": "周末想去騎自行車。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "transport"
+      ],
+      "notes": "周末→週末, 骑→騎, 自行车→腳踏車"
+    },
+    {
+      "id": "regressions/regression_019",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/samples.json",
+      "case_id": "regression_019",
+      "sample_seed": 42,
+      "input": "文件系统里的文件名",
+      "corpus_expected": "檔案系統裡的檔名",
+      "outputs": {
+        "zhtw": "檔案系統裡的檔名",
+        "opencc-s2twp": "檔案系統裡的檔名",
+        "zhconv-zh-tw": "文件系統裡的文件名"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "it",
+        "file"
+      ],
+      "notes": "文件系统→檔案系統, 里的→裡的, 文件名→檔名"
+    },
+    {
+      "id": "regressions/regression_093",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_093",
+      "sample_seed": 42,
+      "input": "每周到店但服务很周到",
+      "corpus_expected": "每週到店但服務很周到",
+      "outputs": {
+        "zhtw": "每週到店但服務很周到",
+        "opencc-s2twp": "每週到店但服務很周到",
+        "zhconv-zh-tw": "每周到店但服務很周到"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "周到"
+      ],
+      "notes": "每週到與周到雙語境"
+    },
+    {
+      "id": "tech/tech_085",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_085",
+      "sample_seed": 42,
+      "input": "这个包管理器会锁定依赖版本。",
+      "corpus_expected": "這個套件管理員會鎖定相依性版本。",
+      "outputs": {
+        "zhtw": "這個套件管理員會鎖定相依性版本。",
+        "opencc-s2twp": "這個包管理器會鎖定依賴版本。",
+        "zhconv-zh-tw": "這個包管理器會鎖定依賴版本。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "dependency"
+      ],
+      "notes": "包管理器→套件管理員"
+    },
+    {
+      "id": "tech/tech_083",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_083",
+      "sample_seed": 42,
+      "input": "服务端返回错误信息。",
+      "corpus_expected": "伺服器端回傳錯誤資訊。",
+      "outputs": {
+        "zhtw": "伺服器端回傳錯誤資訊。",
+        "opencc-s2twp": "服務端返回錯誤資訊。",
+        "zhconv-zh-tw": "服務端返回錯誤信息。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "api"
+      ],
+      "notes": "服务端→伺服器端，返回→回傳"
+    },
+    {
+      "id": "wiki/wiki_009",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/samples.json",
+      "case_id": "wiki_009",
+      "sample_seed": 42,
+      "input": "悉尼位于澳大利亚东南部。",
+      "corpus_expected": "雪梨位於澳大利亞東南部。",
+      "outputs": {
+        "zhtw": "雪梨位於澳大利亞東南部。",
+        "opencc-s2twp": "悉尼位於澳大利亞東南部。",
+        "zhconv-zh-tw": "雪梨位於澳大利亞東南部。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "geography",
+        "city"
+      ],
+      "notes": "悉尼→雪梨, 位于→位於, 澳大利亚→澳大利亞"
+    },
+    {
+      "id": "social/social_044",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_044",
+      "sample_seed": 42,
+      "input": "请帮我保存这张照片。",
+      "corpus_expected": "請幫我保存這張照片。",
+      "outputs": {
+        "zhtw": "請幫我保存這張照片。",
+        "opencc-s2twp": "請幫我儲存這張照片。",
+        "zhconv-zh-tw": "請幫我保存這張照片。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "media"
+      ],
+      "notes": "保存照片保持保存"
+    },
+    {
+      "id": "news/news_057",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27.json",
+      "case_id": "news_057",
+      "sample_seed": 42,
+      "input": "警方加强周末酒驾取缔。",
+      "corpus_expected": "警方加強週末酒駕取締。",
+      "outputs": {
+        "zhtw": "警方加強週末酒駕取締。",
+        "opencc-s2twp": "警方加強週末酒駕取締。",
+        "zhconv-zh-tw": "警方加強周末酒駕取締。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "law",
+        "transport"
+      ],
+      "notes": "周末→週末，酒驾→酒駕"
+    },
+    {
+      "id": "social/social_034",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_034",
+      "sample_seed": 42,
+      "input": "默认铃声听起来很普通。",
+      "corpus_expected": "默認鈴聲聽起來很普通。",
+      "outputs": {
+        "zhtw": "默認鈴聲聽起來很普通。",
+        "opencc-s2twp": "預設鈴聲聽起來很普通。",
+        "zhconv-zh-tw": "默認鈴聲聽起來很普通。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "device"
+      ],
+      "notes": "默认铃声→預設鈴聲"
+    },
+    {
+      "id": "tech/tech_075",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_075",
+      "sample_seed": 42,
+      "input": "内存使用量持续上升。",
+      "corpus_expected": "記憶體使用量持續上升。",
+      "outputs": {
+        "zhtw": "記憶體使用量持續上升。",
+        "opencc-s2twp": "記憶體使用量持續上升。",
+        "zhconv-zh-tw": "內存使用量持續上升。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "performance"
+      ],
+      "notes": "内存→記憶體"
+    },
+    {
+      "id": "tech/tech_032",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_032",
+      "sample_seed": 42,
+      "input": "部署流水线失败后请查看日志。",
+      "corpus_expected": "部署管線失敗後請查看日誌。",
+      "outputs": {
+        "zhtw": "部署管線失敗後請查看日誌。",
+        "opencc-s2twp": "部署流水線失敗後請檢視日誌。",
+        "zhconv-zh-tw": "部署流水線失敗後請查看日誌。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "deploy",
+        "logging"
+      ],
+      "notes": "流水线→管線，日志→日誌"
+    },
+    {
+      "id": "regressions/regression_024",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_024",
+      "sample_seed": 42,
+      "input": "台积电宣布扩大先进制程投资",
+      "corpus_expected": "台積電宣布擴大先進製程投資",
+      "outputs": {
+        "zhtw": "台積電宣布擴大先進製程投資",
+        "opencc-s2twp": "臺積電宣佈擴大先進製程投資",
+        "zhconv-zh-tw": "臺積電宣布擴大先進位程投資"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "宣布"
+      ],
+      "notes": "宣布不應轉宣佈"
+    },
+    {
+      "id": "regressions/regression_060",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_060",
+      "sample_seed": 42,
+      "input": "这个表情包太好笑了",
+      "corpus_expected": "這個貼圖包太好笑了",
+      "outputs": {
+        "zhtw": "這個貼圖包太好笑了",
+        "opencc-s2twp": "這個表情包太好笑了",
+        "zhconv-zh-tw": "這個表情包太好笑了"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "social"
+      ],
+      "notes": "表情包→貼圖包"
+    },
+    {
+      "id": "regressions/regression_094",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_094",
+      "sample_seed": 42,
+      "input": "下周到校不要误伤下周遭",
+      "corpus_expected": "下週到校不要誤傷下周遭",
+      "outputs": {
+        "zhtw": "下週到校不要誤傷下周遭",
+        "opencc-s2twp": "下週到校不要誤傷下週遭",
+        "zhconv-zh-tw": "下周到校不要誤傷下周遭"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "周遭"
+      ],
+      "notes": "下週到與下周遭雙語境"
+    },
+    {
+      "id": "regressions/regression_025",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_025",
+      "sample_seed": 42,
+      "input": "持续集成流水线已经通过",
+      "corpus_expected": "持續整合管線已經通過",
+      "outputs": {
+        "zhtw": "持續整合管線已經通過",
+        "opencc-s2twp": "持續整合流水線已經透過",
+        "zhconv-zh-tw": "持續集成流水線已經通過"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "ci"
+      ],
+      "notes": "CI 通過語境"
+    },
+    {
+      "id": "wiki/wiki_067",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27-500.json",
+      "case_id": "wiki_067",
+      "sample_seed": 42,
+      "input": "信息安全强调身份验证。",
+      "corpus_expected": "資訊安全強調身分驗證。",
+      "outputs": {
+        "zhtw": "資訊安全強調身分驗證。",
+        "opencc-s2twp": "資訊保安強調身份驗證。",
+        "zhconv-zh-tw": "信息安全強調身份驗證。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "security"
+      ],
+      "notes": "信息安全→資訊安全"
+    },
+    {
+      "id": "social/social_050",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_050",
+      "sample_seed": 42,
+      "input": "我忘记注销旧账号。",
+      "corpus_expected": "我忘記註銷舊帳號。",
+      "outputs": {
+        "zhtw": "我忘記註銷舊帳號。",
+        "opencc-s2twp": "我忘記登出舊賬號。",
+        "zhconv-zh-tw": "我忘記註銷舊帳號。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "account"
+      ],
+      "notes": "注销账号→登出帳號"
+    },
+    {
+      "id": "social/social_069",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_069",
+      "sample_seed": 42,
+      "input": "保存体力明天再出门。",
+      "corpus_expected": "保存體力明天再出門。",
+      "outputs": {
+        "zhtw": "保存體力明天再出門。",
+        "opencc-s2twp": "儲存體力明天再出門。",
+        "zhconv-zh-tw": "保存體力明天再出門。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily"
+      ],
+      "notes": "一般保存保持保存"
+    },
+    {
+      "id": "regressions/regression_026",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_026",
+      "sample_seed": 42,
+      "input": "已经通过 API 上传文件",
+      "corpus_expected": "已經透過 API 上傳檔案",
+      "outputs": {
+        "zhtw": "已經透過 API 上傳檔案",
+        "opencc-s2twp": "已經透過 API 上傳檔案",
+        "zhconv-zh-tw": "已經通過 API 上傳文件"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "通过"
+      ],
+      "notes": "通过 API 應為透過 API"
+    },
+    {
+      "id": "wiki/wiki_093",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27-500.json",
+      "case_id": "wiki_093",
+      "sample_seed": 42,
+      "input": "法国历史包含多个王朝。",
+      "corpus_expected": "法國歷史包含多個王朝。",
+      "outputs": {
+        "zhtw": "法國歷史包含多個王朝。",
+        "opencc-s2twp": "法國曆史包含多個王朝。",
+        "zhconv-zh-tw": "法國歷史包含多個王朝。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "history"
+      ],
+      "notes": "法国→法國"
+    },
+    {
+      "id": "tech/tech_022",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_022",
+      "sample_seed": 42,
+      "input": "请更新依赖并重新构建项目。",
+      "corpus_expected": "請更新相依套件並重新建置專案。",
+      "outputs": {
+        "zhtw": "請更新相依套件並重新建置專案。",
+        "opencc-s2twp": "請更新依賴並重新構建專案。",
+        "zhconv-zh-tw": "請更新依賴並重新構建項目。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "build",
+        "dependency"
+      ],
+      "notes": "更新依赖→更新相依套件，项目→專案"
+    },
+    {
+      "id": "tech/tech_078",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_078",
+      "sample_seed": 42,
+      "input": "文件路径包含空格。",
+      "corpus_expected": "檔案路徑包含空格。",
+      "outputs": {
+        "zhtw": "檔案路徑包含空格。",
+        "opencc-s2twp": "檔案路徑包含空格。",
+        "zhconv-zh-tw": "文件路徑包含空格。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "file"
+      ],
+      "notes": "文件路径→檔案路徑"
+    },
+    {
+      "id": "regressions/regression_091",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_091",
+      "sample_seed": 42,
+      "input": "禁用药物和禁用账号",
+      "corpus_expected": "禁用藥物和停用帳號",
+      "outputs": {
+        "zhtw": "禁用藥物和停用帳號",
+        "opencc-s2twp": "禁用藥物和禁用賬號",
+        "zhconv-zh-tw": "禁用藥物和禁用帳號"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "禁用"
+      ],
+      "notes": "藥物/帳號雙語境"
+    },
+    {
+      "id": "tech/tech_097",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_097",
+      "sample_seed": 42,
+      "input": "通过 API 下载文件。",
+      "corpus_expected": "透過 API 下載檔案。",
+      "outputs": {
+        "zhtw": "透過 API 下載檔案。",
+        "opencc-s2twp": "透過 API 下載檔案。",
+        "zhconv-zh-tw": "通過 API 下載文件。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "api"
+      ],
+      "notes": "通过 API→透過 API"
+    },
+    {
+      "id": "tech/tech_061",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_061",
+      "sample_seed": 42,
+      "input": "命令行工具支持自动补全。",
+      "corpus_expected": "命令列工具支援自動補全。",
+      "outputs": {
+        "zhtw": "命令列工具支援自動補全。",
+        "opencc-s2twp": "命令列工具支援自動補全。",
+        "zhconv-zh-tw": "命令行工具支持自動補全。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "cli"
+      ],
+      "notes": "技術語境支持→支援"
+    },
+    {
+      "id": "regressions/regression_030",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_030",
+      "sample_seed": 42,
+      "input": "后端服务返回状态码",
+      "corpus_expected": "後端服務回傳狀態碼",
+      "outputs": {
+        "zhtw": "後端服務回傳狀態碼",
+        "opencc-s2twp": "後端服務返回狀態碼",
+        "zhconv-zh-tw": "後端服務返回狀態碼"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "返回"
+      ],
+      "notes": "返回状态码→回傳狀態碼"
+    },
+    {
+      "id": "social/social_064",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_064",
+      "sample_seed": 42,
+      "input": "本周到货的商品很好看。",
+      "corpus_expected": "本週到貨的商品很好看。",
+      "outputs": {
+        "zhtw": "本週到貨的商品很好看。",
+        "opencc-s2twp": "本週到貨的商品很好看。",
+        "zhconv-zh-tw": "本周到貨的商品很好看。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "notes": "本周到→本週到"
+    },
+    {
+      "id": "tech/tech_008",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/samples.json",
+      "case_id": "tech_008",
+      "sample_seed": 42,
+      "input": "服务器需要安装安全补丁。",
+      "corpus_expected": "伺服器需要安裝安全修補程式。",
+      "outputs": {
+        "zhtw": "伺服器需要安裝安全修補程式。",
+        "opencc-s2twp": "伺服器需要安裝安全補丁。",
+        "zhconv-zh-tw": "伺服器需要安裝安全補丁。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "security",
+        "server"
+      ],
+      "notes": "服务器→伺服器, 安装→安裝, 补丁→修補程式"
+    },
+    {
+      "id": "regressions/regression_011",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/samples.json",
+      "case_id": "regression_011",
+      "sample_seed": 42,
+      "input": "收藏这篇文章到收藏夹",
+      "corpus_expected": "收藏這篇文章到我的最愛",
+      "outputs": {
+        "zhtw": "收藏這篇文章到我的最愛",
+        "opencc-s2twp": "收藏這篇文章到收藏夾",
+        "zhconv-zh-tw": "收藏這篇文章到收藏夾"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "over-conversion",
+        "ui"
+      ],
+      "notes": "收藏動詞保持，收藏夹→我的最愛"
+    },
+    {
+      "id": "news/news_075",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27-500.json",
+      "case_id": "news_075",
+      "sample_seed": 42,
+      "input": "市议会通过年度预算。",
+      "corpus_expected": "市議會通過年度預算。",
+      "outputs": {
+        "zhtw": "市議會通過年度預算。",
+        "opencc-s2twp": "市議會透過年度預算。",
+        "zhconv-zh-tw": "市議會通過年度預算。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "politics"
+      ],
+      "notes": "通过作通過"
+    },
+    {
+      "id": "news/news_100",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27-500.json",
+      "case_id": "news_100",
+      "sample_seed": 42,
+      "input": "公司董事会通过现金增资案。",
+      "corpus_expected": "公司董事會通過現金增資案。",
+      "outputs": {
+        "zhtw": "公司董事會通過現金增資案。",
+        "opencc-s2twp": "公司董事會透過現金增資案。",
+        "zhconv-zh-tw": "公司董事會通過現金增資案。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "business"
+      ],
+      "notes": "通过作通過"
+    },
+    {
+      "id": "social/social_038",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_038",
+      "sample_seed": 42,
+      "input": "我已经通过链接报名了。",
+      "corpus_expected": "我已經透過連結報名了。",
+      "outputs": {
+        "zhtw": "我已經透過連結報名了。",
+        "opencc-s2twp": "我已經透過連結報名了。",
+        "zhconv-zh-tw": "我已經通過連結報名了。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "web"
+      ],
+      "notes": "通过链接→透過連結"
+    },
+    {
+      "id": "regressions/regression_059",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_059",
+      "sample_seed": 42,
+      "input": "请更新依赖并重新构建项目",
+      "corpus_expected": "請更新相依套件並重新建置專案",
+      "outputs": {
+        "zhtw": "請更新相依套件並重新建置專案",
+        "opencc-s2twp": "請更新依賴並重新構建專案",
+        "zhconv-zh-tw": "請更新依賴並重新構建項目"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "it"
+      ],
+      "notes": "相依套件與專案建置"
+    },
+    {
+      "id": "social/social_073",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_073",
+      "sample_seed": 42,
+      "input": "撤销操作后画面恢复正常。",
+      "corpus_expected": "復原操作後畫面恢復正常。",
+      "outputs": {
+        "zhtw": "復原操作後畫面恢復正常。",
+        "opencc-s2twp": "撤銷操作後畫面恢復正常。",
+        "zhconv-zh-tw": "撤銷操作後畫面恢復正常。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "ui"
+      ],
+      "notes": "撤销操作→復原操作"
+    },
+    {
+      "id": "wiki/wiki_053",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27.json",
+      "case_id": "wiki_053",
+      "sample_seed": 42,
+      "input": "遗传算法模拟自然选择过程。",
+      "corpus_expected": "遺傳演算法模擬自然選擇過程。",
+      "outputs": {
+        "zhtw": "遺傳演算法模擬自然選擇過程。",
+        "opencc-s2twp": "遺傳演算法模擬自然選擇過程。",
+        "zhconv-zh-tw": "遺傳算法模擬自然選擇過程。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "algorithm"
+      ],
+      "notes": "遗传算法→遺傳演算法，自然选择→自然選擇"
+    },
+    {
+      "id": "news/news_048",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27.json",
+      "case_id": "news_048",
+      "sample_seed": 42,
+      "input": "公司董事会通过现金增资案。",
+      "corpus_expected": "公司董事會通過現金增資案。",
+      "outputs": {
+        "zhtw": "公司董事會通過現金增資案。",
+        "opencc-s2twp": "公司董事會透過現金增資案。",
+        "zhconv-zh-tw": "公司董事會通過現金增資案。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "business"
+      ],
+      "notes": "董事会→董事會，通过→通過"
+    },
+    {
+      "id": "news/news_018",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/samples.json",
+      "case_id": "news_018",
+      "sample_seed": 42,
+      "input": "环保署提醒民众减少一次性塑料使用。",
+      "corpus_expected": "環保署提醒民眾減少一次性塑膠使用。",
+      "outputs": {
+        "zhtw": "環保署提醒民眾減少一次性塑膠使用。",
+        "opencc-s2twp": "環保署提醒民眾減少一次性塑膠使用。",
+        "zhconv-zh-tw": "環保署提醒民眾減少一次性塑料使用。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "environment"
+      ],
+      "notes": "环保署→環保署, 民众→民眾, 塑料→塑膠"
+    },
+    {
+      "id": "regressions/regression_017",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/samples.json",
+      "case_id": "regression_017",
+      "sample_seed": 42,
+      "input": "里长在邻里服务中心",
+      "corpus_expected": "里長在鄰里服務中心",
+      "outputs": {
+        "zhtw": "里長在鄰里服務中心",
+        "opencc-s2twp": "里長在鄰里服務中心",
+        "zhconv-zh-tw": "裡長在鄰裡服務中心"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "one-to-many",
+        "里"
+      ],
+      "notes": "里长保持里, 邻里→鄰里"
+    },
+    {
+      "id": "tech/tech_100",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_100",
+      "sample_seed": 42,
+      "input": "程序退出前会释放资源。",
+      "corpus_expected": "程式退出前會釋放資源。",
+      "outputs": {
+        "zhtw": "程式退出前會釋放資源。",
+        "opencc-s2twp": "程式退出前會釋放資源。",
+        "zhconv-zh-tw": "程序退出前會釋放資源。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "programming"
+      ],
+      "notes": "程序→程式，资源→資源"
+    },
+    {
+      "id": "tech/tech_079",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_079",
+      "sample_seed": 42,
+      "input": "命令输出显示权限不足。",
+      "corpus_expected": "命令輸出顯示權限不足。",
+      "outputs": {
+        "zhtw": "命令輸出顯示權限不足。",
+        "opencc-s2twp": "命令輸出顯示許可權不足。",
+        "zhconv-zh-tw": "命令輸出顯示權限不足。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "cli"
+      ],
+      "notes": "权限→權限"
+    },
+    {
+      "id": "regressions/regression_085",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_085",
+      "sample_seed": 42,
+      "input": "通过测试不是通过 API",
+      "corpus_expected": "通過測試不是透過 API",
+      "outputs": {
+        "zhtw": "通過測試不是透過 API",
+        "opencc-s2twp": "透過測試不是透過 API",
+        "zhconv-zh-tw": "通過測試不是通過 API"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "通过"
+      ],
+      "notes": "通過/透過雙語境"
+    },
+    {
+      "id": "social/social_023",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_023",
+      "sample_seed": 42,
+      "input": "每周到健身房三次。",
+      "corpus_expected": "每週到健身房三次。",
+      "outputs": {
+        "zhtw": "每週到健身房三次。",
+        "opencc-s2twp": "每週到健身房三次。",
+        "zhconv-zh-tw": "每周到健身房三次。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "fitness"
+      ],
+      "notes": "每周到→每週到"
+    },
+    {
+      "id": "news/news_023",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27.json",
+      "case_id": "news_023",
+      "sample_seed": 42,
+      "input": "教育部公布考试日期。",
+      "corpus_expected": "教育部公布考試日期。",
+      "outputs": {
+        "zhtw": "教育部公布考試日期。",
+        "opencc-s2twp": "教育部公佈考試日期。",
+        "zhconv-zh-tw": "教育部公布考試日期。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "education"
+      ],
+      "notes": "公布保持公布，考试→考試"
+    },
+    {
+      "id": "news/news_041",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27.json",
+      "case_id": "news_041",
+      "sample_seed": 42,
+      "input": "检方搜索多处办公室并带回资料。",
+      "corpus_expected": "檢方搜尋多處辦公室並帶回資料。",
+      "outputs": {
+        "zhtw": "檢方搜尋多處辦公室並帶回資料。",
+        "opencc-s2twp": "檢方搜尋多處辦公室並帶回資料。",
+        "zhconv-zh-tw": "檢方搜索多處辦公室並帶回資料。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "law"
+      ],
+      "notes": "检方→檢方，资料→資料"
+    },
+    {
+      "id": "regressions/regression_013",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/samples.json",
+      "case_id": "regression_013",
+      "sample_seed": 42,
+      "input": "撤销操作不是撤销合同",
+      "corpus_expected": "復原操作不是撤銷合約",
+      "outputs": {
+        "zhtw": "復原操作不是撤銷合約",
+        "opencc-s2twp": "撤銷操作不是撤銷合同",
+        "zhconv-zh-tw": "撤銷操作不是撤銷合同"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "ui",
+        "legal"
+      ],
+      "notes": "撤销操作→復原操作, 撤销合同→撤銷合約"
+    },
+    {
+      "id": "social/social_035",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_035",
+      "sample_seed": 42,
+      "input": "请先刷新页面再试一次。",
+      "corpus_expected": "請先重新整理頁面再試一次。",
+      "outputs": {
+        "zhtw": "請先重新整理頁面再試一次。",
+        "opencc-s2twp": "請先重新整理頁面再試一次。",
+        "zhconv-zh-tw": "請先刷新頁面再試一次。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "ui"
+      ],
+      "notes": "刷新页面→重新整理頁面"
+    },
+    {
+      "id": "tech/tech_005",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/samples.json",
+      "case_id": "tech_005",
+      "sample_seed": 42,
+      "input": "数据库的查询性能需要优化。",
+      "corpus_expected": "資料庫的查詢效能需要最佳化。",
+      "outputs": {
+        "zhtw": "資料庫的查詢效能需要最佳化。",
+        "opencc-s2twp": "資料庫的查詢效能需要最佳化。",
+        "zhconv-zh-tw": "資料庫的查詢性能需要優化。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "database",
+        "performance"
+      ],
+      "notes": "数据库→資料庫, 性能→效能, 优化→最佳化"
+    },
+    {
+      "id": "wiki/wiki_016",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/samples.json",
+      "case_id": "wiki_016",
+      "sample_seed": 42,
+      "input": "算法分析是计算机科学的重要主题。",
+      "corpus_expected": "演算法分析是電腦科學的重要主題。",
+      "outputs": {
+        "zhtw": "演算法分析是電腦科學的重要主題。",
+        "opencc-s2twp": "演算法分析是電腦科學的重要主題。",
+        "zhconv-zh-tw": "算法分析是計算機科學的重要主題。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "computing"
+      ],
+      "notes": "算法→演算法, 计算机科学→電腦科學, 主题→主題"
+    },
+    {
+      "id": "regressions/regression_074",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_074",
+      "sample_seed": 42,
+      "input": "评论区不是时事评论",
+      "corpus_expected": "留言區不是時事評論",
+      "outputs": {
+        "zhtw": "留言區不是時事評論",
+        "opencc-s2twp": "評論區不是時事評論",
+        "zhconv-zh-tw": "評論區不是時事評論"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "评论"
+      ],
+      "notes": "评论雙語境"
+    },
+    {
+      "id": "social/social_079",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_079",
+      "sample_seed": 42,
+      "input": "骑自行车去上班很环保。",
+      "corpus_expected": "騎腳踏車去上班很環保。",
+      "outputs": {
+        "zhtw": "騎腳踏車去上班很環保。",
+        "opencc-s2twp": "騎腳踏車去上班很環保。",
+        "zhconv-zh-tw": "騎自行車去上班很環保。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "transport"
+      ],
+      "notes": "自行车→腳踏車"
+    },
+    {
+      "id": "regressions/regression_079",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_079",
+      "sample_seed": 42,
+      "input": "刷新页面不是刷新纪录",
+      "corpus_expected": "重新整理頁面不是刷新紀錄",
+      "outputs": {
+        "zhtw": "重新整理頁面不是刷新紀錄",
+        "opencc-s2twp": "重新整理頁面不是重新整理紀錄",
+        "zhconv-zh-tw": "刷新頁面不是刷新紀錄"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "刷新"
+      ],
+      "notes": "刷新雙語境"
+    },
+    {
+      "id": "tech/tech_045",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_045",
+      "sample_seed": 42,
+      "input": "浏览器控制台显示警告。",
+      "corpus_expected": "瀏覽器主控台顯示警告。",
+      "outputs": {
+        "zhtw": "瀏覽器主控台顯示警告。",
+        "opencc-s2twp": "瀏覽器控制檯顯示警告。",
+        "zhconv-zh-tw": "瀏覽器控制臺顯示警告。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "browser",
+        "debugging"
+      ],
+      "notes": "浏览器→瀏覽器，控制台→主控台"
+    },
+    {
+      "id": "tech/tech_006",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/samples.json",
+      "case_id": "tech_006",
+      "sample_seed": 42,
+      "input": "请在配置文件中设置默认值。",
+      "corpus_expected": "請在設定檔中設定預設值。",
+      "outputs": {
+        "zhtw": "請在設定檔中設定預設值。",
+        "opencc-s2twp": "請在配置檔案中設定預設值。",
+        "zhconv-zh-tw": "請在配置文件中設置默認值。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "configuration",
+        "ui"
+      ],
+      "notes": "配置文件→設定檔, 设置→設定, 默认值→預設值"
+    },
+    {
+      "id": "tech/tech_059",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_059",
+      "sample_seed": 42,
+      "input": "请把补丁合并到主分支。",
+      "corpus_expected": "請把修補程式合併到主分支。",
+      "outputs": {
+        "zhtw": "請把修補程式合併到主分支。",
+        "opencc-s2twp": "請把補丁合併到主分支。",
+        "zhconv-zh-tw": "請把補丁合併到主分支。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "git",
+        "patch"
+      ],
+      "notes": "补丁→修補程式，主分支→主分支"
+    },
+    {
+      "id": "social/social_081",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_081",
+      "sample_seed": 42,
+      "input": "这个应用一直显示错误信息。",
+      "corpus_expected": "這個應用程式一直顯示錯誤資訊。",
+      "outputs": {
+        "zhtw": "這個應用程式一直顯示錯誤資訊。",
+        "opencc-s2twp": "這個應用一直顯示錯誤資訊。",
+        "zhconv-zh-tw": "這個應用一直顯示錯誤信息。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "app"
+      ],
+      "notes": "应用→應用程式"
+    },
+    {
+      "id": "wiki/wiki_050",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27.json",
+      "case_id": "wiki_050",
+      "sample_seed": 42,
+      "input": "统计学用于分析大量数据。",
+      "corpus_expected": "統計學用於分析大量資料。",
+      "outputs": {
+        "zhtw": "統計學用於分析大量資料。",
+        "opencc-s2twp": "統計學用於分析大量資料。",
+        "zhconv-zh-tw": "統計學用於分析大量數據。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "statistics"
+      ],
+      "notes": "统计学→統計學，数据→資料"
+    },
+    {
+      "id": "news/news_007",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/samples.json",
+      "case_id": "news_007",
+      "sample_seed": 42,
+      "input": "新的数据中心将在下半年启用。",
+      "corpus_expected": "新的資料中心將在下半年啟用。",
+      "outputs": {
+        "zhtw": "新的資料中心將在下半年啟用。",
+        "opencc-s2twp": "新的資料中心將在下半年啟用。",
+        "zhconv-zh-tw": "新的數據中心將在下半年啟用。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "it"
+      ],
+      "notes": "数据中心→資料中心, 启用→啟用"
+    },
+    {
+      "id": "tech/tech_042",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_042",
+      "sample_seed": 42,
+      "input": "请检查环境变量是否设置正确。",
+      "corpus_expected": "請檢查環境變數是否設定正確。",
+      "outputs": {
+        "zhtw": "請檢查環境變數是否設定正確。",
+        "opencc-s2twp": "請檢查環境變數是否設定正確。",
+        "zhconv-zh-tw": "請檢查環境變量是否設置正確。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "configuration"
+      ],
+      "notes": "环境变量→環境變數，设置→設定"
+    },
+    {
+      "id": "regressions/regression_064",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_064",
+      "sample_seed": 42,
+      "input": "部署流水线已经通过",
+      "corpus_expected": "部署管線已經通過",
+      "outputs": {
+        "zhtw": "部署管線已經通過",
+        "opencc-s2twp": "部署流水線已經透過",
+        "zhconv-zh-tw": "部署流水線已經通過"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "pipeline"
+      ],
+      "notes": "部署管線通過語境"
+    },
+    {
+      "id": "wiki/wiki_002",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/samples.json",
+      "case_id": "wiki_002",
+      "sample_seed": 42,
+      "input": "人工智能是计算机科学的一个分支。",
+      "corpus_expected": "人工智慧是電腦科學的一個分支。",
+      "outputs": {
+        "zhtw": "人工智慧是電腦科學的一個分支。",
+        "opencc-s2twp": "人工智慧是電腦科學的一個分支。",
+        "zhconv-zh-tw": "人工智慧是計算機科學的一個分支。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "ai"
+      ],
+      "notes": "人工智能→人工智慧, 计算机→電腦"
+    },
+    {
+      "id": "tech/tech_068",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_068",
+      "sample_seed": 42,
+      "input": "单元测试会模拟异常情况。",
+      "corpus_expected": "單元測試會模擬例外情況。",
+      "outputs": {
+        "zhtw": "單元測試會模擬例外情況。",
+        "opencc-s2twp": "單元測試會模擬異常情況。",
+        "zhconv-zh-tw": "單元測試會模擬異常情況。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "testing"
+      ],
+      "notes": "异常→例外"
+    },
+    {
+      "id": "regressions/regression_048",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_048",
+      "sample_seed": 42,
+      "input": "开源项目管理",
+      "corpus_expected": "開源專案管理",
+      "outputs": {
+        "zhtw": "開源專案管理",
+        "opencc-s2twp": "開源專案管理",
+        "zhconv-zh-tw": "開源項目管理"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "项目"
+      ],
+      "notes": "開源專案"
+    },
+    {
+      "id": "wiki/wiki_077",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27-500.json",
+      "case_id": "wiki_077",
+      "sample_seed": 42,
+      "input": "虚拟现实提供沉浸式体验。",
+      "corpus_expected": "虛擬實境提供沉浸式體驗。",
+      "outputs": {
+        "zhtw": "虛擬實境提供沉浸式體驗。",
+        "opencc-s2twp": "虛擬現實提供沉浸式體驗。",
+        "zhconv-zh-tw": "虛擬實境提供沉浸式體驗。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "vr"
+      ],
+      "notes": "虚拟现实→虛擬實境"
+    },
+    {
+      "id": "regressions/regression_066",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_066",
+      "sample_seed": 42,
+      "input": "公布于众后宣布结果",
+      "corpus_expected": "公布於眾後宣布結果",
+      "outputs": {
+        "zhtw": "公布於眾後宣布結果",
+        "opencc-s2twp": "公佈於眾後宣佈結果",
+        "zhconv-zh-tw": "公布於眾後宣布結果"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "公布"
+      ],
+      "notes": "公布/宣布不轉公佈/宣佈"
+    },
+    {
+      "id": "tech/tech_052",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_052",
+      "sample_seed": 42,
+      "input": "缓存失效会导致响应变慢。",
+      "corpus_expected": "快取失效會導致回應變慢。",
+      "outputs": {
+        "zhtw": "快取失效會導致回應變慢。",
+        "opencc-s2twp": "快取失效會導致響應變慢。",
+        "zhconv-zh-tw": "緩存失效會導致響應變慢。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "cache",
+        "performance"
+      ],
+      "notes": "缓存→快取，响应→回應"
+    },
+    {
+      "id": "regressions/regression_049",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_049",
+      "sample_seed": 42,
+      "input": "检查项目清单",
+      "corpus_expected": "檢查項目清單",
+      "outputs": {
+        "zhtw": "檢查項目清單",
+        "opencc-s2twp": "檢查專案清單",
+        "zhconv-zh-tw": "檢查項目清單"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "项目"
+      ],
+      "notes": "檢查項目"
+    },
+    {
+      "id": "social/social_021",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_021",
+      "sample_seed": 42,
+      "input": "这周到店领取赠品。",
+      "corpus_expected": "這週到店領取贈品。",
+      "outputs": {
+        "zhtw": "這週到店領取贈品。",
+        "opencc-s2twp": "這周到店領取贈品。",
+        "zhconv-zh-tw": "這周到店領取贈品。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "notes": "这周到店→這週到店"
+    },
+    {
+      "id": "wiki/wiki_063",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27-500.json",
+      "case_id": "wiki_063",
+      "sample_seed": 42,
+      "input": "数据库事务保证数据一致性。",
+      "corpus_expected": "資料庫交易保證資料一致性。",
+      "outputs": {
+        "zhtw": "資料庫交易保證資料一致性。",
+        "opencc-s2twp": "資料庫事務保證資料一致性。",
+        "zhconv-zh-tw": "資料庫事務保證數據一致性。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "database"
+      ],
+      "notes": "事务→交易"
+    },
+    {
+      "id": "regressions/regression_065",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_065",
+      "sample_seed": 42,
+      "input": "已经通过链接报名",
+      "corpus_expected": "已經透過連結報名",
+      "outputs": {
+        "zhtw": "已經透過連結報名",
+        "opencc-s2twp": "已經透過連結報名",
+        "zhconv-zh-tw": "已經通過連結報名"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "通过"
+      ],
+      "notes": "通过链接→透過連結"
+    },
+    {
+      "id": "social/social_067",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_067",
+      "sample_seed": 42,
+      "input": "默认密码太简单了。",
+      "corpus_expected": "預設密碼太簡單了。",
+      "outputs": {
+        "zhtw": "預設密碼太簡單了。",
+        "opencc-s2twp": "預設密碼太簡單了。",
+        "zhconv-zh-tw": "默認密碼太簡單了。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "security"
+      ],
+      "notes": "默认→預設"
+    },
+    {
+      "id": "social/social_028",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_028",
+      "sample_seed": 42,
+      "input": "老板今天远程开会。",
+      "corpus_expected": "老闆今天遠端開會。",
+      "outputs": {
+        "zhtw": "老闆今天遠端開會。",
+        "opencc-s2twp": "老闆今天遠端開會。",
+        "zhconv-zh-tw": "老闆今天遠程開會。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "work"
+      ],
+      "notes": "老板→老闆，远程→遠端"
+    },
+    {
+      "id": "social/social_061",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_061",
+      "sample_seed": 42,
+      "input": "这周到店消费有折扣。",
+      "corpus_expected": "這週到店消費有折扣。",
+      "outputs": {
+        "zhtw": "這週到店消費有折扣。",
+        "opencc-s2twp": "這周到店消費有折扣。",
+        "zhconv-zh-tw": "這周到店消費有折扣。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "notes": "这周到店→這週到店"
+    },
+    {
+      "id": "regressions/regression_028",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_028",
+      "sample_seed": 42,
+      "input": "禁用账号后请通知用户",
+      "corpus_expected": "停用帳號後請通知使用者",
+      "outputs": {
+        "zhtw": "停用帳號後請通知使用者",
+        "opencc-s2twp": "禁用賬號後請通知使用者",
+        "zhconv-zh-tw": "禁用帳號後請通知用戶"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "禁用"
+      ],
+      "notes": "禁用账号→停用帳號"
+    },
+    {
+      "id": "social/social_086",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_086",
+      "sample_seed": 42,
+      "input": "收藏夹里的旧网页打不开。",
+      "corpus_expected": "我的最愛裡的舊網頁打不開。",
+      "outputs": {
+        "zhtw": "我的最愛裡的舊網頁打不開。",
+        "opencc-s2twp": "收藏夾裡的舊網頁打不開。",
+        "zhconv-zh-tw": "收藏夾裡的舊網頁打不開。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "browser"
+      ],
+      "notes": "收藏夹→我的最愛"
+    },
+    {
+      "id": "wiki/wiki_005",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/samples.json",
+      "case_id": "wiki_005",
+      "sample_seed": 42,
+      "input": "数据库系统用于存储和管理数据。",
+      "corpus_expected": "資料庫系統用於儲存和管理資料。",
+      "outputs": {
+        "zhtw": "資料庫系統用於儲存和管理資料。",
+        "opencc-s2twp": "資料庫系統用於儲存和管理資料。",
+        "zhconv-zh-tw": "資料庫系統用於存儲和管理數據。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "computing"
+      ],
+      "notes": "数据库→資料庫, 存储→儲存, 数据→資料"
+    },
+    {
+      "id": "regressions/regression_070",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_070",
+      "sample_seed": 42,
+      "input": "恢复备份需要管理员权限",
+      "corpus_expected": "還原備份需要管理員權限",
+      "outputs": {
+        "zhtw": "還原備份需要管理員權限",
+        "opencc-s2twp": "恢復備份需要管理員許可權",
+        "zhconv-zh-tw": "恢復備份需要管理員權限"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "恢复"
+      ],
+      "notes": "備份語境還原"
+    },
+    {
+      "id": "social/social_015",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/samples.json",
+      "case_id": "social_015",
+      "sample_seed": 42,
+      "input": "我把账号密码忘记了。",
+      "corpus_expected": "我把帳號密碼忘記了。",
+      "outputs": {
+        "zhtw": "我把帳號密碼忘記了。",
+        "opencc-s2twp": "我把賬號密碼忘記了。",
+        "zhconv-zh-tw": "我把帳號密碼忘記了。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "account"
+      ],
+      "notes": "账号→帳號, 密码→密碼, 忘记→忘記"
+    },
+    {
+      "id": "regressions/regression_082",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_082",
+      "sample_seed": 42,
+      "input": "默认头像不是他默认指控",
+      "corpus_expected": "預設頭像不是他默認指控",
+      "outputs": {
+        "zhtw": "預設頭像不是他默認指控",
+        "opencc-s2twp": "預設頭像不是他預設指控",
+        "zhconv-zh-tw": "默認頭像不是他默認指控"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "默认"
+      ],
+      "notes": "預設/默認雙語境"
+    },
+    {
+      "id": "regressions/regression_050",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_050",
+      "sample_seed": 42,
+      "input": "一条消息",
+      "corpus_expected": "一則訊息",
+      "outputs": {
+        "zhtw": "一則訊息",
+        "opencc-s2twp": "一條訊息",
+        "zhconv-zh-tw": "一條消息"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "消息"
+      ],
+      "notes": "消息量詞語境→訊息"
+    },
+    {
+      "id": "tech/tech_002",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/samples.json",
+      "case_id": "tech_002",
+      "sample_seed": 42,
+      "input": "该软件的源代码托管在云服务器上。",
+      "corpus_expected": "該軟體的原始碼託管在雲端伺服器上。",
+      "outputs": {
+        "zhtw": "該軟體的原始碼託管在雲端伺服器上。",
+        "opencc-s2twp": "該軟體的原始碼託管在雲伺服器上。",
+        "zhconv-zh-tw": "該軟體的原始碼託管在雲伺服器上。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "programming",
+        "cloud"
+      ],
+      "notes": "软件→軟體, 源代码→原始碼, 云→雲端, 服务器→伺服器"
+    },
+    {
+      "id": "news/news_095",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27-500.json",
+      "case_id": "news_095",
+      "sample_seed": 42,
+      "input": "动物园公布新生动物名单。",
+      "corpus_expected": "動物園公布新生動物名單。",
+      "outputs": {
+        "zhtw": "動物園公布新生動物名單。",
+        "opencc-s2twp": "動物園公佈新生動物名單。",
+        "zhconv-zh-tw": "動物園公布新生動物名單。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "public"
+      ],
+      "notes": "公布保持公布"
+    },
+    {
+      "id": "news/news_091",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27-500.json",
+      "case_id": "news_091",
+      "sample_seed": 42,
+      "input": "社区大学开放春季课程报名。",
+      "corpus_expected": "社區大學開放春季課程報名。",
+      "outputs": {
+        "zhtw": "社區大學開放春季課程報名。",
+        "opencc-s2twp": "社群大學開放春季課程報名。",
+        "zhconv-zh-tw": "社區大學開放春季課程報名。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "education"
+      ],
+      "notes": "社区→社區"
+    },
+    {
+      "id": "wiki/wiki_061",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27-500.json",
+      "case_id": "wiki_061",
+      "sample_seed": 42,
+      "input": "计算机网络连接状态稳定。",
+      "corpus_expected": "電腦網路連線狀態穩定。",
+      "outputs": {
+        "zhtw": "電腦網路連線狀態穩定。",
+        "opencc-s2twp": "計算機網路連線狀態穩定。",
+        "zhconv-zh-tw": "計算機網絡連接狀態穩定。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "computing"
+      ],
+      "notes": "网络连接→網路連線"
+    },
+    {
+      "id": "wiki/wiki_042",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27.json",
+      "case_id": "wiki_042",
+      "sample_seed": 42,
+      "input": "密码学研究信息安全与加密技术。",
+      "corpus_expected": "密碼學研究資訊安全與加密技術。",
+      "outputs": {
+        "zhtw": "密碼學研究資訊安全與加密技術。",
+        "opencc-s2twp": "密碼學研究資訊保安與加密技術。",
+        "zhconv-zh-tw": "密碼學研究信息安全與加密技術。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "science",
+        "security"
+      ],
+      "notes": "密码学→密碼學，信息安全→資訊安全"
+    },
+    {
+      "id": "tech/tech_035",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_035",
+      "sample_seed": 42,
+      "input": "消息队列处理异步任务。",
+      "corpus_expected": "訊息佇列處理非同步任務。",
+      "outputs": {
+        "zhtw": "訊息佇列處理非同步任務。",
+        "opencc-s2twp": "訊息佇列處理非同步任務。",
+        "zhconv-zh-tw": "消息隊列處理異步任務。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "queue",
+        "async"
+      ],
+      "notes": "队列→佇列，异步→非同步"
+    },
+    {
+      "id": "tech/tech_003",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/samples.json",
+      "case_id": "tech_003",
+      "sample_seed": 42,
+      "input": "程序员需要调试这个内存泄漏的问题。",
+      "corpus_expected": "程式設計師需要除錯這個記憶體洩漏的問題。",
+      "outputs": {
+        "zhtw": "程式設計師需要除錯這個記憶體洩漏的問題。",
+        "opencc-s2twp": "程式設計師需要除錯這個記憶體洩漏的問題。",
+        "zhconv-zh-tw": "程式設計師需要調試這個內存洩漏的問題。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "programming",
+        "debugging"
+      ],
+      "notes": "程序员→程式設計師, 调试→除錯, 内存→記憶體"
+    },
+    {
+      "id": "regressions/regression_054",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_054",
+      "sample_seed": 42,
+      "input": "500克巧克力蛋糕",
+      "corpus_expected": "500公克巧克力蛋糕",
+      "outputs": {
+        "zhtw": "500公克巧克力蛋糕",
+        "opencc-s2twp": "500克巧克力蛋糕",
+        "zhconv-zh-tw": "500克巧克力蛋糕"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "克"
+      ],
+      "notes": "數量克→公克，巧克力保持"
+    },
+    {
+      "id": "tech/tech_023",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_023",
+      "sample_seed": 42,
+      "input": "已经通过 API 上传文件。",
+      "corpus_expected": "已經透過 API 上傳檔案。",
+      "outputs": {
+        "zhtw": "已經透過 API 上傳檔案。",
+        "opencc-s2twp": "已經透過 API 上傳檔案。",
+        "zhconv-zh-tw": "已經通過 API 上傳文件。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "api",
+        "upload"
+      ],
+      "notes": "通过 API→透過 API"
+    },
+    {
+      "id": "regressions/regression_076",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_076",
+      "sample_seed": 42,
+      "input": "销售渠道不是灌溉渠道",
+      "corpus_expected": "銷售通路不是灌溉渠道",
+      "outputs": {
+        "zhtw": "銷售通路不是灌溉渠道",
+        "opencc-s2twp": "銷售渠道不是灌溉渠道",
+        "zhconv-zh-tw": "銷售渠道不是灌溉渠道"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "渠道"
+      ],
+      "notes": "通路/渠道雙語境"
+    },
+    {
+      "id": "tech/tech_044",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_044",
+      "sample_seed": 42,
+      "input": "这个组件会监听滚动事件。",
+      "corpus_expected": "這個元件會監聽滾動事件。",
+      "outputs": {
+        "zhtw": "這個元件會監聽滾動事件。",
+        "opencc-s2twp": "這個元件會監聽滾動事件。",
+        "zhconv-zh-tw": "這個組件會監聽滾動事件。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "frontend",
+        "ui"
+      ],
+      "notes": "组件→元件，事件→事件"
+    },
+    {
+      "id": "social/social_092",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_092",
+      "sample_seed": 42,
+      "input": "远程办公让我省下通勤时间。",
+      "corpus_expected": "遠端辦公讓我省下通勤時間。",
+      "outputs": {
+        "zhtw": "遠端辦公讓我省下通勤時間。",
+        "opencc-s2twp": "遠端辦公讓我省下通勤時間。",
+        "zhconv-zh-tw": "遠程辦公讓我省下通勤時間。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "work"
+      ],
+      "notes": "远程办公→遠端辦公"
+    },
+    {
+      "id": "social/social_045",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_045",
+      "sample_seed": 42,
+      "input": "保存文件之后记得备份。",
+      "corpus_expected": "儲存檔案之後記得備份。",
+      "outputs": {
+        "zhtw": "儲存檔案之後記得備份。",
+        "opencc-s2twp": "儲存檔案之後記得備份。",
+        "zhconv-zh-tw": "保存文件之後記得備份。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "file"
+      ],
+      "notes": "保存文件→儲存檔案"
+    },
+    {
+      "id": "social/social_085",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27-500.json",
+      "case_id": "social_085",
+      "sample_seed": 42,
+      "input": "我通过链接加入群组。",
+      "corpus_expected": "我透過連結加入群組。",
+      "outputs": {
+        "zhtw": "我透過連結加入群組。",
+        "opencc-s2twp": "我透過連結加入群組。",
+        "zhconv-zh-tw": "我通過連結加入群組。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "web"
+      ],
+      "notes": "通过链接→透過連結"
+    },
+    {
+      "id": "tech/tech_073",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_073",
+      "sample_seed": 42,
+      "input": "请求头缺少内容类型。",
+      "corpus_expected": "請求標頭缺少內容類型。",
+      "outputs": {
+        "zhtw": "請求標頭缺少內容類型。",
+        "opencc-s2twp": "請求頭缺少內容型別。",
+        "zhconv-zh-tw": "請求頭缺少內容類型。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "api"
+      ],
+      "notes": "请求头→請求標頭"
+    },
+    {
+      "id": "tech/tech_037",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_037",
+      "sample_seed": 42,
+      "input": "命令行参数支持短选项。",
+      "corpus_expected": "命令列參數支持短選項。",
+      "outputs": {
+        "zhtw": "命令列參數支持短選項。",
+        "opencc-s2twp": "命令列引數支援短選項。",
+        "zhconv-zh-tw": "命令行參數支持短選項。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "cli"
+      ],
+      "notes": "命令行→命令列，选项→選項"
+    },
+    {
+      "id": "regressions/regression_040",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27.json",
+      "case_id": "regression_040",
+      "sample_seed": 42,
+      "input": "撤销合同条款",
+      "corpus_expected": "撤銷合約條款",
+      "outputs": {
+        "zhtw": "撤銷合約條款",
+        "opencc-s2twp": "撤銷合同條款",
+        "zhconv-zh-tw": "撤銷合同條款"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "撤销"
+      ],
+      "notes": "法律撤销→撤銷"
+    },
+    {
+      "id": "regressions/regression_063",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_063",
+      "sample_seed": 42,
+      "input": "构建流水线已经通过",
+      "corpus_expected": "建置管線已經通過",
+      "outputs": {
+        "zhtw": "建置管線已經通過",
+        "opencc-s2twp": "構建流水線已經透過",
+        "zhconv-zh-tw": "構建流水線已經通過"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "pipeline"
+      ],
+      "notes": "建置管線通過語境"
+    },
+    {
+      "id": "tech/tech_071",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_071",
+      "sample_seed": 42,
+      "input": "构建流水线失败时发送通知。",
+      "corpus_expected": "建置管線失敗時傳送通知。",
+      "outputs": {
+        "zhtw": "建置管線失敗時傳送通知。",
+        "opencc-s2twp": "構建流水線失敗時傳送通知。",
+        "zhconv-zh-tw": "構建流水線失敗時發送通知。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "build",
+        "pipeline"
+      ],
+      "notes": "构建流水线→建置管線"
+    },
+    {
+      "id": "tech/tech_053",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_053",
+      "sample_seed": 42,
+      "input": "这个算法使用递归遍历树结构。",
+      "corpus_expected": "這個演算法使用遞迴遍歷樹結構。",
+      "outputs": {
+        "zhtw": "這個演算法使用遞迴遍歷樹結構。",
+        "opencc-s2twp": "這個演算法使用遞迴遍歷樹結構。",
+        "zhconv-zh-tw": "這個算法使用遞歸遍歷樹結構。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "algorithm"
+      ],
+      "notes": "算法→演算法，递归→遞迴"
+    },
+    {
+      "id": "tech/tech_025",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_025",
+      "sample_seed": 42,
+      "input": "请在终端执行安装命令。",
+      "corpus_expected": "請在終端機執行安裝命令。",
+      "outputs": {
+        "zhtw": "請在終端機執行安裝命令。",
+        "opencc-s2twp": "請在終端執行安裝命令。",
+        "zhconv-zh-tw": "請在終端執行安裝命令。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "cli"
+      ],
+      "notes": "终端→終端，安装→安裝"
+    },
+    {
+      "id": "tech/tech_098",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27-500.json",
+      "case_id": "tech_098",
+      "sample_seed": 42,
+      "input": "浏览器控制台显示警告。",
+      "corpus_expected": "瀏覽器主控台顯示警告。",
+      "outputs": {
+        "zhtw": "瀏覽器主控台顯示警告。",
+        "opencc-s2twp": "瀏覽器控制檯顯示警告。",
+        "zhconv-zh-tw": "瀏覽器控制臺顯示警告。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "browser"
+      ],
+      "notes": "控制台→主控台"
+    },
+    {
+      "id": "social/social_002",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/samples.json",
+      "case_id": "social_002",
+      "sample_seed": 42,
+      "input": "刚买的U盘坏了，气死我了。",
+      "corpus_expected": "剛買的隨身碟壞了，氣死我了。",
+      "outputs": {
+        "zhtw": "剛買的隨身碟壞了，氣死我了。",
+        "opencc-s2twp": "剛買的隨身碟壞了，氣死我了。",
+        "zhconv-zh-tw": "剛買的U盤壞了，氣死我了。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "it"
+      ],
+      "notes": "U盘→隨身碟"
+    },
+    {
+      "id": "social/social_024",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_024",
+      "sample_seed": 42,
+      "input": "下周到台中找朋友。",
+      "corpus_expected": "下週到臺中找朋友。",
+      "outputs": {
+        "zhtw": "下週到臺中找朋友。",
+        "opencc-s2twp": "下週到臺中找朋友。",
+        "zhconv-zh-tw": "下周到臺中找朋友。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "travel"
+      ],
+      "notes": "下周到→下週到"
+    },
+    {
+      "id": "social/social_053",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_053",
+      "sample_seed": 42,
+      "input": "今天空气质量不太好。",
+      "corpus_expected": "今天空氣質量不太好。",
+      "outputs": {
+        "zhtw": "今天空氣質量不太好。",
+        "opencc-s2twp": "今天空氣質量不太好。",
+        "zhconv-zh-tw": "今天空氣品質不太好。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "environment"
+      ],
+      "notes": "空气→空氣，质量保持質量"
+    },
+    {
+      "id": "wiki/wiki_084",
+      "category": "wiki",
+      "source_file": "tests/data/corpus/wiki/expanded-2026-06-27-500.json",
+      "case_id": "wiki_084",
+      "sample_seed": 42,
+      "input": "联合国大会通过决议。",
+      "corpus_expected": "聯合國大會通過決議。",
+      "outputs": {
+        "zhtw": "聯合國大會通過決議。",
+        "opencc-s2twp": "聯合國大會透過決議。",
+        "zhconv-zh-tw": "聯合國大會通過決議。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "organization"
+      ],
+      "notes": "通过作通過"
+    },
+    {
+      "id": "social/social_029",
+      "category": "social",
+      "source_file": "tests/data/corpus/social/expanded-2026-06-27.json",
+      "case_id": "social_029",
+      "sample_seed": 42,
+      "input": "手机屏幕突然变暗。",
+      "corpus_expected": "手機螢幕突然變暗。",
+      "outputs": {
+        "zhtw": "手機螢幕突然變暗。",
+        "opencc-s2twp": "手機螢幕突然變暗。",
+        "zhconv-zh-tw": "手機屏幕突然變暗。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "daily",
+        "device"
+      ],
+      "notes": "手机→手機，屏幕→螢幕"
+    },
+    {
+      "id": "news/news_024",
+      "category": "news",
+      "source_file": "tests/data/corpus/news/expanded-2026-06-27.json",
+      "case_id": "news_024",
+      "sample_seed": 42,
+      "input": "行政院通过新的补助方案。",
+      "corpus_expected": "行政院透過新的補助方案。",
+      "outputs": {
+        "zhtw": "行政院透過新的補助方案。",
+        "opencc-s2twp": "行政院透過新的補助方案。",
+        "zhconv-zh-tw": "行政院通過新的補助方案。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "news",
+        "politics"
+      ],
+      "notes": "通过作通過，补助→補助"
+    },
+    {
+      "id": "tech/tech_056",
+      "category": "tech",
+      "source_file": "tests/data/corpus/tech/expanded-2026-06-27.json",
+      "case_id": "tech_056",
+      "sample_seed": 42,
+      "input": "文件名包含非法字符。",
+      "corpus_expected": "檔名包含非法字元。",
+      "outputs": {
+        "zhtw": "檔名包含非法字元。",
+        "opencc-s2twp": "檔名包含非法字元。",
+        "zhconv-zh-tw": "文件名包含非法字符。"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "file"
+      ],
+      "notes": "文件名→檔名，字符→字元"
+    },
+    {
+      "id": "regressions/regression_084",
+      "category": "regressions",
+      "source_file": "tests/data/corpus/regressions/expanded-2026-06-27-500.json",
+      "case_id": "regression_084",
+      "sample_seed": 42,
+      "input": "面向对象不是结婚对象",
+      "corpus_expected": "物件導向不是結婚對象",
+      "outputs": {
+        "zhtw": "物件導向不是結婚對象",
+        "opencc-s2twp": "物件導向不是結婚物件",
+        "zhconv-zh-tw": "面向對象不是結婚對象"
+      },
+      "errors": {},
+      "engine_versions": {
+        "zhtw": "4.4.1",
+        "opencc-s2twp": "0.1.7",
+        "zhconv-zh-tw": "1.4.3"
+      },
+      "classification": "zhtw_advantage",
+      "review": "pending",
+      "expected": null,
+      "decision": null,
+      "tags": [
+        "regression",
+        "对象"
+      ],
+      "notes": "物件/對象雙語境"
+    }
+  ]
+}

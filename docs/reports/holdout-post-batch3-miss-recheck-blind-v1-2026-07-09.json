@@ -1,0 +1,596 @@
+{
+  "report_type": "holdout_post_batch3_miss_recheck",
+  "review_stage": "codex_first_pass_expected_acceptable_recheck",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-09",
+  "source_benchmark": {
+    "path": "/tmp/zhtw-blind-v1-private-benchmark-2026-07-09.json",
+    "sha256": "0b719df6217050ee92371aaac59e579b321a88948baec4e8fc380d3cb3b50332",
+    "in_repo": false,
+    "rows_used_for_local_recheck": true
+  },
+  "source_reports": [
+    "docs/reports/holdout-private-benchmark-sanity-blind-v1-2026-07-09.json",
+    "docs/reports/holdout-miss-classification-blind-v1-200-cases-2026-07-09.json",
+    "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-200-cases-2026-07-09.json",
+    "docs/reports/holdout-sealed-pool-update-blind-v1-batch3-2026-07-09.json"
+  ],
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "case_recommendations_include_only_ids_and_metadata": true
+  },
+  "policy": {
+    "codex_is_advisory_only": true,
+    "private_expected_updated": false,
+    "converter_or_dictionary_updated": false,
+    "gemini_review_required_before_maintainer": true,
+    "maintainer_confirmation_required_for_acceptable_variants": true,
+    "holdout_signal_cases_must_not_be_used_for_tuning": true
+  },
+  "summary": {
+    "current_sealed_cases": 161,
+    "current_accepted": 144,
+    "current_misses": 17,
+    "classified_misses": 17,
+    "maintainer_review_required": 11,
+    "recommended_acceptable_variant_candidates": 11,
+    "keep_as_holdout_signal": 6,
+    "by_recommendation": {
+      "keep_as_holdout_signal": 6,
+      "maintainer_confirm_add_acceptable_variant": 11
+    },
+    "by_priority": {
+      "P1": 3,
+      "P2": 14
+    },
+    "by_domain_recommendation": {
+      "formal": {
+        "keep_as_holdout_signal": 1,
+        "maintainer_confirm_add_acceptable_variant": 1
+      },
+      "high_risk": {
+        "maintainer_confirm_add_acceptable_variant": 2
+      },
+      "it": {
+        "maintainer_confirm_add_acceptable_variant": 2
+      },
+      "llm": {
+        "keep_as_holdout_signal": 2,
+        "maintainer_confirm_add_acceptable_variant": 2
+      },
+      "social": {
+        "keep_as_holdout_signal": 2,
+        "maintainer_confirm_add_acceptable_variant": 1
+      },
+      "ui": {
+        "keep_as_holdout_signal": 1,
+        "maintainer_confirm_add_acceptable_variant": 3
+      }
+    },
+    "by_risk_recommendation": {
+      "baseline_guard": {
+        "keep_as_holdout_signal": 1
+      },
+      "candidate_gap": {
+        "maintainer_confirm_add_acceptable_variant": 9
+      },
+      "over_conversion_guard": {
+        "keep_as_holdout_signal": 5,
+        "maintainer_confirm_add_acceptable_variant": 2
+      }
+    },
+    "idempotent_misses": 17,
+    "non_idempotent_misses": 0,
+    "hypothetical_if_all_acceptable_recommendations_confirmed": {
+      "accepted": 155,
+      "misses": 6,
+      "accepted_accuracy": 0.9627329192546584,
+      "note": "This is not an updated benchmark result; private expected is unchanged until maintainer confirms acceptable variants."
+    }
+  },
+  "case_recommendations": [
+    {
+      "id": "blind-formal-0023",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "tags": [
+        "agency",
+        "application",
+        "record"
+      ],
+      "issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_record_graph_variant",
+      "flags": [
+        "style_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update"
+    },
+    {
+      "id": "blind-formal-0029",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taipei",
+        "regulation",
+        "terminology"
+      ],
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_category": "preserve_taipei_formal_over_conversion_signal",
+      "flags": [
+        "over_conversion_guard",
+        "graph_variant"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-high-risk-0011",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "tags": [
+        "medical",
+        "symptom",
+        "follow-up"
+      ],
+      "issue_tags": [
+        "high_risk_term",
+        "regional_term",
+        "formal_term"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P1",
+      "reason_category": "valid_medical_patient_term_variant_needs_confirmation",
+      "flags": [
+        "high_risk",
+        "medical_term_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update"
+    },
+    {
+      "id": "blind-high-risk-0012",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "tags": [
+        "finance",
+        "transaction",
+        "statement"
+      ],
+      "issue_tags": [
+        "high_risk_term",
+        "regional_term",
+        "formal_term"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P1",
+      "reason_category": "valid_finance_delivery_verb_variant_needs_confirmation",
+      "flags": [
+        "high_risk",
+        "finance_term_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update"
+    },
+    {
+      "id": "blind-it-0036",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "tags": [
+        "config",
+        "debug",
+        "mode"
+      ],
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_debug_mode_term_variant",
+      "flags": [
+        "it_term_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update"
+    },
+    {
+      "id": "blind-it-0055",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taiwan-term",
+        "field-name",
+        "open-data"
+      ],
+      "issue_tags": [
+        "it_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P1",
+      "reason_category": "valid_taipei_and_field_name_variant_needs_confirmation",
+      "flags": [
+        "over_conversion_guard",
+        "multi_term_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update"
+    },
+    {
+      "id": "blind-llm-0017",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "tags": [
+        "model",
+        "context",
+        "summary"
+      ],
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_ai_generation_term_variant",
+      "flags": [
+        "ai_domain_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update"
+    },
+    {
+      "id": "blind-llm-0023",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "tags": [
+        "generation",
+        "installation",
+        "faq"
+      ],
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_ai_generation_term_variant",
+      "flags": [
+        "ai_domain_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update"
+    },
+    {
+      "id": "blind-llm-0026",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taiwan-term",
+        "preserve",
+        "prompt"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_category": "preserve_taiwan_graph_variant_over_conversion_signal",
+      "flags": [
+        "over_conversion_guard",
+        "graph_variant"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-llm-0028",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "example-output",
+        "taipei",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_category": "preserve_taipei_graph_variant_over_conversion_signal",
+      "flags": [
+        "over_conversion_guard",
+        "graph_variant"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-social-0024",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "tags": [
+        "shopping-list",
+        "chat",
+        "daily"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_send_to_chat_variant_needs_confirmation",
+      "flags": [
+        "style_variant",
+        "daily_usage_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update"
+    },
+    {
+      "id": "blind-social-0025",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "comment",
+        "taiwan-place-name",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_category": "preserve_taiwan_place_name_over_conversion_signal",
+      "flags": [
+        "over_conversion_guard",
+        "graph_variant"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-social-0026",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "post",
+        "traditional-text",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_category": "preserve_taiwan_traditional_text_over_conversion_signal",
+      "flags": [
+        "over_conversion_guard",
+        "graph_variant"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-ui-0011",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "tags": [
+        "navigation",
+        "directory",
+        "back"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_category": "preserve_strict_ui_click_action_wording_signal",
+      "flags": [
+        "style_variant",
+        "strict_ui_wording"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-ui-0014",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "tags": [
+        "language",
+        "draft",
+        "i18n"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_current_state_term_variant",
+      "flags": [
+        "style_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update"
+    },
+    {
+      "id": "blind-ui-0016",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "tags": [
+        "network",
+        "offline",
+        "banner"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_page_position_term_variant",
+      "flags": [
+        "style_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update"
+    },
+    {
+      "id": "blind-ui-0039",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "favorite",
+        "name",
+        "preserve"
+      ],
+      "issue_tags": [
+        "ui_term",
+        "over_conversion",
+        "regional_term"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "recommendation": "maintainer_confirm_add_acceptable_variant",
+      "priority": "P2",
+      "reason_category": "valid_replace_verb_variant",
+      "flags": [
+        "style_variant",
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_before_private_acceptable_update"
+    }
+  ],
+  "private_review_packet": {
+    "markdown_path": "/tmp/zhtw-holdout-post-batch3-maintainer-review-packet-2026-07-09.md",
+    "json_path": "/tmp/zhtw-holdout-post-batch3-maintainer-review-packet-2026-07-09.json",
+    "in_repo": false,
+    "contains_sealed_values": true,
+    "purpose": "maintainer_review_only"
+  }
+}

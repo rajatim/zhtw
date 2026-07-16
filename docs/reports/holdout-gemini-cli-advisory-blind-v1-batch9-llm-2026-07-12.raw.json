@@ -1,0 +1,57 @@
+{
+  "session_id": "6dc413e3-702c-4af3-9b26-04b8d2a27ce2",
+  "response": "{\n  \"generated_date\": \"2026-07-12\",\n  \"dataset\": \"blind-v1\",\n  \"batch\": \"batch9_100_cases\",\n  \"domain\": \"llm\",\n  \"reviewer\": \"gemini-cli\",\n  \"review_stage\": \"advisory\",\n  \"ground_truth\": false,\n  \"promotion_allowed\": false,\n  \"model_requested\": \"gemini-1.5-pro\",\n  \"cases\": [\n    {\n      \"id\": \"blind-llm-0108\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"系统提示词会限制模型输出 JSON。\",\n      \"gemini_expected\": \"系統提示詞會限制模型輸出 JSON。\",\n      \"acceptable\": [\n        \"系統提示會限制模型輸出 JSON。\"\n      ],\n      \"issue_tags\": [\n        \"orthography\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard orthographic conversion of '系统提示词' to '系統提示詞' and '输出' to '輸出'. '提示詞' is the standard terminology in Taiwan.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0109\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"请把用户问题改写成检索查询。\",\n      \"gemini_expected\": \"請把使用者問題改寫成檢索查詢。\",\n      \"acceptable\": [\n        \"請把用戶問題改寫成檢索查詢。\",\n        \"請將使用者問題改寫為檢索查詢。\"\n      ],\n      \"issue_tags\": [\n        \"lexicon\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"In Taiwan's IT/software context, '用户' is typically translated as '使用者' for end-users, though '用戶' is also widely understood and acceptable.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0110\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"摘要需要保留每个段落的关键数字。\",\n      \"gemini_expected\": \"摘要需要保留每個段落的關鍵數字。\",\n      \"acceptable\": [\n        \"摘要需要保留每段的關鍵數字。\"\n      ],\n      \"issue_tags\": [\n        \"orthography\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard orthographic conversion: '每个' -> '每個', '段落' -> '段落', '关键数字' -> '關鍵數字'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0111\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"工具调用失败时，助理应该解释下一步。\",\n      \"gemini_expected\": \"工具呼叫失敗時，助理應該解釋下一步。\",\n      \"acceptable\": [\n        \"工具呼叫失敗時，助理應解釋下一步。\"\n      ],\n      \"issue_tags\": [\n        \"lexicon\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"The term '调用' in software context is translated as '呼叫' in Taiwan Traditional Chinese.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0112\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"提示词模板会把上下文插入占位符。\",\n      \"gemini_expected\": \"提示詞範本會把上下文插入預留位置。\",\n      \"acceptable\": [\n        \"提示詞模板會把上下文插入佔位符。\",\n        \"提示詞範本會把上下文插入佔位符。\"\n      ],\n      \"issue_tags\": [\n        \"lexicon\"\n      ],\n      \"confidence\": 0.95,\n      \"review_needed\": false,\n      \"rationale\": \"'模板' is typically translated as '範本' in Taiwan IT localizations, and '占位符' maps to '預留位置' or '佔位符'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0113\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"请根据评分规则输出结构化评语。\",\n      \"gemini_expected\": \"請根據評分規則輸出結構化評語。\",\n      \"acceptable\": [\n        \"請依據評分規則輸出結構化評語。\"\n      ],\n      \"issue_tags\": [\n        \"orthography\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Direct character conversion: '请' -> '請', '根据' -> '根據', '规则' -> '規則', '输出' -> '輸出', '结构' -> '結構', '评语' -> '評語'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0114\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"这个代理会先读取文件再回答问题。\",\n      \"gemini_expected\": \"這個代理會先讀取檔案再回答問題。\",\n      \"acceptable\": [\n        \"這個 Agent 會先讀取檔案再回答問題。\",\n        \"這個代理會先讀取文件再回答問題。\"\n      ],\n      \"issue_tags\": [\n        \"lexicon\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"'文件' in reference to computer files is translated to '檔案' in Taiwan, while '代理' (Agent) is standard, though the English word 'Agent' is also extremely common.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0115\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"训练样本不应该包含真实客户资料。\",\n      \"gemini_expected\": \"訓練樣本不應該包含真實客戶資料。\",\n      \"acceptable\": [\n        \"訓練樣本不應包含真實客戶資料。\"\n      ],\n      \"issue_tags\": [\n        \"orthography\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Direct conversion with standard localization of '客户资料' to '客戶資料'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0116\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"检索增强流程会合并多个文档片段。\",\n      \"gemini_expected\": \"檢索增強流程會合併多個文件片段。\",\n      \"acceptable\": [\n        \"檢索增強流程會合併多個檔案片段。\"\n      ],\n      \"issue_tags\": [\n        \"lexicon\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"'文档' is translated as '文件' in Taiwan. '检索增强流程' is the localization for RAG-related processes.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0117\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"请把长答案压缩成三条要点。\",\n      \"gemini_expected\": \"請把長答案壓縮成三條要點。\",\n      \"acceptable\": [\n        \"請將長答案壓縮成三條要點。\"\n      ],\n      \"issue_tags\": [\n        \"orthography\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard orthographic conversion: '请' -> '請', '长' -> '長', '压缩' -> '壓縮', '条要点' -> '條要點'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0118\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"评测脚本会比较模型输出和参考答案。\",\n      \"gemini_expected\": \"評測腳本會比較模型輸出和參考答案。\",\n      \"acceptable\": [\n        \"評測腳本會比對模型輸出和參考答案。\"\n      ],\n      \"issue_tags\": [\n        \"lexicon\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"'脚本' is translated to '腳本' in Taiwan. '比较' is standard, while '比對' is also highly natural and common in testing contexts.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0119\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"用户意图识别失败时需要回问。\",\n      \"gemini_expected\": \"使用者意圖辨識失敗時需要回問。\",\n      \"acceptable\": [\n        \"用戶意圖辨識失敗時需要回問。\",\n        \"使用者意圖識別失敗時需要回問。\",\n        \"用戶意圖識別失敗時需要回問。\"\n      ],\n      \"issue_tags\": [\n        \"lexicon\"\n      ],\n      \"confidence\": 0.95,\n      \"review_needed\": false,\n      \"rationale\": \"'用户' is mapped to '使用者' and '识别' is mapped to '辨識' or '識別' in Taiwan Traditional Chinese for standard NLP contexts.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0120\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"请保留 Markdown 表格里的代码片段。\",\n      \"gemini_expected\": \"請保留 Markdown 表格裡的程式碼片段。\",\n      \"acceptable\": [\n        \"請保留 Markdown 表格中的程式碼片段。\"\n      ],\n      \"issue_tags\": [\n        \"lexicon\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"The term '代码' (code) is translated to '程式碼' in Taiwan. Markdown is kept as-is.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0121\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"对话记忆只保存用户明确同意的内容。\",\n      \"gemini_expected\": \"對話記憶只保存使用者明確同意的內容。\",\n      \"acceptable\": [\n        \"對話記憶僅保存使用者明確同意的內容。\",\n        \"對話記憶只保存用戶明確同意的內容。\"\n      ],\n      \"issue_tags\": [\n        \"lexicon\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Direct conversion of '对话记忆' to '對話記憶', and localizing '用户' to '使用者' and '内容' to '內容'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-llm-0122\",\n      \"batch\": \"blind-llm-content\",\n      \"domain\": \"llm\",\n      \"risk\": \"candidate_gap\",\n      \"input\": \"模型回答不能泄露隐藏的系统消息。\",\n      \"gemini_expected\": \"模型回答不能洩漏隱藏的系統訊息。\",\n      \"acceptable\": [\n        \"模型回答不能洩露隱藏的系統訊息。\",\n        \"模型回答不得洩漏隱藏的系統訊息。\"\n      ],\n      \"issue_tags\": [\n        \"lexicon\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"'泄露' is translated to '洩漏' or '洩露' in Taiwan, and '系统消息' is translated to '系統訊息'.\",\n      \"promotion_allowed\": false\n    }\n  ]\n}",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 42481
+        },
+        "tokens": {
+          "input": 9497,
+          "prompt": 17695,
+          "candidates": 3053,
+          "total": 27164,
+          "cached": 8198,
+          "thoughts": 6416,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 42481,
+            "tokens": {
+              "input": 9497,
+              "prompt": 17695,
+              "candidates": 3053,
+              "total": 27164,
+              "cached": 8198,
+              "thoughts": 6416,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

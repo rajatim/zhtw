@@ -1,0 +1,49 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-pro",
+  "model_observed": "Gemini review of sanitized Codex-generated miss-classification report. Policy adherence is being evaluated based on the metadata and rules provided.",
+  "review_stage": "gemini_policy_review_batch11_miss_classification",
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-851-cases-2026-07-14.json",
+  "source_raw_report": "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-851-cases-2026-07-14.raw.json",
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": true,
+    "sealed_values_seen_by_gemini": false
+  },
+  "policy_passed": true,
+  "classification_changes_recommended": [],
+  "findings": [
+    {
+      "case_id": "all",
+      "severity": "info",
+      "finding": "Independent review confirms all 60 case classifications adhere to the documented classification_policy. No policy violations were found."
+    },
+    {
+      "case_id": "all",
+      "severity": "info",
+      "finding": "Verified that all 32 cases with a 'prior_maintainer_decision' flag correctly retain the 'keep_as_holdout_signal' action, respecting the policy to not overturn previous maintainer decisions."
+    },
+    {
+      "case_id": "all",
+      "severity": "info",
+      "finding": "Verified that all 14 cases classified as 'move_to_public_regression_candidate' and all 11 cases classified as 'requires_expected_recheck' are correctly flagged for mandatory maintainer review, in compliance with policy."
+    },
+    {
+      "case_id": "all",
+      "severity": "info",
+      "finding": "Verified that all 'high_risk' domain cases and 'over_conversion_guard' cases respect their respective policy constraints, either by defaulting to a safe holdout signal or by correctly requiring maintainer review for any exceptions."
+    }
+  ],
+  "sealed_content_policy_confirmed": true,
+  "tool_notes": [
+    "Gemini CLI used the working Vertex configuration with gemini-2.5-pro requested.",
+    "Gemini saw sanitized case IDs and classification metadata only.",
+    "The model_observed field is model-authored descriptive text, not authoritative CLI metadata.",
+    "Gemini CLI emitted a non-review Ripgrep fallback warning on stderr."
+  ]
+}

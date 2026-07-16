@@ -1,0 +1,57 @@
+{
+  "session_id": "4d8c17bc-bf84-4734-9f4a-9b817d77f635",
+  "response": "```json\n{\n  \"cases\": [\n    {\n      \"id\": \"blind-llm-0163\",\n      \"gemini_expected\": \"系統應在回答中區分事實與推測。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"標準轉換。\"\n    },\n    {\n      \"id\": \"blind-llm-0164\",\n      \"gemini_expected\": \"檢索不到資料時，不要編造引用來源。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"標準轉換，並依語氣加上標點符號。\"\n    },\n    {\n      \"id\": \"blind-llm-0165\",\n      \"gemini_expected\": \"工具呼叫失敗後應保留原始錯誤訊息。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"改用臺灣資訊領域慣用詞「呼叫」、「訊息」。\"\n    },\n    {\n      \"id\": \"blind-llm-0166\",\n      \"gemini_expected\": \"模型生成的程式碼必須通過靜態檢查。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"改用臺灣資訊領域慣用詞「程式碼」。\"\n    },\n    {\n      \"id\": \"blind-llm-0167\",\n      \"gemini_expected\": \"多輪對話摘要不得遺漏使用者已經確認的限制。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"改用臺灣慣用詞「使用者」。\"\n    },\n    {\n      \"id\": \"blind-llm-0168\",\n      \"gemini_expected\": \"代理提交表單前應再次核對必填欄位。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"改用臺灣資訊領域慣用詞「欄位」。\"\n    },\n    {\n      \"id\": \"blind-llm-0169\",\n      \"gemini_expected\": \"評測資料應與訓練語料分開保存。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"改用臺灣慣用詞「資料」。\"\n    },\n    {\n      \"id\": \"blind-llm-0170\",\n      \"gemini_expected\": \"回答包含日期時應註明使用的時區。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"標準轉換。\"\n    },\n    {\n      \"id\": \"blind-llm-0171\",\n      \"gemini_expected\": \"函式呼叫參數必須符合 JSON Schema。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"改用臺灣資訊領域慣用詞「函式」、「呼叫」、「參數」。\"\n    },\n    {\n      \"id\": \"blind-llm-0172\",\n      \"gemini_expected\": \"上下文過長時，優先保留最新的使用者指令。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"改用臺灣慣用詞「使用者」，並依語氣加上標點符號。\"\n    },\n    {\n      \"id\": \"blind-llm-0173\",\n      \"gemini_expected\": \"引用網頁內容時應附上可存取的連結。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"改用臺灣慣用詞「網頁」、「內容」、「可存取」、「連結」。\"\n    },\n    {\n      \"id\": \"blind-llm-0174\",\n      \"gemini_expected\": \"模型拒絕回答時，應說明適用的安全規則。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"標準轉換，並依語氣加上標點符號。\"\n    },\n    {\n      \"id\": \"blind-llm-0175\",\n      \"gemini_expected\": \"批量請求中，每個樣本都要有唯一識別碼。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"改用臺灣資訊領域慣用詞「識別碼」，並依語氣加上標點符號。\"\n    },\n    {\n      \"id\": \"blind-llm-0176\",\n      \"gemini_expected\": \"提示範本更新後須重新執行迴歸測試。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"改用臺灣資訊領域慣用詞「範本」、「迴歸測試」。\"\n    },\n    {\n      \"id\": \"blind-llm-0177\",\n      \"gemini_expected\": \"代理不得把工具傳回的文字當成系統指令。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"改用臺灣資訊領域慣用詞「傳回」、「文字」。\"\n    }\n  ]\n}\n```",
+  "stats": {
+    "models": {
+      "gemini-2.5-pro": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 40712
+        },
+        "tokens": {
+          "input": 10599,
+          "prompt": 10599,
+          "candidates": 1435,
+          "total": 16213,
+          "cached": 0,
+          "thoughts": 4179,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 40712,
+            "tokens": {
+              "input": 10599,
+              "prompt": 10599,
+              "candidates": 1435,
+              "total": 16213,
+              "cached": 0,
+              "thoughts": 4179,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

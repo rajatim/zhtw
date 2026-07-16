@@ -1,0 +1,94 @@
+{
+  "session_id": "a050bb92-58e7-4898-b988-b0532aa9ab4a",
+  "response": "{\n  \"review_stage\": \"independent_holdout_expected_review\",\n  \"domain\": \"high_risk\",\n  \"cases\": [\n    {\n      \"id\": \"blind-high-risk-0081\",\n      \"gemini_expected\": \"患者簽署同意書前應充分了解風險。\",\n      \"acceptable\": [\n        \"患者簽署同意書前應充分瞭解風險。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"醫療與法律術語轉換。「患者」、「簽署」、「同意書」與「風險」均為台灣醫療法律之標準用語。\"\n    },\n    {\n      \"id\": \"blind-high-risk-0082\",\n      \"gemini_expected\": \"未成年人的資料處理須取得法定代理人同意。\",\n      \"acceptable\": [\n        \"未成年人的資料處理需取得法定代理人同意。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"個資與民法術語。「資料處理」、「法定代理人」均為台灣法律與隱私權規範之標準詞彙。\"\n    },\n    {\n      \"id\": \"blind-high-risk-0083\",\n      \"gemini_expected\": \"投資人應自行承擔市場價格波動風險。\",\n      \"acceptable\": [\n        \"投資者應自行承擔市場價格波動風險。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"金融與投資術語。「投資人」、「承擔」、「價格波動風險」為台灣金融與證券市場標準表達方式。\"\n    },\n    {\n      \"id\": \"blind-high-risk-0084\",\n      \"gemini_expected\": \"契約解除條件應以雙方書面約定為準。\",\n      \"acceptable\": [\n        \"合約解除條件應以雙方書面約定為準。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"民事法律術語。台灣民法使用「契約」與「解除條件」，「雙方書面約定為準」為標準合約格式用語。\"\n    },\n    {\n      \"id\": \"blind-high-risk-0085\",\n      \"gemini_expected\": \"藥品劑量調整應由醫師評估。\",\n      \"acceptable\": [\n        \"藥物劑量調整應由醫師評估。\",\n        \"藥品劑量調整應由醫生評估。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"醫學與藥學術語。「藥品」、「劑量」、「醫師評估」皆為台灣醫療及法規之標準用語。\"\n    },\n    {\n      \"id\": \"blind-high-risk-0086\",\n      \"gemini_expected\": \"信用卡遺失時應立即通知發卡機構。\",\n      \"acceptable\": [\n        \"信用卡遺失時應立刻通知發卡機構。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"金融卡片與法律義務術語。「信用卡遺失」與「發卡機構」為台灣銀行定型化契約之標準用語。\"\n    },\n    {\n      \"id\": \"blind-high-risk-0087\",\n      \"gemini_expected\": \"個人資料跨境傳輸應符合當地法規。\",\n      \"acceptable\": [\n        \"個人資料跨境傳輸應符合當地法律。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"個資保護與法律術語。台灣個資法使用「個人資料」，「跨境傳輸」與「當地法規」為合規標準詞彙。\"\n    },\n    {\n      \"id\": \"blind-high-risk-0088\",\n      \"gemini_expected\": \"訴訟文件送達日期會影響上訴期限。\",\n      \"acceptable\": [\n        \"訴訟文書送達日期會影響上訴期限。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"訴訟與程序法術語。台灣訴訟程序中，「送達」與「上訴期限」具有高度程序法效力，為精準之法律用語。\"\n    },\n    {\n      \"id\": \"blind-high-risk-0089\",\n      \"gemini_expected\": \"保險理賠須檢附事故證明文件。\",\n      \"acceptable\": [\n        \"保險理賠需檢附事故證明文件。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"保險法律術語。「理賠」、「檢附」（台灣特有公文與合約用語）及「事故證明文件」均符合台灣保險實務。\"\n    },\n    {\n      \"id\": \"blind-high-risk-0090\",\n      \"gemini_expected\": \"醫療建議不得取代現場專業判斷。\",\n      \"acceptable\": [\n        \"醫療建議不得代替現場專業判斷。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"醫療免責聲明術語。台灣醫療機構免責聲明中，「醫療建議」與「現場專業判斷」為極常見且標準之對應用語。\"\n    }\n  ]\n}",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 7,
+          "totalErrors": 0,
+          "totalLatencyMs": 52028
+        },
+        "tokens": {
+          "input": 52756,
+          "prompt": 200115,
+          "candidates": 1534,
+          "total": 208736,
+          "cached": 147359,
+          "thoughts": 7087,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 7,
+            "totalErrors": 0,
+            "totalLatencyMs": 52028,
+            "tokens": {
+              "input": 52756,
+              "prompt": 200115,
+              "candidates": 1534,
+              "total": 208736,
+              "cached": 147359,
+              "thoughts": 7087,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 6,
+      "totalSuccess": 6,
+      "totalFail": 0,
+      "totalDurationMs": 141,
+      "totalDecisions": {
+        "accept": 6,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {
+        "grep_search": {
+          "count": 2,
+          "success": 2,
+          "fail": 0,
+          "durationMs": 100,
+          "decisions": {
+            "accept": 2,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        },
+        "read_file": {
+          "count": 3,
+          "success": 3,
+          "fail": 0,
+          "durationMs": 11,
+          "decisions": {
+            "accept": 3,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        },
+        "glob": {
+          "count": 1,
+          "success": 1,
+          "fail": 0,
+          "durationMs": 30,
+          "decisions": {
+            "accept": 1,
+            "reject": 0,
+            "modify": 0,
+            "auto_accept": 0
+          }
+        }
+      }
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

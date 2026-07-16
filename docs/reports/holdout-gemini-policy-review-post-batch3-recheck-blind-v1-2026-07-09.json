@@ -1,0 +1,47 @@
+{
+  "reviewer": "gemini_vertex",
+  "model": "gemini-2.5-flash",
+  "review_stage": "sanitized_post_batch3_recheck_policy_review",
+  "sealed_values_seen": false,
+  "summary": {
+    "total_cases": 17,
+    "policy_consistent": true,
+    "needs_codex_followup": 0
+  },
+  "findings": [],
+  "notes": "All recommendations and flags are consistent with the sealed-holdout policy. Maintainer confirmation is correctly required for acceptable variant updates, high_risk and over_conversion cases are appropriately flagged, and holdout signal cases are correctly marked to remain sealed without tuning.",
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "source_recheck_report": "docs/reports/holdout-post-batch3-miss-recheck-blind-v1-2026-07-09.json",
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "gemini_received_sanitized_metadata_only": true
+  },
+  "raw_response_usage_metadata": {
+    "promptTokenCount": 5328,
+    "candidatesTokenCount": 162,
+    "totalTokenCount": 8673,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 5328
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 162
+      }
+    ],
+    "thoughtsTokenCount": 3183
+  },
+  "raw_review_metadata": {
+    "reviewer_field": "gemini_cli",
+    "model_field": "Codex"
+  }
+}

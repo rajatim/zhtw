@@ -1,0 +1,57 @@
+{
+  "session_id": "02c72e9e-9ae5-412e-a329-31a34b59a6bf",
+  "response": "{\n  \"review_stage\": \"independent_holdout_expected_review\",\n  \"domain\": \"formal\",\n  \"cases\": [\n    {\n      \"id\": \"blind-formal-0124\",\n      \"gemini_expected\": \"本公告自發布日施行。\",\n      \"acceptable\": [\n        \"本公告自發佈日施行。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「發布」為臺灣公文標準用字，「發佈」為常見容許變體。\"\n    },\n    {\n      \"id\": \"blind-formal-0125\",\n      \"gemini_expected\": \"申請資料不齊者，應於期限內補正。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"「申請」、「資料」、「不齊」、「應」、「於」、「內」、「補正」之標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-formal-0126\",\n      \"gemini_expected\": \"相關作業程序依主管機關規定辦理。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"「相關」、「作業」、「主管機關」、「辦理」為臺灣標準公文常用詞彙與字形。\"\n    },\n    {\n      \"id\": \"blind-formal-0127\",\n      \"gemini_expected\": \"會議紀錄應經主席確認後存檔。\",\n      \"acceptable\": [\n        \"會議記錄應經主席確認後存檔。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"臺灣公文及事務管理常用「會議紀錄」，亦有使用「會議記錄」者。\"\n    },\n    {\n      \"id\": \"blind-formal-0128\",\n      \"gemini_expected\": \"受託機構應妥善保存交易憑證。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"「託」、「機關」、「憑證」等字之臺灣繁體標準字形。\"\n    },\n    {\n      \"id\": \"blind-formal-0129\",\n      \"gemini_expected\": \"本計畫經審查通過後始得執行。\",\n      \"acceptable\": [\n        \"本計劃經審查通過後始得執行。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"臺灣官方與法律公文偏好使用「計畫」，「計劃」亦廣為接受。\"\n    },\n    {\n      \"id\": \"blind-formal-0130\",\n      \"gemini_expected\": \"申請人得以書面方式提出異議。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"「申請」、「書面」、「異議」之標準臺灣繁體字形。\"\n    },\n    {\n      \"id\": \"blind-formal-0131\",\n      \"gemini_expected\": \"費用標準以核定公告內容為準。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"「費用」、「標準」、「內容」、「為準」之標準字形，臺灣「為準」之「準」不可作「准」。\"\n    },\n    {\n      \"id\": \"blind-formal-0132\",\n      \"gemini_expected\": \"承辦單位應定期公布辦理進度。\",\n      \"acceptable\": [\n        \"承辦單位應定期公佈辦理進度。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"「公布」與「公佈」在臺灣皆屬常用，其中「公布」為公文標準用字。\"\n    },\n    {\n      \"id\": \"blind-formal-0133\",\n      \"gemini_expected\": \"補助款應專款專用，不得挪作他用。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"「補助款」、「應」、「專款專用」之標準繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-formal-0134\",\n      \"gemini_expected\": \"各項表單請至服務窗口領取。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"「各項」、「表單」、「服務」、「領取」之臺灣標準用字。\"\n    },\n    {\n      \"id\": \"blind-formal-0135\",\n      \"gemini_expected\": \"機關得視實際需要調整受理時間。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"「機關」、「視」、「實際」、「調整」、「時間」之標準臺灣繁體轉換。\"\n    },\n    {\n      \"id\": \"blind-formal-0136\",\n      \"gemini_expected\": \"委託書應載明授權範圍與期限。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"「委託書」、「載明」、「授權」、「範圍」之標準臺灣繁體字形。\"\n    },\n    {\n      \"id\": \"blind-formal-0137\",\n      \"gemini_expected\": \"本案仍須送交委員會複審。\",\n      \"acceptable\": [\n        \"本案仍須送交委員會復審。\",\n        \"本案仍需送交委員會複審。\"\n      ],\n      \"confidence\": \"high\",\n      \"rationale\": \"對應「初審」，臺灣公文常使用「複審」；「復審」在部分法規中亦會出現。「須」與「需」皆為常見用法。\"\n    },\n    {\n      \"id\": \"blind-formal-0138\",\n      \"gemini_expected\": \"如遇不可抗力，得順延辦理期限。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"rationale\": \"「順延」、「辦理」之標準臺灣字形，法律詞彙「不可抗力」字形不變。\"\n    }\n  ]\n}",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 31928
+        },
+        "tokens": {
+          "input": 8646,
+          "prompt": 16844,
+          "candidates": 1378,
+          "total": 23120,
+          "cached": 8198,
+          "thoughts": 4898,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 31928,
+            "tokens": {
+              "input": 8646,
+              "prompt": 16844,
+              "candidates": 1378,
+              "total": 23120,
+              "cached": 8198,
+              "thoughts": 4898,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

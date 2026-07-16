@@ -1,0 +1,691 @@
+{
+  "generated_date": "2026-07-05",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_backlog": "benchmarks/accuracy/annotation-backlog-v1.json",
+  "raw_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0026-0075-2026-07-05.json",
+  "case_range": "it-api-cli-0026-it-api-cli-0075",
+  "usage_metadata": {
+    "promptTokenCount": 3604,
+    "candidatesTokenCount": 2312,
+    "totalTokenCount": 10949,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3604
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2312
+      }
+    ],
+    "thoughtsTokenCount": 5033
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_expected_review",
+    "cases": [
+      {
+        "id": "it-api-cli-0026",
+        "expected": "請在請求主體中加入分頁參數。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0027",
+        "expected": "這個 API 會回傳資源列表和總數。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0028",
+        "expected": "如果簽章無效，伺服端會拒絕請求。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0029",
+        "expected": "命令列參數支援短選項和長選項。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0030",
+        "expected": "請將配置項寫入環境變數。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0031",
+        "expected": "憑證鏈缺少中繼憑證。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0032",
+        "expected": "服務啟動後會繫結本機連接埠。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0033",
+        "expected": "連線失敗時會輸出詳細錯誤訊息。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0034",
+        "expected": "請檢查防火牆規則是否允許傳入流量。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0035",
+        "expected": "用戶端快取會在五分鐘後失效。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0036",
+        "expected": "這個旗標會跳過憑證驗證。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0037",
+        "expected": "請使用子指令列出所有外掛程式。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0038",
+        "expected": "預設配置會啟用壓縮回應。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0039",
+        "expected": "回應狀態碼為 429 時請稍後重試。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0040",
+        "expected": "後端會將任務推送到訊息佇列。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0041",
+        "expected": "請不要在記錄檔裡記錄存取權杖。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0042",
+        "expected": "資料庫移轉指令碼會新增索引。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0043",
+        "expected": "請確認回溯指令碼已經備份。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0044",
+        "expected": "這個端點需要管理員權限。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0045",
+        "expected": "請求標頭必須包含內容類型。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0046",
+        "expected": "回應主體可能為空物件。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0047",
+        "expected": "請將輸出格式設定為表格。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0048",
+        "expected": "這個指令支援遞迴刪除空目錄。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0049",
+        "expected": "伺服端會驗證上傳檔案的雜湊值。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0050",
+        "expected": "請先解碼權杖再讀取宣告。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0051",
+        "expected": "用戶端會根據狀態碼決定是否重試。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0052",
+        "expected": "這個介面會分頁回傳稽核記錄。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0053",
+        "expected": "請在發布前更新版本號。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0054",
+        "expected": "建置快取命中時會跳過編譯。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0055",
+        "expected": "請檢查相依性是否存在安全漏洞。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0056",
+        "expected": "這個選項會停用自動更新。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0057",
+        "expected": "伺服器會限制每個使用者的請求速率。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0058",
+        "expected": "請在本機啟動模擬伺服器。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0059",
+        "expected": "測試治具會建立暫存資料庫。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0060",
+        "expected": "佇列消費者會批次處理事件。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0061",
+        "expected": "這個錯誤碼表示權限不足。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0062",
+        "expected": "請為服務帳戶產生新的密鑰。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0063",
+        "expected": "容器映像檔會上傳到私有儲存庫。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0064",
+        "expected": "部署指令碼會讀取目前分支名稱。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0065",
+        "expected": "負載平衡器會檢查健康狀態。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0066",
+        "expected": "請將逾時時間設定為三十秒。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0067",
+        "expected": "這個參數會覆寫預設路徑。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0068",
+        "expected": "錯誤堆疊會顯示呼叫鏈。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0069",
+        "expected": "請在配置檔裡宣告輸出編碼。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0070",
+        "expected": "這個中介軟體會注入請求識別碼。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0071",
+        "expected": "非同步任務完成後會觸發回呼。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0072",
+        "expected": "請不要將密碼寫入指令歷史。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0073",
+        "expected": "這個端點會回傳下載連結。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0074",
+        "expected": "請檢查代理伺服器的轉送規則。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0075",
+        "expected": "服務會在記憶體不足時自動重新啟動。",
+        "notes": ""
+      }
+    ]
+  },
+  "comparison_summary": {
+    "cases": 50,
+    "exact_matches_with_codex_draft": 25,
+    "differences_from_codex_draft": 25
+  },
+  "comparisons": [
+    {
+      "id": "it-api-cli-0026",
+      "input": "请在请求主体中加入分页参数。",
+      "codex_expected": "請在要求主體中加入分頁參數。",
+      "gemini_expected": "請在請求主體中加入分頁參數。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0027",
+      "input": "这个 API 会返回资源列表和总数。",
+      "codex_expected": "這個 API 會傳回資源清單和總數。",
+      "gemini_expected": "這個 API 會回傳資源列表和總數。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0028",
+      "input": "如果签名无效，服务端会拒绝请求。",
+      "codex_expected": "如果簽章無效，伺服器端會拒絕要求。",
+      "gemini_expected": "如果簽章無效，伺服端會拒絕請求。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0029",
+      "input": "命令行参数支持短选项和长选项。",
+      "codex_expected": "命令列參數支援短選項和長選項。",
+      "gemini_expected": "命令列參數支援短選項和長選項。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0030",
+      "input": "请把配置项写入环境变量。",
+      "codex_expected": "請將設定項目寫入環境變數。",
+      "gemini_expected": "請將配置項寫入環境變數。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0031",
+      "input": "证书链缺少中间证书。",
+      "codex_expected": "憑證鏈缺少中繼憑證。",
+      "gemini_expected": "憑證鏈缺少中繼憑證。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0032",
+      "input": "服务启动后会绑定本地端口。",
+      "codex_expected": "服務啟動後會繫結本機連接埠。",
+      "gemini_expected": "服務啟動後會繫結本機連接埠。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0033",
+      "input": "连接失败时会输出详细错误消息。",
+      "codex_expected": "連線失敗時會輸出詳細錯誤訊息。",
+      "gemini_expected": "連線失敗時會輸出詳細錯誤訊息。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0034",
+      "input": "请检查防火墙规则是否允许入站流量。",
+      "codex_expected": "請檢查防火牆規則是否允許傳入流量。",
+      "gemini_expected": "請檢查防火牆規則是否允許傳入流量。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0035",
+      "input": "客户端缓存会在五分钟后失效。",
+      "codex_expected": "用戶端快取會在五分鐘後失效。",
+      "gemini_expected": "用戶端快取會在五分鐘後失效。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0036",
+      "input": "这个标志会跳过证书验证。",
+      "codex_expected": "這個旗標會略過憑證驗證。",
+      "gemini_expected": "這個旗標會跳過憑證驗證。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0037",
+      "input": "请使用子命令列出所有插件。",
+      "codex_expected": "請使用子命令列出所有外掛程式。",
+      "gemini_expected": "請使用子指令列出所有外掛程式。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0038",
+      "input": "默认配置会启用压缩响应。",
+      "codex_expected": "預設設定會啟用壓縮回應。",
+      "gemini_expected": "預設配置會啟用壓縮回應。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0039",
+      "input": "响应状态码为 429 时请稍后重试。",
+      "codex_expected": "回應狀態碼為 429 時請稍後重試。",
+      "gemini_expected": "回應狀態碼為 429 時請稍後重試。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0040",
+      "input": "后端会把任务推送到消息队列。",
+      "codex_expected": "後端會把工作推送到訊息佇列。",
+      "gemini_expected": "後端會將任務推送到訊息佇列。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0041",
+      "input": "请不要在日志里记录访问令牌。",
+      "codex_expected": "請不要在日誌裡記錄存取權杖。",
+      "gemini_expected": "請不要在記錄檔裡記錄存取權杖。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0042",
+      "input": "数据库迁移脚本会新增索引。",
+      "codex_expected": "資料庫遷移指令碼會新增索引。",
+      "gemini_expected": "資料庫移轉指令碼會新增索引。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0043",
+      "input": "请确认回滚脚本已经备份。",
+      "codex_expected": "請確認復原指令碼已經備份。",
+      "gemini_expected": "請確認回溯指令碼已經備份。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0044",
+      "input": "这个端点需要管理员权限。",
+      "codex_expected": "這個端點需要管理員權限。",
+      "gemini_expected": "這個端點需要管理員權限。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0045",
+      "input": "请求头必须包含内容类型。",
+      "codex_expected": "要求標頭必須包含內容類型。",
+      "gemini_expected": "請求標頭必須包含內容類型。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0046",
+      "input": "响应主体可能为空对象。",
+      "codex_expected": "回應主體可能為空物件。",
+      "gemini_expected": "回應主體可能為空物件。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0047",
+      "input": "请将输出格式设置为表格。",
+      "codex_expected": "請將輸出格式設定為表格。",
+      "gemini_expected": "請將輸出格式設定為表格。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0048",
+      "input": "这个命令支持递归删除空目录。",
+      "codex_expected": "這個命令支援遞迴刪除空目錄。",
+      "gemini_expected": "這個指令支援遞迴刪除空目錄。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0049",
+      "input": "服务端会校验上传文件的哈希值。",
+      "codex_expected": "伺服器端會驗證上傳檔案的雜湊值。",
+      "gemini_expected": "伺服端會驗證上傳檔案的雜湊值。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0050",
+      "input": "请先解码令牌再读取声明。",
+      "codex_expected": "請先解碼權杖再讀取宣告。",
+      "gemini_expected": "請先解碼權杖再讀取宣告。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0051",
+      "input": "客户端会根据状态码决定是否重试。",
+      "codex_expected": "用戶端會根據狀態碼決定是否重試。",
+      "gemini_expected": "用戶端會根據狀態碼決定是否重試。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0052",
+      "input": "这个接口会分页返回审计记录。",
+      "codex_expected": "這個介面會分頁傳回稽核記錄。",
+      "gemini_expected": "這個介面會分頁回傳稽核記錄。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0053",
+      "input": "请在发布前更新版本号。",
+      "codex_expected": "請在發布前更新版本號。",
+      "gemini_expected": "請在發布前更新版本號。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0054",
+      "input": "构建缓存命中时会跳过编译。",
+      "codex_expected": "建置快取命中時會略過編譯。",
+      "gemini_expected": "建置快取命中時會跳過編譯。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0055",
+      "input": "请检查依赖项是否存在安全漏洞。",
+      "codex_expected": "請檢查相依套件是否存在安全漏洞。",
+      "gemini_expected": "請檢查相依性是否存在安全漏洞。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0056",
+      "input": "这个选项会禁用自动更新。",
+      "codex_expected": "這個選項會停用自動更新。",
+      "gemini_expected": "這個選項會停用自動更新。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0057",
+      "input": "服务器会限制每个用户的请求速率。",
+      "codex_expected": "伺服器會限制每個使用者的要求速率。",
+      "gemini_expected": "伺服器會限制每個使用者的請求速率。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0058",
+      "input": "请在本地启动模拟服务器。",
+      "codex_expected": "請在本機啟動模擬伺服器。",
+      "gemini_expected": "請在本機啟動模擬伺服器。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0059",
+      "input": "测试夹具会建立临时数据库。",
+      "codex_expected": "測試夾具會建立暫存資料庫。",
+      "gemini_expected": "測試治具會建立暫存資料庫。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0060",
+      "input": "队列消费者会批量处理事件。",
+      "codex_expected": "佇列消費者會批次處理事件。",
+      "gemini_expected": "佇列消費者會批次處理事件。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0061",
+      "input": "这个错误码表示权限不足。",
+      "codex_expected": "這個錯誤碼表示權限不足。",
+      "gemini_expected": "這個錯誤碼表示權限不足。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0062",
+      "input": "请为服务账户生成新的密钥。",
+      "codex_expected": "請為服務帳戶產生新的金鑰。",
+      "gemini_expected": "請為服務帳戶產生新的密鑰。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0063",
+      "input": "容器镜像会上传到私有仓库。",
+      "codex_expected": "容器映像檔會上傳到私有儲存庫。",
+      "gemini_expected": "容器映像檔會上傳到私有儲存庫。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0064",
+      "input": "部署脚本会读取当前分支名称。",
+      "codex_expected": "部署指令碼會讀取目前分支名稱。",
+      "gemini_expected": "部署指令碼會讀取目前分支名稱。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0065",
+      "input": "负载均衡器会检查健康状态。",
+      "codex_expected": "負載平衡器會檢查健康狀態。",
+      "gemini_expected": "負載平衡器會檢查健康狀態。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0066",
+      "input": "请把超时时间设置为三十秒。",
+      "codex_expected": "請將逾時時間設定為三十秒。",
+      "gemini_expected": "請將逾時時間設定為三十秒。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0067",
+      "input": "这个参数会覆盖默认路径。",
+      "codex_expected": "這個參數會覆寫預設路徑。",
+      "gemini_expected": "這個參數會覆寫預設路徑。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0068",
+      "input": "错误堆栈会显示调用链。",
+      "codex_expected": "錯誤堆疊會顯示呼叫鏈。",
+      "gemini_expected": "錯誤堆疊會顯示呼叫鏈。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0069",
+      "input": "请在配置文件里声明输出编码。",
+      "codex_expected": "請在設定檔裡宣告輸出編碼。",
+      "gemini_expected": "請在配置檔裡宣告輸出編碼。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0070",
+      "input": "这个中间件会注入请求标识。",
+      "codex_expected": "這個中介軟體會注入要求識別碼。",
+      "gemini_expected": "這個中介軟體會注入請求識別碼。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0071",
+      "input": "异步任务完成后会触发回调。",
+      "codex_expected": "非同步工作完成後會觸發回呼。",
+      "gemini_expected": "非同步任務完成後會觸發回呼。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0072",
+      "input": "请不要把密码写进命令历史。",
+      "codex_expected": "請不要把密碼寫進命令歷程。",
+      "gemini_expected": "請不要將密碼寫入指令歷史。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0073",
+      "input": "这个端点会返回下载链接。",
+      "codex_expected": "這個端點會傳回下載連結。",
+      "gemini_expected": "這個端點會回傳下載連結。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0074",
+      "input": "请检查代理服务器的转发规则。",
+      "codex_expected": "請檢查代理伺服器的轉送規則。",
+      "gemini_expected": "請檢查代理伺服器的轉送規則。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0075",
+      "input": "服务会在内存不足时自动重启。",
+      "codex_expected": "服務會在記憶體不足時自動重新啟動。",
+      "gemini_expected": "服務會在記憶體不足時自動重新啟動。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    }
+  ]
+}

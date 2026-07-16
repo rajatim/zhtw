@@ -1,0 +1,43 @@
+{
+  "reviewer": "gemini_vertex",
+  "model": "gemini-2.5-flash",
+  "review_stage": "sanitized_miss_classification_policy_review",
+  "sealed_values_seen": false,
+  "summary": {
+    "total_cases": 56,
+    "policy_consistent": true,
+    "needs_codex_followup": 0
+  },
+  "findings": [],
+  "notes": "All classification policies are consistent with the provided sanitized metadata. No inconsistencies found regarding next_step for 'move_to_public_regression_candidate', no claims of private expected modification for 'requires_expected_recheck', no dictionary tuning requests for 'keep_as_holdout_signal', and all 'high_risk'/'over_conversion_guard' cases have appropriate flags or reasonable priority (P1 or P2).",
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-200-cases-2026-07-09.json",
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "gemini_received_sanitized_metadata_only": true
+  },
+  "raw_response_usage_metadata": {
+    "promptTokenCount": 9795,
+    "candidatesTokenCount": 201,
+    "totalTokenCount": 16192,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 9795
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 201
+      }
+    ],
+    "thoughtsTokenCount": 6196
+  }
+}

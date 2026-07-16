@@ -1,0 +1,57 @@
+{
+  "session_id": "1c6ee01b-48a9-4a99-bdc7-1121dcd4f3c6",
+  "response": "```json\n{\n  \"cases\": [\n    {\n      \"id\": \"blind-it-0263\",\n      \"gemini_expected\": \"服務網格會記錄跨命名空間的請求延遲。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"標準術語翻譯。\"\n    },\n    {\n      \"id\": \"blind-it-0264\",\n      \"gemini_expected\": \"物件儲存的生命週期規則會自動刪除舊版本。\",\n      \"acceptable\": [\n        \"對象儲存的生命週期規則會自動刪除舊版本。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「物件儲存」是臺灣更通用的術語。\"\n    },\n    {\n      \"id\": \"blind-it-0265\",\n      \"gemini_expected\": \"部署流水線應在合併前執行靜態檢查。\",\n      \"acceptable\": [\n        \"部署管線應在合併前執行靜態檢查。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「流水線」和「管線」均為 pipeline 的常見翻譯。\"\n    },\n    {\n      \"id\": \"blind-it-0266\",\n      \"gemini_expected\": \"資料庫連線池耗盡時應拒絕新的寫入請求。\",\n      \"acceptable\": [\n        \"資料庫連接池耗盡時應拒絕新的寫入請求。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「連線池」和「連接池」均可接受。\"\n    },\n    {\n      \"id\": \"blind-it-0267\",\n      \"gemini_expected\": \"遙測代理會批次上傳追蹤資料。\",\n      \"acceptable\": [\n        \"遙測代理會批量上傳追蹤資料。\",\n        \"遙測代理會批次上傳追蹤數據。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「批次」是 batch 在臺灣 IT 領域更常見的說法。\"\n    },\n    {\n      \"id\": \"blind-it-0268\",\n      \"gemini_expected\": \"容器映像標籤不得使用浮動版本。\",\n      \"acceptable\": [\n        \"容器映像檔標籤不得使用浮動版本。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「容器映像」是 container image 的臺灣慣用術語。\"\n    },\n    {\n      \"id\": \"blind-it-0269\",\n      \"gemini_expected\": \"訊息代理應儲存尚未確認的事件。\",\n      \"acceptable\": [\n        \"訊息代理應保存尚未確認的事件。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「訊息」是 message 的標準翻譯；「儲存」和「保存」在此情境皆可。\"\n    },\n    {\n      \"id\": \"blind-it-0270\",\n      \"gemini_expected\": \"快取失效通知會透過發布訂閱通道傳播。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「快取」是 cache 的標準翻譯。\"\n    },\n    {\n      \"id\": \"blind-it-0271\",\n      \"gemini_expected\": \"提交訊息中的 fixup! 前綴必須保留。\",\n      \"acceptable\": [\n        \"Commit 訊息中的 fixup! 前綴必須保留。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"保留程式關鍵字，並使用更精準的「訊息」。\"\n    },\n    {\n      \"id\": \"blind-it-0272\",\n      \"gemini_expected\": \"環境變數 NO_PROXY 的值區分大小寫。\",\n      \"acceptable\": [\n        \"環境變數 NO_PROXY 的值有區分大小寫。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"保留環境變數名稱，翻譯為標準術語。\"\n    },\n    {\n      \"id\": \"blind-it-0273\",\n      \"gemini_expected\": \"函式名稱 renderPage 不應翻譯。\",\n      \"acceptable\": [\n        \"函數名稱 renderPage 不應翻譯。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"在程式設計領域，「函式」比「函數」更常用。\"\n    },\n    {\n      \"id\": \"blind-it-0274\",\n      \"gemini_expected\": \"設定鍵 feature.preview.enabled 維持原樣。\",\n      \"acceptable\": [\n        \"配置鍵 feature.preview.enabled 維持原樣。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"保留設定鍵，並使用臺灣慣用的「設定鍵」。\"\n    },\n    {\n      \"id\": \"blind-it-0275\",\n      \"gemini_expected\": \"錯誤訊息包含原始欄位名 user_id。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「欄位」是 field 的標準翻譯。\"\n    },\n    {\n      \"id\": \"blind-it-0276\",\n      \"gemini_expected\": \"應用程式已部署到測試環境。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"標準翻譯。\"\n    },\n    {\n      \"id\": \"blind-it-0277\",\n      \"gemini_expected\": \"使用者可以下載除錯日誌。\",\n      \"acceptable\": [\n        \"使用者可以下載除錯紀錄。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「日誌」和「紀錄」均為 log 的可接受翻譯。\"\n    }\n  ]\n}\n```",
+  "stats": {
+    "models": {
+      "gemini-2.5-pro": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 47995
+        },
+        "tokens": {
+          "input": 10697,
+          "prompt": 10697,
+          "candidates": 1614,
+          "total": 17001,
+          "cached": 0,
+          "thoughts": 4690,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 47995,
+            "tokens": {
+              "input": 10697,
+              "prompt": 10697,
+              "candidates": 1614,
+              "total": 17001,
+              "cached": 0,
+              "thoughts": 4690,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

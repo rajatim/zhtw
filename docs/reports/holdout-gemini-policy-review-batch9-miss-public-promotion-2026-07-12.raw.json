@@ -1,0 +1,57 @@
+{
+  "session_id": "528891f6-f54d-4917-a23a-fd9c7a72098c",
+  "response": "{\n  \"policy_consistent\": true,\n  \"risk_level\": \"low\",\n  \"blocking_findings\": [],\n  \"info_findings\": [\n    {\n      \"case_id\": \"blind-ui-0160\",\n      \"issue\": \"Highly accurate localization of technical UI concepts: '列宽' (column width) is correctly converted to '欄寬' (as '列' means row in Taiwan context, while '欄' means column), and '拖拽' (drag) is correctly converted to '拖曳'.\",\n      \"recommendation\": \"Retain as is. Exceptional adherence to local UI vocabulary.\"\n    },\n    {\n      \"case_id\": \"blind-it-0210\",\n      \"issue\": \"Correct runtime localization: '运行时' is accurately translated to '執行階段' rather than a literal '運行時' character translation.\",\n      \"recommendation\": \"Retain as is.\"\n    },\n    {\n      \"case_id\": \"blind-it-0201\",\n      \"issue\": \"Correct job and concurrency localization: '后台作业' is correctly mapped to '背景作業', and '并发' is mapped to '並行' which aligns with standard Taiwan IT practices.\",\n      \"recommendation\": \"Retain as is.\"\n    }\n  ],\n  \"summary\": \"All 16 candidates in batch9_miss_review show 100% consistency with traditional Taiwan localization guidelines. There is zero evidence of naive character-for-character OpenCC translations or incorrect mainland terminologies. Localized terms such as '任務佇列' (queue), '連線字串' (connection string), '儲存庫' (repository), '事件匯流排' (event bus), '背景作業' (background job), '並行' (concurrency), '外掛程式' (plugin), '執行階段' (runtime), '欄寬' (column width), and '釘選' (pin) are flawlessly applied. These cases are fully safe to be promoted to the public regression test suite.\"\n}",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 32610
+        },
+        "tokens": {
+          "input": 18906,
+          "prompt": 18906,
+          "candidates": 401,
+          "total": 25079,
+          "cached": 0,
+          "thoughts": 5772,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 32610,
+            "tokens": {
+              "input": 18906,
+              "prompt": 18906,
+              "candidates": 401,
+              "total": 25079,
+              "cached": 0,
+              "thoughts": 5772,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

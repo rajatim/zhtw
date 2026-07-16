@@ -1,0 +1,376 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "reviewer": "gemini_vertex",
+  "review_stage": "independent_holdout_expected_review",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_codex_report": "docs/reports/holdout-codex-first-pass-blind-v1-expansion-127-cases-2026-07-09.json",
+  "raw_report": "docs/reports/holdout-gemini-vertex-advisory-blind-v1-expansion-ui-0031-0040-2026-07-09.json",
+  "usage_metadata": {
+    "promptTokenCount": 1266,
+    "candidatesTokenCount": 770,
+    "totalTokenCount": 4360,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1266
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 770
+      }
+    ],
+    "thoughtsTokenCount": 2324
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_holdout_expected_review",
+    "cases": [
+      {
+        "id": "blind-ui-0031",
+        "expected": "請選擇要匯出的資料範圍。",
+        "issue_tags": [
+          "regional_term",
+          "ui_term"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "blind-ui-0032",
+        "expected": "刪除帳號前需要再次輸入密碼。",
+        "issue_tags": [
+          "regional_term",
+          "ui_term"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "blind-ui-0033",
+        "expected": "管理員可以隱藏側邊欄裡的測試功能。",
+        "issue_tags": [
+          "regional_term",
+          "ui_term"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "blind-ui-0034",
+        "expected": "表單提交成功後會返回首頁。",
+        "issue_tags": [
+          "regional_term",
+          "ui_term"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "blind-ui-0035",
+        "expected": "如果沒有網路，應用程式會顯示離線提示。",
+        "issue_tags": [
+          "regional_term",
+          "it_term",
+          "ui_term"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "blind-ui-0036",
+        "expected": "請拖曳滑桿調整音量。",
+        "issue_tags": [
+          "regional_term",
+          "ui_term"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "blind-ui-0037",
+        "expected": "系統會根據語言設定顯示日期格式。",
+        "issue_tags": [
+          "regional_term",
+          "it_term",
+          "ui_term"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "blind-ui-0038",
+        "expected": "登入逾時後，請重新驗證身分。",
+        "issue_tags": [
+          "regional_term",
+          "ui_term"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "blind-ui-0039",
+        "expected": "請確認我的最愛裡的名稱沒有被自動取代。",
+        "issue_tags": [
+          "regional_term",
+          "ui_term"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "blind-ui-0040",
+        "expected": "這個按鈕文字已經由臺灣團隊審核。",
+        "issue_tags": [
+          "regional_term",
+          "ui_term"
+        ],
+        "confidence": "high"
+      }
+    ]
+  },
+  "summary": {
+    "total_cases": 10,
+    "exact_matches_with_codex": 7,
+    "differences_from_codex": 3,
+    "needs_maintainer_review": 5,
+    "by_domain": {
+      "ui": 10
+    },
+    "by_gemini_confidence": {
+      "high": 10
+    },
+    "promotion_allowed": false
+  },
+  "comparisons": [
+    {
+      "id": "blind-ui-0031",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请选择要导出的资料范围。",
+      "codex_expected": "請選擇要匯出的資料範圍。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "資料匯出 UI 語句，轉換穩定。",
+      "gemini_expected": "請選擇要匯出的資料範圍。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0032",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "删除账号前需要再次输入密码。",
+      "codex_expected": "刪除帳號前需要再次輸入密碼。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "帳號/密碼 UI 用語穩定。",
+      "gemini_expected": "刪除帳號前需要再次輸入密碼。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0033",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "管理员可以隐藏侧边栏里的测试功能。",
+      "codex_expected": "管理員可以隱藏側邊欄裡的測試功能。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「侧边栏」採「側邊欄」。",
+      "gemini_expected": "管理員可以隱藏側邊欄裡的測試功能。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0034",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "表单提交成功后会返回首页。",
+      "codex_expected": "表單送出成功後會返回首頁。",
+      "codex_acceptable": [
+        "表單提交成功後會返回首頁。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "台灣 UI 常用「送出表單」，但技術語境也可能保留「提交」。",
+      "gemini_expected": "表單提交成功後會返回首頁。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-ui-0035",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "如果没有网络，应用会显示离线提示。",
+      "codex_expected": "如果沒有網路，應用程式會顯示離線提示。",
+      "codex_acceptable": [
+        "如果沒有網路，App 會顯示離線提示。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「应用」可作「應用程式」或 App，需依產品語氣確認。",
+      "gemini_expected": "如果沒有網路，應用程式會顯示離線提示。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term",
+        "ui_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-ui-0036",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请拖动滑块调整音量。",
+      "codex_expected": "請拖曳滑桿調整音量。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "UI 控制項語境採「拖曳」「滑桿」。",
+      "gemini_expected": "請拖曳滑桿調整音量。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0037",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "系统会根据语言设置显示日期格式。",
+      "codex_expected": "系統會根據語言設定顯示日期格式。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "語言設定/日期格式用語穩定。",
+      "gemini_expected": "系統會根據語言設定顯示日期格式。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term",
+        "ui_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0038",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "登录逾时后，请重新验证身份。",
+      "codex_expected": "登入逾時後，請重新驗證身分。",
+      "codex_acceptable": [
+        "登入逾時後，請重新驗證身份。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "台灣正式用字偏「身分」，但「身份」也常見；需確認產品用字。",
+      "gemini_expected": "登入逾時後，請重新驗證身分。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-ui-0039",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "请确认收藏夹里的名称没有被自动替换。",
+      "codex_expected": "請確認我的最愛裡的名稱沒有被自動替換。",
+      "codex_acceptable": [
+        "請確認收藏夾裡的名稱沒有被自動替換。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；favorite UI 可作「我的最愛」或「收藏夾」。",
+      "gemini_expected": "請確認我的最愛裡的名稱沒有被自動取代。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-ui-0040",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "这个按钮文字已经由台湾团队审核。",
+      "codex_expected": "這個按鈕文字已經由台灣團隊審核。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；已審核台灣文案不可再改壞。",
+      "gemini_expected": "這個按鈕文字已經由臺灣團隊審核。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    }
+  ]
+}

@@ -1,0 +1,2552 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "review_stage": "codex_gemini_difference_review",
+  "scope": "batch5_100_cases",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_expansion_report": "docs/reports/holdout-input-pool-expansion-blind-v1-batch5-100-cases-2026-07-09.json",
+  "source_codex_report": "docs/reports/holdout-codex-first-pass-blind-v1-batch5-100-cases-2026-07-09.json",
+  "source_gemini_report": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch5-100-cases-2026-07-09.json",
+  "summary": {
+    "total_cases": 100,
+    "exact_matches": 92,
+    "differences": 8,
+    "exact_but_policy_review": 42,
+    "no_immediate_question": 50,
+    "maintainer_queue_total": 50,
+    "difference_recommendations": {
+      "gemini": 3,
+      "codex": 5
+    },
+    "zhtw_current_status_for_differences": {
+      "needs_followup_if_confirmed": 2,
+      "in_recommended_acceptable": 5,
+      "matches_recommended": 1
+    },
+    "promotion_allowed": false
+  },
+  "differences": [
+    {
+      "id": "blind-it-0094",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请在迁移脚本里新增回滚步骤。",
+      "zhtw_current": "請在遷移指令碼裡新增回滾步驟。",
+      "codex_expected": "請在移轉指令碼裡新增復原步驟。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "請在遷移指令碼裡新增復原步驟。",
+      "gemini_acceptable": [
+        "請在移轉指令碼裡新增復原步驟。",
+        "請在遷移腳本裡新增復原步驟。"
+      ],
+      "gemini_confidence": "medium",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "遷移、指令碼、復原採台灣常用資訊用語，遷移與移轉皆屬常見，需人工確認。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "gemini",
+      "recommendation_rationale": "Gemini uses the recent holdout style for engineering migration as 「遷移指令碼」; both AI reviewers prefer 「復原步驟」 over current zhtw 「回滾步驟」 for this deployment rollback context.",
+      "recommended_expected": "請在遷移指令碼裡新增復原步驟。",
+      "recommended_acceptable": [
+        "請在移轉指令碼裡新增復原步驟。",
+        "請在遷移腳本裡新增復原步驟。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed"
+    },
+    {
+      "id": "blind-ui-0068",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "设置页面会显示当前订阅方案。",
+      "zhtw_current": "設定頁面會顯示當前訂閱方案。",
+      "codex_expected": "設定頁面會顯示目前訂閱方案。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "設定頁面會顯示當前訂閱方案。",
+      "gemini_acceptable": [
+        "設定頁面會顯示目前訂閱方案。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「设置」對應「設定」，「页面」對應「頁面」，「当前」對應「當前」或「目前」，「订阅」對應「訂閱」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "recommendation_rationale": "Prefer Taiwan UI wording 「目前」 for current subscription plan; 「當前」 is understandable but less idiomatic for this product UI sentence.",
+      "recommended_expected": "設定頁面會顯示目前訂閱方案。",
+      "recommended_acceptable": [
+        "設定頁面會顯示當前訂閱方案。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable"
+    },
+    {
+      "id": "blind-ui-0069",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "点击重试按钮后会重新加载列表。",
+      "zhtw_current": "點擊重試按鈕後會重新載入清單。",
+      "codex_expected": "點選重試按鈕後會重新載入清單。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "點擊重試按鈕後會重新載入清單。",
+      "gemini_acceptable": [
+        "點選重試按鈕後會重新載入清單。",
+        "點擊重試按鈕後會重新載入列表。",
+        "點選重試按鈕後會重新載入列表。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「点击」對應「點擊」或「點選」，「加载」對應「載入」，「列表」對應「清單」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "recommendation_rationale": "For direct UI control interaction, prior holdout notes prefer 「點選」 as primary while 「點擊」 remains a valid acceptable variant.",
+      "recommended_expected": "點選重試按鈕後會重新載入清單。",
+      "recommended_acceptable": [
+        "點擊重試按鈕後會重新載入清單。",
+        "點擊重試按鈕後會重新載入列表。",
+        "點選重試按鈕後會重新載入列表。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable"
+    },
+    {
+      "id": "blind-ui-0074",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "拖动列标题可以调整显示顺序。",
+      "zhtw_current": "拖動列標題可以調整顯示順序。",
+      "codex_expected": "拖曳欄標題可以調整顯示順序。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "拖曳欄位標題可以調整顯示順序。",
+      "gemini_acceptable": [
+        "拖曳欄標題可以調整顯示順序。",
+        "拖曳列標題可以調整顯示順序。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「拖动」對應「拖曳」，表格的「列」（column）在台灣習慣稱為「欄」，「列标题」對應「欄位標題」或「欄標題」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "gemini",
+      "recommendation_rationale": "「欄位標題」 is clearer for a table column header than the shorter 「欄標題」.",
+      "recommended_expected": "拖曳欄位標題可以調整顯示順序。",
+      "recommended_acceptable": [
+        "拖曳欄標題可以調整顯示順序。",
+        "拖曳列標題可以調整顯示順序。"
+      ],
+      "zhtw_current_status_vs_recommendation": "needs_followup_if_confirmed"
+    },
+    {
+      "id": "blind-ui-0077",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "用户可以在侧边栏固定常用项目。",
+      "zhtw_current": "使用者可以在側邊欄固定常用項目。",
+      "codex_expected": "使用者可以在側邊欄釘選常用項目。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "使用者可以在側邊欄固定常用項目。",
+      "gemini_acceptable": [
+        "用戶可以在側邊欄固定常用項目。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「用户」對應「使用者」或「用戶」，「侧边栏」對應「側邊欄」，「项目」對應「項目」。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "recommendation_rationale": "Sidebar favorites are usually pinned in UI copy; existing regression style uses 「釘選」 for this concept.",
+      "recommended_expected": "使用者可以在側邊欄釘選常用項目。",
+      "recommended_acceptable": [
+        "使用者可以在側邊欄固定常用項目。",
+        "用戶可以在側邊欄固定常用項目。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable"
+    },
+    {
+      "id": "blind-llm-0055",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "聊天记录会保留最近五轮对话。",
+      "zhtw_current": "聊天記錄會保留最近五輪對話。",
+      "codex_expected": "聊天紀錄會保留最近五輪對話。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "聊天記錄會保留最近五輪對話。",
+      "gemini_acceptable": [
+        "聊天紀錄會保留最近五輪對話。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "『聊天记录』對應台灣習慣的『聊天記錄』或『聊天紀錄』，『对话』轉為『對話』。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "gemini",
+      "recommendation_rationale": "Messaging-app copy commonly uses 「聊天記錄」; 「聊天紀錄」 can remain an acceptable stylistic variant.",
+      "recommended_expected": "聊天記錄會保留最近五輪對話。",
+      "recommended_acceptable": [
+        "聊天紀錄會保留最近五輪對話。"
+      ],
+      "zhtw_current_status_vs_recommendation": "matches_recommended"
+    },
+    {
+      "id": "blind-social-0052",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "朋友说这部剧的结局很催泪。",
+      "zhtw_current": "朋友說這部劇的結局很催淚。",
+      "codex_expected": "朋友說這部影集的結局很催淚。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "朋友說這部劇的結局很催淚。",
+      "gemini_acceptable": [
+        "朋友說這部影集的結局很催淚。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "tw_usage"
+      ],
+      "gemini_notes": "「劇」在台灣日常口語（如追劇）中極為常用，保留「這部劇」之譯法，同時容許「影集」作為替代詞。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "recommendation_rationale": "Existing social regression for 「這部劇」 in streaming context promotes 「這部影集」 as the primary Taiwan wording, with 「這部劇」 acceptable in colloquial use.",
+      "recommended_expected": "朋友說這部影集的結局很催淚。",
+      "recommended_acceptable": [
+        "朋友說這部劇的結局很催淚。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable"
+    },
+    {
+      "id": "blind-high-risk-0031",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "医师应向患者说明手术风险和替代方案。",
+      "zhtw_current": "醫師應向患者說明手術風險和替代方案。",
+      "codex_expected": "醫師應向病患說明手術風險和替代方案。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "醫師應向患者說明手術風險和替代方案。",
+      "gemini_acceptable": [
+        "醫師應向病患說明手術風險和替代方案。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "high_risk_domain",
+        "tw_usage"
+      ],
+      "gemini_notes": "「醫師」、「說明」、「手術」、「風險」、「替代方案」皆為台灣標準醫療語境用語。「患者」與「病患」在台灣醫療情境均通用，保留字面轉換之「患者」為首選，而「病患」亦完全可接受。",
+      "exact_match": false,
+      "needs_maintainer_review": true,
+      "codex_recommendation": "codex",
+      "recommendation_rationale": "Prior high-risk holdout decisions prefer Taiwan medical wording 「病患」 as primary; 「患者」 remains acceptable but should not be the primary expected without maintainer approval.",
+      "recommended_expected": "醫師應向病患說明手術風險和替代方案。",
+      "recommended_acceptable": [
+        "醫師應向患者說明手術風險和替代方案。"
+      ],
+      "zhtw_current_status_vs_recommendation": "in_recommended_acceptable"
+    }
+  ],
+  "exact_but_policy_review": [
+    {
+      "id": "blind-it-0089",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个 SDK 会缓存身份令牌并在过期前刷新。",
+      "zhtw_current": "這個 SDK 會快取身份權杖並在過期前刷新。",
+      "codex_expected": "這個 SDK 會快取身分權杖並在過期前重新整理。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "這個 SDK 會快取身分權杖並在過期前重新整理。",
+      "gemini_acceptable": [
+        "這個 SDK 會快取身分權杖並在過期前更新。"
+      ],
+      "gemini_confidence": "medium",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "快取、身分、權杖、重新整理採台灣常用資訊用語，刷新之譯法有重新整理與更新，需人工確認。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium, Gemini confidence medium"
+    },
+    {
+      "id": "blind-it-0091",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "服务发现组件会定期更新节点清单。",
+      "zhtw_current": "服務發現元件會定期更新節點清單。",
+      "codex_expected": "服務探索元件會定期更新節點清單。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "服務探索元件會定期更新節點清單。",
+      "gemini_acceptable": [
+        "服務發現元件會定期更新節點清單。"
+      ],
+      "gemini_confidence": "medium",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "服務探索、元件採台灣常用資訊用語，服務探索與服務發現皆常見，需人工確認。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium, Gemini confidence medium"
+    },
+    {
+      "id": "blind-it-0102",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请把静态资源上传到对象存储桶。",
+      "zhtw_current": "請把靜態資源上傳到物件儲存桶。",
+      "codex_expected": "請把靜態資源上傳到物件儲存桶。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "請把靜態資源上傳到物件儲存桶。",
+      "gemini_acceptable": [
+        "請把靜態資源上傳到物件儲存體。"
+      ],
+      "gemini_confidence": "medium",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "靜態資源、物件儲存桶採台灣常用資訊用語，儲存桶之規格用語需確認。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium, Gemini confidence medium"
+    },
+    {
+      "id": "blind-it-0105",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "容器启动前会先挂载配置卷。",
+      "zhtw_current": "容器啟動前會先掛載配置卷。",
+      "codex_expected": "容器啟動前會先掛載設定磁碟區。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "容器啟動前會先掛載設定磁碟區。",
+      "gemini_acceptable": [
+        "容器啟動前會先掛載設定卷。"
+      ],
+      "gemini_confidence": "medium",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "掛載、設定磁碟區採台灣常用資訊用語，磁碟區與卷之規格用語需確認。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium, Gemini confidence medium"
+    },
+    {
+      "id": "blind-it-0106",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "日志中的 TaipeiService 标识必须保持原样。",
+      "zhtw_current": "日誌中的 TaipeiService 標識必須保持原樣。",
+      "codex_expected": "日誌中的 TaipeiService 識別碼必須保持原樣。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "日誌中的 TaipeiService 識別碼必須保持原樣。",
+      "gemini_acceptable": [
+        "日誌中的 TaipeiService 識別必須保持原樣。",
+        "日誌中的 TaipeiService 標識必須保持原樣。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "過度轉換防護：保留程式碼/英文 TaipeiService，其餘轉台灣常用繁體語彙。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-it-0107",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "请不要翻译 README 里的 CloudToken 参数名。",
+      "zhtw_current": "請不要翻譯 README 裡的 CloudToken 參數名。",
+      "codex_expected": "請不要翻譯 README 裡的 CloudToken 參數名稱。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "請不要翻譯 README 裡的 CloudToken 參數名稱。",
+      "gemini_acceptable": [
+        "請不要翻譯 README 裡的 CloudToken 參數名。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "過度轉換防護：保留變數名稱 CloudToken，其餘轉台灣常用繁體語彙。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-it-0108",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "错误样本里的台北节点名称不应改写。",
+      "zhtw_current": "錯誤樣本裡的臺北節點名稱不應改寫。",
+      "codex_expected": "錯誤樣本裡的台北節點名稱不應改寫。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "錯誤樣本裡的台北節點名稱不應改寫。",
+      "gemini_acceptable": [
+        "錯誤樣本裡的台北節點名稱不應修改。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "過度轉換防護：保留專名台北，其餘轉台灣常用繁體語彙。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-it-0109",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "配置文件中的 zh_TW_locale 键必须保留。",
+      "zhtw_current": "設定檔中的 zh_TW_locale 鍵必須保留。",
+      "codex_expected": "設定檔中的 zh_TW_locale 鍵必須保留。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "設定檔中的 zh_TW_locale 鍵必須保留。",
+      "gemini_acceptable": [
+        "設定檔中的 zh_TW_locale 鍵必須保留。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "過度轉換防護：保留變數名稱 zh_TW_locale，其餘轉台灣常用繁體語彙。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-ui-0073",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "分页控件会显示总页数。",
+      "zhtw_current": "分頁控制元件會顯示總頁數。",
+      "codex_expected": "分頁控制項會顯示總頁數。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "分頁控制項會顯示總頁數。",
+      "gemini_acceptable": [
+        "分頁元件會顯示總頁數。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「分页控件」對應「分頁控制項」，「显示」對應「顯示」，「总页数」對應「總頁數」。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium"
+    },
+    {
+      "id": "blind-ui-0080",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "按钮标签里的 Taiwan Pass 不要翻译。",
+      "zhtw_current": "按鈕標籤裡的 Taiwan Pass 不要翻譯。",
+      "codex_expected": "按鈕標籤裡的 Taiwan Pass 不要翻譯。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "按鈕標籤裡的 Taiwan Pass 不要翻譯。",
+      "gemini_acceptable": [
+        "按鈕標籤中的 Taiwan Pass 不要翻譯。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「Taiwan Pass」為英文專有名詞，應維持原樣不翻譯，其他詞彙正常轉換為台灣繁體。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-ui-0081",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "示例账号 TaipeiAdmin 必须维持原样。",
+      "zhtw_current": "示例帳號 TaipeiAdmin 必須維持原樣。",
+      "codex_expected": "範例帳號 TaipeiAdmin 必須維持原樣。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "範例帳號 TaipeiAdmin 必須維持原樣。",
+      "gemini_acceptable": [
+        "範例帳號 TaipeiAdmin 必須維持原貌。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「示例」對應「範例」，「账号」對應「帳號」，「TaipeiAdmin」為英文標示應維持原文。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-ui-0082",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "占位符里的 user_name 变量不应转换。",
+      "zhtw_current": "佔位符裡的 user_name 變數不應轉換。",
+      "codex_expected": "預留位置裡的 user_name 變數不應轉換。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "預留位置裡的 user_name 變數不應轉換。",
+      "gemini_acceptable": [
+        "預留位置中的 user_name 變數不應轉換。",
+        "佔位符裡的 user_name 變數不應轉換。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「占位符」對應「預留位置」，「user_name」為變數名稱不應轉換，「变量」對應「變數」。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-ui-0083",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "页面标题中的台中活动保持原文。",
+      "zhtw_current": "頁面標題中的臺中活動保持原文。",
+      "codex_expected": "頁面標題中的台中活動保持原文。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "頁面標題中的台中活動保持原文。",
+      "gemini_acceptable": [
+        "頁面標題中的臺中活動保持原文。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「台中」通常轉換為「臺中」，但在此句中指定保持原文，故可維持「台中」或轉換為「臺中」。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-ui-0084",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "请保留按钮上的 Beta 字样。",
+      "zhtw_current": "請保留按鈕上的 Beta 字樣。",
+      "codex_expected": "請保留按鈕上的 Beta 字樣。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "請保留按鈕上的 Beta 字樣。",
+      "gemini_acceptable": [
+        "請保留按鈕上的 Beta 字樣。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「Beta」字樣為英文專有名詞保持原樣，其餘轉換。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-ui-0087",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "二维码失效后会显示提示文字。",
+      "zhtw_current": "QR Code失效後會顯示提示文字。",
+      "codex_expected": "QR Code 失效後會顯示提示文字。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "QR Code 失效後會顯示提示文字。",
+      "gemini_acceptable": [
+        "二維條碼失效後會顯示提示文字。",
+        "二維碼失效後會顯示提示文字。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「二维码」對應「QR Code」或「二維條碼」。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium"
+    },
+    {
+      "id": "blind-llm-0049",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请让助理用条列方式回答问题。",
+      "zhtw_current": "請讓助理用條列方式回答問題。",
+      "codex_expected": "請讓助理用條列方式回答問題。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "請讓助理用條列方式回答問題。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "常規轉換，『請』、『讓』、『條列』、『問題』。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium"
+    },
+    {
+      "id": "blind-llm-0051",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "这个代理会读取工具返回的 JSON 结果。",
+      "zhtw_current": "這個代理會讀取工具返回的 JSON 結果。",
+      "codex_expected": "這個代理會讀取工具回傳的 JSON 結果。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "這個代理會讀取工具回傳的 JSON 結果。",
+      "gemini_acceptable": [
+        "這個代理會讀取工具傳回的 JSON 結果。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "『代理』在台灣語境下常用；『返回』對應台灣 IT 語境的『回傳』或『傳回』，『JSON』保留。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium"
+    },
+    {
+      "id": "blind-llm-0057",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "提示词里的 TaipeiBot 名称不得改写。",
+      "zhtw_current": "提示詞裡的 TaipeiBot 名稱不得改寫。",
+      "codex_expected": "提示詞裡的 TaipeiBot 名稱不得改寫。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "提示詞裡的 TaipeiBot 名稱不得改寫。",
+      "gemini_acceptable": [
+        "提示詞中的 TaipeiBot 名稱不得改寫。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "over_conversion_guard"
+      ],
+      "gemini_notes": "『TaipeiBot』為專有名詞，應完整保留大小寫及英文；『里』對應『裡』。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-llm-0058",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "请保留 Markdown 表格中的 zhTW 字段。",
+      "zhtw_current": "請保留 Markdown 表格中的 zhTW 欄位。",
+      "codex_expected": "請保留 Markdown 表格中的 zhTW 欄位。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "請保留 Markdown 表格中的 zhTW 欄位。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "over_conversion_guard"
+      ],
+      "gemini_notes": "『Markdown』與『zhTW』為代碼及特定標記應予保留；『字段』轉為台灣 IT 術語的『欄位』。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-llm-0059",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "引用标题里的台湾 AI 年会保持原样。",
+      "zhtw_current": "引用標題裡的臺灣 AI 年會保持原樣。",
+      "codex_expected": "引用標題裡的台灣 AI 年會保持原樣。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "引用標題裡的台灣 AI 年會保持原樣。",
+      "gemini_acceptable": [
+        "引用標題裡的臺灣 AI 年會保持原樣。",
+        "引用標題中的台灣 AI 年會保持原樣。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "over_conversion_guard",
+        "regional_term"
+      ],
+      "gemini_notes": "『AI』為專有名詞英文，應保留；『台湾』轉換為『台灣』或『臺灣』；『标题』轉為『標題』。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-llm-0060",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "变量 assistant_name 不应该被翻译。",
+      "zhtw_current": "變數 assistant_name 不應該被翻譯。",
+      "codex_expected": "變數 assistant_name 不應該被翻譯。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "變數 assistant_name 不應該被翻譯。",
+      "gemini_acceptable": [
+        "變數 assistant_name 不應被翻譯。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "over_conversion_guard"
+      ],
+      "gemini_notes": "『assistant_name』為變數代號，應保留；『变量』轉為台灣術語的『變數』。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-formal-0050",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "申请文件须附最近三个月的缴费证明。",
+      "zhtw_current": "申請文件須附最近三個月的繳費證明。",
+      "codex_expected": "申請文件須附最近三個月的繳費證明。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "申請文件須附最近三個月的繳費證明。",
+      "gemini_acceptable": [
+        "申請文件需附最近三個月的繳費證明。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「申请」轉換為「申請」，「须」轉換為「須」（或「需」），「三个月」轉換為「三個月」，「缴费证明」轉換為「繳費證明」。因涉及財務繳費證明文件，標記為需人工審查。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium"
+    },
+    {
+      "id": "blind-formal-0055",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "调查报告建议提高资料保存年限。",
+      "zhtw_current": "調查報告建議提高資料保存年限。",
+      "codex_expected": "調查報告建議提高資料保存年限。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "調查報告建議提高資料保存年限。",
+      "gemini_acceptable": [
+        "調查報告建議提高數據保存年限。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「调查报告」轉換為「調查報告」，「建议」轉換為「建議」，「资料」轉換為台灣常用的「資料」（「數據」在此語境中亦為可接受譯法），「保存年限」轉為繁體。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium"
+    },
+    {
+      "id": "blind-formal-0057",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "附件中的 Taipei Office 名称不得翻译。",
+      "zhtw_current": "附件中的 Taipei Office 名稱不得翻譯。",
+      "codex_expected": "附件中的 Taipei Office 名稱不得翻譯。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "附件中的 Taipei Office 名稱不得翻譯。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "over_conversion_guard",
+        "english_term"
+      ],
+      "gemini_notes": "英文專專有名詞「Taipei Office」應保持原文，不得翻譯或轉換，僅將周邊字詞「名称」轉為「名稱」、「翻译」轉為「翻譯」。因含有特別防護指令，標記為需人工確認。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-formal-0058",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "法规标题中的台湾关系法保持原文。",
+      "zhtw_current": "法規標題中的臺灣關係法保持原文。",
+      "codex_expected": "法規標題中的台灣關係法保持原文。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "法規標題中的台灣關係法保持原文。",
+      "gemini_acceptable": [
+        "法規標題中的臺灣關係法保持原文。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "over_conversion_guard",
+        "regional_term"
+      ],
+      "gemini_notes": "「保持原文」在語境中指不應翻譯成英文名，故仍將中文字轉換為台灣繁體（「法规标题」->「法規標題」）。台灣官方標準寫法常作「臺灣關係法」（故列為可接受），日常及多數情境下「台灣關係法」極其通用（設為預期）。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-formal-0059",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "请保留公告里的 Taichung Branch 英文名称。",
+      "zhtw_current": "請保留公告裡的 Taichung Branch 英文名稱。",
+      "codex_expected": "請保留公告裡的 Taichung Branch 英文名稱。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "請保留公告裡的 Taichung Branch 英文名稱。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "over_conversion_guard",
+        "english_term"
+      ],
+      "gemini_notes": "英文專有名詞「Taichung Branch」應保持原文不予更動，僅將周邊字詞「请」->「請」、「里」->「裡」（亦有「里」但「公告裡」表內部，用「裡」較佳）、「名称」->「名稱」做轉換。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-formal-0060",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "会议纪录中的 #台北专案 标签不应改写。",
+      "zhtw_current": "會議紀錄中的 #臺北專案 標籤不應改寫。",
+      "codex_expected": "會議紀錄中的 #台北專案 標籤不應改寫。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "會議紀錄中的 #台北專案 標籤不應改寫。",
+      "gemini_acceptable": [
+        "會議紀錄中的 #臺北專案 標籤不應改寫。",
+        "會議記錄中的 #台北專案 標籤不應改寫。",
+        "會議記錄中的 #臺北專案 標籤不應改寫。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "over_conversion_guard",
+        "regional_term"
+      ],
+      "gemini_notes": "標籤「#台北专案」應保留 hashtag 形式並將文字轉為台灣繁體「#台北專案」或「#臺北專案」。「会议纪录」在台灣多用「紀錄」，但「記錄」亦屬通用，皆列入可接受範圍。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-social-0049",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "我晚点再把订位信息传给你。",
+      "zhtw_current": "我晚點再把訂位資訊傳給你。",
+      "codex_expected": "我晚點再把訂位資訊傳給你。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "我晚點再把訂位資訊傳給你。",
+      "gemini_acceptable": [
+        "我晚點再把訂位訊息傳給你。",
+        "我晚一點再把訂位資訊傳給你。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "tw_usage"
+      ],
+      "gemini_notes": "「晚點」為口語常用詞，「資訊」與「訊息」皆為台灣對應「信息」之常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium"
+    },
+    {
+      "id": "blind-social-0056",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "这条动态的留言已经关闭。",
+      "zhtw_current": "這條動態的留言已經關閉。",
+      "codex_expected": "這則動態的留言已經關閉。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "這則動態的留言已經關閉。",
+      "gemini_acceptable": [
+        "這篇動態的留言已經關閉。",
+        "這條動態的留言已經關閉。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "tw_usage"
+      ],
+      "gemini_notes": "台灣對於社群貼文（動態）的量詞習慣使用「則」或「篇」，「條」亦可接受但較不口語。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "Codex confidence medium"
+    },
+    {
+      "id": "blind-social-0057",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "照片说明里的台南小吃保持原样。",
+      "zhtw_current": "照片說明裡的臺南小吃保持原樣。",
+      "codex_expected": "照片說明裡的台南小吃保持原樣。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "照片說明裡的台南小吃保持原樣。",
+      "gemini_acceptable": [
+        "照片說明裡的臺南小吃保持原樣。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "「台南」本身在台灣已被廣泛使用，為避免過度轉換（如強制改為臺），保留原形並將「臺南」列為可接受寫法。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-social-0058",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "昵称 TaipeiWalker 不要自动翻译。",
+      "zhtw_current": "暱稱 TaipeiWalker 不要自動翻譯。",
+      "codex_expected": "暱稱 TaipeiWalker 不要自動翻譯。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "暱稱 TaipeiWalker 不要自動翻譯。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "保留英文暱稱「TaipeiWalker」不予翻譯，僅轉換周邊文字（暱稱、自動、翻譯）。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-social-0059",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "请保留朋友写的 Happy Taiwan Day。",
+      "zhtw_current": "請保留朋友寫的 Happy Taiwan Day。",
+      "codex_expected": "請保留朋友寫的 Happy Taiwan Day。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "請保留朋友寫的 Happy Taiwan Day。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "保留英文祝賀片段「Happy Taiwan Day」不予翻譯，僅轉換周邊簡體字。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-social-0060",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "标签 #台湾旅行 不要被改成其他词。",
+      "zhtw_current": "標籤 #臺灣旅行 不要被改成其他詞。",
+      "codex_expected": "標籤 #台灣旅行 不要被改成其他詞。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "標籤 #台灣旅行 不要被改成其他詞。",
+      "gemini_acceptable": [
+        "標籤 #臺灣旅行 不要被改成其他詞。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "主題標籤中的「台湾」轉為繁體「台灣」或「臺灣」，不更改「旅行」一詞，其餘字元（標籤、被、改、詞）正確繁體化。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "over-conversion guard"
+    },
+    {
+      "id": "blind-high-risk-0032",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "保险公司须在期限内回复理赔申请。",
+      "zhtw_current": "保險公司須在期限內回覆理賠申請。",
+      "codex_expected": "保險公司須在期限內回覆理賠申請。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "保險公司須在期限內回覆理賠申請。",
+      "gemini_acceptable": [
+        "保險公司需在期限內回覆理賠申請。",
+        "保險公司須在期限內答覆理賠申請。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "high_risk_domain",
+        "tw_usage"
+      ],
+      "gemini_notes": "「保險」、「須」、「期限內」、「回覆」、「理賠」、「申請」皆為台灣標準法律與保險公文語彙。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "high-risk domain"
+    },
+    {
+      "id": "blind-high-risk-0033",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "银行不得在未告知前提下调整手续费。",
+      "zhtw_current": "銀行不得在未告知前提下調整手續費。",
+      "codex_expected": "銀行不得在未告知前提下調整手續費。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "銀行不得在未告知前提下調整手續費。",
+      "gemini_acceptable": [
+        "銀行不得在未告知情況下調整手續費。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "high_risk_domain",
+        "tw_usage"
+      ],
+      "gemini_notes": "「銀行」、「調整」、「手續費」為標準金融用語，其餘字詞字面轉換正確且語意清晰。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "high-risk domain, Codex confidence medium"
+    },
+    {
+      "id": "blind-high-risk-0034",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "契约解除通知应以书面送达。",
+      "zhtw_current": "契約解除通知應以書面送達。",
+      "codex_expected": "契約解除通知應以書面送達。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "契約解除通知應以書面送達。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "high_risk_domain",
+        "tw_usage"
+      ],
+      "gemini_notes": "「契約」、「解除」、「書面」、「送達」皆為台灣民法體系標準法律術語，無歧義。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "high-risk domain"
+    },
+    {
+      "id": "blind-high-risk-0035",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "药品说明应列明常见副作用。",
+      "zhtw_current": "藥品說明應列明常見副作用。",
+      "codex_expected": "藥品說明應列明常見副作用。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "藥品說明應列明常見副作用。",
+      "gemini_acceptable": [
+        "藥品說明應載明常見副作用。",
+        "藥品說明應標明常見副作用。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "high_risk_domain",
+        "tw_usage"
+      ],
+      "gemini_notes": "「藥品」、「說明」、「常見」、「副作用」皆為標準台灣醫藥用語。「列明」在告示與法規情境也常表述為「載明」或「標明」。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "high-risk domain, Codex confidence medium"
+    },
+    {
+      "id": "blind-high-risk-0036",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "病例编号 TW-Clinic-01 不得自动转换。",
+      "zhtw_current": "病例編號 TW-Clinic-01 不得自動轉換。",
+      "codex_expected": "病例編號 TW-Clinic-01 不得自動轉換。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "病例編號 TW-Clinic-01 不得自動轉換。",
+      "gemini_acceptable": [
+        "病歷編號 TW-Clinic-01 不得自動轉換。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "high_risk_domain",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "保護英文編碼「TW-Clinic-01」不被轉換，其餘字詞正確轉換。「病例」與「病歷」在不同情境皆適用，前者著重個案，後者著重病史紀錄。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "high-risk domain, over-conversion guard, Codex confidence medium"
+    },
+    {
+      "id": "blind-high-risk-0037",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "契约中的 Taipei Holdings 名称应保持原样。",
+      "zhtw_current": "契約中的 Taipei Holdings 名稱應保持原樣。",
+      "codex_expected": "契約中的 Taipei Holdings 名稱應保持原樣。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "契約中的 Taipei Holdings 名稱應保持原樣。",
+      "gemini_acceptable": [
+        "契約中的 Taipei Holdings 名稱應保持原貌。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "high_risk_domain",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "完整保留英文專利/公司名稱「Taipei Holdings」，其餘周邊簡體字「契約」、「名稱」、「應」、「原樣」正確轉換。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "high-risk domain, over-conversion guard"
+    },
+    {
+      "id": "blind-high-risk-0038",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "汇款附言里的 Taiwan Relief Fund 不需翻译。",
+      "zhtw_current": "匯款附言裡的 Taiwan Relief Fund 不需翻譯。",
+      "codex_expected": "匯款附言裡的 Taiwan Relief Fund 不需翻譯。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "匯款附言裡的 Taiwan Relief Fund 不需翻譯。",
+      "gemini_acceptable": [
+        "匯款備註裡的 Taiwan Relief Fund 不需翻譯。",
+        "匯款留言裡的 Taiwan Relief Fund 不需翻譯。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "high_risk_domain",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "保留英文專有名詞「Taiwan Relief Fund」不變。台灣金融匯款情境常以「備註」或「留言」代替「附言」，故列入可接受欄位。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "high-risk domain, over-conversion guard"
+    },
+    {
+      "id": "blind-high-risk-0039",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "病历附件里的台北院区代码不可改写。",
+      "zhtw_current": "病歷附件裡的臺北院區程式碼不可改寫。",
+      "codex_expected": "病歷附件裡的台北院區代碼不可改寫。",
+      "codex_acceptable": [],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "保留專名、代碼、變數或既有台灣繁體片段，僅轉換周邊簡體文字。",
+      "gemini_expected": "病歷附件裡的台北院區代碼不可改寫。",
+      "gemini_acceptable": [
+        "病歷附件裡的臺北院區代碼不可改寫。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "high_risk_domain",
+        "over_conversion_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "「病歷」、「院區」、「代碼」、「改寫」為標準台灣用法。「台北」與「臺北」在台灣皆通用，預設保留原文字面，並將「臺北」列為可接受選項。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "high-risk domain, over-conversion guard, Codex confidence medium"
+    },
+    {
+      "id": "blind-high-risk-0040",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "input": "申请人应亲自签署授权书。",
+      "zhtw_current": "申請人應親自簽署授權書。",
+      "codex_expected": "申請人應親自簽署授權書。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "申請人應親自簽署授權書。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "high_risk_domain",
+        "baseline_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "「申請人」、「親自」、「簽署」、「授權書」皆為台灣標準法律文書用語，轉換極為明確。",
+      "exact_match": true,
+      "needs_maintainer_review": true,
+      "policy_review_reason": "high-risk domain"
+    }
+  ],
+  "no_immediate_question": [
+    {
+      "id": "blind-it-0088",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "部署平台会在发布前检查环境变量是否完整。",
+      "zhtw_current": "部署平臺會在發布前檢查環境變數是否完整。",
+      "codex_expected": "部署平台會在發布前檢查環境變數是否完整。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "部署平台會在發布前檢查環境變數是否完整。",
+      "gemini_acceptable": [
+        "部署平台會在發佈前檢查環境變數是否完整。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "環境變數、發布採台灣常用繁體詞彙與字元。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0090",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请把错误堆栈写入调试日志。",
+      "zhtw_current": "請把錯誤堆疊寫入除錯日誌。",
+      "codex_expected": "請把錯誤堆疊寫入偵錯日誌。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "請把錯誤堆疊寫入偵錯日誌。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "錯誤堆疊、偵錯、日誌採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0092",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "命令行工具支持从配置文件读取默认区域。",
+      "zhtw_current": "命令列工具支持從設定檔讀取默認區域。",
+      "codex_expected": "命令列工具支援從設定檔讀取預設區域。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "命令列工具支援從設定檔讀取預設區域。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "命令列、設定檔、預設採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0093",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "代理服务器会把请求转发到内部网关。",
+      "zhtw_current": "代理伺服器會把請求轉發到內部閘道。",
+      "codex_expected": "代理伺服器會把請求轉送到內部閘道。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "代理伺服器會把請求轉送到內部閘道。",
+      "gemini_acceptable": [
+        "代理伺服器會把請求轉發到內部閘道。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "代理伺服器、轉送、閘道採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0095",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "当数据库连接失败时，应用会进入只读模式。",
+      "zhtw_current": "當資料庫連線失敗時，應用會進入只讀模式。",
+      "codex_expected": "當資料庫連線失敗時，應用程式會進入唯讀模式。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "當資料庫連線失敗時，應用程式會進入唯讀模式。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "資料庫、連線、應用程式、唯讀採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0096",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个端点会返回上传任务的处理状态。",
+      "zhtw_current": "這個端點會返回上傳任務的處理狀態。",
+      "codex_expected": "這個端點會回傳上傳任務的處理狀態。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "這個端點會回傳上傳任務的處理狀態。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "端點、回傳採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0097",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "构建缓存命中后，流水线可以跳过编译步骤。",
+      "zhtw_current": "建置快取命中後，流水線可以跳過編譯步驟。",
+      "codex_expected": "建置快取命中後，管線可以略過編譯步驟。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "建置快取命中後，管線可以略過編譯步驟。",
+      "gemini_acceptable": [
+        "建置快取命中後，管線可以跳過編譯步驟。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "建置快取、管線、略過採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0098",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "管理员可以为服务账户轮换密钥。",
+      "zhtw_current": "管理員可以為服務帳戶輪換金鑰。",
+      "codex_expected": "管理員可以為服務帳戶輪替金鑰。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "管理員可以為服務帳戶輪替金鑰。",
+      "gemini_acceptable": [
+        "管理員可以為服務帳戶輪換金鑰。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "服務帳戶、輪替金鑰採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0099",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请检查响应主体里的分页游标。",
+      "zhtw_current": "請檢查回應主體裡的分頁游標。",
+      "codex_expected": "請檢查回應主體裡的分頁游標。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "請檢查回應主體裡的分頁游標。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "回應主體、分頁游標採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0100",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个函数会把数组转换成逗号分隔的字符串。",
+      "zhtw_current": "這個函式會把陣列轉換成逗號分隔的字串。",
+      "codex_expected": "這個函式會把陣列轉換成逗號分隔的字串。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "這個函式會把陣列轉換成逗號分隔的字串。",
+      "gemini_acceptable": [
+        "這個函數會把陣列轉換成逗號分隔的字串。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "函式、陣列、字串採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0101",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "异步任务失败后会写入重试队列。",
+      "zhtw_current": "非同步任務失敗後會寫入重試佇列。",
+      "codex_expected": "非同步任務失敗後會寫入重試佇列。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "非同步任務失敗後會寫入重試佇列。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "非同步、佇列採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0103",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "监控面板会显示每分钟请求数。",
+      "zhtw_current": "監控面板會顯示每分鐘請求數。",
+      "codex_expected": "監控面板會顯示每分鐘請求數。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "監控面板會顯示每分鐘請求數。",
+      "gemini_acceptable": [
+        "監控儀表板會顯示每分鐘請求數。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "監控面板採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0104",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "权限中间件会验证用户角色。",
+      "zhtw_current": "權限中介軟體會驗證使用者角色。",
+      "codex_expected": "權限中介軟體會驗證使用者角色。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "權限中介軟體會驗證使用者角色。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "tw_usage"
+      ],
+      "gemini_notes": "中介軟體、使用者採台灣常用資訊用語。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0110",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "服务器会记录请求开始和结束时间。",
+      "zhtw_current": "伺服器會記錄請求開始和結束時間。",
+      "codex_expected": "伺服器會記錄請求開始和結束時間。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "伺服器會記錄請求開始和結束時間。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "baseline_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "基礎語句以自然台灣繁體為準，伺服器、請求採台灣常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0111",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "安装脚本会建立临时目录。",
+      "zhtw_current": "安裝指令碼會建立臨時目錄。",
+      "codex_expected": "安裝指令碼會建立暫存目錄。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "安裝指令碼會建立暫存目錄。",
+      "gemini_acceptable": [
+        "安裝腳本會建立暫存目錄。",
+        "安裝指令碼會建立臨時目錄。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "baseline_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "基礎語句以自然台灣繁體為準，安裝指令碼、暫存目錄採台灣常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0112",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "测试报告会列出失败案例。",
+      "zhtw_current": "測試報告會列出失敗案例。",
+      "codex_expected": "測試報告會列出失敗案例。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "測試報告會列出失敗案例。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "technical_term",
+        "baseline_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "基礎語句以自然台灣繁體為準，測試報告、失敗案例採台灣常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0070",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "表格支持按更新时间筛选记录。",
+      "zhtw_current": "表格支持按更新時間篩選記錄。",
+      "codex_expected": "表格支援依更新時間篩選記錄。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "表格支援依更新時間篩選記錄。",
+      "gemini_acceptable": [
+        "表格支援按更新時間篩選記錄。",
+        "表格支援依更新時間篩選紀錄。",
+        "表格支援按更新時間篩選紀錄。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「支持」對應「支援」，「按」對應「依」或「按」，「筛选」對應「篩選」，「记录」對應「記錄」或「紀錄」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0071",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请把确认对话框放在最上层。",
+      "zhtw_current": "請把確認對話框放在最上層。",
+      "codex_expected": "請把確認對話框放在最上層。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "請把確認對話框放在最上層。",
+      "gemini_acceptable": [
+        "請把確認對話方塊放在最上層。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「对话框」對應「對話框」或「對話方塊」，「最上层」對應「最上層」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0072",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "搜索框会保存最近输入的关键词。",
+      "zhtw_current": "搜尋框會保存最近輸入的關鍵字。",
+      "codex_expected": "搜尋框會儲存最近輸入的關鍵字。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "搜尋框會儲存最近輸入的關鍵字。",
+      "gemini_acceptable": [
+        "搜尋框會保存最近輸入的關鍵字。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「搜索框」對應「搜尋框」，「保存」在 UI 語境對應「儲存」或「保存」，「关键词」對應「關鍵字」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0075",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "上传区域会显示文件大小限制。",
+      "zhtw_current": "上傳區域會顯示檔案大小限制。",
+      "codex_expected": "上傳區域會顯示檔案大小限制。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "上傳區域會顯示檔案大小限制。",
+      "gemini_acceptable": [
+        "上傳區域會顯示檔案大小限制"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「上传」對應「上傳」，「文件大小」對應「檔案大小」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0076",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "错误提示会在输入框失焦后出现。",
+      "zhtw_current": "錯誤提示會在輸入框失焦後出現。",
+      "codex_expected": "錯誤提示會在輸入框失焦後出現。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "錯誤提示會在輸入框失焦後出現。",
+      "gemini_acceptable": [
+        "錯誤提示會在輸入框失去焦點後出現。",
+        "錯誤提示會在輸入框離開焦點後出現。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「失焦」對應「失焦」或「失去焦點」，「输入框」對應「輸入框」，「出现」對應「出現」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0078",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "下拉菜单会根据权限隐藏选项。",
+      "zhtw_current": "下拉式選單會根據權限隱藏選項。",
+      "codex_expected": "下拉式選單會根據權限隱藏選項。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "下拉式選單會根據權限隱藏選項。",
+      "gemini_acceptable": [
+        "下拉選單會根據權限隱藏選項。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「下拉菜单」對應「下拉式選單」或「下拉選單」，「根据」對應「根據」，「权限」對應「權限」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0079",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "通知中心会按时间倒序排列消息。",
+      "zhtw_current": "通知中心會按時間倒序排列消息。",
+      "codex_expected": "通知中心會依時間倒序排列訊息。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "通知中心會依時間倒序排列訊息。",
+      "gemini_acceptable": [
+        "通知中心會按時間倒序排列訊息。",
+        "通知中心會依時間反序排列訊息。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「按」對應「依」或「按」，「消息」對應「訊息」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0085",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "页面加载完成后会隐藏骨架画面。",
+      "zhtw_current": "頁面載入完成後會隱藏骨架畫面。",
+      "codex_expected": "頁面載入完成後會隱藏骨架畫面。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "頁面載入完成後會隱藏骨架畫面。",
+      "gemini_acceptable": [
+        "頁面加載完成後會隱藏骨架畫面。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「骨架画面」在台灣習慣稱為「骨架畫面」，「加载」對應「載入」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0086",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "开关关闭时不会发送提醒。",
+      "zhtw_current": "開關關閉時不會發送提醒。",
+      "codex_expected": "開關關閉時不會傳送提醒。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "開關關閉時不會傳送提醒。",
+      "gemini_acceptable": [
+        "開關關閉時不會發送提醒。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [],
+      "gemini_notes": "「开关」對應「開關」，「发送」對應「傳送」或「發送」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0048",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "模型摘要会列出三点主要结论。",
+      "zhtw_current": "模型摘要會列出三點主要結論。",
+      "codex_expected": "模型摘要會列出三點主要結論。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "模型摘要會列出三點主要結論。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "常規繁簡轉換，『會』轉為『會』，『三点』轉為『三點』，『结论』轉為『結論』。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0050",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "系统提示词要求先确认用户意图。",
+      "zhtw_current": "系統提示詞要求先確認使用者意圖。",
+      "codex_expected": "系統提示詞要求先確認使用者意圖。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "系統提示詞要求先確認使用者意圖。",
+      "gemini_acceptable": [
+        "系統提示詞要求先確認用戶意圖。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "『系统提示词』轉為『系統提示詞』；『用户』轉換為台灣 IT 習慣的『使用者』，意圖轉為『意圖』。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0052",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请把长段落改写成客服回复。",
+      "zhtw_current": "請把長段落改寫成客服回覆。",
+      "codex_expected": "請把長段落改寫成客服回覆。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "請把長段落改寫成客服回覆。",
+      "gemini_acceptable": [
+        "請將長段落改寫成客服回覆。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "『请』轉為『請』；『回复』在客訴/通訊語境下對應台灣習慣的『回覆』。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0053",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "检索结果会附上来源编号。",
+      "zhtw_current": "檢索結果會附上來源編號。",
+      "codex_expected": "檢索結果會附上來源編號。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "檢索結果會附上來源編號。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "常規 IT/LLM 詞彙轉換：『檢索』、『結果』、『會』、『來源』、『編號』。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0054",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "提示模板会插入用户上传的文件名。",
+      "zhtw_current": "提示範本會插入使用者上傳的檔名。",
+      "codex_expected": "提示範本會插入使用者上傳的檔名。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "提示範本會插入使用者上傳的檔名。",
+      "gemini_acceptable": [
+        "提示範本會插入使用者上傳的檔案名稱。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "『模板』轉為『範本』，『用户』轉為『使用者』，『文件名』轉為『檔名』或『檔案名稱』。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0056",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "评估脚本会比较模型输出和人工答案。",
+      "zhtw_current": "評估指令碼會比較模型輸出和人工答案。",
+      "codex_expected": "評估指令碼會比較模型輸出和人工答案。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "評估指令碼會比較模型輸出和人工答案。",
+      "gemini_acceptable": [
+        "評估腳本會比較模型輸出和人工答案。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "『评估』轉為『評估』；『脚本』轉為台灣 IT 習慣的『指令碼』（亦可接受『腳本』）。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0061",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "baseline_guard",
+      "input": "回答前请先阅读用户提供的上下文。",
+      "zhtw_current": "回答前請先閱讀使用者提供的上下文。",
+      "codex_expected": "回答前請先閱讀使用者提供的上下文。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "回答前請先閱讀使用者提供的上下文。",
+      "gemini_acceptable": [
+        "回答前請先閱讀使用者提供的脈絡。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "『用户』轉換為台灣習慣的『使用者』；『阅读』轉為『閱讀』；『上下文』在 IT/LLM 語境下保留為『上下文』。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0062",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "baseline_guard",
+      "input": "如果资料不足，请说明无法判断。",
+      "zhtw_current": "如果資料不足，請說明無法判斷。",
+      "codex_expected": "如果資料不足，請說明無法判斷。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "如果資料不足，請說明無法判斷。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "『资料』轉換為台灣常用的『資料』；『说明』轉為『說明』；『无法判断』轉為『無法判斷』。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0049",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "主管机关将于月底公布审查结果。",
+      "zhtw_current": "主管機關將於月底公布審查結果。",
+      "codex_expected": "主管機關將於月底公布審查結果。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "主管機關將於月底公布審查結果。",
+      "gemini_acceptable": [
+        "主管機關將於月底公佈審查結果。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「主管机关」轉換為台灣常用之「主管機關」（正式用語），「将于」轉換為「將於」，「公布」在台灣公務標準中較「公佈」常見，但也保留「公佈」為可接受寫法。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0051",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "本条例修正案预计下会期审议。",
+      "zhtw_current": "本條例修正案預計下會期審議。",
+      "codex_expected": "本條例修正案預計下會期審議。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "本條例修正案預計下會期審議。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「条例」轉換為「條例」，「预计」轉換為「預計」，「会期」轉換為「會期」，「审议」轉換為「審議」，均為標準之繁體字轉換。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0052",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "新闻稿指出合作计划不会影响既有权益。",
+      "zhtw_current": "新聞稿指出合作計畫不會影響既有權益。",
+      "codex_expected": "新聞稿指出合作計畫不會影響既有權益。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "新聞稿指出合作計畫不會影響既有權益。",
+      "gemini_acceptable": [
+        "新聞稿指出合作計劃不會影響既有權益。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「新闻稿」轉換為「新聞稿」，「计划」依台灣公文標準轉換為「計畫」（「計劃」亦為常見可接受寫法），「不会」轉換為「不會」，「影响」轉換為「影響」，「权益」轉換為「權益」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0053",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "会议资料将同步上传至机关网站。",
+      "zhtw_current": "會議資料將同步上傳至機關網站。",
+      "codex_expected": "會議資料將同步上傳至機關網站。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "會議資料將同步上傳至機關網站。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "formal_term",
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「会议资料」轉換為「會議資料」，「将」轉換為「將」，「上传」轉換為「上傳」，「机关」轉換為「機關」，「网站」轉換為「網站」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0054",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "承办单位应在期限内完成补正通知。",
+      "zhtw_current": "承辦單位應在期限內完成補正通知。",
+      "codex_expected": "承辦單位應在期限內完成補正通知。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "承辦單位應在期限內完成補正通知。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「承办单位」轉換為「承辦單位」，「应」轉換為「應」，「内」轉換為「內」，「补正」轉換為「補正」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0056",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "公司应于股东会前寄发议事手册。",
+      "zhtw_current": "公司應於股東會前寄發議事手冊。",
+      "codex_expected": "公司應於股東會前寄發議事手冊。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "公司應於股東會前寄發議事手冊。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "gemini_notes": "將「应于」轉換為「應於」，「股东会前」轉換為「股東會前」，「寄发」轉換為「寄發」，「议事手册」轉換為「議事手冊」，皆為標準公文法規繁體化。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0061",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "本案经审查后准予备案。",
+      "zhtw_current": "本案經審查後准予備案。",
+      "codex_expected": "本案經審查後准予備案。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "本案經審查後准予備案。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "baseline_guard",
+        "over_conversion_guard"
+      ],
+      "gemini_notes": "將「经」轉換為「經」，「审查后」轉換為「審查後」，「备案」轉換為「備案」。特別注意「准予」的「准」為許可之意，不應過度轉換為「準」，須精準保留「准」字。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0062",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "相关单位应配合后续稽查。",
+      "zhtw_current": "相關單位應配合後續稽查。",
+      "codex_expected": "相關單位應配合後續稽查。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "相關單位應配合後續稽查。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "baseline_guard",
+        "regional_term"
+      ],
+      "gemini_notes": "將「相关」轉換為「相關」，「单位」轉換為「單位」，「应」轉換為「應」，「后续」轉換為「後續」，語意非常明確且無歧義。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0063",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "公告内容自发布日起生效。",
+      "zhtw_current": "公告內容自發布日起生效。",
+      "codex_expected": "公告內容自發布日起生效。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "公告內容自發布日起生效。",
+      "gemini_acceptable": [
+        "公告內容自發佈日起生效。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "baseline_guard",
+        "regional_term"
+      ],
+      "gemini_notes": "將「内容」轉換為「內容」。「发布日」在台灣法規與官方公文書中常用「發布日」，但常民與大眾媒體常混用「發佈日」，故列為可接受寫法。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-social-0050",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "这家店的评价比上个月好多了。",
+      "zhtw_current": "這家店的評價比上個月好多了。",
+      "codex_expected": "這家店的評價比上個月好多了。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "這家店的評價比上個月好多了。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "tw_usage"
+      ],
+      "gemini_notes": "日常用語之字元繁體化（這、評價、個月），符合台灣日常習慣。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-social-0051",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "你可以先把购物车里的东西结账。",
+      "zhtw_current": "你可以先把購物車裡的東西結帳。",
+      "codex_expected": "你可以先把購物車裡的東西結帳。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "你可以先把購物車裡的東西結帳。",
+      "gemini_acceptable": [
+        "你可以先把購物車中的東西結帳。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "tw_usage"
+      ],
+      "gemini_notes": "「購物車」與「結帳」為台灣電子商務標準用語，「裡」為內空間標準字。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-social-0053",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "我已经把聚餐照片上传到相册。",
+      "zhtw_current": "我已經把聚餐照片上傳到相冊。",
+      "codex_expected": "我已經把聚餐照片上傳到相簿。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "我已經把聚餐照片上傳到相簿。",
+      "gemini_acceptable": [
+        "我已經把聚餐照片上傳到相冊。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "tw_usage"
+      ],
+      "gemini_notes": "「相簿」為台灣日常口語及系統介面最常用詞（如相簿功能），「相冊」亦屬可接受範圍。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-social-0054",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "群组公告提醒大家准时到场。",
+      "zhtw_current": "群組公告提醒大家準時到場。",
+      "codex_expected": "群組公告提醒大家準時到場。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "群組公告提醒大家準時到場。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "tw_usage"
+      ],
+      "gemini_notes": "群組、公告、準時、到場皆為台灣標準用語，進行純字元轉換即可。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-social-0055",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "请把路线链接发到聊天室。",
+      "zhtw_current": "請把路線連結發到聊天室。",
+      "codex_expected": "請把路線連結傳到聊天室。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "建議採台灣常用繁體詞彙；此為 first-pass 建議，需維持人工確認流程。",
+      "gemini_expected": "請把路線連結傳到聊天室。",
+      "gemini_acceptable": [
+        "請把路線連結發到聊天室。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "tw_usage"
+      ],
+      "gemini_notes": "「連結」對應簡體「链接」為台灣網路標準術語，「傳到聊天室」較「發到」更符合台灣口語習慣。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-social-0061",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "baseline_guard",
+      "input": "明天晚上我们一起看电影。",
+      "zhtw_current": "明天晚上我們一起看電影。",
+      "codex_expected": "明天晚上我們一起看電影。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "明天晚上我們一起看電影。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "baseline_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "基礎日常句字元轉換，無特定習慣或學術術語歧義。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-social-0062",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "baseline_guard",
+      "input": "这件外套的颜色很好看。",
+      "zhtw_current": "這件外套的顏色很好看。",
+      "codex_expected": "這件外套的顏色很好看。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "這件外套的顏色很好看。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "baseline_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "日常一般語句，無特定用語轉換，直接轉為台灣常用繁體字元。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-social-0063",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "baseline_guard",
+      "input": "我先去便利店买早餐。",
+      "zhtw_current": "我先去便利店買早餐。",
+      "codex_expected": "我先去便利商店買早餐。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "基礎語句以自然台灣繁體為準，避免加入過度領域詞。",
+      "gemini_expected": "我先去便利商店買早餐。",
+      "gemini_acceptable": [
+        "我先去超商買早餐。",
+        "我先去便利店買早餐。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "colloquial_register",
+        "baseline_guard",
+        "tw_usage"
+      ],
+      "gemini_notes": "「便利店」在台灣的典型、道地說法為「便利商店」或「超商」，進行語意化調整以符合在地習慣。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    }
+  ]
+}

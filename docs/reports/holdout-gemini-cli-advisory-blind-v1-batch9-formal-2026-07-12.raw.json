@@ -1,0 +1,57 @@
+{
+  "session_id": "c5ed35ed-4816-4eed-8680-80e1c51eeb49",
+  "response": "{\n  \"generated_date\": \"2026-07-12\",\n  \"dataset\": \"blind-v1\",\n  \"batch\": \"batch9_100_cases\",\n  \"domain\": \"formal\",\n  \"reviewer\": \"gemini-cli-advisory\",\n  \"review_stage\": \"advisory_only\",\n  \"ground_truth\": false,\n  \"promotion_allowed\": false,\n  \"model_requested\": \"gemini\",\n  \"cases\": [\n    {\n      \"id\": \"blind-formal-0109\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"本公告自发布日起生效。\",\n      \"gemini_expected\": \"本公告自發布日起生效。\",\n      \"acceptable\": [\n        \"本公告自發佈日起生效。\"\n      ],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Convert Simplified Chinese characters to Taiwan Traditional Chinese. '发布' is standardly converted to '發布' or '發佈' in Traditional Chinese.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0110\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"申请资料不完整者，将通知补正。\",\n      \"gemini_expected\": \"申請資料不完整者，將通知補正。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. '申请' becomes '申請', '资料' becomes '資料', '将' becomes '將', and '补正' becomes '補正' (an administrative/legal term in Taiwan).\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0111\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"会议记录应保存三年以上。\",\n      \"gemini_expected\": \"會議紀錄應保存三年以上。\",\n      \"acceptable\": [\n        \"會議記錄應保存三年以上。\"\n      ],\n      \"issue_tags\": [\n        \"character-conversion\",\n        \"orthography\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. For '会议记录', both '會議紀錄' and '會議記錄' are acceptable orthographies in Taiwan, with '紀錄' being preferred for nouns.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0112\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"本公司保留调整服务内容的权利。\",\n      \"gemini_expected\": \"本公司保留調整服務內容的權利。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. '调整' to '調整', '服务' to '服務', '内容' to '內容', '权利' to '權利'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0113\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"请于期限内完成线上确认程序。\",\n      \"gemini_expected\": \"請於期限內完成線上確認程序。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. '请' to '請', '于' to '於', '内' to '內', '线上' to '線上' (standard term for online in Taiwan), '确认' to '確認'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0114\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"委员会将依规定审查申请案件。\",\n      \"gemini_expected\": \"委員會將依規定審查申請案件。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. '委员会' to '委員會', '将' to '將', '规定' to '規定', '审查' to '審查', '申请' to '申請'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0115\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"相关费用以官网公告为准。\",\n      \"gemini_expected\": \"相關費用以官網公告為準。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. '相关' to '相關', '费用' to '費用', '官网' to '官網', '为准' to '為準'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0116\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"如有疑义，请洽承办窗口。\",\n      \"gemini_expected\": \"如有疑義，請洽承辦窗口。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. '疑义' to '疑義', '请' to '請', '承办' to '承辦'. '窗口' is the standard terminology in Taiwan.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0117\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"资料更新后将以电子邮件通知。\",\n      \"gemini_expected\": \"資料更新後將以電子郵件通知。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion and terminology preservation. '资料' to '資料', '后' to '後', '将' to '將', '电子邮件' to '電子郵件'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0118\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"本条款未尽事宜，依相关法令办理。\",\n      \"gemini_expected\": \"本條款未盡事宜，依相關法令辦理。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion for legal/formal text. '条款' to '條款', '未尽事宜' to '未盡事宜', '相关' to '相關', '办理' to '辦理'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0119\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"参加者应遵守现场工作人员指示。\",\n      \"gemini_expected\": \"參加者應遵守現場工作人員指示。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. '参加者' to '參加者', '应' to '應', '现场' to '現場', '工作人员' to '工作人員'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0120\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"采购案得依预算额度分阶段执行。\",\n      \"gemini_expected\": \"採購案得依預算額度分階段執行。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. '采购案' to '採購案', '预算' to '預算', '额度' to '額度', '阶段' to '階段', '执行' to '執行'. '得' is a formal/legal term in Taiwan meaning 'may'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0121\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"得奖名单将于活动页面公布。\",\n      \"gemini_expected\": \"得獎名單將於活動頁面公布。\",\n      \"acceptable\": [\n        \"得獎名單將於活動頁面公佈。\"\n      ],\n      \"issue_tags\": [\n        \"character-conversion\",\n        \"orthography\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. '得奖' to '得獎', '名单' to '名單', '将于' to '將於', '活动' to '活動', '页面' to '頁面'. '公布' is the preferred standard form, with '公佈' as an acceptable variant in Taiwan.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0122\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"本说明仅供参考，不构成投资建议。\",\n      \"gemini_expected\": \"本說明僅供參考，不構成投資建議。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. '说明' to '說明', '仅供参考' to '僅供參考', '构成' to '構成', '投资' to '投資', '建议' to '建議'.\",\n      \"promotion_allowed\": false\n    },\n    {\n      \"id\": \"blind-formal-0123\",\n      \"batch\": \"blind-formal-news\",\n      \"domain\": \"formal\",\n      \"risk\": \"baseline_guard\",\n      \"input\": \"审核结果将以书面方式通知申请人。\",\n      \"gemini_expected\": \"審核結果將以書面方式通知申請人。\",\n      \"acceptable\": [],\n      \"issue_tags\": [\n        \"character-conversion\"\n      ],\n      \"confidence\": 1.0,\n      \"review_needed\": false,\n      \"rationale\": \"Standard character conversion. '审核' to '審核', '结果' to '結果', '将' to '將', '书面' to '書面', '申请人' to '申請人'.\",\n      \"promotion_allowed\": false\n    }\n  ]\n}",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 38698
+        },
+        "tokens": {
+          "input": 9388,
+          "prompt": 17586,
+          "candidates": 2923,
+          "total": 26838,
+          "cached": 8198,
+          "thoughts": 6329,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 38698,
+            "tokens": {
+              "input": 9388,
+              "prompt": 17586,
+              "candidates": 2923,
+              "total": 26838,
+              "cached": 8198,
+              "thoughts": 6329,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

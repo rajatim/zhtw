@@ -1,0 +1,83 @@
+{
+  "report_type": "holdout_sealed_pool_update",
+  "dataset": "blind-v1",
+  "batch": "remaining_40_final_review",
+  "generated_date": "2026-07-09",
+  "public_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "source_classification_report": "docs/reports/holdout-remaining-40-miss-classification-blind-v1-2026-07-09.json",
+  "source_gemini_policy_review": "docs/reports/holdout-gemini-policy-review-remaining-40-miss-classification-blind-v1-2026-07-09.json",
+  "source_final_decision": "docs/reports/holdout-maintainer-final-decision-remaining-40-miss-classification-blind-v1-2026-07-09.json",
+  "private_expected_updated": true,
+  "expected_values_included": false,
+  "actual_outputs_included": false,
+  "inputs_included": false,
+  "summary": {
+    "original_input_cases": 256,
+    "removed_to_public_regression_candidates": 18,
+    "remaining_sealed_input_cases": 238,
+    "old_stats": {
+      "total_collected": 256,
+      "by_domain": {
+        "formal": 41,
+        "high_risk": 26,
+        "it": 50,
+        "llm": 43,
+        "social": 44,
+        "ui": 52
+      },
+      "by_risk": {
+        "baseline_guard": 39,
+        "candidate_gap": 154,
+        "over_conversion_guard": 63
+      }
+    },
+    "removed_by_domain": {
+      "formal": 2,
+      "it": 7,
+      "llm": 1,
+      "social": 4,
+      "ui": 4
+    },
+    "removed_by_risk": {
+      "baseline_guard": 1,
+      "candidate_gap": 17
+    },
+    "remaining_by_domain": {
+      "formal": 39,
+      "high_risk": 26,
+      "it": 43,
+      "llm": 42,
+      "social": 40,
+      "ui": 48
+    },
+    "remaining_by_risk": {
+      "baseline_guard": 38,
+      "candidate_gap": 137,
+      "over_conversion_guard": 63
+    },
+    "source_inputs_sha256_before": "d85addc2af189991924ff82968dcb38fce39528130042a0412a11a674bc83d82",
+    "source_inputs_sha256": "82ed30febfcffa7b3bfb3bca1f3a0da220bb64ecfb0815c77339651eaf165aee",
+    "private_expected_sha256_before": "402dfbc3d7915b1488a2bc843ba2161e7451bf1a9c6b790fcab69430c2fd2085",
+    "private_expected_sha256": "6812effb983785ba97e7f9a213cc693639de2b02a7ebdf9f5e8e63784725b94b"
+  },
+  "removed_case_ids": [
+    "blind-it-0063",
+    "blind-it-0064",
+    "blind-it-0067",
+    "blind-it-0070",
+    "blind-it-0073",
+    "blind-it-0076",
+    "blind-it-0087",
+    "blind-ui-0049",
+    "blind-ui-0051",
+    "blind-ui-0052",
+    "blind-ui-0054",
+    "blind-llm-0039",
+    "blind-formal-0034",
+    "blind-formal-0035",
+    "blind-social-0034",
+    "blind-social-0036",
+    "blind-social-0040",
+    "blind-social-0041"
+  ]
+}

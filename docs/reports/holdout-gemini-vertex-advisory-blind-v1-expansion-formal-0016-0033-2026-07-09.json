@@ -1,0 +1,626 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "reviewer": "gemini_vertex",
+  "review_stage": "independent_holdout_expected_review",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_codex_report": "docs/reports/holdout-codex-first-pass-blind-v1-expansion-127-cases-2026-07-09.json",
+  "raw_report": "docs/reports/holdout-gemini-vertex-advisory-blind-v1-expansion-formal-0016-0033-2026-07-09.json",
+  "usage_metadata": {
+    "promptTokenCount": 1979,
+    "candidatesTokenCount": 1303,
+    "totalTokenCount": 6227,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1979
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1303
+      }
+    ],
+    "thoughtsTokenCount": 2945
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_holdout_expected_review",
+    "cases": [
+      {
+        "id": "blind-formal-0016",
+        "expected": "本公司將於下週發布年度營運報告。",
+        "acceptable": [
+          "本公司將於下週發佈年度營運報告。"
+        ],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "將於 (将于), 下週 (下周), 發布 (发布), 營運 (营运), 報告 (报告) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0017",
+        "expected": "申請人應於期限內補交相關證明文件。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "申請 (申请), 補交 (补交), 證明 (证明) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0018",
+        "expected": "會議主席宣布本案延後審議。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "會議 (会议), 審議 (审议) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0019",
+        "expected": "該計畫預計提升公共服務效率。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "該 (该), 計畫 (计划), 預計 (预计) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0020",
+        "expected": "新聞稿表示，雙方將建立長期合作機制。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "新聞稿 (新闻稿), 雙方 (双方), 將 (将), 機制 (机制) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0021",
+        "expected": "委員會要求各部門提出改善方案。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "委員會 (委员会), 部門 (部门) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0022",
+        "expected": "本次調查結果將作為後續政策參考。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "調查 (调查), 結果 (结果), 將 (将), 作為 (作为), 後續 (后续), 參考 (参考) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0023",
+        "expected": "承辦單位應保存完整申請紀錄。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "承辦 (承办), 單位 (单位), 申請 (申请), 紀錄 (记录) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0024",
+        "expected": "報告指出，資料品質會影響統計結果。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "報告 (报告), 資料 (资料), 品質 (质量), 影響 (影响), 統計 (统计), 結果 (结果) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0025",
+        "expected": "公告內容將同步發布於官方網站。",
+        "acceptable": [
+          "公告內容將同步發佈於官方網站。"
+        ],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "內容 (内容), 將 (将), 發布 (发布), 網站 (网站) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0026",
+        "expected": "契約條款不得排除消費者依法享有的權利。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "契約 (契约), 條款 (条款), 消費者 (消费者), 權利 (权利) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0027",
+        "expected": "既有用戶權益不因系統更新而受影響。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "用戶 (用户), 權益 (权益), 影響 (影响) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0028",
+        "expected": "文件中的機關名稱應依原核定名稱記載。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "機關 (机关), 名稱 (名称), 記載 (记载) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0029",
+        "expected": "本案涉及臺北市既有法規用語。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "臺北 (台北), 法規 (法规), 用語 (用语) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0030",
+        "expected": "公文附件內的專有名詞不得任意改寫。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "專有 (专有), 名詞 (名词), 改寫 (改写) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0031",
+        "expected": "本通知自發布日起生效。",
+        "acceptable": [
+          "本通知自發佈日起生效。"
+        ],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "發布 (发布) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0032",
+        "expected": "請各單位依限完成資料彙整。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "請 (请), 單位 (单位), 資料 (资料), 彙整 (汇整) 為台灣繁體中文常用詞彙。"
+      },
+      {
+        "id": "blind-formal-0033",
+        "expected": "相關費用由申請人自行負擔。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "相關 (相关), 申請 (申请), 負擔 (负担) 為台灣繁體中文常用詞彙。"
+      }
+    ]
+  },
+  "summary": {
+    "total_cases": 18,
+    "exact_matches_with_codex": 16,
+    "differences_from_codex": 2,
+    "needs_maintainer_review": 6,
+    "by_domain": {
+      "formal": 18
+    },
+    "by_gemini_confidence": {
+      "high": 18
+    },
+    "promotion_allowed": false
+  },
+  "comparisons": [
+    {
+      "id": "blind-formal-0016",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "本公司将于下周发布年度营运报告。",
+      "codex_expected": "本公司將於下週發布年度營運報告。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "正式公告語境採「營運報告」。",
+      "gemini_expected": "本公司將於下週發布年度營運報告。",
+      "gemini_acceptable": [
+        "本公司將於下週發佈年度營運報告。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "將於 (将于), 下週 (下周), 發布 (发布), 營運 (营运), 報告 (报告) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0017",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "申请人应于期限内补交相关证明文件。",
+      "codex_expected": "申請人應於期限內補交相關證明文件。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "正式文件語句，轉換穩定。",
+      "gemini_expected": "申請人應於期限內補交相關證明文件。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "申請 (申请), 補交 (补交), 證明 (证明) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0018",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "会议主席宣布本案延后审议。",
+      "codex_expected": "會議主席宣布本案延後審議。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "會議與審議用語穩定。",
+      "gemini_expected": "會議主席宣布本案延後審議。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "會議 (会议), 審議 (审议) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0019",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "该计划预计提升公共服务效率。",
+      "codex_expected": "該計畫預計提升公共服務效率。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "正式文件「计划」採「計畫」。",
+      "gemini_expected": "該計畫預計提升公共服務效率。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "該 (该), 計畫 (计划), 預計 (预计) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0020",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "新闻稿表示，双方将建立长期合作机制。",
+      "codex_expected": "新聞稿表示，雙方將建立長期合作機制。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "新聞稿語句，轉換穩定。",
+      "gemini_expected": "新聞稿表示，雙方將建立長期合作機制。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "新聞稿 (新闻稿), 雙方 (双方), 將 (将), 機制 (机制) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0021",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "委员会要求各部门提出改善方案。",
+      "codex_expected": "委員會要求各部門提出改善方案。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "正式文件語句，轉換穩定。",
+      "gemini_expected": "委員會要求各部門提出改善方案。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "委員會 (委员会), 部門 (部门) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0022",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "本次调查结果将作为后续政策参考。",
+      "codex_expected": "本次調查結果將作為後續政策參考。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "政策文件語句，轉換穩定。",
+      "gemini_expected": "本次調查結果將作為後續政策參考。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "調查 (调查), 結果 (结果), 將 (将), 作為 (作为), 後續 (后续), 參考 (参考) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0023",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "承办单位应保存完整申请记录。",
+      "codex_expected": "承辦單位應保存完整申請紀錄。",
+      "codex_acceptable": [
+        "承辦單位應保存完整申請記錄。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "正式文件可用「紀錄」或「記錄」，需確認用字慣例。",
+      "gemini_expected": "承辦單位應保存完整申請紀錄。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "承辦 (承办), 單位 (单位), 申請 (申请), 紀錄 (记录) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-formal-0024",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "报告指出，资料质量会影响统计结果。",
+      "codex_expected": "報告指出，資料品質會影響統計結果。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「资料质量」採台灣常用「資料品質」。",
+      "gemini_expected": "報告指出，資料品質會影響統計結果。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "報告 (报告), 資料 (资料), 品質 (质量), 影響 (影响), 統計 (统计), 結果 (结果) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0025",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "公告内容将同步发布于官方网站。",
+      "codex_expected": "公告內容將同步發布於官方網站。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "公告語句，轉換穩定。",
+      "gemini_expected": "公告內容將同步發布於官方網站。",
+      "gemini_acceptable": [
+        "公告內容將同步發佈於官方網站。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "內容 (内容), 將 (将), 發布 (发布), 網站 (网站) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0026",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "契约条款不得排除消费者依法享有的权利。",
+      "codex_expected": "契約條款不得排除消費者依法享有的權利。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "法律/消保語境使用「契約條款」；over-conversion guard。",
+      "gemini_expected": "契約條款不得排除消費者依法享有的權利。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "契約 (契约), 條款 (条款), 消費者 (消费者), 權利 (权利) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-formal-0027",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "既有用户权益不因系统更新而受影响。",
+      "codex_expected": "既有使用者權益不因系統更新而受影響。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "formal + over-conversion guard；「既有使用者權益」需保留台灣產品語氣。",
+      "gemini_expected": "既有用戶權益不因系統更新而受影響。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "用戶 (用户), 權益 (权益), 影響 (影响) 為台灣繁體中文常用詞彙。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-formal-0028",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "文件中的机关名称应依原核定名称记载。",
+      "codex_expected": "文件中的機關名稱應依原核定名稱記載。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "正式文件中的機關名稱不得任意改寫。",
+      "gemini_expected": "文件中的機關名稱應依原核定名稱記載。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "機關 (机关), 名稱 (名称), 記載 (记载) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-formal-0029",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "本案涉及台北市既有法规用语。",
+      "codex_expected": "本案涉及台北市既有法規用語。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "台灣地名與法規用語需保守。",
+      "gemini_expected": "本案涉及臺北市既有法規用語。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "臺北 (台北), 法規 (法规), 用語 (用语) 為台灣繁體中文常用詞彙。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-formal-0030",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "公文附件内的专有名词不得任意改写。",
+      "codex_expected": "公文附件內的專有名詞不得任意改寫。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；公文專有名詞需保留。",
+      "gemini_expected": "公文附件內的專有名詞不得任意改寫。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "專有 (专有), 名詞 (名词), 改寫 (改写) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-formal-0031",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "本通知自发布日起生效。",
+      "codex_expected": "本通知自發布日起生效。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "正式通知語句，轉換穩定。",
+      "gemini_expected": "本通知自發布日起生效。",
+      "gemini_acceptable": [
+        "本通知自發佈日起生效。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "發布 (发布) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0032",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "请各单位依限完成资料汇整。",
+      "codex_expected": "請各單位依限完成資料彙整。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "公文語氣常用「依限」「彙整」。",
+      "gemini_expected": "請各單位依限完成資料彙整。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "請 (请), 單位 (单位), 資料 (资料), 彙整 (汇整) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-formal-0033",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "相关费用由申请人自行负担。",
+      "codex_expected": "相關費用由申請人自行負擔。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "正式文件費用負擔語句，轉換穩定。",
+      "gemini_expected": "相關費用由申請人自行負擔。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "相關 (相关), 申請 (申请), 負擔 (负担) 為台灣繁體中文常用詞彙。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    }
+  ]
+}

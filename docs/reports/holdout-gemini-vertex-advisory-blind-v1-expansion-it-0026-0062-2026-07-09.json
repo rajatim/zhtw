@@ -1,0 +1,1557 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "reviewer": "gemini_vertex",
+  "review_stage": "independent_holdout_expected_review",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_codex_report": "docs/reports/holdout-codex-first-pass-blind-v1-expansion-127-cases-2026-07-09.json",
+  "raw_report": "docs/reports/holdout-gemini-vertex-advisory-blind-v1-expansion-it-0026-0062-2026-07-09.json",
+  "usage_metadata": {
+    "promptTokenCount": 3771,
+    "candidatesTokenCount": 3837,
+    "totalTokenCount": 12090,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3771
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3837
+      }
+    ],
+    "thoughtsTokenCount": 4482
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_holdout_expected_review",
+    "cases": [
+      {
+        "id": "blind-it-0026",
+        "expected": "這個介面會在請求逾時後傳回預設設定。",
+        "acceptable": [
+          "這個介面會在請求逾時後返回預設設定。",
+          "這個接口會在請求逾時後傳回預設設定。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term",
+          "formal_term"
+        ],
+        "confidence": "high",
+        "notes": "「这个」轉「這個」，「接口」轉「介面」，「超时」轉「逾時」，「返回」轉「傳回」，「配置」轉「設定」。"
+      },
+      {
+        "id": "blind-it-0027",
+        "expected": "請將存取權杖儲存到安全的金鑰管理服務。",
+        "acceptable": [
+          "請把存取權杖儲存到安全的金鑰管理服務。",
+          "請將訪問令牌儲存到安全的金鑰管理服務。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "formal_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「请」轉「請」，「把」轉「將」，「访问令牌」轉「存取權杖」，「保存」轉「儲存」，「密钥」轉「金鑰」。"
+      },
+      {
+        "id": "blind-it-0028",
+        "expected": "命令列工具支援批次上傳記錄檔。",
+        "acceptable": [
+          "命令列工具支持批次上傳記錄檔。",
+          "命令行工具支援批次上傳記錄檔。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term",
+          "formal_term"
+        ],
+        "confidence": "high",
+        "notes": "「命令行」轉「命令列」，「支持」轉「支援」，「批量」轉「批次」，「上传」轉「上傳」，「日志」轉「記錄」。"
+      },
+      {
+        "id": "blind-it-0029",
+        "expected": "如果相依性版本衝突，建置程序會直接失敗。",
+        "acceptable": [
+          "如果依賴版本衝突，建置程序會直接失敗。",
+          "如果相依性版本衝突，構建流程會直接失敗。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「依赖」轉「相依性」，「构建」轉「建置」，「流程」轉「程序」。"
+      },
+      {
+        "id": "blind-it-0030",
+        "expected": "新的 SDK 會在初始化時檢查執行環境。",
+        "acceptable": [
+          "新的 SDK 會在初始化時檢查運行環境。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「检查」轉「檢查」，「运行环境」轉「執行環境」。"
+      },
+      {
+        "id": "blind-it-0031",
+        "expected": "請在合併分支前先執行單元測試。",
+        "acceptable": [
+          "請在合併分支前先執行單元測試。",
+          "请在合并分支前先执行单元测试。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「请」轉「請」，「合并」轉「合併」，「执行」轉「執行」，「单元测试」轉「單元測試」。"
+      },
+      {
+        "id": "blind-it-0032",
+        "expected": "伺服器會根據要求標頭選擇回應格式。",
+        "acceptable": [
+          "伺服器會根據請求頭選擇回應格式。",
+          "服务器會根據要求標頭選擇回應格式。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「服务器」轉「伺服器」，「请求头」轉「要求標頭」，「选择」轉「選擇」，「响应」轉「回應」。"
+      },
+      {
+        "id": "blind-it-0033",
+        "expected": "這個外掛程式會掃描專案裡的在地化資源。",
+        "acceptable": [
+          "這個外掛程式會掃描專案裡的本地化資源。",
+          "这个插件會掃描專案裡的在地化資源。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「这个」轉「這個」，「插件」轉「外掛程式」，「扫描」轉「掃描」，「项目」轉「專案」，「本地化」轉「在地化」。"
+      },
+      {
+        "id": "blind-it-0034",
+        "expected": "發佈任務完成後，系統會傳送部署摘要。",
+        "acceptable": [
+          "發佈任務完成後，系統會發送部署摘要。",
+          "发布任务完成後，系統會傳送部署摘要。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "formal_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「发布」轉「發佈」，「任务」轉「任務」，「发送」轉「傳送」。"
+      },
+      {
+        "id": "blind-it-0035",
+        "expected": "當網路中斷時，用戶端會排入佇列重試。",
+        "acceptable": [
+          "當網路中斷時，用戶端會排隊重試。",
+          "当网络中断时，客户端會排入佇列重试。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「当」轉「當」，「网络」轉「網路」，「客户端」轉「用戶端」，「排队」轉「排入佇列」。"
+      },
+      {
+        "id": "blind-it-0036",
+        "expected": "請在組態檔裡關閉偵錯模式。",
+        "acceptable": [
+          "請在組態檔裡關閉偵錯模式。",
+          "请在配置文件里关闭调试模式。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「请」轉「請」，「配置文件」轉「組態檔」，「关闭」轉「關閉」，「调试」轉「偵錯」。"
+      },
+      {
+        "id": "blind-it-0037",
+        "expected": "後台服務每天凌晨清除過期工作階段。",
+        "acceptable": [
+          "後台服務每天凌晨清理過期工作階段。",
+          "后台服务每天凌晨清除过期会话。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「后台」轉「後台」，「清理」轉「清除」，「会话」轉「工作階段」。"
+      },
+      {
+        "id": "blind-it-0038",
+        "expected": "這個參數只影響增量同步的批次大小。",
+        "acceptable": [
+          "這個參數只影響增量同步的批次大小。",
+          "这个参数只影响增量同步的批次大小。"
+        ],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「这个」轉「這個」，「影响」轉「影響」。"
+      },
+      {
+        "id": "blind-it-0039",
+        "expected": "代理伺服器會快取靜態資源以降低延遲。",
+        "acceptable": [
+          "代理伺服器會快取靜態資源以降低延遲。",
+          "代理服务器會缓存静态资源以降低延迟。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「代理服务器」轉「代理伺服器」，「缓存」轉「快取」，「延迟」轉「延遲」。"
+      },
+      {
+        "id": "blind-it-0040",
+        "expected": "我們需要記錄每個請求的追蹤編號。",
+        "acceptable": [
+          "我們需要記錄每個請求的追蹤編號。",
+          "我们需要记录每个请求的追踪编号。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「我们」轉「我們」，「记录」轉「記錄」，「追踪编号」轉「追蹤編號」。"
+      },
+      {
+        "id": "blind-it-0041",
+        "expected": "如果資料庫連線集區用盡，介面會暫時拒絕請求。",
+        "acceptable": [
+          "如果資料庫連線集區用盡，介面會暫時拒絕請求。",
+          "如果数据库连接池耗尽，接口会暂时拒绝请求。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term",
+          "formal_term"
+        ],
+        "confidence": "high",
+        "notes": "「数据库」轉「資料庫」，「连接池」轉「連線集區」，「耗尽」轉「用盡」，「接口」轉「介面」，「拒绝」轉「拒絕」。"
+      },
+      {
+        "id": "blind-it-0042",
+        "expected": "移轉指令碼會先備份舊資料表再修改欄位。",
+        "acceptable": [
+          "移轉指令碼會先備份舊資料表再修改欄位。",
+          "迁移脚本会先备份旧表再修改字段。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「迁移」轉「移轉」，「脚本」轉「指令碼」，「备份」轉「備份」，「旧表」轉「舊資料表」，「字段」轉「欄位」。"
+      },
+      {
+        "id": "blind-it-0043",
+        "expected": "容器啟動失敗時，請檢查映像標籤是否正確。",
+        "acceptable": [
+          "容器啟動失敗時，請檢查映像標籤是否正確。",
+          "容器启动失败时，请检查镜像标签是否正确。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「启动」轉「啟動」，「失败」轉「失敗」，「请」轉「請」，「检查」轉「檢查」，「镜像」轉「映像」，「标签」轉「標籤」。"
+      },
+      {
+        "id": "blind-it-0044",
+        "expected": "這個掛鉤會在認可前格式化原始碼。",
+        "acceptable": [
+          "這個掛鉤會在認可前格式化原始碼。",
+          "这个钩子会在提交前格式化源代码。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「这个」轉「這個」，「钩子」轉「掛鉤」，「提交」轉「認可」，「源代码」轉「原始碼」。"
+      },
+      {
+        "id": "blind-it-0045",
+        "expected": "監控面板顯示佇列長度持續升高。",
+        "acceptable": [
+          "監控面板顯示佇列長度持續升高。",
+          "监控面板显示队列长度持续升高。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「监控」轉「監控」，「显示」轉「顯示」，「队列」轉「佇列」。"
+      },
+      {
+        "id": "blind-it-0046",
+        "expected": "請將錯誤報告附加到問題單裡。",
+        "acceptable": [
+          "請將錯誤報告附加到問題單裡。",
+          "请把错误报告附加到问题单里。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "formal_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「请」轉「請」，「把」轉「將」，「问题单」轉「問題單」。"
+      },
+      {
+        "id": "blind-it-0047",
+        "expected": "伺服器端會驗證回呼位址的簽章。",
+        "acceptable": [
+          "伺服器端會驗證回呼位址的簽章。",
+          "服务端会验证回调地址的签名。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「服务端」轉「伺服器端」，「验证」轉「驗證」，「回调」轉「回呼」，「签名」轉「簽章」。"
+      },
+      {
+        "id": "blind-it-0048",
+        "expected": "測試環境使用獨立的物件儲存貯體。",
+        "acceptable": [
+          "測試環境使用獨立的物件儲存貯體。",
+          "测试环境使用独立的对象存储桶。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「测试环境」轉「測試環境」，「独立」轉「獨立」，「对象存储桶」轉「物件儲存貯體」。"
+      },
+      {
+        "id": "blind-it-0049",
+        "expected": "如果憑證即將過期，系統會提前發出警示。",
+        "acceptable": [
+          "如果憑證即將過期，系統會提前發出警示。",
+          "如果证书即将过期，系统会提前发出告警。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「证书」轉「憑證」，「发出」轉「發出」，「告警」轉「警示」。"
+      },
+      {
+        "id": "blind-it-0050",
+        "expected": "這個 API 端點只接受 JSON 要求主體。",
+        "acceptable": [
+          "這個 API 端點只接受 JSON 要求主體。",
+          "这个 API 端点只接受 JSON 请求体。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「这个」轉「這個」，「请求体」轉「要求主體」。"
+      },
+      {
+        "id": "blind-it-0051",
+        "expected": "指令碼會將暫存檔寫入工作目錄。",
+        "acceptable": [
+          "指令碼會將暫存檔寫入工作目錄。",
+          "脚本会把临时文件写入工作目录。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term",
+          "formal_term"
+        ],
+        "confidence": "high",
+        "notes": "「脚本」轉「指令碼」，「把」轉「將」，「写入」轉「寫入」，「工作目录」轉「工作目錄」。"
+      },
+      {
+        "id": "blind-it-0052",
+        "expected": "請確認防火牆規則允許健康情況檢查請求。",
+        "acceptable": [
+          "請確認防火牆規則允許健康情況檢查請求。",
+          "请确认防火墙规则允许健康检查请求。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「请」轉「請」，「确认」轉「確認」，「防火墙」轉「防火牆」，「允许」轉「允許」，「健康检查」轉「健康情況檢查」。"
+      },
+      {
+        "id": "blind-it-0053",
+        "expected": "這個程式會保留使用者自訂的範本名稱。",
+        "acceptable": [
+          "這個程式會保留使用者自訂的範本名稱。",
+          "这个程序会保留用户自定义的模板名称。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「这个」轉「這個」，「程序」轉「程式」，「用户」轉「使用者」，「自定义」轉「自訂」，「模板」轉「範本」。"
+      },
+      {
+        "id": "blind-it-0054",
+        "expected": "記錄頁面顯示的專案名稱不應該自動翻譯。",
+        "acceptable": [
+          "記錄頁面顯示的專案名稱不應該自動翻譯。",
+          "日志页面显示的项目名称不应该自动翻译。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「日志」轉「記錄」，「显示」轉「顯示」，「项目」轉「專案」，「应该」轉「應該」，「翻译」轉「翻譯」。"
+      },
+      {
+        "id": "blind-it-0055",
+        "expected": "測試資料裡包含臺北市政府開放資料的欄位名稱。",
+        "acceptable": [
+          "測試資料裡包含臺北市政府開放資料的欄位名稱。",
+          "测试资料里包含台北市政府开放资料的字段名。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「测试」轉「測試」，「资料」轉「資料」，「台北」轉「臺北」，「开放资料」轉「開放資料」，「字段名」轉「欄位名稱」。"
+      },
+      {
+        "id": "blind-it-0056",
+        "expected": "請不要修改已經在地化的功能表文字。",
+        "acceptable": [
+          "請不要修改已經在地化的功能表文字。",
+          "请不要修改已经本地化的菜单文字。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term",
+          "ui_term"
+        ],
+        "confidence": "high",
+        "notes": "「请」轉「請」，「已经」轉「已經」，「本地化」轉「在地化」，「菜单」轉「功能表」。"
+      },
+      {
+        "id": "blind-it-0057",
+        "expected": "這個儲存庫同時儲存英文和臺灣繁體 README。",
+        "acceptable": [
+          "這個儲存庫同時儲存英文和臺灣繁體 README。",
+          "这个仓库同时保存英文和台湾繁体 README。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「这个」轉「這個」，「仓库」轉「儲存庫」，「保存」轉「儲存」，「台湾繁体」轉「臺灣繁體」。"
+      },
+      {
+        "id": "blind-it-0058",
+        "expected": "每次建置都會產生新的檢查碼。",
+        "acceptable": [
+          "每次建置都會產生新的檢查碼。",
+          "每次构建都会生成新的校验和。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term",
+          "formal_term"
+        ],
+        "confidence": "high",
+        "notes": "「构建」轉「建置」，「生成」轉「產生」，「校验和」轉「檢查碼」。"
+      },
+      {
+        "id": "blind-it-0059",
+        "expected": "這個目錄只儲存暫存快取。",
+        "acceptable": [
+          "這個目錄只儲存暫存快取。",
+          "这个目录只保存临时缓存。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「这个」轉「這個」，「保存」轉「儲存」，「临时」轉「暫存」，「缓存」轉「快取」。"
+      },
+      {
+        "id": "blind-it-0060",
+        "expected": "管理員可以撤銷過期的存取權限。",
+        "acceptable": [
+          "管理員可以撤銷過期的存取權限。",
+          "管理员可以撤销过期的访问权限。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「管理员」轉「管理員」，「撤销」轉「撤銷」，「访问权限」轉「存取權限」。"
+      },
+      {
+        "id": "blind-it-0061",
+        "expected": "請在安裝完成後重新啟動服務。",
+        "acceptable": [
+          "請在安裝完成後重新啟動服務。",
+          "请在安装完成后重新启动服务。"
+        ],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「请」轉「請」，「启动」轉「啟動」。"
+      },
+      {
+        "id": "blind-it-0062",
+        "expected": "系統會在七天後刪除未使用的權杖。",
+        "acceptable": [
+          "系統會在七天後刪除未使用的權杖。",
+          "系统会在七天后删除未使用的令牌。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「删除」轉「刪除」，「令牌」轉「權杖」。"
+      }
+    ]
+  },
+  "summary": {
+    "total_cases": 37,
+    "exact_matches_with_codex": 10,
+    "differences_from_codex": 27,
+    "needs_maintainer_review": 30,
+    "by_domain": {
+      "it": 37
+    },
+    "by_gemini_confidence": {
+      "high": 37
+    },
+    "promotion_allowed": false
+  },
+  "comparisons": [
+    {
+      "id": "blind-it-0026",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个接口会在请求超时后返回默认配置。",
+      "codex_expected": "這個介面會在請求逾時後回傳預設設定。",
+      "codex_acceptable": [
+        "這個 API 會在請求逾時後回傳預設設定。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「接口」可依語境作「介面」或 API；HTTP「请求超时」採「請求逾時」。",
+      "gemini_expected": "這個介面會在請求逾時後傳回預設設定。",
+      "gemini_acceptable": [
+        "這個介面會在請求逾時後返回預設設定。",
+        "這個接口會在請求逾時後傳回預設設定。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term",
+        "formal_term"
+      ],
+      "gemini_notes": "「这个」轉「這個」，「接口」轉「介面」，「超时」轉「逾時」，「返回」轉「傳回」，「配置」轉「設定」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0027",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请把访问令牌保存到安全的密钥管理服务。",
+      "codex_expected": "請把存取權杖儲存到安全的金鑰管理服務。",
+      "codex_acceptable": [
+        "請把存取權杖保存到安全的金鑰管理服務。"
+      ],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "身分驗證語境採「存取權杖」「金鑰管理服務」。",
+      "gemini_expected": "請將存取權杖儲存到安全的金鑰管理服務。",
+      "gemini_acceptable": [
+        "請把存取權杖儲存到安全的金鑰管理服務。",
+        "請將訪問令牌儲存到安全的金鑰管理服務。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term",
+        "it_term"
+      ],
+      "gemini_notes": "「请」轉「請」，「把」轉「將」，「访问令牌」轉「存取權杖」，「保存」轉「儲存」，「密钥」轉「金鑰」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0028",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "命令行工具支持批量上传日志文件。",
+      "codex_expected": "命令列工具支援批次上傳日誌檔案。",
+      "codex_acceptable": [
+        "命令列工具支援批次上傳記錄檔。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「日志文件」在台灣 IT 語境可作「日誌檔案」或「記錄檔」，需看產品用語。",
+      "gemini_expected": "命令列工具支援批次上傳記錄檔。",
+      "gemini_acceptable": [
+        "命令列工具支持批次上傳記錄檔。",
+        "命令行工具支援批次上傳記錄檔。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term",
+        "formal_term"
+      ],
+      "gemini_notes": "「命令行」轉「命令列」，「支持」轉「支援」，「批量」轉「批次」，「上传」轉「上傳」，「日志」轉「記錄」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0029",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "如果依赖版本冲突，构建流程会直接失败。",
+      "codex_expected": "如果相依套件版本衝突，建置流程會直接失敗。",
+      "codex_acceptable": [
+        "如果依賴版本衝突，建置流程會直接失敗。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「依赖版本」可指相依套件版本；台灣工程文件常用「建置」。",
+      "gemini_expected": "如果相依性版本衝突，建置程序會直接失敗。",
+      "gemini_acceptable": [
+        "如果依賴版本衝突，建置程序會直接失敗。",
+        "如果相依性版本衝突，構建流程會直接失敗。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「依赖」轉「相依性」，「构建」轉「建置」，「流程」轉「程序」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0030",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "新的 SDK 会在初始化时检查运行环境。",
+      "codex_expected": "新的 SDK 會在初始化時檢查執行環境。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「运行环境」轉為台灣 IT 常用「執行環境」。",
+      "gemini_expected": "新的 SDK 會在初始化時檢查執行環境。",
+      "gemini_acceptable": [
+        "新的 SDK 會在初始化時檢查運行環境。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「检查」轉「檢查」，「运行环境」轉「執行環境」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0031",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请在合并分支前先执行单元测试。",
+      "codex_expected": "請在合併分支前先執行單元測試。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "版本控制語境「合并分支」採「合併分支」。",
+      "gemini_expected": "請在合併分支前先執行單元測試。",
+      "gemini_acceptable": [
+        "請在合併分支前先執行單元測試。",
+        "请在合并分支前先执行单元测试。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「请」轉「請」，「合并」轉「合併」，「执行」轉「執行」，「单元测试」轉「單元測試」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0032",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "服务器会根据请求头选择响应格式。",
+      "codex_expected": "伺服器會根據請求標頭選擇回應格式。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "HTTP 語境採「請求標頭」「回應格式」。",
+      "gemini_expected": "伺服器會根據要求標頭選擇回應格式。",
+      "gemini_acceptable": [
+        "伺服器會根據請求頭選擇回應格式。",
+        "服务器會根據要求標頭選擇回應格式。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「服务器」轉「伺服器」，「请求头」轉「要求標頭」，「选择」轉「選擇」，「响应」轉「回應」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0033",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个插件会扫描项目里的本地化资源。",
+      "codex_expected": "這個外掛會掃描專案裡的在地化資源。",
+      "codex_acceptable": [
+        "這個外掛會掃描專案裡的本地化資源。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "台灣產品語境常用「在地化」，但開發文件也常保留「本地化」。",
+      "gemini_expected": "這個外掛程式會掃描專案裡的在地化資源。",
+      "gemini_acceptable": [
+        "這個外掛程式會掃描專案裡的本地化資源。",
+        "这个插件會掃描專案裡的在地化資源。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「这个」轉「這個」，「插件」轉「外掛程式」，「扫描」轉「掃描」，「项目」轉「專案」，「本地化」轉「在地化」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0034",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "发布任务完成后，系统会发送部署摘要。",
+      "codex_expected": "發布工作完成後，系統會傳送部署摘要。",
+      "codex_acceptable": [
+        "發布任務完成後，系統會傳送部署摘要。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「任务」可作「工作」或「任務」；此處偏工作流程語境。",
+      "gemini_expected": "發佈任務完成後，系統會傳送部署摘要。",
+      "gemini_acceptable": [
+        "發佈任務完成後，系統會發送部署摘要。",
+        "发布任务完成後，系統會傳送部署摘要。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term",
+        "it_term"
+      ],
+      "gemini_notes": "「发布」轉「發佈」，「任务」轉「任務」，「发送」轉「傳送」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0035",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "当网络中断时，客户端会排队重试。",
+      "codex_expected": "當網路中斷時，用戶端會排隊重試。",
+      "codex_acceptable": [
+        "當網路中斷時，客戶端會排隊重試。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「客户端」台灣技術文件常見「用戶端」，但部分產品用「客戶端」。",
+      "gemini_expected": "當網路中斷時，用戶端會排入佇列重試。",
+      "gemini_acceptable": [
+        "當網路中斷時，用戶端會排隊重試。",
+        "当网络中断时，客户端會排入佇列重试。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「当」轉「當」，「网络」轉「網路」，「客户端」轉「用戶端」，「排队」轉「排入佇列」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0036",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请在配置文件里关闭调试模式。",
+      "codex_expected": "請在設定檔裡關閉偵錯模式。",
+      "codex_acceptable": [
+        "請在設定檔裡關閉除錯模式。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "debug 在台灣常見「偵錯」與「除錯」兩種譯法，需看專案慣例。",
+      "gemini_expected": "請在組態檔裡關閉偵錯模式。",
+      "gemini_acceptable": [
+        "請在組態檔裡關閉偵錯模式。",
+        "请在配置文件里关闭调试模式。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「请」轉「請」，「配置文件」轉「組態檔」，「关闭」轉「關閉」，「调试」轉「偵錯」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0037",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "后台服务每天凌晨清理过期会话。",
+      "codex_expected": "背景服務每天凌晨清理過期工作階段。",
+      "codex_acceptable": [
+        "背景服務每天凌晨清理過期會話。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「会话」在網頁/伺服器語境多作「工作階段」，但「會話」也可能被採用。",
+      "gemini_expected": "後台服務每天凌晨清除過期工作階段。",
+      "gemini_acceptable": [
+        "後台服務每天凌晨清理過期工作階段。",
+        "后台服务每天凌晨清除过期会话。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「后台」轉「後台」，「清理」轉「清除」，「会话」轉「工作階段」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0038",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个参数只影响增量同步的批次大小。",
+      "codex_expected": "這個參數只影響增量同步的批次大小。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「参数」「批次大小」為台灣技術文件常用語；「增量同步」保留技術術語。",
+      "gemini_expected": "這個參數只影響增量同步的批次大小。",
+      "gemini_acceptable": [
+        "這個參數只影響增量同步的批次大小。",
+        "这个参数只影响增量同步的批次大小。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「这个」轉「這個」，「影响」轉「影響」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0039",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "代理服务器会缓存静态资源以降低延迟。",
+      "codex_expected": "代理伺服器會快取靜態資源以降低延遲。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「代理服务器」「缓存」分別轉為「代理伺服器」「快取」。",
+      "gemini_expected": "代理伺服器會快取靜態資源以降低延遲。",
+      "gemini_acceptable": [
+        "代理伺服器會快取靜態資源以降低延遲。",
+        "代理服务器會缓存静态资源以降低延迟。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「代理服务器」轉「代理伺服器」，「缓存」轉「快取」，「延迟」轉「延遲」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0040",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "我们需要记录每个请求的追踪编号。",
+      "codex_expected": "我們需要記錄每個請求的追蹤編號。",
+      "codex_acceptable": [
+        "我們需要記錄每個請求的追蹤 ID。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "trace id 可譯「追蹤編號」或保留 ID，需看產品風格。",
+      "gemini_expected": "我們需要記錄每個請求的追蹤編號。",
+      "gemini_acceptable": [
+        "我們需要記錄每個請求的追蹤編號。",
+        "我们需要记录每个请求的追踪编号。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「我们」轉「我們」，「记录」轉「記錄」，「追踪编号」轉「追蹤編號」。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0041",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "如果数据库连接池耗尽，接口会暂时拒绝请求。",
+      "codex_expected": "如果資料庫連線池耗盡，API 會暫時拒絕請求。",
+      "codex_acceptable": [
+        "如果資料庫連線池耗盡，介面會暫時拒絕請求。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「接口」在此接近 API endpoint，先採 API；可接受「介面」。",
+      "gemini_expected": "如果資料庫連線集區用盡，介面會暫時拒絕請求。",
+      "gemini_acceptable": [
+        "如果資料庫連線集區用盡，介面會暫時拒絕請求。",
+        "如果数据库连接池耗尽，接口会暂时拒绝请求。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term",
+        "formal_term"
+      ],
+      "gemini_notes": "「数据库」轉「資料庫」，「连接池」轉「連線集區」，「耗尽」轉「用盡」，「接口」轉「介面」，「拒绝」轉「拒絕」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0042",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "迁移脚本会先备份旧表再修改字段。",
+      "codex_expected": "遷移指令碼會先備份舊資料表再修改欄位。",
+      "codex_acceptable": [
+        "移轉指令碼會先備份舊資料表再修改欄位。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "資料庫 migration 在台灣文件可見「遷移」與「移轉」；需看專案慣例。",
+      "gemini_expected": "移轉指令碼會先備份舊資料表再修改欄位。",
+      "gemini_acceptable": [
+        "移轉指令碼會先備份舊資料表再修改欄位。",
+        "迁移脚本会先备份旧表再修改字段。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「迁移」轉「移轉」，「脚本」轉「指令碼」，「备份」轉「備份」，「旧表」轉「舊資料表」，「字段」轉「欄位」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0043",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "容器启动失败时，请检查镜像标签是否正确。",
+      "codex_expected": "容器啟動失敗時，請檢查映像檔標籤是否正確。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "容器語境「镜像标签」採「映像檔標籤」。",
+      "gemini_expected": "容器啟動失敗時，請檢查映像標籤是否正確。",
+      "gemini_acceptable": [
+        "容器啟動失敗時，請檢查映像標籤是否正確。",
+        "容器启动失败时，请检查镜像标签是否正确。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「启动」轉「啟動」，「失败」轉「失敗」，「请」轉「請」，「检查」轉「檢查」，「镜像」轉「映像」，「标签」轉「標籤」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0044",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个钩子会在提交前格式化源代码。",
+      "codex_expected": "這個鉤子會在提交前格式化原始碼。",
+      "codex_acceptable": [
+        "這個 hook 會在提交前格式化原始碼。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "Git hook 可譯「鉤子」或保留英文 hook，需確認文件風格。",
+      "gemini_expected": "這個掛鉤會在認可前格式化原始碼。",
+      "gemini_acceptable": [
+        "這個掛鉤會在認可前格式化原始碼。",
+        "这个钩子会在提交前格式化源代码。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「这个」轉「這個」，「钩子」轉「掛鉤」，「提交」轉「認可」，「源代码」轉「原始碼」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0045",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "监控面板显示队列长度持续升高。",
+      "codex_expected": "監控儀表板顯示佇列長度持續升高。",
+      "codex_acceptable": [
+        "監控面板顯示佇列長度持續升高。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "dashboard 可作「儀表板」或「面板」；queue 採「佇列」。",
+      "gemini_expected": "監控面板顯示佇列長度持續升高。",
+      "gemini_acceptable": [
+        "監控面板顯示佇列長度持續升高。",
+        "监控面板显示队列长度持续升高。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「监控」轉「監控」，「显示」轉「顯示」，「队列」轉「佇列」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0046",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请把错误报告附加到问题单里。",
+      "codex_expected": "請把錯誤報告附加到問題單裡。",
+      "codex_acceptable": [
+        "請把錯誤報告附加到議題裡。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「问题单」可作 issue/問題單/議題；先採較直觀的「問題單」。",
+      "gemini_expected": "請將錯誤報告附加到問題單裡。",
+      "gemini_acceptable": [
+        "請將錯誤報告附加到問題單裡。",
+        "请把错误报告附加到问题单里。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term",
+        "it_term"
+      ],
+      "gemini_notes": "「请」轉「請」，「把」轉「將」，「问题单」轉「問題單」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0047",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "服务端会验证回调地址的签名。",
+      "codex_expected": "伺服器端會驗證回呼網址的簽章。",
+      "codex_acceptable": [
+        "服務端會驗證回呼網址的簽章。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「服务端」台灣技術文件多用「伺服器端」；callback address 採「回呼網址」。",
+      "gemini_expected": "伺服器端會驗證回呼位址的簽章。",
+      "gemini_acceptable": [
+        "伺服器端會驗證回呼位址的簽章。",
+        "服务端会验证回调地址的签名。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「服务端」轉「伺服器端」，「验证」轉「驗證」，「回调」轉「回呼」，「签名」轉「簽章」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0048",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "测试环境使用独立的对象存储桶。",
+      "codex_expected": "測試環境使用獨立的物件儲存桶。",
+      "codex_acceptable": [
+        "測試環境使用獨立的物件儲存貯體。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "object storage bucket 在不同雲端文件譯法不同，需確認產品採「儲存桶」或「貯體」。",
+      "gemini_expected": "測試環境使用獨立的物件儲存貯體。",
+      "gemini_acceptable": [
+        "測試環境使用獨立的物件儲存貯體。",
+        "测试环境使用独立的对象存储桶。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「测试环境」轉「測試環境」，「独立」轉「獨立」，「对象存储桶」轉「物件儲存貯體」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0049",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "如果证书即将过期，系统会提前发出告警。",
+      "codex_expected": "如果憑證即將過期，系統會提前發出警示。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "憑證/警示為台灣技術與安全語境常用語。",
+      "gemini_expected": "如果憑證即將過期，系統會提前發出警示。",
+      "gemini_acceptable": [
+        "如果憑證即將過期，系統會提前發出警示。",
+        "如果证书即将过期，系统会提前发出告警。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「证书」轉「憑證」，「发出」轉「發出」，「告警」轉「警示」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0050",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "这个 API 端点只接受 JSON 请求体。",
+      "codex_expected": "這個 API 端點只接受 JSON 請求本文。",
+      "codex_acceptable": [
+        "這個 API 端點只接受 JSON 請求主體。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "request body 有「請求本文」「請求主體」兩種常見譯法。",
+      "gemini_expected": "這個 API 端點只接受 JSON 要求主體。",
+      "gemini_acceptable": [
+        "這個 API 端點只接受 JSON 要求主體。",
+        "这个 API 端点只接受 JSON 请求体。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「这个」轉「這個」，「请求体」轉「要求主體」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0051",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "脚本会把临时文件写入工作目录。",
+      "codex_expected": "指令碼會把暫存檔寫入工作目錄。",
+      "codex_acceptable": [
+        "腳本會把暫存檔寫入工作目錄。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "script 可作「指令碼」或「腳本」，需看文件風格。",
+      "gemini_expected": "指令碼會將暫存檔寫入工作目錄。",
+      "gemini_acceptable": [
+        "指令碼會將暫存檔寫入工作目錄。",
+        "脚本会把临时文件写入工作目录。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term",
+        "formal_term"
+      ],
+      "gemini_notes": "「脚本」轉「指令碼」，「把」轉「將」，「写入」轉「寫入」，「工作目录」轉「工作目錄」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0052",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "请确认防火墙规则允许健康检查请求。",
+      "codex_expected": "請確認防火牆規則允許健康檢查請求。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「防火墙」「健康检查」皆有穩定台灣 IT 對應。",
+      "gemini_expected": "請確認防火牆規則允許健康情況檢查請求。",
+      "gemini_acceptable": [
+        "請確認防火牆規則允許健康情況檢查請求。",
+        "请确认防火墙规则允许健康检查请求。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「请」轉「請」，「确认」轉「確認」，「防火墙」轉「防火牆」，「允许」轉「允許」，「健康检查」轉「健康情況檢查」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0053",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "这个程序会保留用户自定义的模板名称。",
+      "codex_expected": "這個程式會保留使用者自訂的範本名稱。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；「模板」在台灣軟體語境作「範本」，但重點是保留自訂名稱。",
+      "gemini_expected": "這個程式會保留使用者自訂的範本名稱。",
+      "gemini_acceptable": [
+        "這個程式會保留使用者自訂的範本名稱。",
+        "这个程序会保留用户自定义的模板名称。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「这个」轉「這個」，「程序」轉「程式」，「用户」轉「使用者」，「自定义」轉「自訂」，「模板」轉「範本」。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0054",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "日志页面显示的项目名称不应该自动翻译。",
+      "codex_expected": "日誌頁面顯示的專案名稱不應該自動翻譯。",
+      "codex_acceptable": [
+        "記錄檔頁面顯示的專案名稱不應該自動翻譯。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；log 可作日誌或記錄檔，專案名稱不得被改。",
+      "gemini_expected": "記錄頁面顯示的專案名稱不應該自動翻譯。",
+      "gemini_acceptable": [
+        "記錄頁面顯示的專案名稱不應該自動翻譯。",
+        "日志页面显示的项目名称不应该自动翻译。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「日志」轉「記錄」，「显示」轉「顯示」，「项目」轉「專案」，「应该」轉「應該」，「翻译」轉「翻譯」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0055",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "测试资料里包含台北市政府开放资料的字段名。",
+      "codex_expected": "測試資料裡包含台北市政府開放資料的欄位名稱。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；台灣機關與開放資料語境需保守。",
+      "gemini_expected": "測試資料裡包含臺北市政府開放資料的欄位名稱。",
+      "gemini_acceptable": [
+        "測試資料裡包含臺北市政府開放資料的欄位名稱。",
+        "测试资料里包含台北市政府开放资料的字段名。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「测试」轉「測試」，「资料」轉「資料」，「台北」轉「臺北」，「开放资料」轉「開放資料」，「字段名」轉「欄位名稱」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0056",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "请不要修改已经本地化的菜单文字。",
+      "codex_expected": "請不要修改已經在地化的選單文字。",
+      "codex_acceptable": [
+        "請不要修改已經本地化的選單文字。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；在地化/本地化需依產品用語確認。",
+      "gemini_expected": "請不要修改已經在地化的功能表文字。",
+      "gemini_acceptable": [
+        "請不要修改已經在地化的功能表文字。",
+        "请不要修改已经本地化的菜单文字。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term",
+        "ui_term"
+      ],
+      "gemini_notes": "「请」轉「請」，「已经」轉「已經」，「本地化」轉「在地化」，「菜单」轉「功能表」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0057",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "这个仓库同时保存英文和台湾繁体 README。",
+      "codex_expected": "這個儲存庫同時保存英文和台灣繁體 README。",
+      "codex_acceptable": [
+        "這個倉庫同時保存英文和台灣繁體 README。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "repository 在台灣常見「儲存庫」，但開發者口語也用「倉庫」。",
+      "gemini_expected": "這個儲存庫同時儲存英文和臺灣繁體 README。",
+      "gemini_acceptable": [
+        "這個儲存庫同時儲存英文和臺灣繁體 README。",
+        "这个仓库同时保存英文和台湾繁体 README。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「这个」轉「這個」，「仓库」轉「儲存庫」，「保存」轉「儲存」，「台湾繁体」轉「臺灣繁體」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0058",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "每次构建都会生成新的校验和。",
+      "codex_expected": "每次建置都會產生新的校驗和。",
+      "codex_acceptable": [
+        "每次建置都會產生新的檢查碼。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "checksum 可作「校驗和」或「檢查碼」，需確認技術文件慣例。",
+      "gemini_expected": "每次建置都會產生新的檢查碼。",
+      "gemini_acceptable": [
+        "每次建置都會產生新的檢查碼。",
+        "每次构建都会生成新的校验和。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term",
+        "formal_term"
+      ],
+      "gemini_notes": "「构建」轉「建置」，「生成」轉「產生」，「校验和」轉「檢查碼」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0059",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "这个目录只保存临时缓存。",
+      "codex_expected": "這個目錄只保存暫存快取。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「临时缓存」轉「暫存快取」。",
+      "gemini_expected": "這個目錄只儲存暫存快取。",
+      "gemini_acceptable": [
+        "這個目錄只儲存暫存快取。",
+        "这个目录只保存临时缓存。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「这个」轉「這個」，「保存」轉「儲存」，「临时」轉「暫存」，「缓存」轉「快取」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-it-0060",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "管理员可以撤销过期的访问权限。",
+      "codex_expected": "管理員可以撤銷過期的存取權限。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "權限管理語境採「存取權限」。",
+      "gemini_expected": "管理員可以撤銷過期的存取權限。",
+      "gemini_acceptable": [
+        "管理員可以撤銷過期的存取權限。",
+        "管理员可以撤销过期的访问权限。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「管理员」轉「管理員」，「撤销」轉「撤銷」，「访问权限」轉「存取權限」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0061",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "请在安装完成后重新启动服务。",
+      "codex_expected": "請在安裝完成後重新啟動服務。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "一般軟體安裝語境，轉換穩定。",
+      "gemini_expected": "請在安裝完成後重新啟動服務。",
+      "gemini_acceptable": [
+        "請在安裝完成後重新啟動服務。",
+        "请在安装完成后重新启动服务。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「请」轉「請」，「启动」轉「啟動」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-it-0062",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "系统会在七天后删除未使用的令牌。",
+      "codex_expected": "系統會在七天後刪除未使用的權杖。",
+      "codex_acceptable": [
+        "系統會在七天後刪除未使用的令牌。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "token 在安全語境多採「權杖」，但部分產品保留「令牌」。",
+      "gemini_expected": "系統會在七天後刪除未使用的權杖。",
+      "gemini_acceptable": [
+        "系統會在七天後刪除未使用的權杖。",
+        "系统会在七天后删除未使用的令牌。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「删除」轉「刪除」，「令牌」轉「權杖」。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    }
+  ]
+}

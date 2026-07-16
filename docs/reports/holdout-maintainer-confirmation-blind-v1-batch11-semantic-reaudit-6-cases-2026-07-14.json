@@ -1,0 +1,77 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "review_stage": "maintainer_confirmation_packet",
+  "scope": "batch11_semantic_reaudit_6_cases",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_diff_review": "docs/reports/holdout-semantic-reaudit-diff-blind-v1-batch11-25-cases-2026-07-14.json",
+  "summary": {
+    "review_cases": 6,
+    "acceptable_variant_cases": 4,
+    "public_regression_candidate_cases": 2,
+    "already_resolved_by_maintainer_preference": 19,
+    "promotion_allowed": false
+  },
+  "cases": [
+    {
+      "id": "blind-it-0238",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "revised_action": "add_zhtw_output_as_acceptable_variant",
+      "reason_code": "semantic_equivalence_or_taiwan_accepted_style_variant",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0242",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "revised_action": "add_zhtw_output_as_acceptable_variant",
+      "reason_code": "semantic_equivalence_or_taiwan_accepted_style_variant",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0244",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0246",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "revised_action": "add_zhtw_output_as_acceptable_variant",
+      "reason_code": "semantic_equivalence_or_taiwan_accepted_style_variant",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0189",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "revised_action": "add_zhtw_output_as_acceptable_variant",
+      "reason_code": "semantic_equivalence_or_taiwan_accepted_style_variant",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0140",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "revised_action": "move_to_public_regression_candidate",
+      "reason_code": "semantic_or_taiwan_terminology_error_confirmed_after_reaudit",
+      "maintainer_status": "pending_confirmation",
+      "sealed_values_omitted": true
+    }
+  ],
+  "policy": {
+    "maintainer_confirmation_required": true,
+    "no_expected_or_dictionary_change_before_confirmation": true,
+    "remove_from_sealed_before_public_tuning": true
+  }
+}

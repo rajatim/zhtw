@@ -1,0 +1,847 @@
+{
+  "generated_date": "2026-07-12",
+  "dataset": "blind-v1",
+  "report_type": "holdout_miss_classification_683_case_sanity",
+  "review_stage": "private_miss_classification_first_pass_after_batch9",
+  "reviewer": "codex",
+  "source_benchmark": {
+    "path": "/tmp/zhtw-blind-v1-private-benchmark-after-batch9-2026-07-12.json",
+    "in_repo": false,
+    "rows_used_for_classification_only": true
+  },
+  "source_reports": [
+    "docs/reports/holdout-private-benchmark-sanity-blind-v1-after-batch9-2026-07-12.json",
+    "docs/reports/holdout-maintainer-final-decision-blind-v1-batch9-100-cases-2026-07-12.json"
+  ],
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": true
+  },
+  "classification_policy": {
+    "over_conversion_guard_default": "keep_as_holdout_signal",
+    "high_risk_default": "keep_as_holdout_signal_or_expected_recheck_only",
+    "public_regression_candidate_requires": "maintainer_confirmation_and_removal_from_sealed_holdout_before_tuning",
+    "expected_recheck_requires": "maintainer_review_before_any_private_expected_update"
+  },
+  "gemini_review_policy": {
+    "status": "completed_on_sanitized_metadata",
+    "review_report": "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-683-cases-2026-07-12.json",
+    "sealed_values_seen_by_gemini": false,
+    "policy_passed": true,
+    "classification_changes_recommended": 0,
+    "reason": "Gemini reviewed case ids and classification metadata only; private expected, inputs, and converter outputs were not sent. GEMINI_API_KEY, GOOGLE_API_KEY, and GOOGLE_GENAI_API_KEY were unset for this CLI run to avoid invalid API-key mode."
+  },
+  "summary": {
+    "current_sealed_cases": 683,
+    "current_accepted": 630,
+    "current_misses": 53,
+    "accepted_accuracy": 0.9224011713030746,
+    "classified_misses": 53,
+    "by_action": {
+      "keep_as_holdout_signal": 31,
+      "move_to_public_regression_candidate": 16,
+      "requires_expected_recheck": 6
+    },
+    "by_priority": {
+      "P1": 10,
+      "P2": 43
+    },
+    "by_domain_action": {
+      "formal": {
+        "keep_as_holdout_signal": 6,
+        "move_to_public_regression_candidate": 2,
+        "requires_expected_recheck": 0
+      },
+      "high_risk": {
+        "keep_as_holdout_signal": 7,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      },
+      "it": {
+        "keep_as_holdout_signal": 3,
+        "move_to_public_regression_candidate": 8,
+        "requires_expected_recheck": 4
+      },
+      "llm": {
+        "keep_as_holdout_signal": 4,
+        "move_to_public_regression_candidate": 2,
+        "requires_expected_recheck": 0
+      },
+      "social": {
+        "keep_as_holdout_signal": 6,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      },
+      "ui": {
+        "keep_as_holdout_signal": 5,
+        "move_to_public_regression_candidate": 4,
+        "requires_expected_recheck": 2
+      }
+    },
+    "by_risk_action": {
+      "baseline_guard": {
+        "keep_as_holdout_signal": 1,
+        "move_to_public_regression_candidate": 2,
+        "requires_expected_recheck": 0
+      },
+      "candidate_gap": {
+        "keep_as_holdout_signal": 2,
+        "move_to_public_regression_candidate": 14,
+        "requires_expected_recheck": 6
+      },
+      "over_conversion_guard": {
+        "keep_as_holdout_signal": 28,
+        "move_to_public_regression_candidate": 0,
+        "requires_expected_recheck": 0
+      }
+    },
+    "idempotency_followup_cases": 3,
+    "expected_recheck_cases": 6,
+    "safe_public_candidate_cases": 16,
+    "holdout_signal_cases": 31,
+    "high_risk_cases": 7,
+    "over_conversion_guard_cases": 28
+  },
+  "idempotency_notes": {
+    "non_idempotent_miss_ids": [
+      "blind-ui-0147",
+      "blind-it-0190",
+      "blind-it-0200"
+    ]
+  },
+  "case_classifications": [
+    {
+      "id": "blind-llm-0026",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0028",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0029",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0025",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0026",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0083",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0060",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0061",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0043",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0044",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0043",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0044",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0045",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0046",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0042",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0043",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0044",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0026",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "high_risk"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private high-risk pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0027",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "high_risk"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private high-risk pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0108",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0081",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0039",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "high_risk"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private high-risk pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0131",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0102",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0053",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "high_risk_private_holdout_signal",
+      "flags": [
+        "high_risk",
+        "high_risk_candidate_gap"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private high-risk pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0058",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "high_risk"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private high-risk pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0147",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard",
+        "non_idempotent_output"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0105",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "preserve_existing_taiwan_term_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0064",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "high_risk_private_holdout_signal",
+      "flags": [
+        "high_risk",
+        "high_risk_candidate_gap"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private high-risk pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-high-risk-0068",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "high_risk_baseline_guard_private_signal",
+      "flags": [
+        "high_risk",
+        "high_risk_baseline_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private high-risk pressure signal",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0189",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "mapping_term_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_review_expected_or_acceptable_variants_before_any_public_move",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0190",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "queue_priority_message_terminology_gap",
+      "flags": [
+        "non_idempotent_output"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0195",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "repository_terminology_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0197",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "service_discovery_return_instance_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_review_expected_or_acceptable_variants_before_any_public_move",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0200",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "event_bus_terminology_gap",
+      "flags": [
+        "non_idempotent_output"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0201",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "background_job_terminology_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0202",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "timestamp_term_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_review_expected_or_acceptable_variants_before_any_public_move",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0203",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "shared_config_template_terminology_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0206",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "load_balancer_node_orthography_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_review_expected_or_acceptable_variants_before_any_public_move",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0208",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "queue_message_terminology_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0209",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "monitoring_backend_terminology_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0210",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "runtime_config_source_terminology_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0148",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "refresh_button_punctuation_style_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_review_expected_or_acceptable_variants_before_any_public_move",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0150",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "save_draft_status_label_terminology_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0157",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "sidebar_collapse_icon_terminology_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0160",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "table_column_drag_terminology_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0164",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "current_view_navigation_terminology_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0166",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "archived_item_tab_variant_recheck",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_review_expected_or_acceptable_variants_before_any_public_move",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0116",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "merge_document_chunk_character_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0122",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "system_message_terminology_gap",
+      "flags": [],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0115",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "formal_standard_character_gap",
+      "flags": [
+        "baseline_guard_miss"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0116",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "action": "move_to_public_regression_candidate",
+      "priority": "P1",
+      "reason_code": "formal_contact_window_overconversion_gap",
+      "flags": [
+        "baseline_guard_miss"
+      ],
+      "needs_maintainer_review": true,
+      "next_step": "maintainer_confirm_then_remove_from_sealed_before_public_regression_promotion",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0110",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "action": "keep_as_holdout_signal",
+      "priority": "P2",
+      "reason_code": "restaurant_menu_over_conversion_guard",
+      "flags": [
+        "over_conversion_guard"
+      ],
+      "needs_maintainer_review": false,
+      "next_step": "do_not_tune_from_sealed_holdout; retain as private pressure signal",
+      "sealed_values_omitted": true
+    }
+  ],
+  "codex_followup": {
+    "next_step": "send_sanitized_case_ids_and_metadata_to_gemini_policy_review_before_maintainer_confirmation_packet",
+    "do_not_tune_from_sealed_values": true
+  }
+}

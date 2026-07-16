@@ -1,0 +1,413 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "review_stage": "maintainer_confirmation_packet",
+  "scope": "batch11_miss_classification_after_851_case_sanity",
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-851-cases-2026-07-14.json",
+  "source_gemini_policy_review": "docs/reports/holdout-gemini-policy-review-miss-classification-blind-v1-851-cases-2026-07-14.json",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": true
+  },
+  "summary": {
+    "total_review_cases": 25,
+    "public_regression_candidate_cases": 14,
+    "expected_recheck_cases": 11,
+    "no_immediate_question": 35,
+    "gemini_policy_passed": true,
+    "classification_changes_recommended_by_gemini": 0,
+    "by_action": {
+      "requires_expected_recheck": 11,
+      "move_to_public_regression_candidate": 14
+    },
+    "by_domain": {
+      "it": 10,
+      "ui": 4,
+      "llm": 3,
+      "formal": 6,
+      "social": 2
+    },
+    "by_risk": {
+      "candidate_gap": 17,
+      "baseline_guard": 3,
+      "over_conversion_guard": 5
+    },
+    "non_idempotent_review_cases": 1
+  },
+  "cases": [
+    {
+      "id": "blind-it-0238",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_valid_taiwan_variant_requires_acceptable_review",
+      "flags": [
+        "possible_acceptable_variant",
+        "non_idempotent"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0242",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_valid_taiwan_variant_requires_acceptable_review",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0244",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_it_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0246",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_valid_taiwan_variant_requires_acceptable_review",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0249",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_valid_taiwan_variant_requires_acceptable_review",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0252",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_it_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0256",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_it_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0257",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_it_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0260",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_it_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-it-0262",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_it_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0188",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_ui_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0189",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_valid_taiwan_variant_requires_acceptable_review",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0193",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_valid_taiwan_variant_requires_acceptable_review",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-ui-0199",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_valid_taiwan_variant_requires_acceptable_review",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0140",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_llm_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0145",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_valid_taiwan_variant_requires_acceptable_review",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-llm-0152",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_llm_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0144",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_formal_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0145",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_formal_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0146",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_formal_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0149",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_valid_taiwan_variant_requires_acceptable_review",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0151",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_formal_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-formal-0152",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "recommended_action": "move_to_public_regression_candidate",
+      "priority": "P2",
+      "reason_code": "batch11_formal_terminology_or_conversion_gap",
+      "flags": [
+        "safe_public_reproduction_required"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0139",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_valid_taiwan_variant_requires_acceptable_review",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    },
+    {
+      "id": "blind-social-0143",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "recommended_action": "requires_expected_recheck",
+      "priority": "P1",
+      "reason_code": "possible_valid_taiwan_variant_requires_acceptable_review",
+      "flags": [
+        "possible_acceptable_variant"
+      ],
+      "maintainer_action": "confirm_or_edit_action",
+      "sealed_values_omitted": true
+    }
+  ],
+  "no_immediate_question_case_ids": [
+    "blind-llm-0026",
+    "blind-llm-0028",
+    "blind-formal-0029",
+    "blind-social-0025",
+    "blind-social-0026",
+    "blind-it-0083",
+    "blind-ui-0060",
+    "blind-ui-0061",
+    "blind-llm-0043",
+    "blind-llm-0044",
+    "blind-formal-0043",
+    "blind-formal-0044",
+    "blind-formal-0045",
+    "blind-formal-0046",
+    "blind-social-0042",
+    "blind-social-0043",
+    "blind-social-0044",
+    "blind-high-risk-0026",
+    "blind-high-risk-0027",
+    "blind-it-0108",
+    "blind-ui-0081",
+    "blind-high-risk-0039",
+    "blind-it-0131",
+    "blind-ui-0102",
+    "blind-high-risk-0053",
+    "blind-high-risk-0058",
+    "blind-ui-0147",
+    "blind-formal-0105",
+    "blind-high-risk-0064",
+    "blind-high-risk-0068",
+    "blind-social-0110",
+    "blind-high-risk-0084",
+    "blind-it-0259",
+    "blind-ui-0203",
+    "blind-high-risk-0097"
+  ],
+  "policy": {
+    "maintainer_confirmation_required_before_public_promotion": true,
+    "maintainer_confirmation_required_before_private_expected_update": true,
+    "remove_from_sealed_before_tuning": true,
+    "codex_and_gemini_are_advisory_only": true
+  }
+}

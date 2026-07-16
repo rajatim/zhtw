@@ -1,0 +1,404 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "reviewer": "gemini_vertex",
+  "review_stage": "independent_holdout_expected_review",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_codex_report": "docs/reports/holdout-codex-first-pass-blind-v1-expansion-127-cases-2026-07-09.json",
+  "raw_report": "docs/reports/holdout-gemini-vertex-advisory-blind-v1-expansion-high-risk-0011-0020-2026-07-09.json",
+  "usage_metadata": {
+    "promptTokenCount": 1288,
+    "candidatesTokenCount": 636,
+    "totalTokenCount": 4528,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1288
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 636
+      }
+    ],
+    "thoughtsTokenCount": 2604
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_holdout_expected_review",
+    "cases": [
+      {
+        "id": "blind-high-risk-0011",
+        "expected": "醫師建議病患按時回診並記錄症狀變化。",
+        "acceptable": [
+          "醫師建議患者按時回診並記錄症狀變化。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "formal_term"
+        ],
+        "confidence": "high",
+        "notes": "「患者」在台灣醫療語境中也通用，但「病患」更為常見且正式。"
+      },
+      {
+        "id": "blind-high-risk-0012",
+        "expected": "銀行會在交易完成後寄送電子對帳單。",
+        "acceptable": [
+          "銀行會在交易完成後發送電子對帳單。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "formal_term"
+        ],
+        "confidence": "high",
+        "notes": "「寄送」在台灣更常用於發送文件或帳單，比「發送」更自然。"
+      },
+      {
+        "id": "blind-high-risk-0013",
+        "expected": "申請貸款前，請確認利率和還款期限。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term",
+          "formal_term"
+        ],
+        "confidence": "high",
+        "notes": ""
+      },
+      {
+        "id": "blind-high-risk-0014",
+        "expected": "藥品說明應清楚標示使用劑量和禁忌。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term",
+          "formal_term"
+        ],
+        "confidence": "high",
+        "notes": ""
+      },
+      {
+        "id": "blind-high-risk-0015",
+        "expected": "保險契約變更需要經雙方書面同意。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term",
+          "formal_term",
+          "high_risk_term"
+        ],
+        "confidence": "high",
+        "notes": ""
+      },
+      {
+        "id": "blind-high-risk-0016",
+        "expected": "不得以格式條款免除故意或重大過失責任。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term",
+          "formal_term",
+          "high_risk_term"
+        ],
+        "confidence": "high",
+        "notes": ""
+      },
+      {
+        "id": "blind-high-risk-0017",
+        "expected": "病歷中的專有縮寫不得任意改寫。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term",
+          "formal_term",
+          "high_risk_term"
+        ],
+        "confidence": "high",
+        "notes": ""
+      },
+      {
+        "id": "blind-high-risk-0018",
+        "expected": "金融機構應保留客戶原始簽署文件。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term",
+          "formal_term",
+          "high_risk_term"
+        ],
+        "confidence": "high",
+        "notes": ""
+      },
+      {
+        "id": "blind-high-risk-0019",
+        "expected": "請妥善保管個人身分證件。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": ""
+      },
+      {
+        "id": "blind-high-risk-0020",
+        "expected": "未成年人開戶需由法定代理人陪同。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term",
+          "formal_term",
+          "high_risk_term"
+        ],
+        "confidence": "high",
+        "notes": ""
+      }
+    ]
+  },
+  "summary": {
+    "total_cases": 10,
+    "exact_matches_with_codex": 8,
+    "differences_from_codex": 2,
+    "needs_maintainer_review": 10,
+    "by_domain": {
+      "high_risk": 10
+    },
+    "by_gemini_confidence": {
+      "high": 10
+    },
+    "promotion_allowed": false
+  },
+  "comparisons": [
+    {
+      "id": "blind-high-risk-0011",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "医师建议患者按时回诊并记录症状变化。",
+      "codex_expected": "醫師建議病患按時回診並記錄症狀變化。",
+      "codex_acceptable": [
+        "醫師建議患者按時回診並記錄症狀變化。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "醫療高風險；「患者/病患」需由 maintainer 確認，但台灣醫療語境常用「病患」。",
+      "gemini_expected": "醫師建議病患按時回診並記錄症狀變化。",
+      "gemini_acceptable": [
+        "醫師建議患者按時回診並記錄症狀變化。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term"
+      ],
+      "gemini_notes": "「患者」在台灣醫療語境中也通用，但「病患」更為常見且正式。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-high-risk-0012",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "银行会在交易完成后发送电子对账单。",
+      "codex_expected": "銀行會在交易完成後傳送電子對帳單。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "金融高風險；「对账单」採「對帳單」。",
+      "gemini_expected": "銀行會在交易完成後寄送電子對帳單。",
+      "gemini_acceptable": [
+        "銀行會在交易完成後發送電子對帳單。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term"
+      ],
+      "gemini_notes": "「寄送」在台灣更常用於發送文件或帳單，比「發送」更自然。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-high-risk-0013",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "申请贷款前，请确认利率和还款期限。",
+      "codex_expected": "申請貸款前，請確認利率和還款期限。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "金融高風險；貸款/利率/還款期限用語穩定但仍需人工確認。",
+      "gemini_expected": "申請貸款前，請確認利率和還款期限。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-high-risk-0014",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "药品说明应清楚标示使用剂量和禁忌。",
+      "codex_expected": "藥品說明應清楚標示使用劑量和禁忌。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "醫療高風險；藥品劑量與禁忌用語需人工確認。",
+      "gemini_expected": "藥品說明應清楚標示使用劑量和禁忌。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-high-risk-0015",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "保险契约变更需要经双方书面同意。",
+      "codex_expected": "保險契約變更需要經雙方書面同意。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "保險/契約高風險；採台灣法律語境「契約」。",
+      "gemini_expected": "保險契約變更需要經雙方書面同意。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term",
+        "high_risk_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-high-risk-0016",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "不得以格式条款免除故意或重大过失责任。",
+      "codex_expected": "不得以定型化契約條款免除故意或重大過失責任。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "法律高風險；「格式条款」在台灣法規語境對應「定型化契約條款」。",
+      "gemini_expected": "不得以格式條款免除故意或重大過失責任。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term",
+        "high_risk_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-high-risk-0017",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "病历中的专有缩写不得任意改写。",
+      "codex_expected": "病歷中的專有縮寫不得任意改寫。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "醫療高風險 + over-conversion guard；病歷縮寫不得改。",
+      "gemini_expected": "病歷中的專有縮寫不得任意改寫。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term",
+        "high_risk_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-high-risk-0018",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "金融机构应保留客户原始签署文件。",
+      "codex_expected": "金融機構應保留客戶原始簽署文件。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "金融高風險 + over-conversion guard；簽署文件需保守。",
+      "gemini_expected": "金融機構應保留客戶原始簽署文件。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term",
+        "high_risk_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-high-risk-0019",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "input": "请妥善保管个人身份证件。",
+      "codex_expected": "請妥善保管個人身分證件。",
+      "codex_acceptable": [
+        "請妥善保管個人身份證件。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "身分/身份用字需確認；正式台灣用字偏「身分」。",
+      "gemini_expected": "請妥善保管個人身分證件。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-high-risk-0020",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "input": "未成年人开户需由法定代理人陪同。",
+      "codex_expected": "未成年人開戶需由法定代理人陪同。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "金融/法律高風險；需人工確認。",
+      "gemini_expected": "未成年人開戶需由法定代理人陪同。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "formal_term",
+        "high_risk_term"
+      ],
+      "gemini_notes": "",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "generated_date": "2026-07-12",
+  "dataset": "blind-v1",
+  "report_type": "private_benchmark_sanity_summary",
+  "review_stage": "after_batch9_miss_review",
+  "expected_values_included": false,
+  "rows_included": false,
+  "inputs_included": false,
+  "outputs_included": false,
+  "benchmark_rows_included": false,
+  "source_benchmark": {
+    "path": "/tmp/zhtw-blind-v1-private-benchmark-after-batch9-miss-review-2026-07-12.json",
+    "in_repo": false,
+    "rows_used_for_aggregate_only": true
+  },
+  "inputs": {
+    "path": "benchmarks/accuracy/blind-v1.inputs.json",
+    "sha256": "8f54d6e8185cf94f73805aeea27a23859e691cfd8ae04f3956023ec8ec9606d4"
+  },
+  "expected": {
+    "path": "benchmarks/accuracy/blind-v1.expected.json",
+    "sha256": "0e41c9ac8c130075d66f23daeeb80afd6e69903319ea473e9ac5e7ed38d5f7ab",
+    "source_inputs_sha256": "8f54d6e8185cf94f73805aeea27a23859e691cfd8ae04f3956023ec8ec9606d4"
+  },
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_values_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "aggregate_statistics_only": true
+  },
+  "summary": {
+    "case_count": 667,
+    "accepted": 636,
+    "misses": 31,
+    "primary_exact": 491,
+    "acceptable_exact": 145,
+    "accepted_accuracy": 0.9535232383808095,
+    "primary_exact_accuracy": 0.7361319340329835,
+    "idempotency_rate": 0.9835082458770614,
+    "accepted_accuracy_ci_95": {
+      "low": 0.9355322338830585,
+      "high": 0.9685157421289355
+    },
+    "by_domain": {
+      "formal": {
+        "total": 110,
+        "accepted": 104,
+        "accepted_accuracy": 0.9454545454545454
+      },
+      "high_risk": {
+        "total": 76,
+        "accepted": 69,
+        "accepted_accuracy": 0.9078947368421053
+      },
+      "it": {
+        "total": 124,
+        "accepted": 121,
+        "accepted_accuracy": 0.9758064516129032
+      },
+      "llm": {
+        "total": 111,
+        "accepted": 107,
+        "accepted_accuracy": 0.963963963963964
+      },
+      "social": {
+        "total": 114,
+        "accepted": 108,
+        "accepted_accuracy": 0.9473684210526315
+      },
+      "ui": {
+        "total": 132,
+        "accepted": 127,
+        "accepted_accuracy": 0.9621212121212122
+      }
+    },
+    "by_risk": {
+      "baseline_guard": 107,
+      "candidate_gap": 372,
+      "over_conversion_guard": 188
+    },
+    "misses_by_risk": {
+      "baseline_guard": 1,
+      "candidate_gap": 2,
+      "over_conversion_guard": 28
+    },
+    "misses_by_issue_tag": {
+      "baseline_guard": 1,
+      "candidate_gap": 1,
+      "formal_term": 9,
+      "high_risk_term": 7,
+      "it_term": 5,
+      "over_conversion": 28,
+      "regional_term": 31,
+      "social_term": 1,
+      "ui_term": 5
+    }
+  }
+}

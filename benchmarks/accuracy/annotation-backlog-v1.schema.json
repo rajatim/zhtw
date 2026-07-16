@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/annotation-backlog-v1.schema.json",
+  "title": "zhtw accuracy annotation backlog",
+  "type": "object",
+  "required": [
+    "version",
+    "name",
+    "description",
+    "generated_date",
+    "status",
+    "target_total",
+    "source_policy",
+    "promotion_requirements",
+    "batches",
+    "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "name": { "type": "string", "const": "annotation-backlog-v1" },
+    "description": { "type": "string", "minLength": 1 },
+    "generated_date": { "type": "string", "format": "date" },
+    "status": {
+      "type": "string",
+      "enum": ["collecting_inputs", "annotating", "reviewing", "ready_to_promote", "promoted"]
+    },
+    "target_total": { "type": "integer", "const": 500 },
+    "source_policy": {
+      "type": "object",
+      "required": [
+        "expected_source",
+        "allowed_input_sources",
+        "forbidden_expected_sources",
+        "copyright_policy"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "expected_source": { "type": "string", "const": "human_review_only" },
+        "allowed_input_sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "forbidden_expected_sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "copyright_policy": { "type": "string", "minLength": 1 }
+      }
+    },
+    "promotion_requirements": {
+      "type": "object",
+      "required": [
+        "approval_policy",
+        "default_review_order",
+        "first_pass_reviewer",
+        "blind_review_required",
+        "ai_advisory_review_allowed",
+        "adjudication_required_on_disagreement",
+        "required_case_fields",
+        "promotion_target"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "approval_policy": {
+          "type": "string",
+          "const": "single_human_with_ai_advisory_or_independent_blind_review"
+        },
+        "first_pass_reviewer": { "type": "string", "minLength": 1 },
+        "default_review_order": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "blind_review_required": { "type": "boolean" },
+        "ai_advisory_review_allowed": { "type": "boolean", "const": true },
+        "adjudication_required_on_disagreement": { "type": "boolean", "const": true },
+        "required_case_fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "promotion_target": { "type": "string", "minLength": 1 }
+      }
+    },
+    "batches": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "domain", "target_cases", "priority", "focus"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "domain": { "type": "string", "minLength": 1 },
+          "target_cases": { "type": "integer", "minimum": 1 },
+          "priority": { "type": "integer", "minimum": 1 },
+          "focus": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "batch", "domain", "input", "risk", "source", "review"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "batch": { "type": "string", "minLength": 1 },
+          "domain": { "type": "string", "minLength": 1 },
+          "input": { "type": "string", "minLength": 1 },
+          "risk": {
+            "type": "string",
+            "enum": ["baseline_guard", "over_conversion_guard", "candidate_gap"]
+          },
+          "source": {
+            "type": "object",
+            "required": ["type", "citation", "license"],
+            "additionalProperties": false,
+            "properties": {
+              "type": { "type": "string", "minLength": 1 },
+              "citation": { "type": "string" },
+              "license": { "type": "string", "minLength": 1 }
+            }
+          },
+          "ai_draft": {
+            "type": "object",
+            "required": [
+              "expected",
+              "notes",
+              "source_report",
+              "generated_by",
+              "promotion_allowed"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "expected": { "type": "string", "minLength": 1 },
+              "notes": { "type": "string", "minLength": 1 },
+              "source_report": { "type": "string", "minLength": 1 },
+              "generated_by": { "type": "string", "const": "ai_assistant" },
+              "promotion_allowed": { "type": "boolean", "const": false }
+            }
+          },
+          "review": {
+            "type": "object",
+            "required": [
+              "status",
+              "expected",
+              "acceptable",
+              "expected_source",
+              "first_reviewer",
+              "blind_reviewer",
+              "adjudicator"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "needs_first_pass",
+                  "needs_ai_advisory",
+                  "needs_maintainer_review",
+                  "needs_blind_review",
+                  "needs_adjudication",
+                  "approved",
+                  "rejected"
+                ]
+              },
+              "expected": { "type": "string" },
+              "acceptable": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "expected_source": {
+                "type": "string",
+                "enum": ["", "human_first_pass", "human_adjudication"]
+              },
+              "first_reviewer": { "type": "string" },
+              "blind_reviewer": { "type": "string" },
+              "adjudicator": { "type": "string" },
+              "disagreement": {
+                "type": "boolean"
+              },
+              "ai_advisory": {
+                "type": "object",
+                "required": [
+                  "reviewer",
+                  "source_report",
+                  "raw_report",
+                  "decision",
+                  "decision_by",
+                  "decision_date",
+                  "exact_match_with_first_pass"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "reviewer": {
+                    "type": "string",
+                    "enum": ["gemini_cli", "gemini_vertex"]
+                  },
+                  "source_report": { "type": "string", "minLength": 1 },
+                  "raw_report": { "type": "string", "minLength": 1 },
+                  "decision": {
+                    "type": "string",
+                    "enum": ["accepted", "rejected"]
+                  },
+                  "decision_by": { "type": "string", "minLength": 1 },
+                  "decision_date": { "type": "string", "format": "date" },
+                  "exact_match_with_first_pass": { "type": "boolean" }
+                }
+              },
+              "ai_advisory_draft": {
+                "type": "object",
+                "required": [
+                  "reviewer",
+                  "source_report",
+                  "raw_report",
+                  "exact_match_with_ai_draft"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "reviewer": {
+                    "type": "string",
+                    "enum": ["gemini_cli", "gemini_vertex"]
+                  },
+                  "source_report": { "type": "string", "minLength": 1 },
+                  "raw_report": { "type": "string", "minLength": 1 },
+                  "exact_match_with_ai_draft": { "type": "boolean" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

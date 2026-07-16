@@ -1,0 +1,691 @@
+{
+  "generated_date": "2026-07-06",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_backlog": "benchmarks/accuracy/annotation-backlog-v1.json",
+  "raw_report": "docs/reports/annotation-gemini-vertex-advisory-ui-i18n-0001-0050-2026-07-06.json",
+  "case_range": "ui-i18n-0001-ui-i18n-0050",
+  "usage_metadata": {
+    "promptTokenCount": 3875,
+    "candidatesTokenCount": 1476,
+    "totalTokenCount": 13264,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3875
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1476
+      }
+    ],
+    "thoughtsTokenCount": 7913
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_expected_review",
+    "cases": [
+      {
+        "id": "ui-i18n-0001",
+        "expected": "登入頁面標題會顯示在頂端。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0002",
+        "expected": "請使用電子郵件地址登入。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0003",
+        "expected": "忘記密碼連結會開啟重設頁面。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0004",
+        "expected": "登出後會返回首頁。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0005",
+        "expected": "帳戶設定儲存在雲端。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0006",
+        "expected": "請更新個人資料中的個人頭像。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0007",
+        "expected": "暱稱不能為空。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0008",
+        "expected": "使用者名稱已經被佔用。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0009",
+        "expected": "儲存變更前請確認。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0010",
+        "expected": "變更已儲存。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0011",
+        "expected": "自動儲存每分鐘執行一次。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0012",
+        "expected": "無法儲存草稿。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0013",
+        "expected": "請重新整理清單。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0014",
+        "expected": "下拉重新整理已完成。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0015",
+        "expected": "頁面正在載入。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0016",
+        "expected": "載入失敗，請稍後再試。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0017",
+        "expected": "預設語言會跟隨系統。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0018",
+        "expected": "請還原預設設定。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0019",
+        "expected": "預設排序為最新優先。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0020",
+        "expected": "目前篩選條件沒有結果。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0021",
+        "expected": "搜尋框支援模糊比對。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0022",
+        "expected": "清除搜尋紀錄。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0023",
+        "expected": "最近搜尋會顯示在這裡。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0024",
+        "expected": "請開啟進階篩選。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0025",
+        "expected": "側邊欄可以固定在左側。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0026",
+        "expected": "右鍵選單包含複製連結。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0027",
+        "expected": "請從下拉式選單選擇地區。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0028",
+        "expected": "這個對話方塊會阻擋背景操作。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0029",
+        "expected": "彈出式視窗關閉後不會再次顯示。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0030",
+        "expected": "工具提示會在懸停時顯示。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0031",
+        "expected": "分頁可以拖曳排序。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0032",
+        "expected": "新分頁會在背景開啟。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0033",
+        "expected": "麵包屑導覽顯示目前位置。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0034",
+        "expected": "返回按鈕位於左上角。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0035",
+        "expected": "請點選確認按鈕。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0036",
+        "expected": "停用按鈕會顯示灰色狀態。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0037",
+        "expected": "開關關閉時不會傳送通知。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0038",
+        "expected": "核取方塊預設未勾選。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0039",
+        "expected": "選項按鈕只能選擇一個。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0040",
+        "expected": "滑桿支援鍵盤調整。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0041",
+        "expected": "進度列顯示上傳進度。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0042",
+        "expected": "狀態徽章會顯示在標題旁。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0043",
+        "expected": "未讀訊息會顯示紅點。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0044",
+        "expected": "通知中心會保留七天。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0045",
+        "expected": "推播通知已關閉。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0046",
+        "expected": "請允許瀏覽器通知權限。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0047",
+        "expected": "裝置清單會顯示上次登入時間。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0048",
+        "expected": "管理已連線的裝置。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0049",
+        "expected": "觸控板手勢可以自訂。",
+        "notes": ""
+      },
+      {
+        "id": "ui-i18n-0050",
+        "expected": "螢幕閱讀器會朗讀標籤。",
+        "notes": ""
+      }
+    ]
+  },
+  "comparison_summary": {
+    "cases": 50,
+    "exact_matches_with_codex_draft": 43,
+    "differences_from_codex_draft": 7
+  },
+  "comparisons": [
+    {
+      "id": "ui-i18n-0001",
+      "input": "登录页面标题会显示在顶部。",
+      "codex_expected": "登入頁面標題會顯示在頂端。",
+      "gemini_expected": "登入頁面標題會顯示在頂端。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0002",
+      "input": "请使用电子邮件地址登录。",
+      "codex_expected": "請使用電子郵件地址登入。",
+      "gemini_expected": "請使用電子郵件地址登入。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0003",
+      "input": "忘记密码链接会打开重置页面。",
+      "codex_expected": "忘記密碼連結會開啟重設頁面。",
+      "gemini_expected": "忘記密碼連結會開啟重設頁面。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0004",
+      "input": "退出登录后会返回首页。",
+      "codex_expected": "登出後會返回首頁。",
+      "gemini_expected": "登出後會返回首頁。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0005",
+      "input": "账户设置保存在云端。",
+      "codex_expected": "帳號設定儲存在雲端。",
+      "gemini_expected": "帳戶設定儲存在雲端。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0006",
+      "input": "请更新个人资料中的头像。",
+      "codex_expected": "請更新個人資料中的大頭貼。",
+      "gemini_expected": "請更新個人資料中的個人頭像。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0007",
+      "input": "昵称不能为空。",
+      "codex_expected": "暱稱不能為空。",
+      "gemini_expected": "暱稱不能為空。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0008",
+      "input": "用户名已经被占用。",
+      "codex_expected": "使用者名稱已被佔用。",
+      "gemini_expected": "使用者名稱已經被佔用。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0009",
+      "input": "保存更改前请确认。",
+      "codex_expected": "儲存變更前請確認。",
+      "gemini_expected": "儲存變更前請確認。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0010",
+      "input": "更改已保存。",
+      "codex_expected": "變更已儲存。",
+      "gemini_expected": "變更已儲存。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0011",
+      "input": "自动保存每分钟运行一次。",
+      "codex_expected": "自動儲存每分鐘執行一次。",
+      "gemini_expected": "自動儲存每分鐘執行一次。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0012",
+      "input": "无法保存草稿。",
+      "codex_expected": "無法儲存草稿。",
+      "gemini_expected": "無法儲存草稿。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0013",
+      "input": "请刷新列表。",
+      "codex_expected": "請重新整理清單。",
+      "gemini_expected": "請重新整理清單。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0014",
+      "input": "下拉刷新已完成。",
+      "codex_expected": "下拉重新整理已完成。",
+      "gemini_expected": "下拉重新整理已完成。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0015",
+      "input": "页面正在加载。",
+      "codex_expected": "頁面正在載入。",
+      "gemini_expected": "頁面正在載入。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0016",
+      "input": "加载失败，请稍后再试。",
+      "codex_expected": "載入失敗，請稍後再試。",
+      "gemini_expected": "載入失敗，請稍後再試。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0017",
+      "input": "默认语言会跟随系统。",
+      "codex_expected": "預設語言會跟隨系統。",
+      "gemini_expected": "預設語言會跟隨系統。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0018",
+      "input": "请恢复默认设置。",
+      "codex_expected": "請還原預設設定。",
+      "gemini_expected": "請還原預設設定。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0019",
+      "input": "默认排序为最新优先。",
+      "codex_expected": "預設排序為最新優先。",
+      "gemini_expected": "預設排序為最新優先。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0020",
+      "input": "当前筛选条件没有结果。",
+      "codex_expected": "目前篩選條件沒有結果。",
+      "gemini_expected": "目前篩選條件沒有結果。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0021",
+      "input": "搜索框支持模糊匹配。",
+      "codex_expected": "搜尋框支援模糊比對。",
+      "gemini_expected": "搜尋框支援模糊比對。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0022",
+      "input": "清除搜索历史。",
+      "codex_expected": "清除搜尋記錄。",
+      "gemini_expected": "清除搜尋紀錄。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0023",
+      "input": "最近搜索会显示在这里。",
+      "codex_expected": "最近搜尋會顯示在這裡。",
+      "gemini_expected": "最近搜尋會顯示在這裡。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0024",
+      "input": "请打开高级筛选。",
+      "codex_expected": "請開啟進階篩選。",
+      "gemini_expected": "請開啟進階篩選。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0025",
+      "input": "侧边栏可以固定在左侧。",
+      "codex_expected": "側邊欄可以固定在左側。",
+      "gemini_expected": "側邊欄可以固定在左側。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0026",
+      "input": "右键菜单包含复制链接。",
+      "codex_expected": "右鍵選單包含複製連結。",
+      "gemini_expected": "右鍵選單包含複製連結。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0027",
+      "input": "请从下拉菜单选择地区。",
+      "codex_expected": "請從下拉式選單選擇地區。",
+      "gemini_expected": "請從下拉式選單選擇地區。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0028",
+      "input": "这个对话框会阻止背景操作。",
+      "codex_expected": "這個對話方塊會阻止背景操作。",
+      "gemini_expected": "這個對話方塊會阻擋背景操作。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0029",
+      "input": "弹窗关闭后不会再次显示。",
+      "codex_expected": "彈出式視窗關閉後不會再次顯示。",
+      "gemini_expected": "彈出式視窗關閉後不會再次顯示。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0030",
+      "input": "工具提示会在悬停时显示。",
+      "codex_expected": "工具提示會在游標停留時顯示。",
+      "gemini_expected": "工具提示會在懸停時顯示。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0031",
+      "input": "选项卡可以拖动排序。",
+      "codex_expected": "索引標籤可以拖曳排序。",
+      "gemini_expected": "分頁可以拖曳排序。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "ui-i18n-0032",
+      "input": "新标签页会在后台打开。",
+      "codex_expected": "新分頁會在背景開啟。",
+      "gemini_expected": "新分頁會在背景開啟。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0033",
+      "input": "面包屑导航显示当前位置。",
+      "codex_expected": "麵包屑導覽顯示目前位置。",
+      "gemini_expected": "麵包屑導覽顯示目前位置。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0034",
+      "input": "返回按钮位于左上角。",
+      "codex_expected": "返回按鈕位於左上角。",
+      "gemini_expected": "返回按鈕位於左上角。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0035",
+      "input": "请点击确认按钮。",
+      "codex_expected": "請點選確認按鈕。",
+      "gemini_expected": "請點選確認按鈕。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0036",
+      "input": "禁用按钮会显示灰色状态。",
+      "codex_expected": "停用按鈕會顯示灰色狀態。",
+      "gemini_expected": "停用按鈕會顯示灰色狀態。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0037",
+      "input": "开关关闭时不会发送通知。",
+      "codex_expected": "開關關閉時不會傳送通知。",
+      "gemini_expected": "開關關閉時不會傳送通知。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0038",
+      "input": "复选框默认未选中。",
+      "codex_expected": "核取方塊預設未勾選。",
+      "gemini_expected": "核取方塊預設未勾選。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0039",
+      "input": "单选按钮只能选择一个。",
+      "codex_expected": "選項按鈕只能選擇一個。",
+      "gemini_expected": "選項按鈕只能選擇一個。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0040",
+      "input": "滑块支持键盘调整。",
+      "codex_expected": "滑桿支援鍵盤調整。",
+      "gemini_expected": "滑桿支援鍵盤調整。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0041",
+      "input": "进度条显示上传进度。",
+      "codex_expected": "進度列顯示上傳進度。",
+      "gemini_expected": "進度列顯示上傳進度。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0042",
+      "input": "状态徽章会显示在标题旁。",
+      "codex_expected": "狀態徽章會顯示在標題旁。",
+      "gemini_expected": "狀態徽章會顯示在標題旁。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0043",
+      "input": "未读消息会显示红点。",
+      "codex_expected": "未讀訊息會顯示紅點。",
+      "gemini_expected": "未讀訊息會顯示紅點。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0044",
+      "input": "通知中心会保留七天。",
+      "codex_expected": "通知中心會保留七天。",
+      "gemini_expected": "通知中心會保留七天。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0045",
+      "input": "推送通知已关闭。",
+      "codex_expected": "推播通知已關閉。",
+      "gemini_expected": "推播通知已關閉。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0046",
+      "input": "请允许浏览器通知权限。",
+      "codex_expected": "請允許瀏覽器通知權限。",
+      "gemini_expected": "請允許瀏覽器通知權限。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0047",
+      "input": "设备列表会显示上次登录时间。",
+      "codex_expected": "裝置清單會顯示上次登入時間。",
+      "gemini_expected": "裝置清單會顯示上次登入時間。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0048",
+      "input": "管理已连接的设备。",
+      "codex_expected": "管理已連線的裝置。",
+      "gemini_expected": "管理已連線的裝置。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0049",
+      "input": "触控板手势可以自定义。",
+      "codex_expected": "觸控板手勢可以自訂。",
+      "gemini_expected": "觸控板手勢可以自訂。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "ui-i18n-0050",
+      "input": "屏幕阅读器会朗读标签。",
+      "codex_expected": "螢幕閱讀器會朗讀標籤。",
+      "gemini_expected": "螢幕閱讀器會朗讀標籤。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    }
+  ]
+}

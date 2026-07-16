@@ -1,0 +1,63 @@
+{
+  "report_type": "holdout_sealed_pool_update",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-09",
+  "batch": "batch2",
+  "expected_values_included": false,
+  "inputs_included": false,
+  "actual_outputs_included": false,
+  "private_expected_updated": true,
+  "public_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "summary": {
+    "original_input_cases": 78,
+    "removed_to_public_regression_candidates": 5,
+    "remaining_sealed_input_cases": 73,
+    "old_stats": {
+      "total_collected": 78,
+      "by_domain": {
+        "formal": 14,
+        "high_risk": 10,
+        "it": 14,
+        "llm": 13,
+        "social": 13,
+        "ui": 14
+      },
+      "by_risk": {
+        "baseline_guard": 13,
+        "candidate_gap": 46,
+        "over_conversion_guard": 19
+      }
+    },
+    "removed_by_domain": {
+      "formal": 2,
+      "it": 1,
+      "social": 1,
+      "ui": 1
+    },
+    "removed_by_risk": {
+      "candidate_gap": 5
+    },
+    "remaining_by_domain": {
+      "formal": 12,
+      "high_risk": 10,
+      "it": 13,
+      "llm": 13,
+      "social": 12,
+      "ui": 13
+    },
+    "remaining_by_risk": {
+      "baseline_guard": 13,
+      "candidate_gap": 41,
+      "over_conversion_guard": 19
+    },
+    "source_inputs_sha256": "38c74d7219657a137c7fe93ff50d5f1c4ee22d02e9ff97fe805d5b72bd297f60",
+    "private_expected_sha256": "d107756144b3f23d1cb5e00724767d6fe33fe5886ddbea2053e3414c82e73866"
+  },
+  "removed_case_ids": [
+    "blind-it-0014",
+    "blind-ui-0002",
+    "blind-formal-0006",
+    "blind-formal-0010",
+    "blind-social-0015"
+  ]
+}

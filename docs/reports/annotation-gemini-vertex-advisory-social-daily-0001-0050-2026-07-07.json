@@ -1,0 +1,691 @@
+{
+  "generated_date": "2026-07-07",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_backlog": "benchmarks/accuracy/annotation-backlog-v1.json",
+  "raw_report": "docs/reports/annotation-gemini-vertex-advisory-social-daily-0001-0050-2026-07-07.json",
+  "case_range": "social-daily-0001-social-daily-0050",
+  "usage_metadata": {
+    "promptTokenCount": 3427,
+    "candidatesTokenCount": 1294,
+    "totalTokenCount": 6101,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3427
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1294
+      }
+    ],
+    "thoughtsTokenCount": 1380
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_expected_review",
+    "cases": [
+      {
+        "id": "social-daily-0001",
+        "expected": "這個影片太好笑了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0002",
+        "expected": "我把影片分享到群組裡了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0003",
+        "expected": "留言區已經吵起來了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0004",
+        "expected": "請在留言區留言。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0005",
+        "expected": "這個貼文被置頂了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0006",
+        "expected": "我剛剛按讚了你的動態。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0007",
+        "expected": "別忘了按讚和訂閱頻道。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0008",
+        "expected": "這個部落客今天又更新了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0009",
+        "expected": "主播正在直播開箱。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0010",
+        "expected": "彈幕刷得太快了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0011",
+        "expected": "私訊我你的地址。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0012",
+        "expected": "群組聊天通知一直跳出來。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0013",
+        "expected": "這個表情貼圖太傳神了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0014",
+        "expected": "貼圖包已經下載完成。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0015",
+        "expected": "社群動態都是旅行照片。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0016",
+        "expected": "我把他封鎖了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0017",
+        "expected": "這個帳號被檢舉了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0018",
+        "expected": "別在留言裡洩漏個人資訊。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0019",
+        "expected": "我已經追蹤這個頻道。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0020",
+        "expected": "取消追蹤後就看不到更新。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0021",
+        "expected": "週末要不要一起騎腳踏車？",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0022",
+        "expected": "我今天坐捷運去上班。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0023",
+        "expected": "下班後搭公車回家。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0024",
+        "expected": "公車站離這裡很近。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0025",
+        "expected": "我叫了計程車去機場。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0026",
+        "expected": "搭計程車費用比預期高。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0027",
+        "expected": "手機快沒電了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0028",
+        "expected": "充電線放在抽屜裡。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0029",
+        "expected": "我把鑰匙忘在車裡。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0030",
+        "expected": "晚點再回你訊息。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0031",
+        "expected": "這個訊息不要轉發。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0032",
+        "expected": "我剛收到快遞。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0033",
+        "expected": "快遞員把包裹放門口了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0034",
+        "expected": "外送已經送到了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0035",
+        "expected": "今天中午訂便當。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0036",
+        "expected": "冰箱裡還有昨天的飯。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0037",
+        "expected": "這個社區晚上很安靜。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0038",
+        "expected": "管委會通知明天停水。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0039",
+        "expected": "電梯維修到下午。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0040",
+        "expected": "垃圾車已經過了。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0041",
+        "expected": "我在便利商店買咖啡。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0042",
+        "expected": "這個優惠券明天過期。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0043",
+        "expected": "購物車裡還有三件商品。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0044",
+        "expected": "賣家已經出貨。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0045",
+        "expected": "訂單狀態顯示已簽收。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0046",
+        "expected": "退貨申請還在審核。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0047",
+        "expected": "客服說可以換貨。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0048",
+        "expected": "這個商品沒有現貨。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0049",
+        "expected": "發票要開公司抬頭。",
+        "notes": ""
+      },
+      {
+        "id": "social-daily-0050",
+        "expected": "我把地址填錯了。",
+        "notes": ""
+      }
+    ]
+  },
+  "comparison_summary": {
+    "cases": 50,
+    "exact_matches_with_codex_draft": 39,
+    "differences_from_codex_draft": 11
+  },
+  "comparisons": [
+    {
+      "id": "social-daily-0001",
+      "input": "这个视频太好笑了。",
+      "codex_expected": "這個影片太好笑了。",
+      "gemini_expected": "這個影片太好笑了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0002",
+      "input": "我把视频分享到群里了。",
+      "codex_expected": "我把影片分享到群組裡了。",
+      "gemini_expected": "我把影片分享到群組裡了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0003",
+      "input": "评论区已经吵起来了。",
+      "codex_expected": "留言區已經吵起來了。",
+      "gemini_expected": "留言區已經吵起來了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0004",
+      "input": "请在评论区留言。",
+      "codex_expected": "請在留言區留言。",
+      "gemini_expected": "請在留言區留言。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0005",
+      "input": "这个帖子被置顶了。",
+      "codex_expected": "這篇貼文被置頂了。",
+      "gemini_expected": "這個貼文被置頂了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "social-daily-0006",
+      "input": "我刚刚点赞了你的动态。",
+      "codex_expected": "我剛剛按讚了你的動態。",
+      "gemini_expected": "我剛剛按讚了你的動態。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0007",
+      "input": "别忘了点赞和订阅频道。",
+      "codex_expected": "別忘了按讚和訂閱頻道。",
+      "gemini_expected": "別忘了按讚和訂閱頻道。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0008",
+      "input": "这个博主今天又更新了。",
+      "codex_expected": "這個創作者今天又更新了。",
+      "gemini_expected": "這個部落客今天又更新了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "social-daily-0009",
+      "input": "主播正在直播开箱。",
+      "codex_expected": "實況主正在直播開箱。",
+      "gemini_expected": "主播正在直播開箱。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "social-daily-0010",
+      "input": "弹幕刷得太快了。",
+      "codex_expected": "彈幕刷得太快了。",
+      "gemini_expected": "彈幕刷得太快了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0011",
+      "input": "私信我你的地址。",
+      "codex_expected": "私訊我你的地址。",
+      "gemini_expected": "私訊我你的地址。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0012",
+      "input": "群聊通知一直跳出来。",
+      "codex_expected": "群組聊天通知一直跳出來。",
+      "gemini_expected": "群組聊天通知一直跳出來。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0013",
+      "input": "这个表情包太传神了。",
+      "codex_expected": "這個貼圖太傳神了。",
+      "gemini_expected": "這個表情貼圖太傳神了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "social-daily-0014",
+      "input": "贴纸包已经下载完成。",
+      "codex_expected": "貼圖包已經下載完成。",
+      "gemini_expected": "貼圖包已經下載完成。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0015",
+      "input": "朋友圈都是旅行照片。",
+      "codex_expected": "朋友圈都是旅行照片。",
+      "gemini_expected": "社群動態都是旅行照片。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "social-daily-0016",
+      "input": "我把他拉黑了。",
+      "codex_expected": "我把他封鎖了。",
+      "gemini_expected": "我把他封鎖了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0017",
+      "input": "这个账号被举报了。",
+      "codex_expected": "這個帳號被檢舉了。",
+      "gemini_expected": "這個帳號被檢舉了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0018",
+      "input": "别在留言里泄露个人信息。",
+      "codex_expected": "別在留言裡洩漏個人資訊。",
+      "gemini_expected": "別在留言裡洩漏個人資訊。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0019",
+      "input": "我已经关注这个频道。",
+      "codex_expected": "我已經追蹤這個頻道。",
+      "gemini_expected": "我已經追蹤這個頻道。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0020",
+      "input": "取消关注后就看不到更新。",
+      "codex_expected": "取消追蹤後就看不到更新。",
+      "gemini_expected": "取消追蹤後就看不到更新。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0021",
+      "input": "周末要不要一起骑自行车？",
+      "codex_expected": "週末要不要一起騎腳踏車？",
+      "gemini_expected": "週末要不要一起騎腳踏車？",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0022",
+      "input": "我今天坐地铁去上班。",
+      "codex_expected": "我今天搭捷運去上班。",
+      "gemini_expected": "我今天坐捷運去上班。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "social-daily-0023",
+      "input": "下班后搭公交回家。",
+      "codex_expected": "下班後搭公車回家。",
+      "gemini_expected": "下班後搭公車回家。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0024",
+      "input": "公交车站离这里很近。",
+      "codex_expected": "公車站離這裡很近。",
+      "gemini_expected": "公車站離這裡很近。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0025",
+      "input": "我叫了出租车去机场。",
+      "codex_expected": "我叫了計程車去機場。",
+      "gemini_expected": "我叫了計程車去機場。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0026",
+      "input": "打车费用比预期高。",
+      "codex_expected": "叫車費用比預期高。",
+      "gemini_expected": "搭計程車費用比預期高。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "social-daily-0027",
+      "input": "手机快没电了。",
+      "codex_expected": "手機快沒電了。",
+      "gemini_expected": "手機快沒電了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0028",
+      "input": "充电线放在抽屉里。",
+      "codex_expected": "充電線放在抽屜裡。",
+      "gemini_expected": "充電線放在抽屜裡。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0029",
+      "input": "我把钥匙忘在车里。",
+      "codex_expected": "我把鑰匙忘在車裡。",
+      "gemini_expected": "我把鑰匙忘在車裡。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0030",
+      "input": "晚点再回你消息。",
+      "codex_expected": "晚點再回你訊息。",
+      "gemini_expected": "晚點再回你訊息。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0031",
+      "input": "这个消息不要转发。",
+      "codex_expected": "這則訊息不要轉傳。",
+      "gemini_expected": "這個訊息不要轉發。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "social-daily-0032",
+      "input": "我刚收到快递。",
+      "codex_expected": "我剛收到包裹。",
+      "gemini_expected": "我剛收到快遞。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "social-daily-0033",
+      "input": "快递员把包裹放门口了。",
+      "codex_expected": "宅配員把包裹放門口了。",
+      "gemini_expected": "快遞員把包裹放門口了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "social-daily-0034",
+      "input": "外卖已经送到了。",
+      "codex_expected": "外送已經送到了。",
+      "gemini_expected": "外送已經送到了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0035",
+      "input": "今天中午订便当。",
+      "codex_expected": "今天中午訂便當。",
+      "gemini_expected": "今天中午訂便當。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0036",
+      "input": "冰箱里还有昨天的饭。",
+      "codex_expected": "冰箱裡還有昨天的飯。",
+      "gemini_expected": "冰箱裡還有昨天的飯。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0037",
+      "input": "这个小区晚上很安静。",
+      "codex_expected": "這個社區晚上很安靜。",
+      "gemini_expected": "這個社區晚上很安靜。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0038",
+      "input": "物业通知明天停水。",
+      "codex_expected": "管委會通知明天停水。",
+      "gemini_expected": "管委會通知明天停水。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0039",
+      "input": "电梯维修到下午。",
+      "codex_expected": "電梯維修到下午。",
+      "gemini_expected": "電梯維修到下午。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0040",
+      "input": "垃圾车已经过了。",
+      "codex_expected": "垃圾車已經過了。",
+      "gemini_expected": "垃圾車已經過了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0041",
+      "input": "我在便利店买咖啡。",
+      "codex_expected": "我在便利商店買咖啡。",
+      "gemini_expected": "我在便利商店買咖啡。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0042",
+      "input": "这个优惠券明天过期。",
+      "codex_expected": "這張優惠券明天過期。",
+      "gemini_expected": "這個優惠券明天過期。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "social-daily-0043",
+      "input": "购物车里还有三件商品。",
+      "codex_expected": "購物車裡還有三件商品。",
+      "gemini_expected": "購物車裡還有三件商品。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0044",
+      "input": "卖家已经发货。",
+      "codex_expected": "賣家已經出貨。",
+      "gemini_expected": "賣家已經出貨。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0045",
+      "input": "订单状态显示已签收。",
+      "codex_expected": "訂單狀態顯示已簽收。",
+      "gemini_expected": "訂單狀態顯示已簽收。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0046",
+      "input": "退货申请还在审核。",
+      "codex_expected": "退貨申請還在審核。",
+      "gemini_expected": "退貨申請還在審核。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0047",
+      "input": "客服说可以换货。",
+      "codex_expected": "客服說可以換貨。",
+      "gemini_expected": "客服說可以換貨。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0048",
+      "input": "这个商品没有现货。",
+      "codex_expected": "這個商品沒有現貨。",
+      "gemini_expected": "這個商品沒有現貨。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0049",
+      "input": "发票要开公司抬头。",
+      "codex_expected": "發票要開公司抬頭。",
+      "gemini_expected": "發票要開公司抬頭。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "social-daily-0050",
+      "input": "我把地址填错了。",
+      "codex_expected": "我把地址填錯了。",
+      "gemini_expected": "我把地址填錯了。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    }
+  ]
+}

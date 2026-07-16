@@ -1,0 +1,32 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "report_type": "holdout_sealed_pool_update",
+  "review_stage": "after_batch11_semantic_reaudit",
+  "expected_values_included": false,
+  "inputs_included": false,
+  "source_final_decision": "docs/reports/holdout-maintainer-final-decision-blind-v1-batch11-semantic-reaudit-2026-07-14.json",
+  "source_inputs_sha256_before": "e7018d35e078a53ff1c59e4a8281b787151fd11c158859ad882defc82b93aff9",
+  "source_inputs_sha256_after": "3c35b332959c7a87410a0ba7c08d46aa98857b1c080155d275a8892d0f507fef",
+  "private_expected_sha256_before": "bbf89dfa8db7774fdd9b8c078f97d18b9b3749f164d5f4e7cc109bb8ac0ab096",
+  "private_expected_sha256_after": "066bcd60d16760a10eb8cdd54de61e8ff438fe4a7ffe971e8f814fc45563db2d",
+  "removed_case_ids": [
+    "blind-formal-0144",
+    "blind-formal-0145",
+    "blind-formal-0151",
+    "blind-formal-0152",
+    "blind-it-0244",
+    "blind-it-0252",
+    "blind-it-0257",
+    "blind-it-0262",
+    "blind-llm-0140",
+    "blind-llm-0152"
+  ],
+  "summary": {
+    "original_sealed_cases": 851,
+    "removed_cases": 10,
+    "remaining_sealed_cases": 841,
+    "confirmed_acceptable_variants": 4,
+    "strict_private_holdout_signals": 11
+  }
+}

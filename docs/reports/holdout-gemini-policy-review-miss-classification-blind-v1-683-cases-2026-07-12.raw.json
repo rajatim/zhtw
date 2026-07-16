@@ -1,0 +1,57 @@
+{
+  "session_id": "e8a19fa5-d6c5-415f-a92f-297406ea4221",
+  "response": "```json\n{\n  \"policy_passed\": true,\n  \"summary\": \"All 53 miss classifications are categorized in strict compliance with the stated policies. Over-conversion guard cases (28) are properly retained as private holdout signals. High-risk domain cases (7) are correctly kept as private holdout signals. Candidate gap promotions (16) and expected rechecks (6) are appropriately flagged as requiring maintainer review with correct next-step workflows.\",\n  \"classification_changes_recommended\": [],\n  \"findings\": [\n    {\n      \"case_id\": \"blind-ui-0147\",\n      \"severity\": \"info\",\n      \"finding\": \"Case with non-idempotent output is correctly handled under over_conversion_guard policy first (retained as private holdout signal).\"\n    },\n    {\n      \"case_id\": \"blind-it-0190\",\n      \"severity\": \"info\",\n      \"finding\": \"Non-idempotent candidate gap correctly routed to public regression candidate with mandatory maintainer confirmation flag.\"\n    },\n    {\n      \"case_id\": \"blind-it-0200\",\n      \"severity\": \"info\",\n      \"finding\": \"Non-idempotent candidate gap correctly routed to public regression candidate with mandatory maintainer confirmation flag.\"\n    }\n  ],\n  \"sealed_content_policy_confirmed\": true,\n  \"sealed_values_seen\": false\n}\n```",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 32310
+        },
+        "tokens": {
+          "input": 25134,
+          "prompt": 25134,
+          "candidates": 300,
+          "total": 31950,
+          "cached": 0,
+          "thoughts": 6516,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 32310,
+            "tokens": {
+              "input": 25134,
+              "prompt": 25134,
+              "candidates": 300,
+              "total": 31950,
+              "cached": 0,
+              "thoughts": 6516,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "reviewer": "gemini_vertex",
+  "model": "gemini-2.5-flash",
+  "review_stage": "sanitized_miss_classification_policy_review",
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-261-cases-2026-07-09.json",
+  "sealed_values_seen": false,
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "gemini_received_sanitized_metadata_only": true
+  },
+  "summary": {
+    "total_cases": 54,
+    "policy_consistent": true,
+    "needs_codex_followup": 0
+  },
+  "findings": [],
+  "notes": "All cases are consistent with the stated policy. The 'codex_followup' section indicates previous revisions were made to ensure compliance for high-risk and over-conversion guard cases, which aligns with the current policy application.",
+  "raw_review_metadata": {
+    "raw_response_path": "/tmp/zhtw-holdout-gemini-policy-review-miss-classification-blind-v1-261-cases-2026-07-09-v3.raw.json"
+  },
+  "raw_response_usage_metadata": {
+    "promptTokenCount": 12496,
+    "candidatesTokenCount": 102,
+    "totalTokenCount": 16741,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 12496
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 102
+      }
+    ],
+    "thoughtsTokenCount": 4143
+  }
+}

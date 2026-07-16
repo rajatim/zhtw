@@ -1,9 +1,16 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export test test-python test-java version-check bump release help
+.PHONY: export export-check precision-benchmark accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-python test-java version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
+BATCH ?= it-api-cli
+DATE ?= $(shell date +%F)
+ID_FROM ?=
+ID_TO ?=
+COMPETITORS ?= zhtw
+REVIEWER_STAGE ?= first_human_review
+HOLDOUT_BATCH ?=
 
 # === Core ===
 
@@ -15,11 +22,54 @@ export: ## Export SDK data (zhtw-data.json + golden-test.json)
 	@cp sdk/data/zhtw-data.json sdk/go/zhtw/zhtw-data.json
 	@echo "  synced Go embed copy → sdk/go/zhtw/zhtw-data.json"
 
+export-check: ## Verify committed SDK data exactly matches a fresh export
+	@tmp=$$(mktemp -d); \
+	  trap 'rm -rf "$$tmp"' EXIT; \
+	  $(PYTHON) -m zhtw export --output "$$tmp" >/dev/null; \
+	  for f in zhtw-data.json golden-test.json; do \
+	    if ! cmp -s "sdk/data/$$f" "$$tmp/$$f"; then \
+	      echo "❌ sdk/data/$$f is stale — run 'make export'"; \
+	      exit 1; \
+	    fi; \
+	  done; \
+	  cmp -s sdk/data/zhtw-data.json sdk/rust/zhtw/data/zhtw-data.json || \
+	    { echo "❌ Rust SDK data copy is stale — run 'make export'"; exit 1; }; \
+	  cmp -s sdk/data/zhtw-data.json sdk/go/zhtw/zhtw-data.json || \
+	    { echo "❌ Go SDK data copy is stale — run 'make export'"; exit 1; }; \
+	  echo "✅ SDK data matches a fresh export"
+
+precision-benchmark: ## Compare zhtw precision with optional competitor converters
+	$(PYTHON) scripts/competitor_benchmark.py
+
+accuracy-annotation-status: ## Report M1 annotation backlog progress
+	$(PYTHON) scripts/accuracy_annotation_status.py
+
+accuracy-blind-review-packet: ## Create a blind review packet for annotation cases
+	$(PYTHON) scripts/create_blind_review_packet.py --batch $(BATCH) --generated-date $(DATE) --output docs/reports/annotation-blind-review-packet-$(BATCH)-$(DATE).md
+
+accuracy-gemini-advisory: ## Generate Gemini Vertex advisory review for annotation cases
+	$(PYTHON) scripts/generate_gemini_vertex_advisory.py --batch $(BATCH) --generated-date $(DATE) $(if $(ID_FROM),--id-from $(ID_FROM),) $(if $(ID_TO),--id-to $(ID_TO),) --output-json docs/reports/annotation-gemini-vertex-advisory-$(BATCH)-$(DATE).json --output-md docs/reports/annotation-gemini-vertex-advisory-$(BATCH)-$(DATE).md --update-backlog
+
+accuracy-promotion-gate: ## Check approved annotation cases against current zhtw output
+	$(PYTHON) scripts/check_accuracy_backlog.py --generated-date $(DATE) --output-json docs/reports/annotation-promotion-gate-$(DATE).json --output-md docs/reports/annotation-promotion-gate-$(DATE).md
+
+accuracy-promote-backlog: ## Promote promotion-ready annotation cases into regression-v1
+	$(PYTHON) scripts/promote_accuracy_backlog.py --gate docs/reports/annotation-promotion-gate-$(DATE).json
+
+accuracy-holdout-annotation-packet: ## Create a human annotation packet for sealed holdout inputs
+	$(PYTHON) scripts/create_holdout_annotation_packet.py --generated-date $(DATE) --reviewer-stage $(REVIEWER_STAGE) $(if $(HOLDOUT_BATCH),--batch $(HOLDOUT_BATCH),) $(if $(ID_FROM),--id-from $(ID_FROM),) $(if $(ID_TO),--id-to $(ID_TO),) --output docs/reports/holdout-annotation-packet-blind-v1-$(REVIEWER_STAGE)-$(DATE).md
+
+accuracy-holdout-gemini-advisory: ## Generate Gemini Vertex advisory for sealed holdout inputs
+	$(PYTHON) scripts/generate_holdout_gemini_vertex_advisory.py --generated-date $(DATE) $(if $(HOLDOUT_BATCH),--batch $(HOLDOUT_BATCH),) $(if $(ID_FROM),--id-from $(ID_FROM),) $(if $(ID_TO),--id-to $(ID_TO),) --output-json docs/reports/holdout-gemini-vertex-advisory-blind-v1-0001-0100-$(DATE).json --output-md docs/reports/holdout-gemini-vertex-advisory-blind-v1-0001-0100-$(DATE).md
+
+accuracy-benchmark: ## Run sealed holdout benchmark after private expected file is available
+	$(PYTHON) scripts/run_accuracy_benchmark.py --inputs benchmarks/accuracy/blind-v1.inputs.json --expected benchmarks/accuracy/blind-v1.expected.json --competitors-lock benchmarks/accuracy/competitors.lock.json --competitors $(COMPETITORS) --generated-date $(DATE) --output-prefix docs/reports/accuracy-benchmark-$(DATE)
+
 test-python: ## Run Python tests
 	$(PYTHON) -m pytest tests/ -v
 
 test-java: ## Run Java SDK tests
-	cd sdk/java && mvn test --batch-mode
+	cd sdk/java && mvn verify --batch-mode
 
 test: test-python test-java ## Run all tests (Python + Java SDK)
 

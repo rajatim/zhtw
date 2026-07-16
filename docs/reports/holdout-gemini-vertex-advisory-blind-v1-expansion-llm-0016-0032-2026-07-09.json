@@ -1,0 +1,627 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "reviewer": "gemini_vertex",
+  "review_stage": "independent_holdout_expected_review",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_codex_report": "docs/reports/holdout-codex-first-pass-blind-v1-expansion-127-cases-2026-07-09.json",
+  "raw_report": "docs/reports/holdout-gemini-vertex-advisory-blind-v1-expansion-llm-0016-0032-2026-07-09.json",
+  "usage_metadata": {
+    "promptTokenCount": 1971,
+    "candidatesTokenCount": 1519,
+    "totalTokenCount": 6000,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1971
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1519
+      }
+    ],
+    "thoughtsTokenCount": 2510
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_holdout_expected_review",
+    "cases": [
+      {
+        "id": "blind-llm-0016",
+        "expected": "請將下方這段說明改寫成更適合開發者閱讀的版本。",
+        "acceptable": [
+          "請把下方這段說明改寫成更適合開發者閱讀的版本。"
+        ],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「请把」轉為「請將」更為正式；「下面」轉為「下方」更為常見；「开发者」轉為「開發者」為IT術語轉換。"
+      },
+      {
+        "id": "blind-llm-0017",
+        "expected": "這個模型會根據上下文生成摘要。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「这个」轉為「這個」；「模型」為IT術語。"
+      },
+      {
+        "id": "blind-llm-0018",
+        "expected": "回答時請先列出假設，再提供解決步驟。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「时」轉為「時」；「假设」轉為「假設」；「解决」轉為「解決」。"
+      },
+      {
+        "id": "blind-llm-0019",
+        "expected": "如果使用者沒有提供日誌，請說明需要哪些資訊。",
+        "acceptable": [
+          "如果用戶沒有提供日誌，請說明需要哪些資訊。"
+        ],
+        "issue_tags": [
+          "ui_term",
+          "it_term",
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「用户」轉為「使用者」為UI/IT常見用語；「日志」轉為「日誌」為IT術語；「信息」轉為「資訊」更符合台灣用語習慣。"
+      },
+      {
+        "id": "blind-llm-0020",
+        "expected": "這段提示詞會要求模型輸出 JSON 格式。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term",
+          "it_term"
+        ],
+        "confidence": "high",
+        "notes": "「这段」轉為「這段」；「提示词」轉為「提示詞」為LLM相關術語；「模型」為IT術語；「输出」轉為「輸出」。"
+      },
+      {
+        "id": "blind-llm-0021",
+        "expected": "請將客服回覆改為簡短且禮貌的語氣。",
+        "acceptable": [
+          "請把客服回覆改成簡短且禮貌的語氣。"
+        ],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「请把」轉為「請將」更為正式；「回复」轉為「回覆」；「改成」轉為「改為」更為常見；「简短」轉為「簡短」；「礼貌」轉為「禮貌」。"
+      },
+      {
+        "id": "blind-llm-0022",
+        "expected": "模型可能會將函式名稱誤認為普通詞語。",
+        "acceptable": [
+          "模型可能會把函式名稱誤認為普通詞語。"
+        ],
+        "issue_tags": [
+          "it_term",
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「模型」為IT術語；「会把」轉為「會將」更為正式；「函数」轉為「函式」為IT術語；「词语」轉為「詞語」。"
+      },
+      {
+        "id": "blind-llm-0023",
+        "expected": "產生的說明需要包含安裝步驟和常見錯誤。",
+        "acceptable": [
+          "生成的說明需要包含安裝步驟和常見錯誤。"
+        ],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「生成」轉為「產生」更符合台灣口語習慣；「说明」轉為「說明」；「安装」轉為「安裝」；「常见」轉為「常見」。"
+      },
+      {
+        "id": "blind-llm-0024",
+        "expected": "請根據會議記錄整理三點行動項目。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「会议」轉為「會議」；「点」轉為「點」。"
+      },
+      {
+        "id": "blind-llm-0025",
+        "expected": "如果資料不足，請不要編造版本號。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「资料」轉為「資料」；「编造」轉為「編造」；「版本号」轉為「版本號」。"
+      },
+      {
+        "id": "blind-llm-0026",
+        "expected": "請保留原文中的臺灣用語，不要自動改寫。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「请」轉為「請」；「台湾」轉為「臺灣」為官方名稱；「自动」轉為「自動」；「改写」轉為「改寫」。"
+      },
+      {
+        "id": "blind-llm-0027",
+        "expected": "系統提示詞要求保留產品名稱和變數名稱。",
+        "acceptable": [],
+        "issue_tags": [
+          "it_term",
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「系统」轉為「系統」；「提示词」轉為「提示詞」為LLM相關術語；「产品」轉為「產品」；「变量名」轉為「變數名稱」為IT術語。"
+      },
+      {
+        "id": "blind-llm-0028",
+        "expected": "範例輸出裡的臺北地址應保持原樣。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「范例」轉為「範例」；「输出」轉為「輸出」；「台北」轉為「臺北」為官方名稱。"
+      },
+      {
+        "id": "blind-llm-0029",
+        "expected": "請勿將已審核的繁體摘要再轉換一次。",
+        "acceptable": [
+          "請勿把已審核的繁體摘要再轉換一次。"
+        ],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「请勿把」轉為「請勿將」更為正式；「审核」轉為「審核」；「转换」轉為「轉換」。"
+      },
+      {
+        "id": "blind-llm-0030",
+        "expected": "這段內容混合了英文 API 名稱和中文說明。",
+        "acceptable": [],
+        "issue_tags": [
+          "it_term",
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「这段」轉為「這段」；「内容」轉為「內容」；「名称」轉為「名稱」為IT術語；「说明」轉為「說明」。"
+      },
+      {
+        "id": "blind-llm-0031",
+        "expected": "請用兩句話總結這篇文章。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「请」轉為「請」；「两」轉為「兩」；「总结」轉為「總結」；「这」轉為「這」。"
+      },
+      {
+        "id": "blind-llm-0032",
+        "expected": "如果答案不確定，請明確說明限制。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「不确定」轉為「不確定」；「明确」轉為「明確」。"
+      }
+    ]
+  },
+  "summary": {
+    "total_cases": 17,
+    "exact_matches_with_codex": 9,
+    "differences_from_codex": 8,
+    "needs_maintainer_review": 12,
+    "by_domain": {
+      "llm": 17
+    },
+    "by_gemini_confidence": {
+      "high": 17
+    },
+    "promotion_allowed": false
+  },
+  "comparisons": [
+    {
+      "id": "blind-llm-0016",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请把下面这段说明改写成更适合开发者阅读的版本。",
+      "codex_expected": "請把下面這段說明改寫成更適合開發者閱讀的版本。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "LLM rewrite 指令，開發者文件語境穩定。",
+      "gemini_expected": "請將下方這段說明改寫成更適合開發者閱讀的版本。",
+      "gemini_acceptable": [
+        "請把下方這段說明改寫成更適合開發者閱讀的版本。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「请把」轉為「請將」更為正式；「下面」轉為「下方」更為常見；「开发者」轉為「開發者」為IT術語轉換。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0017",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "这个模型会根据上下文生成摘要。",
+      "codex_expected": "這個模型會根據上下文產生摘要。",
+      "codex_acceptable": [
+        "這個模型會根據脈絡產生摘要。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "context 可作「上下文」或「脈絡」；LLM 文件常見兩者。",
+      "gemini_expected": "這個模型會根據上下文生成摘要。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「这个」轉為「這個」；「模型」為IT術語。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0018",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "回答时请先列出假设，再提供解决步骤。",
+      "codex_expected": "回答時請先列出假設，再提供解決步驟。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "提示詞指令語句，轉換穩定。",
+      "gemini_expected": "回答時請先列出假設，再提供解決步驟。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「时」轉為「時」；「假设」轉為「假設」；「解决」轉為「解決」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0019",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "如果用户没有提供日志，请说明需要哪些信息。",
+      "codex_expected": "如果使用者沒有提供日誌，請說明需要哪些資訊。",
+      "codex_acceptable": [
+        "如果使用者沒有提供記錄檔，請說明需要哪些資訊。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「日志」可作日誌或記錄檔，需看產品用語。",
+      "gemini_expected": "如果使用者沒有提供日誌，請說明需要哪些資訊。",
+      "gemini_acceptable": [
+        "如果用戶沒有提供日誌，請說明需要哪些資訊。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "「用户」轉為「使用者」為UI/IT常見用語；「日志」轉為「日誌」為IT術語；「信息」轉為「資訊」更符合台灣用語習慣。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0020",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "这段提示词会要求模型输出 JSON 格式。",
+      "codex_expected": "這段提示詞會要求模型輸出 JSON 格式。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "提示詞/JSON 格式用語穩定。",
+      "gemini_expected": "這段提示詞會要求模型輸出 JSON 格式。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term",
+        "it_term"
+      ],
+      "gemini_notes": "「这段」轉為「這段」；「提示词」轉為「提示詞」為LLM相關術語；「模型」為IT術語；「输出」轉為「輸出」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0021",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请把客服回复改成简短且礼貌的语气。",
+      "codex_expected": "請把客服回覆改成簡短且禮貌的語氣。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "客服回覆與語氣調整語句，轉換穩定。",
+      "gemini_expected": "請將客服回覆改為簡短且禮貌的語氣。",
+      "gemini_acceptable": [
+        "請把客服回覆改成簡短且禮貌的語氣。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「请把」轉為「請將」更為正式；「回复」轉為「回覆」；「改成」轉為「改為」更為常見；「简短」轉為「簡短」；「礼貌」轉為「禮貌」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0022",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "模型可能会把函数名称误认为普通词语。",
+      "codex_expected": "模型可能會把函式名稱誤認為普通詞語。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "IT 語境「函数」採「函式」。",
+      "gemini_expected": "模型可能會將函式名稱誤認為普通詞語。",
+      "gemini_acceptable": [
+        "模型可能會把函式名稱誤認為普通詞語。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "「模型」為IT術語；「会把」轉為「會將」更為正式；「函数」轉為「函式」為IT術語；「词语」轉為「詞語」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0023",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "生成的说明需要包含安装步骤和常见错误。",
+      "codex_expected": "產生的說明需要包含安裝步驟和常見錯誤。",
+      "codex_acceptable": [
+        "生成的說明需要包含安裝步驟和常見錯誤。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "LLM output 可作「產生」或「生成」，需看文件風格。",
+      "gemini_expected": "產生的說明需要包含安裝步驟和常見錯誤。",
+      "gemini_acceptable": [
+        "生成的說明需要包含安裝步驟和常見錯誤。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「生成」轉為「產生」更符合台灣口語習慣；「说明」轉為「說明」；「安装」轉為「安裝」；「常见」轉為「常見」。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0024",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "请根据会议记录整理三点行动项目。",
+      "codex_expected": "請根據會議紀錄整理三點行動項目。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "會議紀錄與行動項目用語穩定。",
+      "gemini_expected": "請根據會議記錄整理三點行動項目。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「会议」轉為「會議」；「点」轉為「點」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0025",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "如果资料不足，请不要编造版本号。",
+      "codex_expected": "如果資料不足，請不要編造版本號。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "LLM groundedness 指令，轉換穩定。",
+      "gemini_expected": "如果資料不足，請不要編造版本號。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「资料」轉為「資料」；「编造」轉為「編造」；「版本号」轉為「版本號」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0026",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "请保留原文中的台湾用语，不要自动改写。",
+      "codex_expected": "請保留原文中的台灣用語，不要自動改寫。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；明確要求保留台灣用語。",
+      "gemini_expected": "請保留原文中的臺灣用語，不要自動改寫。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「请」轉為「請」；「台湾」轉為「臺灣」為官方名稱；「自动」轉為「自動」；「改写」轉為「改寫」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0027",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "系统提示词要求保留产品名称和变量名。",
+      "codex_expected": "系統提示詞要求保留產品名稱和變數名稱。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；產品名稱與變數名稱不可改。",
+      "gemini_expected": "系統提示詞要求保留產品名稱和變數名稱。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "「系统」轉為「系統」；「提示词」轉為「提示詞」為LLM相關術語；「产品」轉為「產品」；「变量名」轉為「變數名稱」為IT術語。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0028",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "范例输出里的台北地址应保持原样。",
+      "codex_expected": "範例輸出裡的台北地址應保持原樣。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；地名與地址需保守。",
+      "gemini_expected": "範例輸出裡的臺北地址應保持原樣。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「范例」轉為「範例」；「输出」轉為「輸出」；「台北」轉為「臺北」為官方名稱。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0029",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "请勿把已审核的繁体摘要再转换一次。",
+      "codex_expected": "請勿把已審核的繁體摘要再轉換一次。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；已審核繁體不可二次轉壞。",
+      "gemini_expected": "請勿將已審核的繁體摘要再轉換一次。",
+      "gemini_acceptable": [
+        "請勿把已審核的繁體摘要再轉換一次。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「请勿把」轉為「請勿將」更為正式；「审核」轉為「審核」；「转换」轉為「轉換」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0030",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "这段内容混合了英文 API 名称和中文说明。",
+      "codex_expected": "這段內容混合了英文 API 名稱和中文說明。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": true,
+      "codex_rationale": "over-conversion guard；英文 API 名稱保留。",
+      "gemini_expected": "這段內容混合了英文 API 名稱和中文說明。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "「这段」轉為「這段」；「内容」轉為「內容」；「名称」轉為「名稱」為IT術語；「说明」轉為「說明」。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-llm-0031",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "baseline_guard",
+      "input": "请用两句话总结这篇文章。",
+      "codex_expected": "請用兩句話總結這篇文章。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "一般摘要指令，轉換穩定。",
+      "gemini_expected": "請用兩句話總結這篇文章。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「请」轉為「請」；「两」轉為「兩」；「总结」轉為「總結」；「这」轉為「這」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-llm-0032",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "baseline_guard",
+      "input": "如果答案不确定，请明确说明限制。",
+      "codex_expected": "如果答案不確定，請明確說明限制。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "一般回答限制指令，轉換穩定。",
+      "gemini_expected": "如果答案不確定，請明確說明限制。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「不确定」轉為「不確定」；「明确」轉為「明確」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    }
+  ]
+}

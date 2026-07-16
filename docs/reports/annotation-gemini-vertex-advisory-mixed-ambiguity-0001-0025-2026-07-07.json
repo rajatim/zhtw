@@ -1,0 +1,366 @@
+{
+  "generated_date": "2026-07-07",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_backlog": "benchmarks/accuracy/annotation-backlog-v1.json",
+  "raw_report": "docs/reports/annotation-gemini-vertex-advisory-mixed-ambiguity-0001-0025-2026-07-07.json",
+  "case_range": "mixed-ambiguity-0001-mixed-ambiguity-0025",
+  "usage_metadata": {
+    "promptTokenCount": 1820,
+    "candidatesTokenCount": 1103,
+    "totalTokenCount": 8272,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1820
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1103
+      }
+    ],
+    "thoughtsTokenCount": 5349
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_expected_review",
+    "cases": [
+      {
+        "id": "mixed-ambiguity-0001",
+        "expected": "這個程式會自動結束。",
+        "notes": "「程序」(program) 轉為「程式」；「退出」(exit) 轉為「結束」。"
+      },
+      {
+        "id": "mixed-ambiguity-0002",
+        "expected": "會議議程已經排好了。",
+        "notes": "「程序」(agenda) 轉為「議程」。"
+      },
+      {
+        "id": "mixed-ambiguity-0003",
+        "expected": "請開啟這個檔案。",
+        "notes": "「打开」(open) 轉為「開啟」；「文件」(computer file) 轉為「檔案」。"
+      },
+      {
+        "id": "mixed-ambiguity-0004",
+        "expected": "請提交證明文件。",
+        "notes": "「文件」(document) 維持「文件」。"
+      },
+      {
+        "id": "mixed-ambiguity-0005",
+        "expected": "這個物件包含三個欄位。",
+        "notes": "「对象」(programming object) 轉為「物件」；「字段」(field) 轉為「欄位」。"
+      },
+      {
+        "id": "mixed-ambiguity-0006",
+        "expected": "研究對象需要簽署同意書。",
+        "notes": "「对象」(subject) 維持「對象」。"
+      },
+      {
+        "id": "mixed-ambiguity-0007",
+        "expected": "技術支援會協助排除問題。",
+        "notes": "「技术支持」(technical support) 轉為「技術支援」；「排查」(troubleshoot) 轉為「排除問題」。"
+      },
+      {
+        "id": "mixed-ambiguity-0008",
+        "expected": "這份證據支持他的說法。",
+        "notes": "「支持」(support a claim) 維持「支持」。"
+      },
+      {
+        "id": "mixed-ambiguity-0009",
+        "expected": "後端服務正在重新啟動。",
+        "notes": "「后台」(backend) 轉為「後端」；「重启」(restart) 轉為「重新啟動」。"
+      },
+      {
+        "id": "mixed-ambiguity-0010",
+        "expected": "她在後台準備上場。",
+        "notes": "「后台」(backstage) 維持「後台」。"
+      },
+      {
+        "id": "mixed-ambiguity-0011",
+        "expected": "介面傳回空陣列。",
+        "notes": "「接口」(interface/API) 轉為「介面」；「返回」(return data) 轉為「傳回」；「数组」(array) 轉為「陣列」。"
+      },
+      {
+        "id": "mixed-ambiguity-0012",
+        "expected": "海關窗口今天暫停服務。",
+        "notes": "「窗口」(service window) 維持「窗口」。"
+      },
+      {
+        "id": "mixed-ambiguity-0013",
+        "expected": "服務連接埠被佔用。",
+        "notes": "「端口」(port) 轉為「連接埠」。"
+      },
+      {
+        "id": "mixed-ambiguity-0014",
+        "expected": "港口今天暫停開放。",
+        "notes": "「港口」(harbor/port) 維持「港口」。"
+      },
+      {
+        "id": "mixed-ambiguity-0015",
+        "expected": "執行緒阻塞會影響效能。",
+        "notes": "「线程」(thread) 轉為「執行緒」；「性能」(performance) 轉為「效能」。"
+      },
+      {
+        "id": "mixed-ambiguity-0016",
+        "expected": "道路阻塞會影響通行。",
+        "notes": "「阻塞」(blockage) 維持「阻塞」。"
+      },
+      {
+        "id": "mixed-ambiguity-0017",
+        "expected": "快取命中率下降。",
+        "notes": "「缓存」(cache) 轉為「快取」。"
+      },
+      {
+        "id": "mixed-ambiguity-0018",
+        "expected": "他將那張照片快取起來了。",
+        "notes": "「缓存」(to cache) 轉為「快取起來」。"
+      },
+      {
+        "id": "mixed-ambiguity-0019",
+        "expected": "專案經理更新了排程。",
+        "notes": "「项目」(project) 轉為「專案」。"
+      },
+      {
+        "id": "mixed-ambiguity-0020",
+        "expected": "補助項目明天截止。",
+        "notes": "「项目」(item/program) 維持「項目」。"
+      },
+      {
+        "id": "mixed-ambiguity-0021",
+        "expected": "伺服器傳回狀態碼。",
+        "notes": "「服务器」(server) 轉為「伺服器」；「返回」(return data) 轉為「傳回」。"
+      },
+      {
+        "id": "mixed-ambiguity-0022",
+        "expected": "他返回家鄉工作。",
+        "notes": "「返回」(return to a place) 維持「返回」。"
+      },
+      {
+        "id": "mixed-ambiguity-0023",
+        "expected": "這個入口會跳轉到登入頁。",
+        "notes": "「登录页」(login page) 轉為「登入頁」。"
+      },
+      {
+        "id": "mixed-ambiguity-0024",
+        "expected": "捷運入口在便利商店旁邊。",
+        "notes": "「便利店」(convenience store) 轉為「便利商店」。"
+      },
+      {
+        "id": "mixed-ambiguity-0025",
+        "expected": "資料表欄位不能重複。",
+        "notes": "「数据表」(data table) 轉為「資料表」；「字段」(field) 轉為「欄位」。"
+      }
+    ]
+  },
+  "comparison_summary": {
+    "cases": 25,
+    "exact_matches_with_codex_draft": 18,
+    "differences_from_codex_draft": 7
+  },
+  "comparisons": [
+    {
+      "id": "mixed-ambiguity-0001",
+      "input": "这个程序会自动退出。",
+      "codex_expected": "這個程式會自動結束。",
+      "gemini_expected": "這個程式會自動結束。",
+      "gemini_notes": "「程序」(program) 轉為「程式」；「退出」(exit) 轉為「結束」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0002",
+      "input": "会议程序已经排好。",
+      "codex_expected": "會議程序已經排好。",
+      "gemini_expected": "會議議程已經排好了。",
+      "gemini_notes": "「程序」(agenda) 轉為「議程」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "mixed-ambiguity-0003",
+      "input": "请打开这个文件。",
+      "codex_expected": "請開啟這個檔案。",
+      "gemini_expected": "請開啟這個檔案。",
+      "gemini_notes": "「打开」(open) 轉為「開啟」；「文件」(computer file) 轉為「檔案」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0004",
+      "input": "请提交证明文件。",
+      "codex_expected": "請提交證明文件。",
+      "gemini_expected": "請提交證明文件。",
+      "gemini_notes": "「文件」(document) 維持「文件」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0005",
+      "input": "这个对象包含三个字段。",
+      "codex_expected": "這個物件包含三個欄位。",
+      "gemini_expected": "這個物件包含三個欄位。",
+      "gemini_notes": "「对象」(programming object) 轉為「物件」；「字段」(field) 轉為「欄位」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0006",
+      "input": "研究对象需要签署同意书。",
+      "codex_expected": "研究對象需要簽署同意書。",
+      "gemini_expected": "研究對象需要簽署同意書。",
+      "gemini_notes": "「对象」(subject) 維持「對象」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0007",
+      "input": "技术支持会协助排查。",
+      "codex_expected": "技術支援會協助排查。",
+      "gemini_expected": "技術支援會協助排除問題。",
+      "gemini_notes": "「技术支持」(technical support) 轉為「技術支援」；「排查」(troubleshoot) 轉為「排除問題」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "mixed-ambiguity-0008",
+      "input": "这份证据支持他的说法。",
+      "codex_expected": "這份證據支持他的說法。",
+      "gemini_expected": "這份證據支持他的說法。",
+      "gemini_notes": "「支持」(support a claim) 維持「支持」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0009",
+      "input": "后台服务正在重启。",
+      "codex_expected": "背景服務正在重新啟動。",
+      "gemini_expected": "後端服務正在重新啟動。",
+      "gemini_notes": "「后台」(backend) 轉為「後端」；「重启」(restart) 轉為「重新啟動」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "mixed-ambiguity-0010",
+      "input": "她在后台准备上场。",
+      "codex_expected": "她在後台準備上場。",
+      "gemini_expected": "她在後台準備上場。",
+      "gemini_notes": "「后台」(backstage) 維持「後台」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0011",
+      "input": "接口返回空数组。",
+      "codex_expected": "介面回傳空陣列。",
+      "gemini_expected": "介面傳回空陣列。",
+      "gemini_notes": "「接口」(interface/API) 轉為「介面」；「返回」(return data) 轉為「傳回」；「数组」(array) 轉為「陣列」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "mixed-ambiguity-0012",
+      "input": "海关窗口今天暂停服务。",
+      "codex_expected": "海關窗口今天暫停服務。",
+      "gemini_expected": "海關窗口今天暫停服務。",
+      "gemini_notes": "「窗口」(service window) 維持「窗口」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0013",
+      "input": "服务端口被占用。",
+      "codex_expected": "服務連接埠被佔用。",
+      "gemini_expected": "服務連接埠被佔用。",
+      "gemini_notes": "「端口」(port) 轉為「連接埠」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0014",
+      "input": "港口今天暂停开放。",
+      "codex_expected": "港口今天暫停開放。",
+      "gemini_expected": "港口今天暫停開放。",
+      "gemini_notes": "「港口」(harbor/port) 維持「港口」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0015",
+      "input": "线程阻塞会影响性能。",
+      "codex_expected": "執行緒阻塞會影響效能。",
+      "gemini_expected": "執行緒阻塞會影響效能。",
+      "gemini_notes": "「线程」(thread) 轉為「執行緒」；「性能」(performance) 轉為「效能」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0016",
+      "input": "道路阻塞会影响通行。",
+      "codex_expected": "道路阻塞會影響通行。",
+      "gemini_expected": "道路阻塞會影響通行。",
+      "gemini_notes": "「阻塞」(blockage) 維持「阻塞」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0017",
+      "input": "缓存命中率下降。",
+      "codex_expected": "快取命中率下降。",
+      "gemini_expected": "快取命中率下降。",
+      "gemini_notes": "「缓存」(cache) 轉為「快取」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0018",
+      "input": "他缓存了那张照片。",
+      "codex_expected": "他快取了那張照片。",
+      "gemini_expected": "他將那張照片快取起來了。",
+      "gemini_notes": "「缓存」(to cache) 轉為「快取起來」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "mixed-ambiguity-0019",
+      "input": "项目经理更新了排程。",
+      "codex_expected": "專案經理更新了排程。",
+      "gemini_expected": "專案經理更新了排程。",
+      "gemini_notes": "「项目」(project) 轉為「專案」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0020",
+      "input": "补助项目明天截止。",
+      "codex_expected": "補助計畫明天截止。",
+      "gemini_expected": "補助項目明天截止。",
+      "gemini_notes": "「项目」(item/program) 維持「項目」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "mixed-ambiguity-0021",
+      "input": "服务器返回状态码。",
+      "codex_expected": "伺服器回傳狀態碼。",
+      "gemini_expected": "伺服器傳回狀態碼。",
+      "gemini_notes": "「服务器」(server) 轉為「伺服器」；「返回」(return data) 轉為「傳回」。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "mixed-ambiguity-0022",
+      "input": "他返回家乡工作。",
+      "codex_expected": "他返回家鄉工作。",
+      "gemini_expected": "他返回家鄉工作。",
+      "gemini_notes": "「返回」(return to a place) 維持「返回」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0023",
+      "input": "这个入口会跳转到登录页。",
+      "codex_expected": "這個入口會跳轉到登入頁。",
+      "gemini_expected": "這個入口會跳轉到登入頁。",
+      "gemini_notes": "「登录页」(login page) 轉為「登入頁」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0024",
+      "input": "捷运入口在便利店旁边。",
+      "codex_expected": "捷運入口在便利商店旁邊。",
+      "gemini_expected": "捷運入口在便利商店旁邊。",
+      "gemini_notes": "「便利店」(convenience store) 轉為「便利商店」。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "mixed-ambiguity-0025",
+      "input": "数据表字段不能重复。",
+      "codex_expected": "資料表欄位不能重複。",
+      "gemini_expected": "資料表欄位不能重複。",
+      "gemini_notes": "「数据表」(data table) 轉為「資料表」；「字段」(field) 轉為「欄位」。",
+      "exact_match_with_codex_draft": true
+    }
+  ]
+}

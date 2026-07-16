@@ -1,0 +1,101 @@
+{
+  "report_type": "holdout_sealed_pool_update",
+  "dataset": "blind-v1",
+  "batch": "batch3",
+  "generated_date": "2026-07-09",
+  "public_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "private_expected_updated": true,
+  "expected_values_included": false,
+  "actual_outputs_included": false,
+  "inputs_included": false,
+  "summary": {
+    "original_input_cases": 200,
+    "removed_to_public_regression_candidates": 39,
+    "remaining_sealed_input_cases": 161,
+    "old_stats": {
+      "total_collected": 200,
+      "by_domain": {
+        "formal": 30,
+        "high_risk": 20,
+        "it": 50,
+        "llm": 30,
+        "social": 30,
+        "ui": 40
+      },
+      "by_risk": {
+        "baseline_guard": 30,
+        "candidate_gap": 120,
+        "over_conversion_guard": 50
+      }
+    },
+    "removed_by_domain": {
+      "formal": 4,
+      "high_risk": 2,
+      "it": 22,
+      "llm": 2,
+      "social": 1,
+      "ui": 8
+    },
+    "removed_by_risk": {
+      "baseline_guard": 5,
+      "candidate_gap": 26,
+      "over_conversion_guard": 8
+    },
+    "remaining_by_domain": {
+      "formal": 26,
+      "high_risk": 18,
+      "it": 28,
+      "llm": 28,
+      "social": 29,
+      "ui": 32
+    },
+    "remaining_by_risk": {
+      "baseline_guard": 25,
+      "candidate_gap": 94,
+      "over_conversion_guard": 42
+    },
+    "source_inputs_sha256": "588083aec9ebe5d3b40777484732385d14b6727cf772943e3e03b9bb854bbeba",
+    "private_expected_sha256": "169fa6f072f5d059659439e5ce65ca8a285fc971cac971308910ecf5a45335da"
+  },
+  "removed_case_ids": [
+    "blind-formal-0005",
+    "blind-it-0026",
+    "blind-it-0027",
+    "blind-it-0028",
+    "blind-it-0029",
+    "blind-it-0033",
+    "blind-it-0034",
+    "blind-it-0035",
+    "blind-it-0037",
+    "blind-it-0038",
+    "blind-it-0041",
+    "blind-it-0042",
+    "blind-it-0044",
+    "blind-it-0047",
+    "blind-it-0049",
+    "blind-it-0050",
+    "blind-it-0053",
+    "blind-it-0054",
+    "blind-it-0056",
+    "blind-it-0057",
+    "blind-it-0058",
+    "blind-it-0059",
+    "blind-it-0060",
+    "blind-ui-0028",
+    "blind-ui-0029",
+    "blind-ui-0030",
+    "blind-ui-0034",
+    "blind-ui-0035",
+    "blind-ui-0036",
+    "blind-ui-0038",
+    "blind-ui-0040",
+    "blind-llm-0024",
+    "blind-llm-0027",
+    "blind-formal-0024",
+    "blind-formal-0025",
+    "blind-formal-0028",
+    "blind-social-0019",
+    "blind-high-risk-0016",
+    "blind-high-risk-0019"
+  ]
+}

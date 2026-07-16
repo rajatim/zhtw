@@ -1,0 +1,57 @@
+{
+  "session_id": "ccf040f4-41cf-4e47-962e-58662845c2f5",
+  "response": "{\n  \"policy_passed\": true,\n  \"summary\": \"The sanitized zhtw sealed-holdout miss classification report for dataset blind-v1 is fully compliant with all configuration and privacy guidelines. No sealed values were exposed. All over_conversion_guard and high_risk cases correctly remain as holdout signals. Move_to_public_regression_candidate and requires_expected_recheck classifications are locked behind maintainer review gates, and non-idempotency flags have been properly surfaced.\",\n  \"classification_changes_recommended\": [],\n  \"findings\": [\n    {\n      \"case_id\": \"blind-it-0174\",\n      \"severity\": \"info\",\n      \"finding\": \"Case correctly flagged and surfaced for non-idempotent output in the idempotency notes.\"\n    },\n    {\n      \"case_id\": \"blind-ui-0147\",\n      \"severity\": \"info\",\n      \"finding\": \"Case correctly flagged and surfaced for non-idempotent output in the idempotency notes.\"\n    }\n  ],\n  \"sealed_content_policy_confirmed\": true,\n  \"sealed_values_seen\": false\n}",
+  "stats": {
+    "models": {
+      "gemini-3.5-flash": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 27377
+        },
+        "tokens": {
+          "input": 24773,
+          "prompt": 24773,
+          "candidates": 232,
+          "total": 30287,
+          "cached": 0,
+          "thoughts": 5282,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 27377,
+            "tokens": {
+              "input": 24773,
+              "prompt": 24773,
+              "candidates": 232,
+              "total": 30287,
+              "cached": 0,
+              "thoughts": 5282,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

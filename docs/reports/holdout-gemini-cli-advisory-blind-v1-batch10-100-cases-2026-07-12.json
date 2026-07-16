@@ -1,0 +1,968 @@
+{
+  "generated_date": "2026-07-12",
+  "dataset": "blind-v1",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_expansion_report": "docs/reports/holdout-input-pool-expansion-blind-v1-batch10-100-cases-2026-07-12.json",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-flash",
+  "model_observed": [
+    "gemini-3.5-flash"
+  ],
+  "review_stage": "independent_holdout_expected_review",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "chunking": {
+    "strategy": "by_domain",
+    "domain_order": [
+      "it",
+      "ui",
+      "llm",
+      "formal",
+      "social",
+      "high_risk"
+    ]
+  },
+  "source_raw_reports": [
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch10-it-2026-07-12.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch10-ui-2026-07-12.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch10-llm-2026-07-12.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch10-formal-2026-07-12.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch10-social-2026-07-12.raw.json",
+    "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch10-high_risk-2026-07-12.raw.json"
+  ],
+  "tool_notes": [
+    "Gemini CLI was run with GEMINI_API_KEY, GOOGLE_API_KEY, and GOOGLE_GENAI_API_KEY unset; no invalid API-key mode was used.",
+    "Gemini reviewed public batch10 input-only cases only; Codex first-pass values were not included in the prompts.",
+    "Gemini CLI emitted a non-review tool availability line: Ripgrep is not available. Falling back to GrepTool."
+  ],
+  "summary": {
+    "total_cases": 100,
+    "by_domain": {
+      "it": 25,
+      "ui": 20,
+      "llm": 15,
+      "formal": 15,
+      "social": 15,
+      "high_risk": 10
+    },
+    "by_confidence": {
+      "high": 100
+    },
+    "quality_flags": 2,
+    "promotion_allowed": false
+  },
+  "quality_flags": [
+    {
+      "id": "blind-llm-0123",
+      "issue": "acceptable_variant_contains_unlocalized_english_fragment",
+      "values": [
+        "檢索器會優先回傳與問題語義相近 of 段落。"
+      ]
+    },
+    {
+      "id": "blind-llm-0124",
+      "issue": "acceptable_variant_contains_unlocalized_english_fragment",
+      "values": [
+        "提示詞模板需要區分系統指令 and 使用者輸入。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "blind-it-0213",
+      "gemini_expected": "這個 API 閘道會把請求 ID 傳遞到下游服務。",
+      "acceptable": [
+        "這個 API 閘道會把請求識別碼傳遞到下游服務。",
+        "這個 API 閘道會把要求 ID 傳遞到下游服務。"
+      ],
+      "confidence": "high",
+      "rationale": "網關譯為閘道，請求譯為請求或要求。"
+    },
+    {
+      "id": "blind-it-0214",
+      "gemini_expected": "部署管線會在單元測試失敗時中止發布。",
+      "acceptable": [
+        "部署管線會在單元測試失敗時中斷發布。"
+      ],
+      "confidence": "high",
+      "rationale": "部署流水線譯為部署管線，中止亦可作中斷。"
+    },
+    {
+      "id": "blind-it-0215",
+      "gemini_expected": "請將快取命中率寫入指標儀表板。",
+      "acceptable": [
+        "請把快取命中率寫入指標儀表板。"
+      ],
+      "confidence": "high",
+      "rationale": "快取、指標、儀表板皆為台灣標準 IT 術語，請把可換為請將。"
+    },
+    {
+      "id": "blind-it-0216",
+      "gemini_expected": "日誌聚合器需要保留原始時間戳記。",
+      "acceptable": [
+        "記錄檔聚合器需要保留原始時間戳記。"
+      ],
+      "confidence": "high",
+      "rationale": "日志譯為日誌或記錄檔，时间戳譯為時間戳記。"
+    },
+    {
+      "id": "blind-it-0217",
+      "gemini_expected": "物件儲存會為每個檔案產生存取簽章。",
+      "acceptable": [
+        "物件儲存會為每個檔案產生存取簽名。",
+        "物件儲存會為每個檔案生成存取簽章。"
+      ],
+      "confidence": "high",
+      "rationale": "对象存储譯為物件儲存，文件譯為檔案，生成通常譯為產生，签名可為簽章或簽名。"
+    },
+    {
+      "id": "blind-it-0218",
+      "gemini_expected": "服務網格會根據路由規則切分流量。",
+      "acceptable": [
+        "服務網格會根據路由規則分割流量。",
+        "服務網格會根據路由規則劃分流量。"
+      ],
+      "confidence": "high",
+      "rationale": "服務網格與路由規則皆為標準用語，切分可作分割或劃分。"
+    },
+    {
+      "id": "blind-it-0219",
+      "gemini_expected": "資料庫唯讀複本延遲時請切回主資料庫查詢。",
+      "acceptable": [
+        "資料庫讀取複本延遲時請切回主庫查詢。",
+        "資料庫唯讀副本延遲時請切回主庫查詢。",
+        "資料庫唯讀複本延遲時請切回主庫查詢。"
+      ],
+      "confidence": "high",
+      "rationale": "讀副本對應 Read Replica，台灣常譯為唯讀複本或讀取複本，主庫可譯為主資料庫或主庫。"
+    },
+    {
+      "id": "blind-it-0220",
+      "gemini_expected": "訊息生產者必須設定冪等鍵避免重複寫入。",
+      "acceptable": [
+        "訊息生產者必須設定冪等索引鍵避免重複寫入。",
+        "訊息生產者必須設定等冪鍵避免重複寫入。"
+      ],
+      "confidence": "high",
+      "rationale": "消息譯為訊息，冪等可作等冪，鍵可譯為鍵或索引鍵。"
+    },
+    {
+      "id": "blind-it-0221",
+      "gemini_expected": "這個 SDK 會自動重試暫時性的網路錯誤。",
+      "acceptable": [
+        "這個 SDK 會自動重試暫時性網路錯誤。"
+      ],
+      "confidence": "high",
+      "rationale": "网络譯為網路，重试譯為重試。"
+    },
+    {
+      "id": "blind-it-0222",
+      "gemini_expected": "請在健康檢查端點回傳相依服務狀態。",
+      "acceptable": [
+        "請在健康檢查端點傳回相依服務狀態。",
+        "請在健康檢查端點返回相依服務狀態。"
+      ],
+      "confidence": "high",
+      "rationale": "健康檢查、端點皆為標準詞，返回在 API 語境常譯為回傳或傳回，依赖譯為相依。"
+    },
+    {
+      "id": "blind-it-0223",
+      "gemini_expected": "設定中心會按環境發送不同的功能開關。",
+      "acceptable": [
+        "設定中心會按環境下發不同的功能開關。",
+        "組態中心會按環境派送不同的功能開關。",
+        "配置中心會按環境發送不同的功能開關。"
+      ],
+      "confidence": "high",
+      "rationale": "配置中心對應設定中心或組態中心，下發可作發送、派送或保留下發。"
+    },
+    {
+      "id": "blind-it-0224",
+      "gemini_expected": "索引重建任務會佔用較高的磁碟 I/O。",
+      "acceptable": [
+        "索引重建工作會佔用較高的磁碟 I/O。",
+        "索引重建任務會占用較高的磁碟 I/O。"
+      ],
+      "confidence": "high",
+      "rationale": "磁盘譯為磁碟，占用作佔用，任务可作任務或工作。"
+    },
+    {
+      "id": "blind-it-0225",
+      "gemini_expected": "這個 WebSocket 連線需要定期傳送心跳包。",
+      "acceptable": [
+        "這個 WebSocket 連線需要定期發送心跳訊號。",
+        "這個 WebSocket 連線需要定期傳送心跳訊號。"
+      ],
+      "confidence": "high",
+      "rationale": "连接譯為連線，发送譯為傳送或發送，心跳包亦可稱心跳訊號。"
+    },
+    {
+      "id": "blind-it-0226",
+      "gemini_expected": "映像檔儲存庫會掃描上傳的容器映像檔。",
+      "acceptable": [
+        "映像檔倉庫會掃描上傳的容器映像檔。"
+      ],
+      "confidence": "high",
+      "rationale": "镜像譯為映像檔，容器映像檔為標準詞，倉庫對應儲存庫或倉庫。"
+    },
+    {
+      "id": "blind-it-0227",
+      "gemini_expected": "權限中介軟體會拒絕缺少角色宣告的請求。",
+      "acceptable": [
+        "權限中介軟體會拒絕缺少角色宣告的要求。",
+        "權限中介軟體會拒絕缺少角色聲明的請求。"
+      ],
+      "confidence": "high",
+      "rationale": "中间件譯為中介軟體，声明在此譯為宣告較符合權限宣告語境。"
+    },
+    {
+      "id": "blind-it-0228",
+      "gemini_expected": "請將例外追蹤 ID 顯示在錯誤頁面底部。",
+      "acceptable": [
+        "請把異常追蹤 ID 顯示在錯誤頁面底部。",
+        "請將異常追蹤 ID 顯示在錯誤頁面底部。",
+        "請將例外追蹤識別碼顯示在錯誤頁面底部。"
+      ],
+      "confidence": "high",
+      "rationale": "异常譯為例外或異常，追踪對應追蹤，请把可作請將。"
+    },
+    {
+      "id": "blind-it-0229",
+      "gemini_expected": "非同步佇列會延後處理超過速率限制的任務。",
+      "acceptable": [
+        "非同步佇列會延後處理超過速率限制的工作。"
+      ],
+      "confidence": "high",
+      "rationale": "异步譯為非同步，队列譯為佇列，任务可譯為任務或工作。"
+    },
+    {
+      "id": "blind-it-0230",
+      "gemini_expected": "命令列參數會覆寫預設設定檔。",
+      "acceptable": [
+        "命令列參數會覆寫預設配置檔。",
+        "命令列參數會覆寫預設組態檔。",
+        "命令列參數會覆蓋預設設定檔。"
+      ],
+      "confidence": "high",
+      "rationale": "命令行譯為命令列，覆盖譯為覆寫或覆蓋，配置文件可為設定檔、配置檔或組態檔。"
+    },
+    {
+      "id": "blind-it-0231",
+      "gemini_expected": "這個連線集區會回收閒置太久的連線。",
+      "acceptable": [
+        "這個連線池會回收閒置太久的連線。",
+        "這個連線集區會回收閒置太久的連接。"
+      ],
+      "confidence": "high",
+      "rationale": "连接池對應連線集區（微軟風格）或連線池，闲置作閒置。"
+    },
+    {
+      "id": "blind-it-0232",
+      "gemini_expected": "套件管理員需要驗證鎖定檔案的完整性。",
+      "acceptable": [
+        "套件管理員需要驗證鎖定檔的完整性。",
+        "包管理器需要驗證鎖定檔案的完整性。"
+      ],
+      "confidence": "high",
+      "rationale": "包管理器譯為套件管理員，锁定文件可為鎖定檔案或鎖定檔。"
+    },
+    {
+      "id": "blind-it-0233",
+      "gemini_expected": "請在發布說明中列出破壞性變更。",
+      "acceptable": [
+        "請在版本說明中列出破壞性變更。"
+      ],
+      "confidence": "high",
+      "rationale": "发布说明對應發布說明或版本說明，破坏性变更譯為破壞性變更。"
+    },
+    {
+      "id": "blind-it-0234",
+      "gemini_expected": "事件處理器會忽略已經過期的通知。",
+      "acceptable": [
+        "事件處理常式會忽略已經過期的通知。"
+      ],
+      "confidence": "high",
+      "rationale": "事件处理器譯為事件處理器，或事件處理常式（微軟風格）。"
+    },
+    {
+      "id": "blind-it-0235",
+      "gemini_expected": "這個轉換器不應該修改程式碼區塊裡的路徑。",
+      "acceptable": [
+        "這個轉換器不應該修改程式碼區塊中的路徑。"
+      ],
+      "confidence": "high",
+      "rationale": "代码块譯為程式碼區塊，路径譯為路徑。"
+    },
+    {
+      "id": "blind-it-0236",
+      "gemini_expected": "監控代理會批次回報主機資源用量。",
+      "acceptable": [
+        "監控代理會批次上報主機資源用量。",
+        "監控代理程式會批次回報主機資源用量。"
+      ],
+      "confidence": "high",
+      "rationale": "批量譯為批次，上报常譯為回報或上報，代理可譯為代理或代理程式。"
+    },
+    {
+      "id": "blind-it-0237",
+      "gemini_expected": "請為背景任務設定獨立的逾時時間。",
+      "acceptable": [
+        "請為背景工作設定獨立的逾時時間。",
+        "請為背景任務設定獨立的超時時間。"
+      ],
+      "confidence": "high",
+      "rationale": "后台任务譯為背景任務或背景工作，超时时间譯為逾時時間。"
+    },
+    {
+      "id": "blind-ui-0168",
+      "gemini_expected": "搜尋框取得焦點後會展開最近查詢。",
+      "acceptable": [
+        "搜尋框獲得焦點後會展開最近查詢。"
+      ],
+      "confidence": "high",
+      "rationale": "「搜尋」與「取得焦點」為臺灣標準 UI 用語。"
+    },
+    {
+      "id": "blind-ui-0169",
+      "gemini_expected": "分頁器需要顯示目前頁碼和總頁數。",
+      "acceptable": [
+        "分頁控制項需要顯示目前頁碼和總頁數。"
+      ],
+      "confidence": "high",
+      "rationale": "「分頁」及「目前頁碼」為臺灣軟體慣用語。"
+    },
+    {
+      "id": "blind-ui-0170",
+      "gemini_expected": "拖曳排序完成後請顯示儲存提示。",
+      "acceptable": [
+        "拖拽排序完成後請顯示儲存提示。"
+      ],
+      "confidence": "high",
+      "rationale": "「拖曳排序」與「儲存提示」符合臺灣 UI 常見文案。"
+    },
+    {
+      "id": "blind-ui-0171",
+      "gemini_expected": "下拉式選單開啟時應聚焦第一個選項。",
+      "acceptable": [
+        "下拉選單開啟時應聚焦第一個選項。",
+        "下拉式選單打開時應聚焦第一個選項。"
+      ],
+      "confidence": "high",
+      "rationale": "「下拉式選單」或「下拉選單」及「開啟」為臺灣常用語。"
+    },
+    {
+      "id": "blind-ui-0172",
+      "gemini_expected": "錯誤橫幅可以透過關閉按鈕隱藏。",
+      "acceptable": [
+        "錯誤橫幅可以經由關閉按鈕隱藏。"
+      ],
+      "confidence": "high",
+      "rationale": "「錯誤橫幅」與「透過」符合臺灣軟體中文用法。"
+    },
+    {
+      "id": "blind-ui-0173",
+      "gemini_expected": "表單驗證失敗時請保留使用者輸入。",
+      "acceptable": [
+        "表單驗證失敗時請保留用戶輸入。"
+      ],
+      "confidence": "high",
+      "rationale": "「表單驗證」及「使用者輸入」為臺灣軟體工程常用語。"
+    },
+    {
+      "id": "blind-ui-0174",
+      "gemini_expected": "側邊欄釘選後主內容寬度會自動調整。",
+      "acceptable": [
+        "側邊欄固定後主內容寬度會自動調整。"
+      ],
+      "confidence": "high",
+      "rationale": "「側邊欄」、「釘選」（或固定）與「主內容」為臺灣 UI 用語。"
+    },
+    {
+      "id": "blind-ui-0175",
+      "gemini_expected": "日期選擇器應支援鍵盤方向鍵切換日期。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "「日期選擇器」、「支援」與「鍵盤方向鍵」皆為臺灣標準用語。"
+    },
+    {
+      "id": "blind-ui-0176",
+      "gemini_expected": "清單為空時請顯示空狀態插圖。",
+      "acceptable": [
+        "列表為空時請顯示空狀態插圖。"
+      ],
+      "confidence": "high",
+      "rationale": "「清單」與「空狀態插圖」為台灣 UI 設計慣用語。"
+    },
+    {
+      "id": "blind-ui-0177",
+      "gemini_expected": "上傳進度條需要顯示剩餘時間。",
+      "acceptable": [
+        "上傳進度列需要顯示剩餘時間。"
+      ],
+      "confidence": "high",
+      "rationale": "「上傳」、「進度條」（或進度列）與「剩餘時間」為標準臺灣翻譯。"
+    },
+    {
+      "id": "blind-ui-0178",
+      "gemini_expected": "請把批次操作工具列固定在表格上方。",
+      "acceptable": [
+        "請將批次操作工具列固定在表格上方。"
+      ],
+      "confidence": "high",
+      "rationale": "「批次操作」及「工具列」為臺灣標準軟體用語。"
+    },
+    {
+      "id": "blind-ui-0179",
+      "gemini_expected": "切換分頁時不要重設篩選條件。",
+      "acceptable": [
+        "切換分頁標籤時不要重設篩選條件。",
+        "切換頁籤時不要重設篩選條件。"
+      ],
+      "confidence": "high",
+      "rationale": "Tab 常用「分頁」、「頁籤」或「分頁標籤」，重置在台灣常用「重設」。"
+    },
+    {
+      "id": "blind-ui-0180",
+      "gemini_expected": "通知抽屜關閉後應保留未讀狀態。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "通知抽屜與未讀狀態為標準臺灣 UI 說法。"
+    },
+    {
+      "id": "blind-ui-0181",
+      "gemini_expected": "麵包屑導覽的最後一層不需要連結。",
+      "acceptable": [
+        "麵包屑導航的最後一層不需要連結。"
+      ],
+      "confidence": "high",
+      "rationale": "「麵包屑導覽」與「連結」為臺灣軟體 UI 慣用語。"
+    },
+    {
+      "id": "blind-ui-0182",
+      "gemini_expected": "確認對話方塊應明確列出將刪除的項目數。",
+      "acceptable": [
+        "確認對話框應明確列出將刪除的項目數。"
+      ],
+      "confidence": "high",
+      "rationale": "確認對話方塊（或對話框）與項目數皆為臺灣標準用語。"
+    },
+    {
+      "id": "blind-ui-0183",
+      "gemini_expected": "工具提示不應遮擋目前輸入框。",
+      "acceptable": [
+        "工具提示不應遮蔽目前輸入框。"
+      ],
+      "confidence": "high",
+      "rationale": "「工具提示」、「目前」與「輸入框」為臺灣慣用詞。"
+    },
+    {
+      "id": "blind-ui-0184",
+      "gemini_expected": "表格凍結欄會在橫向捲動時保持可見。",
+      "acceptable": [
+        "表格固定欄會在橫向捲動時保持可見。"
+      ],
+      "confidence": "high",
+      "rationale": "「列」在 Simplified Chinese 為 column，對應臺灣為「欄」。捲動為 scroll 標準翻譯。"
+    },
+    {
+      "id": "blind-ui-0185",
+      "gemini_expected": "請在成功送出後重設上傳區域。",
+      "acceptable": [
+        "請在成功提交後重設上傳區域。"
+      ],
+      "confidence": "high",
+      "rationale": "「送出」（或提交）與「重設」符合臺灣常見 UI 文案。"
+    },
+    {
+      "id": "blind-ui-0186",
+      "gemini_expected": "篩選面板收合時仍要顯示已套用條件數。",
+      "acceptable": [
+        "篩選面板折疊時仍要顯示已套用條件數。"
+      ],
+      "confidence": "high",
+      "rationale": "「篩選面板」、「收合」（或折疊）與「已套用條件數」符合臺灣用語。"
+    },
+    {
+      "id": "blind-ui-0187",
+      "gemini_expected": "卡片標題過長時應換行而不是截斷。",
+      "acceptable": [
+        "卡片標題過長時應換行而非截斷。"
+      ],
+      "confidence": "high",
+      "rationale": "卡片標題、換行與截斷為標準排版用語。"
+    },
+    {
+      "id": "blind-llm-0123",
+      "gemini_expected": "檢索器會優先回傳與問題語意相近的段落。",
+      "acceptable": [
+        "檢索器會優先傳回與問題語意相近的段落。",
+        "檢索器會優先返回與問題語意相近的段落。",
+        "檢索器會優先回傳與問題語義相近 of 段落。"
+      ],
+      "confidence": "high",
+      "rationale": "將「检索器」與「语义」轉換為台灣資工標準「檢索器」與「語意」（「語義」亦可），「返回」常譯為「回傳」或「傳回」。"
+    },
+    {
+      "id": "blind-llm-0124",
+      "gemini_expected": "提示詞範本需要區分系統指令和使用者輸入。",
+      "acceptable": [
+        "提示詞樣板需要區分系統指令和使用者輸入。",
+        "提示詞模板需要區分系統指令 and 使用者輸入。"
+      ],
+      "confidence": "high",
+      "rationale": "「提示词」對應「提示詞」，「模板」在台灣資訊科技中常對應為「範本」或「樣板」，「使用者输入」對應「使用者輸入」。"
+    },
+    {
+      "id": "blind-llm-0125",
+      "gemini_expected": "評測腳本會比較模型回答與參考答案。",
+      "acceptable": [
+        "評測指令碼會比較模型回答與參考答案。",
+        "評估腳本會比較模型回答與參考答案。",
+        "評估指令碼會比較模型回答與參考答案。"
+      ],
+      "confidence": "high",
+      "rationale": "「评测」轉換為「評測」或「評估」，「脚本」在台灣一般作「腳本」或「指令碼」。"
+    },
+    {
+      "id": "blind-llm-0126",
+      "gemini_expected": "向量索引更新後需要重新載入檢索服務。",
+      "acceptable": [
+        "向量索引更新後需要重新讀取檢索服務。"
+      ],
+      "confidence": "high",
+      "rationale": "「向量索引」與「檢索服務」為標準科技詞彙，「后」與「载入」分別對應為「後」與「載入」（或口語「讀取」）。"
+    },
+    {
+      "id": "blind-llm-0127",
+      "gemini_expected": "請避免把內部推理過程寫入最終回答。",
+      "acceptable": [
+        "請避免將內部推理過程寫入最終回答。",
+        "請避免把內部推理過程寫入最終回覆。",
+        "請避免將內部推理過程寫入最終回覆。"
+      ],
+      "confidence": "high",
+      "rationale": "將「请」與「内部」轉換為「請」與「內部」，「推理过程」對應「推理過程」，「回答」亦可作「回覆」。"
+    },
+    {
+      "id": "blind-llm-0128",
+      "gemini_expected": "模型路由器會根據任務類型選擇不同端點。",
+      "acceptable": [
+        "模型路由器會依據任務類型選擇不同端點。"
+      ],
+      "confidence": "high",
+      "rationale": "「模型路由器」與「端点」皆為標準台灣資工術語（對應 Model Router 與 Endpoint），「根据」對應為「根據」或「依據」。"
+    },
+    {
+      "id": "blind-llm-0129",
+      "gemini_expected": "長上下文摘要應保留關鍵限制和日期。",
+      "acceptable": [
+        "長上下文摘要應保留關鍵約束和日期。",
+        "長脈絡摘要應保留關鍵限制和日期。",
+        "長脈絡摘要應保留關鍵約束和日期。"
+      ],
+      "confidence": "high",
+      "rationale": "「长上下文」對應「長上下文」（亦可作「長脈絡」），「约束」在台灣常對應「限制」或「約束」。"
+    },
+    {
+      "id": "blind-llm-0130",
+      "gemini_expected": "資料切塊策略會影響檢索命中率。",
+      "acceptable": [
+        "資料分塊策略會影響檢索命中率。",
+        "資料切分策略會影響檢索命中率。"
+      ],
+      "confidence": "high",
+      "rationale": "「资料」與「检索」對應為「資料」與「檢索」，「切块」在台灣 LLM RAG 語境中常對應「切塊」或「分塊」。"
+    },
+    {
+      "id": "blind-llm-0131",
+      "gemini_expected": "安全過濾器會攔截包含隱私資料的提示。",
+      "acceptable": [
+        "安全篩選器會攔截包含隱私資料的提示。",
+        "安全過濾器會攔截包含隱私資料的提示詞。",
+        "安全篩選器會攔截包含隱私資料的提示詞。"
+      ],
+      "confidence": "high",
+      "rationale": "「安全过滤器」常對應「安全過濾器」或「安全篩選器」，「隐私资料」對應「隱私資料」，「提示」對應「提示」或「提示詞」。"
+    },
+    {
+      "id": "blind-llm-0132",
+      "gemini_expected": "微調資料集需要移除重複樣本。",
+      "acceptable": [
+        "微調數據集需要移除重複樣本。"
+      ],
+      "confidence": "high",
+      "rationale": "「微调」與「资料集」對應為「微調」與「資料集」（數據集亦容許但較不推薦），「重复」對應「重複」，「样本」對應「樣本」。"
+    },
+    {
+      "id": "blind-llm-0133",
+      "gemini_expected": "代理流程會在工具失敗時要求模型改寫查詢。",
+      "acceptable": [
+        "代理流程會在工具失效時要求模型改寫查詢。"
+      ],
+      "confidence": "high",
+      "rationale": "「代理流程」為 Agent Workflow 之合適對應，「查询」對應「查詢」，「失败」與「改写」對應為「失敗」與「改寫」。"
+    },
+    {
+      "id": "blind-llm-0134",
+      "gemini_expected": "請把引用來源附在回答結尾。",
+      "acceptable": [
+        "請將引用來源附在回答結尾。",
+        "請把引用來源附在回覆結尾。",
+        "請將引用來源附在回覆結尾。"
+      ],
+      "confidence": "high",
+      "rationale": "「请」與「来源」繁體化為「請」與「來源」，「回答」亦常作「回覆」，「结尾」對應「結尾」。"
+    },
+    {
+      "id": "blind-llm-0135",
+      "gemini_expected": "函式呼叫參數必須符合工具定義的結構。",
+      "acceptable": [
+        "函數呼叫參數必須符合工具定義的結構。"
+      ],
+      "confidence": "high",
+      "rationale": "「函数调用」轉換為台灣標準資工術語「函式呼叫」（「函數呼叫」亦可），「参数」對應「參數」，「结构」對應「結構」。"
+    },
+    {
+      "id": "blind-llm-0136",
+      "gemini_expected": "模型輸出解析器會檢查 JSON 格式是否有效。",
+      "acceptable": [
+        "模型輸出剖析器會檢查 JSON 格式是否有效。"
+      ],
+      "confidence": "high",
+      "rationale": "「解析器」對應為「解析器」或「剖析器」（Parser），「输出」繁體化為「輸出」，「检查」繁體化為「檢查」。"
+    },
+    {
+      "id": "blind-llm-0137",
+      "gemini_expected": "系統訊息不可由外部檔案覆寫。",
+      "acceptable": [
+        "系統訊息不可由外部檔案覆蓋。",
+        "系統消息不可由外部檔案覆寫。",
+        "系統訊息不可由外部文件覆寫。"
+      ],
+      "confidence": "high",
+      "rationale": "「系统消息」對應為「系統訊息」，「外部文件」對應為「外部檔案」，「覆盖」在 IT 檔案/設定操作中常對應「覆寫」。"
+    },
+    {
+      "id": "blind-formal-0124",
+      "gemini_expected": "本公告自發布日施行。",
+      "acceptable": [
+        "本公告自發佈日施行。"
+      ],
+      "confidence": "high",
+      "rationale": "「發布」為臺灣公文標準用字，「發佈」為常見容許變體。"
+    },
+    {
+      "id": "blind-formal-0125",
+      "gemini_expected": "申請資料不齊者，應於期限內補正。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "「申請」、「資料」、「不齊」、「應」、「於」、「內」、「補正」之標準繁體轉換。"
+    },
+    {
+      "id": "blind-formal-0126",
+      "gemini_expected": "相關作業程序依主管機關規定辦理。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "「相關」、「作業」、「主管機關」、「辦理」為臺灣標準公文常用詞彙與字形。"
+    },
+    {
+      "id": "blind-formal-0127",
+      "gemini_expected": "會議紀錄應經主席確認後存檔。",
+      "acceptable": [
+        "會議記錄應經主席確認後存檔。"
+      ],
+      "confidence": "high",
+      "rationale": "臺灣公文及事務管理常用「會議紀錄」，亦有使用「會議記錄」者。"
+    },
+    {
+      "id": "blind-formal-0128",
+      "gemini_expected": "受託機構應妥善保存交易憑證。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "「託」、「機關」、「憑證」等字之臺灣繁體標準字形。"
+    },
+    {
+      "id": "blind-formal-0129",
+      "gemini_expected": "本計畫經審查通過後始得執行。",
+      "acceptable": [
+        "本計劃經審查通過後始得執行。"
+      ],
+      "confidence": "high",
+      "rationale": "臺灣官方與法律公文偏好使用「計畫」，「計劃」亦廣為接受。"
+    },
+    {
+      "id": "blind-formal-0130",
+      "gemini_expected": "申請人得以書面方式提出異議。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "「申請」、「書面」、「異議」之標準臺灣繁體字形。"
+    },
+    {
+      "id": "blind-formal-0131",
+      "gemini_expected": "費用標準以核定公告內容為準。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "「費用」、「標準」、「內容」、「為準」之標準字形，臺灣「為準」之「準」不可作「准」。"
+    },
+    {
+      "id": "blind-formal-0132",
+      "gemini_expected": "承辦單位應定期公布辦理進度。",
+      "acceptable": [
+        "承辦單位應定期公佈辦理進度。"
+      ],
+      "confidence": "high",
+      "rationale": "「公布」與「公佈」在臺灣皆屬常用，其中「公布」為公文標準用字。"
+    },
+    {
+      "id": "blind-formal-0133",
+      "gemini_expected": "補助款應專款專用，不得挪作他用。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "「補助款」、「應」、「專款專用」之標準繁體轉換。"
+    },
+    {
+      "id": "blind-formal-0134",
+      "gemini_expected": "各項表單請至服務窗口領取。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "「各項」、「表單」、「服務」、「領取」之臺灣標準用字。"
+    },
+    {
+      "id": "blind-formal-0135",
+      "gemini_expected": "機關得視實際需要調整受理時間。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "「機關」、「視」、「實際」、「調整」、「時間」之標準臺灣繁體轉換。"
+    },
+    {
+      "id": "blind-formal-0136",
+      "gemini_expected": "委託書應載明授權範圍與期限。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "「委託書」、「載明」、「授權」、「範圍」之標準臺灣繁體字形。"
+    },
+    {
+      "id": "blind-formal-0137",
+      "gemini_expected": "本案仍須送交委員會複審。",
+      "acceptable": [
+        "本案仍須送交委員會復審。",
+        "本案仍需送交委員會複審。"
+      ],
+      "confidence": "high",
+      "rationale": "對應「初審」，臺灣公文常使用「複審」；「復審」在部分法規中亦會出現。「須」與「需」皆為常見用法。"
+    },
+    {
+      "id": "blind-formal-0138",
+      "gemini_expected": "如遇不可抗力，得順延辦理期限。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "「順延」、「辦理」之標準臺灣字形，法律詞彙「不可抗力」字形不變。"
+    },
+    {
+      "id": "blind-social-0124",
+      "gemini_expected": "我剛剛把照片發到群組裡了。",
+      "acceptable": [
+        "我剛剛把照片發到群組裏了。"
+      ],
+      "confidence": "high",
+      "rationale": "剛剛/發/群組/裡 的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0125",
+      "gemini_expected": "這個週末要不要一起去看展？",
+      "acceptable": [
+        "這個周末要不要一起去看展？"
+      ],
+      "confidence": "high",
+      "rationale": "這個、週末的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0126",
+      "gemini_expected": "你先幫我把位置分享給司機。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "幫/給/司機 的標準繁體轉換，分享位置符合臺灣習慣。"
+    },
+    {
+      "id": "blind-social-0127",
+      "gemini_expected": "晚餐訂位改到七點半可以嗎？",
+      "acceptable": [
+        "晚餐訂位改到七點半可以嗎？"
+      ],
+      "confidence": "high",
+      "rationale": "訂位/點/嗎 的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0128",
+      "gemini_expected": "我等一下會把明細傳給你。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "會/明細/傳/給 的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0129",
+      "gemini_expected": "這件外套顏色很適合今天的天氣。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "這/顏色/適合 的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0130",
+      "gemini_expected": "如果雨太大，我們就改搭捷運。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "我們/捷運 的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0131",
+      "gemini_expected": "幫我確認一下包裹有沒有送到。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "幫/確認/沒 的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0132",
+      "gemini_expected": "你到門口的時候再打電話給我。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "門口/時候/電話/給 的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0133",
+      "gemini_expected": "這家店的甜點比我想像中好吃。",
+      "acceptable": [
+        "這家店的甜點比我想像中好吃。"
+      ],
+      "confidence": "high",
+      "rationale": "這/甜點/想像 的標準繁體轉換，想像與想像於臺灣皆通用。"
+    },
+    {
+      "id": "blind-social-0134",
+      "gemini_expected": "我已經把票券存到手機裡。",
+      "acceptable": [
+        "我已經把票券存到手機裏。"
+      ],
+      "confidence": "high",
+      "rationale": "已經/手機/裡 的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0135",
+      "gemini_expected": "下次聚會可以換一個安靜一點的地方。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "聚會/換/個/點 的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0136",
+      "gemini_expected": "這個影片先不要傳到公開頻道。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "這個/傳/頻道 的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0137",
+      "gemini_expected": "麻煩你順手把燈關掉。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "麻煩/順手/燈/關 的標準繁體轉換。"
+    },
+    {
+      "id": "blind-social-0138",
+      "gemini_expected": "我明天早上再回你完整內容。",
+      "acceptable": [],
+      "confidence": "high",
+      "rationale": "內容 的標準繁體轉換（採用臺灣教育部「內」字標準字形）。"
+    },
+    {
+      "id": "blind-high-risk-0081",
+      "gemini_expected": "患者簽署同意書前應充分了解風險。",
+      "acceptable": [
+        "患者簽署同意書前應充分瞭解風險。"
+      ],
+      "confidence": "high",
+      "rationale": "醫療與法律術語轉換。「患者」、「簽署」、「同意書」與「風險」均為台灣醫療法律之標準用語。"
+    },
+    {
+      "id": "blind-high-risk-0082",
+      "gemini_expected": "未成年人的資料處理須取得法定代理人同意。",
+      "acceptable": [
+        "未成年人的資料處理需取得法定代理人同意。"
+      ],
+      "confidence": "high",
+      "rationale": "個資與民法術語。「資料處理」、「法定代理人」均為台灣法律與隱私權規範之標準詞彙。"
+    },
+    {
+      "id": "blind-high-risk-0083",
+      "gemini_expected": "投資人應自行承擔市場價格波動風險。",
+      "acceptable": [
+        "投資者應自行承擔市場價格波動風險。"
+      ],
+      "confidence": "high",
+      "rationale": "金融與投資術語。「投資人」、「承擔」、「價格波動風險」為台灣金融與證券市場標準表達方式。"
+    },
+    {
+      "id": "blind-high-risk-0084",
+      "gemini_expected": "契約解除條件應以雙方書面約定為準。",
+      "acceptable": [
+        "合約解除條件應以雙方書面約定為準。"
+      ],
+      "confidence": "high",
+      "rationale": "民事法律術語。台灣民法使用「契約」與「解除條件」，「雙方書面約定為準」為標準合約格式用語。"
+    },
+    {
+      "id": "blind-high-risk-0085",
+      "gemini_expected": "藥品劑量調整應由醫師評估。",
+      "acceptable": [
+        "藥物劑量調整應由醫師評估。",
+        "藥品劑量調整應由醫生評估。"
+      ],
+      "confidence": "high",
+      "rationale": "醫學與藥學術語。「藥品」、「劑量」、「醫師評估」皆為台灣醫療及法規之標準用語。"
+    },
+    {
+      "id": "blind-high-risk-0086",
+      "gemini_expected": "信用卡遺失時應立即通知發卡機構。",
+      "acceptable": [
+        "信用卡遺失時應立刻通知發卡機構。"
+      ],
+      "confidence": "high",
+      "rationale": "金融卡片與法律義務術語。「信用卡遺失」與「發卡機構」為台灣銀行定型化契約之標準用語。"
+    },
+    {
+      "id": "blind-high-risk-0087",
+      "gemini_expected": "個人資料跨境傳輸應符合當地法規。",
+      "acceptable": [
+        "個人資料跨境傳輸應符合當地法律。"
+      ],
+      "confidence": "high",
+      "rationale": "個資保護與法律術語。台灣個資法使用「個人資料」，「跨境傳輸」與「當地法規」為合規標準詞彙。"
+    },
+    {
+      "id": "blind-high-risk-0088",
+      "gemini_expected": "訴訟文件送達日期會影響上訴期限。",
+      "acceptable": [
+        "訴訟文書送達日期會影響上訴期限。"
+      ],
+      "confidence": "high",
+      "rationale": "訴訟與程序法術語。台灣訴訟程序中，「送達」與「上訴期限」具有高度程序法效力，為精準之法律用語。"
+    },
+    {
+      "id": "blind-high-risk-0089",
+      "gemini_expected": "保險理賠須檢附事故證明文件。",
+      "acceptable": [
+        "保險理賠需檢附事故證明文件。"
+      ],
+      "confidence": "high",
+      "rationale": "保險法律術語。「理賠」、「檢附」（台灣特有公文與合約用語）及「事故證明文件」均符合台灣保險實務。"
+    },
+    {
+      "id": "blind-high-risk-0090",
+      "gemini_expected": "醫療建議不得取代現場專業判斷。",
+      "acceptable": [
+        "醫療建議不得代替現場專業判斷。"
+      ],
+      "confidence": "high",
+      "rationale": "醫療免責聲明術語。台灣醫療機構免責聲明中，「醫療建議」與「現場專業判斷」為極常見且標準之對應用語。"
+    }
+  ]
+}

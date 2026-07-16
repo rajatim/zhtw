@@ -1,0 +1,1558 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "scope": "batch11_100_cases",
+  "review_stage": "codex_gemini_difference_review",
+  "source_expansion_report": "docs/reports/holdout-input-pool-expansion-blind-v1-batch11-100-cases-2026-07-13.json",
+  "source_codex_first_pass": "docs/reports/holdout-codex-first-pass-blind-v1-batch11-100-cases-2026-07-13.json",
+  "source_gemini_advisory": "docs/reports/holdout-gemini-cli-advisory-blind-v1-batch11-100-cases-2026-07-14.json",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "summary": {
+    "total_cases": 100,
+    "exact_matches": 79,
+    "differences": 21,
+    "exact_but_policy_review": 29,
+    "no_immediate_question": 50,
+    "maintainer_queue_total": 50,
+    "difference_recommendations": {
+      "codex": 18,
+      "gemini": 3,
+      "manual": 0
+    },
+    "gemini_quality_flags": 1,
+    "promotion_allowed": false
+  },
+  "differences": [
+    {
+      "id": "blind-it-0238",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "数据库读写延迟超过阈值时，监控系统会发送警报。",
+      "codex_expected": "資料庫讀寫延遲超過閾值時，監控系統會傳送警報。",
+      "gemini_expected": "資料庫讀寫延遲超過閾值時，監控系統會傳送警示。",
+      "codex_acceptable": [
+        "資料庫讀寫延遲超過門檻值時，監控系統會傳送警報。"
+      ],
+      "gemini_acceptable": [
+        "資料庫讀寫延遲超過門檻值時，監控系統會發送警報。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "資料庫讀寫延遲超過閾值時，監控系統會傳送警報。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-it-0242",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "反向代理会将请求头转发给后端服务。",
+      "codex_expected": "反向代理會將請求標頭轉送給後端服務。",
+      "gemini_expected": "反向代理會將請求標頭轉發給後端服務。",
+      "codex_acceptable": [
+        "反向代理會將請求標頭轉發給後端服務。"
+      ],
+      "gemini_acceptable": [
+        "反向代理會將請求檔頭轉發給後端服務。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "反向代理會將請求標頭轉送給後端服務。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-it-0244",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "缓存键应包含租户编号和语言代码。",
+      "codex_expected": "快取鍵應包含租用戶編號和語言代碼。",
+      "gemini_expected": "快取鍵應包含租戶編號和語言代碼。",
+      "codex_acceptable": [
+        "快取鍵應包含租戶編號和語言代碼。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "gemini",
+      "recommended_expected": "快取鍵應包含租戶編號和語言代碼。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-it-0245",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "容器部署完成后，健康检查会持续轮询。",
+      "codex_expected": "容器部署完成後，健康檢查會持續輪詢。",
+      "gemini_expected": "容器部署完成後，健康狀況檢查會持續輪詢。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "容器部署完成後，健康檢查會持續輪詢。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "容器部署完成後，健康檢查會持續輪詢。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-it-0246",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "日志采样率可以在控制台调整。",
+      "codex_expected": "記錄檔取樣率可以在主控台調整。",
+      "gemini_expected": "日誌取樣率可以在控制台調整。",
+      "codex_acceptable": [
+        "日誌取樣率可以在主控台調整。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "記錄檔取樣率可以在主控台調整。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-it-0249",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "权限中间件会拒绝缺少作用域的令牌。",
+      "codex_expected": "權限中介軟體會拒絕缺少範圍的權杖。",
+      "gemini_expected": "權限中介軟體會拒絕缺少作用域的權杖。",
+      "codex_acceptable": [
+        "權限中介軟體會拒絕缺少作用域的權杖。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "權限中介軟體會拒絕缺少範圍的權杖。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-it-0254",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "JSON 字段名称必须和公开文档保持一致。",
+      "codex_expected": "JSON 欄位名稱必須和公開文件保持一致。",
+      "gemini_expected": "JSON 欄位名稱必須與公開文件保持一致。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "JSON 欄位名稱必須和公開文件保持一致。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "JSON 欄位名稱必須和公開文件保持一致。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-it-0257",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "input": "依赖锁定文件不应包含本机绝对路径。",
+      "codex_expected": "相依性鎖定檔不應包含本機絕對路徑。",
+      "gemini_expected": "依賴鎖定檔不應包含本機絕對路徑。",
+      "codex_acceptable": [
+        "依賴鎖定檔不應包含本機絕對路徑。"
+      ],
+      "gemini_acceptable": [
+        "相依性鎖定檔不應包含本機絕對路徑。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "相依性鎖定檔不應包含本機絕對路徑。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-it-0262",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "input": "命令示例中的 --dry-run 参数必须保持原样。",
+      "codex_expected": "命令範例中的 --dry-run 參數必須保持原樣。",
+      "gemini_expected": "指令範例中的 --dry-run 參數必須保持原樣。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "gemini",
+      "recommended_expected": "指令範例中的 --dry-run 參數必須保持原樣。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-ui-0191",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "上传按钮禁用时要显示原因说明。",
+      "codex_expected": "上傳按鈕停用時要顯示原因說明。",
+      "gemini_expected": "上傳按鈕停用時應顯示原因說明。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "上傳按鈕被禁用時，應顯示原因說明。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "上傳按鈕停用時要顯示原因說明。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-ui-0196",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "确认对话框应说明删除后无法复原。",
+      "codex_expected": "確認對話框應說明刪除後無法復原。",
+      "gemini_expected": "確認對話方塊應說明刪除後無法復原。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "確認對話框應說明刪除後無法復原。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "確認對話框應說明刪除後無法復原。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-ui-0197",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "语言切换器会依浏览器偏好排序。",
+      "codex_expected": "語言切換器會依瀏覽器偏好排序。",
+      "gemini_expected": "語言切換器會依瀏覽器偏好設定排序。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "語言切換器會依瀏覽器偏好排序。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "medium",
+      "codex_review_needed": false,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "語言切換器會依瀏覽器偏好排序。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-ui-0199",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "空状态插图下方要显示重新载入按钮。",
+      "codex_expected": "空狀態插圖下方要顯示重新載入按鈕。",
+      "gemini_expected": "空白狀態插圖下方應顯示重新載入按鈕。",
+      "codex_acceptable": [
+        "空白狀態插圖下方要顯示重新載入按鈕。"
+      ],
+      "gemini_acceptable": [
+        "空狀態插圖下方應顯示重新載入按鈕。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "medium",
+      "codex_review_needed": true,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "recommendation": "gemini",
+      "recommended_expected": "空白狀態插圖下方應顯示重新載入按鈕。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-ui-0201",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "输入框 placeholder 不应该覆盖使用者输入。",
+      "codex_expected": "輸入框 placeholder 不應該覆蓋使用者輸入。",
+      "gemini_expected": "輸入框 placeholder 不應覆蓋使用者輸入。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "輸入框 placeholder 不應該覆蓋使用者輸入。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-ui-0202",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "input": "表单送出后会返回列表页。",
+      "codex_expected": "表單送出後會返回清單頁。",
+      "gemini_expected": "表單送出後會返回列表頁。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "表單送出後會返回清單頁。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-ui-0206",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "已选项目数量会显示在列表上方。",
+      "codex_expected": "已選項目數量會顯示在清單上方。",
+      "gemini_expected": "已選項目數量會顯示在列表上方。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "已選項目數量會顯示在清單上方。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-llm-0145",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "提示模板里的占位符不能被翻译。",
+      "codex_expected": "提示範本裡的預留位置不能被翻譯。",
+      "gemini_expected": "提示模板裡的預留位置不能被翻譯。",
+      "codex_acceptable": [
+        "提示模板裡的 placeholder 不能被翻譯。"
+      ],
+      "gemini_acceptable": [
+        "提示模板裡的佔位符不能被翻譯。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "medium",
+      "codex_review_needed": true,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "提示範本裡的預留位置不能被翻譯。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-formal-0149",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "input": "该说明文字只用于内部测试。",
+      "codex_expected": "該說明文字僅用於內部測試。",
+      "gemini_expected": "該說明文字只用於內部測試。",
+      "codex_acceptable": [
+        "該說明文字只用於內部測試。"
+      ],
+      "gemini_acceptable": [
+        "該說明文字僅用於內部測試。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "該說明文字僅用於內部測試。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-formal-0151",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "文件标题中的「计划」应依核定名称呈现。",
+      "codex_expected": "文件標題中的「計畫」應依核定名稱呈現。",
+      "gemini_expected": "文件標題中的「计划」應依核定名稱呈現。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "文件標題中的「計畫」應依核定名稱呈現。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "medium",
+      "codex_review_needed": false,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "文件標題中的「計畫」應依核定名稱呈現。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-social-0139",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "朋友把聚餐地点发到群组里。",
+      "codex_expected": "朋友把聚餐地點傳到群組裡。",
+      "gemini_expected": "朋友把聚餐地點發到群組裡。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "朋友把聚餐地點傳到群組裡。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "朋友把聚餐地點傳到群組裡。",
+      "recommended_action": "maintainer_review_difference"
+    },
+    {
+      "id": "blind-high-risk-0100",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "医疗纪录不得任意提供给第三方。",
+      "codex_expected": "醫療紀錄不得任意提供給第三方。",
+      "gemini_expected": "病歷不得任意提供給第三方。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "醫療紀錄不得任意提供給第三方。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "medium",
+      "codex_review_needed": true,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "recommendation": "codex",
+      "recommended_expected": "醫療紀錄不得任意提供給第三方。",
+      "recommended_action": "maintainer_review_difference"
+    }
+  ],
+  "exact_but_policy_review": [
+    {
+      "id": "blind-it-0241",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "Webhook 重试队列需要记录最后一次响应状态。",
+      "codex_expected": "Webhook 重試佇列需要記錄最後一次回應狀態。",
+      "gemini_expected": "Webhook 重試佇列需要記錄最後一次回應狀態。",
+      "codex_acceptable": [
+        "Webhook 重試佇列需要記錄最後一次響應狀態。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "Webhook 重試佇列需要記錄最後一次回應狀態。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-it-0243",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "启动脚本会先检查配置文件是否存在。",
+      "codex_expected": "啟動指令碼會先檢查設定檔是否存在。",
+      "gemini_expected": "啟動指令碼會先檢查設定檔是否存在。",
+      "codex_acceptable": [
+        "啟動腳本會先檢查設定檔是否存在。"
+      ],
+      "gemini_acceptable": [
+        "啟動腳本會先檢查設定檔是否存在。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "啟動指令碼會先檢查設定檔是否存在。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-it-0247",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "前端构建产物会上传到静态资源桶。",
+      "codex_expected": "前端建置產物會上傳到靜態資源桶。",
+      "gemini_expected": "前端建置產物會上傳到靜態資源桶。",
+      "codex_acceptable": [
+        "前端建置產物會上傳到靜態資源儲存桶。"
+      ],
+      "gemini_acceptable": [
+        "前端建置成品會上傳到靜態資源 Bucket。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "前端建置產物會上傳到靜態資源桶。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-it-0252",
+      "batch": "blind-it-api-cli",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "input": "消息消费者应避免重复确认同一批事件。",
+      "codex_expected": "訊息消費者應避免重複確認同一批事件。",
+      "gemini_expected": "訊息消費者應避免重複確認同一批事件。",
+      "codex_acceptable": [
+        "訊息消費者應避免重複 ack 同一批事件。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "訊息消費者應避免重複確認同一批事件。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-ui-0189",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "搜索框获得焦点后会显示最近查询。",
+      "codex_expected": "搜尋框取得焦點後會顯示最近查詢。",
+      "gemini_expected": "搜尋框取得焦點後會顯示最近查詢。",
+      "codex_acceptable": [
+        "搜尋框獲得焦點後會顯示最近查詢。"
+      ],
+      "gemini_acceptable": [
+        "搜尋框在取得焦點後會顯示最近的查詢紀錄。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "搜尋框取得焦點後會顯示最近查詢。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-ui-0190",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "下拉式菜单关闭时，应保留用户刚选择的项目。",
+      "codex_expected": "下拉式選單關閉時，應保留使用者剛選擇的項目。",
+      "gemini_expected": "下拉式選單關閉時，應保留使用者剛選擇的項目。",
+      "codex_acceptable": [
+        "下拉選單關閉時，應保留使用者剛選擇的項目。"
+      ],
+      "gemini_acceptable": [
+        "下拉選單關閉時，應保留用戶剛選擇的項目。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "下拉式選單關閉時，應保留使用者剛選擇的項目。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-ui-0195",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "侧边栏展开状态会同步到本机储存。",
+      "codex_expected": "側邊欄展開狀態會同步到本機儲存。",
+      "gemini_expected": "側邊欄展開狀態會同步到本機儲存。",
+      "codex_acceptable": [
+        "側邊欄展開狀態會同步到本機存放區。"
+      ],
+      "gemini_acceptable": [
+        "側邊欄的展開狀態會同步至本機儲存空間。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "側邊欄展開狀態會同步到本機儲存。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-ui-0207",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "input": "弹出视窗关闭后不应清除草稿。",
+      "codex_expected": "彈出視窗關閉後不應清除草稿。",
+      "gemini_expected": "彈出視窗關閉後不應清除草稿。",
+      "codex_acceptable": [
+        "彈出式視窗關閉後不應清除草稿。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "彈出視窗關閉後不應清除草稿。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-llm-0140",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "工具结果摘要需要保留错误代码。",
+      "codex_expected": "工具結果摘要需要保留錯誤代碼。",
+      "gemini_expected": "工具結果摘要需要保留錯誤代碼。",
+      "codex_acceptable": [
+        "工具結果摘要需要保留錯誤碼。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "工具結果摘要需要保留錯誤代碼。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-llm-0144",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "input": "上下文压缩后仍要保留用户最新问题。",
+      "codex_expected": "上下文壓縮後仍要保留使用者最新問題。",
+      "gemini_expected": "上下文壓縮後仍要保留使用者最新問題。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "上下文壓縮後仍要保留用戶最新問題。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "gemini_review_needed"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "上下文壓縮後仍要保留使用者最新問題。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-llm-0149",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "请不要改写 `tool_call_id` 字段。",
+      "codex_expected": "請不要改寫 `tool_call_id` 欄位。",
+      "gemini_expected": "請不要改寫 `tool_call_id` 欄位。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "gemini_review_needed"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "請不要改寫 `tool_call_id` 欄位。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-llm-0151",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "回答引用来源时应避免编造链接。",
+      "codex_expected": "回答引用來源時應避免編造連結。",
+      "gemini_expected": "回答引用來源時應避免編造連結。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "gemini_review_needed"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "回答引用來源時應避免編造連結。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-llm-0152",
+      "batch": "blind-llm-content",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "input": "多轮对话摘要应标注遗漏的不确定资讯。",
+      "codex_expected": "多輪對話摘要應標註遺漏的不確定資訊。",
+      "gemini_expected": "多輪對話摘要應標註遺漏的不確定資訊。",
+      "codex_acceptable": [
+        "多輪對話摘要應標註遺漏的不確定資料。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "多輪對話摘要應標註遺漏的不確定資訊。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-formal-0146",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "input": "统计报告发布前须完成资料校验。",
+      "codex_expected": "統計報告發布前須完成資料校驗。",
+      "gemini_expected": "統計報告發布前須完成資料校驗。",
+      "codex_acceptable": [
+        "統計報告發布前須完成資料驗證。"
+      ],
+      "gemini_acceptable": [
+        "統計報告發布前須完成資料驗證。",
+        "統計報告發佈前須完成資料校驗。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "統計報告發布前須完成資料檢核。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-formal-0150",
+      "batch": "blind-formal-news",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "input": "承办单位应保存签收回执以备查。",
+      "codex_expected": "承辦單位應保存簽收回執以備查。",
+      "gemini_expected": "承辦單位應保存簽收回執以備查。",
+      "codex_acceptable": [
+        "承辦單位應保存簽收回條以備查。"
+      ],
+      "gemini_acceptable": [
+        "承辦單位應保存簽收單以備查。",
+        "承辦單位應保存收執聯以備查。"
+      ],
+      "codex_confidence": "medium",
+      "gemini_confidence": "medium",
+      "codex_review_needed": true,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "gemini_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "承辦單位應保存簽收回執以備查。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-social-0141",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "这个短影片的留言不要关闭。",
+      "codex_expected": "這個短影片的留言不要關閉。",
+      "gemini_expected": "這個短影片的留言不要關閉。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "這個短影音的留言不要關閉。",
+        "這支短影片的留言不要關閉。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "gemini_review_needed"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "這個短影片的留言不要關閉。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-social-0142",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "他把昵称改成公司英文名。",
+      "codex_expected": "他把暱稱改成公司英文名。",
+      "gemini_expected": "他把暱稱改成公司英文名。",
+      "codex_acceptable": [
+        "他把綽號改成公司英文名。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "他把暱稱改成公司英文名。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-social-0143",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "input": "明天如果下雨就改约室内。",
+      "codex_expected": "明天如果下雨就改約室內。",
+      "gemini_expected": "明天如果下雨就改約室內。",
+      "codex_acceptable": [
+        "明天如果下雨就改約室內場地。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "明天如果下雨就改約在室內。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-social-0149",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "请不要把 Taipei Main Station 翻成中文。",
+      "codex_expected": "請不要把 Taipei Main Station 翻成中文。",
+      "gemini_expected": "請不要把 Taipei Main Station 翻成中文。",
+      "codex_acceptable": [
+        "請不要把 Taipei Main Station 轉成中文。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "medium",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "non_high_confidence"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "請不要把 Taipei Main Station 翻成中文。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-social-0152",
+      "batch": "blind-social-daily",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "input": "这个贴图包已经下载好了。",
+      "codex_expected": "這個貼圖包已經下載好了。",
+      "gemini_expected": "這個貼圖包已經下載好了。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "這組貼圖已經下載好了。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": false,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "gemini_review_needed"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "這個貼圖包已經下載好了。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-high-risk-0091",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "银行办理贷款前会确认收入证明。",
+      "codex_expected": "銀行辦理貸款前會確認收入證明。",
+      "gemini_expected": "銀行辦理貸款前會確認收入證明。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "high_risk_domain"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "銀行辦理貸款前會確認收入證明。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-high-risk-0092",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "医师开立处方前应确认过敏史。",
+      "codex_expected": "醫師開立處方前應確認過敏史。",
+      "gemini_expected": "醫師開立處方前應確認過敏史。",
+      "codex_acceptable": [
+        "醫師開立處方前應確認過敏紀錄。"
+      ],
+      "gemini_acceptable": [
+        "醫生開立處方前應確認過敏史。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "high_risk_domain"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "醫師開立處方前應確認過敏史。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-high-risk-0093",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "法院送达通知会载明应到日期。",
+      "codex_expected": "法院送達通知會載明應到日期。",
+      "gemini_expected": "法院送達通知會載明應到日期。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "法院送達通知會載明應到庭日期。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "high_risk_domain"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "法院送達通知會載明應到日期。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-high-risk-0094",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "投保前请详阅除外责任说明。",
+      "codex_expected": "投保前請詳閱除外責任說明。",
+      "gemini_expected": "投保前請詳閱除外責任說明。",
+      "codex_acceptable": [
+        "投保前請詳閱不保事項說明。"
+      ],
+      "gemini_acceptable": [],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "high_risk_domain"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "投保前請詳閱除外責任說明。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-high-risk-0095",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "个人资料删除请求应留下处理纪录。",
+      "codex_expected": "個人資料刪除請求應留下處理紀錄。",
+      "gemini_expected": "個人資料刪除請求應留下處理紀錄。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "個資刪除請求應留下處理紀錄。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "high_risk_domain"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "個人資料刪除請求應留下處理紀錄。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-high-risk-0096",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "工安事故通报应于期限内完成。",
+      "codex_expected": "工安事故通報應於期限內完成。",
+      "gemini_expected": "工安事故通報應於期限內完成。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "high_risk_domain"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "工安事故通報應於期限內完成。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-high-risk-0097",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "药品保存温度不得超过标示范围。",
+      "codex_expected": "藥品保存溫度不得超過標示範圍。",
+      "gemini_expected": "藥品保存溫度不得超過標示範圍。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "high_risk_domain"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "藥品保存溫度不得超過標示範圍。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-high-risk-0098",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "input": "契约变更须经双方书面同意。",
+      "codex_expected": "契約變更須經雙方書面同意。",
+      "gemini_expected": "契約變更須經雙方書面同意。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "合約變更須經雙方書面同意。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": false,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "high_risk_domain"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "契約變更須經雙方書面同意。",
+      "recommended_action": "maintainer_policy_review"
+    },
+    {
+      "id": "blind-high-risk-0099",
+      "batch": "blind-high-risk",
+      "domain": "high_risk",
+      "risk": "over_conversion_guard",
+      "input": "身分证件影本应加注用途限制。",
+      "codex_expected": "身分證件影本應加註用途限制。",
+      "gemini_expected": "身分證件影本應加註用途限制。",
+      "codex_acceptable": [],
+      "gemini_acceptable": [
+        "身份證件影本應加註用途限制。"
+      ],
+      "codex_confidence": "high",
+      "gemini_confidence": "high",
+      "codex_review_needed": true,
+      "gemini_review_needed": true,
+      "promotion_allowed": false,
+      "policy_reasons": [
+        "codex_review_needed",
+        "gemini_review_needed",
+        "high_risk_domain"
+      ],
+      "recommendation": "codex_gemini_agree",
+      "recommended_expected": "身分證件影本應加註用途限制。",
+      "recommended_action": "maintainer_policy_review"
+    }
+  ],
+  "no_immediate_question": [
+    {
+      "id": "blind-it-0239",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0240",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0248",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0250",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0251",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0253",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0255",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0256",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0258",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0259",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0260",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0261",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0188",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0192",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0193",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0194",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0198",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0200",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0203",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0204",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0205",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0138",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0139",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0141",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0142",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0143",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0146",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0147",
+      "domain": "llm",
+      "risk": "baseline_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0148",
+      "domain": "llm",
+      "risk": "baseline_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0150",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0139",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0140",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0141",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0142",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0143",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0144",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0145",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0147",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0148",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0152",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0153",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0140",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0144",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0145",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0146",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0147",
+      "domain": "social",
+      "risk": "baseline_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0148",
+      "domain": "social",
+      "risk": "baseline_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0150",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0151",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0153",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "recommendation": "accept_codex_gemini_exact_match_after_maintainer_batch_approval",
+      "promotion_allowed": false
+    }
+  ]
+}

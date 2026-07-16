@@ -1,0 +1,302 @@
+{
+  "version": 1,
+  "description": "Report-only precision benchmark cases. Inputs stay Simplified Chinese; expected values are manually curated Taiwan Traditional Chinese.",
+  "cases": [
+    {
+      "id": "it-software-config-file",
+      "domain": "it",
+      "input": "软件开发需要配置文件",
+      "expected": "軟體開發需要設定檔",
+      "risk": "candidate",
+      "notes": "IT long phrase and UI/file terminology."
+    },
+    {
+      "id": "it-login-system",
+      "domain": "it",
+      "input": "请先登录系统",
+      "expected": "請先登入系統",
+      "risk": "candidate",
+      "notes": "UI login should be Taiwan usage."
+    },
+    {
+      "id": "it-function-return-value",
+      "domain": "it",
+      "input": "函数返回值",
+      "expected": "函式回傳值",
+      "risk": "candidate",
+      "notes": "Programming term, not generic return."
+    },
+    {
+      "id": "it-file-system",
+      "domain": "it",
+      "input": "文件系统损坏",
+      "expected": "檔案系統損壞",
+      "risk": "candidate",
+      "notes": "File system should use 檔案."
+    },
+    {
+      "id": "it-official-document",
+      "domain": "formal",
+      "input": "政府发布官方文件",
+      "expected": "政府發布官方文件",
+      "risk": "over_conversion_guard",
+      "notes": "Formal document should remain 文件."
+    },
+    {
+      "id": "it-delete-this-document",
+      "domain": "daily",
+      "input": "删除这个文件",
+      "expected": "刪除這個文件",
+      "risk": "over_conversion_guard",
+      "notes": "Ambiguous 文件 should not be forced to 檔案 without stronger context."
+    },
+    {
+      "id": "ui-save-file",
+      "domain": "ui",
+      "input": "保存文件成功",
+      "expected": "儲存檔案成功",
+      "risk": "candidate",
+      "notes": "UI action plus file context."
+    },
+    {
+      "id": "daily-preserve-heritage",
+      "domain": "daily",
+      "input": "保存文化遗产",
+      "expected": "保存文化遺產",
+      "risk": "over_conversion_guard",
+      "notes": "Generic preserve should not become 儲存."
+    },
+    {
+      "id": "ui-favorites-folder",
+      "domain": "ui",
+      "input": "收藏夹整理",
+      "expected": "我的最愛整理",
+      "risk": "candidate",
+      "notes": "UI location, not generic collecting."
+    },
+    {
+      "id": "daily-collect-antiques",
+      "domain": "daily",
+      "input": "他收藏古董",
+      "expected": "他收藏古董",
+      "risk": "over_conversion_guard",
+      "notes": "Generic collecting should remain unchanged."
+    },
+    {
+      "id": "social-follow-channel",
+      "domain": "social",
+      "input": "关注我们的频道",
+      "expected": "追蹤我們的頻道",
+      "risk": "candidate",
+      "notes": "Social follow action."
+    },
+    {
+      "id": "formal-focus-case",
+      "domain": "formal",
+      "input": "民众关注此案",
+      "expected": "民眾關注此案",
+      "risk": "over_conversion_guard",
+      "notes": "Generic concern should not become 追蹤."
+    },
+    {
+      "id": "quality-physical-mass",
+      "domain": "science",
+      "input": "物体的质量是10千克",
+      "expected": "物體的質量是10公斤",
+      "risk": "candidate",
+      "notes": "Physical mass plus unit context."
+    },
+    {
+      "id": "quality-product",
+      "domain": "daily",
+      "input": "产品的质量很好",
+      "expected": "產品的質量很好",
+      "risk": "over_conversion_guard",
+      "notes": "Generic quality should not always become 品質."
+    },
+    {
+      "id": "weight-grams",
+      "domain": "daily",
+      "input": "500克糖",
+      "expected": "500公克糖",
+      "risk": "candidate",
+      "notes": "Numeric gram context."
+    },
+    {
+      "id": "food-chocolate",
+      "domain": "daily",
+      "input": "巧克力蛋糕",
+      "expected": "巧克力蛋糕",
+      "risk": "over_conversion_guard",
+      "notes": "克 inside word must not convert to 公克."
+    },
+    {
+      "id": "tech-network-protocol",
+      "domain": "it",
+      "input": "网络协议定义设备之间的通信规则",
+      "expected": "網路協議定義設備之間的通訊規則",
+      "risk": "candidate",
+      "notes": "IT networking context."
+    },
+    {
+      "id": "tech-frontend-component",
+      "domain": "it",
+      "input": "前端组件需要支持深色模式",
+      "expected": "前端元件需要支援深色模式",
+      "risk": "candidate",
+      "notes": "Common frontend terminology."
+    },
+    {
+      "id": "tech-backend-status-code",
+      "domain": "it",
+      "input": "后端服务返回状态码",
+      "expected": "後端服務回傳狀態碼",
+      "risk": "candidate",
+      "notes": "Backend/API terminology."
+    },
+    {
+      "id": "ui-detail-page",
+      "domain": "ui",
+      "input": "查看详情页",
+      "expected": "查看詳情頁",
+      "risk": "candidate",
+      "notes": "UI page terminology."
+    },
+    {
+      "id": "business-tsmc-process",
+      "domain": "business",
+      "input": "台积电宣布扩大先进制程投资",
+      "expected": "台積電宣布擴大先進製程投資",
+      "risk": "candidate",
+      "notes": "Taiwan proper noun and semiconductor wording."
+    },
+    {
+      "id": "tech-ai",
+      "domain": "it",
+      "input": "人工智能发展",
+      "expected": "人工智慧發展",
+      "risk": "candidate",
+      "notes": "Taiwan AI wording."
+    },
+    {
+      "id": "ui-disable-account",
+      "domain": "ui",
+      "input": "禁用账号和禁用药物不同",
+      "expected": "停用帳號和禁用藥物不同",
+      "risk": "over_conversion_guard",
+      "notes": "Only account context should become 停用."
+    },
+    {
+      "id": "ui-default-avatar",
+      "domain": "ui",
+      "input": "默认头像太丑了",
+      "expected": "預設頭像太醜了",
+      "risk": "candidate",
+      "notes": "UI default."
+    },
+    {
+      "id": "daily-admit-accusation",
+      "domain": "daily",
+      "input": "他默认了指控",
+      "expected": "他默認了指控",
+      "risk": "over_conversion_guard",
+      "notes": "Admitting by silence should not become 預設."
+    },
+    {
+      "id": "it-programmer-haircut",
+      "domain": "it",
+      "input": "长发程序员在理发店写程序",
+      "expected": "長髮程式設計師在理髮店寫程式",
+      "risk": "candidate",
+      "notes": "Mixed ambiguity: hair, programmer, haircut, program."
+    },
+    {
+      "id": "guard-program-legal-procedure",
+      "domain": "mixed",
+      "input": "写程序前先看法律程序",
+      "expected": "寫程式前先看法律程序",
+      "risk": "over_conversion_guard",
+      "notes": "Source regressions/regression_045. Program context should become 程式; legal procedure should remain 程序."
+    },
+    {
+      "id": "guard-preserve-historical-relics",
+      "domain": "culture",
+      "input": "博物馆保存历史文物。",
+      "expected": "博物館保存歷史文物。",
+      "risk": "over_conversion_guard",
+      "notes": "Source wiki/wiki_060. Preserve historical relics should keep 保存, not 儲存."
+    },
+    {
+      "id": "guard-support-decision",
+      "domain": "daily",
+      "input": "我支持这个决定",
+      "expected": "我支持這個決定",
+      "risk": "over_conversion_guard",
+      "notes": "Source regressions/regression_032. Generic support should remain 支持."
+    },
+    {
+      "id": "guard-support-remote-work",
+      "domain": "news",
+      "input": "调查显示年轻族群支持远程办公。",
+      "expected": "調查顯示年輕族群支持遠端辦公。",
+      "risk": "over_conversion_guard",
+      "notes": "Source news/news_065. Support for policy/work style should remain 支持 while 远程办公 becomes 遠端辦公."
+    },
+    {
+      "id": "guard-marriage-object",
+      "domain": "daily",
+      "input": "他的结婚对象很温柔",
+      "expected": "他的結婚對象很溫柔",
+      "risk": "over_conversion_guard",
+      "notes": "Source regressions/regression_034. Marriage partner should remain 對象, not 物件."
+    },
+    {
+      "id": "guard-upload-document",
+      "domain": "social",
+      "input": "我把文件上传到群组了。",
+      "expected": "我把文件上傳到群組了。",
+      "risk": "over_conversion_guard",
+      "notes": "Source social/social_027. Ambiguous 文件 should not be forced to 檔案."
+    },
+    {
+      "id": "guard-logout-account-company",
+      "domain": "mixed",
+      "input": "注销账户不是注销公司",
+      "expected": "登出帳戶不是註銷公司",
+      "risk": "over_conversion_guard",
+      "notes": "Source regressions/regression_081. Account context should become 登出; company registration context should remain 註銷."
+    },
+    {
+      "id": "guard-good-news",
+      "domain": "daily",
+      "input": "好消息传来",
+      "expected": "好消息傳來",
+      "risk": "over_conversion_guard",
+      "notes": "Source regressions/regression_051. Good news should remain 消息, not 訊息."
+    },
+    {
+      "id": "guard-log-document",
+      "domain": "it",
+      "input": "日志文件记录错误信息。",
+      "expected": "日誌文件記錄錯誤資訊。",
+      "risk": "over_conversion_guard",
+      "notes": "Source tech/tech_010. 日誌文件 is the corpus expected here; do not over-force 文件 to 檔案."
+    },
+    {
+      "id": "guard-through-parameter",
+      "domain": "it",
+      "input": "日志等级可以通过参数调整。",
+      "expected": "日誌等級可以透過參數調整。",
+      "risk": "over_conversion_guard",
+      "notes": "Source tech/tech_049. Through a parameter should become 透過參數, not 引數 or 通過參數."
+    },
+    {
+      "id": "guard-central-bank-announce",
+      "domain": "news",
+      "input": "央行宣布维持利率政策不变。",
+      "expected": "央行宣布維持利率政策不變。",
+      "risk": "over_conversion_guard",
+      "notes": "Source news/news_068. News context should keep 宣布, not 宣佈."
+    }
+  ]
+}

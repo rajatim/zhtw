@@ -80,8 +80,13 @@ else
     PROMOTE_CHANGELOG=1
 fi
 
-# ────────────────────────── 閘門 3：測試 ──────────────────────────
-say "[3/7] 測試（Python + Java；Maven Central artifact 不可變，tag 後失敗 = 半發布災難）"
+# ────────────────────────── 閘門 3：資料與測試 ──────────────────────────
+say "[3/7] 資料與測試（先驗證實際將發布的 SDK data）"
+make version-check
+make export-check
+uv run zhtw validate
+uv run python scripts/audit_idempotency.py --sources cn,hk --curated-only --fail-on-issues
+ok "版本、SDK data、詞庫與 target idempotency 通過"
 make test-python
 ok "pytest 通過"
 if [ "$SKIP_JAVA" = "1" ]; then
@@ -98,6 +103,7 @@ if [ "$DRY_RUN" = "1" ]; then
     [ "$PROMOTE_CHANGELOG" = "1" ] && echo "  [dry-run] CHANGELOG: [Unreleased] → [$VERSION] - $(date +%F)"
 else
     make bump VERSION="$VERSION"
+    make export-check
     if [ "$PROMOTE_CHANGELOG" = "1" ]; then
         DATE="$(date +%F)" VER="$VERSION" python3 - <<'PY'
 import os

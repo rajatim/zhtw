@@ -1,0 +1,274 @@
+{
+  "report_type": "holdout_expected_recheck_summary",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-09",
+  "source_classification": "docs/reports/holdout-miss-classification-blind-v1-2026-07-08.json",
+  "source_benchmark": {
+    "path": "/tmp/zhtw-blind-v1-private-benchmark-2026-07-09.json",
+    "in_repo": false,
+    "rows_used_for_local_recheck": true
+  },
+  "source_advisory_reports": [
+    "docs/reports/holdout-codex-first-pass-blind-v1-0001-0100-2026-07-08.json",
+    "docs/reports/holdout-gemini-vertex-advisory-blind-v1-0001-0100-2026-07-08.json",
+    "docs/reports/holdout-codex-gemini-diff-review-blind-v1-0001-0100-2026-07-08.json"
+  ],
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "case_decisions_include_only_ids_and_metadata": true
+  },
+  "private_expected_update": {
+    "updated": true,
+    "acceptable_variants_added": 12,
+    "private_expected_path": "benchmarks/accuracy/blind-v1.expected.json",
+    "private_expected_sha256": "6b34d7167fc0ba16c51cb6fa8e12ab51b7bb5860783a2c0a6d0897e96afd1ff2"
+  },
+  "summary": {
+    "recheck_cases": 14,
+    "add_acceptable_variant": 12,
+    "keep_strict_primary_expected": 2,
+    "move_to_public_regression_candidate": 0,
+    "accepted_before_recheck": 57,
+    "accepted_after_recheck": 69,
+    "misses_before_recheck": 21,
+    "misses_after_recheck": 9,
+    "accepted_accuracy_after_recheck": 0.8846153846153846,
+    "idempotency_rate_after_recheck": 0.9743589743589743,
+    "by_domain_decision": {
+      "formal": {
+        "add_acceptable_variant": 1,
+        "keep_strict_primary_expected": 1
+      },
+      "it": {
+        "add_acceptable_variant": 5
+      },
+      "llm": {
+        "add_acceptable_variant": 4
+      },
+      "ui": {
+        "add_acceptable_variant": 2,
+        "keep_strict_primary_expected": 1
+      }
+    }
+  },
+  "case_decisions": [
+    {
+      "id": "blind-it-0003",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "previous_reason_category": "variant_client_terminology_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_client_term_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-it-0007",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "previous_reason_category": "variant_background_task_terminology_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_background_task_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-it-0017",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "previous_reason_category": "variant_signature_terminology_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_signature_term_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-it-0020",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "previous_reason_category": "variant_environment_terminology_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_environment_term_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-it-0022",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "previous_reason_category": "variant_plugin_terminology_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_plugin_term_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-ui-0002",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "previous_reason_category": "variant_message_delivery_terminology_recheck",
+      "decision": "keep_strict_primary_expected",
+      "reason_category": "strict_ui_delivery_term_kept",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-ui-0008",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "previous_reason_category": "variant_profile_image_terminology_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_profile_image_term_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-ui-0018",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "previous_reason_category": "variant_collapse_terminology_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_collapse_term_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-llm-0002",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term"
+      ],
+      "previous_reason_category": "orthography_variant_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_orthography_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-llm-0003",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "formal_term",
+        "it_term",
+        "regional_term"
+      ],
+      "previous_reason_category": "modern_ai_generation_terminology_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_ai_generation_term_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-llm-0006",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "formal_term",
+        "it_term",
+        "regional_term"
+      ],
+      "previous_reason_category": "modern_ai_generation_terminology_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_generation_term_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-llm-0012",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "previous_reason_category": "variant_programming_statement_terminology_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_programming_statement_term_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-formal-0010",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "formal_term",
+        "it_term",
+        "regional_term",
+        "ui_term"
+      ],
+      "previous_reason_category": "variant_project_terminology_recheck",
+      "decision": "keep_strict_primary_expected",
+      "reason_category": "strict_project_term_kept",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    },
+    {
+      "id": "blind-formal-0012",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "issue_tags": [
+        "formal_term",
+        "high_risk_term",
+        "regional_term"
+      ],
+      "previous_reason_category": "high_risk_legal_variant_recheck",
+      "decision": "add_acceptable_variant",
+      "reason_category": "valid_legal_contract_term_variant",
+      "expected_values_included": false,
+      "acceptable_values_included": false,
+      "actual_outputs_included": false
+    }
+  ]
+}

@@ -1,0 +1,419 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "report_type": "holdout_gemini_independent_semantic_review",
+  "review_stage": "independent_input_only_miss_policy_review",
+  "scope": "batch13_34_fresh_misses",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-pro",
+  "model_observed": [
+    "gemini-2.5-pro"
+  ],
+  "gemini_cli_version": "0.50.0",
+  "source_raw": "docs/reports/holdout-gemini-independent-semantic-review-blind-v1-batch13-34-misses-2026-07-14.raw.json",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "independence_policy": {
+    "codex_classification_seen": false,
+    "current_expected_seen": false,
+    "zhtw_output_seen": false,
+    "competitor_output_seen": false,
+    "workspace_files_seen": false,
+    "input_only_cases_seen": true,
+    "tool_calls": 0
+  },
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "zhtw_outputs_included": false,
+    "classification_metadata_only": true
+  },
+  "model_stats": {
+    "api": {
+      "totalRequests": 1,
+      "totalErrors": 0,
+      "totalLatencyMs": 93554
+    },
+    "tokens": {
+      "input": 12032,
+      "prompt": 12032,
+      "candidates": 4458,
+      "total": 24679,
+      "cached": 0,
+      "thoughts": 8189,
+      "tool": 0
+    },
+    "roles": {
+      "main": {
+        "totalRequests": 1,
+        "totalErrors": 0,
+        "totalLatencyMs": 93554,
+        "tokens": {
+          "input": 12032,
+          "prompt": 12032,
+          "candidates": 4458,
+          "total": 24679,
+          "cached": 0,
+          "thoughts": 8189,
+          "tool": 0
+        }
+      }
+    }
+  },
+  "summary": {
+    "total_cases": 34,
+    "by_action": {
+      "add_zhtw_output_as_acceptable_variant": 3,
+      "keep_strict_private_signal": 3,
+      "move_to_public_regression_candidate": 28
+    },
+    "by_confidence": {
+      "high": 34
+    },
+    "review_needed": 0,
+    "promotion_allowed": false
+  },
+  "cases": [
+    {
+      "id": "blind-formal-0179",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-formal-0188",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0121",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0122",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0125",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0129",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-high-risk-0135",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0278",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0279",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "add_zhtw_output_as_acceptable_variant",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0280",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0282",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0286",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "add_zhtw_output_as_acceptable_variant",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0288",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "action": "keep_strict_private_signal",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0291",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "add_zhtw_output_as_acceptable_variant",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0292",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0294",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "keep_strict_private_signal",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-it-0297",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0225",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0226",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0227",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0229",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0230",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "action": "keep_strict_private_signal",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0234",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0235",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-ui-0236",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0184",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0186",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-social-0191",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0165",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0166",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0173",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0175",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0176",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    },
+    {
+      "id": "blind-llm-0177",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "action": "move_to_public_regression_candidate",
+      "confidence": "high",
+      "review_needed": false,
+      "ground_truth": false,
+      "promotion_allowed": false
+    }
+  ]
+}

@@ -1,0 +1,414 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "reviewer": "gemini_vertex",
+  "review_stage": "independent_holdout_expected_review",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_codex_report": "docs/reports/holdout-codex-first-pass-blind-v1-expansion-127-cases-2026-07-09.json",
+  "raw_report": "docs/reports/holdout-gemini-vertex-advisory-blind-v1-expansion-ui-0021-0030-2026-07-09.json",
+  "usage_metadata": {
+    "promptTokenCount": 1253,
+    "candidatesTokenCount": 952,
+    "totalTokenCount": 3809,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1253
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 952
+      }
+    ],
+    "thoughtsTokenCount": 1604
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_holdout_expected_review",
+    "cases": [
+      {
+        "id": "blind-ui-0021",
+        "expected": "點擊重新整理按鈕後，清單會重新載入。",
+        "acceptable": [
+          "點擊重新整理按鈕後，列表會重新載入。",
+          "點擊刷新按鈕後，清單會重新載入。"
+        ],
+        "issue_tags": [
+          "ui_term",
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「刷新」在台灣UI中常用「重新整理」；「列表」在台灣UI中常用「清單」；「加载」在台灣UI中常用「載入」。"
+      },
+      {
+        "id": "blind-ui-0022",
+        "expected": "請輸入手機號碼以接收驗證碼。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「手机」轉為「手機」；「号码」轉為「號碼」；「验证码」轉為「驗證碼」。"
+      },
+      {
+        "id": "blind-ui-0023",
+        "expected": "這個選項會影響通知的顯示方式。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「这个」轉為「這個」；「选项」轉為「選項」；「影响」轉為「影響」；「显示」轉為「顯示」。"
+      },
+      {
+        "id": "blind-ui-0024",
+        "expected": "如果上傳失敗，請稍後再試。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「上传」轉為「上傳」；「失败」轉為「失敗」；「稍后」轉為「稍後」；「再试」轉為「再試」。"
+      },
+      {
+        "id": "blind-ui-0025",
+        "expected": "使用者可以在設定頁管理訂閱方案。",
+        "acceptable": [
+          "使用者可以在設定頁面管理訂閱方案。",
+          "用戶可以在設定頁管理訂閱方案。"
+        ],
+        "issue_tags": [
+          "ui_term",
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「用户」在台灣UI中常用「使用者」；「设置页」在台灣UI中常用「設定頁」；「订阅」轉為「訂閱」。"
+      },
+      {
+        "id": "blind-ui-0026",
+        "expected": "搜尋框會在輸入三個字後顯示建議。",
+        "acceptable": [
+          "搜索框會在輸入三個字後顯示建議。"
+        ],
+        "issue_tags": [
+          "ui_term",
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「搜索」在台灣UI中常用「搜尋」；「输入」轉為「輸入」；「显示」轉為「顯示」；「建议」轉為「建議」。"
+      },
+      {
+        "id": "blind-ui-0027",
+        "expected": "請先同意服務條款再繼續。",
+        "acceptable": [],
+        "issue_tags": [
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「请」轉為「請」；「服务」轉為「服務」；「条款」轉為「條款」；「继续」轉為「繼續」。"
+      },
+      {
+        "id": "blind-ui-0028",
+        "expected": "彈出視窗關閉後不會儲存草稿內容。",
+        "acceptable": [
+          "彈窗關閉後不會儲存草稿內容。",
+          "彈出視窗關閉後不會保存草稿內容。"
+        ],
+        "issue_tags": [
+          "ui_term",
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「弹窗」在台灣UI中常用「彈出視窗」；「保存」在台灣UI中常用「儲存」；「内容」轉為「內容」。"
+      },
+      {
+        "id": "blind-ui-0029",
+        "expected": "這個頁面會顯示最近使用的檔案。",
+        "acceptable": [
+          "這個頁面會顯示最近使用的文件。"
+        ],
+        "issue_tags": [
+          "it_term",
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「这个」轉為「這個」；「页面」轉為「頁面」；「显示」轉為「顯示」；「文件」在台灣IT用語中常用「檔案」。"
+      },
+      {
+        "id": "blind-ui-0030",
+        "expected": "付款完成後，收據會寄到你的電子郵件信箱。",
+        "acceptable": [
+          "付款完成後，收據會寄到你的信箱。"
+        ],
+        "issue_tags": [
+          "it_term",
+          "regional_term"
+        ],
+        "confidence": "high",
+        "notes": "「收据」轉為「收據」；「邮箱」在台灣IT用語中常用「電子郵件信箱」或「信箱」。"
+      }
+    ]
+  },
+  "summary": {
+    "total_cases": 10,
+    "exact_matches_with_codex": 9,
+    "differences_from_codex": 1,
+    "needs_maintainer_review": 4,
+    "by_domain": {
+      "ui": 10
+    },
+    "by_gemini_confidence": {
+      "high": 10
+    },
+    "promotion_allowed": false
+  },
+  "comparisons": [
+    {
+      "id": "blind-ui-0021",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "点击刷新按钮后，列表会重新加载。",
+      "codex_expected": "點擊重新整理按鈕後，清單會重新載入。",
+      "codex_acceptable": [
+        "點擊重新整理按鈕後，列表會重新載入。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "UI 語境「刷新」採「重新整理」；list 可作清單或列表。",
+      "gemini_expected": "點擊重新整理按鈕後，清單會重新載入。",
+      "gemini_acceptable": [
+        "點擊重新整理按鈕後，列表會重新載入。",
+        "點擊刷新按鈕後，清單會重新載入。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "「刷新」在台灣UI中常用「重新整理」；「列表」在台灣UI中常用「清單」；「加载」在台灣UI中常用「載入」。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-ui-0022",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请输入手机号码以接收验证码。",
+      "codex_expected": "請輸入手機號碼以接收驗證碼。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "登入/驗證流程常用「手機號碼」「驗證碼」。",
+      "gemini_expected": "請輸入手機號碼以接收驗證碼。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「手机」轉為「手機」；「号码」轉為「號碼」；「验证码」轉為「驗證碼」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0023",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "这个选项会影响通知的显示方式。",
+      "codex_expected": "這個選項會影響通知的顯示方式。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "一般 UI 設定語句，轉換穩定。",
+      "gemini_expected": "這個選項會影響通知的顯示方式。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「这个」轉為「這個」；「选项」轉為「選項」；「影响」轉為「影響」；「显示」轉為「顯示」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0024",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "如果上传失败，请稍后再试。",
+      "codex_expected": "如果上傳失敗，請稍後再試。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "常見 UI 錯誤訊息。",
+      "gemini_expected": "如果上傳失敗，請稍後再試。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「上传」轉為「上傳」；「失败」轉為「失敗」；「稍后」轉為「稍後」；「再试」轉為「再試」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0025",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "用户可以在设置页管理订阅方案。",
+      "codex_expected": "使用者可以在設定頁管理訂閱方案。",
+      "codex_acceptable": [
+        "使用者可以在設定頁管理訂閱計畫。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "subscription plan 可作「訂閱方案」或「訂閱計畫」。",
+      "gemini_expected": "使用者可以在設定頁管理訂閱方案。",
+      "gemini_acceptable": [
+        "使用者可以在設定頁面管理訂閱方案。",
+        "用戶可以在設定頁管理訂閱方案。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "「用户」在台灣UI中常用「使用者」；「设置页」在台灣UI中常用「設定頁」；「订阅」轉為「訂閱」。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-ui-0026",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "搜索框会在输入三个字后显示建议。",
+      "codex_expected": "搜尋框會在輸入三個字後顯示建議。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「搜索框」採台灣 UI 常用「搜尋框」。",
+      "gemini_expected": "搜尋框會在輸入三個字後顯示建議。",
+      "gemini_acceptable": [
+        "搜索框會在輸入三個字後顯示建議。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "「搜索」在台灣UI中常用「搜尋」；「输入」轉為「輸入」；「显示」轉為「顯示」；「建议」轉為「建議」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0027",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "请先同意服务条款再继续。",
+      "codex_expected": "請先同意服務條款再繼續。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "服務條款流程用語穩定。",
+      "gemini_expected": "請先同意服務條款再繼續。",
+      "gemini_acceptable": [],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "regional_term"
+      ],
+      "gemini_notes": "「请」轉為「請」；「服务」轉為「服務」；「条款」轉為「條款」；「继续」轉為「繼續」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0028",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "弹窗关闭后不会保存草稿内容。",
+      "codex_expected": "彈出視窗關閉後不會儲存草稿內容。",
+      "codex_acceptable": [
+        "彈窗關閉後不會儲存草稿內容。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "「弹窗」正式 UI 可作「彈出視窗」，產品短文案也可能用「彈窗」。",
+      "gemini_expected": "彈出視窗關閉後不會儲存草稿內容。",
+      "gemini_acceptable": [
+        "彈窗關閉後不會儲存草稿內容。",
+        "彈出視窗關閉後不會保存草稿內容。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "ui_term",
+        "regional_term"
+      ],
+      "gemini_notes": "「弹窗」在台灣UI中常用「彈出視窗」；「保存」在台灣UI中常用「儲存」；「内容」轉為「內容」。",
+      "exact_match": true,
+      "needs_maintainer_review": true
+    },
+    {
+      "id": "blind-ui-0029",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "这个页面会显示最近使用的文件。",
+      "codex_expected": "這個頁面會顯示最近使用的檔案。",
+      "codex_acceptable": [],
+      "codex_confidence": "high",
+      "codex_review_needed": false,
+      "codex_rationale": "「文件」在軟體 UI 語境轉「檔案」。",
+      "gemini_expected": "這個頁面會顯示最近使用的檔案。",
+      "gemini_acceptable": [
+        "這個頁面會顯示最近使用的文件。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "「这个」轉為「這個」；「页面」轉為「頁面」；「显示」轉為「顯示」；「文件」在台灣IT用語中常用「檔案」。",
+      "exact_match": true,
+      "needs_maintainer_review": false
+    },
+    {
+      "id": "blind-ui-0030",
+      "batch": "blind-ui-i18n",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "input": "付款完成后，收据会寄到你的邮箱。",
+      "codex_expected": "付款完成後，收據會寄到你的信箱。",
+      "codex_acceptable": [
+        "付款完成後，收據會寄到你的電子信箱。"
+      ],
+      "codex_confidence": "medium",
+      "codex_review_needed": true,
+      "codex_rationale": "email inbox 可作「信箱」或「電子信箱」，需看產品文案風格。",
+      "gemini_expected": "付款完成後，收據會寄到你的電子郵件信箱。",
+      "gemini_acceptable": [
+        "付款完成後，收據會寄到你的信箱。"
+      ],
+      "gemini_confidence": "high",
+      "gemini_issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "gemini_notes": "「收据」轉為「收據」；「邮箱」在台灣IT用語中常用「電子郵件信箱」或「信箱」。",
+      "exact_match": false,
+      "needs_maintainer_review": true
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "generated_date": "2026-07-05",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_packet": "docs/reports/annotation-blind-review-packet-it-api-cli-2026-07-05.md",
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "ai_advisory_blind_review",
+    "cases": [
+      {
+        "id": "it-api-cli-0001",
+        "expected": "這個函式會拋出例外並傳回錯誤碼。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0002",
+        "expected": "請在設定檔中啟用偵錯模式。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0003",
+        "expected": "伺服器憑證已經過期，請重新簽發。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0004",
+        "expected": "命令列工具會讀取環境變數。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0005",
+        "expected": "介面傳回的回應標頭包含快取策略。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0006",
+        "expected": "請透過參數指定輸出目錄。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0007",
+        "expected": "記錄等級可以在啟動時覆寫。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0008",
+        "expected": "用戶端會自動重新整理存取權杖。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0009",
+        "expected": "後端服務需要驗證要求簽章。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0010",
+        "expected": "這個欄位支援布林值和字串。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0011",
+        "expected": "資料庫連線集區達到上限。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0012",
+        "expected": "部署管線會先執行單元測試。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0013",
+        "expected": "前端元件會監聽視窗大小變更。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0014",
+        "expected": "請將修補程式合併到主要分支。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0015",
+        "expected": "檔案系統權限不足導致寫入失敗。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0016",
+        "expected": "請上傳設定檔並重新啟動服務。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0017",
+        "expected": "處理程序結束前會釋放暫存檔案。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0018",
+        "expected": "要求逾時後會重試三次。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0019",
+        "expected": "快取索引鍵包含使用者識別碼和區域代碼。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0020",
+        "expected": "這個端點只接受 JSON 要求。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0021",
+        "expected": "呼叫介面前請先取得存取權杖。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0022",
+        "expected": "程式會在背景監聽連接埠。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0023",
+        "expected": "請檢查回應主體中的錯誤訊息。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0024",
+        "expected": "安裝相依性程式庫後請重新建置專案。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0025",
+        "expected": "這個命令會遞迴掃描子目錄。",
+        "notes": ""
+      }
+    ]
+  },
+  "usage_metadata": {
+    "promptTokenCount": 2836,
+    "candidatesTokenCount": 1178,
+    "totalTokenCount": 7760,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2836
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1178
+      }
+    ],
+    "thoughtsTokenCount": 3746
+  }
+}

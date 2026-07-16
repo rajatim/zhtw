@@ -1,0 +1,242 @@
+{
+  "report_type": "holdout_remaining_miss_classification",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-09",
+  "source_benchmark": {
+    "path": "/tmp/zhtw-blind-v1-private-benchmark-2026-07-09.json",
+    "in_repo": false,
+    "rows_used_for_local_classification": true
+  },
+  "source_reports": [
+    "docs/reports/holdout-miss-classification-blind-v1-2026-07-08.json",
+    "docs/reports/holdout-expected-recheck-blind-v1-2026-07-09.json",
+    "docs/reports/holdout-codex-first-pass-blind-v1-0001-0100-2026-07-08.json",
+    "docs/reports/holdout-gemini-vertex-advisory-blind-v1-0001-0100-2026-07-08.json",
+    "docs/reports/holdout-codex-gemini-diff-review-blind-v1-0001-0100-2026-07-08.json"
+  ],
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "case_classifications_include_only_ids_and_metadata": true
+  },
+  "classification_policy": {
+    "principles": [
+      "Move only clear, low-ambiguity misses to public regression candidates before any tuning.",
+      "Keep representative duplicate or style-sensitive misses sealed so blind-v1 remains useful as a holdout signal.",
+      "No converter or dictionary change is made from sealed expected values in this report."
+    ],
+    "actions": {
+      "move_to_public_regression_candidate": "remove_from_sealed_holdout_before_any_converter_or_dictionary_tuning",
+      "keep_as_holdout_signal": "keep_sealed_and_do_not_tune_against_this_case"
+    }
+  },
+  "summary": {
+    "current_sealed_cases": 78,
+    "current_accepted": 69,
+    "current_misses": 9,
+    "classified_misses": 9,
+    "by_action": {
+      "move_to_public_regression_candidate": 5,
+      "keep_as_holdout_signal": 4
+    },
+    "by_priority": {
+      "P1": 3,
+      "P2": 6
+    },
+    "by_domain_action": {
+      "formal": {
+        "move_to_public_regression_candidate": 2,
+        "keep_as_holdout_signal": 1
+      },
+      "it": {
+        "move_to_public_regression_candidate": 1,
+        "keep_as_holdout_signal": 0
+      },
+      "social": {
+        "move_to_public_regression_candidate": 1,
+        "keep_as_holdout_signal": 0
+      },
+      "ui": {
+        "move_to_public_regression_candidate": 1,
+        "keep_as_holdout_signal": 3
+      }
+    },
+    "by_risk_action": {
+      "baseline_guard": {
+        "move_to_public_regression_candidate": 0,
+        "keep_as_holdout_signal": 2
+      },
+      "candidate_gap": {
+        "move_to_public_regression_candidate": 5,
+        "keep_as_holdout_signal": 2
+      }
+    },
+    "idempotency_followup_cases": 1,
+    "strict_after_expected_recheck_cases": 2
+  },
+  "case_classifications": [
+    {
+      "id": "blind-it-0014",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "it_term",
+        "regional_term"
+      ],
+      "action": "move_to_public_regression_candidate",
+      "reason_category": "clear_passed_check_phrase_gap",
+      "priority": "P2",
+      "flags": [],
+      "previous_action": "keep_as_holdout_signal",
+      "previous_reason_category": "preserve_holdout_duplicate_phrase_signal",
+      "recheck_decision": "",
+      "next_step": "remove_from_sealed_holdout_before_any_converter_or_dictionary_tuning"
+    },
+    {
+      "id": "blind-ui-0002",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "action": "move_to_public_regression_candidate",
+      "reason_category": "clear_ui_message_delivery_gap_with_idempotency_followup",
+      "priority": "P1",
+      "flags": [
+        "idempotency_followup",
+        "strict_after_expected_recheck"
+      ],
+      "previous_action": "requires_expected_recheck",
+      "previous_reason_category": "variant_message_delivery_terminology_recheck",
+      "recheck_decision": "keep_strict_primary_expected",
+      "next_step": "remove_from_sealed_holdout_before_any_converter_or_dictionary_tuning"
+    },
+    {
+      "id": "blind-ui-0011",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "action": "keep_as_holdout_signal",
+      "reason_category": "preserve_duplicate_click_action_signal",
+      "priority": "P2",
+      "flags": [],
+      "previous_action": "keep_as_holdout_signal",
+      "previous_reason_category": "preserve_holdout_duplicate_ui_action_signal",
+      "recheck_decision": "",
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-ui-0014",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "action": "keep_as_holdout_signal",
+      "reason_category": "preserve_current_state_wording_signal",
+      "priority": "P2",
+      "flags": [],
+      "previous_action": "keep_as_holdout_signal",
+      "previous_reason_category": "preserve_holdout_current_state_signal",
+      "recheck_decision": "",
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-ui-0016",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "action": "keep_as_holdout_signal",
+      "reason_category": "preserve_layout_position_wording_signal",
+      "priority": "P2",
+      "flags": [],
+      "previous_action": "keep_as_holdout_signal",
+      "previous_reason_category": "preserve_holdout_layout_position_signal",
+      "recheck_decision": "",
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-formal-0005",
+      "domain": "formal",
+      "risk": "baseline_guard",
+      "issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "action": "keep_as_holdout_signal",
+      "reason_category": "preserve_date_period_style_signal",
+      "priority": "P2",
+      "flags": [],
+      "previous_action": "keep_as_holdout_signal",
+      "previous_reason_category": "preserve_holdout_date_period_signal",
+      "recheck_decision": "",
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-formal-0006",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "formal_term",
+        "regional_term"
+      ],
+      "action": "move_to_public_regression_candidate",
+      "reason_category": "clear_formal_record_terminology_gap",
+      "priority": "P1",
+      "flags": [],
+      "previous_action": "keep_as_holdout_signal",
+      "previous_reason_category": "preserve_holdout_formal_record_signal",
+      "recheck_decision": "",
+      "next_step": "remove_from_sealed_holdout_before_any_converter_or_dictionary_tuning"
+    },
+    {
+      "id": "blind-formal-0010",
+      "domain": "formal",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "formal_term",
+        "it_term",
+        "regional_term",
+        "ui_term"
+      ],
+      "action": "move_to_public_regression_candidate",
+      "reason_category": "clear_formal_project_terminology_gap_after_strict_recheck",
+      "priority": "P1",
+      "flags": [
+        "strict_after_expected_recheck"
+      ],
+      "previous_action": "requires_expected_recheck",
+      "previous_reason_category": "variant_project_terminology_recheck",
+      "recheck_decision": "keep_strict_primary_expected",
+      "next_step": "remove_from_sealed_holdout_before_any_converter_or_dictionary_tuning"
+    },
+    {
+      "id": "blind-social-0015",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "action": "move_to_public_regression_candidate",
+      "reason_category": "clear_social_media_playback_terminology_gap",
+      "priority": "P2",
+      "flags": [],
+      "previous_action": "keep_as_holdout_signal",
+      "previous_reason_category": "preserve_holdout_media_playback_signal",
+      "recheck_decision": "",
+      "next_step": "remove_from_sealed_holdout_before_any_converter_or_dictionary_tuning"
+    }
+  ]
+}

@@ -1,0 +1,698 @@
+{
+  "generated_date": "2026-07-06",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_backlog": "benchmarks/accuracy/annotation-backlog-v1.json",
+  "raw_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0126-0175-2026-07-06.json",
+  "case_range": "it-api-cli-0126-it-api-cli-0175",
+  "usage_metadata": {
+    "promptTokenCount": 3620,
+    "candidatesTokenCount": 2316,
+    "totalTokenCount": 14429,
+    "cachedContentTokenCount": 2996,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3620
+      }
+    ],
+    "cacheTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2996
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2316
+      }
+    ],
+    "thoughtsTokenCount": 8493
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_expected_review",
+    "cases": [
+      {
+        "id": "it-api-cli-0126",
+        "expected": "冪等鍵可以避免重複扣款。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0127",
+        "expected": "請在請求中加入冪等鍵。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0128",
+        "expected": "重試策略使用指數退避。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0129",
+        "expected": "速率限制器會使用令牌桶演算法。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0130",
+        "expected": "請把突發容量設定為二十。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0131",
+        "expected": "這個介面會傳回目前速率限制。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0132",
+        "expected": "用戶端收到 429 後應等待重試。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0133",
+        "expected": "回應標頭會包含重試時間。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0134",
+        "expected": "請不要快取帶有授權標頭的回應。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0135",
+        "expected": "快取項目會根據租用戶隔離。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0136",
+        "expected": "租用戶識別碼必須寫入稽核記錄。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0137",
+        "expected": "請確認服務帳戶具有最小權限。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0138",
+        "expected": "角色繫結會授予讀取機密的權限。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0139",
+        "expected": "機密值不應寫入組態檔。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0140",
+        "expected": "環境變數會覆寫預設組態。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0141",
+        "expected": "組態熱重新載入會保留現有連線。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0142",
+        "expected": "請在變更組態後傳送重新載入訊號。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0143",
+        "expected": "健康檢查端點不會存取資料庫。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0144",
+        "expected": "就緒檢查會確認相依服務可用。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0145",
+        "expected": "存活探測失敗時會重新啟動容器。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0146",
+        "expected": "請將指標公開在內部連接埠。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0147",
+        "expected": "指標標籤會包含區域和版本。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0148",
+        "expected": "追蹤內容會透過請求標頭傳播。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0149",
+        "expected": "請將跨度編號寫入日誌。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0150",
+        "expected": "取樣率可以透過啟動參數調整。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0151",
+        "expected": "這個警示規則會檢查錯誤率。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0152",
+        "expected": "請為高延遲請求建立警示。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0153",
+        "expected": "儀表板會顯示每分鐘請求數。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0154",
+        "expected": "請在發佈管線中加入回復步驟。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0155",
+        "expected": "藍綠部署會先切換少量流量。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0156",
+        "expected": "灰度發佈會根據使用者分組啟用功能。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0157",
+        "expected": "功能開關預設保持關閉。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0158",
+        "expected": "請在實驗結束後刪除開關。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0159",
+        "expected": "移轉任務會分批更新舊記錄。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0160",
+        "expected": "請在移轉前建立快照。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0161",
+        "expected": "快照復原會覆寫目前資料。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0162",
+        "expected": "備份任務會上傳壓縮檔。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0163",
+        "expected": "封存檔案會保留三十天。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0164",
+        "expected": "物件儲存貯體需要啟用版本控制。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0165",
+        "expected": "預先簽章連結會在一分鐘後失效。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0166",
+        "expected": "請檢查上傳分段是否全部完成。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0167",
+        "expected": "這個 SDK 會自動續約憑證。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0168",
+        "expected": "請在初始化用戶端時傳入區域。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0169",
+        "expected": "呼叫失敗時會傳回可重試錯誤。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0170",
+        "expected": "非同步用戶端會傳回未來物件。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0171",
+        "expected": "請釋放回應主體以重複使用連線。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0172",
+        "expected": "連線集區會限制每個主機的並行數。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0173",
+        "expected": "請設定讀取逾時和連線逾時。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0174",
+        "expected": "這個剖析器會忽略未知欄位。",
+        "notes": ""
+      },
+      {
+        "id": "it-api-cli-0175",
+        "expected": "序列化器會保留空字串。",
+        "notes": ""
+      }
+    ]
+  },
+  "comparison_summary": {
+    "cases": 50,
+    "exact_matches_with_codex_draft": 34,
+    "differences_from_codex_draft": 16
+  },
+  "comparisons": [
+    {
+      "id": "it-api-cli-0126",
+      "input": "幂等键可以避免重复扣款。",
+      "codex_expected": "冪等鍵可以避免重複扣款。",
+      "gemini_expected": "冪等鍵可以避免重複扣款。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0127",
+      "input": "请在请求中加入幂等键。",
+      "codex_expected": "請在請求中加入冪等鍵。",
+      "gemini_expected": "請在請求中加入冪等鍵。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0128",
+      "input": "重试策略使用指数退避。",
+      "codex_expected": "重試策略使用指數退避。",
+      "gemini_expected": "重試策略使用指數退避。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0129",
+      "input": "速率限制器会使用令牌桶算法。",
+      "codex_expected": "速率限制器會使用權杖桶演算法。",
+      "gemini_expected": "速率限制器會使用令牌桶演算法。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0130",
+      "input": "请把突发容量设置为二十。",
+      "codex_expected": "請將突發容量設定為二十。",
+      "gemini_expected": "請把突發容量設定為二十。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0131",
+      "input": "这个接口会返回当前速率限制。",
+      "codex_expected": "這個介面會傳回目前速率限制。",
+      "gemini_expected": "這個介面會傳回目前速率限制。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0132",
+      "input": "客户端收到 429 后应等待重试。",
+      "codex_expected": "用戶端收到 429 後應等待重試。",
+      "gemini_expected": "用戶端收到 429 後應等待重試。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0133",
+      "input": "响应头会包含重试时间。",
+      "codex_expected": "回應標頭會包含重試時間。",
+      "gemini_expected": "回應標頭會包含重試時間。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0134",
+      "input": "请不要缓存带有授权头的响应。",
+      "codex_expected": "請不要快取帶有授權標頭的回應。",
+      "gemini_expected": "請不要快取帶有授權標頭的回應。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0135",
+      "input": "缓存条目会根据租户隔离。",
+      "codex_expected": "快取項目會根據租用戶隔離。",
+      "gemini_expected": "快取項目會根據租用戶隔離。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0136",
+      "input": "租户标识必须写入审计记录。",
+      "codex_expected": "租用戶識別碼必須寫入稽核記錄。",
+      "gemini_expected": "租用戶識別碼必須寫入稽核記錄。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0137",
+      "input": "请确认服务账户具有最小权限。",
+      "codex_expected": "請確認服務帳戶具有最小權限。",
+      "gemini_expected": "請確認服務帳戶具有最小權限。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0138",
+      "input": "角色绑定会授予读取机密的权限。",
+      "codex_expected": "角色繫結會授予讀取機密的權限。",
+      "gemini_expected": "角色繫結會授予讀取機密的權限。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0139",
+      "input": "机密值不应写入配置文件。",
+      "codex_expected": "機密值不應寫入設定檔。",
+      "gemini_expected": "機密值不應寫入組態檔。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0140",
+      "input": "环境变量会覆盖默认配置。",
+      "codex_expected": "環境變數會覆寫預設配置。",
+      "gemini_expected": "環境變數會覆寫預設組態。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0141",
+      "input": "配置热重载会保留现有连接。",
+      "codex_expected": "設定熱重新載入會保留現有連線。",
+      "gemini_expected": "組態熱重新載入會保留現有連線。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0142",
+      "input": "请在变更配置后发送重载信号。",
+      "codex_expected": "請在變更設定後傳送重新載入訊號。",
+      "gemini_expected": "請在變更組態後傳送重新載入訊號。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0143",
+      "input": "健康检查端点不会访问数据库。",
+      "codex_expected": "健康檢查端點不會存取資料庫。",
+      "gemini_expected": "健康檢查端點不會存取資料庫。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0144",
+      "input": "就绪检查会确认依赖服务可用。",
+      "codex_expected": "就緒檢查會確認相依服務可用。",
+      "gemini_expected": "就緒檢查會確認相依服務可用。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0145",
+      "input": "存活探针失败时会重启容器。",
+      "codex_expected": "存活探針失敗時會重新啟動容器。",
+      "gemini_expected": "存活探測失敗時會重新啟動容器。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0146",
+      "input": "请将指标暴露在内部端口。",
+      "codex_expected": "請將指標公開在內部連接埠。",
+      "gemini_expected": "請將指標公開在內部連接埠。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0147",
+      "input": "指标标签会包含区域和版本。",
+      "codex_expected": "指標標籤會包含區域和版本。",
+      "gemini_expected": "指標標籤會包含區域和版本。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0148",
+      "input": "追踪上下文会通过请求头传播。",
+      "codex_expected": "追蹤上下文會透過請求標頭傳播。",
+      "gemini_expected": "追蹤內容會透過請求標頭傳播。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0149",
+      "input": "请把跨度编号写入日志。",
+      "codex_expected": "請將跨度編號寫入記錄檔。",
+      "gemini_expected": "請將跨度編號寫入日誌。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0150",
+      "input": "采样率可以通过启动参数调整。",
+      "codex_expected": "取樣率可以透過啟動參數調整。",
+      "gemini_expected": "取樣率可以透過啟動參數調整。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0151",
+      "input": "这个告警规则会检查错误率。",
+      "codex_expected": "這個警示規則會檢查錯誤率。",
+      "gemini_expected": "這個警示規則會檢查錯誤率。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0152",
+      "input": "请为高延迟请求建立告警。",
+      "codex_expected": "請為高延遲請求建立警示。",
+      "gemini_expected": "請為高延遲請求建立警示。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0153",
+      "input": "仪表盘会显示每分钟请求数。",
+      "codex_expected": "儀表板會顯示每分鐘請求數。",
+      "gemini_expected": "儀表板會顯示每分鐘請求數。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0154",
+      "input": "请在发布流水线中加入回滚步骤。",
+      "codex_expected": "請在發布管線中加入復原步驟。",
+      "gemini_expected": "請在發佈管線中加入回復步驟。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0155",
+      "input": "蓝绿部署会先切换少量流量。",
+      "codex_expected": "藍綠部署會先切換少量流量。",
+      "gemini_expected": "藍綠部署會先切換少量流量。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0156",
+      "input": "灰度发布会根据用户分组启用功能。",
+      "codex_expected": "灰度發布會根據使用者分組啟用功能。",
+      "gemini_expected": "灰度發佈會根據使用者分組啟用功能。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0157",
+      "input": "功能开关默认保持关闭。",
+      "codex_expected": "功能開關預設保持關閉。",
+      "gemini_expected": "功能開關預設保持關閉。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0158",
+      "input": "请在实验结束后删除开关。",
+      "codex_expected": "請在實驗結束後刪除開關。",
+      "gemini_expected": "請在實驗結束後刪除開關。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0159",
+      "input": "迁移任务会分批更新旧记录。",
+      "codex_expected": "移轉任務會分批更新舊記錄。",
+      "gemini_expected": "移轉任務會分批更新舊記錄。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0160",
+      "input": "请在迁移前创建快照。",
+      "codex_expected": "請在移轉前建立快照。",
+      "gemini_expected": "請在移轉前建立快照。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0161",
+      "input": "快照恢复会覆盖当前数据。",
+      "codex_expected": "快照還原會覆寫目前資料。",
+      "gemini_expected": "快照復原會覆寫目前資料。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0162",
+      "input": "备份任务会上传压缩包。",
+      "codex_expected": "備份任務會上傳壓縮檔。",
+      "gemini_expected": "備份任務會上傳壓縮檔。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0163",
+      "input": "归档文件会保留三十天。",
+      "codex_expected": "封存檔案會保留三十天。",
+      "gemini_expected": "封存檔案會保留三十天。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0164",
+      "input": "对象存储桶需要开启版本控制。",
+      "codex_expected": "物件儲存桶需要開啟版本控制。",
+      "gemini_expected": "物件儲存貯體需要啟用版本控制。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0165",
+      "input": "预签名链接会在一分钟后失效。",
+      "codex_expected": "預先簽署連結會在一分鐘後失效。",
+      "gemini_expected": "預先簽章連結會在一分鐘後失效。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0166",
+      "input": "请检查上传分片是否全部完成。",
+      "codex_expected": "請檢查上傳分片是否全部完成。",
+      "gemini_expected": "請檢查上傳分段是否全部完成。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0167",
+      "input": "这个 SDK 会自动续签凭证。",
+      "codex_expected": "這個 SDK 會自動續簽憑證。",
+      "gemini_expected": "這個 SDK 會自動續約憑證。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "it-api-cli-0168",
+      "input": "请在初始化客户端时传入区域。",
+      "codex_expected": "請在初始化用戶端時傳入區域。",
+      "gemini_expected": "請在初始化用戶端時傳入區域。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0169",
+      "input": "调用失败时会返回可重试错误。",
+      "codex_expected": "呼叫失敗時會傳回可重試錯誤。",
+      "gemini_expected": "呼叫失敗時會傳回可重試錯誤。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0170",
+      "input": "异步客户端会返回未来对象。",
+      "codex_expected": "非同步用戶端會傳回未來物件。",
+      "gemini_expected": "非同步用戶端會傳回未來物件。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0171",
+      "input": "请释放响应主体以复用连接。",
+      "codex_expected": "請釋放回應主體以重複使用連線。",
+      "gemini_expected": "請釋放回應主體以重複使用連線。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0172",
+      "input": "连接池会限制每个主机的并发数。",
+      "codex_expected": "連線集區會限制每個主機的並行數。",
+      "gemini_expected": "連線集區會限制每個主機的並行數。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0173",
+      "input": "请设置读取超时和连接超时。",
+      "codex_expected": "請設定讀取逾時和連線逾時。",
+      "gemini_expected": "請設定讀取逾時和連線逾時。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0174",
+      "input": "这个解析器会忽略未知字段。",
+      "codex_expected": "這個剖析器會忽略未知欄位。",
+      "gemini_expected": "這個剖析器會忽略未知欄位。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "it-api-cli-0175",
+      "input": "序列化器会保留空字符串。",
+      "codex_expected": "序列化器會保留空字串。",
+      "gemini_expected": "序列化器會保留空字串。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "session_id": "f45ec918-9339-4ffa-8659-9e72afd511b5",
+  "response": "```json\n{\n  \"cases\": [\n    {\n      \"id\": \"blind-high-risk-0101\",\n      \"gemini_expected\": \"病歷摘要不得包含與治療無關的個人資料。\",\n      \"acceptable\": [\n        \"病歷摘要不得包含和治療無關的個人資料。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0102\",\n      \"gemini_expected\": \"藥品開封後應依標籤註明的溫度保存。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0103\",\n      \"gemini_expected\": \"投保人應據實填寫健康告知事項。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0104\",\n      \"gemini_expected\": \"銀行應於扣款前揭露手續費計算方式。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0105\",\n      \"gemini_expected\": \"雇主不得扣留勞動者的身分證件。\",\n      \"acceptable\": [\n        \"雇主不得扣留勞動者的身份證件。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「身分」為法律用語，但「身份」亦可接受。\"\n    },\n    {\n      \"id\": \"blind-high-risk-0106\",\n      \"gemini_expected\": \"手術同意書應由醫師說明風險後簽署。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0107\",\n      \"gemini_expected\": \"契約解除不影響已經發生的損害賠償請求。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0108\",\n      \"gemini_expected\": \"信用報告更正申請應附上證明文件。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0109\",\n      \"gemini_expected\": \"發生職業災害時應立即通報主管機關。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0110\",\n      \"gemini_expected\": \"檢體運輸過程必須維持規定溫度。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0111\",\n      \"gemini_expected\": \"受託人處理個人資料不得逾越委託範圍。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0112\",\n      \"gemini_expected\": \"貸款提前清償違約金應記載於契約。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0113\",\n      \"gemini_expected\": \"醫師確認病人意識清楚後再詢問意願。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0114\",\n      \"gemini_expected\": \"法院命令停止執行原處分。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0115\",\n      \"gemini_expected\": \"保險給付不得重複計算同一項損失。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0116\",\n      \"gemini_expected\": \"護理紀錄中的原始數值不得改寫。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0117\",\n      \"gemini_expected\": \"匯款備註欄請保留案件編號 A-204。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0118\",\n      \"gemini_expected\": \"當事人聲明其意思表示未受強迫。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0119\",\n      \"gemini_expected\": \"診斷證明書已由醫院加蓋關防。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"字元轉換\"\n    },\n    {\n      \"id\": \"blind-high-risk-0120\",\n      \"gemini_expected\": \"新臺幣存款受到存款保險保障。\",\n      \"acceptable\": [\n        \"新台幣存款受到存款保險保障。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「臺」為正式寫法，但「台」亦可接受。\"\n    }\n  ]\n}\n```",
+  "stats": {
+    "models": {
+      "gemini-2.5-pro": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 30949
+        },
+        "tokens": {
+          "input": 11030,
+          "prompt": 11030,
+          "candidates": 1813,
+          "total": 15925,
+          "cached": 0,
+          "thoughts": 3082,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 30949,
+            "tokens": {
+              "input": 11030,
+              "prompt": 11030,
+              "candidates": 1813,
+              "total": 15925,
+              "cached": 0,
+              "thoughts": 3082,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

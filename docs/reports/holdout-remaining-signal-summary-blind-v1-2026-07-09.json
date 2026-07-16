@@ -1,0 +1,297 @@
+{
+  "report_type": "holdout_remaining_signal_summary",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-09",
+  "review_stage": "post_batch3_remaining_signal_summary",
+  "source_benchmark": {
+    "path": "/tmp/zhtw-blind-v1-private-benchmark-2026-07-09.json",
+    "sha256": "bc3fbe4953aa1a723c7bb59ceb0b2ffec64d4f8db433a52da3824c8df8b38627",
+    "in_repo": false,
+    "rows_used_for_local_summary": true
+  },
+  "source_reports": [
+    "docs/reports/holdout-private-benchmark-sanity-blind-v1-2026-07-09.json",
+    "docs/reports/holdout-post-batch3-miss-recheck-blind-v1-2026-07-09.json",
+    "docs/reports/holdout-gemini-policy-review-post-batch3-recheck-blind-v1-2026-07-09.json",
+    "docs/reports/holdout-maintainer-final-decision-post-batch3-recheck-blind-v1-2026-07-09.json"
+  ],
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "case_signals_include_only_ids_and_metadata": true
+  },
+  "policy": {
+    "summary_only": true,
+    "private_expected_updated": false,
+    "converter_or_dictionary_updated": false,
+    "do_not_tune_from_these_cases": true,
+    "must_remove_from_sealed_before_any_future_tuning": true,
+    "gemini_policy_review_required": true
+  },
+  "summary": {
+    "current_sealed_cases": 161,
+    "current_accepted": 155,
+    "current_misses": 6,
+    "remaining_signal_cases": 6,
+    "converter_or_dictionary_updated": false,
+    "private_expected_updated": false,
+    "all_remaining_misses_are_holdout_signals": true,
+    "by_domain": {
+      "formal": 1,
+      "llm": 2,
+      "social": 2,
+      "ui": 1
+    },
+    "by_risk": {
+      "baseline_guard": 1,
+      "over_conversion_guard": 5
+    },
+    "by_signal_category": {
+      "graph_variant_over_conversion_signal": 5,
+      "strict_ui_wording_signal": 1
+    },
+    "by_issue_tag": {
+      "formal_term": 1,
+      "over_conversion": 5,
+      "regional_term": 6,
+      "ui_term": 1
+    },
+    "idempotent_signal_cases": 6,
+    "non_idempotent_signal_cases": 0
+  },
+  "case_signals": [
+    {
+      "id": "blind-formal-0029",
+      "domain": "formal",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taipei",
+        "regulation",
+        "terminology"
+      ],
+      "issue_tags": [
+        "formal_term",
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "graph_variant_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_taipei_formal_over_conversion_signal",
+      "flags": [
+        "over_conversion_guard",
+        "graph_variant"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-llm-0026",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "taiwan-term",
+        "preserve",
+        "prompt"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "graph_variant_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_taiwan_graph_variant_over_conversion_signal",
+      "flags": [
+        "over_conversion_guard",
+        "graph_variant"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-llm-0028",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "example-output",
+        "taipei",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "graph_variant_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_taipei_graph_variant_over_conversion_signal",
+      "flags": [
+        "over_conversion_guard",
+        "graph_variant"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-social-0025",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "comment",
+        "taiwan-place-name",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "graph_variant_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_taiwan_place_name_over_conversion_signal",
+      "flags": [
+        "over_conversion_guard",
+        "graph_variant"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-social-0026",
+      "domain": "social",
+      "risk": "over_conversion_guard",
+      "tags": [
+        "post",
+        "traditional-text",
+        "preserve"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "over_conversion"
+      ],
+      "signal_category": "graph_variant_over_conversion_signal",
+      "priority": "P2",
+      "reason_category": "preserve_taiwan_traditional_text_over_conversion_signal",
+      "flags": [
+        "over_conversion_guard",
+        "graph_variant"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    },
+    {
+      "id": "blind-ui-0011",
+      "domain": "ui",
+      "risk": "baseline_guard",
+      "tags": [
+        "navigation",
+        "directory",
+        "back"
+      ],
+      "issue_tags": [
+        "regional_term",
+        "ui_term"
+      ],
+      "signal_category": "strict_ui_wording_signal",
+      "priority": "P2",
+      "reason_category": "preserve_strict_ui_click_action_wording_signal",
+      "flags": [
+        "style_variant",
+        "strict_ui_wording"
+      ],
+      "current_benchmark_result": {
+        "accepted": false,
+        "primary_exact": false,
+        "acceptable_exact": false,
+        "idempotent": true
+      },
+      "decision": "remain_sealed_holdout_signal",
+      "allowed_uses": [
+        "aggregate private sanity signal",
+        "future benchmark analysis after publication policy review"
+      ],
+      "prohibited_uses": [
+        "converter_or_dictionary_tuning",
+        "public_regression_promotion_without_prior_sealed_removal",
+        "expected_or_acceptable_update_without_maintainer_recheck"
+      ],
+      "next_step": "keep_sealed_and_do_not_tune_against_this_case"
+    }
+  ],
+  "publication_note": "This report intentionally omits expected values, acceptable variants, inputs, converter outputs, and benchmark rows. The six cases remain sealed holdout signals and must not be used for converter or dictionary tuning."
+}

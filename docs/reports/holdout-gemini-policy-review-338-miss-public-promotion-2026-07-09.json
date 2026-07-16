@@ -1,0 +1,54 @@
+{
+  "report_type": "holdout_gemini_policy_review_338_miss_public_promotion",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-09",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-flash",
+  "model_reported_by_cli_stats": "not_reported_by_headless_text_output",
+  "review_stage": "public_regression_promotion_policy_review",
+  "source_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "source_promotion_gate": "docs/reports/holdout-regression-promotion-gate-blind-v1-338-miss-review-2026-07-09.json",
+  "sealed_values_seen": false,
+  "public_values_seen": true,
+  "sealed_content_policy": {
+    "reviewed_cases_removed_from_sealed_before_tuning": true,
+    "remaining_sealed_holdout_signal_cases_used_for_tuning": false,
+    "opencc_or_competitor_outputs_used_for_expected": false,
+    "gemini_received_public_candidate_values_only": true
+  },
+  "summary": {
+    "checked": 12,
+    "promotion_ready": 12,
+    "policy_consistent": true,
+    "risk_level": "low",
+    "blocking_findings": 0,
+    "info_findings": 4
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "id": "all",
+      "message": "No remaining sealed holdout values were used for tuning."
+    },
+    {
+      "severity": "info",
+      "id": "all",
+      "message": "Verified Taiwanese IT/UI localization quality; no OpenCC or raw competitor translation artifacts detected (examples noted by Gemini included 快取, 身分權杖, 重新整理, 設定磁碟區, QR Code)."
+    },
+    {
+      "severity": "info",
+      "id": "all",
+      "message": "Sentence mappings are full-sentence and identity mapping protection for Traditional targets is explicitly stated in policy."
+    },
+    {
+      "severity": "info",
+      "id": "all",
+      "message": "Promotion gate evidence supports all 12 cases being marked as promotion_ready."
+    }
+  ],
+  "tool_notes": [
+    "Initial Gemini CLI attempt used GEMINI_API_KEY and failed with API_KEY_INVALID.",
+    "Second Gemini CLI attempt unset GEMINI_API_KEY/GOOGLE_API_KEY/GOOGLE_GENERATIVE_AI_API_KEY and completed successfully via non-API-key CLI authentication.",
+    "Gemini was instructed not to use tools or read repository files and reviewed only public candidate/gate values plus the mapping list."
+  ]
+}

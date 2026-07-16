@@ -1,0 +1,691 @@
+{
+  "generated_date": "2026-07-06",
+  "model": "gemini-2.5-flash",
+  "project": "tw-el-gemini",
+  "location": "us-central1",
+  "source_backlog": "benchmarks/accuracy/annotation-backlog-v1.json",
+  "raw_report": "docs/reports/annotation-gemini-vertex-advisory-formal-high-risk-0051-0100-2026-07-06.json",
+  "case_range": "formal-high-risk-0051-formal-high-risk-0100",
+  "usage_metadata": {
+    "promptTokenCount": 3607,
+    "candidatesTokenCount": 1648,
+    "totalTokenCount": 10781,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3607
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1648
+      }
+    ],
+    "thoughtsTokenCount": 5526
+  },
+  "review": {
+    "reviewer": "gemini_vertex",
+    "review_type": "independent_expected_review",
+    "cases": [
+      {
+        "id": "formal-high-risk-0051",
+        "expected": "請勿洩漏信用卡安全碼。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0052",
+        "expected": "自動扣款授權可隨時取消。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0053",
+        "expected": "退款金額將退回原付款帳戶。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0054",
+        "expected": "請核對收款人姓名。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0055",
+        "expected": "外幣存款適用不同匯率。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0056",
+        "expected": "電子對帳單預設寄送。",
+        "notes": "「默认」轉為「預設」，「发送」轉為「寄送」更符合台灣用語習慣。"
+      },
+      {
+        "id": "formal-high-risk-0057",
+        "expected": "開戶申請需完成身分驗證。",
+        "notes": "「身份」轉為「身分」為台灣常用寫法。"
+      },
+      {
+        "id": "formal-high-risk-0058",
+        "expected": "本產品不保證收益。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0059",
+        "expected": "逾期繳款將產生滯納金。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0060",
+        "expected": "網路銀行服務暫時中斷。",
+        "notes": "「网上银行」轉為「網路銀行」為台灣常用稱呼。"
+      },
+      {
+        "id": "formal-high-risk-0061",
+        "expected": "門診預約已確認。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0062",
+        "expected": "急診檢傷分類由現場人員判斷。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0063",
+        "expected": "請攜帶健保卡報到。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0064",
+        "expected": "篩檢結果僅供醫師參考。",
+        "notes": "「筛查」轉為「篩檢」為台灣常用醫學用語。"
+      },
+      {
+        "id": "formal-high-risk-0065",
+        "expected": "複診時間請依醫囑安排。",
+        "notes": "「复查」轉為「複診」更符合台灣醫學領域的語境。"
+      },
+      {
+        "id": "formal-high-risk-0066",
+        "expected": "過敏史請主動告知護理師。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0067",
+        "expected": "處方藥應按劑量服用。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0068",
+        "expected": "病歷摘要可申請紙本副本。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0069",
+        "expected": "檢查報告預計三日後完成。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0070",
+        "expected": "轉診單請交給櫃檯。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0071",
+        "expected": "疫苗接種紀錄將同步更新。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0072",
+        "expected": "發燒症狀請先至分流站。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0073",
+        "expected": "住院同意書需由本人簽名。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0074",
+        "expected": "手術風險已於說明書載明。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0075",
+        "expected": "藥品保存條件請遵照標籤。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0076",
+        "expected": "核酸檢測陰性證明仍須上傳。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0077",
+        "expected": "慢性病連續處方箋可提前領取。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0078",
+        "expected": "孕婦產檢補助額度已調整。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0079",
+        "expected": "兒童預防接種請依時程辦理。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0080",
+        "expected": "疑似不良反應請回診評估。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0081",
+        "expected": "中央流行疫情指揮中心說明最新措施。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0082",
+        "expected": "道路施工期間請改道通行。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0083",
+        "expected": "公共工程進度每週公布。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0084",
+        "expected": "捷運班距將視人潮調整。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0085",
+        "expected": "公車路線臨時改道。",
+        "notes": "「公交」轉為「公車」，「线路」轉為「路線」為台灣常用稱呼。"
+      },
+      {
+        "id": "formal-high-risk-0086",
+        "expected": "計程車乘車點移至東側出口。",
+        "notes": "「出租车」轉為「計程車」為台灣常用稱呼。"
+      },
+      {
+        "id": "formal-high-risk-0087",
+        "expected": "停車場入口暫停開放。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0088",
+        "expected": "環境影響評估報告公開展覽。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0089",
+        "expected": "空氣品質不良時建議減少外出。",
+        "notes": "「质量」轉為「品質」為台灣常用詞。"
+      },
+      {
+        "id": "formal-high-risk-0090",
+        "expected": "用水限制措施將分區實施。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0091",
+        "expected": "電力公司提醒用戶節約用電。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0092",
+        "expected": "疫區返國旅客應主動申報。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0093",
+        "expected": "新聞稿標題不得誤導公眾。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0094",
+        "expected": "統計數據將於月底發布。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0095",
+        "expected": "年度預算案送交議會審議。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0096",
+        "expected": "補助計畫受理至名額額滿為止。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0097",
+        "expected": "採購案決標結果已公告。",
+        "notes": ""
+      },
+      {
+        "id": "formal-high-risk-0098",
+        "expected": "專案經費不得挪用於私人用途。",
+        "notes": "「项目」轉為「專案」更符合台灣正式文件語境。"
+      },
+      {
+        "id": "formal-high-risk-0099",
+        "expected": "資料開放平台新增下載格式。",
+        "notes": "「数据」轉為「資料」更符合台灣常用詞。"
+      },
+      {
+        "id": "formal-high-risk-0100",
+        "expected": "線上服務因維護暫停。",
+        "notes": ""
+      }
+    ]
+  },
+  "comparison_summary": {
+    "cases": 50,
+    "exact_matches_with_codex_draft": 48,
+    "differences_from_codex_draft": 2
+  },
+  "comparisons": [
+    {
+      "id": "formal-high-risk-0051",
+      "input": "请勿泄露信用卡安全码。",
+      "codex_expected": "請勿洩露信用卡安全碼。",
+      "gemini_expected": "請勿洩漏信用卡安全碼。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "formal-high-risk-0052",
+      "input": "自动扣款授权可随时取消。",
+      "codex_expected": "自動扣款授權可隨時取消。",
+      "gemini_expected": "自動扣款授權可隨時取消。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0053",
+      "input": "退款金额将退回原付款账户。",
+      "codex_expected": "退款金額將退回原付款帳戶。",
+      "gemini_expected": "退款金額將退回原付款帳戶。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0054",
+      "input": "请核对收款人姓名。",
+      "codex_expected": "請核對收款人姓名。",
+      "gemini_expected": "請核對收款人姓名。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0055",
+      "input": "外币存款适用不同汇率。",
+      "codex_expected": "外幣存款適用不同匯率。",
+      "gemini_expected": "外幣存款適用不同匯率。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0056",
+      "input": "电子对账单默认发送。",
+      "codex_expected": "電子對帳單預設寄送。",
+      "gemini_expected": "電子對帳單預設寄送。",
+      "gemini_notes": "「默认」轉為「預設」，「发送」轉為「寄送」更符合台灣用語習慣。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0057",
+      "input": "开户申请需完成身份验证。",
+      "codex_expected": "開戶申請需完成身分驗證。",
+      "gemini_expected": "開戶申請需完成身分驗證。",
+      "gemini_notes": "「身份」轉為「身分」為台灣常用寫法。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0058",
+      "input": "本产品不保证收益。",
+      "codex_expected": "本產品不保證收益。",
+      "gemini_expected": "本產品不保證收益。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0059",
+      "input": "逾期缴款将产生滞纳金。",
+      "codex_expected": "逾期繳款將產生滯納金。",
+      "gemini_expected": "逾期繳款將產生滯納金。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0060",
+      "input": "网上银行服务暂时中断。",
+      "codex_expected": "網路銀行服務暫時中斷。",
+      "gemini_expected": "網路銀行服務暫時中斷。",
+      "gemini_notes": "「网上银行」轉為「網路銀行」為台灣常用稱呼。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0061",
+      "input": "门诊预约已确认。",
+      "codex_expected": "門診預約已確認。",
+      "gemini_expected": "門診預約已確認。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0062",
+      "input": "急诊检伤分类由现场人员判断。",
+      "codex_expected": "急診檢傷分類由現場人員判斷。",
+      "gemini_expected": "急診檢傷分類由現場人員判斷。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0063",
+      "input": "请携带健保卡报到。",
+      "codex_expected": "請攜帶健保卡報到。",
+      "gemini_expected": "請攜帶健保卡報到。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0064",
+      "input": "筛查结果仅供医师参考。",
+      "codex_expected": "篩檢結果僅供醫師參考。",
+      "gemini_expected": "篩檢結果僅供醫師參考。",
+      "gemini_notes": "「筛查」轉為「篩檢」為台灣常用醫學用語。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0065",
+      "input": "复查时间请依医嘱安排。",
+      "codex_expected": "複診時間請依醫囑安排。",
+      "gemini_expected": "複診時間請依醫囑安排。",
+      "gemini_notes": "「复查」轉為「複診」更符合台灣醫學領域的語境。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0066",
+      "input": "过敏史请主动告知护理师。",
+      "codex_expected": "過敏史請主動告知護理師。",
+      "gemini_expected": "過敏史請主動告知護理師。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0067",
+      "input": "处方药应按剂量服用。",
+      "codex_expected": "處方藥應按劑量服用。",
+      "gemini_expected": "處方藥應按劑量服用。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0068",
+      "input": "病历摘要可申请纸本副本。",
+      "codex_expected": "病歷摘要可申請紙本副本。",
+      "gemini_expected": "病歷摘要可申請紙本副本。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0069",
+      "input": "检查报告预计三日后完成。",
+      "codex_expected": "檢查報告預計三日後完成。",
+      "gemini_expected": "檢查報告預計三日後完成。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0070",
+      "input": "转诊单请交给柜台。",
+      "codex_expected": "轉診單請交給櫃檯。",
+      "gemini_expected": "轉診單請交給櫃檯。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0071",
+      "input": "疫苗接种纪录将同步更新。",
+      "codex_expected": "疫苗接種紀錄將同步更新。",
+      "gemini_expected": "疫苗接種紀錄將同步更新。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0072",
+      "input": "发烧症状请先至分流站。",
+      "codex_expected": "發燒症狀請先至分流站。",
+      "gemini_expected": "發燒症狀請先至分流站。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0073",
+      "input": "住院同意书需由本人签名。",
+      "codex_expected": "住院同意書需由本人簽名。",
+      "gemini_expected": "住院同意書需由本人簽名。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0074",
+      "input": "手术风险已于说明书载明。",
+      "codex_expected": "手術風險已於說明書載明。",
+      "gemini_expected": "手術風險已於說明書載明。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0075",
+      "input": "药品保存条件请遵照标签。",
+      "codex_expected": "藥品保存條件請遵照標籤。",
+      "gemini_expected": "藥品保存條件請遵照標籤。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0076",
+      "input": "核酸检测阴性证明仍须上传。",
+      "codex_expected": "核酸檢測陰性證明仍須上傳。",
+      "gemini_expected": "核酸檢測陰性證明仍須上傳。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0077",
+      "input": "慢性病连续处方笺可提前领取。",
+      "codex_expected": "慢性病連續處方箋可提前領取。",
+      "gemini_expected": "慢性病連續處方箋可提前領取。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0078",
+      "input": "孕妇产检补助额度已调整。",
+      "codex_expected": "孕婦產檢補助額度已調整。",
+      "gemini_expected": "孕婦產檢補助額度已調整。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0079",
+      "input": "儿童预防接种请依时程办理。",
+      "codex_expected": "兒童預防接種請依時程辦理。",
+      "gemini_expected": "兒童預防接種請依時程辦理。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0080",
+      "input": "疑似不良反应请回诊评估。",
+      "codex_expected": "疑似不良反應請回診評估。",
+      "gemini_expected": "疑似不良反應請回診評估。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0081",
+      "input": "中央流行疫情指挥中心说明最新措施。",
+      "codex_expected": "中央流行疫情指揮中心說明最新措施。",
+      "gemini_expected": "中央流行疫情指揮中心說明最新措施。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0082",
+      "input": "道路施工期间请改道通行。",
+      "codex_expected": "道路施工期間請改道通行。",
+      "gemini_expected": "道路施工期間請改道通行。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0083",
+      "input": "公共工程进度每周公布。",
+      "codex_expected": "公共工程進度每週公布。",
+      "gemini_expected": "公共工程進度每週公布。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0084",
+      "input": "捷运班距将视人潮调整。",
+      "codex_expected": "捷運班距將視人潮調整。",
+      "gemini_expected": "捷運班距將視人潮調整。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0085",
+      "input": "公交线路临时改道。",
+      "codex_expected": "公車路線臨時改道。",
+      "gemini_expected": "公車路線臨時改道。",
+      "gemini_notes": "「公交」轉為「公車」，「线路」轉為「路線」為台灣常用稱呼。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0086",
+      "input": "出租车乘车点移至东侧出口。",
+      "codex_expected": "計程車乘車點移至東側出口。",
+      "gemini_expected": "計程車乘車點移至東側出口。",
+      "gemini_notes": "「出租车」轉為「計程車」為台灣常用稱呼。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0087",
+      "input": "停车场入口暂停开放。",
+      "codex_expected": "停車場入口暫停開放。",
+      "gemini_expected": "停車場入口暫停開放。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0088",
+      "input": "环境影响评估报告公开展览。",
+      "codex_expected": "環境影響評估報告公開展覽。",
+      "gemini_expected": "環境影響評估報告公開展覽。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0089",
+      "input": "空气质量不良时建议减少外出。",
+      "codex_expected": "空氣品質不良時建議減少外出。",
+      "gemini_expected": "空氣品質不良時建議減少外出。",
+      "gemini_notes": "「质量」轉為「品質」為台灣常用詞。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0090",
+      "input": "用水限制措施将分区实施。",
+      "codex_expected": "用水限制措施將分區實施。",
+      "gemini_expected": "用水限制措施將分區實施。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0091",
+      "input": "电力公司提醒用户节约用电。",
+      "codex_expected": "電力公司提醒用戶節約用電。",
+      "gemini_expected": "電力公司提醒用戶節約用電。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0092",
+      "input": "疫区返国旅客应主动申报。",
+      "codex_expected": "疫區返國旅客應主動申報。",
+      "gemini_expected": "疫區返國旅客應主動申報。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0093",
+      "input": "新闻稿标题不得误导公众。",
+      "codex_expected": "新聞稿標題不得誤導公眾。",
+      "gemini_expected": "新聞稿標題不得誤導公眾。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0094",
+      "input": "统计数据将于月底发布。",
+      "codex_expected": "統計數據將於月底發布。",
+      "gemini_expected": "統計數據將於月底發布。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0095",
+      "input": "年度预算案送交议会审议。",
+      "codex_expected": "年度預算案送交議會審議。",
+      "gemini_expected": "年度預算案送交議會審議。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0096",
+      "input": "补助计划受理至名额额满为止。",
+      "codex_expected": "補助計畫受理至名額額滿為止。",
+      "gemini_expected": "補助計畫受理至名額額滿為止。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0097",
+      "input": "采购案决标结果已公告。",
+      "codex_expected": "採購案決標結果已公告。",
+      "gemini_expected": "採購案決標結果已公告。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0098",
+      "input": "项目经费不得挪用于私人用途。",
+      "codex_expected": "計畫經費不得挪用於私人用途。",
+      "gemini_expected": "專案經費不得挪用於私人用途。",
+      "gemini_notes": "「项目」轉為「專案」更符合台灣正式文件語境。",
+      "exact_match_with_codex_draft": false
+    },
+    {
+      "id": "formal-high-risk-0099",
+      "input": "数据开放平台新增下载格式。",
+      "codex_expected": "資料開放平台新增下載格式。",
+      "gemini_expected": "資料開放平台新增下載格式。",
+      "gemini_notes": "「数据」轉為「資料」更符合台灣常用詞。",
+      "exact_match_with_codex_draft": true
+    },
+    {
+      "id": "formal-high-risk-0100",
+      "input": "线上服务因维护暂停。",
+      "codex_expected": "線上服務因維護暫停。",
+      "gemini_expected": "線上服務因維護暫停。",
+      "gemini_notes": "",
+      "exact_match_with_codex_draft": true
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "report_type": "holdout_maintainer_confirmation_packet",
+  "review_stage": "maintainer_confirmation_packet",
+  "scope": "batch13_34_fresh_misses",
+  "source_diff": "docs/reports/holdout-codex-gemini-miss-review-diff-blind-v1-batch13-34-cases-2026-07-14.json",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "summary": {
+    "review_cases": 19,
+    "classification_difference_cases": 15,
+    "high_risk_or_medium_agreement_cases": 4,
+    "no_immediate_question_cases": 15
+  },
+  "policy": {
+    "private_expected_not_modified": true,
+    "sealed_pool_not_modified": true,
+    "dictionary_not_modified": true,
+    "maintainer_confirmation_required": true,
+    "codex_and_gemini_are_advisory_only": true
+  },
+  "cases": [
+    {
+      "id": "blind-high-risk-0121",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "codex_action": "keep_strict_private_signal",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "keep_strict_private_signal",
+      "reason": "醫療術語涉及風格邊界，保留 strict signal，避免以單句固定開立／開具與病人／患者。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-high-risk-0122",
+      "domain": "high_risk",
+      "risk": "baseline_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "move_to_public_regression_candidate",
+      "reason": "Codex 與 Gemini 分類一致；因 high-risk 或 Codex 中信心，仍交由 maintainer 確認。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-high-risk-0125",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "reason": "實際輸出仍屬臺灣法律與勞動語境可理解的有效變體，建議人工確認 acceptable。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-high-risk-0129",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "move_to_public_regression_candidate",
+      "reason": "Codex 與 Gemini 分類一致；因 high-risk 或 Codex 中信心，仍交由 maintainer 確認。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-high-risk-0135",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "reason": "遠端問診與平臺字形在臺灣均可見，建議人工確認 acceptable。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-it-0278",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "codex_action": "keep_strict_private_signal",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "keep_strict_private_signal",
+      "reason": "指令碼、返回與退出碼混合不同慣例，先保留 strict signal，不以完整句過度擬合。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-it-0279",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "codex_action": "keep_strict_private_signal",
+      "gemini_action": "add_zhtw_output_as_acceptable_variant",
+      "recommended_action": "keep_strict_private_signal",
+      "reason": "資料庫遷移與備份恢復用語有術語邊界，保留 strict signal。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-it-0286",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_action": "add_zhtw_output_as_acceptable_variant",
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "reason": "Codex 與 Gemini 分類一致；因 high-risk 或 Codex 中信心，仍交由 maintainer 確認。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-it-0288",
+      "domain": "it",
+      "risk": "baseline_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_action": "keep_strict_private_signal",
+      "recommended_action": "move_to_public_regression_candidate",
+      "reason": "實際輸出語法不成立，屬明確可公開重現錯誤。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-it-0291",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_action": "add_zhtw_output_as_acceptable_variant",
+      "recommended_action": "move_to_public_regression_candidate",
+      "reason": "校驗值不是優先臺灣用語，應公開修正為雜湊值／檢查碼語境。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-it-0294",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "codex_action": "keep_strict_private_signal",
+      "gemini_action": "keep_strict_private_signal",
+      "recommended_action": "keep_strict_private_signal",
+      "reason": "Codex 與 Gemini 分類一致；因 high-risk 或 Codex 中信心，仍交由 maintainer 確認。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-it-0297",
+      "domain": "it",
+      "risk": "candidate_gap",
+      "codex_action": "keep_strict_private_signal",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "move_to_public_regression_candidate",
+      "reason": "會話是明確區域詞差異，可形成公開 regression。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-ui-0227",
+      "domain": "ui",
+      "risk": "candidate_gap",
+      "codex_action": "keep_strict_private_signal",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "keep_strict_private_signal",
+      "reason": "原文問題與錯誤欄位的指涉需語境推論，保留 strict signal。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-ui-0230",
+      "domain": "ui",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_action": "keep_strict_private_signal",
+      "recommended_action": "move_to_public_regression_candidate",
+      "reason": "選中不是優先臺灣 UI 用語，應公開修正為選取。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-social-0186",
+      "domain": "social",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "reason": "文件發給你是臺灣日常可成立的表達，建議人工確認 acceptable。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-llm-0165",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "reason": "錯誤資訊在此語境可解作 error information，建議人工確認 acceptable。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-llm-0166",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "codex_action": "keep_strict_private_signal",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "move_to_public_regression_candidate",
+      "reason": "透過靜態檢查改變了通過檢查的語義，屬明確公開候選。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-llm-0175",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "codex_action": "keep_strict_private_signal",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "keep_strict_private_signal",
+      "reason": "識別符號與識別碼有術語邊界，保留 strict signal。",
+      "maintainer_decision": null
+    },
+    {
+      "id": "blind-llm-0177",
+      "domain": "llm",
+      "risk": "over_conversion_guard",
+      "codex_action": "keep_strict_private_signal",
+      "gemini_action": "move_to_public_regression_candidate",
+      "recommended_action": "keep_strict_private_signal",
+      "reason": "回傳／返回屬風格與區域慣例邊界，保留 strict signal。",
+      "maintainer_decision": null
+    }
+  ],
+  "no_immediate_question_case_ids": [
+    "blind-formal-0179",
+    "blind-formal-0188",
+    "blind-it-0280",
+    "blind-it-0282",
+    "blind-it-0292",
+    "blind-ui-0225",
+    "blind-ui-0226",
+    "blind-ui-0229",
+    "blind-ui-0234",
+    "blind-ui-0235",
+    "blind-ui-0236",
+    "blind-social-0184",
+    "blind-social-0191",
+    "blind-llm-0173",
+    "blind-llm-0176"
+  ]
+}

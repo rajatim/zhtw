@@ -1,0 +1,57 @@
+{
+  "session_id": "694d6158-748a-4385-b74d-ce325c6f1173",
+  "response": "```json\n{\n  \"cases\": [\n    {\n      \"id\": \"blind-ui-0208\",\n      \"gemini_expected\": \"篩選面板收合後仍應保留已選條件。\",\n      \"acceptable\": [\n        \"篩選面板摺疊後仍應保留已選條件。\",\n        \"篩選面板收起後仍應保留已選條件。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「收合」在臺灣UI語境中很自然，但「摺疊」、「收起」也常用。\"\n    },\n    {\n      \"id\": \"blind-ui-0209\",\n      \"gemini_expected\": \"拖放失敗時要顯示可重試的錯誤提示。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"\"\n    },\n    {\n      \"id\": \"blind-ui-0210\",\n      \"gemini_expected\": \"表格凍結欄不應遮住水平捲軸。\",\n      \"acceptable\": [\n        \"表格凍結列不應遮住水平捲動條。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"表格的 column 慣稱「欄」；scrollbar 慣稱「捲軸」。\"\n    },\n    {\n      \"id\": \"blind-ui-0211\",\n      \"gemini_expected\": \"日期選擇器應依使用者時區顯示月份。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"\"\n    },\n    {\n      \"id\": \"blind-ui-0212\",\n      \"gemini_expected\": \"批次操作完成後要更新選中項目數量。\",\n      \"acceptable\": [\n        \"批次操作完成後要更新所選項目數量。\",\n        \"大量操作完成後要更新選取項目數量。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「批量」對應「批次」；「选中」對應「選中」或「所選」。\"\n    },\n    {\n      \"id\": \"blind-ui-0213\",\n      \"gemini_expected\": \"空白狀態應提供建立第一個項目的入口。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"\"\n    },\n    {\n      \"id\": \"blind-ui-0214\",\n      \"gemini_expected\": \"按鈕文字 Save draft 必須保持英文。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"\"\n    },\n    {\n      \"id\": \"blind-ui-0215\",\n      \"gemini_expected\": \"預留位置 {team_name} 不得改寫。\",\n      \"acceptable\": [\n        \"版面配置區 {team_name} 不得改寫。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"Placeholder 慣稱「預留位置」。\"\n    },\n    {\n      \"id\": \"blind-ui-0216\",\n      \"gemini_expected\": \"分頁標籤中的 Beta 字樣維持原樣。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"\"\n    },\n    {\n      \"id\": \"blind-ui-0217\",\n      \"gemini_expected\": \"圖表圖例只顯示系列名稱，不顯示數值。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"\"\n    },\n    {\n      \"id\": \"blind-ui-0218\",\n      \"gemini_expected\": \"開啟後，開關右側顯示綠色圓點。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"\"\n    },\n    {\n      \"id\": \"blind-ui-0219\",\n      \"gemini_expected\": \"上傳區後方的說明文字不屬於按鈕。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"\"\n    },\n    {\n      \"id\": \"blind-ui-0220\",\n      \"gemini_expected\": \"側邊欄已固定在畫面左側。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"\"\n    },\n    {\n      \"id\": \"blind-ui-0221\",\n      \"gemini_expected\": \"對話方塊關閉後焦點回到原按鈕。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"Dialog box 慣稱「對話方塊」。\"\n    },\n    {\n      \"id\": \"blind-ui-0222\",\n      \"gemini_expected\": \"使用者可以調整字型大小。\",\n      \"acceptable\": [\n        \"使用者可以調整字體大小。\"\n      ],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"Input 已是臺灣慣用詞「字型」，僅需轉簡體字。Font size 也常稱「字體大小」。\"\n    }\n  ]\n}\n```",
+  "stats": {
+    "models": {
+      "gemini-2.5-pro": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 28636
+        },
+        "tokens": {
+          "input": 10762,
+          "prompt": 10762,
+          "candidates": 1450,
+          "total": 15343,
+          "cached": 0,
+          "thoughts": 3131,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 28636,
+            "tokens": {
+              "input": 10762,
+              "prompt": 10762,
+              "candidates": 1450,
+              "total": 15343,
+              "cached": 0,
+              "thoughts": 3131,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

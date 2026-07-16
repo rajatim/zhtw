@@ -1,0 +1,66 @@
+{
+  "report_type": "holdout_sealed_pool_update",
+  "dataset": "blind-v1",
+  "batch": "batch4_recheck",
+  "generated_date": "2026-07-09",
+  "public_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "source_recheck_report": "docs/reports/holdout-requires-expected-recheck-blind-v1-261-cases-2026-07-09.json",
+  "source_final_decision": "docs/reports/holdout-maintainer-final-decision-requires-expected-recheck-blind-v1-261-cases-2026-07-09.json",
+  "private_expected_updated": true,
+  "expected_values_included": false,
+  "actual_outputs_included": false,
+  "inputs_included": false,
+  "summary": {
+    "original_input_cases": 261,
+    "removed_to_public_regression_candidates": 5,
+    "remaining_sealed_input_cases": 256,
+    "old_stats": {
+      "total_collected": 261,
+      "by_domain": {
+        "formal": 41,
+        "high_risk": 28,
+        "it": 53,
+        "llm": 43,
+        "social": 44,
+        "ui": 52
+      },
+      "by_risk": {
+        "baseline_guard": 40,
+        "candidate_gap": 154,
+        "over_conversion_guard": 67
+      }
+    },
+    "removed_by_domain": {
+      "high_risk": 2,
+      "it": 3
+    },
+    "removed_by_risk": {
+      "baseline_guard": 1,
+      "over_conversion_guard": 4
+    },
+    "remaining_by_domain": {
+      "formal": 41,
+      "high_risk": 26,
+      "it": 50,
+      "llm": 43,
+      "social": 44,
+      "ui": 52
+    },
+    "remaining_by_risk": {
+      "baseline_guard": 39,
+      "candidate_gap": 154,
+      "over_conversion_guard": 63
+    },
+    "source_inputs_sha256_before": "73271664808815701082fa13722ff94d487d94e2172c0305cfba551b5ec7c6da",
+    "source_inputs_sha256": "d85addc2af189991924ff82968dcb38fce39528130042a0412a11a674bc83d82",
+    "private_expected_sha256_before": "1f82eed5f2cf530f5e1e55d326cb09384fff1942f0084764833b0ca54fc5c828",
+    "private_expected_sha256": "402dfbc3d7915b1488a2bc843ba2161e7451bf1a9c6b790fcab69430c2fd2085"
+  },
+  "removed_case_ids": [
+    "blind-it-0080",
+    "blind-it-0082",
+    "blind-it-0084",
+    "blind-high-risk-0028",
+    "blind-high-risk-0030"
+  ]
+}

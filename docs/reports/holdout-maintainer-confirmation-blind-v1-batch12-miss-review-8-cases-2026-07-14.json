@@ -1,0 +1,109 @@
+{
+  "generated_date": "2026-07-14",
+  "dataset": "blind-v1",
+  "report_type": "holdout_maintainer_confirmation_packet",
+  "review_stage": "maintainer_confirmation_packet",
+  "scope": "batch12_miss_review_8_cases",
+  "ground_truth": false,
+  "promotion_allowed": false,
+  "source_difference_review": "docs/reports/holdout-codex-gemini-miss-review-diff-blind-v1-batch12-15-cases-2026-07-14.json",
+  "summary": {
+    "review_cases": 6,
+    "recommended_acceptable_variants": 6,
+    "recommended_public_regression_candidates": 0,
+    "already_resolved_by_ai_agreement": 7,
+    "already_resolved_by_maintainer": 2,
+    "current_total_recommended_acceptable_variants": 7,
+    "current_total_recommended_public_regression_candidates": 8,
+    "promotion_allowed": false
+  },
+  "policy": {
+    "private_expected_not_modified": true,
+    "sealed_pool_not_modified": true,
+    "dictionary_not_modified": true,
+    "maintainer_confirmation_required": true,
+    "codex_and_gemini_are_advisory_only": true
+  },
+  "cases": [
+    {
+      "id": "blind-high-risk-0103",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "臺灣保險法規角色名稱是有效領域同義詞，建議接受。"
+    },
+    {
+      "id": "blind-high-risk-0105",
+      "domain": "high_risk",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "勞動者／勞工與身分／身份均未改變法律禁止事項的語義。"
+    },
+    {
+      "id": "blind-social-0172",
+      "domain": "social",
+      "risk": "baseline_guard",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "行動付款與行動支付在此消費語境語義等價。"
+    },
+    {
+      "id": "blind-it-0271",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_explicitly_listed_zhtw_output": true,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "Gemini 明確把實際輸出用語列為 acceptable，改列有效變體。"
+    },
+    {
+      "id": "blind-it-0274",
+      "domain": "it",
+      "risk": "over_conversion_guard",
+      "codex_action": "move_to_public_regression_candidate",
+      "gemini_explicitly_listed_zhtw_output": true,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "Gemini 明確把實際輸出用語列為 acceptable，改列有效變體。"
+    },
+    {
+      "id": "blind-llm-0156",
+      "domain": "llm",
+      "risk": "candidate_gap",
+      "codex_action": "add_zhtw_output_as_acceptable_variant",
+      "gemini_explicitly_listed_zhtw_output": false,
+      "recommended_action": "add_zhtw_output_as_acceptable_variant",
+      "sealed_values_omitted": true,
+      "promotion_allowed": false,
+      "recommendation_reason": "臺灣技術文件對 script 有多個譯法，實際輸出語義完整。"
+    }
+  ],
+  "no_immediate_question_case_ids": [
+    "blind-high-risk-0117",
+    "blind-social-0165",
+    "blind-it-0268",
+    "blind-it-0269",
+    "blind-ui-0210",
+    "blind-llm-0158",
+    "blind-llm-0162"
+  ],
+  "maintainer_resolved_case_ids": [
+    "blind-formal-0154",
+    "blind-formal-0158"
+  ],
+  "source_maintainer_partial_decision": "docs/reports/holdout-maintainer-partial-decision-blind-v1-batch12-miss-review-2026-07-14.json"
+}

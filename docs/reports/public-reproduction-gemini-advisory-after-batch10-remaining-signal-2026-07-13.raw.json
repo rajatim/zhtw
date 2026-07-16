@@ -1,0 +1,285 @@
+{
+  "reviewer": "gemini_cli",
+  "model": "gemini-2.5-pro",
+  "cases": [
+    {
+      "id": "public-repro-20260713-formal-0001",
+      "gemini_expected": "請在公告發布前確認所有附件名稱與頁面標題一致。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "標準用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-formal-0002",
+      "gemini_expected": "請將會議記錄歸檔，並通知各部門負責人確認版本。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "標準用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-formal-0003",
+      "gemini_expected": "申請表送出後，承辦單位會在三個工作日內回覆。",
+      "acceptable": [
+        "申請表送出後，承辦單位會在三個工作天內回覆。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「工作日」在台灣通用，但「工作天」也常用，列為可接受選項。"
+    },
+    {
+      "id": "public-repro-20260713-formal-0004",
+      "gemini_expected": "採購公告應列明交貨地點、驗收標準與聯絡窗口。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "標準用詞，直接轉換。「聯繫窗口」轉為「聯絡窗口」更符合台灣習慣。"
+    },
+    {
+      "id": "public-repro-20260713-formal-0005",
+      "gemini_expected": "本次修正條文將於核定後另行公告實施日期。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "標準用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-formal-0006",
+      "gemini_expected": "請依照作業說明填寫編號，並保留紙本簽收紀錄。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "標準用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0001",
+      "gemini_expected": "醫師評估後建議病人持續監測血壓並記錄用藥時間。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "醫療用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0002",
+      "gemini_expected": "藥袋上應標示每日劑量、服用方式與注意事項。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "醫療用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0003",
+      "gemini_expected": "保險理賠文件需要附上診斷證明與收據正本。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "金融保險用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0004",
+      "gemini_expected": "銀行審核大額轉帳時，會要求客戶補充資金來源說明。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "金融用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0005",
+      "gemini_expected": "法院通知當事人攜帶身分證明文件出庭說明。",
+      "acceptable": [
+        "法院通知當事人攜帶身份證明文件出庭說明。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "法律用語，台灣慣用「身分」，但「身份」亦可接受。"
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0006",
+      "gemini_expected": "稅務資料若有遺漏，應在期限內補正並保存憑證。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "稅務法律用語，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0007",
+      "gemini_expected": "工地主管應確認安全帽、護目鏡與警示標誌齊備。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "工安用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-high-risk-0008",
+      "gemini_expected": "個人資料同意書應說明使用目的、保存期間與撤回方式。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "個資法用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-it-0001",
+      "gemini_expected": "API 回應包含分頁資訊、錯誤代碼與請求識別碼。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "IT用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-it-0002",
+      "gemini_expected": "伺服器更新 TLS 憑證後，請重新啟動反向代理服務。",
+      "acceptable": [
+        "伺服器更新 TLS 證書後，請重新啟動反向代理服務。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「伺服器」為台灣慣用詞。「憑證」比「證書」在IT領域更常用，但後者也可接受。"
+    },
+    {
+      "id": "public-repro-20260713-it-0003",
+      "gemini_expected": "快取失效後，前端頁面會重新讀取設定檔內容。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「快取」為台灣IT慣用詞。"
+    },
+    {
+      "id": "public-repro-20260713-llm-0001",
+      "gemini_expected": "提示模板會插入使用者問題、系統規則與輸出格式。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "LLM用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-llm-0002",
+      "gemini_expected": "模型回覆前會先讀取上下文、工具結果與安全規則。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "輸入包含簡體字「读取」、「结果」、「与」、「规则」和「会」，已轉換為台灣慣用繁體。"
+    },
+    {
+      "id": "public-repro-20260713-llm-0003",
+      "gemini_expected": "工具呼叫失敗時，代理會回傳錯誤摘要並停止後續步驟。",
+      "acceptable": [
+        "工具調用失敗時，代理會回傳錯誤摘要並停止後續步驟。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "IT領域「呼叫」(call)比「調用」更常用，但後者也可接受。"
+    },
+    {
+      "id": "public-repro-20260713-llm-0004",
+      "gemini_expected": "長對話超過 token 預算後，系統會壓縮較早的訊息。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "LLM用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-social-0001",
+      "gemini_expected": "朋友在群組聊天室分享照片，並提醒大家週末見面。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "日常用語，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-social-0002",
+      "gemini_expected": "貼文設為僅好友可見後，搜尋結果不會顯示內容預覽。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "社群用語，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-social-0003",
+      "gemini_expected": "短影片下方的評論很快增加，創作者決定關閉通知。",
+      "acceptable": [
+        "短影音下方的留言很快增加，創作者決定關閉通知。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「短影片」/「短影音」、「評論」/「留言」在台灣均常用，「評論」較正式，「留言」較口語。"
+    },
+    {
+      "id": "public-repro-20260713-social-0004",
+      "gemini_expected": "暱稱變更後，舊連結仍會導向同一個個人頁面。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "社群用語，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-social-0005",
+      "gemini_expected": "直播開始前，主持人先確認麥克風和聊天室狀態。",
+      "acceptable": [
+        "直播開始前，主持人先確認麥克風與聊天室狀態。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "「和」與「與」在此處均可使用。"
+    },
+    {
+      "id": "public-repro-20260713-social-0006",
+      "gemini_expected": "活動邀請送出後，參與者可以修改人數與飲食偏好。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "日常用語，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-ui-0001",
+      "gemini_expected": "點擊儲存按鈕後，頁面右上角會顯示成功提示。",
+      "acceptable": [
+        "按下儲存按鈕後，頁面右上角會顯示成功提示。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "UI用詞，「儲存」為台灣慣用詞。「點擊」和「按下」均可。"
+    },
+    {
+      "id": "public-repro-20260713-ui-0002",
+      "gemini_expected": "下拉式選單展開時，目前選項會以藍色邊框標示。",
+      "acceptable": [
+        "下拉選單展開時，當前選項會以藍色邊框標示。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "UI用詞，「下拉式選單」和「目前選項」更符合台灣習慣，但「下拉選單」和「當前選項」也通。"
+    },
+    {
+      "id": "public-repro-20260713-ui-0003",
+      "gemini_expected": "分頁列出二十筆資料，並在底部顯示總頁數。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "UI用詞，直接轉換。"
+    },
+    {
+      "id": "public-repro-20260713-ui-0004",
+      "gemini_expected": "確認對話方塊關閉後，焦點應回到原本的輸入框。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "UI用詞，「對話方塊」為台灣慣用詞。"
+    },
+    {
+      "id": "public-repro-20260713-ui-0005",
+      "gemini_expected": "側邊欄篩選條件重置後，表格資料應立即重新整理。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "rationale": "UI用詞，直接轉換。"
+    }
+  ],
+  "summary": {
+    "total_cases": 32,
+    "high_confidence": 32,
+    "medium_confidence": 0,
+    "low_confidence": 0,
+    "review_needed": 0
+  }
+}

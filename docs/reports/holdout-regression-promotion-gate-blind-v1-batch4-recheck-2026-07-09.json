@@ -1,0 +1,90 @@
+{
+  "report_type": "holdout_regression_promotion_gate",
+  "batch": "batch4_recheck",
+  "generated_date": "2026-07-09",
+  "source_candidates": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
+  "source_sealed_pool_update": "docs/reports/holdout-sealed-pool-update-blind-v1-batch4-recheck-2026-07-09.json",
+  "summary": {
+    "checked": 5,
+    "promotion_ready": 5,
+    "needs_zhtw_fix": 0,
+    "convert_matches": 5,
+    "convert_mismatches": 0,
+    "expected_idempotent": 5,
+    "expected_not_idempotent": 0,
+    "output_idempotent": 5,
+    "output_not_idempotent": 0
+  },
+  "cases": [
+    {
+      "id": "blind-it-0080",
+      "domain": "it",
+      "input": "请保留 README 里的台湾示例路径。",
+      "expected": "請保留 README 裡的台灣範例路徑。",
+      "actual": "請保留 README 裡的台灣範例路徑。",
+      "status": "promotion_ready",
+      "convert_matches": true,
+      "expected_idempotent": true,
+      "output_idempotent": true,
+      "expected_after_convert": "請保留 README 裡的台灣範例路徑。",
+      "output_after_convert": "請保留 README 裡的台灣範例路徑。",
+      "promoted_id": "holdout/blind-it-0080"
+    },
+    {
+      "id": "blind-it-0082",
+      "domain": "it",
+      "input": "项目代号 TaipeiBridge 必须维持原样。",
+      "expected": "專案代號 TaipeiBridge 必須維持原樣。",
+      "actual": "專案代號 TaipeiBridge 必須維持原樣。",
+      "status": "promotion_ready",
+      "convert_matches": true,
+      "expected_idempotent": true,
+      "output_idempotent": true,
+      "expected_after_convert": "專案代號 TaipeiBridge 必須維持原樣。",
+      "output_after_convert": "專案代號 TaipeiBridge 必須維持原樣。",
+      "promoted_id": "holdout/blind-it-0082"
+    },
+    {
+      "id": "blind-it-0084",
+      "domain": "it",
+      "input": "请不要改写已经本地化的按钮标签。",
+      "expected": "請不要改寫已經在地化的按鈕標籤。",
+      "actual": "請不要改寫已經在地化的按鈕標籤。",
+      "status": "promotion_ready",
+      "convert_matches": true,
+      "expected_idempotent": true,
+      "output_idempotent": true,
+      "expected_after_convert": "請不要改寫已經在地化的按鈕標籤。",
+      "output_after_convert": "請不要改寫已經在地化的按鈕標籤。",
+      "promoted_id": "holdout/blind-it-0084"
+    },
+    {
+      "id": "blind-high-risk-0028",
+      "domain": "high_risk",
+      "input": "汇款备注中的 Taichung Branch 不需翻译。",
+      "expected": "匯款備註中的 Taichung Branch 不需翻譯。",
+      "actual": "匯款備註中的 Taichung Branch 不需翻譯。",
+      "status": "promotion_ready",
+      "convert_matches": true,
+      "expected_idempotent": true,
+      "output_idempotent": true,
+      "expected_after_convert": "匯款備註中的 Taichung Branch 不需翻譯。",
+      "output_after_convert": "匯款備註中的 Taichung Branch 不需翻譯。",
+      "promoted_id": "holdout/blind-high-risk-0028"
+    },
+    {
+      "id": "blind-high-risk-0030",
+      "domain": "high_risk",
+      "input": "电子病历存取应留下完整审计记录。",
+      "expected": "電子病歷存取應留下完整稽核紀錄。",
+      "actual": "電子病歷存取應留下完整稽核紀錄。",
+      "status": "promotion_ready",
+      "convert_matches": true,
+      "expected_idempotent": true,
+      "output_idempotent": true,
+      "expected_after_convert": "電子病歷存取應留下完整稽核紀錄。",
+      "output_after_convert": "電子病歷存取應留下完整稽核紀錄。",
+      "promoted_id": "holdout/blind-high-risk-0030"
+    }
+  ]
+}

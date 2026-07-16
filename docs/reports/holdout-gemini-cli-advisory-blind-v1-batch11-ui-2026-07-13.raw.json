@@ -1,0 +1,227 @@
+{
+  "model_observed": "gemini-2.5-pro",
+  "cases": [
+    {
+      "id": "blind-ui-0188",
+      "gemini_expected": "設定頁面會顯示目前帳號的安全等級。",
+      "acceptable": [
+        "設定頁面會顯示當前帳號的安全等級。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「設置」、「帳號」為大陸用語，轉換為台灣常用詞「設定」、「帳號」。「當前」轉換為更自然的「目前」。"
+    },
+    {
+      "id": "blind-ui-0189",
+      "gemini_expected": "搜尋框取得焦點後會顯示最近查詢。",
+      "acceptable": [
+        "搜尋框在取得焦點後會顯示最近的查詢紀錄。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「搜索框」轉換為台灣常用詞「搜尋框」。「获得焦点」在台灣UI較少見，但「取得焦點」是可接受的技術用語。"
+    },
+    {
+      "id": "blind-ui-0190",
+      "gemini_expected": "下拉式選單關閉時，應保留使用者剛選擇的項目。",
+      "acceptable": [
+        "下拉選單關閉時，應保留用戶剛選擇的項目。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「菜单」轉換為「選單」，「用户」轉換為台灣UI更常用的「使用者」。"
+    },
+    {
+      "id": "blind-ui-0191",
+      "gemini_expected": "上傳按鈕停用時應顯示原因說明。",
+      "acceptable": [
+        "上傳按鈕被禁用時，應顯示原因說明。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「禁用」在台灣UI多用「停用」替代。"
+    },
+    {
+      "id": "blind-ui-0192",
+      "gemini_expected": "表格篩選器會記住上次套用的條件。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "僅作繁化，「筛选器」為大陸用語，但「篩選器」在台灣已廣泛通用。"
+    },
+    {
+      "id": "blind-ui-0193",
+      "gemini_expected": "日期選擇器開啟後，焦點應停在今天。",
+      "acceptable": [
+        "日期選擇器打開後，焦點應停在今天。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「打开」轉換為台灣軟體介面更常用的「開啟」。"
+    },
+    {
+      "id": "blind-ui-0194",
+      "gemini_expected": "成功提示消失前，使用者可以手動關閉。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入文字符合台灣用語習慣，僅需繁化。"
+    },
+    {
+      "id": "blind-ui-0195",
+      "gemini_expected": "側邊欄展開狀態會同步到本機儲存。",
+      "acceptable": [
+        "側邊欄的展開狀態會同步至本機儲存空間。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「侧边栏」轉換為「側邊欄」，「本机储存」直譯可，但「本機儲存空間」更完整。"
+    },
+    {
+      "id": "blind-ui-0196",
+      "gemini_expected": "確認對話方塊應說明刪除後無法復原。",
+      "acceptable": [
+        "確認對話框應說明刪除後無法復原。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「对话框」依台灣微軟官方術語應為「對話方塊」，但「對話框」也普遍被接受。"
+    },
+    {
+      "id": "blind-ui-0197",
+      "gemini_expected": "語言切換器會依瀏覽器偏好設定排序。",
+      "acceptable": [
+        "語言切換器會依瀏覽器偏好排序。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "ambiguity"
+      ],
+      "rationale": "「偏好」可理解，但「偏好設定」更精確傳達 browser preference setting 的意思，建議使用後者。"
+    },
+    {
+      "id": "blind-ui-0198",
+      "gemini_expected": "分頁按鈕在最後一頁時應停用。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "輸入文字符合台灣用語習慣，僅需繁化。"
+    },
+    {
+      "id": "blind-ui-0199",
+      "gemini_expected": "空白狀態插圖下方應顯示重新載入按鈕。",
+      "acceptable": [
+        "空狀態插圖下方應顯示重新載入按鈕。"
+      ],
+      "confidence": "medium",
+      "review_needed": true,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "「空状态」在台灣UI不常用，「空白狀態」或「無資料時」較常見，建議使用「空白狀態」。"
+    },
+    {
+      "id": "blind-ui-0200",
+      "gemini_expected": "標題文字已經是繁體，請不要再次改寫。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "idempotency"
+      ],
+      "rationale": "此為 idempotency 測試，應正確繁化，不應更動內容。"
+    },
+    {
+      "id": "blind-ui-0201",
+      "gemini_expected": "輸入框 placeholder 不應覆蓋使用者輸入。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_code"
+      ],
+      "rationale": "保留技術術語 `placeholder` 不進行翻譯，符合「寧可少轉，不要錯轉」原則。"
+    },
+    {
+      "id": "blind-ui-0202",
+      "gemini_expected": "表單送出後會返回列表頁。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「表单」在台灣對應「表單」，「列表页」對應「列表頁」，其餘通用。"
+    },
+    {
+      "id": "blind-ui-0203",
+      "gemini_expected": "按鈕標籤「取消」已經通過台灣審核。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準繁化，詞彙在兩岸間通用。"
+    },
+    {
+      "id": "blind-ui-0204",
+      "gemini_expected": "請保留 i18n key：settings.saveButton。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "preserve_code"
+      ],
+      "rationale": "保留 i18n key 不做任何翻譯，以確保程式功能正常。"
+    },
+    {
+      "id": "blind-ui-0205",
+      "gemini_expected": "這個工具列圖示不需要翻譯。",
+      "acceptable": [
+        "這個工具列圖標不需要翻譯。"
+      ],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [
+        "regional_term"
+      ],
+      "rationale": "台灣軟體界普遍使用「圖示」而非「圖標」。"
+    },
+    {
+      "id": "blind-ui-0206",
+      "gemini_expected": "已選項目數量會顯示在列表上方。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "標準繁化，詞彙在兩岸間通用。"
+    },
+    {
+      "id": "blind-ui-0207",
+      "gemini_expected": "彈出視窗關閉後不應清除草稿。",
+      "acceptable": [],
+      "confidence": "high",
+      "review_needed": false,
+      "issue_tags": [],
+      "rationale": "「弹出视窗」在台灣對應「彈出視窗」，其餘詞彙通用，僅作繁化。"
+    }
+  ]
+}

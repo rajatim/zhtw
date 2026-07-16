@@ -1,0 +1,49 @@
+{
+  "report_type": "holdout_private_benchmark_sanity",
+  "dataset": "blind-v1",
+  "generated_date": "2026-07-13",
+  "review_stage": "after_batch10_miss_review",
+  "source_inputs": "benchmarks/accuracy/blind-v1.inputs.json",
+  "source_expected": "benchmarks/accuracy/blind-v1.expected.json",
+  "source_final_decision": "docs/reports/holdout-maintainer-final-decision-batch10-miss-classification-blind-v1-2026-07-13.json",
+  "full_private_rows": "/tmp/zhtw-blind-v1-private-benchmark-after-batch10-miss-review-2026-07-13.json",
+  "expected_values_included": false,
+  "acceptable_values_included": false,
+  "inputs_included": false,
+  "outputs_included": false,
+  "benchmark_rows_included": false,
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": false,
+    "aggregate_statistics_only": true
+  },
+  "summary": {
+    "case_count": 751,
+    "accepted": 719,
+    "misses": 32,
+    "accepted_accuracy": 0.9573901464713716,
+    "primary_exact": 552,
+    "acceptable_exact": 167,
+    "idempotent_outputs": 739,
+    "non_idempotent_outputs": 12,
+    "idempotency_rate": 0.9840213049267643,
+    "miss_by_risk": {
+      "baseline_guard": 1,
+      "candidate_gap": 2,
+      "over_conversion_guard": 29
+    },
+    "miss_by_domain": {
+      "formal": 6,
+      "high_risk": 8,
+      "it": 3,
+      "llm": 4,
+      "social": 6,
+      "ui": 5
+    },
+    "source_inputs_sha256": "e6d6e8a2d0b5f9fdffaee7cc7c467cab74210eed62db0202d287bceceb2d02bf",
+    "private_expected_sha256": "5c89d5037efcbc33c80dd86f35ccfd12102a709fe701820b9d318fa1f8fe49dc"
+  }
+}

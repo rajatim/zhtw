@@ -1,0 +1,57 @@
+{
+  "session_id": "7c3469d1-c5c3-4c34-9a51-bf755b8309dc",
+  "response": "```json\n{\n  \"cases\": [\n    {\n      \"id\": \"blind-it-0278\",\n      \"gemini_expected\": \"部署腳本應在失敗時傳回非零的結束代碼。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「腳本」、「傳回」、「結束代碼」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0279\",\n      \"gemini_expected\": \"資料庫遷移前必須建立可供還原的備份。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「資料庫」、「遷移」、「還原」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0280\",\n      \"gemini_expected\": \"服務帳號不得共用給個人使用。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「服務帳號」與「共用」為臺灣常用詞彙。\"\n    },\n    {\n      \"id\": \"blind-it-0281\",\n      \"gemini_expected\": \"日誌欄位 trace_id 應在各服務間保持一致。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「日誌」、「欄位」、「服務」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0282\",\n      \"gemini_expected\": \"程式碼審查通過後才能合併到主分支。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「程式碼」、「審查」、「合併」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0283\",\n      \"gemini_expected\": \"快取失效策略應寫入架構文件。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「快取」、「架構」、「文件」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0284\",\n      \"gemini_expected\": \"命令列參數 --dry-run 不得觸發實際寫入。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「命令列」、「參數」、「觸發」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0285\",\n      \"gemini_expected\": \"訊息佇列積壓時應先檢查消費者延遲。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「訊息」、「佇列」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0286\",\n      \"gemini_expected\": \"軟體包發布後不得覆蓋相同版本號。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"轉換為臺灣慣用術語及用字，如「軟體」、「發布」、「覆蓋」。\"\n    },\n    {\n      \"id\": \"blind-it-0287\",\n      \"gemini_expected\": \"介面傳回 429 時，客戶端應採用指數退避。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「介面」、「傳回」、「客戶端」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0288\",\n      \"gemini_expected\": \"容器健康狀況檢查不應依賴外部服務。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「健康狀況檢查」比「健康檢查」更精確，且「依賴」、「服務」為臺灣常用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0289\",\n      \"gemini_expected\": \"設定檔中的相對路徑以工作目錄為基準。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「設定檔」、「相對路徑」、「工作目錄」、「基準」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0290\",\n      \"gemini_expected\": \"測試替身僅用於隔離外部依賴。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「僅」比「只」更書面，其餘為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0291\",\n      \"gemini_expected\": \"建置產物應附上來源提交的校驗值。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「建置」、「產物」、「校驗值」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0292\",\n      \"gemini_expected\": \"遠端儲存庫位址變更後，須更新持續整合設定。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「遠端儲存庫」、「位址」、「持續整合」、「設定」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0293\",\n      \"gemini_expected\": \"執行緒池大小應根據實際負載調整。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「執行緒池」、「負載」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0294\",\n      \"gemini_expected\": \"事件處理器必須支援重複傳遞。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「處理器」、「支援」、「傳遞」為臺灣常用詞，其中「傳遞」比「投遞」更適合訊息情境。\"\n    },\n    {\n      \"id\": \"blind-it-0295\",\n      \"gemini_expected\": \"安全掃描報告應區分漏洞與誤報。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"詞彙及字元轉換符合臺灣使用習慣。\"\n    },\n    {\n      \"id\": \"blind-it-0296\",\n      \"gemini_expected\": \"開發環境預設關閉遙測資料上傳。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「開發」、「預設」、「遙測資料」為臺灣資訊領域慣用詞。\"\n    },\n    {\n      \"id\": \"blind-it-0297\",\n      \"gemini_expected\": \"使用者工作階段過期後，應清除本機快取。\",\n      \"acceptable\": [],\n      \"confidence\": \"high\",\n      \"review_needed\": false,\n      \"issue_tags\": [],\n      \"rationale\": \"「使用者」、「工作階段」、「本機快取」為臺灣資訊領域慣用詞。\"\n    }\n  ]\n}\n```",
+  "stats": {
+    "models": {
+      "gemini-2.5-pro": {
+        "api": {
+          "totalRequests": 1,
+          "totalErrors": 0,
+          "totalLatencyMs": 50233
+        },
+        "tokens": {
+          "input": 10739,
+          "prompt": 10739,
+          "candidates": 2016,
+          "total": 18244,
+          "cached": 0,
+          "thoughts": 5489,
+          "tool": 0
+        },
+        "roles": {
+          "main": {
+            "totalRequests": 1,
+            "totalErrors": 0,
+            "totalLatencyMs": 50233,
+            "tokens": {
+              "input": 10739,
+              "prompt": 10739,
+              "candidates": 2016,
+              "total": 18244,
+              "cached": 0,
+              "thoughts": 5489,
+              "tool": 0
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "totalCalls": 0,
+      "totalSuccess": 0,
+      "totalFail": 0,
+      "totalDurationMs": 0,
+      "totalDecisions": {
+        "accept": 0,
+        "reject": 0,
+        "modify": 0,
+        "auto_accept": 0
+      },
+      "byName": {}
+    },
+    "files": {
+      "totalLinesAdded": 0,
+      "totalLinesRemoved": 0
+    }
+  }
+}

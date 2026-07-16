@@ -1,0 +1,25 @@
+{
+  "generated_date": "2026-07-16",
+  "report_type": "accuracy_exact_sentence_mapping_audit",
+  "scope": "curated cn mappings ending with a full stop and paired target identities",
+  "method": "remove all exact-sentence source mappings in memory, then reconvert each source and target with only generalized rules",
+  "summary": {
+    "pairs_before": 373,
+    "source_mappings_redundant": 4,
+    "source_mappings_removed": 4,
+    "remaining_exact_sentence_guards": 369,
+    "removed_target_identities": 0,
+    "reason_identities_retained": "all four targets changed on a second conversion without their identity protection"
+  },
+  "removed_source_mappings": [
+    "市政府发布防灾公告。",
+    "用水限制措施将分区实施。",
+    "请检查命名空间是否存在。",
+    "绑定成功后会显示绿色勾号。"
+  ],
+  "interpretation": {
+    "counts_as_public_regression_protection": true,
+    "counts_as_fresh_blind_generalization": false,
+    "automatic_phrase_shortening_allowed": false
+  }
+}

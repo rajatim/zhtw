@@ -1,0 +1,46 @@
+{
+  "generated_date": "2026-07-09",
+  "dataset": "blind-v1",
+  "reviewer": "gemini_vertex",
+  "model": "gemini-2.5-flash",
+  "review_stage": "sanitized_requires_expected_recheck_policy_review",
+  "source_recheck_report": "docs/reports/holdout-requires-expected-recheck-blind-v1-261-cases-2026-07-09.json",
+  "sealed_values_seen": false,
+  "sealed_content_policy": {
+    "expected_values_included": false,
+    "acceptable_values_included": false,
+    "actual_outputs_included": false,
+    "inputs_included": false,
+    "benchmark_rows_included": false,
+    "gemini_received_sanitized_metadata_only": true
+  },
+  "summary": {
+    "total_cases": 16,
+    "policy_consistent": true,
+    "needs_codex_followup": 0
+  },
+  "findings": [],
+  "notes": "All cases are consistent with the policy or are marked as historically resolved, therefore no new policy findings require Codex followup.",
+  "raw_review_metadata": {
+    "raw_response_path": "/tmp/zhtw-holdout-gemini-policy-review-requires-expected-recheck-blind-v1-261-cases-2026-07-09-v2.raw.json"
+  },
+  "raw_response_usage_metadata": {
+    "promptTokenCount": 6136,
+    "candidatesTokenCount": 80,
+    "totalTokenCount": 9809,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 6136
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 80
+      }
+    ],
+    "thoughtsTokenCount": 3593
+  }
+}

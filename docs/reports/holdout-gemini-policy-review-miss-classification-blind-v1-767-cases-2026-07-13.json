@@ -1,0 +1,44 @@
+{
+  "generated_date": "2026-07-13",
+  "reviewer": "gemini_cli",
+  "model_requested": "gemini-2.5-flash",
+  "review_stage": "gemini_policy_review_batch10_miss_classification",
+  "source_classification_report": "docs/reports/holdout-miss-classification-blind-v1-767-cases-2026-07-13.json",
+  "sealed_content_policy": {
+    "inputs_included": false,
+    "expected_values_included": false,
+    "actual_values_included": false,
+    "acceptable_values_included": false,
+    "case_ids_and_metadata_only": true,
+    "sealed_values_seen_by_gemini": false
+  },
+  "policy_passed": true,
+  "summary": "The classification policy is exceptionally consistent, rigorous, and highly conservative. All over-conversion guard and high-risk cases are correctly preserved as private holdout signal. Public regression candidate promotions are limited to safe, non-high-risk technical/domain gaps and baseline guard misses, requiring explicit maintainer verification.",
+  "classification_changes_recommended": [],
+  "findings": [
+    {
+      "case_id": "all",
+      "severity": "info",
+      "finding": "Perfect structural consistency and policy compliance. Out of 52 total classified miss cases, all 29 over-conversion guards and 8 high-risk cases are correctly preserved under 'keep_as_holdout_signal'."
+    },
+    {
+      "case_id": "blind-llm-0123",
+      "severity": "info",
+      "finding": "Case is correctly routed to 'requires_expected_recheck' due to 'possible_acceptable_variant' flag and 'semantic_term_variant_recheck' reason, complying with policy requiring maintainer review before updates."
+    },
+    {
+      "case_id": "blind-it-0230",
+      "severity": "info",
+      "finding": "Non-idempotent candidate gap case is correctly routed to 'move_to_public_regression_candidate' for maintainer analysis and removal from holdout before tuning."
+    },
+    {
+      "case_id": "blind-ui-0147",
+      "severity": "info",
+      "finding": "Non-idempotent over-conversion guard case is correctly kept as private holdout signal, prioritizing security over functional tuning."
+    }
+  ],
+  "sealed_content_policy_confirmed": true,
+  "model_observed": [
+    "gemini-3.5-flash"
+  ]
+}
