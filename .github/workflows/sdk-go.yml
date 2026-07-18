@@ -2,11 +2,11 @@ name: SDK Go
 
 on:
   push:
+    branches: [main]
     paths: ['sdk/go/**', 'sdk/data/**', '.github/workflows/sdk-go.yml']
   pull_request:
+    branches: [main]
     paths: ['sdk/go/**', 'sdk/data/**', '.github/workflows/sdk-go.yml']
-  release:
-    types: [published]
 
 jobs:
   test:
@@ -21,6 +21,7 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go }}
+          cache: false
       - name: Verify embedded data in sync
         run: diff sdk/data/zhtw-data.json sdk/go/zhtw/zhtw-data.json
       - name: Test
@@ -36,7 +37,9 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: stable
+          cache: false
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v6
         with:
           working-directory: sdk/go
+          version: v1.64.8

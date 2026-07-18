@@ -1,8 +1,12 @@
 name: Go Binary Release
 
 on:
-  push:
-    tags: ['sdk/go/v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Immutable sdk/go/vX.Y.Z tag to publish'
+        required: true
+        type: string
 
 jobs:
   build:
@@ -19,12 +23,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ inputs.tag }}
       - uses: actions/setup-go@v5
         with:
           go-version: stable
       - name: Extract version
         id: version
-        run: echo "version=${GITHUB_REF_NAME#sdk/go/v}" >> "$GITHUB_OUTPUT"
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          [[ "$TAG" =~ ^sdk/go/v[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit 1
+          echo "version=${TAG#sdk/go/v}" >> "$GITHUB_OUTPUT"
       - name: Build
         working-directory: sdk/go
         env:
@@ -49,6 +58,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           sparse-checkout: LICENSE
+          ref: ${{ inputs.tag }}
       - uses: actions/download-artifact@v4
         with:
           merge-multiple: true
@@ -66,9 +76,10 @@ jobs:
       - name: Create release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ inputs.tag }}
         run: |
-          gh release create "${{ github.ref_name }}" \
+          gh release create "$TAG" \
             --repo "${{ github.repository }}" \
-            --title "Go CLI ${GITHUB_REF_NAME#sdk/go/}" \
+            --title "Go CLI ${TAG#sdk/go/}" \
             --generate-notes \
             *.tar.gz *.zip zhtw_checksums.txt

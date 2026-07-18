@@ -2,8 +2,10 @@ name: SDK .NET
 
 on:
   push:
+    branches: [main]
     paths: ['sdk/dotnet/**', 'sdk/data/**', '.github/workflows/sdk-dotnet.yml']
   pull_request:
+    branches: [main]
     paths: ['sdk/dotnet/**', 'sdk/data/**', '.github/workflows/sdk-dotnet.yml']
   workflow_dispatch:
     inputs:

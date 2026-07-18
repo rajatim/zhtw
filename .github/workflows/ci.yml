@@ -27,8 +27,8 @@ jobs:
       - name: Lint with ruff
         run: ruff check .
 
-      - name: Clone test corpus
-        run: git clone --depth 1 https://github.com/rajatim/zhtw-test-corpus tests/data/corpus
+      - name: Prepare pinned test corpus
+        run: make test-corpus-prepare
 
       - name: Run tests with coverage
         run: pytest --cov=zhtw --cov-report=xml

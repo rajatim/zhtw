@@ -2,9 +2,11 @@ name: SDK Java
 
 on:
   push:
-    paths: ['sdk/java/**', 'sdk/data/**']
+    branches: [main]
+    paths: ['sdk/java/**', 'sdk/data/**', '.github/workflows/sdk-java.yml']
   pull_request:
-    paths: ['sdk/java/**', 'sdk/data/**']
+    branches: [main]
+    paths: ['sdk/java/**', 'sdk/data/**', '.github/workflows/sdk-java.yml']
   workflow_dispatch:
     inputs:
       publish:

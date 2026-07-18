@@ -31,9 +31,17 @@ permissions:
 
 jobs:
   test-all:
+    if: github.event_name != 'release' || startsWith(github.event.release.tag_name, 'v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'release' && github.event.release.tag_name || github.sha }}
+      - name: Validate root release tag
+        if: github.event_name == 'release'
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: '[[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -55,18 +63,20 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: '1.21'
+          cache: false
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
       - name: Install Python dependencies
         run: uv sync --extra dev
-      - name: Verify exports and versions
-        run: make version-check export-check
-      - name: Run all SDK tests
-        run: make test-all
+      - name: Run release gate
+        run: make release-gate
 
   dispatch-publish:
-    if: github.event_name == 'release' && github.event.action == 'published'
+    if: >-
+      github.event_name == 'release' &&
+      github.event.action == 'published' &&
+      startsWith(github.event.release.tag_name, 'v')
     needs: test-all
     runs-on: ubuntu-latest
     steps:
@@ -80,3 +90,4 @@ jobs:
           gh workflow run sdk-typescript.yml --repo "$GITHUB_REPOSITORY" --ref "$TAG" -f publish=true
           gh workflow run sdk-rust.yml --repo "$GITHUB_REPOSITORY" --ref "$TAG" -f publish=true
           gh workflow run sdk-dotnet.yml --repo "$GITHUB_REPOSITORY" --ref "$TAG" -f publish=true
+          gh workflow run go-binary.yml --repo "$GITHUB_REPOSITORY" --ref "sdk/go/$TAG" -f tag="sdk/go/$TAG"

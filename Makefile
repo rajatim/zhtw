@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet version-check bump release help
+.PHONY: export export-check precision-benchmark accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -77,8 +77,10 @@ test-typescript: ## Run TypeScript SDK tests and type-check
 test-rust: ## Run Rust SDK and WASM host tests
 	cd sdk/rust && cargo test --workspace --release
 
-test-go: ## Run Go SDK tests
+test-go: ## Run Go SDK tests, vet, and lint
 	cd sdk/go && go test ./... -race
+	cd sdk/go && go vet ./...
+	cd sdk/go && go run github.com/golangci/golangci-lint/cmd/golangci-lint@v1.64.8 run
 
 test-dotnet: ## Run .NET SDK tests
 	cd sdk/dotnet && DOTNET_ROLL_FORWARD=Major dotnet test tests/Zhtw.Tests/Zhtw.Tests.csproj -c Release
@@ -86,6 +88,15 @@ test-dotnet: ## Run .NET SDK tests
 test-all: test-python test-java test-typescript test-rust test-go test-dotnet ## Run every SDK test suite
 
 test: test-all ## Run every SDK test suite
+
+test-corpus-prepare: ## Clone or verify the pinned public corpus
+	@bash scripts/prepare-test-corpus.sh
+
+release-gate: test-corpus-prepare ## Run the exact local/CI release gate
+	@$(MAKE) version-check export-check
+	uv run zhtw validate
+	uv run python scripts/audit_idempotency.py --sources cn,hk --curated-only --fail-on-issues
+	@$(MAKE) test-all
 
 # === Version management (mono-versioning) ===
 
@@ -189,7 +200,7 @@ ifndef VERSION
 endif
 	@DRY_RUN=1 bash scripts/release.sh $(VERSION)
 
-release-verify: ## 發布後驗證（workflows + 6 registry + Homebrew）: make release-verify VERSION=x.y.z
+release-verify: ## 發布後驗證（7 workflows + 7 registries + Homebrew）: make release-verify VERSION=x.y.z
 ifndef VERSION
 	$(error VERSION is required. Usage: make release-verify VERSION=4.0.0)
 endif

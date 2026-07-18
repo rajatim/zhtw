@@ -2,8 +2,10 @@ name: SDK Rust
 
 on:
   push:
+    branches: [main]
     paths: ['sdk/rust/**', 'sdk/data/**', '.github/workflows/sdk-rust.yml']
   pull_request:
+    branches: [main]
     paths: ['sdk/rust/**', 'sdk/data/**', '.github/workflows/sdk-rust.yml']
   workflow_dispatch:
     inputs:
