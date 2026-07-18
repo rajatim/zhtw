@@ -114,14 +114,6 @@ func (ac *ahoCorasick) iterEmissions(runes []rune) []acMatch {
 
 // ── Covered positions ───────────────────────────────────────────────────────
 
-// getCoveredPositions returns all rune indices covered by any raw AC hit,
-// including identity terms (source == target). Used to prevent char/balanced
-// layers from converting characters protected by term matches.
-func (ac *ahoCorasick) getCoveredPositions(runes []rune) map[int]bool {
-	_, covered := ac.scan(runes)
-	return covered
-}
-
 func coveredPositions(raw []acMatch) map[int]bool {
 	covered := make(map[int]bool)
 	for _, m := range raw {
