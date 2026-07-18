@@ -87,14 +87,8 @@ make export-check
 uv run zhtw validate
 uv run python scripts/audit_idempotency.py --sources cn,hk --curated-only --fail-on-issues
 ok "版本、SDK data、詞庫與 target idempotency 通過"
-make test-python
-ok "pytest 通過"
-if [ "$SKIP_JAVA" = "1" ]; then
-    echo "  ⚠️  SKIP_JAVA=1：跳過 Java 本地驗證（風險自負）"
-else
-    make test-java
-    ok "mvn verify 通過"
-fi
+make test-all
+ok "全部 SDK 測試通過"
 
 # ────────────────────────── 步驟 4：bump + CHANGELOG ──────────────────────────
 say "[4/7] 版本同步（mono-versioning，8 處 + README + export）"
@@ -121,7 +115,7 @@ fi
 # ────────────────────────── 閘門 5：人工同意 ──────────────────────────
 say "[5/7] 釋出確認（規則：沒有明確同意不可釋出）"
 echo "  將執行：commit → tag v$VERSION + sdk/go/v$VERSION → push → GitHub Release"
-echo "  Release 發布會自動觸發：PyPI、Maven Central、npm×2、crates.io、NuGet、Go binaries"
+echo "  Release 發布會先跑全 SDK gate，再分派：PyPI、Maven Central、npm×2、crates.io、NuGet"
 if [ "$DRY_RUN" = "1" ]; then
     echo "  [dry-run] 到此為止，未做任何變更 ✋"
     git status --short | head -5

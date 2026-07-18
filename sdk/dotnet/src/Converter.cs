@@ -25,8 +25,9 @@ namespace Zhtw
             if (string.IsNullOrEmpty(text)) return "";
 
             int[] codepoints = CodepointHelper.ToCodepoints(text);
-            var covered = _ac.GetCoveredPositions(text);
-            var hits = _ac.FindTermMatches(text);
+            var scan = _ac.Scan(text);
+            var covered = scan.Covered;
+            var hits = scan.Matches;
             bool layersEnabled = _charLayerEnabled || _balancedDefaults != null;
 
             if (hits.Count == 0)
@@ -69,8 +70,9 @@ namespace Zhtw
             if (string.IsNullOrEmpty(text)) return Array.Empty<Match>();
 
             int[] codepoints = CodepointHelper.ToCodepoints(text);
-            var covered = _ac.GetCoveredPositions(text);
-            var hits = _ac.FindTermMatches(text);
+            var scan = _ac.Scan(text);
+            var covered = scan.Covered;
+            var hits = scan.Matches;
 
             var matches = new List<Match>();
 
@@ -119,8 +121,9 @@ namespace Zhtw
                 return new LookupResult("", "", false, Array.Empty<ConversionDetail>());
 
             int[] codepoints = CodepointHelper.ToCodepoints(word);
-            var covered = _ac.GetCoveredPositions(word);
-            var hits = _ac.FindTermMatches(word);
+            var scan = _ac.Scan(word);
+            var covered = scan.Covered;
+            var hits = scan.Matches;
 
             var details = new List<ConversionDetail>();
 

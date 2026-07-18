@@ -122,7 +122,10 @@ export class AhoCorasickMatcher {
    * non-identity term wins.
    */
   findMatches(text: string): Utf16Match[] {
-    const raw = Array.from(this.iterEmissions(text));
+    return this.selectMatches(Array.from(this.iterEmissions(text)));
+  }
+
+  private selectMatches(raw: Utf16Match[]): Utf16Match[] {
     if (raw.length === 0) return [];
 
     // Sort by start ASC, then length DESC (longer match wins at same start).
@@ -194,13 +197,22 @@ export class AhoCorasickMatcher {
    * layer from converting characters protected by identity term matches.
    */
   getCoveredPositions(text: string): Set<number> {
+    return this.coveredPositions(Array.from(this.iterEmissions(text)));
+  }
+
+  private coveredPositions(raw: Utf16Match[]): Set<number> {
     const covered = new Set<number>();
-    for (const m of this.iterEmissions(text)) {
+    for (const m of raw) {
       for (let i = m.start; i < m.end; i++) {
         covered.add(i);
       }
     }
     return covered;
+  }
+
+  scan(text: string): { matches: Utf16Match[]; covered: Set<number> } {
+    const raw = Array.from(this.iterEmissions(text));
+    return { matches: this.selectMatches(raw), covered: this.coveredPositions(raw) };
   }
 
   replaceAll(text: string): string {

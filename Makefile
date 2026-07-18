@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-python test-java version-check bump release help
+.PHONY: export export-check precision-benchmark accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -71,7 +71,21 @@ test-python: ## Run Python tests
 test-java: ## Run Java SDK tests
 	cd sdk/java && mvn verify --batch-mode
 
-test: test-python test-java ## Run all tests (Python + Java SDK)
+test-typescript: ## Run TypeScript SDK tests and type-check
+	cd sdk/typescript && pnpm install --frozen-lockfile && pnpm exec tsc --noEmit && pnpm test && pnpm build
+
+test-rust: ## Run Rust SDK and WASM host tests
+	cd sdk/rust && cargo test --workspace --release
+
+test-go: ## Run Go SDK tests
+	cd sdk/go && go test ./... -race
+
+test-dotnet: ## Run .NET SDK tests
+	cd sdk/dotnet && DOTNET_ROLL_FORWARD=Major dotnet test tests/Zhtw.Tests/Zhtw.Tests.csproj -c Release
+
+test-all: test-python test-java test-typescript test-rust test-go test-dotnet ## Run every SDK test suite
+
+test: test-all ## Run every SDK test suite
 
 # === Version management (mono-versioning) ===
 

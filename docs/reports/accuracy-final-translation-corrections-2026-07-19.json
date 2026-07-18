@@ -1,0 +1,62 @@
+{
+  "generated_date": "2026-07-19",
+  "report_type": "accuracy_final_translation_corrections",
+  "review_stage": "maintainer_adjudication_after_codex_full_audit_and_gemini_independent_review",
+  "maintainer": "tim",
+  "decision": "review_ok",
+  "approval_policy": "single_human_with_ai_advisory_and_authoritative_sources",
+  "source_audit": "docs/reports/accuracy-final-translation-audit-2026-07-19.md",
+  "summary": {
+    "reviewed_regression_cases": 1251,
+    "reviewed_holdout_candidates": 219,
+    "reviewed_acceptable_variants": 132,
+    "reviewed_changed_mappings": 899,
+    "corrected_regression_expected": 13,
+    "removed_acceptable_variants": 29,
+    "affected_acceptable_cases": 25,
+    "identity_guards_added": 2,
+    "explicit_term_corrections_added": 1,
+    "historical_ai_drafts_rewritten": false
+  },
+  "verification": {
+    "focused_accuracy_tests_passed": 2659,
+    "full_python_tests_passed": 4957,
+    "java_tests_passed": 99,
+    "dictionary_validate": "passed",
+    "sdk_export_check": "passed",
+    "version_check": "passed_at_4.4.1",
+    "sealed_benchmark": {
+      "accepted": 955,
+      "total": 1008,
+      "accuracy": 0.9474206349206349,
+      "accepted_regression": 0
+    }
+  },
+  "expected_corrections": [
+    {"id": "regressions/regression_020", "expected": "背景程式裡的記錄檔"},
+    {"id": "social/social_033", "expected": "這家店支援電子付款。"},
+    {"id": "social/social_034", "expected": "預設鈴聲聽起來很普通。"},
+    {"id": "social/social_036", "expected": "照片品質比昨天好很多。"},
+    {"id": "social/social_053", "expected": "今天空氣品質不太好。"},
+    {"id": "tech/tech_066", "expected": "後端服務寫入記錄檔。"},
+    {"id": "tech/tech_034", "expected": "用戶端會儲存工作階段權杖。"},
+    {"id": "tech/tech_037", "expected": "命令列參數支援短選項。"},
+    {"id": "tech/tech_048", "expected": "應用程式啟動後會讀取設定。"},
+    {"id": "tech/tech_010", "expected": "記錄檔記錄錯誤資訊。"},
+    {"id": "tech/tech_017", "expected": "資料庫移轉指令碼失敗了。"},
+    {"id": "annotation/it-api-cli-0038", "expected": "預設設定會啟用壓縮回應。"},
+    {"id": "holdout/blind-it-0057", "expected": "這個儲存庫同時保留英文和台灣繁體 README。"}
+  ],
+  "term_decisions": [
+    {"source": "租用戶", "target": "租用戶", "decision": "identity_guard"},
+    {"source": "命名空間", "target": "命名空間", "decision": "identity_guard"},
+    {"source": "熱重載", "target": "熱重新載入", "decision": "official_taiwan_term"}
+  ],
+  "authoritative_sources": [
+    "https://learn.microsoft.com/zh-tw/entra/fundamentals/how-subscriptions-associated-directory",
+    "https://learn.microsoft.com/zh-tw/visualstudio/debugger/hot-reload?view=visualstudio",
+    "https://learn.microsoft.com/zh-tw/azure/aks/concepts-managed-namespaces",
+    "https://docs.cloud.google.com/kubernetes-engine/docs/learn/get-started-with-kubernetes?hl=zh-TW",
+    "https://learn.microsoft.com/zh-tw/sql/t-sql/language-elements/rollback-transaction-transact-sql?view=sql-server-ver17"
+  ]
+}

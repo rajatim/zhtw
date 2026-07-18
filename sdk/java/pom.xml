@@ -108,6 +108,7 @@
                                     <directory>${project.basedir}/../data</directory>
                                     <includes>
                                         <include>golden-test.json</include>
+                                        <include>conformance-v1.json</include>
                                     </includes>
                                 </resource>
                             </resources>
@@ -119,6 +120,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.2</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <zhtw.project.version>${project.version}</zhtw.project.version>
+                    </systemPropertyVariables>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

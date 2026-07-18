@@ -3,7 +3,8 @@
 // runtime has no fs/path dependency.
 import data from '../../../data/zhtw-data.json';
 import type { ZhtwData } from '../core/types';
+import { validateData } from './validate';
 
 export function loadData(): ZhtwData {
-  return data as unknown as ZhtwData;
+  return validateData(data);
 }

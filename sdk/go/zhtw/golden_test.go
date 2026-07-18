@@ -15,10 +15,28 @@ type goldenFile struct {
 }
 
 type goldenConvert struct {
+	ID            string   `json:"id,omitempty"`
 	Input         string   `json:"input"`
 	Sources       []string `json:"sources"`
 	Expected      string   `json:"expected"`
 	AmbiguityMode string   `json:"ambiguity_mode,omitempty"`
+}
+
+func TestApprovedConformance(t *testing.T) {
+	raw, err := os.ReadFile("../../data/conformance-v1.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var fixture goldenFile
+	if err := json.Unmarshal(raw, &fixture); err != nil {
+		t.Fatal(err)
+	}
+	for _, tc := range fixture.Convert {
+		conv := buildGoldenConverter(t, tc.Sources, tc.AmbiguityMode)
+		if got := conv.Convert(tc.Input); got != tc.Expected {
+			t.Errorf("conformance %s: got %q, want %q", tc.ID, got, tc.Expected)
+		}
+	}
 }
 
 type goldenCheck struct {

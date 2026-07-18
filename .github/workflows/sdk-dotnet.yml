@@ -5,8 +5,14 @@ on:
     paths: ['sdk/dotnet/**', 'sdk/data/**', '.github/workflows/sdk-dotnet.yml']
   pull_request:
     paths: ['sdk/dotnet/**', 'sdk/data/**', '.github/workflows/sdk-dotnet.yml']
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish to NuGet'
+        required: true
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
 
 jobs:
   test:
@@ -26,10 +32,10 @@ jobs:
         working-directory: sdk/dotnet
         run: dotnet test tests/Zhtw.Tests/Zhtw.Tests.csproj -c Release --no-build --logger "console;verbosity=detailed"
       - name: Pack
-        if: github.event_name == 'release'
+        if: github.event_name == 'workflow_dispatch' && inputs.publish == 'true'
         working-directory: sdk/dotnet
         run: dotnet pack Zhtw.csproj -c Release --no-build -o ./nupkg
       - name: Publish to NuGet
-        if: github.event_name == 'release'
+        if: github.event_name == 'workflow_dispatch' && inputs.publish == 'true'
         working-directory: sdk/dotnet
         run: dotnet nuget push nupkg/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}

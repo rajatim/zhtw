@@ -1,12 +1,18 @@
 name: Publish to PyPI
 
 on:
-  release:
-    types: [published]
   workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish to PyPI'
+        required: true
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
 
 jobs:
   publish:
+    if: inputs.publish == 'true'
     runs-on: ubuntu-latest
     permissions:
       id-token: write  # Required for trusted publishing

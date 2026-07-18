@@ -99,8 +99,7 @@ func (c *Converter) Convert(text string) string {
 	}
 	runes := []rune(text)
 
-	covered := c.ac.getCoveredPositions(runes)
-	hits := c.ac.findTermMatches(runes)
+	hits, covered := c.ac.scan(runes)
 	layersEnabled := c.charLayerEnabled || c.balancedDefaults != nil
 
 	if len(hits) == 0 {
@@ -146,8 +145,7 @@ func (c *Converter) Check(text string) []Match {
 	}
 	runes := []rune(text)
 
-	covered := c.ac.getCoveredPositions(runes)
-	hits := c.ac.findTermMatches(runes)
+	hits, covered := c.ac.scan(runes)
 
 	var matches []Match
 
@@ -206,8 +204,7 @@ func (c *Converter) Lookup(word string) LookupResult {
 	}
 	runes := []rune(word)
 
-	covered := c.ac.getCoveredPositions(runes)
-	hits := c.ac.findTermMatches(runes)
+	hits, covered := c.ac.scan(runes)
 
 	var details []ConversionDetail
 

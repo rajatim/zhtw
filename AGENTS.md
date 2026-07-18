@@ -47,7 +47,9 @@ make bump VERSION=X.Y.Z
 make version-check   # 任一檔案不一致就 exit 1
 ```
 
-**理由：** Git tag push 會同時觸發 `publish.yml`（PyPI）和 `sdk-java.yml`（Maven Central），兩邊的版本必須跟 tag 對齊，否則釋出會失敗或語意混亂。共享的 `sdk/data/zhtw-data.json` 也嵌入版本號，多語言 SDK 讀這份資料會做版本比對。
+**理由：** GitHub Release 會先通過全 SDK conformance gate，再分派各 registry
+發布 workflow；所有套件版本都必須跟 tag 對齊，否則釋出會失敗或語意混亂。
+共享的 `sdk/data/zhtw-data.json` 也嵌入版本號，多語言 SDK 讀這份資料會做版本比對。
 
 ## 🎯 準確度 Review 預設流程
 

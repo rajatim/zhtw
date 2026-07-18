@@ -133,6 +133,13 @@ namespace Zhtw.Tests
         }
 
         [Fact]
+        public void DataVersionMatchesAssemblyVersion()
+        {
+            string assemblyVersion = typeof(ZhtwConvert).Assembly.GetName().Version.ToString(3);
+            Assert.Equal(assemblyVersion, ZhtwConvert.DataVersion);
+        }
+
+        [Fact]
         public void EmptySourcesThrows()
         {
             Assert.Throws<ArgumentException>(() =>

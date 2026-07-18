@@ -4,6 +4,7 @@ import type { ZhtwData } from '../src/core/types';
 
 // Minimal in-memory fixture — not the full data file.
 const DATA: ZhtwData = {
+  schema_version: 1,
   version: '4.0.0',
   charmap: {
     chars: {
@@ -14,7 +15,7 @@ const DATA: ZhtwData = {
       '优': '優',
       '化': '化',
     },
-    ambiguous: {},
+    ambiguous: [],
   },
   terms: {
     cn: {
@@ -199,8 +200,9 @@ describe('createConverter.lookup', () => {
     // term hit, the char layer does NOT apply. Both convert() and lookup()
     // produce `伙頭` (term target verbatim), matching Python behaviour.
     const fixture: ZhtwData = {
+      schema_version: 1,
       version: '4.0.0',
-      charmap: { chars: { '伙': '夥' }, ambiguous: {} },
+      charmap: { chars: { '伙': '夥' }, ambiguous: [] },
       terms: { cn: { '伙头': '伙頭' }, hk: {} },
     };
     const c = createConverter(fixture, { sources: ['cn'] });

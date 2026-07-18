@@ -1,0 +1,54 @@
+{
+  "generated_date": "2026-07-19",
+  "report_type": "accuracy_ground_truth_corrections",
+  "review_stage": "maintainer_adjudication_after_codex_full_mapping_review_and_gemini_independent_review",
+  "maintainer": "tim",
+  "decision": "fix_all",
+  "approval_policy": "single_human_with_ai_advisory_and_authoritative_sources",
+  "scope": {
+    "reviewed_non_identity_mappings": 474,
+    "formal": 60,
+    "it": 238,
+    "mixed": 9,
+    "social": 45,
+    "ui": 122
+  },
+  "summary": {
+    "corrected_regression_cases": 16,
+    "corrected_annotation_cases": 6,
+    "corrected_holdout_regression_cases": 9,
+    "corrected_public_reproduction_cases": 1,
+    "corrected_dictionary_mappings": 16,
+    "stale_acceptable_variants_removed": 7,
+    "historical_reports_rewritten": false,
+    "current_datasets_updated": true,
+    "dictionary_updated": true
+  },
+  "authoritative_sources": [
+    "https://docs.aws.amazon.com/zh_tw/AmazonS3/latest/userguide/creating-buckets-s3.html",
+    "https://learn.microsoft.com/zh-tw/azure/service-bus-messaging/service-bus-end-to-end-tracing"
+  ],
+  "cases": [
+    {"id": "annotation/formal-high-risk-0094", "reason": "use the Taiwan term 統計資料 instead of 統計數據"},
+    {"id": "annotation/it-api-cli-0062", "reason": "cryptographic key is 金鑰, not 密鑰"},
+    {"id": "annotation/it-api-cli-0069", "reason": "configuration file is 設定檔, not 配置檔"},
+    {"id": "annotation/ui-i18n-0004", "reason": "use the natural Taiwan UI phrase 回到首頁"},
+    {"id": "annotation/ui-i18n-0087", "reason": "trim whitespace means 移除前後空白, not literal 修剪"},
+    {"id": "annotation/ui-i18n-0125", "reason": "standardize project usage on 發布"},
+    {"id": "holdout/blind-it-0042", "reason": "standardize database migration on 移轉指令碼"},
+    {"id": "holdout/blind-it-0044", "reason": "钩子 must follow the project term 掛鉤"},
+    {"id": "holdout/blind-ui-0034", "reason": "use the natural Taiwan UI phrase 回到首頁"},
+    {"id": "holdout/blind-ui-0079", "reason": "replace Mainland-style 倒序 with explicit 由新到舊"},
+    {"id": "holdout/blind-llm-0085", "reason": "removing older messages must not be described as truncating message content"},
+    {"id": "holdout/blind-it-0177", "reason": "object storage bucket is 儲存貯體"},
+    {"id": "holdout/blind-ui-0169", "reason": "standardize paginator on 分頁控制項"},
+    {"id": "public-reproduction/public-repro-20260713-ui-0001", "reason": "standardize Taiwan UI action wording on 點選"},
+    {"id": "holdout/blind-it-0291", "reason": "checksum is 檢查碼 and must not be narrowed to hash"},
+    {"id": "holdout/blind-ui-0229", "reason": "replace Mainland-style 倒序 with explicit 由新到舊"}
+  ],
+  "gemini_findings": {
+    "accepted": ["holdout/blind-it-0044"],
+    "rejected": ["annotation/it-api-cli-0148"],
+    "rejected_reason": "Microsoft Taiwan documentation uses 追蹤內容 for Trace Context"
+  }
+}

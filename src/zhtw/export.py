@@ -19,6 +19,9 @@ from .dictionary import DATA_DIR, load_dictionary, load_directory
 from .lookup import lookup_word
 from .matcher import Matcher
 
+DATA_SCHEMA_VERSION = 1
+GOLDEN_SCHEMA_VERSION = 1
+
 
 def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
     """Assemble export data from dictionaries and charmap.
@@ -53,6 +56,7 @@ def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
         terms_counts[src] = len(terms[src])
 
     return {
+        "schema_version": DATA_SCHEMA_VERSION,
         "version": __version__,
         "stats": {
             "charmap_count": len(charmap),
@@ -226,6 +230,7 @@ def generate_golden_test(
         lookup_cases.append(entry)
 
     return {
+        "schema_version": GOLDEN_SCHEMA_VERSION,
         "version": __version__,
         "description": "SDK consistency test — all SDKs must pass",
         "convert": convert_cases,

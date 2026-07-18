@@ -7,14 +7,20 @@ use zhtw::{AmbiguityMode, Converter, Source};
 
 #[derive(Deserialize)]
 struct GoldenFile {
+    #[serde(default)]
     version: String,
+    #[serde(default)]
     convert: Vec<ConvertCase>,
+    #[serde(default)]
     check: Vec<CheckCase>,
+    #[serde(default)]
     lookup: Vec<LookupCase>,
 }
 
 #[derive(Deserialize)]
 struct ConvertCase {
+    #[serde(default)]
+    id: Option<String>,
     input: String,
     sources: Vec<String>,
     expected: String,
@@ -61,6 +67,21 @@ struct ExpectedDetail {
 }
 
 const GOLDEN_JSON: &str = include_str!("../../../data/golden-test.json");
+const CONFORMANCE_JSON: &str = include_str!("../../../data/conformance-v1.json");
+
+#[test]
+fn approved_conformance() {
+    let fixture: GoldenFile = serde_json::from_str(CONFORMANCE_JSON).unwrap();
+    for case in &fixture.convert {
+        let conv = build_converter(&case.sources, None, case.ambiguity_mode.as_deref());
+        assert_eq!(
+            conv.convert(&case.input),
+            case.expected,
+            "conformance case {}",
+            case.id.as_deref().unwrap_or("unknown")
+        );
+    }
+}
 
 fn build_converter(
     sources: &[String],

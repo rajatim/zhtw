@@ -438,7 +438,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "後端服務需要驗證要求簽章。",
+        "expected": "後端服務需要驗證請求簽章。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -449,9 +449,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-2026-07-05.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-2026-07-05.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-05",
+          "decision_date": "2026-07-18",
           "exact_match_with_first_pass": false
         }
       },
@@ -780,7 +780,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "要求逾時後會重試三次。",
+        "expected": "請求逾時後會重試三次。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -791,9 +791,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-2026-07-05.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-2026-07-05.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-05",
+          "decision_date": "2026-07-18",
           "exact_match_with_first_pass": false
         }
       },
@@ -856,7 +856,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "這個端點只接受 JSON 要求。",
+        "expected": "這個端點只接受 JSON 請求。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -867,9 +867,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-2026-07-05.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-2026-07-05.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-05",
+          "decision_date": "2026-07-18",
           "exact_match_with_first_pass": false
         }
       },
@@ -1260,7 +1260,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "請將配置項寫入環境變數。",
+        "expected": "請將設定項目寫入環境變數。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -1277,9 +1277,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0026-0075-2026-07-05.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0026-0075-2026-07-05.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-05",
+          "decision_date": "2026-07-18",
           "exact_match_with_first_pass": false
         }
       },
@@ -1612,7 +1612,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "預設配置會啟用壓縮回應。",
+        "expected": "預設設定會啟用壓縮回應。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -1633,7 +1633,9 @@
           "decision_by": "tim",
           "decision_date": "2026-07-05",
           "exact_match_with_first_pass": false
-        }
+        },
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer semantic re-audit after Codex full review and Gemini advisory; 配置 corrected to Taiwan usage 設定. Source: docs/reports/accuracy-final-translation-audit-2026-07-19.md"
       },
       "ai_draft": {
         "expected": "預設設定會啟用壓縮回應。",
@@ -2668,7 +2670,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "請為服務帳戶產生新的密鑰。",
+        "expected": "請為服務帳戶產生新的金鑰。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -2685,9 +2687,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0026-0075-2026-07-05.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0026-0075-2026-07-05.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-05",
+          "decision_date": "2026-07-19",
           "exact_match_with_first_pass": false
         }
       },
@@ -2976,7 +2978,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "請在配置檔裡宣告輸出編碼。",
+        "expected": "請在設定檔裡宣告輸出編碼。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -2993,9 +2995,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0026-0075-2026-07-05.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0026-0075-2026-07-05.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-05",
+          "decision_date": "2026-07-19",
           "exact_match_with_first_pass": false
         }
       },
@@ -3416,7 +3418,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "請驗證要求簽章和時間戳記。",
+        "expected": "請驗證請求簽章和時間戳記。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -3433,9 +3435,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0076-0125-2026-07-06.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0076-0125-2026-07-06.json",
-          "decision": "rejected",
+          "decision": "accepted",
           "decision_by": "tim",
-          "decision_date": "2026-07-06",
+          "decision_date": "2026-07-18",
           "exact_match_with_first_pass": false
         }
       },
@@ -5616,7 +5618,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "速率限制器會使用令牌桶演算法。",
+        "expected": "速率限制器會使用權杖桶演算法。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -5633,9 +5635,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0126-0175-2026-07-06.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0126-0175-2026-07-06.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-06",
+          "decision_date": "2026-07-18",
           "exact_match_with_first_pass": false
         }
       },
@@ -6716,7 +6718,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "請在發佈管線中加入回復步驟。",
+        "expected": "請在發布管線中加入復原步驟。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -6733,9 +6735,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0126-0175-2026-07-06.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0126-0175-2026-07-06.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-06",
+          "decision_date": "2026-07-18",
           "exact_match_with_first_pass": false
         }
       },
@@ -6804,7 +6806,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "灰度發佈會根據使用者分組啟用功能。",
+        "expected": "漸進式發布會根據使用者分組啟用功能。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -6821,9 +6823,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0126-0175-2026-07-06.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0126-0175-2026-07-06.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-06",
+          "decision_date": "2026-07-18",
           "exact_match_with_first_pass": false
         }
       },
@@ -7288,7 +7290,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "這個 SDK 會自動續約憑證。",
+        "expected": "這個 SDK 會自動更新憑證。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -7305,9 +7307,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0126-0175-2026-07-06.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-it-api-cli-0126-0175-2026-07-06.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-06",
+          "decision_date": "2026-07-18",
           "exact_match_with_first_pass": false
         }
       },
@@ -7816,13 +7818,13 @@
       },
       "review": {
         "status": "approved",
-        "expected": "登出後會返回首頁。",
+        "expected": "登出後會回到首頁。",
         "acceptable": [],
-        "expected_source": "human_first_pass",
+        "expected_source": "human_adjudication",
         "first_reviewer": "tim",
         "blind_reviewer": "",
-        "adjudicator": "",
-        "disagreement": false,
+        "adjudicator": "tim",
+        "disagreement": true,
         "ai_advisory_draft": {
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-ui-i18n-0001-0050-2026-07-06.md",
@@ -7833,10 +7835,10 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-ui-i18n-0001-0050-2026-07-06.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-ui-i18n-0001-0050-2026-07-06.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-06",
-          "exact_match_with_first_pass": true
+          "decision_date": "2026-07-19",
+          "exact_match_with_first_pass": false
         }
       },
       "ai_draft": {
@@ -11468,7 +11470,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "輸入框會自動修剪空白。",
+        "expected": "輸入框會自動移除前後空白。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -11487,7 +11489,7 @@
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-ui-i18n-0051-0100-2026-07-06.json",
           "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-06",
+          "decision_date": "2026-07-19",
           "exact_match_with_first_pass": false
         }
       },
@@ -13140,7 +13142,7 @@
       },
       "review": {
         "status": "approved",
-        "expected": "請在發佈前鎖定語言版本。",
+        "expected": "請在發布前鎖定語言版本。",
         "acceptable": [],
         "expected_source": "human_adjudication",
         "first_reviewer": "tim",
@@ -13157,9 +13159,9 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-ui-i18n-0101-0125-2026-07-06.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-ui-i18n-0101-0125-2026-07-06.json",
-          "decision": "rejected",
+          "decision": "accepted",
           "decision_by": "tim",
-          "decision_date": "2026-07-06",
+          "decision_date": "2026-07-19",
           "exact_match_with_first_pass": false
         }
       },
@@ -17283,13 +17285,13 @@
       },
       "review": {
         "status": "approved",
-        "expected": "統計數據將於月底發布。",
+        "expected": "統計資料將於月底發布。",
         "acceptable": [],
-        "expected_source": "human_first_pass",
+        "expected_source": "human_adjudication",
         "first_reviewer": "tim",
         "blind_reviewer": "",
-        "adjudicator": "",
-        "disagreement": false,
+        "adjudicator": "tim",
+        "disagreement": true,
         "ai_advisory_draft": {
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-formal-high-risk-0051-0100-2026-07-06.md",
@@ -17300,10 +17302,10 @@
           "reviewer": "gemini_vertex",
           "source_report": "docs/reports/annotation-gemini-vertex-advisory-formal-high-risk-0051-0100-2026-07-06.md",
           "raw_report": "docs/reports/annotation-gemini-vertex-advisory-formal-high-risk-0051-0100-2026-07-06.json",
-          "decision": "accepted",
+          "decision": "rejected",
           "decision_by": "tim",
-          "decision_date": "2026-07-07",
-          "exact_match_with_first_pass": true
+          "decision_date": "2026-07-19",
+          "exact_match_with_first_pass": false
         }
       }
     },

@@ -85,11 +85,46 @@ MIXED_GEMINI_ADVISORY = (
 GROUND_TRUTH_CORRECTIONS = (
     ROOT / "docs" / "reports" / "accuracy-ground-truth-corrections-2026-07-16.json"
 )
-GROUND_TRUTH_CORRECTION_IDS = {
+CURRENT_GROUND_TRUTH_CORRECTIONS = (
+    ROOT / "docs" / "reports" / "accuracy-ground-truth-corrections-2026-07-18.json"
+)
+LATEST_GROUND_TRUTH_CORRECTIONS = (
+    ROOT / "docs" / "reports" / "accuracy-ground-truth-corrections-2026-07-19.json"
+)
+FINAL_TRANSLATION_CORRECTIONS = (
+    ROOT / "docs" / "reports" / "accuracy-final-translation-corrections-2026-07-19.json"
+)
+HISTORICAL_GROUND_TRUTH_CORRECTION_IDS = {
     "it-api-cli-0043",
     "it-api-cli-0170",
     "social-daily-0038",
 }
+CURRENT_GROUND_TRUTH_CORRECTION_IDS = {
+    "it-api-cli-0009",
+    "it-api-cli-0018",
+    "it-api-cli-0020",
+    "it-api-cli-0030",
+    "it-api-cli-0079",
+    "it-api-cli-0129",
+    "it-api-cli-0154",
+    "it-api-cli-0156",
+    "it-api-cli-0167",
+}
+LATEST_GROUND_TRUTH_CORRECTION_IDS = {
+    "formal-high-risk-0094",
+    "it-api-cli-0062",
+    "it-api-cli-0069",
+    "ui-i18n-0004",
+    "ui-i18n-0087",
+    "ui-i18n-0125",
+}
+FINAL_TRANSLATION_CORRECTION_IDS = {"it-api-cli-0038"}
+GROUND_TRUTH_CORRECTION_IDS = (
+    HISTORICAL_GROUND_TRUTH_CORRECTION_IDS
+    | CURRENT_GROUND_TRUTH_CORRECTION_IDS
+    | LATEST_GROUND_TRUTH_CORRECTION_IDS
+    | FINAL_TRANSLATION_CORRECTION_IDS
+)
 FIRST_DRAFT_REPORT = "docs/reports/annotation-first-pass-ai-draft-2026-07-05.md"
 SECOND_DRAFT_REPORT = (
     "docs/reports/annotation-first-pass-ai-draft-it-api-cli-0026-0075-2026-07-05.md"
@@ -185,8 +220,10 @@ UI_GEMINI_DECISION_IDS = {
     "ui-i18n-0066",
     "ui-i18n-0083",
     "ui-i18n-0108",
+    "ui-i18n-0125",
 }
 UI_CODEX_DECISION_IDS = {
+    "ui-i18n-0004",
     "ui-i18n-0005",
     "ui-i18n-0006",
     "ui-i18n-0008",
@@ -216,7 +253,6 @@ UI_CODEX_DECISION_IDS = {
     "ui-i18n-0107",
     "ui-i18n-0109",
     "ui-i18n-0110",
-    "ui-i18n-0125",
 }
 FORMAL_GEMINI_DECISION_IDS = {
     "formal-high-risk-0002",
@@ -230,6 +266,7 @@ FORMAL_GEMINI_DECISION_IDS = {
 FORMAL_CODEX_DECISION_IDS = {
     "formal-high-risk-0040",
     "formal-high-risk-0043",
+    "formal-high-risk-0094",
 }
 SOCIAL_MIXED_GEMINI_DECISION_IDS = {
     "social-daily-0008",
@@ -407,7 +444,9 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
     }
     assert {case["review"]["status"] for case in approved_ui_batch} == {"approved"}
     assert all(
-        case["review"]["expected"] == advisory_by_id[case["id"]]["expected"] for case in first_batch
+        case["review"]["expected"] == advisory_by_id[case["id"]]["expected"]
+        for case in first_batch
+        if case["id"] not in GROUND_TRUTH_CORRECTION_IDS
     )
     assert (
         sum(case["review"]["expected_source"] == "human_first_pass" for case in first_batch) == 11
@@ -420,10 +459,14 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
     assert sum(case["review"]["adjudicator"] == "tim" for case in first_batch) == 14
     assert sum(case["review"]["adjudicator"] == "" for case in first_batch) == 11
     assert all(case["review"]["ai_advisory"]["reviewer"] == "gemini_vertex" for case in first_batch)
-    assert all(case["review"]["ai_advisory"]["decision"] == "accepted" for case in first_batch)
+    assert (
+        sum(case["review"]["ai_advisory"]["decision"] == "accepted" for case in first_batch) == 22
+    )
+    assert sum(case["review"]["ai_advisory"]["decision"] == "rejected" for case in first_batch) == 3
     assert all(case["review"]["ai_advisory"]["decision_by"] == "tim" for case in first_batch)
     assert all(
-        case["review"]["ai_advisory"]["decision_date"] == "2026-07-05" for case in first_batch
+        case["review"]["ai_advisory"]["decision_date"] in {"2026-07-05", "2026-07-18"}
+        for case in first_batch
     )
     assert all(case["review"]["status"] == "approved" for case in second_batch)
     assert all(
@@ -446,14 +489,15 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
         case["review"]["ai_advisory"]["reviewer"] == "gemini_vertex" for case in second_batch
     )
     assert (
-        sum(case["review"]["ai_advisory"]["decision"] == "accepted" for case in second_batch) == 49
+        sum(case["review"]["ai_advisory"]["decision"] == "accepted" for case in second_batch) == 46
     )
     assert (
-        sum(case["review"]["ai_advisory"]["decision"] == "rejected" for case in second_batch) == 1
+        sum(case["review"]["ai_advisory"]["decision"] == "rejected" for case in second_batch) == 4
     )
     assert all(case["review"]["ai_advisory"]["decision_by"] == "tim" for case in second_batch)
     assert all(
-        case["review"]["ai_advisory"]["decision_date"] in {"2026-07-05", "2026-07-16"}
+        case["review"]["ai_advisory"]["decision_date"]
+        in {"2026-07-05", "2026-07-16", "2026-07-18", "2026-07-19"}
         for case in second_batch
     )
     assert all(
@@ -483,6 +527,7 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
     assert all(
         case["review"]["expected"] == third_comparison_by_id[case["id"]]["codex_expected"]
         for case in third_batch
+        if case["id"] not in GROUND_TRUTH_CORRECTION_IDS
     )
     assert (
         sum(case["review"]["expected_source"] == "human_first_pass" for case in third_batch) == 24
@@ -497,14 +542,15 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
     assert sum(case["review"]["disagreement"] for case in third_batch) == 26
     assert all(case["review"]["ai_advisory"]["reviewer"] == "gemini_vertex" for case in third_batch)
     assert (
-        sum(case["review"]["ai_advisory"]["decision"] == "accepted" for case in third_batch) == 24
+        sum(case["review"]["ai_advisory"]["decision"] == "accepted" for case in third_batch) == 25
     )
     assert (
-        sum(case["review"]["ai_advisory"]["decision"] == "rejected" for case in third_batch) == 26
+        sum(case["review"]["ai_advisory"]["decision"] == "rejected" for case in third_batch) == 25
     )
     assert all(case["review"]["ai_advisory"]["decision_by"] == "tim" for case in third_batch)
     assert all(
-        case["review"]["ai_advisory"]["decision_date"] == "2026-07-06" for case in third_batch
+        case["review"]["ai_advisory"]["decision_date"] in {"2026-07-06", "2026-07-18"}
+        for case in third_batch
     )
     assert all(
         case["review"]["ai_advisory_draft"]["reviewer"] == "gemini_vertex" for case in third_batch
@@ -550,14 +596,14 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
         case["review"]["ai_advisory"]["reviewer"] == "gemini_vertex" for case in fourth_batch
     )
     assert (
-        sum(case["review"]["ai_advisory"]["decision"] == "accepted" for case in fourth_batch) == 49
+        sum(case["review"]["ai_advisory"]["decision"] == "accepted" for case in fourth_batch) == 45
     )
     assert (
-        sum(case["review"]["ai_advisory"]["decision"] == "rejected" for case in fourth_batch) == 1
+        sum(case["review"]["ai_advisory"]["decision"] == "rejected" for case in fourth_batch) == 5
     )
     assert all(case["review"]["ai_advisory"]["decision_by"] == "tim" for case in fourth_batch)
     assert all(
-        case["review"]["ai_advisory"]["decision_date"] in {"2026-07-06", "2026-07-16"}
+        case["review"]["ai_advisory"]["decision_date"] in {"2026-07-06", "2026-07-16", "2026-07-18"}
         for case in fourth_batch
     )
     assert all(
@@ -587,15 +633,15 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
     assert all(case["review"]["blind_reviewer"] == "" for case in approved_ui_batch)
     assert (
         sum(case["review"]["expected_source"] == "human_first_pass" for case in approved_ui_batch)
-        == 90
+        == 89
     )
     assert (
         sum(case["review"]["expected_source"] == "human_adjudication" for case in approved_ui_batch)
-        == 35
+        == 36
     )
-    assert sum(case["review"]["adjudicator"] == "tim" for case in approved_ui_batch) == 35
-    assert sum(case["review"]["adjudicator"] == "" for case in approved_ui_batch) == 90
-    assert sum(case["review"]["disagreement"] for case in approved_ui_batch) == 35
+    assert sum(case["review"]["adjudicator"] == "tim" for case in approved_ui_batch) == 36
+    assert sum(case["review"]["adjudicator"] == "" for case in approved_ui_batch) == 89
+    assert sum(case["review"]["disagreement"] for case in approved_ui_batch) == 36
     assert all(
         case["review"]["ai_advisory"]["reviewer"] == "gemini_vertex" for case in approved_ui_batch
     )
@@ -609,7 +655,8 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
     )
     assert all(case["review"]["ai_advisory"]["decision_by"] == "tim" for case in approved_ui_batch)
     assert all(
-        case["review"]["ai_advisory"]["decision_date"] == "2026-07-06" for case in approved_ui_batch
+        case["review"]["ai_advisory"]["decision_date"] in {"2026-07-06", "2026-07-19"}
+        for case in approved_ui_batch
     )
     rejected_ui_ids = {
         case["id"]
@@ -627,6 +674,8 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
     for case in approved_ui_batch:
         row = ui_comparison_by_id[case["id"]]
         review = case["review"]
+        if case["id"] in LATEST_GROUND_TRUTH_CORRECTION_IDS:
+            continue
         if row["exact_match_with_codex_draft"]:
             assert review["expected"] == row["codex_expected"]
             assert review["expected_source"] == "human_first_pass"
@@ -710,28 +759,30 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
     assert all(case["review"]["expected"] for case in formal_batch)
     assert all(case["review"]["acceptable"] == [] for case in formal_batch)
     assert (
-        sum(case["review"]["expected_source"] == "human_first_pass" for case in formal_batch) == 91
+        sum(case["review"]["expected_source"] == "human_first_pass" for case in formal_batch) == 90
     )
     assert (
-        sum(case["review"]["expected_source"] == "human_adjudication" for case in formal_batch) == 9
+        sum(case["review"]["expected_source"] == "human_adjudication" for case in formal_batch)
+        == 10
     )
     assert all(case["review"]["first_reviewer"] == "tim" for case in formal_batch)
     assert all(case["review"]["blind_reviewer"] == "" for case in formal_batch)
-    assert sum(case["review"]["adjudicator"] == "tim" for case in formal_batch) == 9
-    assert sum(case["review"]["adjudicator"] == "" for case in formal_batch) == 91
-    assert sum(case["review"]["disagreement"] for case in formal_batch) == 9
+    assert sum(case["review"]["adjudicator"] == "tim" for case in formal_batch) == 10
+    assert sum(case["review"]["adjudicator"] == "" for case in formal_batch) == 90
+    assert sum(case["review"]["disagreement"] for case in formal_batch) == 10
     assert all(
         case["review"]["ai_advisory"]["reviewer"] == "gemini_vertex" for case in formal_batch
     )
     assert (
-        sum(case["review"]["ai_advisory"]["decision"] == "accepted" for case in formal_batch) == 98
+        sum(case["review"]["ai_advisory"]["decision"] == "accepted" for case in formal_batch) == 97
     )
     assert (
-        sum(case["review"]["ai_advisory"]["decision"] == "rejected" for case in formal_batch) == 2
+        sum(case["review"]["ai_advisory"]["decision"] == "rejected" for case in formal_batch) == 3
     )
     assert all(case["review"]["ai_advisory"]["decision_by"] == "tim" for case in formal_batch)
     assert all(
-        case["review"]["ai_advisory"]["decision_date"] == "2026-07-07" for case in formal_batch
+        case["review"]["ai_advisory"]["decision_date"] in {"2026-07-07", "2026-07-19"}
+        for case in formal_batch
     )
     rejected_formal_ids = {
         case["id"]
@@ -749,6 +800,8 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
     for case in formal_batch:
         row = formal_comparison_by_id[case["id"]]
         review = case["review"]
+        if case["id"] in LATEST_GROUND_TRUTH_CORRECTION_IDS:
+            continue
         if row["exact_match_with_codex_draft"]:
             assert review["expected"] == row["codex_expected"]
             assert review["expected_source"] == "human_first_pass"
@@ -1012,8 +1065,32 @@ def test_annotation_backlog_has_first_it_api_cli_input_batch() -> None:
     assert all(case["ai_draft"]["source_report"] == SOCIAL_DRAFT_REPORT for case in social_batch)
 
     corrections = json.loads(GROUND_TRUTH_CORRECTIONS.read_text(encoding="utf-8"))
-    assert {case["id"] for case in corrections["cases"]} == GROUND_TRUTH_CORRECTION_IDS
+    assert {case["id"] for case in corrections["cases"]} == (HISTORICAL_GROUND_TRUTH_CORRECTION_IDS)
     assert corrections["summary"]["corrected_cases"] == 3
+    current_corrections = json.loads(CURRENT_GROUND_TRUTH_CORRECTIONS.read_text(encoding="utf-8"))
+    assert {
+        case["id"].removeprefix("annotation/")
+        for case in current_corrections["cases"]
+        if case["id"].startswith("annotation/")
+    } == CURRENT_GROUND_TRUTH_CORRECTION_IDS
+    assert current_corrections["summary"]["corrected_annotation_cases"] == 9
+    assert current_corrections["summary"]["corrected_regression_cases"] == 14
+    latest_corrections = json.loads(LATEST_GROUND_TRUTH_CORRECTIONS.read_text(encoding="utf-8"))
+    assert {
+        case["id"].removeprefix("annotation/")
+        for case in latest_corrections["cases"]
+        if case["id"].startswith("annotation/")
+    } == LATEST_GROUND_TRUTH_CORRECTION_IDS
+    assert latest_corrections["summary"]["corrected_annotation_cases"] == 6
+    assert latest_corrections["summary"]["corrected_regression_cases"] == 16
+    final_corrections = json.loads(FINAL_TRANSLATION_CORRECTIONS.read_text(encoding="utf-8"))
+    assert {
+        case["id"].removeprefix("annotation/")
+        for case in final_corrections["expected_corrections"]
+        if case["id"].startswith("annotation/")
+    } == FINAL_TRANSLATION_CORRECTION_IDS
+    assert final_corrections["summary"]["corrected_regression_expected"] == 13
+    assert final_corrections["summary"]["removed_acceptable_variants"] == 29
     assert all(case["ai_draft"]["source_report"] == MIXED_DRAFT_REPORT for case in mixed_batch)
     assert len({case["id"] for case in cases}) == len(cases)
 

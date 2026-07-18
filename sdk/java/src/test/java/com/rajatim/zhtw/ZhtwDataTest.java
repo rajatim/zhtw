@@ -23,6 +23,12 @@ class ZhtwDataTest {
     }
 
     @Test
+    void dataVersionMatchesArtifactVersion() {
+        assertEquals(System.getProperty("zhtw.project.version"),
+                ZhtwData.fromClasspath().getVersion());
+    }
+
+    @Test
     void charmapHasExpectedSize() {
         ZhtwData data = ZhtwData.fromClasspath();
         Map<Integer, String> charmap = data.getCharmap();

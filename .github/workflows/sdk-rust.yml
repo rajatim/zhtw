@@ -5,9 +5,14 @@ on:
     paths: ['sdk/rust/**', 'sdk/data/**', '.github/workflows/sdk-rust.yml']
   pull_request:
     paths: ['sdk/rust/**', 'sdk/data/**', '.github/workflows/sdk-rust.yml']
-  release:
-    types: [published]
   workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish crate and WASM package'
+        required: true
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
 
 jobs:
   test:
@@ -149,7 +154,7 @@ jobs:
 
   publish-crates-io:
     needs: [test, wasm, typescript-compat]
-    if: github.event_name == 'release' && github.event.action == 'published'
+    if: github.event_name == 'workflow_dispatch' && inputs.publish == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -162,7 +167,7 @@ jobs:
 
   publish-npm:
     needs: [test, wasm, typescript-compat]
-    if: github.event_name == 'release' && github.event.action == 'published'
+    if: github.event_name == 'workflow_dispatch' && inputs.publish == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read

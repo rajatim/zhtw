@@ -15,13 +15,28 @@ use serde::Deserialize;
 // ── JSON schema ──────────────────────────────────────────────────────────────
 
 #[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 struct ZhtwData {
+    schema_version: u32,
     version: String,
+    #[allow(dead_code)]
+    stats: Stats,
     charmap: CharMap,
     terms: Terms,
 }
 
 #[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+#[allow(dead_code)]
+struct Stats {
+    charmap_count: usize,
+    ambiguous_count: usize,
+    terms_cn_count: usize,
+    terms_hk_count: usize,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 struct CharMap {
     chars: HashMap<String, String>,
     // `ambiguous` field exists but we don't need it in build
@@ -29,12 +44,15 @@ struct CharMap {
     ambiguous: Vec<String>,
     #[serde(default)]
     balanced_defaults: HashMap<String, String>,
+    #[allow(dead_code)]
+    balanced_protect_terms: HashMap<String, Vec<String>>,
 }
 
 #[allow(dead_code)]
 fn _use_ambiguous(_: Vec<String>) {}
 
 #[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 struct Terms {
     cn: HashMap<String, String>,
     hk: HashMap<String, String>,
@@ -75,6 +93,14 @@ fn main() {
 
     let data: ZhtwData = serde_json::from_slice(&json_bytes)
         .unwrap_or_else(|e| panic!("build.rs: cannot parse {}: {}", data_path.display(), e));
+    assert_eq!(
+        data.schema_version, 1,
+        "build.rs: unsupported zhtw data schema version"
+    );
+    assert!(
+        !data.version.is_empty(),
+        "build.rs: missing zhtw data version"
+    );
 
     // ── 2. blake3 hash of the raw JSON bytes (first 8 bytes) ─────────────────
     let hash_full = blake3::hash(&json_bytes);
@@ -113,14 +139,14 @@ fn main() {
                 if ambiguous_set.contains(src.as_str()) {
                     return None;
                 }
-                let src_char = src.chars().next()?;
-                if src.chars().count() != 1 {
-                    return None;
-                }
-                let tgt_char = tgt.chars().next()?;
-                if tgt.chars().count() != 1 {
-                    return None;
-                }
+                assert_eq!(src.chars().count(), 1, "charmap key must be one code point");
+                assert_eq!(
+                    tgt.chars().count(),
+                    1,
+                    "charmap value must be one code point"
+                );
+                let src_char = src.chars().next().unwrap();
+                let tgt_char = tgt.chars().next().unwrap();
                 Some((src_char, tgt_char))
             })
             .collect();
@@ -150,16 +176,20 @@ fn main() {
             .charmap
             .balanced_defaults
             .iter()
-            .filter_map(|(src, tgt)| {
-                let src_char = src.chars().next()?;
-                if src.chars().count() != 1 {
-                    return None;
-                }
-                let tgt_char = tgt.chars().next()?;
-                if tgt.chars().count() != 1 {
-                    return None;
-                }
-                Some((src_char, tgt_char))
+            .map(|(src, tgt)| {
+                assert_eq!(
+                    src.chars().count(),
+                    1,
+                    "balanced key must be one code point"
+                );
+                assert_eq!(
+                    tgt.chars().count(),
+                    1,
+                    "balanced value must be one code point"
+                );
+                let src_char = src.chars().next().unwrap();
+                let tgt_char = tgt.chars().next().unwrap();
+                (src_char, tgt_char)
             })
             .collect();
         balanced_entries.sort_by_key(|(c, _)| *c as u32);

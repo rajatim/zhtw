@@ -14,6 +14,16 @@ import java.util.Set;
 
 final class AhoCorasickMatcher {
 
+    static final class ScanResult {
+        final List<Match> matches;
+        final Set<Integer> covered;
+
+        ScanResult(List<Match> matches, Set<Integer> covered) {
+            this.matches = matches;
+            this.covered = covered;
+        }
+    }
+
     private final Map<String, String> terms;
     private final Trie trie;
 
@@ -33,22 +43,26 @@ final class AhoCorasickMatcher {
         return builder.build();
     }
 
-    List<Match> findMatches(String text) {
+    ScanResult scan(String text) {
         if (trie == null || text == null || text.isEmpty()) {
-            return Collections.emptyList();
+            return new ScanResult(Collections.emptyList(), Collections.emptySet());
         }
 
         Collection<Emit> emits = trie.parseText(text);
         if (emits.isEmpty()) {
-            return Collections.emptyList();
+            return new ScanResult(Collections.emptyList(), Collections.emptySet());
         }
 
         // Convert to Match objects (Emit.getEnd() is INCLUSIVE, we need EXCLUSIVE)
         List<Match> allMatches = new ArrayList<>();
+        Set<Integer> covered = new HashSet<>();
         for (Emit emit : emits) {
             String source = emit.getKeyword();
             String target = terms.get(source);
             allMatches.add(new Match(emit.getStart(), emit.getEnd() + 1, source, target));
+            for (int i = emit.getStart(); i <= emit.getEnd(); i++) {
+                covered.add(i);
+            }
         }
 
         // Sort by start, then longer first
@@ -86,7 +100,11 @@ final class AhoCorasickMatcher {
             }
         }
 
-        return result;
+        return new ScanResult(result, covered);
+    }
+
+    List<Match> findMatches(String text) {
+        return scan(text).matches;
     }
 
     private Set<Integer> buildProtectedRanges(List<Match> allMatches) {
@@ -172,16 +190,6 @@ final class AhoCorasickMatcher {
      * protected by identity term matches.
      */
     Set<Integer> getCoveredPositions(String text) {
-        if (trie == null || text == null || text.isEmpty()) {
-            return Collections.emptySet();
-        }
-        Set<Integer> covered = new HashSet<>();
-        for (Emit emit : trie.parseText(text)) {
-            // Emit.getEnd() is inclusive
-            for (int i = emit.getStart(); i <= emit.getEnd(); i++) {
-                covered.add(i);
-            }
-        }
-        return covered;
+        return scan(text).covered;
     }
 }

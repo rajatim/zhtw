@@ -47,11 +47,13 @@ export interface Converter {
 
 /** Shape of sdk/data/zhtw-data.json. */
 export interface ZhtwData {
+  schema_version: 1;
   version: string;
   charmap: {
     chars: Record<string, string>;
-    ambiguous: Record<string, string[]>;
+    ambiguous: string[];
     balanced_defaults?: Record<string, string>;
+    balanced_protect_terms?: Record<string, string[]>;
   };
   terms: Record<string, Record<string, string>>;
   stats?: Record<string, unknown>;

@@ -5,8 +5,6 @@ on:
     paths: ['sdk/java/**', 'sdk/data/**']
   pull_request:
     paths: ['sdk/java/**', 'sdk/data/**']
-  release:
-    types: [published]
   workflow_dispatch:
     inputs:
       publish:
@@ -37,7 +35,7 @@ jobs:
 
   publish:
     needs: test
-    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish == 'true')
+    if: github.event_name == 'workflow_dispatch' && inputs.publish == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -179,8 +179,7 @@ impl Converter {
 
         // Covered byte positions from ALL automaton hits (including identity terms).
         // Must be computed on original text before any replacements.
-        let covered = matcher::get_covered_positions(&inner.automaton, text);
-        let hits = matcher::find_term_matches(&inner.automaton, &inner.pattern_table, text);
+        let (hits, covered) = matcher::scan(&inner.automaton, &inner.pattern_table, text);
 
         if hits.is_empty() {
             return if inner.char_layer_enabled || balanced.is_some() {
@@ -225,11 +224,8 @@ impl Converter {
         let inner = &self.inner;
         let byte_to_cp = matcher::build_byte_to_cp(text);
 
-        // Covered byte positions from ALL automaton hits (including identity terms)
-        let covered_bytes = matcher::get_covered_positions(&inner.automaton, text);
-
-        // Term layer matches.
-        let hits = matcher::find_term_matches(&inner.automaton, &inner.pattern_table, text);
+        // Term matches and raw coverage come from one automaton walk.
+        let (hits, covered_bytes) = matcher::scan(&inner.automaton, &inner.pattern_table, text);
         let mut matches: Vec<Match> = hits
             .iter()
             .map(|h| Match {
@@ -292,10 +288,7 @@ impl Converter {
 
         let inner = &self.inner;
         let byte_to_cp = matcher::build_byte_to_cp(word);
-        let hits = matcher::find_term_matches(&inner.automaton, &inner.pattern_table, word);
-
-        // Covered byte positions from ALL automaton hits (including identity terms)
-        let covered_bytes = matcher::get_covered_positions(&inner.automaton, word);
+        let (hits, covered_bytes) = matcher::scan(&inner.automaton, &inner.pattern_table, word);
 
         let mut details: Vec<ConversionDetail> = Vec::new();
 

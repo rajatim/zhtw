@@ -57,9 +57,16 @@ namespace Zhtw
             using (var doc = JsonDocument.Parse(json))
             {
                 var root = doc.RootElement;
+                RequireOnlyProperties(root, "schema_version", "version", "stats", "charmap", "terms");
+                int schemaVersion = root.GetProperty("schema_version").GetInt32();
+                if (schemaVersion != 1)
+                    throw new InvalidOperationException("Unsupported zhtw data schema version");
                 string version = root.GetProperty("version").GetString();
+                if (string.IsNullOrEmpty(version))
+                    throw new InvalidOperationException("Missing zhtw data version");
 
                 var charmapEl = root.GetProperty("charmap");
+                RequireOnlyProperties(charmapEl, "chars", "ambiguous", "balanced_defaults", "balanced_protect_terms");
 
                 // Parse chars (single-codepoint only)
                 var charMap = new Dictionary<int, int>();
@@ -67,10 +74,9 @@ namespace Zhtw
                 {
                     int[] kCp = CodepointHelper.ToCodepoints(prop.Name);
                     int[] vCp = CodepointHelper.ToCodepoints(prop.Value.GetString());
-                    if (kCp.Length == 1 && vCp.Length == 1)
-                    {
-                        charMap[kCp[0]] = vCp[0];
-                    }
+                    if (kCp.Length != 1 || vCp.Length != 1)
+                        throw new InvalidOperationException("Charmap entries must contain one Unicode code point");
+                    charMap[kCp[0]] = vCp[0];
                 }
 
                 // Parse balanced_defaults (single-codepoint only)
@@ -81,15 +87,19 @@ namespace Zhtw
                     {
                         int[] kCp = CodepointHelper.ToCodepoints(prop.Name);
                         int[] vCp = CodepointHelper.ToCodepoints(prop.Value.GetString());
-                        if (kCp.Length == 1 && vCp.Length == 1)
-                        {
-                            balancedDefaults[kCp[0]] = vCp[0];
-                        }
+                        if (kCp.Length != 1 || vCp.Length != 1)
+                            throw new InvalidOperationException("Balanced defaults must contain one Unicode code point");
+                        balancedDefaults[kCp[0]] = vCp[0];
                     }
                 }
 
                 // Parse terms
                 var termsEl = root.GetProperty("terms");
+                foreach (var prop in termsEl.EnumerateObject())
+                {
+                    if (prop.Name != "cn" && prop.Name != "hk")
+                        throw new InvalidOperationException("Unsupported term source: " + prop.Name);
+                }
                 var termsCn = ParseTerms(termsEl, "cn");
                 var termsHk = ParseTerms(termsEl, "hk");
 
@@ -111,6 +121,14 @@ namespace Zhtw
                 }
             }
             return dict;
+        }
+
+        private static void RequireOnlyProperties(JsonElement element, params string[] expected)
+        {
+            var actual = new HashSet<string>();
+            foreach (var prop in element.EnumerateObject()) actual.Add(prop.Name);
+            if (!actual.SetEquals(expected))
+                throw new InvalidOperationException("Unexpected or missing zhtw data fields");
         }
     }
 }

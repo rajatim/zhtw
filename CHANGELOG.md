@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 新增可稽核的 accuracy pipeline：500 筆人工 annotation、1,008 筆 sealed holdout、
   1,251 筆公開 regression，以及 Codex → Gemini → maintainer 的 advisory 流程。
 - 新增 release `export-check`，確保所有 SDK data 與當前詞庫的 fresh export 完全一致。
+- 新增版本化 SDK JSON Schema、嚴格資料載入驗證，以及 55 筆不由 exporter 產生的
+  maintainer-approved 跨語言 conformance corpus。
+- 新增全 SDK `make test-all` 與 GitHub conformance gate；GitHub Release 必須全綠後
+  才會分派 PyPI、Maven Central、npm、crates.io 與 NuGet 發布。
 
 ### Changed
 - 擴充 IT、UI、正式文書與日常語境的保守轉換保護；同一批 1,008 筆私有案例相較
@@ -19,8 +23,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Java release gate 由 `mvn test` 強化為 `mvn verify`；發版前新增詞庫、target
   idempotency、版本同步與 SDK export freshness 驗證。
 - 精準度文件改以可重現樣本結果表述，不再使用「零誤判／零錯轉」絕對宣稱。
+- Java、TypeScript、Rust、Go、.NET 的 Aho-Corasick 熱路徑改為單次掃描，同時產出
+  詞彙命中與覆蓋位置；Python CLI helper 與檔案處理也拆分為獨立模組，公開 API 不變。
 
 ### Fixed
+- 完成 1,251 筆 regression expected 與 132 筆 acceptable variants 的最終語意稽核；
+  修正 13 筆舊 ground truth、移除 29 筆過時中國用語 acceptable，並保護「租用戶／
+  命名空間」、將「熱重載」修正為台灣官方術語「熱重新載入」。
+- 完成 474 筆新增詞條的第二輪全量審校，再修正 16 筆台灣用語、UI 文案與語意
+  ground truth，包括「金鑰／設定檔／儲存貯體／檢查碼」、「回到首頁／由新到舊」
+  及「分頁控制項」；同步清除會接受舊錯譯的 acceptable variants。
+- 修正 14 筆 IT 語境的台灣用語與 ground truth，包括「請求簽章／請求逾時」、
+  「權杖桶／檢查碼／設定對應」、「漸進式發布」及「移轉指令碼／復原」；同步更新
+  9 筆 annotation、5 筆 holdout regression 與所有 SDK 詞庫資料。
 - 修正 3 筆 expert re-audit 發現的語意 ground truth：rollback 不再誤作「回溯」、
   `future` 型別不再直譯成「未來物件」、物業管理單位不再偷換成管委會。
 - 移除 4 筆已由泛化規則覆蓋的冗餘完整句 source mapping，保留必要 identity 防止

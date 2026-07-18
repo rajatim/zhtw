@@ -1,6 +1,7 @@
 package zhtw
 
 import (
+	"bytes"
 	_ "embed"
 	"encoding/json"
 	"sync"
@@ -12,11 +13,14 @@ var rawDataJSON []byte
 // ── JSON schema ──────────────────────────────────────────────────────────────
 
 type zhtwDataJSON struct {
-	Version string `json:"version"`
-	Charmap struct {
-		Chars            map[string]string `json:"chars"`
-		Ambiguous        []string          `json:"ambiguous"`
-		BalancedDefaults map[string]string `json:"balanced_defaults"`
+	SchemaVersion int             `json:"schema_version"`
+	Version       string          `json:"version"`
+	Stats         json.RawMessage `json:"stats"`
+	Charmap       struct {
+		Chars                map[string]string   `json:"chars"`
+		Ambiguous            []string            `json:"ambiguous"`
+		BalancedDefaults     map[string]string   `json:"balanced_defaults"`
+		BalancedProtectTerms map[string][]string `json:"balanced_protect_terms"`
 	} `json:"charmap"`
 	Terms map[string]map[string]string `json:"terms"` // "cn" -> {...}, "hk" -> {...}
 }
@@ -45,26 +49,46 @@ func getParsedData() *parsedData {
 
 func mustParseData(raw []byte) *parsedData {
 	var j zhtwDataJSON
-	if err := json.Unmarshal(raw, &j); err != nil {
+	decoder := json.NewDecoder(bytes.NewReader(raw))
+	decoder.DisallowUnknownFields()
+	if err := decoder.Decode(&j); err != nil {
 		panic("zhtw: failed to parse embedded zhtw-data.json: " + err.Error())
+	}
+	if j.SchemaVersion != 1 {
+		panic("zhtw: unsupported embedded data schema version")
+	}
+	if j.Version == "" || j.Charmap.Chars == nil || j.Charmap.BalancedDefaults == nil || j.Terms == nil {
+		panic("zhtw: embedded data is missing required fields")
+	}
+	for _, value := range j.Charmap.Ambiguous {
+		if len([]rune(value)) != 1 {
+			panic("zhtw: ambiguous entries must contain one Unicode code point")
+		}
+	}
+	for source := range j.Terms {
+		if source != "cn" && source != "hk" {
+			panic("zhtw: unsupported term source")
+		}
 	}
 
 	charMap := make(map[rune]rune, len(j.Charmap.Chars))
 	for k, v := range j.Charmap.Chars {
 		kr := []rune(k)
 		vr := []rune(v)
-		if len(kr) == 1 && len(vr) == 1 {
-			charMap[kr[0]] = vr[0]
+		if len(kr) != 1 || len(vr) != 1 {
+			panic("zhtw: charmap entries must contain one Unicode code point")
 		}
+		charMap[kr[0]] = vr[0]
 	}
 
 	balancedDefaults := make(map[rune]rune, len(j.Charmap.BalancedDefaults))
 	for k, v := range j.Charmap.BalancedDefaults {
 		kr := []rune(k)
 		vr := []rune(v)
-		if len(kr) == 1 && len(vr) == 1 {
-			balancedDefaults[kr[0]] = vr[0]
+		if len(kr) != 1 || len(vr) != 1 {
+			panic("zhtw: balanced defaults must contain one Unicode code point")
 		}
+		balancedDefaults[kr[0]] = vr[0]
 	}
 
 	termsCn := j.Terms["cn"]

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/sdk/data/zhtw-data.schema.json",
+  "title": "zhtw SDK data",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "version", "stats", "charmap", "terms"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["charmap_count", "ambiguous_count", "terms_cn_count", "terms_hk_count"],
+      "properties": {
+        "charmap_count": { "type": "integer", "minimum": 0 },
+        "ambiguous_count": { "type": "integer", "minimum": 0 },
+        "terms_cn_count": { "type": "integer", "minimum": 0 },
+        "terms_hk_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "charmap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["chars", "ambiguous", "balanced_defaults", "balanced_protect_terms"],
+      "properties": {
+        "chars": { "$ref": "#/$defs/stringMap" },
+        "ambiguous": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "balanced_defaults": { "$ref": "#/$defs/stringMap" },
+        "balanced_protect_terms": {
+          "type": "object",
+          "additionalProperties": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+        }
+      }
+    },
+    "terms": {
+      "type": "object",
+      "propertyNames": { "enum": ["cn", "hk"] },
+      "additionalProperties": { "$ref": "#/$defs/stringMap" },
+      "minProperties": 1
+    }
+  },
+  "$defs": {
+    "stringMap": {
+      "type": "object",
+      "propertyNames": { "minLength": 1 },
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    }
+  }
+}

@@ -76,8 +76,9 @@ public final class ZhtwConverter {
 
         // Covered positions from ALL automaton hits (including identity terms).
         // Must be computed on original text before any replacements.
-        Set<Integer> covered = matcher.getCoveredPositions(text);
-        List<Match> matches = matcher.findMatches(text);
+        AhoCorasickMatcher.ScanResult scan = matcher.scan(text);
+        Set<Integer> covered = scan.covered;
+        List<Match> matches = scan.matches;
 
         boolean layersEnabled = charLayerEnabled || balancedMode;
 
@@ -116,10 +117,11 @@ public final class ZhtwConverter {
         List<Match> result = new ArrayList<>();
 
         // Covered positions from ALL automaton hits (including identity terms)
-        Set<Integer> coveredUtf16 = matcher.getCoveredPositions(text);
+        AhoCorasickMatcher.ScanResult scan = matcher.scan(text);
+        Set<Integer> coveredUtf16 = scan.covered;
 
         // Term-level matches (matcher returns UTF-16 indices, convert to codepoint)
-        for (Match m : matcher.findMatches(text)) {
+        for (Match m : scan.matches) {
             int cpStart = Character.codePointCount(text, 0, m.getStart());
             int cpEnd = Character.codePointCount(text, 0, m.getEnd());
             result.add(new Match(cpStart, cpEnd, m.getSource(), m.getTarget()));
@@ -185,10 +187,11 @@ public final class ZhtwConverter {
         List<ConversionDetail> utf16Details = new ArrayList<>();
 
         // Covered positions from ALL automaton hits (including identity terms)
-        Set<Integer> coveredUtf16 = matcher.getCoveredPositions(word);
+        AhoCorasickMatcher.ScanResult scan = matcher.scan(word);
+        Set<Integer> coveredUtf16 = scan.covered;
 
         // 1. Term layer — targets stored verbatim (matching Python/TS/Rust).
-        List<Match> termMatches = matcher.findMatches(word);
+        List<Match> termMatches = scan.matches;
         for (Match m : termMatches) {
             utf16Details.add(new ConversionDetail(m.getSource(), m.getTarget(), "term", m.getStart()));
         }

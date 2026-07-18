@@ -124,13 +124,13 @@ pub(crate) fn build_byte_to_cp(text: &str) -> Vec<usize> {
 /// with identity-based protection to avoid false conversions.
 ///
 /// This is the Rust port of Python `matcher.py:find_matches` (lines 60-134).
-pub(crate) fn find_term_matches(
+/// Walk the automaton once and derive selected term hits and raw coverage.
+pub(crate) fn scan(
     pma: &CharwiseDoubleArrayAhoCorasick<u32>,
     pattern_table: &[(String, String)],
     text: &str,
-) -> Vec<TermHit> {
-    // 1. Collect all overlapping hits.
-    let mut all_hits: Vec<TermHit> = pma
+) -> (Vec<TermHit>, HashSet<usize>) {
+    let all_hits: Vec<TermHit> = pma
         .find_overlapping_iter(text)
         .map(|m| {
             let idx = m.value() as usize;
@@ -144,6 +144,14 @@ pub(crate) fn find_term_matches(
         })
         .collect();
 
+    let mut covered = HashSet::new();
+    for hit in &all_hits {
+        covered.extend(hit.byte_start..hit.byte_end);
+    }
+    (select_term_matches(all_hits), covered)
+}
+
+fn select_term_matches(mut all_hits: Vec<TermHit>) -> Vec<TermHit> {
     if all_hits.is_empty() {
         return Vec::new();
     }
@@ -231,22 +239,6 @@ pub(crate) fn find_term_matches(
     }
 
     result
-}
-
-/// Return all byte positions covered by any raw automaton hit, including
-/// identity terms (source == target). Used to prevent the char layer from
-/// converting characters protected by identity term matches.
-pub(crate) fn get_covered_positions(
-    pma: &CharwiseDoubleArrayAhoCorasick<u32>,
-    text: &str,
-) -> HashSet<usize> {
-    let mut covered = HashSet::new();
-    for m in pma.find_overlapping_iter(text) {
-        for b in m.start()..m.end() {
-            covered.insert(b);
-        }
-    }
-    covered
 }
 
 /// Check whether the identity span `[start, end)` is fully contained within

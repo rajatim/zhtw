@@ -7,6 +7,7 @@ import type { AmbiguityMode, Source, ZhtwData } from '../src/core/types';
 // Load the real data file and golden fixtures from sdk/data/.
 const DATA_FILE = resolve(__dirname, '../../data/zhtw-data.json');
 const GOLDEN_FILE = resolve(__dirname, '../../data/golden-test.json');
+const CONFORMANCE_FILE = resolve(__dirname, '../../data/conformance-v1.json');
 
 const data = JSON.parse(readFileSync(DATA_FILE, 'utf-8')) as ZhtwData;
 
@@ -55,6 +56,31 @@ interface GoldenFile {
 }
 
 const golden = JSON.parse(readFileSync(GOLDEN_FILE, 'utf-8')) as GoldenFile;
+const conformance = JSON.parse(readFileSync(CONFORMANCE_FILE, 'utf-8')) as {
+  schema_version: number;
+  convert: Array<GoldenConvertCase & { id: string }>;
+};
+
+const packageVersion = (JSON.parse(
+  readFileSync(resolve(__dirname, '../package.json'), 'utf-8'),
+) as { version: string }).version;
+
+describe('embedded version contract', () => {
+  it('matches the npm package and golden fixture', () => {
+    expect(data.version).toBe(packageVersion);
+    expect(golden.version).toBe(packageVersion);
+  });
+});
+
+describe('conformance-v1.json — independently approved cases', () => {
+  expect(conformance.schema_version).toBe(1);
+  for (const tc of conformance.convert) {
+    it(tc.id, () => {
+      const conv = createConverter(data, { sources: tc.sources });
+      expect(conv.convert(tc.input)).toBe(tc.expected);
+    });
+  }
+});
 
 describe('golden-test.json — convert parity', () => {
   for (const tc of golden.convert) {

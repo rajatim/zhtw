@@ -4334,7 +4334,7 @@
       "id": "regressions/regression_020",
       "domain": "regressions",
       "input": "后台程序里的日志文件",
-      "expected": "背景程式裡的日誌文件",
+      "expected": "背景程式裡的記錄檔",
       "risk": "over_conversion_guard",
       "source": {
         "report": "docs/reports/competitor-diffs-full-2026-07-03.json",
@@ -4347,7 +4347,7 @@
         "it",
         "logging"
       ],
-      "notes": "后台程序→背景程式, 里的→裡的, 日志→日誌",
+      "notes": "后台程序→背景程式, 里的→裡的, 日志→日誌; maintainer semantic re-audit 2026-07-19: 背景程式裡的日誌文件 -> 背景程式裡的記錄檔",
       "competitor_misses": [
         "opencc-s2twp",
         "zhconv-zh-tw"
@@ -5479,7 +5479,7 @@
       "id": "social/social_033",
       "domain": "social",
       "input": "这家店支持电子支付。",
-      "expected": "這家店支持電子付款。",
+      "expected": "這家店支援電子付款。",
       "risk": "over_conversion_guard",
       "source": {
         "report": "docs/reports/competitor-diffs-full-2026-07-03.json",
@@ -5492,7 +5492,7 @@
         "daily",
         "payment"
       ],
-      "notes": "支持保持支持，电子→電子",
+      "notes": "支持保持支持，电子→電子; maintainer semantic re-audit 2026-07-19: 這家店支持電子付款。 -> 這家店支援電子付款。",
       "competitor_misses": [
         "opencc-s2twp",
         "zhconv-zh-tw"
@@ -5502,7 +5502,7 @@
       "id": "social/social_034",
       "domain": "social",
       "input": "默认铃声听起来很普通。",
-      "expected": "默認鈴聲聽起來很普通。",
+      "expected": "預設鈴聲聽起來很普通。",
       "risk": "over_conversion_guard",
       "source": {
         "report": "docs/reports/competitor-diffs-full-2026-07-03.json",
@@ -5515,7 +5515,7 @@
         "daily",
         "device"
       ],
-      "notes": "默认铃声→預設鈴聲",
+      "notes": "默认铃声→預設鈴聲; maintainer semantic re-audit 2026-07-19: 默認鈴聲聽起來很普通。 -> 預設鈴聲聽起來很普通。",
       "competitor_misses": [
         "opencc-s2twp"
       ]
@@ -5546,7 +5546,7 @@
       "id": "social/social_036",
       "domain": "social",
       "input": "照片质量比昨天好很多。",
-      "expected": "照片質量比昨天好很多。",
+      "expected": "照片品質比昨天好很多。",
       "risk": "baseline_guard",
       "source": {
         "report": "docs/reports/competitor-diffs-full-2026-07-03.json",
@@ -5559,7 +5559,7 @@
         "daily",
         "media"
       ],
-      "notes": "质量在照片語境保持質量",
+      "notes": "质量在照片語境保持質量; maintainer semantic re-audit 2026-07-19: 照片質量比昨天好很多。 -> 照片品質比昨天好很多。",
       "competitor_misses": []
     },
     {
@@ -5909,7 +5909,7 @@
       "id": "social/social_053",
       "domain": "social",
       "input": "今天空气质量不太好。",
-      "expected": "今天空氣質量不太好。",
+      "expected": "今天空氣品質不太好。",
       "risk": "over_conversion_guard",
       "source": {
         "report": "docs/reports/competitor-diffs-full-2026-07-03.json",
@@ -5922,7 +5922,7 @@
         "daily",
         "environment"
       ],
-      "notes": "空气→空氣，质量保持質量",
+      "notes": "空气→空氣，质量保持質量; maintainer semantic re-audit 2026-07-19: 今天空氣質量不太好。 -> 今天空氣品質不太好。",
       "competitor_misses": [
         "zhconv-zh-tw"
       ]
@@ -6615,7 +6615,7 @@
       "id": "tech/tech_066",
       "domain": "tech",
       "input": "后端服务写入日志文件。",
-      "expected": "後端服務寫入日誌文件。",
+      "expected": "後端服務寫入記錄檔。",
       "risk": "over_conversion_guard",
       "source": {
         "report": "docs/reports/competitor-diffs-full-2026-07-03.json",
@@ -6628,7 +6628,7 @@
         "backend",
         "logging"
       ],
-      "notes": "日志→日誌",
+      "notes": "日志→日誌; maintainer semantic re-audit 2026-07-19: 後端服務寫入日誌文件。 -> 後端服務寫入記錄檔。",
       "competitor_misses": [
         "opencc-s2twp"
       ]
@@ -7656,7 +7656,7 @@
       "id": "tech/tech_034",
       "domain": "tech",
       "input": "用户端会保存会话令牌。",
-      "expected": "用戶端會保存會話權杖。",
+      "expected": "用戶端會儲存工作階段權杖。",
       "risk": "over_conversion_guard",
       "source": {
         "report": "docs/reports/competitor-diffs-full-2026-07-03.json",
@@ -7669,7 +7669,7 @@
         "client",
         "auth"
       ],
-      "notes": "用户端→用戶端，会话→工作階段",
+      "notes": "用户端→用戶端，会话→工作階段; maintainer semantic re-audit 2026-07-19: 用戶端會保存會話權杖。 -> 用戶端會儲存工作階段權杖。",
       "competitor_misses": [
         "opencc-s2twp",
         "zhconv-zh-tw"
@@ -7723,7 +7723,7 @@
       "id": "tech/tech_037",
       "domain": "tech",
       "input": "命令行参数支持短选项。",
-      "expected": "命令列參數支持短選項。",
+      "expected": "命令列參數支援短選項。",
       "risk": "over_conversion_guard",
       "source": {
         "report": "docs/reports/competitor-diffs-full-2026-07-03.json",
@@ -7735,7 +7735,7 @@
       "tags": [
         "cli"
       ],
-      "notes": "命令行→命令列，选项→選項",
+      "notes": "命令行→命令列，选项→選項; maintainer semantic re-audit 2026-07-19: 命令列參數支持短選項。 -> 命令列參數支援短選項。",
       "competitor_misses": [
         "opencc-s2twp",
         "zhconv-zh-tw"
@@ -7963,7 +7963,7 @@
       "id": "tech/tech_048",
       "domain": "tech",
       "input": "应用程序启动后会读取配置。",
-      "expected": "應用程式啟動後會讀取配置。",
+      "expected": "應用程式啟動後會讀取設定。",
       "risk": "baseline_guard",
       "source": {
         "report": "docs/reports/competitor-diffs-full-2026-07-03.json",
@@ -7976,7 +7976,7 @@
         "app",
         "configuration"
       ],
-      "notes": "应用程序→應用程式，配置→設定",
+      "notes": "应用程序→應用程式，配置→設定; maintainer semantic re-audit 2026-07-19: 應用程式啟動後會讀取配置。 -> 應用程式啟動後會讀取設定。",
       "competitor_misses": []
     },
     {
@@ -8449,7 +8449,7 @@
       "id": "tech/tech_010",
       "domain": "tech",
       "input": "日志文件记录错误信息。",
-      "expected": "日誌文件記錄錯誤資訊。",
+      "expected": "記錄檔記錄錯誤資訊。",
       "risk": "over_conversion_guard",
       "source": {
         "report": "docs/reports/competitor-diffs-full-2026-07-03.json",
@@ -8462,7 +8462,7 @@
         "logging",
         "debugging"
       ],
-      "notes": "日志→日誌, 记录→記錄, 错误→錯誤, 信息→資訊",
+      "notes": "日志→日誌, 记录→記錄, 错误→錯誤, 信息→資訊; maintainer semantic re-audit 2026-07-19: 日誌文件記錄錯誤資訊。 -> 記錄檔記錄錯誤資訊。",
       "competitor_misses": [
         "opencc-s2twp",
         "zhconv-zh-tw"
@@ -8602,7 +8602,7 @@
       "id": "tech/tech_017",
       "domain": "tech",
       "input": "数据库迁移脚本失败了。",
-      "expected": "資料庫遷移指令碼失敗了。",
+      "expected": "資料庫移轉指令碼失敗了。",
       "risk": "over_conversion_guard",
       "source": {
         "report": "docs/reports/competitor-diffs-full-2026-07-03.json",
@@ -8615,7 +8615,7 @@
         "database",
         "migration"
       ],
-      "notes": "数据库→資料庫, 脚本→指令碼, 失败→失敗",
+      "notes": "数据库→資料庫, 脚本→指令碼, 失败→失敗; maintainer semantic re-audit 2026-07-19: 資料庫遷移指令碼失敗了。 -> 資料庫移轉指令碼失敗了。",
       "competitor_misses": [
         "zhconv-zh-tw"
       ]
@@ -12794,10 +12794,10 @@
       "id": "annotation/formal-high-risk-0094",
       "domain": "formal",
       "input": "统计数据将于月底发布。",
-      "expected": "統計數據將於月底發布。",
+      "expected": "統計資料將於月底發布。",
       "risk": "baseline_guard",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "formal-high-risk-0094",
         "sample_seed": null,
@@ -13124,10 +13124,10 @@
       "id": "annotation/it-api-cli-0009",
       "domain": "it",
       "input": "后端服务需要验证请求签名。",
-      "expected": "後端服務需要驗證要求簽章。",
+      "expected": "後端服務需要驗證請求簽章。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0009",
         "sample_seed": null,
@@ -13322,10 +13322,10 @@
       "id": "annotation/it-api-cli-0018",
       "domain": "it",
       "input": "请求超时后会重试三次。",
-      "expected": "要求逾時後會重試三次。",
+      "expected": "請求逾時後會重試三次。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0018",
         "sample_seed": null,
@@ -13366,10 +13366,10 @@
       "id": "annotation/it-api-cli-0020",
       "domain": "it",
       "input": "这个端点只接受 JSON 请求。",
-      "expected": "這個端點只接受 JSON 要求。",
+      "expected": "這個端點只接受 JSON 請求。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0020",
         "sample_seed": null,
@@ -13586,10 +13586,10 @@
       "id": "annotation/it-api-cli-0030",
       "domain": "it",
       "input": "请把配置项写入环境变量。",
-      "expected": "請將配置項寫入環境變數。",
+      "expected": "請將設定項目寫入環境變數。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0030",
         "sample_seed": null,
@@ -13762,10 +13762,10 @@
       "id": "annotation/it-api-cli-0038",
       "domain": "it",
       "input": "默认配置会启用压缩响应。",
-      "expected": "預設配置會啟用壓縮回應。",
+      "expected": "預設設定會啟用壓縮回應。",
       "risk": "over_conversion_guard",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-final-translation-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0038",
         "sample_seed": null,
@@ -13777,7 +13777,7 @@
         "it",
         "over_conversion_guard"
       ],
-      "notes": "promoted from annotation backlog; expected_source=human_adjudication; ai_advisory=gemini_vertex; decision_by=tim; adjudicator=tim",
+      "notes": "promoted from annotation backlog; expected_source=human_adjudication; ai_advisory=gemini_vertex; decision_by=tim; adjudicator=tim; maintainer semantic re-audit 2026-07-19: 預設配置會啟用壓縮回應。 -> 預設設定會啟用壓縮回應。",
       "competitor_misses": []
     },
     {
@@ -14290,10 +14290,10 @@
       "id": "annotation/it-api-cli-0062",
       "domain": "it",
       "input": "请为服务账户生成新的密钥。",
-      "expected": "請為服務帳戶產生新的密鑰。",
+      "expected": "請為服務帳戶產生新的金鑰。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0062",
         "sample_seed": null,
@@ -14444,10 +14444,10 @@
       "id": "annotation/it-api-cli-0069",
       "domain": "it",
       "input": "请在配置文件里声明输出编码。",
-      "expected": "請在配置檔裡宣告輸出編碼。",
+      "expected": "請在設定檔裡宣告輸出編碼。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0069",
         "sample_seed": null,
@@ -14664,10 +14664,10 @@
       "id": "annotation/it-api-cli-0079",
       "domain": "it",
       "input": "请验证请求签名和时间戳。",
-      "expected": "請驗證要求簽章和時間戳記。",
+      "expected": "請驗證請求簽章和時間戳記。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0079",
         "sample_seed": null,
@@ -15764,10 +15764,10 @@
       "id": "annotation/it-api-cli-0129",
       "domain": "it",
       "input": "速率限制器会使用令牌桶算法。",
-      "expected": "速率限制器會使用令牌桶演算法。",
+      "expected": "速率限制器會使用權杖桶演算法。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0129",
         "sample_seed": null,
@@ -16314,10 +16314,10 @@
       "id": "annotation/it-api-cli-0154",
       "domain": "it",
       "input": "请在发布流水线中加入回滚步骤。",
-      "expected": "請在發佈管線中加入回復步驟。",
+      "expected": "請在發布管線中加入復原步驟。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0154",
         "sample_seed": null,
@@ -16358,10 +16358,10 @@
       "id": "annotation/it-api-cli-0156",
       "domain": "it",
       "input": "灰度发布会根据用户分组启用功能。",
-      "expected": "灰度發佈會根據使用者分組啟用功能。",
+      "expected": "漸進式發布會根據使用者分組啟用功能。",
       "risk": "over_conversion_guard",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0156",
         "sample_seed": null,
@@ -16600,10 +16600,10 @@
       "id": "annotation/it-api-cli-0167",
       "domain": "it",
       "input": "这个 SDK 会自动续签凭证。",
-      "expected": "這個 SDK 會自動續約憑證。",
+      "expected": "這個 SDK 會自動更新憑證。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "it-api-cli-0167",
         "sample_seed": null,
@@ -19064,10 +19064,10 @@
       "id": "annotation/ui-i18n-0004",
       "domain": "ui",
       "input": "退出登录后会返回首页。",
-      "expected": "登出後會返回首頁。",
+      "expected": "登出後會回到首頁。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "ui-i18n-0004",
         "sample_seed": null,
@@ -20890,10 +20890,10 @@
       "id": "annotation/ui-i18n-0087",
       "domain": "ui",
       "input": "输入框会自动修剪空格。",
-      "expected": "輸入框會自動修剪空白。",
+      "expected": "輸入框會自動移除前後空白。",
       "risk": "over_conversion_guard",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "ui-i18n-0087",
         "sample_seed": null,
@@ -21726,10 +21726,10 @@
       "id": "annotation/ui-i18n-0125",
       "domain": "ui",
       "input": "请在发布前锁定语言版本。",
-      "expected": "請在發佈前鎖定語言版本。",
+      "expected": "請在發布前鎖定語言版本。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/annotation-promotion-gate-2026-07-07.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/annotation-backlog-v1.json",
         "case_id": "ui-i18n-0125",
         "sample_seed": null,
@@ -22694,10 +22694,10 @@
       "id": "holdout/blind-it-0042",
       "domain": "it",
       "input": "迁移脚本会先备份旧表再修改字段。",
-      "expected": "遷移指令碼會先備份舊資料表再修改欄位。",
+      "expected": "移轉指令碼會先備份舊資料表再修改欄位。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch3-2026-07-09.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-it-0042",
         "sample_seed": null,
@@ -22716,10 +22716,10 @@
       "id": "holdout/blind-it-0044",
       "domain": "it",
       "input": "这个钩子会在提交前格式化源代码。",
-      "expected": "這個鉤子會在提交前格式化原始碼。",
+      "expected": "這個掛鉤會在提交前格式化原始碼。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch3-2026-07-09.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-it-0044",
         "sample_seed": null,
@@ -22870,10 +22870,10 @@
       "id": "holdout/blind-it-0057",
       "domain": "it",
       "input": "这个仓库同时保存英文和台湾繁体 README。",
-      "expected": "這個儲存庫同時保存英文和台灣繁體 README。",
+      "expected": "這個儲存庫同時保留英文和台灣繁體 README。",
       "risk": "over_conversion_guard",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch3-2026-07-09.json",
+        "report": "docs/reports/accuracy-final-translation-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-it-0057",
         "sample_seed": null,
@@ -22885,7 +22885,7 @@
         "it",
         "over_conversion_guard"
       ],
-      "notes": "promoted from blind-v1 after removal from sealed holdout; expected_source=human_adjudication; approval_policy=single_human_with_ai_advisory; strategy=full_sentence_mapping_with_identity",
+      "notes": "promoted from blind-v1 after removal from sealed holdout; expected_source=human_adjudication; approval_policy=single_human_with_ai_advisory; strategy=full_sentence_mapping_with_identity; maintainer semantic re-audit 2026-07-19: 這個儲存庫同時保存英文和台灣繁體 README。 -> 這個儲存庫同時保留英文和台灣繁體 README。",
       "competitor_misses": []
     },
     {
@@ -23090,10 +23090,10 @@
       "id": "holdout/blind-ui-0034",
       "domain": "ui",
       "input": "表单提交成功后会返回首页。",
-      "expected": "表單送出成功後會返回首頁。",
+      "expected": "表單送出成功後會回到首頁。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch3-2026-07-09.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-ui-0034",
         "sample_seed": null,
@@ -23376,10 +23376,10 @@
       "id": "holdout/blind-it-0070",
       "domain": "it",
       "input": "命名空间里的配置映射需要同步更新。",
-      "expected": "命名空間裡的設定映射需要同步更新。",
+      "expected": "命名空間裡的設定對應需要同步更新。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-remaining-40-final-review-2026-07-09.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-it-0070",
         "sample_seed": null,
@@ -23398,10 +23398,10 @@
       "id": "holdout/blind-it-0073",
       "domain": "it",
       "input": "上传接口会验证文件校验和。",
-      "expected": "上傳介面會驗證檔案校驗和。",
+      "expected": "上傳介面會驗證檔案檢查碼。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-remaining-40-final-review-2026-07-09.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-it-0073",
         "sample_seed": null,
@@ -23904,10 +23904,10 @@
       "id": "holdout/blind-ui-0079",
       "domain": "ui",
       "input": "通知中心会按时间倒序排列消息。",
-      "expected": "通知中心會依時間倒序排列訊息。",
+      "expected": "通知中心會依時間由新到舊排列訊息。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-338-miss-review-2026-07-09.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-ui-0079",
         "sample_seed": null,
@@ -24212,10 +24212,10 @@
       "id": "holdout/blind-it-0138",
       "domain": "it",
       "input": "请在 API 响应中加入请求标识，方便排查日志。",
-      "expected": "請在 API 回應中加入請求識別碼，方便排查日誌。",
+      "expected": "請在 API 回應中加入請求識別碼，以利透過記錄檔追查問題。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch7-miss-review-2026-07-10.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-it-0138",
         "sample_seed": null,
@@ -24520,10 +24520,10 @@
       "id": "holdout/blind-llm-0085",
       "domain": "llm",
       "input": "对话历史过长时，系统会裁剪较旧消息。",
-      "expected": "對話歷史過長時，系統會截斷較舊訊息。",
+      "expected": "對話歷史過長時，系統會移除較舊訊息。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch7-miss-review-2026-07-10.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-llm-0085",
         "sample_seed": null,
@@ -24652,10 +24652,10 @@
       "id": "holdout/blind-it-0169",
       "domain": "it",
       "input": "数据库迁移脚本需要支持回滚。",
-      "expected": "資料庫遷移腳本需要支援回滾。",
+      "expected": "資料庫移轉指令碼需要支援復原。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch8-miss-review-2026-07-11.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-it-0169",
         "sample_seed": null,
@@ -24740,10 +24740,10 @@
       "id": "holdout/blind-it-0177",
       "domain": "it",
       "input": "对象权限会继承存储桶的访问策略。",
-      "expected": "物件權限會繼承儲存桶的存取策略。",
+      "expected": "物件權限會繼承儲存貯體的存取策略。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch8-miss-review-2026-07-11.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-it-0177",
         "sample_seed": null,
@@ -25312,10 +25312,10 @@
       "id": "holdout/blind-it-0223",
       "domain": "it",
       "input": "配置中心会按环境下发不同的功能开关。",
-      "expected": "設定中心會依環境派送不同的功能開關。",
+      "expected": "設定中心會依環境發布不同的功能開關。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-it-0223",
         "sample_seed": null,
@@ -25422,10 +25422,10 @@
       "id": "holdout/blind-ui-0169",
       "domain": "ui",
       "input": "分页器需要显示当前页码和总页数。",
-      "expected": "分頁器需要顯示目前頁碼和總頁數。",
+      "expected": "分頁控制項需要顯示目前頁碼和總頁數。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-ui-0169",
         "sample_seed": null,
@@ -26214,10 +26214,10 @@
       "id": "public-reproduction/public-repro-20260713-ui-0001",
       "domain": "ui",
       "input": "点击保存按钮后，页面右上角会显示成功提示。",
-      "expected": "點擊儲存按鈕後，頁面右上角會顯示成功提示。",
+      "expected": "點選儲存按鈕後，頁面右上角會顯示成功提示。",
       "risk": "over_conversion_guard",
       "source": {
-        "report": "docs/reports/public-reproduction-promotion-gate-after-batch10-remaining-signal-2026-07-13.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "docs/reports/public-reproduction-maintainer-final-decision-after-batch10-remaining-signal-2026-07-13.json",
         "case_id": "public-repro-20260713-ui-0001",
         "sample_seed": null,
@@ -26940,10 +26940,10 @@
       "id": "holdout/blind-it-0291",
       "domain": "it",
       "input": "构建产物应附上来源提交的校验值。",
-      "expected": "建置產物應附上來源提交的雜湊值。",
+      "expected": "建置產物應附上來源提交的檢查碼。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch13-miss-review-2026-07-14.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-it-0291",
         "sample_seed": null,
@@ -27160,10 +27160,10 @@
       "id": "holdout/blind-ui-0229",
       "domain": "ui",
       "input": "通知中心按时间倒序显示未读消息。",
-      "expected": "通知中心按時間倒序顯示未讀訊息。",
+      "expected": "通知中心依時間由新到舊顯示未讀訊息。",
       "risk": "candidate_gap",
       "source": {
-        "report": "docs/reports/holdout-regression-promotion-gate-blind-v1-batch13-miss-review-2026-07-14.json",
+        "report": "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json",
         "source_file": "benchmarks/accuracy/holdout-regression-candidates-v1.json",
         "case_id": "blind-ui-0229",
         "sample_seed": null,

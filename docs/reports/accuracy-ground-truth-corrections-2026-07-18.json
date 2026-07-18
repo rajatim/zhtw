@@ -1,0 +1,41 @@
+{
+  "generated_date": "2026-07-18",
+  "report_type": "accuracy_ground_truth_corrections",
+  "review_stage": "maintainer_adjudication_after_codex_and_gemini_review",
+  "maintainer": "tim",
+  "decision": "fix",
+  "approval_policy": "single_human_with_ai_advisory_and_authoritative_sources",
+  "summary": {
+    "corrected_regression_cases": 14,
+    "corrected_annotation_cases": 9,
+    "corrected_dictionary_mappings": 14,
+    "dictionary_only_corrections": 0,
+    "historical_reports_rewritten": false,
+    "current_datasets_updated": true,
+    "dictionary_updated": true,
+    "stale_acceptable_variants_removed": 4
+  },
+  "authoritative_sources": [
+    "https://docs.aws.amazon.com/zh_tw/IAM/latest/UserGuide/reference_sigv-examples.html",
+    "https://learn.microsoft.com/zh-tw/dotnet/api/system.net.webrequest.timeout",
+    "https://learn.microsoft.com/zh-tw/windows/win32/ad/checksums-and-object-counts",
+    "https://docs.cloud.google.com/run/docs/rollouts-rollbacks-traffic-migration?hl=zh-TW"
+  ],
+  "cases": [
+    {"id": "annotation/it-api-cli-0009", "reason": "API request signature must use 請求簽章, not 要求簽章"},
+    {"id": "annotation/it-api-cli-0018", "reason": "request timeout must use 請求逾時, not 要求逾時"},
+    {"id": "annotation/it-api-cli-0020", "reason": "an API request is 請求, not 要求"},
+    {"id": "annotation/it-api-cli-0030", "reason": "配置項 is not the approved Taiwan term; use 設定項目"},
+    {"id": "annotation/it-api-cli-0079", "reason": "API request signature must use 請求簽章"},
+    {"id": "annotation/it-api-cli-0129", "reason": "token bucket must use 權杖桶 consistently"},
+    {"id": "annotation/it-api-cli-0154", "reason": "rollback in a release pipeline is 復原, not 回復"},
+    {"id": "annotation/it-api-cli-0156", "reason": "灰度發布 is replaced with the Taiwan term 漸進式發布"},
+    {"id": "annotation/it-api-cli-0167", "reason": "credentials are updated or renewed, not contractually renewed with 續約"},
+    {"id": "holdout/blind-it-0070", "reason": "configuration mapping is 設定對應, not 設定映射"},
+    {"id": "holdout/blind-it-0073", "reason": "checksum is 檢查碼, not the Mainland term 校驗和"},
+    {"id": "holdout/blind-it-0138", "reason": "replace 排查日誌 with an idiomatic troubleshooting expression"},
+    {"id": "holdout/blind-it-0169", "reason": "use the project-consistent terms 移轉, 指令碼, and 復原"},
+    {"id": "holdout/blind-it-0223", "reason": "configuration distribution is 發布, not delivery-oriented 派送"}
+  ],
+  "dictionary_only_correction_sources": []
+}

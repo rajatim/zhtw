@@ -23,6 +23,8 @@ import java.util.Set;
  */
 final class ZhtwData {
 
+    private static final int SUPPORTED_SCHEMA_VERSION = 1;
+
     private final String version;
     private final Map<Integer, String> charmap;   // codepoint -> replacement string
     private final Set<Integer> ambiguous;          // ambiguous codepoints
@@ -67,11 +69,26 @@ final class ZhtwData {
             throw new IllegalStateException("Failed to read zhtw data", e);
         }
 
+        Number schemaVersion = (Number) root.get("schema_version");
+        if (schemaVersion == null || schemaVersion.intValue() != SUPPORTED_SCHEMA_VERSION) {
+            throw new IllegalStateException("Unsupported zhtw data schema version");
+        }
+
         String version = (String) root.get("version");
+        if (version == null || version.isEmpty()) {
+            throw new IllegalStateException("Missing zhtw data version");
+        }
+        if (!root.keySet().equals(Set.of("schema_version", "version", "stats", "charmap", "terms"))) {
+            throw new IllegalStateException("Unexpected or missing top-level zhtw data fields");
+        }
 
         // Parse charmap — keys and values may be supplementary plane characters
         @SuppressWarnings("unchecked")
         Map<String, Object> charmapObj = (Map<String, Object>) root.get("charmap");
+        if (!charmapObj.keySet().equals(Set.of(
+                "chars", "ambiguous", "balanced_defaults", "balanced_protect_terms"))) {
+            throw new IllegalStateException("Unexpected or missing charmap fields");
+        }
 
         @SuppressWarnings("unchecked")
         Map<String, String> rawChars = (Map<String, String>) charmapObj.get("chars");
@@ -79,19 +96,17 @@ final class ZhtwData {
         for (Map.Entry<String, String> e : rawChars.entrySet()) {
             String key = e.getKey();
             String val = e.getValue();
-            if (!key.isEmpty() && !val.isEmpty()) {
-                int codepoint = key.codePointAt(0);
-                charmap.put(codepoint, val);
-            }
+            requireSingleCodepoint(key, "charmap key");
+            requireSingleCodepoint(val, "charmap value");
+            charmap.put(key.codePointAt(0), val);
         }
 
         @SuppressWarnings("unchecked")
         List<String> rawAmbiguous = (List<String>) charmapObj.get("ambiguous");
         Set<Integer> ambiguous = new HashSet<>();
         for (String s : rawAmbiguous) {
-            if (!s.isEmpty()) {
-                ambiguous.add(s.codePointAt(0));
-            }
+            requireSingleCodepoint(s, "ambiguous entry");
+            ambiguous.add(s.codePointAt(0));
         }
 
         // Parse balanced_defaults
@@ -102,15 +117,18 @@ final class ZhtwData {
             for (Map.Entry<String, String> e : rawBalanced.entrySet()) {
                 String key = e.getKey();
                 String val = e.getValue();
-                if (!key.isEmpty() && !val.isEmpty()) {
-                    balancedDefaults.put(key.codePointAt(0), val);
-                }
+                requireSingleCodepoint(key, "balanced default key");
+                requireSingleCodepoint(val, "balanced default value");
+                balancedDefaults.put(key.codePointAt(0), val);
             }
         }
 
         // Parse terms
         @SuppressWarnings("unchecked")
         Map<String, Object> rawTerms = (Map<String, Object>) root.get("terms");
+        if (!Set.of("cn", "hk").containsAll(rawTerms.keySet())) {
+            throw new IllegalStateException("Unsupported term source");
+        }
         Map<String, Map<String, String>> terms = new HashMap<>();
         for (Map.Entry<String, Object> e : rawTerms.entrySet()) {
             @SuppressWarnings("unchecked")
@@ -119,6 +137,12 @@ final class ZhtwData {
         }
 
         return new ZhtwData(version, charmap, ambiguous, balancedDefaults, terms);
+    }
+
+    private static void requireSingleCodepoint(String value, String name) {
+        if (value == null || value.codePointCount(0, value.length()) != 1) {
+            throw new IllegalStateException(name + " must contain exactly one Unicode code point");
+        }
     }
 
     String getVersion() { return version; }

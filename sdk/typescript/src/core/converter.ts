@@ -122,8 +122,7 @@ export function createConverter(
     if (text.length === 0) return '';
 
     // Covered positions from ALL automaton hits (including identity terms).
-    const covered = matcher.getCoveredPositions(text);
-    const matches = matcher.findMatches(text);
+    const { covered, matches } = matcher.scan(text);
 
     if (matches.length === 0) {
       return layersEnabled
@@ -156,10 +155,10 @@ export function createConverter(
     const results: Match[] = [];
 
     // Covered positions from ALL automaton hits (including identity terms)
-    const coveredUtf16 = matcher.getCoveredPositions(text);
+    const { covered: coveredUtf16, matches: termMatches } = matcher.scan(text);
 
     // Term layer
-    for (const m of matcher.findMatches(text)) {
+    for (const m of termMatches) {
       results.push({
         start: utf16ToCodepoint(text, m.start),
         end: utf16ToCodepoint(text, m.end),
@@ -228,12 +227,12 @@ export function createConverter(
 
     const internal: InternalDetail[] = [];
     // Covered positions from ALL automaton hits (including identity terms)
-    const covered = matcher.getCoveredPositions(word);
+    const { covered, matches: termMatches } = matcher.scan(word);
 
     // Term layer. Term targets are stored verbatim (matching Python
     // `src/zhtw/lookup.py:49-57`). The charmap does NOT post-process term
     // targets — this keeps lookup().output aligned with convert().
-    for (const m of matcher.findMatches(word)) {
+    for (const m of termMatches) {
       internal.push({
         source: m.source,
         target: m.target,

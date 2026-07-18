@@ -43,6 +43,18 @@ namespace Zhtw
 
     internal sealed class AhoCorasickAutomaton
     {
+        internal sealed class ScanResult
+        {
+            internal List<AcMatch> Matches { get; }
+            internal HashSet<int> Covered { get; }
+
+            internal ScanResult(List<AcMatch> matches, HashSet<int> covered)
+            {
+                Matches = matches;
+                Covered = covered;
+            }
+        }
+
         private readonly AcNode _root;
         private readonly List<AcPattern> _patterns;
 
@@ -141,20 +153,27 @@ namespace Zhtw
 
         internal HashSet<int> GetCoveredPositions(string text)
         {
-            int[] codepoints = CodepointHelper.ToCodepoints(text);
-            var covered = new HashSet<int>();
-            foreach (var m in IterEmissions(codepoints))
-            {
-                for (int i = m.Start; i < m.End; i++)
-                    covered.Add(i);
-            }
-            return covered;
+            return Scan(text).Covered;
         }
 
         internal List<AcMatch> FindTermMatches(string text)
         {
+            return Scan(text).Matches;
+        }
+
+        internal ScanResult Scan(string text)
+        {
             int[] codepoints = CodepointHelper.ToCodepoints(text);
             var raw = IterEmissions(codepoints);
+            var covered = new HashSet<int>();
+            foreach (var m in raw)
+                for (int i = m.Start; i < m.End; i++)
+                    covered.Add(i);
+            return new ScanResult(SelectTermMatches(raw), covered);
+        }
+
+        private static List<AcMatch> SelectTermMatches(List<AcMatch> raw)
+        {
             if (raw.Count == 0)
                 return new List<AcMatch>();
 

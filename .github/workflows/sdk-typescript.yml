@@ -12,8 +12,14 @@ on:
       - 'sdk/typescript/**'
       - 'sdk/data/**'
       - '.github/workflows/sdk-typescript.yml'
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish to npm'
+        required: true
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
 
 jobs:
   test:
@@ -62,7 +68,7 @@ jobs:
 
   publish:
     needs: test
-    if: github.event_name == 'release' && github.event.action == 'published'
+    if: github.event_name == 'workflow_dispatch' && inputs.publish == 'true'
     runs-on: ubuntu-latest
     # Trusted Publishing (OIDC) — no NPM_TOKEN required.
     # Configured at: https://www.npmjs.com/package/zhtw-js/access

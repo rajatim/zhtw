@@ -12,7 +12,8 @@
 ✅ Maven Central 透過 sdk-java.yml（release trigger）自動釋出
 ```
 
-> **重要**：push tag 後會「同時」觸發 PyPI + Maven Central 兩條釋出線。若 `sdk/java/pom.xml` 的版本跟 tag 不一致，`mvn deploy` 會失敗（Central artifact 不可變）。
+> **重要**：發布 GitHub Release 後會先執行全 SDK conformance gate，通過才分派
+> 各 registry 發布 workflow。若任一 SDK 版本跟 tag 不一致，gate 必須中止發布。
 
 ## 釋出步驟
 
@@ -48,8 +49,7 @@ make bump VERSION=X.Y.Z
 ```
 
 最後：
-- `pytest` 確保測試透過
-- `cd sdk/java && mvn -q verify --batch-mode` 確保 Java SDK 建置透過
+- `make test-all` 確保 Python 與所有 SDK 測試透過
 - Commit + Push 到 main
 
 ### 2. 釋出（Maintainer 操作）
@@ -63,7 +63,7 @@ make release VERSION=X.Y.Z       # 正式釋出（含 y/N 確認）
 
 指令碼閘門：main 分支、工作樹乾淨、與 origin 同步、tag 不存在、
 Dependabot 無 medium+ 開放弱點、CHANGELOG 有內容、版本同步、SDK data 與 fresh
-export 完全一致、詞庫驗證、curated target idempotency、pytest + mvn verify。
+export 完全一致、詞庫驗證、curated target idempotency、全部 SDK 測試。
 正式流程會自動把 `[Unreleased]` 升級為 `[X.Y.Z]`。
 通過後自動：bump → commit → 雙 tag（vX.Y.Z + sdk/go/vX.Y.Z）→ push →
 GitHub Release（notes 取自 CHANGELOG）。
@@ -77,7 +77,7 @@ git push origin vX.Y.Z sdk/go/vX.Y.Z
 gh release create vX.Y.Z --title "vX.Y.Z: 標題" --notes "（從 CHANGELOG 複製）"
 ```
 
-> **GitHub Release（published 事件）會同時觸發全部 6 個 SDK 的發布**：
+> **GitHub Release（published 事件）會先觸發全 SDK conformance gate**；全綠後才分派發布：
 > PyPI、Maven Central、npm（zhtw-js + zhtw-wasm）、crates.io、NuGet；
 > `sdk/go/v*` tag 另觸發 Go binaries 建置。
 

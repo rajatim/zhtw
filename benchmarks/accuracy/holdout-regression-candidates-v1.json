@@ -1928,7 +1928,7 @@
       "id": "blind-it-0042",
       "domain": "it",
       "input": "迁移脚本会先备份旧表再修改字段。",
-      "expected": "遷移指令碼會先備份舊資料表再修改欄位。",
+      "expected": "移轉指令碼會先備份舊資料表再修改欄位。",
       "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
@@ -1978,7 +1978,7 @@
       "id": "blind-it-0044",
       "domain": "it",
       "input": "这个钩子会在提交前格式化源代码。",
-      "expected": "這個鉤子會在提交前格式化原始碼。",
+      "expected": "這個掛鉤會在提交前格式化原始碼。",
       "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
@@ -2330,7 +2330,7 @@
       "id": "blind-it-0057",
       "domain": "it",
       "input": "这个仓库同时保存英文和台湾繁体 README。",
-      "expected": "這個儲存庫同時保存英文和台灣繁體 README。",
+      "expected": "這個儲存庫同時保留英文和台灣繁體 README。",
       "acceptable": [],
       "risk": "over_conversion_guard",
       "issue_tags": [
@@ -2361,12 +2361,13 @@
           "docs/reports/holdout-gemini-vertex-advisory-blind-v1-expansion-127-cases-2026-07-09.json",
           "docs/reports/holdout-codex-gemini-diff-review-blind-v1-expansion-127-cases-2026-07-09.json",
           "docs/reports/holdout-maintainer-confirmation-blind-v1-expansion-differences-2026-07-09.json",
-          "docs/reports/holdout-maintainer-final-decision-blind-v1-expansion-differences-2026-07-09.json"
+          "docs/reports/holdout-maintainer-final-decision-blind-v1-expansion-differences-2026-07-09.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-09",
-        "notes": "Maintainer OK accepted recommended expected from the expansion differences packet; Codex/Gemini differed, so this is recorded as human adjudication."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted recommended expected from the expansion differences packet; Codex/Gemini differed, so this is recorded as human adjudication.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -2680,7 +2681,7 @@
       "id": "blind-ui-0034",
       "domain": "ui",
       "input": "表单提交成功后会返回首页。",
-      "expected": "表單送出成功後會返回首頁。",
+      "expected": "表單送出成功後會回到首頁。",
       "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
@@ -3763,7 +3764,7 @@
       "id": "blind-it-0070",
       "domain": "it",
       "input": "命名空间里的配置映射需要同步更新。",
-      "expected": "命名空間裡的設定映射需要同步更新。",
+      "expected": "命名空間裡的設定對應需要同步更新。",
       "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
@@ -3816,7 +3817,7 @@
       "id": "blind-it-0073",
       "domain": "it",
       "input": "上传接口会验证文件校验和。",
-      "expected": "上傳介面會驗證檔案校驗和。",
+      "expected": "上傳介面會驗證檔案檢查碼。",
       "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
@@ -4545,9 +4546,7 @@
       "domain": "it",
       "input": "部署平台会在发布前检查环境变量是否完整。",
       "expected": "部署平台會在發布前檢查環境變數是否完整。",
-      "acceptable": [
-        "部署平台會在發佈前檢查環境變數是否完整。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "it_term",
@@ -4582,12 +4581,13 @@
           "docs/reports/holdout-maintainer-final-decision-338-miss-classification-blind-v1-2026-07-09.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-338-miss-review-2026-07-09.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-338-miss-review-2026-07-09.json",
-          "docs/reports/holdout-gemini-policy-review-338-miss-public-promotion-2026-07-09.json"
+          "docs/reports/holdout-gemini-policy-review-338-miss-public-promotion-2026-07-09.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-09",
-        "notes": "Maintainer OK accepted shared Codex/Gemini expected with no immediate question for batch5. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=platform_term_should_remain_platform_not_taiwan_variant."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted shared Codex/Gemini expected with no immediate question for batch5. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=platform_term_should_remain_platform_not_taiwan_variant.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -5063,11 +5063,8 @@
       "id": "blind-ui-0079",
       "domain": "ui",
       "input": "通知中心会按时间倒序排列消息。",
-      "expected": "通知中心會依時間倒序排列訊息。",
-      "acceptable": [
-        "通知中心會按時間倒序排列訊息。",
-        "通知中心會依時間反序排列訊息。"
-      ],
+      "expected": "通知中心會依時間由新到舊排列訊息。",
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "ui_term",
@@ -5241,7 +5238,6 @@
       "input": "请求签名失败时，网关会返回可追踪的错误编号。",
       "expected": "請求簽章失敗時，閘道會回傳可追蹤的錯誤編號。",
       "acceptable": [
-        "請求簽名失敗時，閘道會回傳可追蹤的錯誤編號。",
         "請求簽章失敗時，閘道會傳回可追蹤的錯誤編號。"
       ],
       "risk": "candidate_gap",
@@ -5279,12 +5275,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch6-miss-classification-blind-v1-2026-07-10.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch6-miss-review-2026-07-10.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch6-miss-review-2026-07-10.json",
-          "docs/reports/holdout-gemini-policy-review-batch6-miss-public-promotion-2026-07-10.json"
+          "docs/reports/holdout-gemini-policy-review-batch6-miss-public-promotion-2026-07-10.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-10",
-        "notes": "Maintainer OK accepted third recommendation from the batch6 Codex/Gemini difference queue. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=request_and_response_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted third recommendation from the batch6 Codex/Gemini difference queue. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=request_and_response_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -5360,9 +5357,7 @@
       "domain": "it",
       "input": "数据库迁移任务需要在低峰时段执行。",
       "expected": "資料庫移轉任務需要在離峰時段執行。",
-      "acceptable": [
-        "資料庫遷移任務需要在離峰時段執行。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "it_term",
@@ -5398,12 +5393,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch6-miss-classification-blind-v1-2026-07-10.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch6-miss-review-2026-07-10.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch6-miss-review-2026-07-10.json",
-          "docs/reports/holdout-gemini-policy-review-batch6-miss-public-promotion-2026-07-10.json"
+          "docs/reports/holdout-gemini-policy-review-batch6-miss-public-promotion-2026-07-10.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-10",
-        "notes": "Maintainer OK accepted gemini recommendation from the batch6 Codex/Gemini difference queue. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=database_migration_off_peak_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted gemini recommendation from the batch6 Codex/Gemini difference queue. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=database_migration_off_peak_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -5721,9 +5717,7 @@
       "domain": "it",
       "input": "这个缓存策略会根据区域代码设置过期时间。",
       "expected": "這個快取策略會根據區域代碼設定過期時間。",
-      "acceptable": [
-        "這個快取策略會根據區域代碼設置過期時間。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "it_term",
@@ -5759,12 +5753,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch6-miss-classification-blind-v1-2026-07-10.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch6-miss-review-2026-07-10.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch6-miss-review-2026-07-10.json",
-          "docs/reports/holdout-gemini-policy-review-batch6-miss-public-promotion-2026-07-10.json"
+          "docs/reports/holdout-gemini-policy-review-batch6-miss-public-promotion-2026-07-10.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-10",
-        "notes": "Maintainer OK accepted shared Codex/Gemini expected with no immediate question for batch6. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=region_code_overconversion_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted shared Codex/Gemini expected with no immediate question for batch6. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=region_code_overconversion_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -5898,12 +5893,8 @@
       "id": "blind-it-0138",
       "domain": "it",
       "input": "请在 API 响应中加入请求标识，方便排查日志。",
-      "expected": "請在 API 回應中加入請求識別碼，方便排查日誌。",
-      "acceptable": [
-        "請在 API 回應中加入要求識別碼，方便排查日誌。",
-        "請在 API 回應中加入請求識別碼，以利排查日誌。",
-        "請在 API 回應中加入請求識別，方便排查日誌。"
-      ],
+      "expected": "請在 API 回應中加入請求識別碼，以利透過記錄檔追查問題。",
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -5961,8 +5952,7 @@
       "input": "这个中间件会在认证失败时返回统一错误码。",
       "expected": "這個中介軟體會在認證失敗時回傳統一錯誤碼。",
       "acceptable": [
-        "這個中介軟體會在驗證失敗時回傳統一錯誤碼。",
-        "這個中間件會在認證失敗時回傳統一錯誤碼。"
+        "這個中介軟體會在驗證失敗時回傳統一錯誤碼。"
       ],
       "risk": "candidate_gap",
       "issue_tags": [
@@ -5999,12 +5989,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch7-miss-classification-blind-v1-2026-07-10.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch7-miss-review-2026-07-10.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch7-miss-review-2026-07-10.json",
-          "docs/reports/holdout-gemini-policy-review-batch7-miss-public-promotion-2026-07-10.json"
+          "docs/reports/holdout-gemini-policy-review-batch7-miss-public-promotion-2026-07-10.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-10",
-        "notes": "Maintainer OK accepted codex_gemini_match; Codex/Gemini exact match with no immediate question; maintainer OK accepted shared advisory value. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=api_return_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted codex_gemini_match; Codex/Gemini exact match with no immediate question; maintainer OK accepted shared advisory value. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=api_return_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -6021,7 +6012,6 @@
       "input": "请确认配置映射已经同步到所有命名空间。",
       "expected": "請確認設定對應已經同步到所有命名空間。",
       "acceptable": [
-        "請確認設定映射已經同步到所有命名空間。",
         "請確認 ConfigMap 已經同步到所有命名空間。"
       ],
       "risk": "candidate_gap",
@@ -6059,12 +6049,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch7-miss-classification-blind-v1-2026-07-10.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch7-miss-review-2026-07-10.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch7-miss-review-2026-07-10.json",
-          "docs/reports/holdout-gemini-policy-review-batch7-miss-public-promotion-2026-07-10.json"
+          "docs/reports/holdout-gemini-policy-review-batch7-miss-public-promotion-2026-07-10.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-10",
-        "notes": "Maintainer OK accepted gemini; Gemini 的「設定對應」比直譯「設定映射」自然；若指 Kubernetes 專名，ConfigMap 可作 acceptable。 Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=config_mapping_namespace_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted gemini; Gemini 的「設定對應」比直譯「設定映射」自然；若指 Kubernetes 專名，ConfigMap 可作 acceptable。 Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=config_mapping_namespace_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -6200,10 +6191,7 @@
       "domain": "it",
       "input": "构建系统会缓存依赖包以缩短流水线时间。",
       "expected": "建置系統會快取相依套件，以縮短管線時間。",
-      "acceptable": [
-        "建置系統會快取相依套件，以縮短流水線時間。",
-        "建置系統會快取依賴套件，以縮短管線時間。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -6239,12 +6227,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch7-miss-classification-blind-v1-2026-07-10.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch7-miss-review-2026-07-10.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch7-miss-review-2026-07-10.json",
-          "docs/reports/holdout-gemini-policy-review-batch7-miss-public-promotion-2026-07-10.json"
+          "docs/reports/holdout-gemini-policy-review-batch7-miss-public-promotion-2026-07-10.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-10",
-        "notes": "Maintainer OK accepted third; 結合 Codex 的標點與 Gemini 的「管線」作為 CI/CD pipeline primary。 Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=build_dependency_pipeline_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted third; 結合 Codex 的標點與 Gemini 的「管線」作為 CI/CD pipeline primary。 Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=build_dependency_pipeline_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -6440,7 +6429,6 @@
       "input": "请在迁移前导出当前表结构。",
       "expected": "請在移轉前匯出目前資料表結構。",
       "acceptable": [
-        "請在遷移前匯出目前資料表結構。",
         "請在移轉前匯出目前的資料表結構。"
       ],
       "risk": "candidate_gap",
@@ -6478,12 +6466,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch7-miss-classification-blind-v1-2026-07-10.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch7-miss-review-2026-07-10.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch7-miss-review-2026-07-10.json",
-          "docs/reports/holdout-gemini-policy-review-batch7-miss-public-promotion-2026-07-10.json"
+          "docs/reports/holdout-gemini-policy-review-batch7-miss-public-promotion-2026-07-10.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-10",
-        "notes": "Maintainer OK accepted codex; 「移轉」較符合台灣資料庫 migration 文件語境。 Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=migration_schema_export_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted codex; 「移轉」較符合台灣資料庫 migration 文件語境。 Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=migration_schema_export_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -6733,10 +6722,8 @@
       "id": "blind-llm-0085",
       "domain": "llm",
       "input": "对话历史过长时，系统会裁剪较旧消息。",
-      "expected": "對話歷史過長時，系統會截斷較舊訊息。",
-      "acceptable": [
-        "對話歷史過長時，系統會裁剪較舊訊息。"
-      ],
+      "expected": "對話歷史過長時，系統會移除較舊訊息。",
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term"
@@ -6792,9 +6779,7 @@
       "domain": "formal",
       "input": "董事会决议通过后，秘书处会发布通知。",
       "expected": "董事會決議通過後，秘書處會發布通知。",
-      "acceptable": [
-        "董事會決議通過後，秘書處會發佈通知。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -6830,12 +6815,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch7-miss-classification-blind-v1-2026-07-10.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch7-miss-review-2026-07-10.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch7-miss-review-2026-07-10.json",
-          "docs/reports/holdout-gemini-policy-review-batch7-miss-public-promotion-2026-07-10.json"
+          "docs/reports/holdout-gemini-policy-review-batch7-miss-public-promotion-2026-07-10.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-10",
-        "notes": "Maintainer OK accepted codex_gemini_match; Codex/Gemini exact match with no immediate question; maintainer OK accepted shared advisory value. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=board_resolution_pass_wording_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted codex_gemini_match; Codex/Gemini exact match with no immediate question; maintainer OK accepted shared advisory value. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=board_resolution_pass_wording_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -6909,9 +6895,7 @@
       "domain": "it",
       "input": "这个命令行工具支持从标准输入读取配置。",
       "expected": "這個命令列工具支援從標準輸入讀取設定。",
-      "acceptable": [
-        "這個命令列工具支援從標準輸入讀取配置。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -6948,12 +6932,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch8-miss-classification-blind-v1-2026-07-11.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch8-miss-review-2026-07-11.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch8-miss-review-2026-07-11.json",
-          "docs/reports/holdout-gemini-policy-review-batch8-miss-public-promotion-2026-07-11.json"
+          "docs/reports/holdout-gemini-policy-review-batch8-miss-public-promotion-2026-07-11.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-11",
-        "notes": "Maintainer OK accepted codex_gemini_match; no immediate question Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=cli_support_config_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted codex_gemini_match; no immediate question Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=cli_support_config_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -7087,10 +7072,8 @@
       "id": "blind-it-0169",
       "domain": "it",
       "input": "数据库迁移脚本需要支持回滚。",
-      "expected": "資料庫遷移腳本需要支援回滾。",
-      "acceptable": [
-        "資料庫遷移指令碼需要支援復原。"
-      ],
+      "expected": "資料庫移轉指令碼需要支援復原。",
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -7127,12 +7110,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch8-miss-classification-blind-v1-2026-07-11.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch8-miss-review-2026-07-11.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch8-miss-review-2026-07-11.json",
-          "docs/reports/holdout-gemini-policy-review-batch8-miss-public-promotion-2026-07-11.json"
+          "docs/reports/holdout-gemini-policy-review-batch8-miss-public-promotion-2026-07-11.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-11",
-        "notes": "Maintainer OK accepted gemini; Gemini primary is already listed as a Codex acceptable variant. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=migration_script_support_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted gemini; Gemini primary is already listed as a Codex acceptable variant. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=migration_script_support_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -7148,9 +7132,7 @@
       "domain": "it",
       "input": "请为每个 Webhook 请求生成签名摘要。",
       "expected": "請為每個 Webhook 請求產生簽章摘要。",
-      "acceptable": [
-        "請為每個 Webhook 請求產生簽名摘要。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -7187,12 +7169,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch8-miss-classification-blind-v1-2026-07-11.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch8-miss-review-2026-07-11.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch8-miss-review-2026-07-11.json",
-          "docs/reports/holdout-gemini-policy-review-batch8-miss-public-promotion-2026-07-11.json"
+          "docs/reports/holdout-gemini-policy-review-batch8-miss-public-promotion-2026-07-11.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-11",
-        "notes": "Maintainer OK accepted codex_gemini_match; no immediate question Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=webhook_signature_generation_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted codex_gemini_match; no immediate question Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=webhook_signature_generation_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -7210,8 +7193,7 @@
       "expected": "套件管理器會鎖定相依套件的精確版本。",
       "acceptable": [
         "套件管理器會鎖定相依性的精確版本。",
-        "套件管理工具會鎖定相依性的精確版本。",
-        "包管理器會鎖定相依套件的精確版本。"
+        "套件管理工具會鎖定相依性的精確版本。"
       ],
       "risk": "candidate_gap",
       "issue_tags": [
@@ -7249,12 +7231,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch8-miss-classification-blind-v1-2026-07-11.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch8-miss-review-2026-07-11.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch8-miss-review-2026-07-11.json",
-          "docs/reports/holdout-gemini-policy-review-batch8-miss-public-promotion-2026-07-11.json"
+          "docs/reports/holdout-gemini-policy-review-batch8-miss-public-promotion-2026-07-11.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-11",
-        "notes": "Maintainer OK accepted codex; Prefer Codex first-pass wording pending maintainer confirmation. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=package_manager_dependency_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted codex; Prefer Codex first-pass wording pending maintainer confirmation. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=package_manager_dependency_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -7270,10 +7253,7 @@
       "domain": "it",
       "input": "开发服务器会在文件变更后自动热重载。",
       "expected": "開發伺服器會在檔案變更後自動熱重新載入。",
-      "acceptable": [
-        "開發伺服器會在檔案變更後自動熱重載。",
-        "開發伺服器會在檔案修改後自動熱重載。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -7310,12 +7290,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch8-miss-classification-blind-v1-2026-07-11.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch8-miss-review-2026-07-11.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch8-miss-review-2026-07-11.json",
-          "docs/reports/holdout-gemini-policy-review-batch8-miss-public-promotion-2026-07-11.json"
+          "docs/reports/holdout-gemini-policy-review-batch8-miss-public-promotion-2026-07-11.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-11",
-        "notes": "Maintainer OK accepted codex; Prefer Codex first-pass wording pending maintainer confirmation. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=dev_server_file_reload_terminology_gap. Flags=non_idempotent_output"
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer OK accepted codex; Prefer Codex first-pass wording pending maintainer confirmation. Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=dev_server_file_reload_terminology_gap. Flags=non_idempotent_output; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -7330,10 +7311,8 @@
       "id": "blind-it-0177",
       "domain": "it",
       "input": "对象权限会继承存储桶的访问策略。",
-      "expected": "物件權限會繼承儲存桶的存取策略。",
+      "expected": "物件權限會繼承儲存貯體的存取策略。",
       "acceptable": [
-        "物件權限會繼承儲存貯體的存取策略。",
-        "物件權限會繼承儲存桶的存取原則。",
         "物件權限會繼承儲存貯體的存取原則。"
       ],
       "risk": "candidate_gap",
@@ -7814,8 +7793,7 @@
       "expected": "任務佇列會根據優先順序重新排序訊息。",
       "acceptable": [
         "工作佇列會根據優先順序重新排序訊息。",
-        "任務佇列會根據優先權重新排序訊息。",
-        "任務佇列會根據優先級重新排序訊息。"
+        "任務佇列會根據優先權重新排序訊息。"
       ],
       "risk": "candidate_gap",
       "issue_tags": [
@@ -7853,12 +7831,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch9-miss-classification-blind-v1-2026-07-12.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch9-miss-review-2026-07-12.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch9-miss-review-2026-07-12.json",
-          "docs/reports/holdout-gemini-policy-review-batch9-miss-public-promotion-2026-07-12.json"
+          "docs/reports/holdout-gemini-policy-review-batch9-miss-public-promotion-2026-07-12.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-12",
-        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=queue_priority_message_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=queue_priority_message_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -8177,8 +8156,7 @@
       "input": "这个插件会把错误报告发送到监控后台。",
       "expected": "這個外掛程式會把錯誤報告傳送到監控後台。",
       "acceptable": [
-        "這個外掛會把錯誤報告傳送到監控後台。",
-        "這個插件會把錯誤報告傳送到監控後台。"
+        "這個外掛會把錯誤報告傳送到監控後台。"
       ],
       "risk": "candidate_gap",
       "issue_tags": [
@@ -8216,12 +8194,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch9-miss-classification-blind-v1-2026-07-12.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch9-miss-review-2026-07-12.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch9-miss-review-2026-07-12.json",
-          "docs/reports/holdout-gemini-policy-review-batch9-miss-public-promotion-2026-07-12.json"
+          "docs/reports/holdout-gemini-policy-review-batch9-miss-public-promotion-2026-07-12.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-12",
-        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=monitoring_backend_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=monitoring_backend_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -8238,8 +8217,7 @@
       "input": "运行时会根据环境加载不同的配置源。",
       "expected": "執行階段會根據環境載入不同的設定來源。",
       "acceptable": [
-        "執行期會根據環境載入不同的設定來源。",
-        "執行階段會根據環境載入不同的配置來源。"
+        "執行期會根據環境載入不同的設定來源。"
       ],
       "risk": "candidate_gap",
       "issue_tags": [
@@ -8277,12 +8255,13 @@
           "docs/reports/holdout-maintainer-final-decision-batch9-miss-classification-blind-v1-2026-07-12.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch9-miss-review-2026-07-12.json",
           "docs/reports/holdout-regression-promotion-gate-blind-v1-batch9-miss-review-2026-07-12.json",
-          "docs/reports/holdout-gemini-policy-review-batch9-miss-public-promotion-2026-07-12.json"
+          "docs/reports/holdout-gemini-policy-review-batch9-miss-public-promotion-2026-07-12.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-12",
-        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=runtime_config_source_terminology_gap."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=runtime_config_source_terminology_gap.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -8781,10 +8760,7 @@
       "domain": "it",
       "input": "对象存储会为每个文件生成访问签名。",
       "expected": "物件儲存會為每個檔案產生存取簽章。",
-      "acceptable": [
-        "物件儲存會為每個檔案產生存取簽名。",
-        "物件儲存會為每個檔案生成存取簽章。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -8820,12 +8796,13 @@
           "docs/reports/holdout-maintainer-confirmation-blind-v1-batch10-miss-classification-2026-07-12.json",
           "docs/reports/holdout-maintainer-final-decision-batch10-miss-classification-blind-v1-2026-07-13.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch10-miss-review-2026-07-13.json",
-          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json"
+          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-13",
-        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=it_term_public_regression."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=it_term_public_regression.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -8900,9 +8877,8 @@
       "id": "blind-it-0223",
       "domain": "it",
       "input": "配置中心会按环境下发不同的功能开关。",
-      "expected": "設定中心會依環境派送不同的功能開關。",
+      "expected": "設定中心會依環境發布不同的功能開關。",
       "acceptable": [
-        "組態中心會按環境派送不同的功能開關。",
         "設定中心會按環境發送不同的功能開關。"
       ],
       "risk": "candidate_gap",
@@ -8962,7 +8938,6 @@
       "input": "命令行参数会覆盖默认配置文件。",
       "expected": "命令列參數會覆寫預設設定檔。",
       "acceptable": [
-        "命令列參數會覆寫預設配置檔。",
         "命令列參數會覆寫預設組態檔。",
         "命令列參數會覆蓋預設設定檔。"
       ],
@@ -9001,12 +8976,13 @@
           "docs/reports/holdout-maintainer-confirmation-blind-v1-batch10-miss-classification-2026-07-12.json",
           "docs/reports/holdout-maintainer-final-decision-batch10-miss-classification-blind-v1-2026-07-13.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch10-miss-review-2026-07-13.json",
-          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json"
+          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-13",
-        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=it_term_public_regression."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=it_term_public_regression.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -9141,8 +9117,7 @@
       "input": "请为后台任务设置独立的超时时间。",
       "expected": "請為背景工作設定獨立的逾時時間。",
       "acceptable": [
-        "請為背景任務設定獨立的逾時時間。",
-        "請為背景任務設定獨立的超時時間。"
+        "請為背景任務設定獨立的逾時時間。"
       ],
       "risk": "candidate_gap",
       "issue_tags": [
@@ -9179,12 +9154,13 @@
           "docs/reports/holdout-maintainer-confirmation-blind-v1-batch10-miss-classification-2026-07-12.json",
           "docs/reports/holdout-maintainer-final-decision-batch10-miss-classification-blind-v1-2026-07-13.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch10-miss-review-2026-07-13.json",
-          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json"
+          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-13",
-        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=it_term_public_regression."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=it_term_public_regression.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -9199,10 +9175,8 @@
       "id": "blind-ui-0169",
       "domain": "ui",
       "input": "分页器需要显示当前页码和总页数。",
-      "expected": "分頁器需要顯示目前頁碼和總頁數。",
-      "acceptable": [
-        "分頁控制項需要顯示目前頁碼和總頁數。"
-      ],
+      "expected": "分頁控制項需要顯示目前頁碼和總頁數。",
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -9259,9 +9233,7 @@
       "domain": "ui",
       "input": "拖曳排序完成后请显示保存提示。",
       "expected": "拖曳排序完成後請顯示儲存提示。",
-      "acceptable": [
-        "拖拽排序完成後請顯示儲存提示。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -9297,12 +9269,13 @@
           "docs/reports/holdout-maintainer-confirmation-blind-v1-batch10-miss-classification-2026-07-12.json",
           "docs/reports/holdout-maintainer-final-decision-batch10-miss-classification-blind-v1-2026-07-13.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch10-miss-review-2026-07-13.json",
-          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json"
+          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-13",
-        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=ui_term_public_regression."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=ui_term_public_regression.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -9375,9 +9348,7 @@
       "domain": "ui",
       "input": "面包屑导航的最后一层不需要链接。",
       "expected": "麵包屑導覽的最後一層不需要連結。",
-      "acceptable": [
-        "麵包屑導航的最後一層不需要連結。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -9413,12 +9384,13 @@
           "docs/reports/holdout-maintainer-confirmation-blind-v1-batch10-miss-classification-2026-07-12.json",
           "docs/reports/holdout-maintainer-final-decision-batch10-miss-classification-blind-v1-2026-07-13.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch10-miss-review-2026-07-13.json",
-          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json"
+          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch10-miss-review-2026-07-13.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "",
         "disagreement": false,
-        "decision_date": "2026-07-13",
-        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=ui_term_public_regression."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer review OK approved removal from sealed holdout after Codex private miss classification and Gemini sanitized policy review; public regression candidate before tuning; reason_code=ui_term_public_regression.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -10419,10 +10391,7 @@
       "domain": "it",
       "input": "消息代理应保存尚未确认的事件。",
       "expected": "訊息代理應儲存尚未確認的事件。",
-      "acceptable": [
-        "訊息代理程式應保存尚未確認的事件。",
-        "訊息代理應保存尚未確認的事件。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -10455,12 +10424,13 @@
           "docs/reports/holdout-maintainer-partial-decision-blind-v1-batch12-miss-review-2026-07-14.json",
           "docs/reports/holdout-maintainer-final-decision-blind-v1-batch12-miss-review-2026-07-14.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch12-miss-review-2026-07-14.json",
-          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch12-miss-review-2026-07-14.json"
+          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch12-miss-review-2026-07-14.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-14",
-        "notes": "Maintainer review OK; removed from sealed before any tuning."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer review OK; removed from sealed before any tuning.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -10584,9 +10554,7 @@
       "domain": "llm",
       "input": "工具名称 web.run 不得本地化。",
       "expected": "工具名稱 web.run 不得在地化。",
-      "acceptable": [
-        "工具名稱 web.run 不得本地化。"
-      ],
+      "acceptable": [],
       "risk": "over_conversion_guard",
       "issue_tags": [
         "regional_term",
@@ -10619,12 +10587,13 @@
           "docs/reports/holdout-maintainer-partial-decision-blind-v1-batch12-miss-review-2026-07-14.json",
           "docs/reports/holdout-maintainer-final-decision-blind-v1-batch12-miss-review-2026-07-14.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch12-miss-review-2026-07-14.json",
-          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch12-miss-review-2026-07-14.json"
+          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch12-miss-review-2026-07-14.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-14",
-        "notes": "Maintainer review OK; removed from sealed before any tuning."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer review OK; removed from sealed before any tuning.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -11230,10 +11199,8 @@
       "id": "blind-it-0291",
       "domain": "it",
       "input": "构建产物应附上来源提交的校验值。",
-      "expected": "建置產物應附上來源提交的雜湊值。",
-      "acceptable": [
-        "建置產物應附上來源提交的檢查碼。"
-      ],
+      "expected": "建置產物應附上來源提交的檢查碼。",
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -11396,9 +11363,7 @@
       "domain": "llm",
       "input": "模型生成的代码必须通过静态检查。",
       "expected": "模型產生的程式碼必須通過靜態檢查。",
-      "acceptable": [
-        "模型生成的程式碼必須通過靜態檢查。"
-      ],
+      "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [
         "regional_term",
@@ -11430,12 +11395,13 @@
           "docs/reports/holdout-maintainer-confirmation-blind-v1-batch13-miss-review-19-cases-2026-07-14.json",
           "docs/reports/holdout-maintainer-final-decision-blind-v1-batch13-miss-review-2026-07-14.json",
           "docs/reports/holdout-sealed-pool-update-blind-v1-batch13-miss-review-2026-07-14.json",
-          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch13-miss-review-2026-07-14.json"
+          "docs/reports/holdout-regression-promotion-gate-blind-v1-batch13-miss-review-2026-07-14.json",
+          "docs/reports/accuracy-final-translation-audit-2026-07-19.md"
         ],
         "adjudicator": "tim",
         "disagreement": true,
-        "decision_date": "2026-07-14",
-        "notes": "Maintainer review OK; removed from sealed before any tuning."
+        "decision_date": "2026-07-19",
+        "notes": "Maintainer review OK; removed from sealed before any tuning.; Maintainer review OK accepted final Codex/Gemini audit corrections on 2026-07-19."
       },
       "promotion": {
         "status": "promoted_to_regression",
@@ -11770,7 +11736,7 @@
       "id": "blind-ui-0229",
       "domain": "ui",
       "input": "通知中心按时间倒序显示未读消息。",
-      "expected": "通知中心按時間倒序顯示未讀訊息。",
+      "expected": "通知中心依時間由新到舊顯示未讀訊息。",
       "acceptable": [],
       "risk": "candidate_gap",
       "issue_tags": [

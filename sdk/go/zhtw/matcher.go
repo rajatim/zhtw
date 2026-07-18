@@ -118,13 +118,24 @@ func (ac *ahoCorasick) iterEmissions(runes []rune) []acMatch {
 // including identity terms (source == target). Used to prevent char/balanced
 // layers from converting characters protected by term matches.
 func (ac *ahoCorasick) getCoveredPositions(runes []rune) map[int]bool {
+	_, covered := ac.scan(runes)
+	return covered
+}
+
+func coveredPositions(raw []acMatch) map[int]bool {
 	covered := make(map[int]bool)
-	for _, m := range ac.iterEmissions(runes) {
+	for _, m := range raw {
 		for i := m.start; i < m.end; i++ {
 			covered[i] = true
 		}
 	}
 	return covered
+}
+
+// scan walks the automaton once and derives both selected matches and coverage.
+func (ac *ahoCorasick) scan(runes []rune) ([]acMatch, map[int]bool) {
+	raw := ac.iterEmissions(runes)
+	return selectTermMatches(raw), coveredPositions(raw)
 }
 
 // ── Match selection ──────────────────────────────────────────────────────────
@@ -136,7 +147,10 @@ func (ac *ahoCorasick) getCoveredPositions(runes []rune) map[int]bool {
 //
 // Mirrors Python src/zhtw/matcher.py:find_matches.
 func (ac *ahoCorasick) findTermMatches(runes []rune) []acMatch {
-	raw := ac.iterEmissions(runes)
+	return selectTermMatches(ac.iterEmissions(runes))
+}
+
+func selectTermMatches(raw []acMatch) []acMatch {
 	if len(raw) == 0 {
 		return nil
 	}

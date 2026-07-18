@@ -13,6 +13,7 @@ def test_export_data_schema():
 
     data = export_data()
 
+    assert data["schema_version"] == 1
     assert "version" in data
     assert "exported_at" not in data  # removed for deterministic output
     assert "stats" in data
@@ -35,6 +36,20 @@ def test_export_data_schema():
     assert "hk" in data["terms"]
     assert isinstance(data["terms"]["cn"], dict)
     assert isinstance(data["terms"]["hk"], dict)
+
+
+def test_export_data_matches_published_json_schema():
+    """The canonical export must satisfy the versioned SDK contract."""
+    import json
+    from pathlib import Path
+
+    from jsonschema import Draft202012Validator
+
+    from zhtw.export import export_data
+
+    schema_path = Path(__file__).parents[1] / "sdk" / "data" / "zhtw-data.schema.json"
+    schema = json.loads(schema_path.read_text("utf-8"))
+    Draft202012Validator(schema).validate(export_data())
 
 
 def test_export_data_stats_match_content():
@@ -126,6 +141,7 @@ def test_golden_test_schema():
 
     golden = generate_golden_test()
 
+    assert golden["schema_version"] == 1
     assert "version" in golden
     assert "description" in golden
     assert "convert" in golden

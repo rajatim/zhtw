@@ -10,6 +10,7 @@ namespace Zhtw.Tests
     public class GoldenTests
     {
         private static readonly JsonDocument _golden;
+        private static readonly JsonDocument _conformance;
 
         static GoldenTests()
         {
@@ -18,6 +19,19 @@ namespace Zhtw.Tests
             string path = Path.GetFullPath(Path.Combine(dir, "..", "..", "..", "..", "..", "..", "data", "golden-test.json"));
             string json = File.ReadAllText(path);
             _golden = JsonDocument.Parse(json);
+            string conformancePath = Path.GetFullPath(Path.Combine(dir, "..", "..", "..", "..", "..", "..", "data", "conformance-v1.json"));
+            _conformance = JsonDocument.Parse(File.ReadAllText(conformancePath));
+        }
+
+        [Fact]
+        public void ApprovedConformance()
+        {
+            foreach (var tc in _conformance.RootElement.GetProperty("convert").EnumerateArray())
+            {
+                var conv = BuildConverter(tc);
+                Assert.Equal(tc.GetProperty("expected").GetString(),
+                    conv.Convert(tc.GetProperty("input").GetString()));
+            }
         }
 
         private static Converter BuildConverter(JsonElement testCase)

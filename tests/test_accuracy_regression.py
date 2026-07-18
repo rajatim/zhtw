@@ -28,11 +28,88 @@ EXPECTED_CLASSIFICATIONS = {
 EXPECTED_RISKS = {"baseline_guard", "over_conversion_guard", "candidate_gap"}
 ORIGINAL_CORPUS_DOMAINS = {"news", "regressions", "social", "tech", "wiki"}
 ANNOTATION_REPORT = "docs/reports/annotation-promotion-gate-2026-07-07.json"
-GROUND_TRUTH_CORRECTION_REPORT = "docs/reports/accuracy-ground-truth-corrections-2026-07-16.json"
-GROUND_TRUTH_CORRECTION_IDS = {
+HISTORICAL_GROUND_TRUTH_CORRECTION_REPORT = (
+    "docs/reports/accuracy-ground-truth-corrections-2026-07-16.json"
+)
+CURRENT_GROUND_TRUTH_CORRECTION_REPORT = (
+    "docs/reports/accuracy-ground-truth-corrections-2026-07-18.json"
+)
+LATEST_GROUND_TRUTH_CORRECTION_REPORT = (
+    "docs/reports/accuracy-ground-truth-corrections-2026-07-19.json"
+)
+FINAL_TRANSLATION_CORRECTION_REPORT = (
+    "docs/reports/accuracy-final-translation-corrections-2026-07-19.json"
+)
+HISTORICAL_GROUND_TRUTH_CORRECTION_IDS = {
     "annotation/it-api-cli-0043",
     "annotation/it-api-cli-0170",
     "annotation/social-daily-0038",
+}
+CURRENT_GROUND_TRUTH_CORRECTION_IDS = {
+    "annotation/it-api-cli-0009",
+    "annotation/it-api-cli-0018",
+    "annotation/it-api-cli-0020",
+    "annotation/it-api-cli-0030",
+    "annotation/it-api-cli-0079",
+    "annotation/it-api-cli-0129",
+    "annotation/it-api-cli-0154",
+    "annotation/it-api-cli-0156",
+    "annotation/it-api-cli-0167",
+    "holdout/blind-it-0070",
+    "holdout/blind-it-0073",
+    "holdout/blind-it-0138",
+    "holdout/blind-it-0169",
+    "holdout/blind-it-0223",
+}
+LATEST_GROUND_TRUTH_CORRECTION_IDS = {
+    "annotation/formal-high-risk-0094",
+    "annotation/it-api-cli-0062",
+    "annotation/it-api-cli-0069",
+    "annotation/ui-i18n-0004",
+    "annotation/ui-i18n-0087",
+    "annotation/ui-i18n-0125",
+    "holdout/blind-it-0042",
+    "holdout/blind-it-0044",
+    "holdout/blind-ui-0034",
+    "holdout/blind-ui-0079",
+    "holdout/blind-llm-0085",
+    "holdout/blind-it-0177",
+    "holdout/blind-ui-0169",
+    "public-reproduction/public-repro-20260713-ui-0001",
+    "holdout/blind-it-0291",
+    "holdout/blind-ui-0229",
+}
+FINAL_TRANSLATION_CORRECTION_IDS = {
+    "regressions/regression_020",
+    "social/social_033",
+    "social/social_034",
+    "social/social_036",
+    "social/social_053",
+    "tech/tech_066",
+    "tech/tech_034",
+    "tech/tech_037",
+    "tech/tech_048",
+    "tech/tech_010",
+    "tech/tech_017",
+    "annotation/it-api-cli-0038",
+    "holdout/blind-it-0057",
+}
+GROUND_TRUTH_CORRECTION_REPORT_BY_ID = {
+    **{
+        case_id: HISTORICAL_GROUND_TRUTH_CORRECTION_REPORT
+        for case_id in HISTORICAL_GROUND_TRUTH_CORRECTION_IDS
+    },
+    **{
+        case_id: CURRENT_GROUND_TRUTH_CORRECTION_REPORT
+        for case_id in CURRENT_GROUND_TRUTH_CORRECTION_IDS
+    },
+    **{
+        case_id: LATEST_GROUND_TRUTH_CORRECTION_REPORT
+        for case_id in LATEST_GROUND_TRUTH_CORRECTION_IDS
+    },
+    **{
+        case_id: FINAL_TRANSLATION_CORRECTION_REPORT for case_id in FINAL_TRANSLATION_CORRECTION_IDS
+    },
 }
 ANNOTATION_BACKLOG = "benchmarks/accuracy/annotation-backlog-v1.json"
 HOLDOUT_PROMOTION_REPORT = "docs/reports/holdout-regression-promotion-gate-blind-v1-2026-07-09.json"
@@ -177,10 +254,8 @@ def test_regression_v1_cases_have_required_shape() -> None:
 
         if source["classification"] == "annotation_promoted":
             assert case["id"].startswith("annotation/")
-            expected_report = (
-                GROUND_TRUTH_CORRECTION_REPORT
-                if case["id"] in GROUND_TRUTH_CORRECTION_IDS
-                else ANNOTATION_REPORT
+            expected_report = GROUND_TRUTH_CORRECTION_REPORT_BY_ID.get(
+                case["id"], ANNOTATION_REPORT
             )
             assert source["report"] == expected_report
             assert source["source_file"] == ANNOTATION_BACKLOG
@@ -189,7 +264,11 @@ def test_regression_v1_cases_have_required_shape() -> None:
             assert case["competitor_misses"] == []
         elif source["classification"] == "holdout_regression_promoted":
             assert case["id"].startswith("holdout/blind-")
-            assert source["report"] in HOLDOUT_PROMOTION_REPORTS
+            expected_report = GROUND_TRUTH_CORRECTION_REPORT_BY_ID.get(case["id"])
+            if expected_report is None:
+                assert source["report"] in HOLDOUT_PROMOTION_REPORTS
+            else:
+                assert source["report"] == expected_report
             assert source["source_file"] == HOLDOUT_CANDIDATES
             assert source["sample_seed"] is None
             assert case["domain"] in EXPECTED_PROMOTED_DOMAINS
@@ -197,7 +276,10 @@ def test_regression_v1_cases_have_required_shape() -> None:
             assert "promoted from blind-v1 after removal from sealed holdout" in case["notes"]
         elif source["classification"] == "public_reproduction_promoted":
             assert case["id"].startswith("public-reproduction/public-repro-")
-            assert source["report"] == PUBLIC_REPRODUCTION_PROMOTION_REPORT
+            expected_report = GROUND_TRUTH_CORRECTION_REPORT_BY_ID.get(
+                case["id"], PUBLIC_REPRODUCTION_PROMOTION_REPORT
+            )
+            assert source["report"] == expected_report
             assert source["source_file"] == PUBLIC_REPRODUCTION_FINAL_DECISION
             assert source["sample_seed"] is None
             assert case["domain"] in EXPECTED_PROMOTED_DOMAINS
@@ -238,3 +320,18 @@ def test_regression_v1_matches_zhtw_expected(source: str, expected: str) -> None
 )
 def test_regression_v1_is_idempotent(source: str, expected: str) -> None:
     assert convert(convert(source)) == expected
+
+
+@pytest.mark.parametrize(
+    ("source", "expected"),
+    [
+        ("租用戶", "租用戶"),
+        ("多租用戶架構使用命名空間。", "多租用戶架構使用命名空間。"),
+        ("命名空間", "命名空間"),
+        ("熱重載", "熱重新載入"),
+        ("開發伺服器支援熱重載。", "開發伺服器支援熱重新載入。"),
+    ],
+)
+def test_final_translation_audit_term_guards(source: str, expected: str) -> None:
+    assert convert(source) == expected
+    assert convert(expected) == expected

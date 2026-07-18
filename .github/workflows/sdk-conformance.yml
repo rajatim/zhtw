@@ -1,0 +1,81 @@
+name: SDK Conformance
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/zhtw/converter.py'
+      - 'src/zhtw/matcher.py'
+      - 'src/zhtw/export.py'
+      - 'sdk/**'
+      - 'tests/**'
+      - 'Makefile'
+      - '.github/workflows/sdk-conformance.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/zhtw/converter.py'
+      - 'src/zhtw/matcher.py'
+      - 'src/zhtw/export.py'
+      - 'sdk/**'
+      - 'tests/**'
+      - 'Makefile'
+      - '.github/workflows/sdk-conformance.yml'
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  test-all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '11'
+          cache: maven
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: sdk/typescript/pnpm-lock.yaml
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Install Python dependencies
+        run: pip install -e ".[dev]"
+      - name: Verify exports and versions
+        run: make version-check export-check
+      - name: Run all SDK tests
+        run: make test-all
+
+  dispatch-publish:
+    if: github.event_name == 'release' && github.event.action == 'published'
+    needs: test-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch registry publish workflows at the release tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          gh workflow run publish.yml --repo "$GITHUB_REPOSITORY" --ref "$TAG" -f publish=true
+          gh workflow run sdk-java.yml --repo "$GITHUB_REPOSITORY" --ref "$TAG" -f publish=true
+          gh workflow run sdk-typescript.yml --repo "$GITHUB_REPOSITORY" --ref "$TAG" -f publish=true
+          gh workflow run sdk-rust.yml --repo "$GITHUB_REPOSITORY" --ref "$TAG" -f publish=true
+          gh workflow run sdk-dotnet.yml --repo "$GITHUB_REPOSITORY" --ref "$TAG" -f publish=true

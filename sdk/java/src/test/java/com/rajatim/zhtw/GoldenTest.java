@@ -26,6 +26,28 @@ class GoldenTest {
                 new InputStreamReader(is, StandardCharsets.UTF_8), type);
     }
 
+    private Map<String, Object> loadConformance() {
+        InputStream is = getClass().getResourceAsStream("/conformance-v1.json");
+        assertNotNull(is, "conformance-v1.json not found on classpath");
+        Type type = new TypeToken<Map<String, Object>>() {}.getType();
+        return new Gson().fromJson(new InputStreamReader(is, StandardCharsets.UTF_8), type);
+    }
+
+    @TestFactory
+    @SuppressWarnings("unchecked")
+    Collection<DynamicTest> conformanceCases() {
+        List<Map<String, Object>> cases =
+                (List<Map<String, Object>>) loadConformance().get("convert");
+        List<DynamicTest> tests = new ArrayList<>();
+        for (Map<String, Object> c : cases) {
+            tests.add(DynamicTest.dynamicTest((String) c.get("id"), () -> {
+                ZhtwConverter conv = converterFor((List<String>) c.get("sources"), null);
+                assertEquals(c.get("expected"), conv.convert((String) c.get("input")));
+            }));
+        }
+        return tests;
+    }
+
     private ZhtwConverter converterFor(List<String> sources, String ambiguityMode) {
         ZhtwConverter.Builder b = ZhtwConverter.builder().sources(sources);
         if (ambiguityMode != null) {

@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import type { ZhtwData } from '../core/types';
+import { validateData } from './validate';
 
 // Resolve the directory of this module at runtime. tsup (platform: 'neutral')
 // emits two bundles:
@@ -32,7 +33,7 @@ const DATA_PATH = join(HERE, 'zhtw-data.json');
 export function loadData(): ZhtwData {
   try {
     const raw = readFileSync(DATA_PATH, 'utf-8');
-    return JSON.parse(raw) as ZhtwData;
+    return validateData(JSON.parse(raw));
   } catch (err) {
     const reason = err instanceof Error ? err.message : String(err);
     throw new Error(`zhtw: failed to load zhtw-data.json: ${reason}`);
