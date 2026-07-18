@@ -218,7 +218,7 @@ The first call loads the dictionary and builds the Aho-Corasick automaton; subse
 <dependency>
     <groupId>com.rajatim</groupId>
     <artifactId>zhtw</artifactId>
-    <version>4.4.1</version>
+    <version>4.4.2</version>
 </dependency>
 ```
 <!-- zhtw:enable -->
@@ -226,13 +226,13 @@ The first call loads the dictionary and builds the Aho-Corasick automaton; subse
 **Gradle (Kotlin DSL):**
 
 ```kotlin
-implementation("com.rajatim:zhtw:4.4.1")
+implementation("com.rajatim:zhtw:4.4.2")
 ```
 
 **Gradle (Groovy DSL):**
 
 ```groovy
-implementation 'com.rajatim:zhtw:4.4.1'
+implementation 'com.rajatim:zhtw:4.4.2'
 ```
 
 <!-- zhtw:disable -->
@@ -306,7 +306,7 @@ conv.convert('...');
 <!-- zhtw:disable -->
 ```toml
 [dependencies]
-zhtw = "4.4.1"
+zhtw = "4.4.2"
 ```
 <!-- zhtw:enable -->
 
@@ -371,7 +371,7 @@ No Go environment needed — download pre-built binaries:
 <!-- zhtw:disable -->
 ```bash
 # Download from GitHub Release (e.g., macOS arm64)
-curl -sL https://github.com/rajatim/zhtw/releases/download/sdk%2Fgo%2Fv4.4.1/zhtw-darwin-arm64.tar.gz | tar xz
+curl -sL https://github.com/rajatim/zhtw/releases/download/sdk%2Fgo%2Fv4.4.2/zhtw-darwin-arm64.tar.gz | tar xz
 ./zhtw convert "软件测试"
 # → 軟體測試
 
@@ -501,7 +501,7 @@ Stop issues before they're committed:
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.4.1  # use the latest tag
+    rev: v4.4.2  # use the latest tag
     hooks:
       - id: zhtw-check   # check mode (recommended)
       # - id: zhtw-fix   # or auto-fix mode
@@ -518,7 +518,7 @@ pip install pre-commit && pre-commit install
 ```yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.4.1
+    rev: v4.4.2
     hooks:
       - id: zhtw-check
         types: [python, markdown, yaml]  # only these types

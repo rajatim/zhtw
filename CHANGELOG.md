@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.4.2] - 2026-07-19
+
 ### Added
 - 新增可稽核的 accuracy pipeline：500 筆人工 annotation、1,008 筆 sealed holdout、
   1,251 筆公開 regression，以及 Codex → Gemini → maintainer 的 advisory 流程。
