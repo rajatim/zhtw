@@ -59,7 +59,7 @@ jobs:
         with:
           dotnet-version: '8.0.x'
       - name: Install Python dependencies
-        run: pip install -e ".[dev]"
+        run: uv sync --extra dev
       - name: Verify exports and versions
         run: make version-check export-check
       - name: Run all SDK tests
