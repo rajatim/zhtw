@@ -11,6 +11,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+import pytest
+
 from zhtw.converter import convert
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -1083,7 +1085,15 @@ SEALED_POOL_UPDATE_BATCH13_MISS_REVIEW = (
 
 
 def load_json(path: Path) -> dict[str, Any]:
+    if path == EXPECTED and not path.exists():
+        pytest.skip("sealed holdout expected file is not available")
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def private_expected_sha256() -> str:
+    if not EXPECTED.exists():
+        pytest.skip("sealed holdout expected file is not available")
+    return hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
 
 
 def load_all_removed_case_ids() -> set[str]:
@@ -2062,7 +2072,7 @@ def test_holdout_batch12_final_decision_updates_private_expected() -> None:
     assert decision["private_expected_sha256"] == (
         "617f048425d75605e1997b8952432792f417444b3c4facec89bc5bd7a160dd22"
     )
-    assert decision["private_expected_sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert decision["private_expected_sha256"] != private_expected_sha256()
     assert decision["source_inputs_sha256"] == (
         "c1082299113239bfe88590425ccd6c4b4b0f0d769ddea18ce457a11050863deb"
     )
@@ -2252,10 +2262,7 @@ def test_holdout_batch12_miss_final_decision_updates_pool_and_promotion_gate() -
     assert decision["private_expected_sha256_after"] == (
         "81246822bffc1423b1460b0bfe7f1ed2539060f31880f8b49424e85c25b6052e"
     )
-    assert (
-        decision["private_expected_sha256_after"]
-        != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
-    )
+    assert decision["private_expected_sha256_after"] != private_expected_sha256()
     assert decision["candidate_dataset_sha256_after_promotion"] == (
         "74461c47e7dcc1c1f6296bbc82eeabb4eb13f9dafe821eaefa478776296fc1a7"
     )
@@ -2297,10 +2304,7 @@ def test_holdout_batch12_miss_final_decision_updates_pool_and_promotion_gate() -
     assert pool_update["remaining_expected_sha256"] == (
         "81246822bffc1423b1460b0bfe7f1ed2539060f31880f8b49424e85c25b6052e"
     )
-    assert (
-        pool_update["remaining_expected_sha256"]
-        != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
-    )
+    assert pool_update["remaining_expected_sha256"] != private_expected_sha256()
     assert gate["promoted_case_ids"] == pool_update["removed_case_ids"]
     assert gate["source_candidates_sha256"] == (
         "74461c47e7dcc1c1f6296bbc82eeabb4eb13f9dafe821eaefa478776296fc1a7"
@@ -4011,7 +4015,7 @@ def test_holdout_batch11_final_decision_updates_private_expected() -> None:
     assert decision["private_expected_sha256"] == (
         "bbf89dfa8db7774fdd9b8c078f97d18b9b3749f164d5f4e7cc109bb8ac0ab096"
     )
-    assert decision["private_expected_sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert decision["private_expected_sha256"] != private_expected_sha256()
     assert decision["source_inputs_sha256"] == (
         "e7018d35e078a53ff1c59e4a8281b787151fd11c158859ad882defc82b93aff9"
     )
@@ -4075,7 +4079,7 @@ def test_holdout_batch7_final_decision_omits_expected_values() -> None:
     assert decision["private_expected_sha256"] == (
         "1e4e516efc1685ec9c3158ac3a467df3fa8bc66d988dcd34a43d8a6012d09ff5"
     )
-    assert decision["private_expected_sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert decision["private_expected_sha256"] != private_expected_sha256()
     assert "cases" not in decision
     assert decision["source_confirmation_packet"] == (
         "docs/reports/holdout-maintainer-confirmation-blind-v1-batch7-100-cases-2026-07-10.json"
@@ -4140,7 +4144,7 @@ def test_holdout_batch8_final_decision_omits_expected_values() -> None:
     assert decision["private_expected_sha256"] == (
         "7c78a99becbf120ddae840a56e90334cc4df7f36f1d8b62944058b94e66f6025"
     )
-    assert decision["private_expected_sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert decision["private_expected_sha256"] != private_expected_sha256()
     assert "cases" not in decision
     assert decision["source_confirmation_packet"] == (
         "docs/reports/holdout-maintainer-confirmation-blind-v1-batch8-100-cases-2026-07-10.json"
@@ -4211,7 +4215,7 @@ def test_holdout_batch9_final_decision_omits_expected_values() -> None:
     assert decision["private_expected_sha256"] == (
         "2c67fe35f756fc406577b042f9c05380bb635426b1c253a3385fa8c3c5224d41"
     )
-    assert decision["private_expected_sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert decision["private_expected_sha256"] != private_expected_sha256()
     assert decision["source_inputs_sha256"] == (
         "0ac742ac9885cdae198bed6fc376c2fb5c3e991573ae4cb4ac2072cfef3e937d"
     )
@@ -4286,7 +4290,7 @@ def test_holdout_batch10_final_decision_omits_expected_values() -> None:
     assert decision["private_expected_sha256"] == (
         "b8150c2e41e2bc574de54a730fe1a0c1c1edf39a9efce344ef1bbbd267179250"
     )
-    assert decision["private_expected_sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert decision["private_expected_sha256"] != private_expected_sha256()
     assert decision["private_expected_sha256_before"] == (
         "0e41c9ac8c130075d66f23daeeb80afd6e69903319ea473e9ac5e7ed38d5f7ab"
     )
@@ -6254,7 +6258,7 @@ def test_private_benchmark_sanity_after_batch7_is_sanitized() -> None:
     assert sanity["inputs"]["sha256"] != hashlib.sha256(INPUTS.read_bytes()).hexdigest()
     assert sanity["expected"]["path"] == "benchmarks/accuracy/blind-v1.expected.json"
     assert sanity["expected"]["sha256"] == final_decision["private_expected_sha256"]
-    assert sanity["expected"]["sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert sanity["expected"]["sha256"] != private_expected_sha256()
     assert sanity["expected"]["source_inputs_sha256"] == sanity["inputs"]["sha256"]
     assert sanity["sealed_content_policy"] == {
         "expected_values_included": False,
@@ -6350,7 +6354,7 @@ def test_private_benchmark_sanity_after_batch7_miss_review_is_sanitized() -> Non
     )
     assert sanity["inputs"]["sha256"] != hashlib.sha256(INPUTS.read_bytes()).hexdigest()
     assert sanity["expected"]["sha256"] == final_decision["private_expected_sha256_after"]
-    assert sanity["expected"]["sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert sanity["expected"]["sha256"] != private_expected_sha256()
     assert sanity["expected"]["source_inputs_sha256"] == sanity["inputs"]["sha256"]
     assert sanity["sealed_content_policy"] == {
         "expected_values_included": False,
@@ -6405,7 +6409,7 @@ def test_private_benchmark_sanity_after_batch8_is_sanitized() -> None:
     )
     assert sanity["inputs"]["sha256"] != hashlib.sha256(INPUTS.read_bytes()).hexdigest()
     assert sanity["expected"]["sha256"] == final_decision["private_expected_sha256"]
-    assert sanity["expected"]["sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert sanity["expected"]["sha256"] != private_expected_sha256()
     assert sanity["expected"]["source_inputs_sha256"] == sanity["inputs"]["sha256"]
     assert sanity["sealed_content_policy"] == {
         "expected_values_included": False,
@@ -6505,7 +6509,7 @@ def test_private_benchmark_sanity_after_batch8_miss_review_is_sanitized() -> Non
     )
     assert sanity["inputs"]["sha256"] != hashlib.sha256(INPUTS.read_bytes()).hexdigest()
     assert sanity["expected"]["sha256"] == final_decision["private_expected_sha256_after"]
-    assert sanity["expected"]["sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert sanity["expected"]["sha256"] != private_expected_sha256()
     assert sanity["expected"]["source_inputs_sha256"] == sanity["inputs"]["sha256"]
     assert sanity["sealed_content_policy"] == {
         "expected_values_included": False,
@@ -6603,7 +6607,7 @@ def test_private_benchmark_sanity_after_batch9_is_sanitized() -> None:
     )
     assert sanity["inputs"]["sha256"] != hashlib.sha256(INPUTS.read_bytes()).hexdigest()
     assert sanity["expected"]["sha256"] == final_decision["private_expected_sha256"]
-    assert sanity["expected"]["sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert sanity["expected"]["sha256"] != private_expected_sha256()
     assert sanity["expected"]["source_inputs_sha256"] == sanity["inputs"]["sha256"]
     assert sanity["sealed_content_policy"] == {
         "expected_values_included": False,
@@ -6703,7 +6707,7 @@ def test_private_benchmark_sanity_after_batch9_miss_review_is_sanitized() -> Non
     )
     assert sanity["inputs"]["sha256"] != hashlib.sha256(INPUTS.read_bytes()).hexdigest()
     assert sanity["expected"]["sha256"] == final_decision["private_expected_sha256_after"]
-    assert sanity["expected"]["sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert sanity["expected"]["sha256"] != private_expected_sha256()
     assert sanity["expected"]["source_inputs_sha256"] == sanity["inputs"]["sha256"]
     assert sanity["sealed_content_policy"] == {
         "expected_values_included": False,
@@ -6802,7 +6806,7 @@ def test_private_benchmark_sanity_after_batch10_is_sanitized() -> None:
     )
     assert sanity["inputs"]["sha256"] != hashlib.sha256(INPUTS.read_bytes()).hexdigest()
     assert sanity["expected"]["sha256"] == final_decision["private_expected_sha256"]
-    assert sanity["expected"]["sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert sanity["expected"]["sha256"] != private_expected_sha256()
     assert sanity["expected"]["source_inputs_sha256"] == sanity["inputs"]["sha256"]
     assert sanity["sealed_content_policy"] == {
         "expected_values_included": False,
@@ -6908,7 +6912,7 @@ def test_private_benchmark_sanity_after_batch11_is_sanitized() -> None:
     assert sanity["expected"]["sha256"] == (
         "bbf89dfa8db7774fdd9b8c078f97d18b9b3749f164d5f4e7cc109bb8ac0ab096"
     )
-    assert sanity["expected"]["sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert sanity["expected"]["sha256"] != private_expected_sha256()
     assert sanity["expected"]["sha256"] == final_decision["private_expected_sha256"]
     assert sanity["expected"]["source_inputs_sha256"] == sanity["inputs"]["sha256"]
     assert sanity["sealed_content_policy"]["aggregate_statistics_only"] is True
@@ -6946,7 +6950,7 @@ def test_private_benchmark_sanity_after_batch11_semantic_reaudit_is_sanitized() 
     assert sanity["expected"]["sha256"] == (
         "066bcd60d16760a10eb8cdd54de61e8ff438fe4a7ffe971e8f814fc45563db2d"
     )
-    assert sanity["expected"]["sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert sanity["expected"]["sha256"] != private_expected_sha256()
     assert sanity["expected"]["source_inputs_sha256"] == sanity["inputs"]["sha256"]
     assert sanity["sealed_content_policy"]["aggregate_statistics_only"] is True
     assert sanity["summary"]["case_count"] == 841
@@ -6981,7 +6985,7 @@ def test_private_benchmark_sanity_after_batch12_is_sanitized() -> None:
     assert sanity["expected"]["sha256"] == (
         "617f048425d75605e1997b8952432792f417444b3c4facec89bc5bd7a160dd22"
     )
-    assert sanity["expected"]["sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert sanity["expected"]["sha256"] != private_expected_sha256()
     assert sanity["expected"]["source_inputs_sha256"] == sanity["inputs"]["sha256"]
     assert sanity["sealed_content_policy"]["aggregate_statistics_only"] is True
     assert sanity["summary"]["case_count"] == 941
@@ -7006,7 +7010,7 @@ def test_private_benchmark_sanity_after_batch12_miss_review_is_sanitized() -> No
     assert sanity["expected"]["sha256"] == (
         "81246822bffc1423b1460b0bfe7f1ed2539060f31880f8b49424e85c25b6052e"
     )
-    assert sanity["expected"]["sha256"] != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
+    assert sanity["expected"]["sha256"] != private_expected_sha256()
     assert sanity["expected"]["source_inputs_sha256"] == sanity["inputs"]["sha256"]
     assert sanity["sealed_content_policy"]["aggregate_statistics_only"] is True
     assert sanity["interpretation_policy"] == {
@@ -7060,10 +7064,7 @@ def test_private_benchmark_sanity_after_batch10_miss_review_is_sanitized() -> No
     assert sanity["summary"]["private_expected_sha256"] == (
         "5c89d5037efcbc33c80dd86f35ccfd12102a709fe701820b9d318fa1f8fe49dc"
     )
-    assert (
-        sanity["summary"]["private_expected_sha256"]
-        != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
-    )
+    assert sanity["summary"]["private_expected_sha256"] != private_expected_sha256()
     assert (
         sanity["summary"]["private_expected_sha256"]
         == (final_decision["private_expected_sha256_after"])
@@ -8238,10 +8239,7 @@ def test_holdout_batch11_semantic_reaudit_final_decision_is_applied() -> None:
     assert decision["private_expected_sha256_after"] == (
         "066bcd60d16760a10eb8cdd54de61e8ff438fe4a7ffe971e8f814fc45563db2d"
     )
-    assert (
-        decision["private_expected_sha256_after"]
-        != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
-    )
+    assert decision["private_expected_sha256_after"] != private_expected_sha256()
     assert decision["source_inputs_sha256_after"] == (
         "3c35b332959c7a87410a0ba7c08d46aa98857b1c080155d275a8892d0f507fef"
     )
@@ -8289,10 +8287,7 @@ def test_batch7_miss_final_decision_omits_sealed_values() -> None:
     assert decision["source_inputs_sha256_after"] == (
         "d331a1a2d6c58774089ca723677ec77ca4abe05e1eb11298ca8a5700b6a1cbcd"
     )
-    assert (
-        decision["private_expected_sha256_after"]
-        != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
-    )
+    assert decision["private_expected_sha256_after"] != private_expected_sha256()
     assert decision["summary"]["reviewed_maintainer_cases"] == 24
     assert decision["summary"]["maintainer_confirmed_acceptable_variants"] == 7
     assert decision["summary"]["removed_from_sealed_to_public_regression_candidates"] == 17
@@ -8366,10 +8361,7 @@ def test_batch8_miss_final_decision_omits_sealed_values() -> None:
         "96226f1fc747cc1d6ae9eb40793077a3a8bc8dc36b194491dc63c7cb26bd4450"
     )
     assert decision["source_inputs_sha256_after"] != hashlib.sha256(INPUTS.read_bytes()).hexdigest()
-    assert (
-        decision["private_expected_sha256_after"]
-        != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
-    )
+    assert decision["private_expected_sha256_after"] != private_expected_sha256()
     assert decision["summary"]["reviewed_maintainer_cases"] == 19
     assert decision["summary"]["maintainer_confirmed_acceptable_variants"] == 4
     assert decision["summary"]["removed_from_sealed_to_public_regression_candidates"] == 15
@@ -8444,10 +8436,7 @@ def test_batch9_miss_final_decision_omits_sealed_values() -> None:
         "8f54d6e8185cf94f73805aeea27a23859e691cfd8ae04f3956023ec8ec9606d4"
     )
     assert decision["source_inputs_sha256_after"] != hashlib.sha256(INPUTS.read_bytes()).hexdigest()
-    assert (
-        decision["private_expected_sha256_after"]
-        != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
-    )
+    assert decision["private_expected_sha256_after"] != private_expected_sha256()
     assert decision["summary"]["reviewed_maintainer_cases"] == 22
     assert decision["summary"]["maintainer_confirmed_acceptable_variants"] == 6
     assert decision["summary"]["removed_from_sealed_to_public_regression_candidates"] == 16
@@ -10220,10 +10209,7 @@ def test_batch10_miss_final_decision_omits_sealed_values() -> None:
     assert decision["private_expected_sha256_after"] == (
         "5c89d5037efcbc33c80dd86f35ccfd12102a709fe701820b9d318fa1f8fe49dc"
     )
-    assert (
-        decision["private_expected_sha256_after"]
-        != hashlib.sha256(EXPECTED.read_bytes()).hexdigest()
-    )
+    assert decision["private_expected_sha256_after"] != private_expected_sha256()
     assert decision["summary"]["reviewed_maintainer_cases"] == 20
     assert decision["summary"]["maintainer_confirmed_acceptable_variants"] == 4
     assert decision["summary"]["removed_from_sealed_to_public_regression_candidates"] == 16
