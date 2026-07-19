@@ -61,6 +61,18 @@ make benchmark-ud-import-check
 make benchmark-ud-report DATE=2026-07-19
 ```
 
+The first aggregate report is
+`docs/reports/ud-gsd-benchmark-2026-07-19.json`, generated from clean commit
+`6a302f5` with 4,997 cases:
+
+- exact: 3,517 / 4,997 (70.3822%)
+- changed-span F1: 94.2188%
+- idempotency: 97.8987%
+
+The lower sentence-exact result must not be read as Taiwan-localization accuracy:
+the single target is generic UD Traditional Chinese, while zhtw intentionally
+applies Taiwan regional terminology that can be valid but differ from that target.
+
 ## regression-v1
 
 `regression-v1.json` is the first M1 public regression dataset.
