@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "id": "market-ranking-v1",
+  "primary_track": "blind-v2",
+  "primary_endpoint": "accepted_accuracy",
+  "cross_track_total_allowed": false,
+  "p0_disqualifies": true,
+  "winner_rule": "paired_delta_ci_95_low_gt_zero",
+  "tie_rule": "paired_delta_ci_95_includes_zero",
+  "secondary_metrics": [
+    "over_conversion_guard_accuracy",
+    "p1_error_count",
+    "macro_domain_accuracy",
+    "primary_exact_accuracy",
+    "changed_span_f1",
+    "idempotency_rate"
+  ],
+  "external_track_conflicts_must_be_disclosed": true
+}

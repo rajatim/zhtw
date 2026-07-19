@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check precision-benchmark benchmark-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -62,7 +62,11 @@ accuracy-holdout-annotation-packet: ## Create a human annotation packet for seal
 accuracy-holdout-gemini-advisory: ## Generate Gemini Vertex advisory for sealed holdout inputs
 	$(PYTHON) scripts/generate_holdout_gemini_vertex_advisory.py --generated-date $(DATE) $(if $(HOLDOUT_BATCH),--batch $(HOLDOUT_BATCH),) $(if $(ID_FROM),--id-from $(ID_FROM),) $(if $(ID_TO),--id-to $(ID_TO),) --output-json docs/reports/holdout-gemini-vertex-advisory-blind-v1-0001-0100-$(DATE).json --output-md docs/reports/holdout-gemini-vertex-advisory-blind-v1-0001-0100-$(DATE).md
 
-accuracy-benchmark: ## Run sealed holdout benchmark after private expected file is available
+benchmark-validate: ## Validate benchmark manifests, licenses, hashes, and preregistrations
+	$(PYTHON) scripts/validate_benchmark_assets.py
+	$(PYTHON) scripts/audit_benchmark_publication.py
+
+accuracy-benchmark: ## Run the published blind-v1 evaluation benchmark
 	$(PYTHON) scripts/run_accuracy_benchmark.py --inputs benchmarks/accuracy/blind-v1.inputs.json --expected benchmarks/accuracy/blind-v1.expected.json --competitors-lock benchmarks/accuracy/competitors.lock.json --competitors $(COMPETITORS) --generated-date $(DATE) --output-prefix docs/reports/accuracy-benchmark-$(DATE)
 
 test-python: ## Run Python tests
@@ -95,6 +99,7 @@ test-corpus-prepare: ## Clone or verify the pinned public corpus
 release-gate: test-corpus-prepare ## Run the exact local/CI release gate
 	@$(MAKE) version-check export-check
 	uv run zhtw validate
+	@$(MAKE) benchmark-validate
 	uv run python scripts/audit_idempotency.py --sources cn,hk --curated-only --fail-on-issues
 	@$(MAKE) test-all
 

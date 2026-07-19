@@ -116,7 +116,8 @@
               "adjudicator": { "type": "string" },
               "disagreement": { "type": "boolean" },
               "decision_date": { "type": "string", "format": "date" },
-              "notes": { "type": "string" }
+              "notes": { "type": "string" },
+              "severity": { "type": "string", "enum": ["", "P0", "P1", "P2"] }
             }
           },
           "issue_tags": {

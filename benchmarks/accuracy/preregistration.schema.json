@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/preregistration.schema.json",
+  "title": "zhtw accuracy benchmark preregistration",
+  "type": "object",
+  "required": [
+    "version",
+    "id",
+    "status",
+    "created_at",
+    "dataset_id",
+    "dataset_manifest_sha256",
+    "inputs_sha256",
+    "expected_sha256",
+    "zhtw_git_sha",
+    "competitor_lock_sha256",
+    "normalization_id",
+    "primary_endpoint",
+    "ranking_policy_id",
+    "ranking_policy_sha256",
+    "power_analysis"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "status": { "type": "string", "const": "frozen" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "dataset_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "dataset_manifest_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "inputs_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "expected_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "zhtw_git_sha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "competitor_lock_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "normalization_id": { "type": "string", "const": "zhtw-exact-v1" },
+    "primary_endpoint": { "type": "string", "const": "blind-v2.accepted_accuracy" },
+    "ranking_policy_id": { "type": "string", "const": "market-ranking-v1" },
+    "ranking_policy_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "power_analysis": {
+      "type": "object",
+      "required": [
+        "method",
+        "discordant_rate",
+        "minimum_detectable_effect",
+        "alpha",
+        "target_power",
+        "required_cases",
+        "selected_cases"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": { "type": "string", "const": "paired_mcnemar_normal_approximation" },
+        "discordant_rate": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+        "minimum_detectable_effect": { "type": "number", "exclusiveMinimum": 0, "maximum": 0.02 },
+        "alpha": { "type": "number", "const": 0.05 },
+        "target_power": { "type": "number", "minimum": 0.8 },
+        "required_cases": { "type": "integer", "minimum": 2 },
+        "selected_cases": { "type": "integer", "minimum": 600 }
+      }
+    }
+  }
+}

@@ -10863,12 +10863,21 @@ def test_run_accuracy_benchmark_with_temp_fixture(tmp_path: Path) -> None:
     assert payload["dataset_classification"] == "published_evaluation"
     assert payload["summary"]["case_count"] == 1
     assert payload["engines"]["zhtw"]["scores"]["accepted_accuracy"] == 1.0
+    assert payload["engines"]["zhtw"]["scores"]["micro_accuracy"] == 1.0
+    assert payload["engines"]["zhtw"]["scores"]["macro_domain_accuracy"] == 1.0
+    assert payload["engines"]["zhtw"]["scores"]["conversion_recall"] == 1.0
+    assert payload["engines"]["zhtw"]["scores"]["p0_error_count"] == 0
+    assert payload["engines"]["zhtw"]["scores"]["changed_span"]["f1"] == 1.0
     assert payload["engines"]["zhtw"]["scores"]["primary_exact_accuracy"] == 1.0
     assert "rows" not in payload
     assert "expected" not in payload
     assert payload["expected_sha256"] == hashlib.sha256(expected_path.read_bytes()).hexdigest()
     assert payload["provenance"]["zhtw_version"] == "4.4.2"
     assert len(payload["provenance"]["git_sha"]) == 40
+    assert payload["provenance"]["python_version"]
+    assert payload["provenance"]["os"]
+    assert payload["provenance"]["architecture"]
+    assert len(payload["provenance"]["runner_sha256"]) == 64
     assert (
         output_prefix.with_suffix(".md")
         .read_text(encoding="utf-8")

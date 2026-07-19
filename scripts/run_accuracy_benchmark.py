@@ -7,6 +7,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import platform
 import random
 import subprocess
 import sys
@@ -25,7 +26,12 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
+from scripts.benchmark_metrics import changed_span_metrics, paired_comparison  # noqa: E402
 from scripts.competitor_benchmark import ENGINE_LOADERS, Engine, load_engines  # noqa: E402
+from scripts.validate_benchmark_assets import (  # noqa: E402
+    validate_manifest,
+    validate_preregistration,
+)
 
 DEFAULT_INPUTS = PROJECT_ROOT / "benchmarks" / "accuracy" / "blind-v1.inputs.json"
 DEFAULT_EXPECTED = PROJECT_ROOT / "benchmarks" / "accuracy" / "blind-v1.expected.json"
@@ -89,6 +95,23 @@ def git_output(*args: str) -> str:
     return result.stdout.strip()
 
 
+def optional_tool_version(*command: str) -> str | None:
+    try:
+        result = subprocess.run(
+            list(command),
+            cwd=PROJECT_ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    if result.returncode != 0:
+        return None
+    return (result.stdout or result.stderr).strip().splitlines()[0]
+
+
 def build_provenance(engines: list[Engine]) -> dict[str, Any]:
     from zhtw import __version__
 
@@ -108,6 +131,12 @@ def build_provenance(engines: list[Engine]) -> dict[str, Any]:
         "zhtw_version": __version__,
         "git_sha": git_output("rev-parse", "HEAD"),
         "git_dirty": bool(status),
+        "python_version": platform.python_version(),
+        "node_version": optional_tool_version("node", "--version"),
+        "rust_version": optional_tool_version("rustc", "--version"),
+        "os": platform.platform(),
+        "architecture": platform.machine(),
+        "runner_sha256": sha256_file(Path(__file__)),
     }
 
 
@@ -268,6 +297,15 @@ def assert_competitors_locked(competitors: list[str], lock: dict[str, Any]) -> N
         raise ValueError(f"requested competitors missing from lockfile: {missing}")
 
 
+def assert_formal_engines_available(engines: list[Engine]) -> None:
+    unavailable = [engine.name for engine in engines if not engine.available]
+    if unavailable:
+        raise ValueError(
+            "formal benchmark requires every requested engine to be available: "
+            + ", ".join(unavailable)
+        )
+
+
 def normalize_output(text: str) -> str:
     normalized = unicodedata.normalize("NFC", text).replace("\r\n", "\n").replace("\r", "\n")
     if normalized.endswith("\n"):
@@ -284,6 +322,7 @@ def evaluate_output(
         return {
             "available": False,
             "error": engine.error or "engine unavailable",
+            "error_category": "engine_unavailable",
             "output": "",
             "normalized_output": "",
             "primary_exact": False,
@@ -299,6 +338,7 @@ def evaluate_output(
         return {
             "available": True,
             "error": str(exc),
+            "error_category": "exception",
             "output": "",
             "normalized_output": "",
             "primary_exact": False,
@@ -315,7 +355,8 @@ def evaluate_output(
 
     return {
         "available": True,
-        "error": "",
+        "error": "empty output" if not normalized_output else "",
+        "error_category": "empty_output" if not normalized_output else "",
         "output": output,
         "normalized_output": normalized_output,
         "primary_exact": primary_exact,
@@ -358,16 +399,35 @@ def summarize_engine(rows: list[dict[str, Any]], engine_name: str) -> dict[str, 
     domain_accepted: defaultdict[str, int] = defaultdict(int)
     issue_miss_counts: Counter[str] = Counter()
     risk_miss_counts: Counter[str] = Counter()
+    error_counts: Counter[str] = Counter()
+    risk_totals: Counter[str] = Counter()
+    risk_accepted: Counter[str] = Counter()
+    severe_errors: Counter[str] = Counter()
+    changed_required = 0
+    changed_produced = 0
+    changed_correct = 0
     for row in rows:
         evaluation = row["evaluations"][engine_name]
         if not evaluation["available"]:
             continue
         domain_totals[row["domain"]] += 1
+        risk_totals[row["risk"]] += 1
+        if evaluation["error_category"]:
+            error_counts[evaluation["error_category"]] += 1
         if evaluation["accepted"]:
             domain_accepted[row["domain"]] += 1
+            risk_accepted[row["risk"]] += 1
         else:
             risk_miss_counts[row["risk"]] += 1
             issue_miss_counts.update(row["issue_tags"] or ["other"])
+            if row["severity"] in {"P0", "P1"}:
+                severe_errors[row["severity"]] += 1
+        span_metrics = changed_span_metrics(
+            row["input"], row["expected"], evaluation["normalized_output"]
+        )
+        changed_required += int(span_metrics["required_edits"])
+        changed_produced += int(span_metrics["produced_edits"])
+        changed_correct += int(span_metrics["correct_edits"])
 
     for domain, count in sorted(domain_totals.items()):
         accepted = domain_accepted[domain]
@@ -381,6 +441,26 @@ def summarize_engine(rows: list[dict[str, Any]], engine_name: str) -> dict[str, 
     primary_exact = sum(primary_values)
     idempotent = sum(idempotent_values)
     available_count = len(available)
+    risk_accuracy = {
+        risk: {
+            "total": count,
+            "accepted": risk_accepted[risk],
+            "accuracy": risk_accepted[risk] / count,
+        }
+        for risk, count in sorted(risk_totals.items())
+    }
+    changed_precision = changed_correct / changed_produced if changed_produced else 1.0
+    changed_recall = changed_correct / changed_required if changed_required else 1.0
+    changed_f1 = (
+        2 * changed_precision * changed_recall / (changed_precision + changed_recall)
+        if changed_precision + changed_recall
+        else 0.0
+    )
+    macro_domain_accuracy = (
+        sum(item["accepted_accuracy"] for item in by_domain.values()) / len(by_domain)
+        if by_domain
+        else 0.0
+    )
     return {
         "total_cases": total,
         "available_cases": available_count,
@@ -391,10 +471,32 @@ def summarize_engine(rows: list[dict[str, Any]], engine_name: str) -> dict[str, 
         "acceptable_exact": sum(item["acceptable_exact"] for item in available),
         "idempotent": idempotent,
         "accepted_accuracy": accepted / available_count if available_count else 0.0,
+        "micro_accuracy": accepted / available_count if available_count else 0.0,
+        "macro_domain_accuracy": macro_domain_accuracy,
         "primary_exact_accuracy": primary_exact / available_count if available_count else 0.0,
         "idempotency_rate": idempotent / available_count if available_count else 0.0,
         "accepted_accuracy_ci_95": bootstrap_ci(accepted_values),
         "by_domain": by_domain,
+        "by_risk": risk_accuracy,
+        "conversion_recall": risk_accuracy.get("candidate_gap", {}).get("accuracy", 0.0),
+        "over_conversion_guard_accuracy": risk_accuracy.get("over_conversion_guard", {}).get(
+            "accuracy", 0.0
+        ),
+        "baseline_guard_accuracy": risk_accuracy.get("baseline_guard", {}).get("accuracy", 0.0),
+        "p0_error_count": severe_errors["P0"],
+        "p1_error_count": severe_errors["P1"],
+        "severe_error_rate": sum(severe_errors.values()) / available_count
+        if available_count
+        else 0.0,
+        "errors_by_category": dict(sorted(error_counts.items())),
+        "changed_span": {
+            "required_edits": changed_required,
+            "produced_edits": changed_produced,
+            "correct_edits": changed_correct,
+            "precision": changed_precision,
+            "recall": changed_recall,
+            "f1": changed_f1,
+        },
         "misses_by_risk": dict(sorted(risk_miss_counts.items())),
         "misses_by_issue_tag": dict(sorted(issue_miss_counts.items())),
     }
@@ -424,6 +526,7 @@ def build_rows(
                 "acceptable": expected_case.acceptable,
                 "issue_tags": expected_case.issue_tags,
                 "annotation": expected_case.annotation,
+                "severity": str(expected_case.annotation.get("severity", "")),
                 "evaluations": evaluations,
             }
         )
@@ -443,6 +546,9 @@ def build_report(
     engines: list[Engine],
     rows: list[dict[str, Any]],
     report_mode: str,
+    manifest_path: Path | None = None,
+    preregistration_path: Path | None = None,
+    provenance: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     by_domain = Counter(case.domain for case in inputs)
     by_risk = Counter(case.risk for case in inputs)
@@ -464,7 +570,7 @@ def build_report(
             if input_data.get("dataset") == "blind-v1"
             else input_data.get("publish_state", "")
         ),
-        "provenance": build_provenance(engines),
+        "provenance": provenance or build_provenance(engines),
         "inputs": {
             "path": relative_path(inputs_path),
             "sha256": sha256_file(inputs_path),
@@ -480,6 +586,10 @@ def build_report(
             "competitors": lock.get("competitors", []),
         },
         "normalization": NORMALIZATION_RULES,
+        "dataset_manifest_sha256": sha256_file(manifest_path) if manifest_path else None,
+        "preregistration_sha256": (
+            sha256_file(preregistration_path) if preregistration_path else None
+        ),
         "summary": {
             "case_count": len(inputs),
             "by_domain": dict(sorted(by_domain.items())),
@@ -487,6 +597,16 @@ def build_report(
         },
         "engines": engine_meta,
     }
+    if len(engines) > 1:
+        zhtw_values = [bool(row["evaluations"]["zhtw"]["accepted"]) for row in rows]
+        report["paired_comparisons"] = {
+            engine.name: paired_comparison(
+                zhtw_values,
+                [bool(row["evaluations"][engine.name]["accepted"]) for row in rows],
+            )
+            for engine in engines
+            if engine.name != "zhtw" and engine.available
+        }
     if report_mode == "detailed":
         report["private_expected"] = {
             "path": relative_path(expected_path),
@@ -544,6 +664,7 @@ def render_markdown(report: dict[str, Any]) -> str:
                 f"- Availability: {availability}",
                 f"- Version: `{engine['version'] or ''}`",
                 f"- Accepted accuracy: {scores['accepted_accuracy']:.4f}",
+                f"- Macro-domain accuracy: {scores['macro_domain_accuracy']:.4f}",
                 f"- Primary exact accuracy: {scores['primary_exact_accuracy']:.4f}",
                 f"- Idempotency rate: {scores['idempotency_rate']:.4f}",
                 f"- Accepted: {scores['accepted']} / {scores['available_cases']}",
@@ -656,6 +777,9 @@ def main() -> int:
         help="aggregate is safe for publication; detailed requires a private output path.",
     )
     parser.add_argument("--generated-date", default=dt.date.today().isoformat())
+    parser.add_argument("--formal", action="store_true")
+    parser.add_argument("--manifest", type=Path)
+    parser.add_argument("--preregistration", type=Path)
     parser.add_argument(
         "--fail-on-zhtw-miss",
         action="store_true",
@@ -669,6 +793,22 @@ def main() -> int:
     args = parser.parse_args()
     assert_output_policy(args.output_prefix, args.formats, args.report_mode)
 
+    if args.formal and (args.manifest is None or args.preregistration is None):
+        parser.error("--formal requires --manifest and --preregistration")
+    if args.formal:
+        validation_errors = validate_manifest(args.manifest.resolve())
+        validation_errors.extend(
+            validate_preregistration(
+                args.preregistration.resolve(),
+                manifest_path=args.manifest.resolve(),
+                inputs_path=args.inputs.resolve(),
+                expected_path=args.expected.resolve(),
+                lock_path=args.competitors_lock.resolve(),
+            )
+        )
+        if validation_errors:
+            raise ValueError("formal benchmark assets invalid: " + "; ".join(validation_errors))
+
     input_data, inputs = load_input_cases(args.inputs)
     expected_data, expected = load_expected_cases(args.expected)
     assert_expected_matches_inputs(inputs, expected)
@@ -677,6 +817,15 @@ def main() -> int:
     assert_competitors_locked(args.competitors, lock)
 
     engines = load_engines(args.competitors)
+    if args.formal:
+        assert_formal_engines_available(engines)
+    provenance = build_provenance(engines)
+    if args.formal:
+        preregistration = load_json(args.preregistration)
+        if provenance["git_dirty"]:
+            raise ValueError("formal benchmark requires a clean Git worktree")
+        if preregistration["zhtw_git_sha"] != provenance["git_sha"]:
+            raise ValueError("formal benchmark zhtw_git_sha does not match HEAD")
     rows = build_rows(inputs, expected, engines)
     report = build_report(
         generated_date=args.generated_date,
@@ -690,6 +839,9 @@ def main() -> int:
         engines=engines,
         rows=rows,
         report_mode=args.report_mode,
+        manifest_path=args.manifest,
+        preregistration_path=args.preregistration,
+        provenance=provenance,
     )
     write_reports(report, args.output_prefix, args.formats)
 

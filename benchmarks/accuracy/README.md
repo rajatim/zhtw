@@ -7,6 +7,40 @@ Chinese from `zhtw-test-corpus`, approved annotation backlog promotions, and
 holdout cases explicitly removed from sealed status before tuning, plus
 maintainer-approved public reproduction promotions.
 
+## Benchmark v2 governance
+
+- `manifest.schema.json` defines source revision, licensing, attribution,
+  importer, bias, and artifact-hash requirements for every new track.
+- `LICENSES.md` is the required notice registry referenced by manifests.
+- `ranking-policy-v1.json` freezes the primary market-ranking policy.
+- `preregistration.schema.json` binds artifacts, commit, ranking policy, and
+  power analysis before a formal score is read.
+- `scripts/validate_benchmark_assets.py` fails closed on missing metadata,
+  notices, files, or mismatched hashes.
+- `scripts/benchmark_metrics.py` provides deterministic alignment, changed-span
+  metrics, paired bootstrap/McNemar comparison, and paired power analysis.
+
+Validation:
+
+```bash
+make benchmark-validate
+```
+
+Formal execution additionally requires explicit frozen assets and refuses a
+dirty or mismatched zhtw commit:
+
+```bash
+uv run python scripts/run_accuracy_benchmark.py \
+  --formal \
+  --manifest benchmarks/accuracy/manifests/blind-v2.json \
+  --preregistration benchmarks/accuracy/preregistrations/blind-v2-run-1.json \
+  --inputs benchmarks/accuracy/blind-v2.inputs.json \
+  --expected /private/path/blind-v2.expected.json
+```
+
+An unavailable engine invalidates a formal run. A per-case exception or empty
+output stays in the denominator as a miss and is counted by error category.
+
 ## regression-v1
 
 `regression-v1.json` is the first M1 public regression dataset.

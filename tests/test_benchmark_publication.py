@@ -12,7 +12,7 @@ import pytest
 import scripts.run_accuracy_benchmark as benchmark_runner
 from scripts.audit_benchmark_publication import audit_paths, find_sensitive_values
 from scripts.competitor_benchmark import Engine
-from scripts.run_accuracy_benchmark import assert_output_policy
+from scripts.run_accuracy_benchmark import assert_formal_engines_available, assert_output_policy
 
 ROOT = Path(__file__).resolve().parents[1]
 AUDITOR = ROOT / "scripts" / "audit_benchmark_publication.py"
@@ -94,6 +94,16 @@ def test_provenance_rejects_zhtw_version_mismatch(
 
     with pytest.raises(ValueError, match="zhtw version mismatch"):
         benchmark_runner.build_provenance([Engine(name="zhtw", available=True, version="4.4.2")])
+
+
+def test_formal_run_rejects_unavailable_engine() -> None:
+    engines = [
+        Engine(name="zhtw", available=True, version="4.4.2"),
+        Engine(name="competitor", available=False, error="not installed"),
+    ]
+
+    with pytest.raises(ValueError, match="competitor"):
+        assert_formal_engines_available(engines)
 
 
 def test_tracked_benchmark_reports_pass_publication_audit() -> None:
