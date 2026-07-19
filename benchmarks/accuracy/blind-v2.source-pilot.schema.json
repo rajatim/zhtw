@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.source-pilot.schema.json",
+  "title": "zhtw Blind-v2 input-only source pilot",
+  "type": "object",
+  "required": [
+    "version", "id", "dataset", "purpose", "input_only", "converter_output_used",
+    "source_class", "license", "attribution", "modification_notice", "upstream_revision",
+    "review_policy", "stats", "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "dataset": { "type": "string", "const": "blind-v2" },
+    "purpose": { "type": "string", "const": "candidate_source_pilot" },
+    "input_only": { "type": "boolean", "const": true },
+    "converter_output_used": { "type": "boolean", "const": false },
+    "source_class": { "type": "string", "const": "permissive_license" },
+    "license": { "type": "string", "minLength": 1 },
+    "attribution": { "type": "string", "minLength": 1 },
+    "modification_notice": { "type": "string", "minLength": 1 },
+    "upstream_revision": { "type": "string", "minLength": 1 },
+    "review_policy": { "type": "string", "const": "domain_and_risk_must_be_assigned_from_input_only" },
+    "stats": {
+      "type": "object",
+      "required": ["raw_cases", "eligible_pending_review", "by_split", "exclusions"],
+      "additionalProperties": false,
+      "properties": {
+        "raw_cases": { "type": "integer", "minimum": 0 },
+        "eligible_pending_review": { "type": "integer", "minimum": 0 },
+        "by_split": { "$ref": "#/$defs/counts" },
+        "exclusions": { "$ref": "#/$defs/counts" }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "input", "provenance", "classification"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "input": { "type": "string", "minLength": 1 },
+          "provenance": {
+            "type": "object",
+            "required": ["raw_url", "source_case_id", "split"],
+            "additionalProperties": false,
+            "properties": {
+              "raw_url": { "type": "string", "format": "uri" },
+              "source_case_id": { "type": "string", "minLength": 1 },
+              "split": { "type": "string", "minLength": 1 }
+            }
+          },
+          "classification": {
+            "type": "object",
+            "required": ["domain", "risk", "status"],
+            "additionalProperties": false,
+            "properties": {
+              "domain": { "type": "null" },
+              "risk": { "type": "null" },
+              "status": { "type": "string", "const": "needs_input_only_review" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "counts": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    }
+  }
+}

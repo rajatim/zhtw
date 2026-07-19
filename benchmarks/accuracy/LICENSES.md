@@ -26,6 +26,30 @@ is missing.
   corrected. Results are secondary evidence and are not independent evidence
   against OpenCC-family converters.
 
+## flores-200-zho-hans-v1
+
+- Source: FLORES-200 archive associated with `facebookresearch/flores` commit
+  `a6c830c6e1051fb4ac1a44b32358f00463f332bd`; archive S3 version
+  `KJZoZnGvyduN3osrx.67C_UQ7C9oNDic`.
+- License: CC BY-SA 4.0
+- Attribution: FLORES-200 contributors, Meta AI.
+- Modifications: Extracted zho_Hans dev and devtest sentences, applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: CC BY-SA 4.0
+- Bias notice: Professional web-article translations are not representative of
+  ordinary Taiwan product traffic. Domain and risk remain pending input-only
+  review.
+
+## ud-chinese-cfl-v1
+
+- Source: Universal Dependencies Chinese-CFL commit
+  `ad71b068e4581343dab897ef2d54abf102580897` (tag `r2.18`).
+- License: CC BY-SA 4.0
+- Attribution: Universal Dependencies Chinese-CFL contributors.
+- Modifications: Extracted sentence text from the pinned CoNLL-U file, applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: CC BY-SA 4.0
+- Bias notice: Learner essays contain non-native wording and source errors.
+  Domain and risk remain pending input-only review.
+
 ## naer-terms-v1
 
 - Source: Government Data dataset 15275, `國家教育研究院-兩岸對照名詞-計算機學術名詞`;

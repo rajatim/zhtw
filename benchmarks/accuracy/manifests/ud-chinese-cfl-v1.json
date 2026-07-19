@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "id": "ud-chinese-cfl-v1",
+  "track": "blind",
+  "source_urls": [
+    "https://github.com/UniversalDependencies/UD_Chinese-CFL/tree/ad71b068e4581343dab897ef2d54abf102580897"
+  ],
+  "upstream_revision": "UniversalDependencies/UD_Chinese-CFL@ad71b068e4581343dab897ef2d54abf102580897; tag r2.18",
+  "retrieved_at": "2026-07-19T00:00:00+08:00",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "output_license": "CC BY-SA 4.0",
+  "attribution": "Universal Dependencies Chinese-CFL contributors.",
+  "modification_notice": "Extracted sentence text from the pinned CoNLL-U file, applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.",
+  "notice_id": "ud-chinese-cfl-v1",
+  "raw_sha256": {
+    "https://raw.githubusercontent.com/UniversalDependencies/UD_Chinese-CFL/ad71b068e4581343dab897ef2d54abf102580897/LICENSE.txt": "899b1804a12ebc090b96339614eede1b64b686721b650a71430b55b5235f7f79",
+    "https://raw.githubusercontent.com/UniversalDependencies/UD_Chinese-CFL/ad71b068e4581343dab897ef2d54abf102580897/zh_cfl-ud-test.conllu": "5eb666265585bc1cd1a04ea5ca2d94f2ddc6f00b782ae7dfe815e08504879923"
+  },
+  "normalized_path": "benchmarks/accuracy/external/ud-chinese-cfl-v1.json",
+  "normalized_sha256": "b01609f8257dd2eb23464df827273d9087e4a192298d14626774e9940ef08a1b",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Learner essays contain non-native wording and source errors that require sentence-level quality review.",
+    "The corpus is not representative of Taiwan product UI, technical, legal, medical, or financial language.",
+    "Domain and conversion-risk labels remain unset until input-only review.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

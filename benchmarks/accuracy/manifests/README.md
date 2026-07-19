@@ -14,3 +14,11 @@ make benchmark-validate
 
 External track manifests are added by Issues #40 and #41. Blind-v2 is added by
 Issue #43.
+
+Blind-v2 source pilots are public, input-only staging artifacts. They must keep
+`domain` and `risk` unset until a reviewer classifies the input without seeing
+converter output. Reproduce the pinned pilots with:
+
+```bash
+make benchmark-blind-v2-source-import-check
+```

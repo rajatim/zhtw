@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Candidate Source Audit (2026-07-19)
 
-Status: preliminary source gate; no candidate text imported
+Status: two source pilots pinned and imported; classification remains pending
 
 Issue: #43
 
@@ -42,8 +42,12 @@ original sentences, not translations.
 - Known bias: 3,001 professional translations from 842 web articles; translation
   and article-domain language is not representative of ordinary Taiwan product
   traffic.
-- Decision: accepted for at most the global single-source cap after the exact
-  dataset archive and file hashes are pinned.
+- Pinned archive: S3 version `KJZoZnGvyduN3osrx.67C_UQ7C9oNDic`, SHA-256
+  `b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6`.
+- Pilot result: 2,009 unique public dev/devtest inputs imported; all domain and
+  risk fields remain unset pending input-only review.
+- Decision: accepted for at most 588 cases under the current global
+  single-source cap.
 
 The official repository lists FLORES-200 as CC BY-SA 4.0 and describes the
 translation and verification workflow.
@@ -51,14 +55,17 @@ translation and verification workflow.
 ### UD Chinese-CFL
 
 - Source: <https://universaldependencies.org/treebanks/zh_cfl/>
-- Planned revision: UD release 2.18; repository commit and file SHA-256 still
-  need pinning.
+- Pinned revision: UD release 2.18, commit
+  `ad71b068e4581343dab897ef2d54abf102580897`; CoNLL-U SHA-256
+  `5eb666265585bc1cd1a04ea5ca2d94f2ddc6f00b782ae7dfe815e08504879923`.
 - License: CC BY-SA 4.0.
 - Source class: `permissive_license`.
 - Script provenance: the official treebank page explicitly states that the data
   is in Simplified Chinese.
 - Known bias: learner essays contain non-native wording and annotation-source
   errors; this is useful challenge material but must not dominate a domain.
+- Pilot result: 451 unique inputs imported; all domain and risk fields remain
+  unset pending input-only review.
 - Decision: accepted, subject to sentence-level quality filtering performed
   without converter output.
 
@@ -115,10 +122,24 @@ translation and verification workflow.
 
 ## Capacity Assessment
 
-The accepted sources are not yet sufficient to freeze the pool. Under the
+The two pinned pilots are not sufficient to freeze the pool. Under the
 conservative 10% discordant-rate assumption, formal N is 1,960 and the minimum
 candidate pool is 5,880. Each source may contribute at most 10% and each broad
-source class at most 35%, so the final pool needs at least:
+source class at most 35%.
+
+Before cross-source/reference near-deduplication and input-only quality review,
+the pilot ceiling is:
+
+| Source | Imported | Per-source cap | Maximum pool contribution |
+|--------|---------:|---------------:|--------------------------:|
+| FLORES-200 zho_Hans | 2,009 | 588 | 588 |
+| UD Chinese-CFL | 451 | 588 | 451 |
+| **Total** | **2,460** | | **1,039 (17.67%)** |
+
+Both pilots are `permissive_license`, whose class cap is 2,058. The pilot
+ceiling therefore leaves at least 4,841 candidate slots unfilled. Actual usable
+capacity can only decrease after input-only quality/strata review and the fixed
+exact/near-deduplication audit. The final pool still needs at least:
 
 - three broad source classes;
 - ten independently identified sources overall;
@@ -126,8 +147,8 @@ source class at most 35%, so the final pool needs at least:
   25/20/15/15/15/10 domain and 40/40/20 risk quotas;
 - reserve cases in every stratum for deterministic replacement.
 
-The next source work is to pin and import small pilots from Tatoeba CC0,
-FLORES-200, UD Chinese-CFL, and individually verified CDC Stacks documents.
-Pilot rows must remain input-only. Their quality and strata coverage determine
-which additional sources or project-original batches are required; converter
-performance must not influence that decision.
+The next source work is to classify the two pilots from input alone, then pin a
+Tatoeba CC0 snapshot and individually verified CDC Stacks documents. Additional
+project-original and permissioned-user-report sources are required to satisfy
+source-class diversity. Converter performance must not influence source or
+strata selection.

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "id": "flores-200-zho-hans-v1",
+  "track": "blind",
+  "source_urls": [
+    "https://github.com/facebookresearch/flores/tree/a6c830c6e1051fb4ac1a44b32358f00463f332bd/flores200",
+    "https://dl.fbaipublicfiles.com/nllb/flores200_dataset.tar.gz"
+  ],
+  "upstream_revision": "facebookresearch/flores@a6c830c6e1051fb4ac1a44b32358f00463f332bd; archive S3 version KJZoZnGvyduN3osrx.67C_UQ7C9oNDic",
+  "retrieved_at": "2026-07-19T00:00:00+08:00",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "output_license": "CC BY-SA 4.0",
+  "attribution": "FLORES-200 contributors, Meta AI.",
+  "modification_notice": "Extracted zho_Hans dev and devtest sentences, applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.",
+  "notice_id": "flores-200-zho-hans-v1",
+  "raw_sha256": {
+    "https://dl.fbaipublicfiles.com/nllb/flores200_dataset.tar.gz": "b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6",
+    "https://raw.githubusercontent.com/facebookresearch/flores/a6c830c6e1051fb4ac1a44b32358f00463f332bd/LICENSE_CC-BY-SA": "fe38377ee0e52dc6c9c78554055a4e5e78781d73022df4508c9cf284e0f462e9"
+  },
+  "normalized_path": "benchmarks/accuracy/external/flores-200-zho-hans-v1.json",
+  "normalized_sha256": "a3e392e440fab57607b3003a3a4860506b3aba44533f47aaff5144058d0b1162",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Professional translations of web articles do not represent ordinary Taiwan product traffic.",
+    "Only the public dev and devtest splits are available; the hidden test split is not imported.",
+    "Domain and conversion-risk labels remain unset until input-only review.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

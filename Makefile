@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-blind-v2-pool-validate benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-blind-v2-source-import-check benchmark-blind-v2-pool-validate benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -91,6 +91,10 @@ benchmark-naer-import-check: ## Download pinned NAER source and verify normalize
 
 benchmark-naer-report: ## Run the public NAER computer terminology secondary track
 	$(PYTHON) scripts/run_naer_terms_benchmark.py --generated-date $(DATE) --output-prefix docs/reports/naer-terms-benchmark-$(DATE)
+
+benchmark-blind-v2-source-import-check: ## Download pinned Blind-v2 source pilots and verify input-only outputs
+	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/flores-200-zho-hans-v1.json --check
+	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/ud-chinese-cfl-v1.json --check
 
 benchmark-blind-v2-pool-validate: ## Validate Blind-v2 source, dedupe, quota, and size policy
 	$(PYTHON) scripts/blind_v2_governance.py validate-pool $(BLIND_V2_POOL) --require-ready
