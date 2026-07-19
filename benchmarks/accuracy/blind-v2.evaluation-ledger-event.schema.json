@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.evaluation-ledger-event.schema.json",
+  "title": "zhtw Blind-v2 private one-shot evaluation ledger event",
+  "type": "object",
+  "required": [
+    "version", "dataset", "run_id", "event", "recorded_at", "operator", "reason",
+    "preregistration_sha256", "inputs_sha256", "expected_sha256", "zhtw_git_sha",
+    "competitor_lock_sha256", "exit_status", "detailed_rows_read"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "dataset": { "type": "string", "const": "blind-v2" },
+    "run_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "event": { "type": "string", "enum": ["run_started", "run_interrupted", "score_exposed"] },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "operator": { "type": "string", "minLength": 1 },
+    "reason": { "type": "string", "minLength": 1 },
+    "preregistration_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "inputs_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "expected_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "zhtw_git_sha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "competitor_lock_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "exit_status": { "type": ["integer", "null"] },
+    "detailed_rows_read": { "type": "boolean" }
+  }
+}

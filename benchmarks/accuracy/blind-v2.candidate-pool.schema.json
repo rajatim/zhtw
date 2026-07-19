@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.candidate-pool.schema.json",
+  "title": "zhtw Blind-v2 input-only candidate pool",
+  "type": "object",
+  "required": [
+    "version",
+    "id",
+    "status",
+    "created_at",
+    "formal_n",
+    "power_analysis",
+    "seed",
+    "source_policy",
+    "deduplication",
+    "stats",
+    "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "id": { "type": "string", "const": "blind-v2-candidate-pool-v1" },
+    "status": { "type": "string", "enum": ["collecting", "frozen"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "formal_n": { "type": "integer", "minimum": 600 },
+    "power_analysis": {
+      "type": "object",
+      "required": ["method", "discordant_rate", "minimum_detectable_effect", "alpha", "target_power", "required_cases"],
+      "additionalProperties": false,
+      "properties": {
+        "method": { "type": "string", "const": "paired_mcnemar_normal_approximation" },
+        "discordant_rate": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+        "minimum_detectable_effect": { "type": "number", "exclusiveMinimum": 0, "maximum": 0.02 },
+        "alpha": { "type": "number", "const": 0.05 },
+        "target_power": { "type": "number", "minimum": 0.8 },
+        "required_cases": { "type": "integer", "minimum": 2 }
+      }
+    },
+    "seed": { "type": "integer", "const": 20260719 },
+    "source_policy": {
+      "type": "object",
+      "required": ["maximum_source_fraction", "maximum_source_class_fraction"],
+      "additionalProperties": false,
+      "properties": {
+        "maximum_source_fraction": { "type": "number", "const": 0.1 },
+        "maximum_source_class_fraction": { "type": "number", "const": 0.35 }
+      }
+    },
+    "deduplication": {
+      "type": "object",
+      "required": ["normalization", "ngram_size", "near_duplicate_threshold", "reference_globs", "reference_snapshot_sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "normalization": { "type": "string", "const": "unicode-nfc-collapse-whitespace-v1" },
+        "ngram_size": { "type": "integer", "const": 5 },
+        "near_duplicate_threshold": { "type": "number", "const": 0.85 },
+        "reference_globs": {
+          "type": "array",
+          "const": [
+            "benchmarks/accuracy/*.json",
+            "docs/reports/*.json",
+            "src/zhtw/data/terms/**/*.json"
+          ]
+        },
+        "reference_snapshot_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "stats": {
+      "type": "object",
+      "required": ["total", "by_domain", "by_risk", "by_source_class", "by_source"],
+      "additionalProperties": false,
+      "properties": {
+        "total": { "type": "integer", "minimum": 0 },
+        "by_domain": { "$ref": "#/$defs/counts" },
+        "by_risk": { "$ref": "#/$defs/counts" },
+        "by_source_class": { "$ref": "#/$defs/counts" },
+        "by_source": { "$ref": "#/$defs/counts" }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/case" }
+    }
+  },
+  "$defs": {
+    "counts": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "case": {
+      "type": "object",
+      "required": ["id", "domain", "risk", "input", "source", "tags", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^blind-v2-candidate-[0-9]{6}$" },
+        "domain": {
+          "type": "string",
+          "enum": ["it_api_cli", "ui_i18n", "llm_generated", "formal_news", "social_daily", "high_stakes"]
+        },
+        "risk": {
+          "type": "string",
+          "enum": ["candidate_gap", "over_conversion_guard", "baseline_guard"]
+        },
+        "input": { "type": "string", "minLength": 1 },
+        "source": {
+          "type": "object",
+          "required": ["class", "id", "citation", "license", "created_at"],
+          "additionalProperties": false,
+          "properties": {
+            "class": {
+              "type": "string",
+              "enum": ["project_original", "permissioned_user_report", "public_domain", "permissive_license"]
+            },
+            "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+            "citation": { "type": "string", "minLength": 1 },
+            "license": { "type": "string", "minLength": 1 },
+            "license_url": { "type": "string", "format": "uri" },
+            "created_at": { "type": "string", "format": "date" }
+          }
+        },
+        "tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

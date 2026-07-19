@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-blind-v2-pool-validate benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -13,6 +13,12 @@ REVIEWER_STAGE ?= first_human_review
 HOLDOUT_BATCH ?=
 COMPETITOR_ENV_HASH := $(shell jq -r '.environment.environment_sha256' benchmarks/accuracy/competitors.lock.json)
 COMPETITOR_IMAGE ?= zhtw-benchmark-competitors:$(shell printf '%s' '$(COMPETITOR_ENV_HASH)' | cut -c1-12)
+BLIND_V2_POOL ?= benchmarks/accuracy/blind-v2.candidate-pool.json
+BLIND_V2_INPUTS ?= benchmarks/accuracy/blind-v2.inputs.json
+BLIND_V2_REPLACEMENTS ?= benchmarks/accuracy/blind-v2.replacements.json
+BLIND_V2_DECISIONS ?= benchmarks/accuracy/blind-v2.final-decisions.json
+BLIND_V2_LEDGER ?= benchmarks/accuracy/private/blind-v2.evaluation-ledger.jsonl
+BLIND_V2_N ?= 1960
 
 # === Core ===
 
@@ -85,6 +91,21 @@ benchmark-naer-import-check: ## Download pinned NAER source and verify normalize
 
 benchmark-naer-report: ## Run the public NAER computer terminology secondary track
 	$(PYTHON) scripts/run_naer_terms_benchmark.py --generated-date $(DATE) --output-prefix docs/reports/naer-terms-benchmark-$(DATE)
+
+benchmark-blind-v2-pool-validate: ## Validate Blind-v2 source, dedupe, quota, and size policy
+	$(PYTHON) scripts/blind_v2_governance.py validate-pool $(BLIND_V2_POOL) --require-ready
+
+benchmark-blind-v2-replacements-validate: ## Validate deterministic Blind-v2 replacements
+	$(PYTHON) scripts/blind_v2_governance.py validate-replacements $(BLIND_V2_POOL) $(BLIND_V2_REPLACEMENTS)
+
+benchmark-blind-v2-sample: ## Deterministically sample the frozen Blind-v2 pool
+	$(PYTHON) scripts/blind_v2_governance.py sample $(BLIND_V2_POOL) --selected-n $(BLIND_V2_N) --replacements $(BLIND_V2_REPLACEMENTS) --output $(BLIND_V2_INPUTS)
+
+benchmark-blind-v2-decisions-validate: ## Require maintainer decisions for every Blind-v2 case
+	$(PYTHON) scripts/blind_v2_governance.py validate-decisions $(BLIND_V2_INPUTS) $(BLIND_V2_DECISIONS)
+
+benchmark-blind-v2-ledger-validate: ## Validate the private Blind-v2 one-shot ledger
+	$(PYTHON) scripts/blind_v2_governance.py validate-ledger $(BLIND_V2_LEDGER)
 
 accuracy-benchmark: ## Run the published blind-v1 evaluation benchmark
 	$(PYTHON) scripts/run_accuracy_benchmark.py --inputs benchmarks/accuracy/blind-v1.inputs.json --expected benchmarks/accuracy/blind-v1.expected.json --competitors-lock benchmarks/accuracy/competitors.lock.json --competitors $(COMPETITORS) --generated-date $(DATE) --output-prefix docs/reports/accuracy-benchmark-$(DATE)

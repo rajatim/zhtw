@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.inputs.schema.json",
+  "title": "zhtw Blind-v2 public input-only sample",
+  "type": "object",
+  "required": [
+    "version", "name", "dataset", "status", "source_pool_id", "source_pool_sha256",
+    "seed", "selected_n", "replacement_ledger_sha256", "quotas", "stats", "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "name": { "type": "string", "const": "blind-v2.inputs" },
+    "dataset": { "type": "string", "const": "blind-v2" },
+    "status": { "type": "string", "enum": ["selected", "frozen"] },
+    "source_pool_id": { "type": "string", "const": "blind-v2-candidate-pool-v1" },
+    "source_pool_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "seed": { "type": "integer", "const": 20260719 },
+    "selected_n": { "type": "integer", "minimum": 600 },
+    "replacement_ledger_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "quotas": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "stats": {
+      "type": "object",
+      "required": ["by_domain", "by_risk"],
+      "additionalProperties": false,
+      "properties": {
+        "by_domain": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+        "by_risk": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": { "$ref": "blind-v2.candidate-pool.schema.json#/$defs/case" }
+    }
+  }
+}

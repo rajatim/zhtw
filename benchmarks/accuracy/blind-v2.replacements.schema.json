@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.replacements.schema.json",
+  "title": "zhtw Blind-v2 deterministic replacement ledger",
+  "type": "object",
+  "required": ["version", "dataset", "source_pool_sha256", "seed", "formal_n", "events"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "dataset": { "type": "string", "const": "blind-v2" },
+    "source_pool_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "seed": { "type": "integer", "const": 20260719 },
+    "formal_n": { "type": "integer", "minimum": 600 },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["excluded_id", "replacement_id", "reason", "maintainer", "decision_date", "note"],
+        "additionalProperties": false,
+        "properties": {
+          "excluded_id": { "type": "string", "pattern": "^blind-v2-candidate-[0-9]{6}$" },
+          "replacement_id": { "type": "string", "pattern": "^blind-v2-candidate-[0-9]{6}$" },
+          "reason": {
+            "type": "string",
+            "enum": ["license_failure", "duplicate", "data_corruption", "expected_unresolvable"]
+          },
+          "maintainer": { "type": "string", "minLength": 1 },
+          "decision_date": { "type": "string", "format": "date" },
+          "note": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

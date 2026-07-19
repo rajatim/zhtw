@@ -156,6 +156,59 @@ Formal market execution must provide the resulting image and every locked
 engine; a missing image, unavailable adapter, wrong version, wrong config hash,
 or environment-label mismatch aborts the run.
 
+## Blind-v2 governance
+
+Blind-v2 is the fresh, input-only primary market track. Its candidate pool and
+selected inputs may be public, but expected values, AI advisory packets,
+detailed outputs, and the evaluation ledger remain gitignored.
+
+The governance contracts are:
+
+- `blind-v2.candidate-pool.schema.json`: source/license metadata, source caps,
+  dedupe policy, domain/risk strata, and the frozen formal N.
+- `blind-v2.inputs.schema.json`: deterministic public sample bound to the pool
+  hash and seed `20260719`.
+- `blind-v2.expected.schema.json`: private expected values that reference
+  maintainer-confirmed decision artifacts.
+- `blind-v2.final-decisions.schema.json`: public N/N coverage evidence without
+  expected text.
+- `blind-v2.replacements.schema.json`: exclusions limited to the four declared
+  reasons and the next deterministic reserve in the same stratum.
+- `blind-v2.evaluation-ledger-event.schema.json`: private one-shot run events.
+
+The current planning assumption is a 10% discordant rate, 2 percentage-point
+MDE, 80% power, and two-sided alpha 0.05. It requires N=1,960 and therefore at
+least 5,880 candidates. This value is not frozen until the candidate source and
+power audits are complete.
+
+Validate and sample only after the pool is frozen:
+
+```bash
+make benchmark-blind-v2-pool-validate
+make benchmark-blind-v2-replacements-validate
+make benchmark-blind-v2-sample BLIND_V2_N=1960
+make benchmark-blind-v2-decisions-validate
+make benchmark-blind-v2-ledger-validate
+```
+
+`blind_v2_governance.py` applies Unicode NFC and whitespace collapse, rejects
+exact duplicates, and rejects character 5-gram Jaccard similarity at or above
+0.85. Dedupe references must be tracked files, preventing the tool from opening
+private expected data. Sampling uses fixed domain ratios of 25/20/15/15/15/10
+and per-domain risk ratios of 40/40/20. A missing stratum fails instead of being
+silently reweighted.
+
+No candidate collection, validation, or sampling command runs zhtw or another
+converter. Codex and Gemini remain advisory; only the maintainer can create a
+final decision. A public decision summary must cover every selected case exactly
+once before private expected can be sealed.
+
+The initial source/license gate is recorded in
+`docs/reports/blind-v2-source-license-audit-2026-07-19.md`. It accepts Tatoeba
+CC0, FLORES-200 `zho_Hans`, UD Chinese-CFL, and individually verified CDC Stacks
+items for pinned pilots. It rejects converter-derived GSDSimp, Traditional-only
+Chinese-PUD, and Common Voice under the current no-rehosting download terms.
+
 ## regression-v1
 
 `regression-v1.json` is the first M1 public regression dataset.

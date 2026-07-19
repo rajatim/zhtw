@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.expected.schema.json",
+  "title": "zhtw Blind-v2 private human-confirmed expected data",
+  "type": "object",
+  "required": [
+    "version", "name", "dataset", "status", "source_inputs_sha256",
+    "decision_summary_sha256", "approval_policy", "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "name": { "type": "string", "const": "blind-v2.expected" },
+    "dataset": { "type": "string", "const": "blind-v2" },
+    "status": { "type": "string", "enum": ["annotating", "sealed_private"] },
+    "source_inputs_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "decision_summary_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "approval_policy": { "type": "string", "const": "single_human_with_ai_advisory" },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "expected", "acceptable", "decision_method", "decision_artifact_sha256"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^blind-v2-candidate-[0-9]{6}$" },
+          "expected": { "type": "string", "minLength": 1 },
+          "acceptable": {
+            "type": "array", "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "decision_method": {
+            "type": "string",
+            "enum": ["individual_adjudication", "batch_human_confirmation"]
+          },
+          "decision_artifact_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    }
+  }
+}

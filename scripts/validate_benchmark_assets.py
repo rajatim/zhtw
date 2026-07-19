@@ -24,6 +24,14 @@ PREREGISTRATION_SCHEMA = ACCURACY_ROOT / "preregistration.schema.json"
 LICENSES = ACCURACY_ROOT / "LICENSES.md"
 RANKING_POLICY = ACCURACY_ROOT / "ranking-policy-v1.json"
 COMPETITORS_LOCK = ACCURACY_ROOT / "competitors.lock.json"
+BLIND_V2_SCHEMAS = (
+    ACCURACY_ROOT / "blind-v2.candidate-pool.schema.json",
+    ACCURACY_ROOT / "blind-v2.inputs.schema.json",
+    ACCURACY_ROOT / "blind-v2.expected.schema.json",
+    ACCURACY_ROOT / "blind-v2.final-decisions.schema.json",
+    ACCURACY_ROOT / "blind-v2.replacements.schema.json",
+    ACCURACY_ROOT / "blind-v2.evaluation-ledger-event.schema.json",
+)
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -182,6 +190,7 @@ def main() -> int:
         MANIFEST_SCHEMA,
         PREREGISTRATION_SCHEMA,
         ACCURACY_ROOT / "competitors-lock.schema.json",
+        *BLIND_V2_SCHEMAS,
     ):
         try:
             Draft202012Validator.check_schema(load_json(schema_path))
