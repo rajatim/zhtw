@@ -28,13 +28,13 @@ is missing.
 
 ## naer-terms-v1
 
-- Source: Taiwan National Academy for Educational Research terminology data at
-  the revision and retrieval date pinned by the future manifest.
-- License: Taiwan Government Data Open License, version 1.0.
-- Attribution: National Academy for Educational Research; no endorsement implied.
-- Modifications: Field selection, context filtering, deduplication, and benchmark
-  metadata enrichment.
-- Output license: Taiwan Government Data Open License, version 1.0.
+- Source: Government Data dataset 15275, `國家教育研究院-兩岸對照名詞-計算機學術名詞`;
+  metadata updated 2024-07-08 10:11 Asia/Taipei and CSV Last-Modified
+  2024-07-11T03:25:57Z.
+- License: 政府資料開放授權條款-第1版 (Open Government Data License, version 1.0)
+- Attribution: 國家教育研究院 2024 國家教育研究院-兩岸對照名詞-計算機學術名詞；不暗示國家教育研究院推薦、同意或為 zhtw 背書。
+- Modifications: Selected and normalized source fields, preserved unresolved compound cells without delimiter splitting, classified conversion and identity candidates, excluded ambiguous bare terms, deduplicated evaluation cases, and added benchmark metadata; no records were imported into the zhtw product dictionaries.
+- Output license: 政府資料開放授權條款-第1版 (Open Government Data License, version 1.0)
 
 ## sc-tc-regional-v1
 

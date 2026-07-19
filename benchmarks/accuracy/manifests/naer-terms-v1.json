@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "id": "naer-terms-v1",
+  "track": "external_terminology",
+  "source_urls": [
+    "https://data.gov.tw/dataset/15275",
+    "https://opendata.naer.edu.tw/%E5%AD%B8%E8%A1%93%E5%90%8D%E8%A9%9E/%E5%9C%8B%E5%AE%B6%E6%95%99%E8%82%B2%E7%A0%94%E7%A9%B6%E9%99%A2-%E5%85%A9%E5%B2%B8%E5%B0%8D%E7%85%A7%E5%90%8D%E8%A9%9E-%E8%A8%88%E7%AE%97%E6%A9%9F%E5%AD%B8%E8%A1%93%E5%90%8D%E8%A9%9E.csv"
+  ],
+  "upstream_revision": "Government Data dataset 15275 metadata updated 2024-07-08 10:11 Asia/Taipei; CSV Last-Modified 2024-07-11T03:25:57Z",
+  "retrieved_at": "2026-07-19T22:06:02+08:00",
+  "license": "政府資料開放授權條款-第1版 (Open Government Data License, version 1.0)",
+  "license_url": "https://data.gov.tw/license",
+  "output_license": "政府資料開放授權條款-第1版 (Open Government Data License, version 1.0)",
+  "attribution": "國家教育研究院 2024 國家教育研究院-兩岸對照名詞-計算機學術名詞；不暗示國家教育研究院推薦、同意或為 zhtw 背書。",
+  "modification_notice": "Selected and normalized source fields, preserved unresolved compound cells without delimiter splitting, classified conversion and identity candidates, excluded ambiguous bare terms, deduplicated evaluation cases, and added benchmark metadata; no records were imported into the zhtw product dictionaries.",
+  "notice_id": "naer-terms-v1",
+  "raw_sha256": {
+    "https://opendata.naer.edu.tw/%E5%AD%B8%E8%A1%93%E5%90%8D%E8%A9%9E/%E5%9C%8B%E5%AE%B6%E6%95%99%E8%82%B2%E7%A0%94%E7%A9%B6%E9%99%A2-%E5%85%A9%E5%B2%B8%E5%B0%8D%E7%85%A7%E5%90%8D%E8%A9%9E-%E8%A8%88%E7%AE%97%E6%A9%9F%E5%AD%B8%E8%A1%93%E5%90%8D%E8%A9%9E.csv": "d8d65ba4097d45dd1c5d6b737fc942a1bd92d74d76ce6d6fb5348001b11b75bd"
+  },
+  "normalized_path": "benchmarks/accuracy/external/naer-terms-v1.json",
+  "normalized_sha256": "ab0b1bee984c39dbb29a81804e800aeecacb3b48f944e903b60d3a5f0015b54d",
+  "importer": "scripts/import_naer_terms_benchmark.py",
+  "known_biases": [
+    "The source is an academic terminology table, not naturally occurring sentence text or a representative sample of Taiwan product usage.",
+    "Only structurally atomic, non-conflicting bare terms are scored; excluded compound and ambiguous terms may make the evaluated subset easier than the full source dataset.",
+    "A unique mapping in this dataset does not prove that a Chinese bare term is unambiguous in every domain or sentence context.",
+    "The track measures computer terminology compatibility and cannot independently support a general market-best accuracy claim."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "public_track_only"
+}

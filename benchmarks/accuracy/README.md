@@ -73,6 +73,39 @@ The lower sentence-exact result must not be read as Taiwan-localization accuracy
 the single target is generic UD Traditional Chinese, while zhtw intentionally
 applies Taiwan regional terminology that can be valid but differ from that target.
 
+## NAER computer terminology external track
+
+`external/naer-terms-v1.json` preserves all 1,532 records from Government Data
+dataset 15275, `國家教育研究院-兩岸對照名詞-計算機學術名詞`. The manifest pins the
+official CSV hash, metadata revision, retrieval timestamp, Open Government Data
+License 1.0 attribution, modification notice, and known biases.
+
+The source CSV does not define a schema for aliases, annotations, or multiple
+values inside a cell. The importer therefore never splits fields on punctuation:
+atomic cells expose one value, while compound cells retain the original text and
+an unresolved marker. Conflicting bare-term mappings, single-character terms,
+and compound records receive no expected output and enter the context candidate
+packet.
+
+The first pilot contains 721 deduplicated conversion cases, 54 identity guards,
+and 754 context candidates. Context candidates require Codex first pass, an
+independent Gemini advisory, and maintainer confirmation before any sentence
+expected can be added. Public cases are never imported automatically into zhtw
+product dictionaries.
+
+Reproduce the normalized dataset and run the aggregate report:
+
+```bash
+make benchmark-naer-import-check
+make benchmark-naer-report DATE=2026-07-19
+```
+
+This track measures exact compatibility with one academic terminology source.
+It is public secondary evidence, not representative traffic and not the
+Blind-v2 primary market endpoint. A miss can be a valid Taiwan variant absent
+from the source's single target, so the aggregate result must not be presented
+as general Taiwan-localization accuracy.
+
 ## regression-v1
 
 `regression-v1.json` is the first M1 public regression dataset.

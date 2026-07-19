@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark benchmark-validate benchmark-ud-import-check benchmark-ud-report accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check precision-benchmark benchmark-validate benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -71,6 +71,12 @@ benchmark-ud-import-check: ## Download pinned UD sources and verify normalized o
 
 benchmark-ud-report: ## Run the public UD GSD/GSDSimp secondary track
 	$(PYTHON) scripts/run_ud_gsd_benchmark.py --generated-date $(DATE) --output-prefix docs/reports/ud-gsd-benchmark-$(DATE)
+
+benchmark-naer-import-check: ## Download pinned NAER source and verify normalized output
+	$(PYTHON) scripts/import_naer_terms_benchmark.py --check
+
+benchmark-naer-report: ## Run the public NAER computer terminology secondary track
+	$(PYTHON) scripts/run_naer_terms_benchmark.py --generated-date $(DATE) --output-prefix docs/reports/naer-terms-benchmark-$(DATE)
 
 accuracy-benchmark: ## Run the published blind-v1 evaluation benchmark
 	$(PYTHON) scripts/run_accuracy_benchmark.py --inputs benchmarks/accuracy/blind-v1.inputs.json --expected benchmarks/accuracy/blind-v1.expected.json --competitors-lock benchmarks/accuracy/competitors.lock.json --competitors $(COMPETITORS) --generated-date $(DATE) --output-prefix docs/reports/accuracy-benchmark-$(DATE)
