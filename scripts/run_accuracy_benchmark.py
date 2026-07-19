@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run a sealed-holdout accuracy benchmark against locked converters."""
+"""Run an accuracy benchmark against locked converters."""
 
 from __future__ import annotations
 
@@ -8,12 +8,18 @@ import datetime as dt
 import hashlib
 import json
 import random
+import subprocess
 import sys
 import unicodedata
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+
+if sys.version_info >= (3, 11):
+    import tomllib
+else:
+    import tomli as tomllib
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -26,6 +32,7 @@ DEFAULT_EXPECTED = PROJECT_ROOT / "benchmarks" / "accuracy" / "blind-v1.expected
 DEFAULT_LOCK = PROJECT_ROOT / "benchmarks" / "accuracy" / "competitors.lock.json"
 DEFAULT_OUTPUT_PREFIX = PROJECT_ROOT / "docs" / "reports" / "accuracy-benchmark"
 DEFAULT_COMPETITORS = "zhtw"
+REPORT_MODES = {"aggregate", "detailed"}
 NORMALIZATION_RULES = [
     "Unicode NFC",
     "CRLF and CR become LF",
@@ -67,6 +74,85 @@ def sha256_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def git_output(*args: str) -> str:
+    result = subprocess.run(
+        ["git", *args],
+        cwd=PROJECT_ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        raise ValueError("git provenance unavailable")
+    return result.stdout.strip()
+
+
+def build_provenance(engines: list[Engine]) -> dict[str, Any]:
+    from zhtw import __version__
+
+    project = tomllib.loads((PROJECT_ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+    declared_version = str(project["project"]["version"])
+    zhtw_engine = next((engine for engine in engines if engine.name == "zhtw"), None)
+    versions = {
+        "package": __version__,
+        "pyproject": declared_version,
+        "engine": zhtw_engine.version if zhtw_engine else None,
+    }
+    if len({version for version in versions.values() if version is not None}) != 1:
+        raise ValueError(f"zhtw version mismatch: {versions}")
+
+    status = git_output("status", "--porcelain")
+    return {
+        "zhtw_version": __version__,
+        "git_sha": git_output("rev-parse", "HEAD"),
+        "git_dirty": bool(status),
+    }
+
+
+def is_git_tracked(path: Path) -> bool:
+    try:
+        relative = path.resolve().relative_to(PROJECT_ROOT)
+    except ValueError:
+        return False
+    result = subprocess.run(
+        ["git", "ls-files", "--error-unmatch", "--", str(relative)],
+        cwd=PROJECT_ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    return result.returncode == 0
+
+
+def is_git_ignored(path: Path) -> bool:
+    try:
+        relative = path.resolve().relative_to(PROJECT_ROOT)
+    except ValueError:
+        return True
+    result = subprocess.run(
+        ["git", "check-ignore", "--no-index", "--quiet", "--", str(relative)],
+        cwd=PROJECT_ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    return result.returncode == 0
+
+
+def assert_output_policy(output_prefix: Path, formats: list[str], report_mode: str) -> None:
+    if report_mode == "aggregate":
+        return
+    for output_format in formats:
+        path = output_prefix.with_suffix(f".{output_format}")
+        if is_git_tracked(path):
+            raise ValueError(f"detailed report output is tracked by git: {relative_path(path)}")
+        if not is_git_ignored(path):
+            raise ValueError(
+                "detailed report output inside the repository must be gitignored: "
+                f"{relative_path(path)}"
+            )
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -356,6 +442,7 @@ def build_report(
     inputs: list[InputCase],
     engines: list[Engine],
     rows: list[dict[str, Any]],
+    report_mode: str,
 ) -> dict[str, Any]:
     by_domain = Counter(case.domain for case in inputs)
     by_risk = Counter(case.risk for case in inputs)
@@ -368,9 +455,16 @@ def build_report(
         }
         for engine in engines
     }
-    return {
+    report = {
         "generated_date": generated_date,
+        "report_mode": report_mode,
         "dataset": input_data.get("dataset", ""),
+        "dataset_classification": (
+            "published_evaluation"
+            if input_data.get("dataset") == "blind-v1"
+            else input_data.get("publish_state", "")
+        ),
+        "provenance": build_provenance(engines),
         "inputs": {
             "path": relative_path(inputs_path),
             "sha256": sha256_file(inputs_path),
@@ -378,14 +472,7 @@ def build_report(
             "status": input_data.get("status", ""),
             "publish_state": input_data.get("publish_state", ""),
         },
-        "expected": {
-            "path": relative_path(expected_path),
-            "sha256": sha256_file(expected_path),
-            "name": expected_data.get("name", ""),
-            "status": expected_data.get("status", ""),
-            "source_inputs": expected_data.get("source_inputs", ""),
-            "source_inputs_sha256": expected_data.get("source_inputs_sha256", ""),
-        },
+        "expected_sha256": sha256_file(expected_path),
         "competitors_lock": {
             "path": relative_path(lock_path),
             "sha256": sha256_file(lock_path),
@@ -399,8 +486,17 @@ def build_report(
             "by_risk": dict(sorted(by_risk.items())),
         },
         "engines": engine_meta,
-        "rows": rows,
     }
+    if report_mode == "detailed":
+        report["private_expected"] = {
+            "path": relative_path(expected_path),
+            "name": expected_data.get("name", ""),
+            "status": expected_data.get("status", ""),
+            "source_inputs": expected_data.get("source_inputs", ""),
+            "source_inputs_sha256": expected_data.get("source_inputs_sha256", ""),
+        }
+        report["rows"] = rows
+    return report
 
 
 def render_markdown(report: dict[str, Any]) -> str:
@@ -408,16 +504,20 @@ def render_markdown(report: dict[str, Any]) -> str:
         "<!-- zhtw:disable -->",
         f"# Accuracy Benchmark ({report['generated_date']})",
         "",
+        f"Report mode: `{report['report_mode']}`",
+        f"Dataset classification: `{report['dataset_classification']}`",
         f"Dataset: `{report['dataset']}`",
         f"Inputs: `{report['inputs']['path']}`",
-        f"Expected: `{report['expected']['path']}`",
         f"Competitors lock: `{report['competitors_lock']['path']}`",
         "",
         "## Hashes",
         "",
         f"- Inputs sha256: `{report['inputs']['sha256']}`",
-        f"- Expected sha256: `{report['expected']['sha256']}`",
+        f"- Expected sha256: `{report['expected_sha256']}`",
         f"- Lock sha256: `{report['competitors_lock']['sha256']}`",
+        f"- zhtw version: `{report['provenance']['zhtw_version']}`",
+        f"- Git SHA: `{report['provenance']['git_sha']}`",
+        f"- Git dirty: `{str(report['provenance']['git_dirty']).lower()}`",
         "",
         "## Summary",
         "",
@@ -451,6 +551,10 @@ def render_markdown(report: dict[str, Any]) -> str:
                 "",
             ]
         )
+
+    if report["report_mode"] != "detailed":
+        lines.append("")
+        return "\n".join(lines)
 
     misses = [
         (row, engine_name, evaluation)
@@ -515,6 +619,12 @@ def parse_formats(raw: str) -> list[str]:
     return formats
 
 
+def parse_report_mode(raw: str) -> str:
+    if raw not in REPORT_MODES:
+        raise argparse.ArgumentTypeError("report mode must be aggregate or detailed")
+    return raw
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--inputs", type=Path, default=DEFAULT_INPUTS)
@@ -539,6 +649,12 @@ def main() -> int:
         help="Comma-separated output formats. Default: json,md",
     )
     parser.add_argument("--output-prefix", type=Path, default=DEFAULT_OUTPUT_PREFIX)
+    parser.add_argument(
+        "--report-mode",
+        type=parse_report_mode,
+        default="aggregate",
+        help="aggregate is safe for publication; detailed requires a private output path.",
+    )
     parser.add_argument("--generated-date", default=dt.date.today().isoformat())
     parser.add_argument(
         "--fail-on-zhtw-miss",
@@ -551,6 +667,7 @@ def main() -> int:
         help="Exit 1 if any requested competitor is unavailable.",
     )
     args = parser.parse_args()
+    assert_output_policy(args.output_prefix, args.formats, args.report_mode)
 
     input_data, inputs = load_input_cases(args.inputs)
     expected_data, expected = load_expected_cases(args.expected)
@@ -572,6 +689,7 @@ def main() -> int:
         inputs=inputs,
         engines=engines,
         rows=rows,
+        report_mode=args.report_mode,
     )
     write_reports(report, args.output_prefix, args.formats)
 

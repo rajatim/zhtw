@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "dataset": "blind-v1",
+  "benchmark_classification": "published_evaluation",
+  "fresh_holdout": false,
+  "sealed": false,
+  "allowed_uses": [
+    "historical comparison",
+    "like-for-like version comparison",
+    "public evaluation"
+  ],
+  "forbidden_claims": [
+    "fresh generalization result",
+    "sealed holdout result",
+    "independent market-best evidence"
+  ],
+  "classification_reason": "Expected values and detailed rows appeared in tracked reports, and misses were reviewed during development.",
+  "inputs_sha256": "4367f25a4bde5a1703163334815e5579788f528bed9401f4197a93bea5ee03e7",
+  "expected_sha256": "80d27928a962cb03319c09b80f8b0aa22f25be3eb756130e63bfcac1df1c3dcc",
+  "superseding_plan": "docs/plans/2026-07-19-external-benchmark-v2-plan.md",
+  "classified_at": "2026-07-19"
+}

@@ -59,6 +59,7 @@ dev = [
     "ruff>=0.1",
     "pre-commit>=3.0",
     "jsonschema>=4.0",
+    "tomli>=2.0; python_version < '3.11'",
 ]
 
 [project.scripts]

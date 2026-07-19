@@ -99,5 +99,5 @@ tests/data/corpus/
 # Pending terms (runtime scratch files from `zhtw import`, reviewed then merged)
 src/zhtw/data/terms/pending/*.json
 
-# Sealed holdout ground truth. Publish only with a benchmark report.
+# Private benchmark ground truth. Published evaluation copies also stay untracked.
 benchmarks/accuracy/blind-v*.expected.json

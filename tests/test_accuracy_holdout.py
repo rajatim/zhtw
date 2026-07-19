@@ -1,5 +1,5 @@
 # zhtw:disable
-"""Tests for the sealed holdout benchmark scaffolding."""
+"""Tests for the accuracy benchmark scaffolding."""
 
 from __future__ import annotations
 
@@ -20,6 +20,7 @@ INPUTS = ROOT / "benchmarks" / "accuracy" / "blind-v1.inputs.json"
 INPUTS_SCHEMA = ROOT / "benchmarks" / "accuracy" / "blind-v1.inputs.schema.json"
 EXPECTED = ROOT / "benchmarks" / "accuracy" / "blind-v1.expected.json"
 EXPECTED_SCHEMA = ROOT / "benchmarks" / "accuracy" / "blind-v1.expected.schema.json"
+BLIND_V1_METADATA = ROOT / "benchmarks" / "accuracy" / "blind-v1.metadata.json"
 COMPETITORS_LOCK = ROOT / "benchmarks" / "accuracy" / "competitors.lock.json"
 RUNNER = ROOT / "scripts" / "run_accuracy_benchmark.py"
 PACKET_SCRIPT = ROOT / "scripts" / "create_holdout_annotation_packet.py"
@@ -1176,8 +1177,8 @@ def test_blind_v1_schema_files_exist() -> None:
     expected_schema = load_json(EXPECTED_SCHEMA)
     candidates_schema = load_json(HOLDOUT_CANDIDATES_SCHEMA)
 
-    assert inputs_schema["title"] == "zhtw sealed holdout input dataset"
-    assert expected_schema["title"] == "zhtw sealed holdout expected dataset"
+    assert inputs_schema["title"] == "zhtw published evaluation input dataset"
+    assert expected_schema["title"] == "zhtw published evaluation expected dataset"
     assert candidates_schema["title"] == "zhtw holdout regression candidates"
     assert inputs_schema["properties"]["target_total"]["const"] == 2000
     assert (
@@ -1200,6 +1201,17 @@ def test_blind_v1_schema_files_exist() -> None:
         "gemini_vertex",
         "gemini_cli",
     ]
+
+
+def test_blind_v1_is_classified_as_published_evaluation() -> None:
+    metadata = load_json(BLIND_V1_METADATA)
+
+    assert metadata["benchmark_classification"] == "published_evaluation"
+    assert metadata["fresh_holdout"] is False
+    assert metadata["sealed"] is False
+    assert metadata["inputs_sha256"] == hashlib.sha256(INPUTS.read_bytes()).hexdigest()
+    assert metadata["expected_sha256"] == private_expected_sha256()
+    assert metadata["superseding_plan"] == ("docs/plans/2026-07-19-external-benchmark-v2-plan.md")
 
 
 def test_blind_v1_inputs_are_input_only_seed_pool() -> None:
@@ -5941,16 +5953,15 @@ def test_private_benchmark_sanity_after_batch5_covers_338_cases() -> None:
 
     assert report["dataset"] == "blind-v1"
     assert report["summary"]["case_count"] == 338
-    assert report["expected"]["path"] == "benchmarks/accuracy/blind-v1.expected.json"
-    assert report["expected"]["sha256"] == final_decision["private_expected_sha256"]
-    assert report["expected"]["source_inputs_sha256"] == (
-        "29200c136659fecd27e8efb59390d18f53a33508962848845c4eb78de6cd0f41"
-    )
+    assert report["report_mode"] == "aggregate"
+    assert report["dataset_classification"] == "published_evaluation"
+    assert report["expected_sha256"] == final_decision["private_expected_sha256"]
     assert report["engines"]["zhtw"]["scores"]["total_cases"] == 338
     assert report["engines"]["zhtw"]["scores"]["accepted"] == 301
     assert report["engines"]["zhtw"]["scores"]["misses"] == 37
     assert round(report["engines"]["zhtw"]["scores"]["accepted_accuracy"], 4) == 0.8905
-    assert len(report["rows"]) == 338
+    assert "rows" not in report
+    assert "expected" not in report
 
 
 def test_private_benchmark_sanity_after_338_miss_review_is_sanitized() -> None:
@@ -10848,12 +10859,50 @@ def test_run_accuracy_benchmark_with_temp_fixture(tmp_path: Path) -> None:
     assert "cases=1 zhtw_accepted=1 zhtw_misses=0" in result.stdout
 
     payload = load_json(output_prefix.with_suffix(".json"))
+    assert payload["report_mode"] == "aggregate"
+    assert payload["dataset_classification"] == "published_evaluation"
     assert payload["summary"]["case_count"] == 1
     assert payload["engines"]["zhtw"]["scores"]["accepted_accuracy"] == 1.0
     assert payload["engines"]["zhtw"]["scores"]["primary_exact_accuracy"] == 1.0
-    assert payload["rows"][0]["evaluations"]["zhtw"]["accepted"] is True
+    assert "rows" not in payload
+    assert "expected" not in payload
+    assert payload["expected_sha256"] == hashlib.sha256(expected_path.read_bytes()).hexdigest()
+    assert payload["provenance"]["zhtw_version"] == "4.4.2"
+    assert len(payload["provenance"]["git_sha"]) == 40
     assert (
         output_prefix.with_suffix(".md")
         .read_text(encoding="utf-8")
         .startswith("<!-- zhtw:disable -->")
     )
+
+    detailed_prefix = tmp_path / "accuracy-benchmark-detailed"
+    detailed_result = subprocess.run(
+        [
+            sys.executable,
+            str(RUNNER),
+            "--inputs",
+            str(inputs_path),
+            "--expected",
+            str(expected_path),
+            "--competitors-lock",
+            str(COMPETITORS_LOCK),
+            "--competitors",
+            "zhtw",
+            "--formats",
+            "json",
+            "--output-prefix",
+            str(detailed_prefix),
+            "--report-mode",
+            "detailed",
+            "--generated-date",
+            "2026-07-07",
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+    )
+    assert detailed_result.returncode == 0, detailed_result.stdout + detailed_result.stderr
+    detailed = load_json(detailed_prefix.with_suffix(".json"))
+    assert detailed["report_mode"] == "detailed"
+    assert detailed["private_expected"]["path"] == str(expected_path)
+    assert detailed["rows"][0]["evaluations"]["zhtw"]["accepted"] is True

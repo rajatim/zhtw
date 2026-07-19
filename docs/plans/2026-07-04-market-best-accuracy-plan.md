@@ -1,6 +1,10 @@
 <!-- zhtw:disable -->
 # 「市面上最準」準確度宣稱計畫
 
+> Benchmark 分層、blind set、人工標註、runner、指標與市場宣稱規則已由
+> `docs/plans/2026-07-19-external-benchmark-v2-plan.md` 取代。本文相關段落僅保留為
+> 歷史紀錄；衝突時一律以 v2 計畫為準。
+
 日期：2026-07-04
 
 ## 目標

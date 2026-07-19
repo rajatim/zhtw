@@ -100,9 +100,15 @@ accuracy claim.
 
 ## blind-v1
 
-`blind-v1` is the M2 sealed holdout track. It is separate from
-`regression-v1`: it must not be used to tune the converter while expected values
-are still sealed.
+`blind-v1` is a **published evaluation benchmark**, not a fresh or sealed
+holdout. Its expected values and detailed rows appeared in tracked reports, and
+its misses were reviewed during development. Keep it for historical and
+like-for-like comparison only; new generalization or market claims require
+`blind-v2` or a later preregistered one-shot benchmark.
+
+The historical notes below describe the workflow when blind-v1 was still
+treated as sealed. They do not override its current `published_evaluation`
+classification.
 
 Current files:
 
@@ -145,8 +151,8 @@ Current files:
   runs.
 - `scripts/create_holdout_annotation_packet.py`: reviewer packet generator that
   shows inputs and empty annotation fields only.
-- `scripts/run_accuracy_benchmark.py`: benchmark runner for the sealed expected
-  file once it exists.
+- `scripts/run_accuracy_benchmark.py`: benchmark runner; aggregate-only is the
+  default, while detailed output must use a private ignored path.
 
 Current input pool:
 
