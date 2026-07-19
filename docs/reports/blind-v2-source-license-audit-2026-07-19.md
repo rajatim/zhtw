@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Candidate Source Audit (2026-07-19)
 
-Status: two source pilots pinned and imported; classification remains pending
+Status: two source pilots imported; Tatoeba CC0 pilot rejected; classification pending
 
 Issue: #43
 
@@ -12,7 +12,7 @@ download still needs an immutable revision, raw SHA-256, parsing test, script
 review, exact/near-deduplication audit, and domain/risk classification from the
 input alone.
 
-## Accepted Pending Pinning
+## Source Decisions
 
 ### Tatoeba Mandarin CC0 export
 
@@ -21,11 +21,14 @@ input alone.
 - Source class: `public_domain`.
 - Script provenance: contributor-authored Mandarin; do not use a generated
   transcription as the candidate input.
-- Restrictions: use only rows present in the dedicated CC0 export. Preserve the
-  Tatoeba sentence ID and weekly dump date. Reject mixed/Traditional-script rows
-  during input-only human script review, without consulting converter output.
-- Decision: conditionally accepted. The mutable weekly URL must be downloaded
-  once, hashed, and recorded before extraction.
+- Audited snapshot: 2026-07-18; SHA-256
+  `72c6ac699497cbc9b75f6c021ef16dfaa91ab760fbb407217902b6b5388401c0`.
+- Capacity: one Mandarin CC0 row.
+- Quality result: the sole row contains the malformed year expression
+  `2022/2972` and is not eligible.
+- Decision: rejected for the current Blind-v2 pool. Do not substitute the
+  general CC BY export or translations. Re-audit only if a future CC0 snapshot
+  has materially more Mandarin originals.
 
 Tatoeba states that general sentence exports are CC BY 2.0 FR and that a
 separate download contains all CC0 sentences. Its CC0 policy limits CC0 to
@@ -147,8 +150,8 @@ exact/near-deduplication audit. The final pool still needs at least:
   25/20/15/15/15/10 domain and 40/40/20 risk quotas;
 - reserve cases in every stratum for deterministic replacement.
 
-The next source work is to classify the two pilots from input alone, then pin a
-Tatoeba CC0 snapshot and individually verified CDC Stacks documents. Additional
-project-original and permissioned-user-report sources are required to satisfy
-source-class diversity. Converter performance must not influence source or
-strata selection.
+The 2026-07-18 Tatoeba CC0 snapshot added zero eligible capacity. The next source
+work is to classify the two accepted pilots from input alone, then audit
+individually verified CDC Stacks documents. Additional project-original and
+permissioned-user-report sources are required to satisfy source-class diversity.
+Converter performance must not influence source or strata selection.

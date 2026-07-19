@@ -1,0 +1,1065 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_first_pass",
+  "status": "advisory_only",
+  "generated_date": "2026-07-20",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-001.json",
+  "packet_sha256": "432f4d299ec4509b64f1705e1c2bb1b1a750df573d85ef29a0d59c580da844f0",
+  "reviewer": "Codex",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 100,
+    "eligible": 79,
+    "excluded": 21,
+    "high": 83,
+    "medium": 17,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "flores-200-zho-hans-v1/dev-0094",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0101",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0165",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0207",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0262",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0270",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0305",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0341",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0410",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0451",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0453",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0529",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0620",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0621",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0690",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0703",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0794",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0815",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0100",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0153",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0162",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0208",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0216",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0284",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0376",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0425",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0463",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0489",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0519",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0526",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0564",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0570",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0584",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0630",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0661",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0671",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0688",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0701",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0711",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0718",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0720",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0741",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0744",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0752",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0798",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0811",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0815",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0837",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0966",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "missing_terminal_punctuation"
+      ],
+      "confidence": "high",
+      "notes": "句意完整；依輸入語域與詞彙風險分類。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_A_1-14_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "缺少可獨立判讀的完整語境。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_A_1-7_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "缺少可獨立判讀的完整語境。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_A_1-9_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_A_2-11_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "缺少可獨立判讀的完整語境。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_B_1-20_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_B_1-21_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_B_1-3_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "缺少可獨立判讀的完整語境。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_C_1-21_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "缺少可獨立判讀的完整語境。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_C_1-6_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_C_1-7_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_C_1-9_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-10_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "缺少可獨立判讀的完整語境。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-20_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-26_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-29_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-31_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-8_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "行程敘述可獨立判讀；保留學習者省略主語的特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_2-11_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_2-14_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_E_1-14_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_E_1-15_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_1-16_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_1-20_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_1-4_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_1-6_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_2-12_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立使用的感嘆句，適合作為短句 identity guard。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_G_1-3_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-19_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-27_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-2_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_2-10_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_2-2_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_2-9_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_I_1-1_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_I_1-3_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_J_1-6_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-13_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-14_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-4_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "口語句意可獨立判讀，僅省略已知行程語境。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-6_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語法、用字或語意錯誤影響可用性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_M_1-28_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_O_1-18_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_P_1-5_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_X_1-2_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_X_1-3_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Y_1-4_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Y_1-6_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Z_1-14_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意清楚；雖有學習者語序，仍可測試「堵車」等地域詞。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Z_1-15_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句意可判讀；保留輕微不自然語序與地名語境。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Z_1-9_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀；保留學習者語料特性。"
+    }
+  ]
+}

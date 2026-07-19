@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.source-classification-packet.schema.json",
+  "title": "zhtw Blind-v2 input-only source classification packet",
+  "type": "object",
+  "required": [
+    "version", "name", "dataset", "status", "generated_date", "seed", "batch_number",
+    "batch_size", "selection_policy", "input_only", "converter_output_used",
+    "source_snapshots", "stats", "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "name": { "type": "string", "pattern": "^blind-v2-source-classification-batch-[0-9]{3}$" },
+    "dataset": { "type": "string", "const": "blind-v2" },
+    "status": { "type": "string", "const": "needs_codex_first_pass" },
+    "generated_date": { "type": "string", "format": "date" },
+    "seed": { "type": "integer", "const": 20260719 },
+    "batch_number": { "type": "integer", "minimum": 1 },
+    "batch_size": { "type": "integer", "minimum": 2 },
+    "selection_policy": { "type": "string", "const": "equal-source-deterministic-sha256-v1" },
+    "input_only": { "type": "boolean", "const": true },
+    "converter_output_used": { "type": "boolean", "const": false },
+    "source_snapshots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "sha256"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "path": { "type": "string", "minLength": 1 },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "stats": {
+      "type": "object",
+      "required": ["total", "by_source"],
+      "additionalProperties": false,
+      "properties": {
+        "total": { "type": "integer", "minimum": 1 },
+        "by_source": { "$ref": "#/$defs/counts" }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "input", "source_id", "provenance", "classification"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "input": { "type": "string", "minLength": 1 },
+          "source_id": { "type": "string", "minLength": 1 },
+          "provenance": {
+            "type": "object",
+            "required": ["raw_url", "source_case_id", "split"],
+            "additionalProperties": false,
+            "properties": {
+              "raw_url": { "type": "string", "format": "uri" },
+              "source_case_id": { "type": "string", "minLength": 1 },
+              "split": { "type": "string", "minLength": 1 }
+            }
+          },
+          "classification": {
+            "type": "object",
+            "required": ["eligible", "script", "domain", "risk", "quality_flags", "confidence", "notes"],
+            "additionalProperties": false,
+            "properties": {
+              "eligible": { "type": "null" },
+              "script": { "type": "null" },
+              "domain": { "type": "null" },
+              "risk": { "type": "null" },
+              "quality_flags": { "type": "array", "maxItems": 0 },
+              "confidence": { "type": "null" },
+              "notes": { "type": "string", "maxLength": 0 }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "counts": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-blind-v2-source-import-check benchmark-blind-v2-pool-validate benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -95,6 +95,10 @@ benchmark-naer-report: ## Run the public NAER computer terminology secondary tra
 benchmark-blind-v2-source-import-check: ## Download pinned Blind-v2 source pilots and verify input-only outputs
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/flores-200-zho-hans-v1.json --check
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/ud-chinese-cfl-v1.json --check
+
+benchmark-blind-v2-source-classification-check: ## Verify deterministic input-only source classification packet
+	$(PYTHON) scripts/create_blind_v2_source_classification_packet.py --generated-date 2026-07-20 --batch-number 1 --output benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-001.json --markdown-output benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-001.md --check
+	$(PYTHON) scripts/compare_blind_v2_source_classifications.py --packet benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-001.json --codex docs/reports/blind-v2-source-classification-codex-first-pass-batch-001-2026-07-20.json --gemini docs/reports/blind-v2-source-classification-gemini-independent-batch-001-2026-07-20.json --generated-date 2026-07-20 --output docs/reports/blind-v2-source-classification-diff-batch-001-2026-07-20.md --check
 
 benchmark-blind-v2-pool-validate: ## Validate Blind-v2 source, dedupe, quota, and size policy
 	$(PYTHON) scripts/blind_v2_governance.py validate-pool $(BLIND_V2_POOL) --require-ready

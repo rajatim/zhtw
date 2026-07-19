@@ -26,6 +26,7 @@ RANKING_POLICY = ACCURACY_ROOT / "ranking-policy-v1.json"
 COMPETITORS_LOCK = ACCURACY_ROOT / "competitors.lock.json"
 BLIND_V2_SCHEMAS = (
     ACCURACY_ROOT / "blind-v2.source-pilot.schema.json",
+    ACCURACY_ROOT / "blind-v2.source-classification-packet.schema.json",
     ACCURACY_ROOT / "blind-v2.candidate-pool.schema.json",
     ACCURACY_ROOT / "blind-v2.inputs.schema.json",
     ACCURACY_ROOT / "blind-v2.expected.schema.json",

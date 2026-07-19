@@ -21,4 +21,5 @@ converter output. Reproduce the pinned pilots with:
 
 ```bash
 make benchmark-blind-v2-source-import-check
+make benchmark-blind-v2-source-classification-check
 ```

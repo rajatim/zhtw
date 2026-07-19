@@ -1,0 +1,1079 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only_policy_review_required",
+  "generated_date": "2026-07-20",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-001.json",
+  "packet_sha256": "432f4d299ec4509b64f1705e1c2bb1b1a750df573d85ef29a0d59c580da844f0",
+  "reviewer": "Gemini CLI",
+  "gemini_cli_version": "0.51.0",
+  "model": "gemini-2.5-pro",
+  "policy": "input_only_no_converter_output",
+  "validation": {
+    "exact_id_coverage": "100/100",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [
+      "ud-chinese-cfl-v1/CFL_B_1-21_ori",
+      "ud-chinese-cfl-v1/CFL_C_1-21_ori",
+      "ud-chinese-cfl-v1/CFL_C_1-6_ori",
+      "ud-chinese-cfl-v1/CFL_C_1-9_ori",
+      "ud-chinese-cfl-v1/CFL_D_1-10_ori",
+      "ud-chinese-cfl-v1/CFL_D_1-26_ori",
+      "ud-chinese-cfl-v1/CFL_D_1-29_ori",
+      "ud-chinese-cfl-v1/CFL_D_2-11_ori",
+      "ud-chinese-cfl-v1/CFL_E_1-14_ori",
+      "ud-chinese-cfl-v1/CFL_F_1-16_ori",
+      "ud-chinese-cfl-v1/CFL_F_1-20_ori",
+      "ud-chinese-cfl-v1/CFL_G_1-3_ori",
+      "ud-chinese-cfl-v1/CFL_H_1-2_ori",
+      "ud-chinese-cfl-v1/CFL_I_1-1_ori",
+      "ud-chinese-cfl-v1/CFL_J_1-6_ori",
+      "ud-chinese-cfl-v1/CFL_L_1-13_ori"
+    ]
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "policy_violations": 16
+  },
+  "cases": [
+    {
+      "id": "flores-200-zho-hans-v1/dev-0094",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準正式新聞用語，簡體轉繁體。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0101",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術詞彙'阀门'、'系统'、'压力'，需確認臺灣對應用詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0165",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準新聞報導，地名與組織名。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0207",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "新聞報導，'直升飞机'為大陸用語，臺灣多稱'直升機'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0262",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "國際新聞，涉及國家與組織名稱。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0270",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "體育新聞，包含人名與俱樂部音譯，需注意專有名詞轉換。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0305",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "一般敘事句，詞彙通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0341",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專有名詞'扎亚特'，需保留或依臺灣慣例音譯。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0410",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "歷史專有名詞'图坦卡蒙'，需轉換為'圖坦卡門'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0451",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含大量音譯地名，需確認臺灣慣用譯名。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0453",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT術語，'交互设计'在臺灣通常譯為'互動設計'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0529",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "一般性描述，詞彙普遍。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0620",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準敘述，詞彙通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0621",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準敘述，詞彙通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0690",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名及歷史人名音譯，需謹慎處理。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0703",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "'联程机票'用法需確認臺灣是否常用，可能用'轉機機票'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0794",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'实惠'為大陸常用詞，臺灣多用'划算'、'平價'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0815",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，詞彙通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT術語'向后兼容'、'基站'與臺灣用法'向下相容'、'基地台'不同。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0100",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含音譯人名'莫尔'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0153",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0162",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含多個音譯地名、人名，且'热行为'等科學術語需確認。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0208",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "國際新聞，包含國家與組織名。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0216",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "產業術語'执行制片人'、'版税'，用詞與臺灣習慣不同。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0284",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含汽車品牌'奥迪'，為專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0376",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "科普內容，詞彙通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0425",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及臺灣歷史，用詞需精確，但本句詞彙尚屬通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0463",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述性語句，詞彙通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0489",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含歷史地名'君士坦丁堡'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0519",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT術語'互联网'，臺灣多稱'網際網路'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0526",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "科學術語，'基因变异'、'显性'、'隐性'為通用詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0564",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "科學專有名詞'南方古猿'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0570",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含專有名詞音譯'邓拉普'及'宽边'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0584",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "'术语'一詞在臺灣雖可用'術語'，但有時'用語'或'專有名詞'更自然。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0630",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含歷史專有名詞'古王国'與'吉萨金字塔'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0661",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用描述，詞彙普遍。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0671",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "'创新流程'用詞需視語境，可能轉換為'創新流程'或'創新程序'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0688",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "網路用語'博客'，臺灣慣用'部落格'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0701",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含國名'科摩罗'、'马约特'，需確認臺灣譯名。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0711",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名'卡萨布兰卡'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0718",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名'廷巴克图'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0720",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準敘述句。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0741",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名音譯，且'共享出租车'在臺灣多稱'共乘計程車'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0744",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'项目'為大陸用語，臺灣多用'專案'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0752",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含音譯地名'拉斯卡尼塔斯'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0798",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名'波罗的海'。'客舱'可轉換為'客艙'。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0811",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，詞彙通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0815",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "'预订'在臺灣通用，但某些情況下'預約'更常用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0837",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述食物，詞彙通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0966",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "missing_terminal_punctuation"
+      ],
+      "confidence": "high",
+      "notes": "列舉動物名稱，詞彙多為通用。缺少句尾標點。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_A_1-14_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常對話。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_A_1-7_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常對話。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_A_1-9_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含國名'朝鲜'、'韩国'。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_A_2-11_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常對話。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_B_1-20_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含地名'麦加'。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_B_1-21_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，'感动坏了'語法較不自然。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_B_1-3_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含地名'麦加'。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_C_1-21_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "片段，書信結尾用語。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_C_1-6_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，包含國名'白俄罗斯'。'增家'應為'增加'之誤。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_C_1-7_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，成語使用。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_C_1-9_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "medium",
+      "notes": "學習者語料，'提议妥善的答案'語意稍不順暢。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-10_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，語句不完整。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-20_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常對話。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-26_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，'也却'重複，語法錯誤。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-29_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，'回忆是感动的'語法不自然。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-31_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，引用成語。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-8_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含多個地名。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_2-11_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，成語'秀色可餐'使用不當。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_2-14_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常對話。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_E_1-14_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，語句不通順，語法錯誤。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_E_1-15_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常對話。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_1-16_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，用詞不當，應為'温暖'而非'暖和'。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_1-20_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，'哪家'應為'那家'之誤。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_1-4_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含地名'首尔'。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_1-6_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常對話。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_2-12_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "感嘆詞。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_G_1-3_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，語句冗長且包含多處語法及錯別字錯誤（'女士门'、'我门'）。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-19_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常對話。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-27_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常對話。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-2_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，包含國名'菲律宾'。'希望了'語法錯誤。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_2-10_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含地名'凤凰古镇'。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_2-2_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含地名及機構名。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_2-9_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含地質學術語及地名。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_I_1-1_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，'讲对'語法不自然。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_I_1-3_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含國名。'男孩儿'的儿化音在臺灣不使用。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_J_1-6_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，'被着'應為'被這'之誤。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-13_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "學習者語料，語序'公开求婚在山顶上'不自然。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-14_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含地名'长白山'、'天池'。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-4_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常對話。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-6_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含地名'兰州'。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_M_1-28_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常敘述。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_O_1-18_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常敘述。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_P_1-5_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含'中国'。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_X_1-2_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常對話。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_X_1-3_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常敘述。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Y_1-4_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，描述性文字。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Y_1-6_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常敘述。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Z_1-14_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，'堵车'、'厉害'為大陸用語，臺灣多用'塞車'、'嚴重'。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Z_1-15_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，包含'北京人'。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Z_1-9_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學習者語料，日常敘述。"
+    }
+  ]
+}
+
