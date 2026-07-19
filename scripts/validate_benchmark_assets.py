@@ -16,12 +16,14 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.benchmark_metrics import paired_power_analysis  # noqa: E402
+from scripts.validate_competitor_environment import validate_lock  # noqa: E402
 
 ACCURACY_ROOT = PROJECT_ROOT / "benchmarks" / "accuracy"
 MANIFEST_SCHEMA = ACCURACY_ROOT / "manifest.schema.json"
 PREREGISTRATION_SCHEMA = ACCURACY_ROOT / "preregistration.schema.json"
 LICENSES = ACCURACY_ROOT / "LICENSES.md"
 RANKING_POLICY = ACCURACY_ROOT / "ranking-policy-v1.json"
+COMPETITORS_LOCK = ACCURACY_ROOT / "competitors.lock.json"
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -176,14 +178,21 @@ def main() -> int:
     args = parser.parse_args()
 
     errors: list[str] = []
-    for schema_path in (MANIFEST_SCHEMA, PREREGISTRATION_SCHEMA):
+    for schema_path in (
+        MANIFEST_SCHEMA,
+        PREREGISTRATION_SCHEMA,
+        ACCURACY_ROOT / "competitors-lock.schema.json",
+    ):
         try:
             Draft202012Validator.check_schema(load_json(schema_path))
         except Exception as exc:
             errors.append(f"{schema_path}: invalid schema: {exc}")
-    for required_path in (LICENSES, RANKING_POLICY):
+    for required_path in (LICENSES, RANKING_POLICY, COMPETITORS_LOCK):
         if not required_path.is_file():
             errors.append(f"required benchmark governance file missing: {required_path}")
+
+    if COMPETITORS_LOCK.is_file():
+        errors.extend(f"{COMPETITORS_LOCK}: {error}" for error in validate_lock(COMPETITORS_LOCK))
 
     manifests = args.manifest or discover(ACCURACY_ROOT / "manifests")
     preregistrations = args.preregistration or discover(ACCURACY_ROOT / "preregistrations")

@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark benchmark-validate benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -11,6 +11,8 @@ ID_TO ?=
 COMPETITORS ?= zhtw
 REVIEWER_STAGE ?= first_human_review
 HOLDOUT_BATCH ?=
+COMPETITOR_ENV_HASH := $(shell jq -r '.environment.environment_sha256' benchmarks/accuracy/competitors.lock.json)
+COMPETITOR_IMAGE ?= zhtw-benchmark-competitors:$(shell printf '%s' '$(COMPETITOR_ENV_HASH)' | cut -c1-12)
 
 # === Core ===
 
@@ -65,6 +67,12 @@ accuracy-holdout-gemini-advisory: ## Generate Gemini Vertex advisory for sealed 
 benchmark-validate: ## Validate benchmark manifests, licenses, hashes, and preregistrations
 	$(PYTHON) scripts/validate_benchmark_assets.py
 	$(PYTHON) scripts/audit_benchmark_publication.py
+
+benchmark-competitor-build: ## Build the digest-pinned competitor environment
+	docker build --build-arg ENVIRONMENT_HASH=$(COMPETITOR_ENV_HASH) --tag $(COMPETITOR_IMAGE) --file benchmarks/accuracy/competitor-env/Dockerfile benchmarks/accuracy/competitor-env
+
+benchmark-competitor-probe: benchmark-competitor-build ## Probe every locked competitor adapter
+	$(PYTHON) scripts/validate_competitor_environment.py --image $(COMPETITOR_IMAGE)
 
 benchmark-ud-import-check: ## Download pinned UD sources and verify normalized output
 	$(PYTHON) scripts/import_ud_gsd_benchmark.py --check

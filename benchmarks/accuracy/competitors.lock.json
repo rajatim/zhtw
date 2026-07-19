@@ -1,68 +1,165 @@
 {
-  "version": 1,
-  "generated_date": "2026-07-07",
-  "status": "draft",
-  "policy": "Formal accuracy reports must record exact package versions, invocation commands, locale/config names, runner environment, and dataset hashes.",
+  "version": 2,
+  "generated_date": "2026-07-19",
+  "status": "locked",
+  "policy": "Formal market comparisons run every listed engine on identical normalized inputs. Package artifacts, configs, base images, adapter sources, and invocation commands are immutable. Engine families contribute one ranking representative each.",
+  "environment": {
+    "image_repository": "zhtw-benchmark-competitors",
+    "environment_sha256": "0ea3a0082456cca66973cf7bf6f04e608a1d78ca507c541569b391635de471ae",
+    "dockerfile": "benchmarks/accuracy/competitor-env/Dockerfile",
+    "build_command": "docker build --build-arg ENVIRONMENT_HASH=0ea3a0082456cca66973cf7bf6f04e608a1d78ca507c541569b391635de471ae --tag zhtw-benchmark-competitors:0ea3a0082456 --file benchmarks/accuracy/competitor-env/Dockerfile benchmarks/accuracy/competitor-env",
+    "run_command": "docker run --rm --interactive --network none --read-only --cap-drop ALL --security-opt no-new-privileges --pids-limit 64 --tmpfs /tmp:rw,noexec,nosuid,size=16m IMAGE ENGINE_ID",
+    "protocol": "jsonl-v1",
+    "timeout_seconds": 5.0,
+    "base_images": {
+      "python": {
+        "reference": "python:3.12.11-slim-bookworm",
+        "index_digest": "sha256:519591d6871b7bc437060736b9f7456b8731f1499a57e22e6c285135ae657bf7",
+        "platform_digests": {
+          "linux/amd64": "sha256:c00fc7b44d844b6da22861ec24af43968a5200eac4ec607b4725d585165d6b49",
+          "linux/arm64": "sha256:9bb659dc6d5218917236f3711e866a5634bb4c2f208de9d4533aa4863f57c1d3"
+        }
+      },
+      "node": {
+        "reference": "node:22.17.0-bookworm-slim",
+        "index_digest": "sha256:b04ce4ae4e95b522112c2e5c52f781471a5cbc3b594527bcddedee9bc48c03a0",
+        "platform_digests": {
+          "linux/amd64": "sha256:358a55f9683d8444a810bf36ff1ea4f60522f55a82cada25f7eabdf79e445226",
+          "linux/arm64": "sha256:b443a21c62fa4418330e256e50bb1ff8538f27c60d9117faf3a616adf306a575"
+        }
+      }
+    },
+    "files": {
+      "benchmarks/accuracy/competitor-env/Dockerfile": "e6a712ca9b908d67a3d61a982b2060fc11b6489beff2fd915134b23ff4be0aac",
+      "benchmarks/accuracy/competitor-env/adapter.py": "6c518c78014e5318d8315a5975e8f513ea2aa9cbc6312fe05b7ee326d3c00cd7",
+      "benchmarks/accuracy/competitor-env/install-python-artifacts.py": "d275692b1847b7d4c7bc2586907147837e4e8171c05743b8af24c02feb4cd2a5",
+      "benchmarks/accuracy/competitor-env/opencc-js-adapter.mjs": "3e16dd0c1a64e4639773dda3357361363aff6939b52ed235d20110018e90008d",
+      "benchmarks/accuracy/competitor-env/package-lock.json": "57e492a4c409ea7902c30ea25c46a1a70cf8fe815148b00661c723ec7ceee5af",
+      "benchmarks/accuracy/competitor-env/package.json": "161f79b6aecfb0e1fbb4bd21d4badb78419732598bb53ddd587cbe58b7032935",
+      "benchmarks/accuracy/competitor-env/python-artifacts.lock.json": "35be5fba55cb0e2a886ffb011e2a2fb76b8251533a5e3172e605e4f48ff6e9a1"
+    }
+  },
+  "formal_engine_ids": [
+    "zhtw",
+    "opencc-s2twp",
+    "opencc-js-cn-twp",
+    "zhconv-zh-tw",
+    "zhconv-rs-zh-tw"
+  ],
+  "ranking_families": [
+    {
+      "id": "zhtw",
+      "engine_ids": ["zhtw"],
+      "ranking_representative": "zhtw"
+    },
+    {
+      "id": "opencc",
+      "engine_ids": ["opencc-s2twp", "opencc-js-cn-twp"],
+      "ranking_representative": "opencc-s2twp"
+    },
+    {
+      "id": "mediawiki-zhconv",
+      "engine_ids": ["zhconv-zh-tw", "zhconv-rs-zh-tw"],
+      "ranking_representative": "zhconv-zh-tw"
+    }
+  ],
   "competitors": [
     {
       "id": "zhtw",
       "display_name": "zhtw",
-      "included_in_m2_runner": true,
-      "adapter": "python_package",
+      "included_in_formal_runner": true,
+      "adapter": "local_python",
+      "family": "zhtw",
       "package": "zhtw",
-      "version_source": "local package metadata at run time",
+      "version": "4.4.2",
+      "license": "MIT",
+      "artifact_sha256": {
+        "sdk/data/zhtw-data.json": "05c551bb0bd896a8f11b3bdd9cca78e19e9363f3baafd500582ebce4b5978d7d"
+      },
+      "source_url": "https://github.com/rajatim/zhtw",
       "command": "from zhtw import convert; convert(text)",
       "locale_or_config": "default Simplified/HK Traditional to Taiwan Traditional rules",
-      "reproducibility": "Report records package version and source tree context.",
-      "notes": "Primary engine under test."
+      "config_sha256": "05c551bb0bd896a8f11b3bdd9cca78e19e9363f3baafd500582ebce4b5978d7d",
+      "version_probe": "zhtw.__version__",
+      "notes": "Primary candidate engine; preregistration additionally pins the immutable Git commit."
     },
     {
       "id": "opencc-s2twp",
       "display_name": "OpenCC s2twp",
-      "included_in_m2_runner": true,
-      "adapter": "python_package_optional",
-      "package": "opencc-python-reimplemented or opencc",
-      "version_source": "Python package metadata at run time",
+      "included_in_formal_runner": true,
+      "adapter": "container_jsonl",
+      "family": "opencc",
+      "package": "OpenCC",
+      "version": "1.4.1",
+      "license": "Apache-2.0",
+      "artifact_sha256": {
+        "linux/amd64 wheel": "dd35957fcdb633b1c262a5c36e57306be8db25de972bf5d700cc17cbef3d98b4",
+        "linux/arm64 wheel": "3f64c90aa026d5d69ced1f4b5375e0480408597b785075c3c34ab2ae37f66cd0"
+      },
+      "source_url": "https://github.com/BYVoid/OpenCC/releases/tag/ver.1.4.1",
       "command": "opencc.OpenCC('s2twp').convert(text)",
-      "locale_or_config": "s2twp",
-      "reproducibility": "Skipped with an explicit error if no compatible Python binding is installed.",
-      "notes": "Comparison only; never a source of expected output or dictionary terms."
-    },
-    {
-      "id": "zhconv-zh-tw",
-      "display_name": "zhconv zh-tw",
-      "included_in_m2_runner": true,
-      "adapter": "python_package_optional",
-      "package": "zhconv",
-      "version_source": "Python package metadata at run time",
-      "command": "zhconv.convert(text, 'zh-tw')",
-      "locale_or_config": "zh-tw",
-      "reproducibility": "Skipped with an explicit error if the Python package is not installed.",
-      "notes": "Comparison only; never a source of expected output or dictionary terms."
+      "locale_or_config": "s2twp.json",
+      "config_sha256": "681dd1ff5f3a1efe93a6f56006ee7f58f767fa0366fd3a2ec6165c983e39415d",
+      "version_probe": "importlib.metadata.version('OpenCC') plus installed s2twp.json SHA-256",
+      "notes": "Ranking representative for the OpenCC family; outputs are comparison signals only and never expected-output or dictionary sources."
     },
     {
       "id": "opencc-js-cn-twp",
       "display_name": "opencc-js cn -> twp",
-      "included_in_m2_runner": false,
-      "adapter": "pending_node_adapter",
+      "included_in_formal_runner": true,
+      "adapter": "container_jsonl",
+      "family": "opencc",
       "package": "opencc-js",
-      "version_source": "not locked yet",
-      "command": "pending exact Node invocation",
+      "version": "1.4.1",
+      "license": "MIT AND Apache-2.0",
+      "artifact_sha256": {
+        "npm tarball": "8fbee9c4d4b5576bab64d28aecf047cdcc9ad6874c24edf7de2bb23f821e7c5b"
+      },
+      "source_url": "https://github.com/nk2028/opencc-js/releases/tag/v1.4.1",
+      "command": "OpenCC.Converter({ from: 'cn', to: 'twp' })(text)",
       "locale_or_config": "cn -> twp",
-      "reproducibility": "Must be locked before entering formal ranking.",
-      "notes": "M2 parity target after Python runner is stable."
+      "config_sha256": "3e6093597509a9afc3fe36ec33325ac2d485f8fd3148c4f7ac8a5232cb5df767",
+      "version_probe": "opencc-js package.json version plus canonical locale options SHA-256",
+      "notes": "OpenCC-family conformance implementation; not counted as an independent ranking competitor and never used as an expected-output source."
     },
     {
-      "id": "zhconv-rs",
-      "display_name": "zhconv-rs",
-      "included_in_m2_runner": false,
-      "adapter": "pending_cli_adapter",
+      "id": "zhconv-zh-tw",
+      "display_name": "zhconv zh-tw",
+      "included_in_formal_runner": true,
+      "adapter": "container_jsonl",
+      "family": "mediawiki-zhconv",
+      "package": "zhconv",
+      "version": "1.4.3",
+      "license": "GPL-2.0-or-later",
+      "artifact_sha256": {
+        "source distribution": "ad42d9057ca0605f8e41d62b67ca797f879f58193ee6840562c51459b2698c45"
+      },
+      "source_url": "https://github.com/gumblex/zhconv/tree/v1.4.3",
+      "command": "zhconv.convert(text, 'zh-tw')",
+      "locale_or_config": "zh-tw",
+      "config_sha256": "5ed77140c1a379ed193b1f2a75c6c14e2e87df01a3f1fdbe00cff2f0ddf97cfb",
+      "version_probe": "importlib.metadata.version('zhconv') plus locale SHA-256",
+      "notes": "Ranking representative for the MediaWiki-derived zhconv family; outputs never define expected values."
+    },
+    {
+      "id": "zhconv-rs-zh-tw",
+      "display_name": "zhconv-rs zh-TW",
+      "included_in_formal_runner": true,
+      "adapter": "container_jsonl",
+      "family": "mediawiki-zhconv",
       "package": "zhconv-rs",
-      "version_source": "not locked yet",
-      "command": "pending exact CLI invocation",
-      "locale_or_config": "pending exact ruleset/config",
-      "reproducibility": "Must be locked before entering formal ranking.",
-      "notes": "M2 parity target after CLI adapter behavior is pinned."
+      "version": "0.4.1",
+      "license": "GPL-2.0-or-later (default MediaWiki-derived rules)",
+      "artifact_sha256": {
+        "linux/amd64 wheel": "599f82500c928ba9e3be8bbeb246391fe249c90d92a8d1f66d1f98bb37fba06f",
+        "linux/arm64 wheel": "f94e561d2dab0ae021e56f409705cace269d4a512fbec78e40eb5a09c1f8e6a8"
+      },
+      "source_url": "https://github.com/Gowee/zhconv-rs/releases/tag/v0.4.1",
+      "command": "zhconv_rs.zhconv(text, 'zh-tw')",
+      "locale_or_config": "zh-TW with default MediaWiki-derived rules",
+      "config_sha256": "5ed77140c1a379ed193b1f2a75c6c14e2e87df01a3f1fdbe00cff2f0ddf97cfb",
+      "version_probe": "importlib.metadata.version('zhconv-rs') plus locale SHA-256",
+      "notes": "MediaWiki-derived family conformance implementation; not counted as independent ranking evidence and never used as an expected-output source."
     }
   ]
 }

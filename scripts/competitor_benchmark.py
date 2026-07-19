@@ -15,6 +15,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib.metadata
 import json
 import sys
@@ -26,9 +27,17 @@ from pathlib import Path
 from typing import Any, Callable
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
+from scripts.container_competitors import (  # noqa: E402
+    JsonlProcessClient,
+    docker_adapter_command,
+    inspect_image_environment,
+)
+
 DEFAULT_CASES = PROJECT_ROOT / "benchmarks" / "precision_cases.json"
+DEFAULT_LOCK = PROJECT_ROOT / "benchmarks" / "accuracy" / "competitors.lock.json"
 
 Converter = Callable[[str], str]
 
@@ -40,6 +49,11 @@ class Engine:
     convert: Converter | None = None
     version: str | None = None
     error: str | None = None
+    family: str | None = None
+    adapter: str | None = None
+    environment_sha256: str | None = None
+    image_id: str | None = None
+    config_sha256: str | None = None
 
 
 @dataclass(frozen=True)
@@ -55,7 +69,16 @@ class Case:
 def load_zhtw() -> Engine:
     from zhtw import __version__, convert
 
-    return Engine(name="zhtw", available=True, convert=convert, version=__version__)
+    data_path = PROJECT_ROOT / "sdk" / "data" / "zhtw-data.json"
+    return Engine(
+        name="zhtw",
+        available=True,
+        convert=convert,
+        version=__version__,
+        family="zhtw",
+        adapter="local_python",
+        config_sha256=hashlib.sha256(data_path.read_bytes()).hexdigest(),
+    )
 
 
 def package_version(*names: str) -> str | None:
@@ -83,6 +106,8 @@ def load_opencc_s2twp() -> Engine:
                 available=True,
                 convert=converter.convert,
                 version=package_version("opencc-python-reimplemented", "opencc"),
+                family="opencc",
+                adapter="local_python_optional",
             )
         except Exception as exc:
             errors.append(f"{config}: {exc}")
@@ -106,6 +131,17 @@ def load_zhconv_zh_tw() -> Engine:
         available=True,
         convert=lambda text: zhconv.convert(text, "zh-tw"),
         version=package_version("zhconv"),
+        family="mediawiki-zhconv",
+        adapter="local_python_optional",
+    )
+
+
+def unavailable_container_engine(name: str) -> Engine:
+    return Engine(
+        name=name,
+        available=False,
+        error="locked container image is required",
+        adapter="container_jsonl",
     )
 
 
@@ -113,6 +149,8 @@ ENGINE_LOADERS: dict[str, Callable[[], Engine]] = {
     "zhtw": load_zhtw,
     "opencc-s2twp": load_opencc_s2twp,
     "zhconv-zh-tw": load_zhconv_zh_tw,
+    "opencc-js-cn-twp": lambda: unavailable_container_engine("opencc-js-cn-twp"),
+    "zhconv-rs-zh-tw": lambda: unavailable_container_engine("zhconv-rs-zh-tw"),
 }
 
 
@@ -149,8 +187,89 @@ def load_cases(path: Path) -> list[Case]:
     return cases
 
 
-def load_engines(names: list[str]) -> list[Engine]:
-    return [ENGINE_LOADERS[name]() for name in names]
+def load_container_engine(
+    name: str,
+    *,
+    lock: dict[str, Any],
+    image: str,
+) -> Engine:
+    competitors = {item["id"]: item for item in lock.get("competitors", [])}
+    expected = competitors[name]
+    expected_environment = lock["environment"]["environment_sha256"]
+    client: JsonlProcessClient | None = None
+    try:
+        actual_environment, image_id = inspect_image_environment(image)
+        if actual_environment != expected_environment:
+            raise ValueError(
+                "competitor image environment hash mismatch: "
+                f"expected={expected_environment} actual={actual_environment}"
+            )
+        client = JsonlProcessClient(
+            docker_adapter_command(image_id, name),
+            timeout_seconds=float(lock["environment"]["timeout_seconds"]),
+        )
+        probe = client.request("probe")
+        checks = {
+            "engine": name,
+            "family": expected["family"],
+            "version": expected["version"],
+            "config_sha256": expected["config_sha256"],
+        }
+        mismatches = {
+            key: {"expected": value, "actual": probe.get(key)}
+            for key, value in checks.items()
+            if probe.get(key) != value
+        }
+        if mismatches:
+            client.close()
+            raise ValueError(f"competitor probe mismatch: {mismatches}")
+
+        def convert(text: str) -> str:
+            response = client.request("convert", text=text)
+            output = response.get("output")
+            if not isinstance(output, str):
+                raise RuntimeError("adapter output must be a string")
+            return output
+
+        return Engine(
+            name=name,
+            available=True,
+            convert=convert,
+            version=probe["version"],
+            family=probe["family"],
+            adapter="container_jsonl",
+            environment_sha256=actual_environment,
+            image_id=image_id,
+            config_sha256=probe["config_sha256"],
+        )
+    except Exception as exc:
+        if client is not None:
+            client.close()
+        return Engine(
+            name=name,
+            available=False,
+            error=str(exc),
+            family=expected.get("family"),
+            adapter="container_jsonl",
+            environment_sha256=expected_environment,
+        )
+
+
+def load_engines(
+    names: list[str],
+    *,
+    lock: dict[str, Any] | None = None,
+    container_image: str | None = None,
+) -> list[Engine]:
+    engines: list[Engine] = []
+    for name in names:
+        if name == "zhtw" or container_image is None:
+            engines.append(ENGINE_LOADERS[name]())
+        elif lock is None:
+            engines.append(Engine(name=name, available=False, error="competitor lock is required"))
+        else:
+            engines.append(load_container_engine(name, lock=lock, image=container_image))
+    return engines
 
 
 def run_cases(cases: list[Case], engines: list[Engine]) -> list[dict[str, Any]]:
@@ -217,6 +336,11 @@ def result_payload(
                 "available": engine.available,
                 "version": engine.version,
                 "error": engine.error,
+                "family": engine.family,
+                "adapter": engine.adapter,
+                "environment_sha256": engine.environment_sha256,
+                "image_id": engine.image_id,
+                "config_sha256": engine.config_sha256,
             }
             for engine in engines
         },
@@ -308,6 +432,11 @@ def main() -> int:
         help="Output format. Default: text",
     )
     parser.add_argument("--output", type=Path, help="Write report to a file instead of stdout.")
+    parser.add_argument("--competitors-lock", type=Path, default=DEFAULT_LOCK)
+    parser.add_argument(
+        "--competitor-image",
+        help="Use the locked Docker image for every non-zhtw engine.",
+    )
     parser.add_argument(
         "--limit",
         type=int,
@@ -322,7 +451,12 @@ def main() -> int:
     args = parser.parse_args()
 
     cases = load_cases(args.cases)
-    engines = load_engines(args.engines)
+    lock = json.loads(args.competitors_lock.read_text(encoding="utf-8"))
+    engines = load_engines(
+        args.engines,
+        lock=lock,
+        container_image=args.competitor_image,
+    )
     rows = run_cases(cases, engines)
     payload = result_payload(args.cases, engines, rows)
     write_output(payload, args.output, args.format == "json", args.limit)

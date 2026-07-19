@@ -120,6 +120,42 @@ bare technical term to the source's single academic label. It is a discovery
 signal for future sentence-level review, not evidence that 59.8710% of ordinary
 zhtw conversions are wrong.
 
+## Locked competitor environment
+
+`competitors.lock.json` version 2 freezes the formal competitor environment:
+
+- OpenCC 1.4.1 with `s2twp.json`.
+- opencc-js 1.4.1 with `{ from: 'cn', to: 'twp' }`.
+- zhconv 1.4.3 with `zh-tw`.
+- zhconv-rs 0.4.1 with `zh-TW` and its default MediaWiki-derived rules.
+
+The Python 3.12.11 and Node 22.17.0 Bookworm base images use OCI index digests.
+Every wheel, source distribution, npm tarball, adapter, lockfile, and config has
+a recorded hash. The Python installer verifies artifacts itself and does not
+resolve build dependencies. Runtime containers have no network, a read-only
+filesystem, dropped capabilities, a PID limit, and a five-second request
+timeout.
+
+The lock records each package license. The current environment includes
+GPL-2.0-or-later MediaWiki-derived data through zhconv and zhconv-rs; publishing
+the built image therefore requires corresponding-source and license compliance.
+
+OpenCC and opencc-js belong to one `opencc` family. zhconv and zhconv-rs belong
+to one `mediawiki-zhconv` family. Formal reports run all implementations but use
+only the declared representative from each family for ranking, so bindings or
+ports cannot inflate the evidence count.
+
+Static validation runs in the release gate. Rebuild and probe every adapter in
+Docker with:
+
+```bash
+make benchmark-competitor-probe
+```
+
+Formal market execution must provide the resulting image and every locked
+engine; a missing image, unavailable adapter, wrong version, wrong config hash,
+or environment-label mismatch aborts the run.
+
 ## regression-v1
 
 `regression-v1.json` is the first M1 public regression dataset.

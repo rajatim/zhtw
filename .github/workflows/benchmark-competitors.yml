@@ -1,0 +1,45 @@
+name: Benchmark Competitor Environment
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'benchmarks/accuracy/competitor-env/**'
+      - 'benchmarks/accuracy/competitors.lock.json'
+      - 'benchmarks/accuracy/competitors-lock.schema.json'
+      - 'scripts/container_competitors.py'
+      - 'scripts/competitor_benchmark.py'
+      - 'scripts/validate_competitor_environment.py'
+      - '.github/workflows/benchmark-competitors.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'benchmarks/accuracy/competitor-env/**'
+      - 'benchmarks/accuracy/competitors.lock.json'
+      - 'benchmarks/accuracy/competitors-lock.schema.json'
+      - 'scripts/container_competitors.py'
+      - 'scripts/competitor_benchmark.py'
+      - 'scripts/validate_competitor_environment.py'
+      - '.github/workflows/benchmark-competitors.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: astral-sh/setup-uv@v6
+      - name: Install validation dependencies
+        run: uv sync --extra dev
+      - name: Validate immutable environment inputs
+        run: uv run python scripts/validate_competitor_environment.py
+      - name: Build and probe every locked adapter
+        run: make benchmark-competitor-probe
+      - name: Run adapter tests
+        run: uv run pytest tests/test_competitor_environment.py -q

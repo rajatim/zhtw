@@ -5077,20 +5077,29 @@ def test_competitors_lock_records_reproducible_adapters() -> None:
     lock = load_json(COMPETITORS_LOCK)
     competitors = {item["id"]: item for item in lock["competitors"]}
 
-    assert lock["status"] == "draft"
-    assert {"zhtw", "opencc-s2twp", "zhconv-zh-tw", "opencc-js-cn-twp", "zhconv-rs"} <= set(
-        competitors
-    )
-    assert competitors["zhtw"]["included_in_m2_runner"] is True
-    assert competitors["opencc-s2twp"]["locale_or_config"] == "s2twp"
+    assert lock["status"] == "locked"
+    assert {
+        "zhtw",
+        "opencc-s2twp",
+        "zhconv-zh-tw",
+        "opencc-js-cn-twp",
+        "zhconv-rs-zh-tw",
+    } == set(competitors)
+    assert competitors["zhtw"]["included_in_formal_runner"] is True
+    assert competitors["opencc-s2twp"]["locale_or_config"] == "s2twp.json"
     assert competitors["zhconv-zh-tw"]["locale_or_config"] == "zh-tw"
-    assert competitors["opencc-js-cn-twp"]["included_in_m2_runner"] is False
-    assert competitors["zhconv-rs"]["included_in_m2_runner"] is False
+    assert competitors["opencc-js-cn-twp"]["included_in_formal_runner"] is True
+    assert competitors["zhconv-rs-zh-tw"]["included_in_formal_runner"] is True
+    assert competitors["opencc-s2twp"]["family"] == "opencc"
+    assert competitors["opencc-js-cn-twp"]["family"] == "opencc"
+    assert competitors["zhconv-zh-tw"]["family"] == "mediawiki-zhconv"
+    assert competitors["zhconv-rs-zh-tw"]["family"] == "mediawiki-zhconv"
 
     for competitor in competitors.values():
         assert competitor["command"]
-        assert competitor["version_source"]
-        assert competitor["reproducibility"]
+        assert competitor["version"]
+        assert competitor["version_probe"]
+        assert len(competitor["config_sha256"]) == 64
         assert (
             "expected output" not in competitor["notes"].lower()
             or "never" in competitor["notes"].lower()

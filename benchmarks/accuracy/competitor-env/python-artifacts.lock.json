@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "artifacts": [
+    {
+      "package": "OpenCC",
+      "version": "1.4.1",
+      "install_mode": "wheel",
+      "platforms": {
+        "linux/amd64": {
+          "url": "https://files.pythonhosted.org/packages/bf/07/936ded52b9d3278f055fbb182b47ce7e90648cf701ac339f6743eeb9319f/opencc-1.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "sha256": "dd35957fcdb633b1c262a5c36e57306be8db25de972bf5d700cc17cbef3d98b4"
+        },
+        "linux/arm64": {
+          "url": "https://files.pythonhosted.org/packages/f0/49/f7d5db22d11efe0f36d566f270a85fed8371ad12b690b3120c8862692f65/opencc-1.4.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+          "sha256": "3f64c90aa026d5d69ced1f4b5375e0480408597b785075c3c34ab2ae37f66cd0"
+        }
+      }
+    },
+    {
+      "package": "zhconv",
+      "version": "1.4.3",
+      "install_mode": "pure_python_sdist",
+      "url": "https://files.pythonhosted.org/packages/25/47/c8ae2d5d4025e253211ff3d8c163f457db1da94976cb582337a5ab76cb87/zhconv-1.4.3.tar.gz",
+      "sha256": "ad42d9057ca0605f8e41d62b67ca797f879f58193ee6840562c51459b2698c45"
+    },
+    {
+      "package": "zhconv-rs",
+      "version": "0.4.1",
+      "install_mode": "wheel",
+      "platforms": {
+        "linux/amd64": {
+          "url": "https://files.pythonhosted.org/packages/ba/9c/1783538a6101376ebd1f904bf361bea3e818b5239b80c4caf192a823b09e/zhconv_rs-0.4.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "599f82500c928ba9e3be8bbeb246391fe249c90d92a8d1f66d1f98bb37fba06f"
+        },
+        "linux/arm64": {
+          "url": "https://files.pythonhosted.org/packages/34/9f/ac0243c50943cd7c7cc1cc5b6b5f9de51b343704ad603bf760b3e3798532/zhconv_rs-0.4.1-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "sha256": "f94e561d2dab0ae021e56f409705cace269d4a512fbec78e40eb5a09c1f8e6a8"
+        }
+      }
+    }
+  ]
+}

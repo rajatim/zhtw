@@ -32,6 +32,7 @@ from scripts.validate_benchmark_assets import (  # noqa: E402
     validate_manifest,
     validate_preregistration,
 )
+from scripts.validate_competitor_environment import validate_lock  # noqa: E402
 
 DEFAULT_INPUTS = PROJECT_ROOT / "benchmarks" / "accuracy" / "blind-v1.inputs.json"
 DEFAULT_EXPECTED = PROJECT_ROOT / "benchmarks" / "accuracy" / "blind-v1.expected.json"
@@ -297,6 +298,42 @@ def assert_competitors_locked(competitors: list[str], lock: dict[str, Any]) -> N
         raise ValueError(f"requested competitors missing from lockfile: {missing}")
 
 
+def assert_formal_engines_locked(
+    requested: list[str],
+    engines: list[Engine],
+    lock: dict[str, Any],
+) -> None:
+    if lock.get("status") != "locked":
+        raise ValueError("formal benchmark requires a locked competitor environment")
+    required = set(lock.get("formal_engine_ids", []))
+    if set(requested) != required:
+        raise ValueError(
+            "formal market benchmark must run every locked engine: "
+            f"required={sorted(required)} requested={sorted(requested)}"
+        )
+    locked = {item["id"]: item for item in lock["competitors"]}
+    environment_hash = lock["environment"]["environment_sha256"]
+    mismatches: list[str] = []
+    for engine in engines:
+        expected = locked[engine.name]
+        checks = {
+            "version": expected["version"],
+            "family": expected["family"],
+            "adapter": expected["adapter"],
+            "config_sha256": expected["config_sha256"],
+        }
+        if engine.name != "zhtw":
+            checks["environment_sha256"] = environment_hash
+        for field, expected_value in checks.items():
+            actual_value = getattr(engine, field)
+            if actual_value != expected_value:
+                mismatches.append(
+                    f"{engine.name}.{field}: expected={expected_value} actual={actual_value}"
+                )
+    if mismatches:
+        raise ValueError("formal competitor lock mismatch: " + "; ".join(mismatches))
+
+
 def assert_formal_engines_available(engines: list[Engine]) -> None:
     unavailable = [engine.name for engine in engines if not engine.available]
     if unavailable:
@@ -557,6 +594,11 @@ def build_report(
             "available": engine.available,
             "version": engine.version,
             "error": engine.error,
+            "family": engine.family,
+            "adapter": engine.adapter,
+            "environment_sha256": engine.environment_sha256,
+            "image_id": engine.image_id,
+            "config_sha256": engine.config_sha256,
             "scores": summarize_engine(rows, engine.name),
         }
         for engine in engines
@@ -583,6 +625,8 @@ def build_report(
             "path": relative_path(lock_path),
             "sha256": sha256_file(lock_path),
             "status": lock.get("status", ""),
+            "environment_sha256": lock.get("environment", {}).get("environment_sha256"),
+            "ranking_families": lock.get("ranking_families", []),
             "competitors": lock.get("competitors", []),
         },
         "normalization": NORMALIZATION_RULES,
@@ -635,6 +679,7 @@ def render_markdown(report: dict[str, Any]) -> str:
         f"- Inputs sha256: `{report['inputs']['sha256']}`",
         f"- Expected sha256: `{report['expected_sha256']}`",
         f"- Lock sha256: `{report['competitors_lock']['sha256']}`",
+        f"- Competitor environment: `{report['competitors_lock']['environment_sha256'] or ''}`",
         f"- zhtw version: `{report['provenance']['zhtw_version']}`",
         f"- Git SHA: `{report['provenance']['git_sha']}`",
         f"- Git dirty: `{str(report['provenance']['git_dirty']).lower()}`",
@@ -663,6 +708,11 @@ def render_markdown(report: dict[str, Any]) -> str:
                 "",
                 f"- Availability: {availability}",
                 f"- Version: `{engine['version'] or ''}`",
+                f"- Family: `{engine['family'] or ''}`",
+                f"- Adapter: `{engine['adapter'] or ''}`",
+                f"- Environment: `{engine['environment_sha256'] or ''}`",
+                f"- Image ID: `{engine['image_id'] or ''}`",
+                f"- Config sha256: `{engine['config_sha256'] or ''}`",
                 f"- Accepted accuracy: {scores['accepted_accuracy']:.4f}",
                 f"- Macro-domain accuracy: {scores['macro_domain_accuracy']:.4f}",
                 f"- Primary exact accuracy: {scores['primary_exact_accuracy']:.4f}",
@@ -752,6 +802,10 @@ def main() -> int:
     parser.add_argument("--expected", type=Path, default=DEFAULT_EXPECTED)
     parser.add_argument("--competitors-lock", type=Path, default=DEFAULT_LOCK)
     parser.add_argument(
+        "--competitor-image",
+        help="Locked Docker image used for all non-zhtw competitors.",
+    )
+    parser.add_argument(
         "--competitors",
         type=parse_competitors,
         default=parse_competitors(DEFAULT_COMPETITORS),
@@ -815,10 +869,21 @@ def main() -> int:
     assert_expected_source_hash(args.inputs, expected_data)
     lock = load_lockfile(args.competitors_lock)
     assert_competitors_locked(args.competitors, lock)
+    if args.formal:
+        lock_errors = validate_lock(args.competitors_lock.resolve())
+        if lock_errors:
+            raise ValueError("formal competitor lock invalid: " + "; ".join(lock_errors))
 
-    engines = load_engines(args.competitors)
+    if args.formal and not args.competitor_image:
+        parser.error("--formal requires --competitor-image")
+    engines = load_engines(
+        args.competitors,
+        lock=lock,
+        container_image=args.competitor_image,
+    )
     if args.formal:
         assert_formal_engines_available(engines)
+        assert_formal_engines_locked(args.competitors, engines, lock)
     provenance = build_provenance(engines)
     if args.formal:
         preregistration = load_json(args.preregistration)
