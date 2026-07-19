@@ -106,6 +106,20 @@ Blind-v2 primary market endpoint. A miss can be a valid Taiwan variant absent
 from the source's single target, so the aggregate result must not be presented
 as general Taiwan-localization accuracy.
 
+The first aggregate report is
+`docs/reports/naer-terms-benchmark-2026-07-19.json`, generated from clean commit
+`2f5ebba` with 775 evaluated cases:
+
+- conversion: 261 / 721 (36.1997%)
+- identity guard: 50 / 54 (92.5926%)
+- micro exact: 311 / 775 (40.1290%)
+- idempotency: 96.6452%
+
+The low conversion exact score mainly shows that zhtw does not rewrite every
+bare technical term to the source's single academic label. It is a discovery
+signal for future sentence-level review, not evidence that 59.8710% of ordinary
+zhtw conversions are wrong.
+
 ## regression-v1
 
 `regression-v1.json` is the first M1 public regression dataset.

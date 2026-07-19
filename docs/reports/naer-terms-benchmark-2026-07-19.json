@@ -1,0 +1,66 @@
+{
+  "generated_date": "2026-07-19",
+  "report_mode": "aggregate",
+  "dataset": "naer-terms-v1",
+  "track": "external_terminology",
+  "evidence_role": "secondary_evidence",
+  "primary_market_endpoint": false,
+  "manifest_sha256": "96234f7ab1460b81dc89c12ebf7ddb6484019336c5cb4064d1ac7c84b753bc5a",
+  "normalized_sha256": "ab0b1bee984c39dbb29a81804e800aeecacb3b48f944e903b60d3a5f0015b54d",
+  "upstream_revision": "Government Data dataset 15275 metadata updated 2024-07-08 10:11 Asia/Taipei; CSV Last-Modified 2024-07-11T03:25:57Z",
+  "license": "政府資料開放授權條款-第1版 (Open Government Data License, version 1.0)",
+  "provenance": {
+    "zhtw_version": "4.4.2",
+    "git_sha": "2f5ebba97b218f6f07dc71b030e40ae15f426ca6",
+    "git_dirty": false,
+    "python_version": "3.11.14",
+    "node_version": "v25.6.1",
+    "rust_version": "rustc 1.80.0 (051478957 2024-07-21)",
+    "os": "macOS-26.5.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "runner_sha256": "aff57eff809e7b97f4140652fcdd9c839b9b27c759235ff182d73306119c934c",
+    "scorer_sha256": "6339851824cdb458f89b9496807573b30e6752b0a24fdaa08e6b93092d3f3069"
+  },
+  "scores": {
+    "total_cases": 775,
+    "exact": 311,
+    "misses": 464,
+    "accepted_accuracy": 0.4012903225806452,
+    "primary_exact_accuracy": 0.4012903225806452,
+    "micro_accuracy": 0.4012903225806452,
+    "micro_accuracy_ci_95": {
+      "low": 0.36516129032258066,
+      "high": 0.43483870967741933
+    },
+    "macro_domain_accuracy": 0.4012903225806452,
+    "macro_candidate_set_accuracy": 0.6439615760004109,
+    "idempotent": 749,
+    "idempotency_rate": 0.9664516129032258,
+    "conversion_recall": 0.361997226074896,
+    "identity_guard_accuracy": 0.9259259259259259,
+    "over_conversion_guard_accuracy": 0.9259259259259259,
+    "by_candidate_set": {
+      "conversion": {
+        "total": 721,
+        "exact": 261,
+        "exact_accuracy": 0.361997226074896,
+        "exact_accuracy_ci_95": {
+          "low": 0.3273231622746186,
+          "high": 0.39528432732316227
+        }
+      },
+      "identity_guard": {
+        "total": 54,
+        "exact": 50,
+        "exact_accuracy": 0.9259259259259259,
+        "exact_accuracy_ci_95": {
+          "low": 0.8518518518518519,
+          "high": 0.9814814814814815
+        }
+      }
+    },
+    "excluded_context_candidates": 754,
+    "severe_error_assessment": "not_available_without_human_sentence_context",
+    "errors_by_category": {}
+  }
+}
