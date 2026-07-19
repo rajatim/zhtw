@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark benchmark-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check precision-benchmark benchmark-validate benchmark-ud-import-check benchmark-ud-report accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -65,6 +65,12 @@ accuracy-holdout-gemini-advisory: ## Generate Gemini Vertex advisory for sealed 
 benchmark-validate: ## Validate benchmark manifests, licenses, hashes, and preregistrations
 	$(PYTHON) scripts/validate_benchmark_assets.py
 	$(PYTHON) scripts/audit_benchmark_publication.py
+
+benchmark-ud-import-check: ## Download pinned UD sources and verify normalized output
+	$(PYTHON) scripts/import_ud_gsd_benchmark.py --check
+
+benchmark-ud-report: ## Run the public UD GSD/GSDSimp secondary track
+	$(PYTHON) scripts/run_ud_gsd_benchmark.py --generated-date $(DATE) --output-prefix docs/reports/ud-gsd-benchmark-$(DATE)
 
 accuracy-benchmark: ## Run the published blind-v1 evaluation benchmark
 	$(PYTHON) scripts/run_accuracy_benchmark.py --inputs benchmarks/accuracy/blind-v1.inputs.json --expected benchmarks/accuracy/blind-v1.expected.json --competitors-lock benchmarks/accuracy/competitors.lock.json --competitors $(COMPETITORS) --generated-date $(DATE) --output-prefix docs/reports/accuracy-benchmark-$(DATE)

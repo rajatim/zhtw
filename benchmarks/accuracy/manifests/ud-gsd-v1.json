@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "id": "ud-gsd-v1",
+  "track": "external_context",
+  "source_urls": [
+    "https://github.com/UniversalDependencies/UD_Chinese-GSD/tree/e0d85a020182e264d6384be2a59c0f4879a1cc35",
+    "https://github.com/UniversalDependencies/UD_Chinese-GSDSimp/tree/7b61ed473f963e911788efdf1f478154bc1053e4"
+  ],
+  "upstream_revision": "UD_Chinese-GSD@e0d85a020182e264d6384be2a59c0f4879a1cc35; UD_Chinese-GSDSimp@7b61ed473f963e911788efdf1f478154bc1053e4; tag r2.18",
+  "retrieved_at": "2026-07-19T00:00:00+08:00",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "output_license": "CC BY-SA 4.0",
+  "attribution": "Universal Dependencies Chinese GSD contributors and Chinese GSDSimp contributors.",
+  "modification_notice": "Extracted paired sentence text by sent_id, normalized JSON serialization, and added benchmark metadata; no linguistic content was corrected by zhtw.",
+  "notice_id": "ud-gsd-v1",
+  "raw_sha256": {
+    "https://raw.githubusercontent.com/UniversalDependencies/UD_Chinese-GSD/e0d85a020182e264d6384be2a59c0f4879a1cc35/LICENSE.txt": "899b1804a12ebc090b96339614eede1b64b686721b650a71430b55b5235f7f79",
+    "https://raw.githubusercontent.com/UniversalDependencies/UD_Chinese-GSD/e0d85a020182e264d6384be2a59c0f4879a1cc35/zh_gsd-ud-dev.conllu": "09374c8361400861a536ae94a1d7710e1cdd72285c32b9764d94d2d956b4ae02",
+    "https://raw.githubusercontent.com/UniversalDependencies/UD_Chinese-GSD/e0d85a020182e264d6384be2a59c0f4879a1cc35/zh_gsd-ud-test.conllu": "ff01a3d01d62b623756396085e78bdaeefb7c2b7935a890dde5b18e92712d54f",
+    "https://raw.githubusercontent.com/UniversalDependencies/UD_Chinese-GSD/e0d85a020182e264d6384be2a59c0f4879a1cc35/zh_gsd-ud-train.conllu": "de36e605a4786edb00097165cfc0ee425ab668a2dfc1da7ce4652ba4d2585b1e",
+    "https://raw.githubusercontent.com/UniversalDependencies/UD_Chinese-GSDSimp/7b61ed473f963e911788efdf1f478154bc1053e4/LICENSE.txt": "899b1804a12ebc090b96339614eede1b64b686721b650a71430b55b5235f7f79",
+    "https://raw.githubusercontent.com/UniversalDependencies/UD_Chinese-GSDSimp/7b61ed473f963e911788efdf1f478154bc1053e4/zh_gsdsimp-ud-dev.conllu": "d03f1eeb93b16071bfbbe6c76b971554be87c9a2307b3f3a820dd7c07f73fb63",
+    "https://raw.githubusercontent.com/UniversalDependencies/UD_Chinese-GSDSimp/7b61ed473f963e911788efdf1f478154bc1053e4/zh_gsdsimp-ud-test.conllu": "3af8046a6f32477b4d5cf3dd06bbf38682a380fe77aade3f68de97e51ab94900",
+    "https://raw.githubusercontent.com/UniversalDependencies/UD_Chinese-GSDSimp/7b61ed473f963e911788efdf1f478154bc1053e4/zh_gsdsimp-ud-train.conllu": "956636fe612a1166e8b19e7413fee2e73d68231aca2f0455be2c616b947d629d"
+  },
+  "normalized_path": "benchmarks/accuracy/external/ud-gsd-v1.json",
+  "normalized_sha256": "87609cb557fa47213b21a87846ad2b8cb1a2c3cfec612ea524a1b296eda22022",
+  "importer": "scripts/import_ud_gsd_benchmark.py",
+  "known_biases": [
+    "GSDSimp was initially converted from GSD with OpenCC and then manually corrected, so this track is not independent evidence against OpenCC-family converters.",
+    "The corpus genre is Wikipedia and does not represent Taiwan product UI, conversational, legal, medical, or financial prevalence.",
+    "The Traditional Chinese target is not specifically curated as Taiwan-localized terminology.",
+    "Exact matching can penalize valid Taiwan variants that differ from the single UD target."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "public_track_only"
+}

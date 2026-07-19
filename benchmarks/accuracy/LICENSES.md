@@ -15,13 +15,16 @@ is missing.
 
 ## ud-gsd-v1
 
-- Source: Universal Dependencies Chinese GSD and GSDSimp at the revision pinned
-  by the future manifest.
-- License: CC BY-SA 4.0.
-- Attribution: Upstream UD treebank authors and Universal Dependencies.
-- Modifications: Sentence extraction, Simplified/Traditional pairing, filtering,
-  normalization, and benchmark metadata enrichment.
-- Output license: CC BY-SA 4.0; attribution and modification notice required.
+- Source: Universal Dependencies Chinese GSD commit
+  `e0d85a020182e264d6384be2a59c0f4879a1cc35` and Chinese GSDSimp commit
+  `7b61ed473f963e911788efdf1f478154bc1053e4` (tag `r2.18`).
+- License: CC BY-SA 4.0
+- Attribution: Universal Dependencies Chinese GSD contributors and Chinese GSDSimp contributors.
+- Modifications: Extracted paired sentence text by sent_id, normalized JSON serialization, and added benchmark metadata; no linguistic content was corrected by zhtw.
+- Output license: CC BY-SA 4.0
+- Bias notice: GSDSimp was initially generated with OpenCC and later manually
+  corrected. Results are secondary evidence and are not independent evidence
+  against OpenCC-family converters.
 
 ## naer-terms-v1
 

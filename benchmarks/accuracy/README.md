@@ -41,6 +41,26 @@ uv run python scripts/run_accuracy_benchmark.py \
 An unavailable engine invalidates a formal run. A per-case exception or empty
 output stays in the denominator as a miss and is counted by error category.
 
+## UD GSD/GSDSimp external track
+
+`external/ud-gsd-v1.json` contains 4,997 sentence pairs aligned by unique
+CoNLL-U `sent_id` from the pinned UD Chinese GSD and GSDSimp `r2.18` commits.
+The manifest records all six CoNLL-U files, both license files, exact SHA-256
+values, attribution, CC BY-SA 4.0 derivative licensing, and known biases.
+
+GSDSimp was initially converted from GSD with OpenCC and later manually
+corrected. This track is therefore public secondary evidence, not independent
+evidence against OpenCC-family converters and never the Blind-v2 primary score.
+Its only genre is Wikipedia, and the Traditional target is not specifically
+curated for Taiwan terminology.
+
+Reproduce the normalized dataset and run the aggregate report:
+
+```bash
+make benchmark-ud-import-check
+make benchmark-ud-report DATE=2026-07-19
+```
+
 ## regression-v1
 
 `regression-v1.json` is the first M1 public regression dataset.
