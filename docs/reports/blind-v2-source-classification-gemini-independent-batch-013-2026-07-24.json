@@ -1,0 +1,1056 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Gemini via Antigravity CLI",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-013.json",
+  "packet_sha256": "42467a73426931d5153f555036d323fae3af302d7c45a8e4043939e19ba45957",
+  "policy": "input_only_no_converter_output",
+  "model": "gemini-3.1-pro-high",
+  "cli": "Antigravity CLI",
+  "cli_version": "1.1.5",
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "rejected",
+      "reason": "Markdown-fenced streaming output split a multibyte character and could not be retained as a valid JSON artifact."
+    },
+    {
+      "attempt": 2,
+      "status": "validation_only",
+      "reason": "JSON parse and exact 100/100 ID coverage succeeded; response was not persisted by the orchestration cell."
+    },
+    {
+      "attempt": 3,
+      "status": "rejected",
+      "reason": "The Gemini response validated, but a malformed apply_patch terminator prevented artifact persistence; no repository file was written."
+    },
+    {
+      "attempt": 4,
+      "status": "accepted",
+      "reason": "JSON parse, field validation, packet order, and exact 100/100 ID coverage passed before persistence."
+    }
+  ],
+  "validation": {
+    "exact_id_coverage": "100/100",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0,
+    "response_json_extracted_from_markdown_fence": false
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "policy_violations": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "法律程序語境，防誤轉程式"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "憲法程序語境，防誤轉程式"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "一般門檻轉寫，無特殊歧義"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公佈程序語境，防過度轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "金融發行語境，防誤改發布"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "貨幣發行語境，防誤改發布"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "出版發行語境，防誤改發布"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府發布報告，標準用語"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "發布統計資料，標準用語"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "文物保存語境，防誤轉儲存"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "證據保存語境，防誤轉儲存"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "正本保存語境，防誤轉儲存"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "研究對象語境，防誤轉物件"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "服務對象語境，防誤轉物件"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "支持提案語境，防誤改支援"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "支持協商語境，防誤改支援"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "司法執行處分，防過度轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "行政執行決議，防過度轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "幾何水平線，防誤改水準"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "物理質量守恆，防誤改品質"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "物理樣本質量，防誤改品質"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "建築窗口語境，防誤改視窗"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "外交訪問語境，防誤改存取"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "新聞採訪語境，防誤改存取"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公司註銷登記，防誤改刪除"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含帳號詞彙，需台化轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學術定義語境，標準轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "鐵路終端車站，防誤改終端機"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "醫療支援服務，標準轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "新聞消息人士，防資訊過轉"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "法律消費者，防誤轉程式"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "體育賽事分組，標準轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "統計信賴區間，防過度轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "數學函數定義域，防過度轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "社會補助標準，標準轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "媒體訪談節目，標準轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "救援人員部署，防誤改軟體部署"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "港口受損容器，防誤改軟體容器"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "光學鏡像反射，防誤改軟體鏡像"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地方分支機構，防誤改程式分支"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "工廠生產流水線，防誤改管線"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "演員舞台表現，防誤改效能"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "車站旅客流量，防誤改網路流量"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "交通轉運節點，防誤改網路節點"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "航海日誌紀錄，防誤改系統日誌"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "撤銷行政處分，防誤改 UI 復原"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "委員會審議流程，標準轉換"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "法律保護範圍，防誤改擴充元件"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "搜救行進路徑，防誤改檔案路徑"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "官方定案程序，防誤改程式"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "區分程序與程式之指令"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "判別文書與電腦文件之指令"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "區分發行與發布之指令"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "區分古蹟與資料保存之指令"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "區分研究與物件導向對象"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "區分物理質量與品質之指令"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "區分幾何水平與水準之指令"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "區分建築窗口與視窗之指令"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "菜單與選單本地化提示"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "區分外交訪問與系統存取"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地址與位址語境辨識"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "遠程與遠端語境區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "區分新聞消息與訊息佇列"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "區分一般消費者與處理程序"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "行政事務與資料庫交易區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "說明實例與雲端執行個體區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "光學鏡像與容器鏡像區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "軍事部署與軟體部署區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "組織分支與程式分支區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "鐵路終端與命令列終端區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "海港港口與網路連接埠區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "會議主持人與電腦主機區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "服務人員與伺服器對象區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "圖書館與程式庫之簡稱歧義"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "快遞包裹與軟體套件區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "產品類別與程式類別區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "農田與資料欄位多義字區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "數學函數與程式函式名稱區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "數學與模板變數保護說明"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "法院執行與自動化執行區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "撤銷處分與 UI 復原區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "經濟復甦與備份還原區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "應用理論與開啟應用程式區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "擴展範圍與擴充功能區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "裝載貨物與載入網頁區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "實體連接與網頁連結區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "商品標籤與分頁標籤區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "登山路徑與檔案路徑區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "道路流量與網路流量區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "交通節點與運算節點區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "舞台表現與系統效能區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "記者回應與介面回應區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人日記與系統日誌區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "統計與監控指標區分說明"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包裹追蹤與分散式追蹤區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "人類記憶與電腦記憶體區分"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專有名詞保持官方名稱規範"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "引文術語忠實保留原則"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "多義句歧義指出指示"
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "語境不足時請求補充指示"
+    }
+  ]
+}

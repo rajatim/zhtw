@@ -21,6 +21,7 @@ def build_synthesis(
     gemini_case_ids: set[str],
     generated_date: str,
     overrides: dict[str, dict[str, Any]] | None = None,
+    override_basis: str = "maintainer_feedback",
 ) -> dict[str, Any]:
     if codex["packet_sha256"] != gemini["packet_sha256"]:
         raise ValueError("advisory packet hashes do not match")
@@ -32,6 +33,8 @@ def build_synthesis(
     if unknown:
         raise ValueError(f"unknown Gemini override IDs: {sorted(unknown)}")
     overrides = overrides or {}
+    if override_basis not in {"codex_synthesis", "maintainer_feedback"}:
+        raise ValueError(f"invalid override basis: {override_basis}")
     unknown = set(overrides) - set(gemini_by_id)
     if unknown:
         raise ValueError(f"unknown maintainer override IDs: {sorted(unknown)}")
@@ -52,7 +55,7 @@ def build_synthesis(
         exact = all(codex_case[field] == gemini_case[field] for field in classification_fields)
         if codex_case["id"] in overrides:
             selected = overrides[codex_case["id"]]
-            basis = "maintainer_feedback"
+            basis = override_basis
         elif exact:
             selected = codex_case
             basis = "agreement"
@@ -99,6 +102,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--gemini", type=Path, required=True)
     parser.add_argument("--gemini-case-id", action="append", default=[])
     parser.add_argument("--overrides", type=Path)
+    parser.add_argument("--synthesis-overrides", type=Path)
     parser.add_argument("--generated-date", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--check", action="store_true")
@@ -108,13 +112,17 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     codex = load(args.codex)
+    if args.overrides and args.synthesis_overrides:
+        raise ValueError("maintainer and Codex synthesis overrides are mutually exclusive")
     overrides: dict[str, dict[str, Any]] = {}
-    if args.overrides:
-        override_report = load(args.overrides)
+    override_path = args.overrides or args.synthesis_overrides
+    override_basis = "codex_synthesis" if args.synthesis_overrides else "maintainer_feedback"
+    if override_path:
+        override_report = load(override_path)
         if override_report.get("packet_sha256") != codex.get("packet_sha256"):
-            raise ValueError("maintainer overrides packet hash does not match")
+            raise ValueError("override packet hash does not match")
         if len({case["id"] for case in override_report["cases"]}) != len(override_report["cases"]):
-            raise ValueError("duplicate maintainer override IDs")
+            raise ValueError("duplicate override IDs")
         overrides = {case["id"]: case["classification"] for case in override_report["cases"]}
     result = build_synthesis(
         codex,
@@ -122,6 +130,7 @@ def main() -> int:
         gemini_case_ids=set(args.gemini_case_id),
         generated_date=args.generated_date,
         overrides=overrides,
+        override_basis=override_basis,
     )
     content = (json.dumps(result, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     if args.check:

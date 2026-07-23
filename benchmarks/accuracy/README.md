@@ -271,6 +271,17 @@ Simplified Chinese localization pack at a fixed commit. It rejects
 converter-derived GSDSimp, Traditional-only Chinese-PUD, and Common Voice under
 the current no-rehosting download terms.
 
+The project-original `zhtw-project-formal-llm-semantic-v1` pilot adds 100
+Codex-drafted input-only candidates: 50 formal-writing contexts and 50 LLM
+semantic-preservation contexts. It is synthetic coverage, not organic market
+traffic. The source and normalized snapshot are checksum-pinned, contain no
+expected or converter output, and remain outside the collecting pool until
+maintainer confirmation is complete. Codex and Gemini via Antigravity CLI
+independently classified all 100 cases: 57 four-field matches and 43
+differences. Codex synthesis recommends all 100 as eligible, with 57 agreements,
+24 Gemini selections, 16 Codex selections, and 3 explicitly labeled Codex
+field-level adjustments. No maintainer decision has been recorded.
+
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
 checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
 conservative, excludes layout fragments, and never runs zhtw or creates

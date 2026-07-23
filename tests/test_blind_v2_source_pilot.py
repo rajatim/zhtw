@@ -342,6 +342,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("zhtw-project-ui-i18n-v1", 50),
         ("zhtw-project-llm-product-v1", 50),
         ("zhtw-project-it-api-cli-v1", 100),
+        ("zhtw-project-formal-llm-semantic-v1", 100),
         ("massive-1-0-zh-cn-v1", 15619),
         ("ftc-small-business-simplified-v1", 81),
         ("ftc-heads-up-simplified-v1", 117),

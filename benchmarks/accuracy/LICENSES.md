@@ -101,6 +101,17 @@ is missing.
 - Bias notice: Synthetic engineering scenarios are coverage material, not
   independently observed market-frequency evidence.
 
+## zhtw-project-formal-llm-semantic-v1
+
+- Source: zhtw project-original formal-writing and LLM semantic-preservation
+  input-only scenarios drafted on 2026-07-24.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only formal-writing and LLM semantic-preservation scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: Synthetic challenge coverage is not independently observed
+  market-frequency evidence. Domain and risk remain pending input-only review.
+
 ## ftc-small-business-simplified-v1
 
 - Source: Federal Trade Commission, *Scams and Your Small Business*, Simplified

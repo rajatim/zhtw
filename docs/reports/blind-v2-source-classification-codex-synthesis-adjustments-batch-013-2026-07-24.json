@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-013.json",
+  "packet_sha256": "42467a73426931d5153f555036d323fae3af302d7c45a8e4043939e19ba45957",
+  "cases": [
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/formal-029",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 医疗支持 is Mainland-oriented in this sentence; Taiwan usage is 醫療支援, while the medical-access context remains high_stakes."
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-029",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 变量 requires Taiwan localization to 變數, so baseline_guard is too weak."
+    },
+    {
+      "id": "zhtw-project-formal-llm-semantic-v1/llm-050",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 补充信息 requires Taiwan localization to 補充資訊, so baseline_guard is too weak."
+    }
+  ]
+}

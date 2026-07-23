@@ -1,9 +1,9 @@
 <!-- zhtw:disable -->
 # Blind-v2 Candidate Source Audit (2026-07-19)
 
-Status: sixteen source pilots imported; Tatoeba CC0 pilot rejected; classification ongoing
+Status: twenty-four source pilots imported; Tatoeba CC0 pilot rejected; classification ongoing
 
-Updated: 2026-07-24 (FTC Heads Up Simplified Chinese pilot added)
+Updated: 2026-07-24 (project-original formal/LLM semantic pilot added)
 
 Issue: #43
 
@@ -110,6 +110,23 @@ input alone.
 - Decision: accepted as an input-only pilot. Codex and Gemini advisories plus
   maintainer confirmation completed on 2026-07-23; all 100 eligible inputs
   passed the promotion dedupe gate.
+
+### zhtw project-original formal/LLM semantic v1
+
+- Source: 100 Simplified Chinese scenarios drafted by Codex on 2026-07-24 and
+  committed as an immutable input-only source snapshot: 50 formal-writing and
+  50 LLM semantic-preservation contexts.
+- Raw SHA-256: `4b4950f9e1cb1d567948cf958a0220a722f9c28d036f4fcd65dc54824741c91f`.
+- Normalized SHA-256:
+  `c41e7b21fd813543f05c370756c77ebd15c8caae6292010ee64b258875bcd890`.
+- License: MIT; source class `project_original`.
+- Restrictions: synthetic quota coverage only, not organic market-frequency
+  evidence. No converter output or expected text influenced drafting or source
+  acceptance. Domain and risk remain unset pending independent input-only review.
+- Decision: accepted as an input-only pilot. Codex and Gemini via Antigravity
+  CLI independently classified all 100 inputs; Codex synthesis is complete,
+  but maintainer confirmation is pending, so the source is not eligible for
+  promotion.
 
 ### MASSIVE 1.0 `zh-CN`
 
@@ -276,7 +293,7 @@ translation and verification workflow.
 
 ## Capacity Assessment
 
-The nine pinned pilots are not sufficient to freeze the pool. Under the
+The current pinned pilots are not sufficient to freeze the pool. Under the
 conservative 10% discordant-rate assumption, formal N is 1,960 and the minimum
 candidate pool is 5,880. Each source may contribute at most 10% and each broad
 source class at most 35%.
@@ -295,6 +312,7 @@ the pilot ceiling is:
 | Project UI/i18n | 50 | 588 | 50 |
 | Project LLM product | 50 | 588 | 50 |
 | Project IT/API/CLI | 100 | 588 | 100 |
+| Project formal/LLM semantic | 100 | 588 | 100 |
 | FTC small-business fraud guide | 81 | 588 | 81 |
 | NPS Essential Acadia | 32 | 588 | 32 |
 | Ready.gov earthquakes | 48 | 588 | 48 |
@@ -309,15 +327,15 @@ the pilot ceiling is:
 | OSHA fallen-workers family guide | 23 | 588 | 23 |
 | VS Code zh-hans localization | 15,618 | 588 | 588 |
 | FTC Heads Up online safety | 117 | 588 | 117 |
-| **Source-cap total** | **34,528** | | **3,046 (51.80%)** |
-| **Class-adjusted total** | | | **2,889 (49.13%)** |
+| **Source-cap total** | **34,628** | | **3,146 (53.50%)** |
+| **Class-adjusted total** | | | **2,989 (50.83%)** |
 
 FLORES, UD-CFL, MASSIVE, and VS Code localization are `permissive_license`;
 the three CDC documents, two FTC publications, NPS, three Ready.gov pages, and seven OSHA publications are
-`public_domain`; the three synthetic sources are `project_original`. All
+`public_domain`; the four synthetic sources are `project_original`. All
 permissive source caps total 2,215, so that class is limited to 2,058 by the
 35% class cap. Public-domain and project-original totals remain below their
-class caps. The class-adjusted ceiling therefore leaves at least 2,991 candidate
+class caps. The class-adjusted ceiling therefore leaves at least 2,891 candidate
 slots unfilled. Actual usable
 capacity can only decrease after input-only quality/strata review and the fixed
 exact/near-deduplication audit. The final pool still needs at least:
