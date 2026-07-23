@@ -264,7 +264,8 @@ The source/license gate is recorded in
 CC0 only in principle but rejects the malformed one-row audited snapshot. It
 imports FLORES-200 `zho_Hans`, UD Chinese-CFL, and three individually verified
 CDC Stacks items. It also imports the CC BY 4.0 MASSIVE 1.0 `zh-CN` source from
-a checksum-pinned archive. It rejects converter-derived GSDSimp,
+a checksum-pinned archive and three separately pinned FEMA-authored Ready.gov
+Simplified Chinese disaster-preparedness pages. It rejects converter-derived GSDSimp,
 Traditional-only Chinese-PUD, and Common Voice under the current no-rehosting
 download terms.
 
@@ -338,12 +339,12 @@ recommends 55 eligible and 26 context-dependent exclusions. Maintainer
 exact/reference and character 5-gram Jaccard 0.85 near-deduplication and entered
 the collecting pool; all 26 context-dependent inputs remain excluded.
 
-Classification batches 001-008 now contribute 611 maintainer-confirmed eligible
-inputs to the `collecting` candidate pool. All 611 passed cross-batch/reference
-exact and character 5-gram Jaccard 0.85 near-deduplication; zero were excluded.
+Classification batches 001-009 now contribute 696 maintainer-confirmed eligible
+inputs to the `collecting` candidate pool after cross-batch/reference exact and
+character 5-gram Jaccard 0.85 near-deduplication.
 All six domains now have coverage, but the pool is not ready to freeze or sample.
 Permissioned user-report batch 001 is collecting at 0/100 and therefore is not
-included in the 611 cases.
+included in the 696 cases.
 
 Source-classification batch 008 covers 32 complete sentences from the NPS
 public-domain *Essential Acadia: Simplified Chinese* article. Codex and Gemini
@@ -351,6 +352,15 @@ match exactly on 7 cases and differ on 25. Codex synthesis recommends 30
 eligible and 2 excluded cases. Maintainer `tim` confirmed the synthesis on
 2026-07-23. All 30 eligible inputs passed exact/reference and character 5-gram
 Jaccard 0.85 near-deduplication and entered the collecting pool.
+
+Source-classification batch 009 fixes 100 input-only cases from three Ready.gov
+public-domain pages: earthquakes, floods, and hurricanes. Codex and Gemini CLI
+0.52.0 (`gemini-2.5-pro`) independently reviewed all IDs without converter
+output or expected text; Gemini made zero tool calls and zero API errors. They
+match on 68 cases and differ on 32. The maintainer confirmed the Codex synthesis:
+86 eligible and 14 excluded. Exact/near dedupe promoted 85; flood `sentence-045`
+was excluded as an exact duplicate of earthquake `sentence-047`. The collecting
+pool is now 696 cases, leaving a 5,184-case minimum-pool gap.
 
 Rebuild and validate the current collecting pool:
 

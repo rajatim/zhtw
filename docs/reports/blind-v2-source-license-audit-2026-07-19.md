@@ -1,9 +1,9 @@
 <!-- zhtw:disable -->
 # Blind-v2 Candidate Source Audit (2026-07-19)
 
-Status: eleven source pilots imported; Tatoeba CC0 pilot rejected; classification ongoing
+Status: fourteen source pilots imported; Tatoeba CC0 pilot rejected; classification ongoing
 
-Updated: 2026-07-23 (FTC Simplified Chinese small-business pilot added)
+Updated: 2026-07-23 (three Ready.gov Simplified Chinese pilots added)
 
 Issue: #43
 
@@ -40,6 +40,23 @@ input alone.
 - Decision: source accepted. Maintainer confirmed the Codex synthesis after
   Codex and Gemini classification review; 55 eligible inputs entered the
   collecting pool and 26 context-dependent inputs were excluded.
+
+### Ready.gov Simplified Chinese disaster-preparedness pages
+
+- Official pages: `earthquakes`, `floods`, and `hurricanes` under
+  <https://www.ready.gov/zh-hans/>.
+- HTML SHA-256 values: `d060c9b0cf07a88264c2288380fda65b662fd342392446918919a2059a44dfea`,
+  `212da67b2ec70dfd32b7b88a5e546f3c551390d9f2ce7c8591deab7db3972e27`,
+  and `b120d204b706d1c7eb716dbef206d42578fe8b0f283d8190120ce7dec4ad009e`.
+- Rights: FEMA-authored federal-government prose is classified as U.S. public
+  domain under 17 U.S.C. 105. The importer excludes navigation, URLs, phone
+  instructions, images, insignia, and linked or third-party content.
+- Import result: 48 earthquake, 53 flood, and 53 hurricane input-only cases;
+  each page has a separate source ID, manifest, raw hash, and normalized hash.
+- Decision: sources accepted. Classification batch 009 fixed a deterministic
+  100-case selection. The maintainer confirmed the Codex/Gemini synthesis:
+  86 were eligible and 14 were excluded. Dedupe promoted 85 inputs and removed
+  one exact duplicate shared by the earthquake and flood pages.
 
 ### zhtw project-original IT/API/CLI v1
 
@@ -214,13 +231,16 @@ the pilot ceiling is:
 | Project IT/API/CLI | 100 | 588 | 100 |
 | FTC small-business fraud guide | 81 | 588 | 81 |
 | NPS Essential Acadia | 32 | 588 | 32 |
-| **Total** | **18,454** | | **2,002 (34.05%)** |
+| Ready.gov earthquakes | 48 | 588 | 48 |
+| Ready.gov floods | 53 | 588 | 53 |
+| Ready.gov hurricanes | 53 | 588 | 53 |
+| **Total** | **18,608** | | **2,156 (36.67%)** |
 
 FLORES, UD-CFL, and MASSIVE are `permissive_license`; the three CDC documents
-and the FTC and NPS guides are `public_domain`; the three synthetic sources are
-`project_original`. All
+and the FTC, NPS, and three Ready.gov pages are `public_domain`; the three
+synthetic sources are `project_original`. All
 class totals remain below the 2,058 class cap. The source-cap ceiling therefore
-leaves at least 3,878 candidate slots unfilled. Actual usable
+leaves at least 3,724 candidate slots unfilled. Actual usable
 capacity can only decrease after input-only quality/strata review and the fixed
 exact/near-deduplication audit. The final pool still needs at least:
 
@@ -231,6 +251,6 @@ exact/near-deduplication audit. The final pool still needs at least:
 - reserve cases in every stratum for deterministic replacement.
 
 The 2026-07-18 Tatoeba CC0 snapshot added zero eligible capacity. The next source
-work is to classify the accepted pilots from input alone and add project-original
-and permissioned-user-report sources to satisfy source-class and domain diversity.
+work is to complete the Ready.gov human gate and add new public-domain or
+permissioned sources to satisfy source-class and domain diversity.
 Converter performance must not influence source or strata selection.

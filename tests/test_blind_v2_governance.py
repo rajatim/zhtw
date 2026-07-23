@@ -108,7 +108,7 @@ def sample_pool_fixture(multiplier: int = 2) -> dict[str, Any]:
             for _ in range(required * multiplier):
                 source_classes = (
                     "project_original",
-                    "permissioned_user_report",
+                    "permissioned",
                     "public_domain",
                     "permissive_license",
                 )
@@ -179,7 +179,7 @@ def test_quota_apportionment_preserves_total_and_declared_ratios() -> None:
 def test_candidate_pool_schema_and_policy_validation(tmp_path: Path) -> None:
     source_classes = (
         "project_original",
-        "permissioned_user_report",
+        "permissioned",
         "public_domain",
         "permissive_license",
     )
@@ -223,7 +223,7 @@ def test_pool_recomputes_power_requirement(tmp_path: Path) -> None:
 def test_exact_and_near_duplicate_candidates_are_detected(tmp_path: Path) -> None:
     source_classes = (
         "project_original",
-        "permissioned_user_report",
+        "permissioned",
         "public_domain",
         "permissive_license",
     )

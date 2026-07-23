@@ -1,0 +1,1062 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Gemini CLI",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-23",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-009.json",
+  "packet_sha256": "451e06b19c60778f2f8adcb71a1fbb2bfeb22c106043b6a0c954b5d484365a8a",
+  "policy": "input_only_no_converter_output",
+  "model": "gemini-2.5-pro",
+  "gemini_cli_version": "0.52.0",
+  "session_id": "8468b2c2-a565-4b03-b1b8-e87c0fa97d6e",
+  "validation": {
+    "exact_id_coverage": "100/100",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 86,
+    "excluded": 14,
+    "policy_violations": 0,
+    "high": 99,
+    "medium": 1,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "防災安全指南，風險高。'山體滑坡'可能需要擴充詞庫。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準防災句，應可正確轉換。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準防災句，應可正確轉換。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-005",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body"
+      ],
+      "confidence": "high",
+      "notes": "標題與內文黏合（制定应急计划：），不符合單一完整句的標準。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "防災用品清單。'手电筒' (手電筒) 是常見的地區詞彙差異。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "防災醫療建議，'紧急护理中心' 可能需要地區化對應詞彙。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-009",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body"
+      ],
+      "confidence": "high",
+      "notes": "句首 '切记：' 屬於指令或標題，與正文混合。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準建議句，應可正確轉換。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-011",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body"
+      ],
+      "confidence": "high",
+      "notes": "標題與內文黏合（保护住房：），不符合單一完整句的標準。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "防災建議，詞彙較通用。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "'改进住房' 用法在台灣較少見，可能轉換為 '改善住宅' 或 '加固房屋'。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'地震保单' 在台灣通常稱為 '地震險'。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急指令，詞彙簡單通用。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急應對指令，詞彙通用。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急應對指令，詞彙通用。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "針對輪椅使用者的指令，'助行器' 在台灣也通用，但 '锁定轮子' 在台灣可能說 '鎖定輪子'。這是簡繁轉換的基礎測試。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'书桌' 在台灣多稱 '書桌'，但 '庇护所' 用法較正式，日常可能用 '掩護'。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急指令，詞彙通用。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'碎片' 轉換為 '碎片' 應沒問題，但 '掩体' 在台灣較少用，多用 '掩護' 或 '掩蔽物'。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急指令，詞彙通用。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'煤气' 在台灣稱 '瓦斯'，'水管' 應正確轉換，'电线' 應轉為 '電線'。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'主震' 和 '余震' 均為專業術語，兩岸通用。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急指令，詞彙通用。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急指令，詞彙通用。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'短信' 在台灣普遍稱 '簡訊'。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'污水'、'碎屑' 是通用詞，但 '化学物质' 在台灣更常用 '化學物質'。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準建議句。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準建議句。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'医护人员' 在台灣通用，但有時會用 '醫護人員'。'获取说明' 在台灣較少用，可能說 '聽從指示'。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "多個地區詞差異點：'当地' (當地), '报道' (報導), '电池供电' (電池供電), '收音机' (收音機), '社交媒体' (社群媒體), '手机短信' (手機簡訊)。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'短信' 在台灣普遍稱 '簡訊'。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'衬衫' (襯衫), '长裤' (長褲), '手套' (手套), '厚底鞋' (厚底鞋)。皆為基礎轉換測試。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'霉菌' 兩岸通用，'面罩' 也是。這句風險較低，但屬於特定領域（清理）。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'哮喘'、'肺部疾病'、'免疫抑制' 都是醫學術語，轉換需精準。'闻到' 在台灣多用 '聞到'。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'大水' 在台灣口語常用，但書面語可能用 '洪水'。'自然灾害' (天然災害) 是基礎轉換。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'撤离' (撤離) 是關鍵詞。'洪水淹没' (洪水淹沒)。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-004",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "句子不完整，缺乏主語。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'山洪暴发' 較書面，台灣可能用 '山洪爆發' 或更口語的 '溪水暴漲'。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-006",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "句子不完整，是動詞片語列表，缺乏主語。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急指令，詞彙通用。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'驾车' 在台灣通常說 '開車'。'驾' 若單獨轉換可能出錯。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口語化警告。'别' 在台灣口語也用，但書面可能用 '不要'。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-010",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body"
+      ],
+      "confidence": "high",
+      "notes": "句首 '切记：' 屬於指令或標題，與正文混合。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-012",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body"
+      ],
+      "confidence": "high",
+      "notes": "句首 '根据洪水类型：' 為標題，與正文混合。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急指令，詞彙通用。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名稱 'FEMA' 和服務名稱 '洪水地图服务中心'，後者需要確認台灣有無對應官方翻譯。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'注册' 在台灣多用 '註冊'。'社区' 在台灣常用 '社區'。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'洪水保单' 在台灣通常稱 '水災險'。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'保单' (保單), '生效' (生效), '灾害' (災害)。基礎轉換測試。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專有名稱 '国家洪水保险计划 (NFIP)' 需要確認台灣有無對應官方翻譯或通用名稱。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準防災計劃建議。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'演习疏散路线' 在台灣會說 '演練疏散路線'。'山洪暴发' (山洪爆發)。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'不易腐烂的食物' 在台灣常說 '不易腐壞的食物'。'清洁用品' (清潔用品)。'所在地区' (所在地區)。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'密码保护' 在台灣常用 '密碼保護'。'数字副本' (數位副本)。雖然情境是防災，但這句涉及 IT 操作。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'液下泵' 是專業術語，需要確認台灣的對應名稱（可能為沉水泵）。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急指令 '立即撤离' (立即撤離)。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'当地的响应者' 在台灣可能指 '當地應變人員' 或 '第一線反應人員'。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'阁楼' (閣樓), '困住' (困住)。基礎轉換測試。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'当局' 在台灣通常指 '當局' 或 '有關單位'。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'开车' 在台灣用 '開車'，'驾车' 轉換需正確。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "重複的醫學警告句型。'闻到' (聞到)。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'灾后清理' (災後清理)。應可正確轉換。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準警告句。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'电器设备' 在台灣多稱 '電器設備' 或 '電器'。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'污染' (污染), '危险的碎屑' (危險的碎片)。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'电线' (電線)。'导电' (導電)。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'发电机' (發電機), '汽油动力机械' (汽油動力機械)。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'飓风' (颶風), '风暴潮' (風暴潮), '强风' (強風), '离岸流' (離岸流)。皆為氣象術語，需精準轉換。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專有名詞解釋，'台风' (颱風) 在此情境下不應被反向轉換。測試 identity mapping 的重要案例。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-005",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body"
+      ],
+      "confidence": "high",
+      "notes": "標題與日期黏合。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準防災建議。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'残障人士' 在台灣多稱 '身心障礙人士'。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-013",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body"
+      ],
+      "confidence": "high",
+      "notes": "標題與內文黏合。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'演练' (演練), '避难地点' (避難地點)。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'最新建议' (最新建議), '安全措施' (安全措施)。'发布' (發布/發佈)。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-017",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body"
+      ],
+      "confidence": "high",
+      "notes": "標題與內文黏合。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 'FEMA 应用程序' (FEMA App/應用程式), '下载' (下載), '国家气象局' (國家氣象局), '实时天气' (即時天氣), '紧急警报' (緊急警報)。IT術語與專有名詞混合。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-020",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body"
+      ],
+      "confidence": "high",
+      "notes": "標題與內文黏合。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'受密码保护的数字空间' (受密碼保護的數位空間)。IT 安全術語。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-022",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body"
+      ],
+      "confidence": "high",
+      "notes": "標題與內文黏合。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-023",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body",
+        "garbled"
+      ],
+      "confidence": "high",
+      "notes": "標題與內文黏合，且句子結構不順，'准备' 和 '一旦' 之間缺少標點。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'消毒用品' (消毒用品)。'后备箱' 在台灣稱 '後車廂'。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-030",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "headline_mixed_with_body"
+      ],
+      "confidence": "high",
+      "notes": "標題與內文黏合。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急指令，詞彙通用。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'上涨的洪水' (上漲的洪水)。詞彙通用。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'开车' 在台灣用 '開車'，'驾车' 轉換需正確。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用警告句，數字和單位的轉換是重點。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'当地官方' (當地官方)。'发布' (發布/發佈)。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'清理' (清理), '小心谨慎' (小心謹慎)。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "與 `ready-gov-floods-zh-hans-v1/sentence-046` 重複，'灾后清理' (災後清理)。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'穿戴' (穿戴), '防护服' (防護服)。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'电气设备' 在台灣多稱 '電器設備' 或 '電器'。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'病原体' 在台灣也使用，但可能更常用 '病菌'。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'碎片' (碎片), '化学品' (化學品), '垃圾' (垃圾)。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'电线' (電線), '带电' (帶電)。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準建議。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'占线' 在台灣稱 '佔線'。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'短信' (簡訊), '社交媒体' (社群媒體)。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準建議。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於內容語言的說明，常見於網站 UI。"
+    }
+  ]
+}

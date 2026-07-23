@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "id": "ready-gov-hurricanes-zh-hans-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://www.ready.gov/zh-hans/hurricanes",
+    "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title17-section105"
+  ],
+  "upstream_revision": "Ready.gov Simplified Chinese Hurricanes; page last updated 2026-07-09; retrieved HTML SHA-256: b120d204b706d1c7eb716dbef206d42578fe8b0f283d8190120ce7dec4ad009e",
+  "retrieved_at": "2026-07-23T17:09:57+08:00",
+  "license": "U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded",
+  "license_url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title17-section105",
+  "output_license": "U.S. Public Domain",
+  "attribution": "Federal Emergency Management Agency, Ready.gov, Hurricanes, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.",
+  "modification_notice": "Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.",
+  "notice_id": "ready-gov-hurricanes-zh-hans-v1",
+  "raw_sha256": {
+    "https://www.ready.gov/zh-hans/hurricanes": "b120d204b706d1c7eb716dbef206d42578fe8b0f283d8190120ce7dec4ad009e"
+  },
+  "normalized_path": "benchmarks/accuracy/external/ready-gov-hurricanes-zh-hans-v1.json",
+  "normalized_sha256": "d19f52ac68a30bd9feba9d75422440045d5ee8cb89b157aaa0d0467d276e1d00",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Official U.S. emergency guidance is not representative of ordinary Taiwan traffic.",
+    "Hurricane, evacuation, insurance, medical, and safety language is intentionally concentrated.",
+    "List-derived fragments and inline heading joins require input-only eligibility review.",
+    "Only FEMA-authored text in the main element is extracted; images, insignia, navigation, and linked third-party content are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

@@ -31,7 +31,6 @@ from scripts.record_blind_v2_source_classification_decision import (  # noqa: E4
 
 ACCURACY_ROOT = PROJECT_ROOT / "benchmarks" / "accuracy"
 POOL_SCHEMA = ACCURACY_ROOT / "blind-v2.candidate-pool.schema.json"
-SOURCE_CLASS_MAP = {"permissioned": "permissioned_user_report"}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -217,7 +216,6 @@ def build_pool(
         if case["id"] in exclusions:
             continue
         source_class = manifest.get("source_class", "permissive_license")
-        source_class = SOURCE_CLASS_MAP.get(source_class, source_class)
         candidates.append(
             {
                 "id": f"blind-v2-candidate-{len(candidates) + 1:06d}",

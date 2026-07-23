@@ -43,6 +43,14 @@ SUPPORTED_SOURCES = {
     "massive-1-0-zh-cn-v1": "massive",
     "ftc-small-business-simplified-v1": "ftc_pdf",
     "nps-essential-acadia-simplified-v1": "nps_acadia_html",
+    "ready-gov-floods-zh-hans-v1": "ready_gov_html",
+    "ready-gov-hurricanes-zh-hans-v1": "ready_gov_html",
+    "ready-gov-earthquakes-zh-hans-v1": "ready_gov_html",
+}
+READY_GOV_SOURCE_ANCHORS = {
+    "ready-gov-floods-zh-hans-v1": ("洪水", "10/22/2025"),
+    "ready-gov-hurricanes-zh-hans-v1": ("飓风", "07/09/2026"),
+    "ready-gov-earthquakes-zh-hans-v1": ("地震", "10/22/2025"),
 }
 
 
@@ -382,6 +390,75 @@ def parse_nps_acadia_html(content: bytes) -> list[tuple[str, str, str]]:
     ]
 
 
+class ReadyGovMainTextParser(HTMLParser):
+    """Collect paragraph and list-item text from the Ready.gov main element."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.in_main = False
+        self.block_tag: str | None = None
+        self.skip_depth = 0
+        self._parts: list[str] = []
+        self.blocks: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "main":
+            self.in_main = True
+        elif self.in_main and tag in {"script", "style"}:
+            self.skip_depth += 1
+        elif self.in_main and self.block_tag is None and tag in {"p", "li"}:
+            self.block_tag = tag
+            self._parts = []
+        elif self.block_tag is not None and tag == "br":
+            self._parts.append("\n")
+
+    def handle_endtag(self, tag: str) -> None:
+        if self.skip_depth and tag in {"script", "style"}:
+            self.skip_depth -= 1
+        elif self.block_tag == tag:
+            self.blocks.append("".join(self._parts))
+            self.block_tag = None
+            self._parts = []
+        elif tag == "main":
+            self.in_main = False
+
+    def handle_data(self, data: str) -> None:
+        if self.block_tag is not None and not self.skip_depth:
+            self._parts.append(data)
+
+
+def parse_ready_gov_html(source_id: str, content: bytes) -> list[tuple[str, str, str]]:
+    """Extract complete FEMA-authored prose from a pinned Simplified Chinese page."""
+    title, revision = READY_GOV_SOURCE_ANCHORS[source_id]
+    text = content.decode("utf-8")
+    if (
+        '<html lang="zh-hans"' not in text
+        or f"<title>{title} | Ready.gov</title>" not in text
+        or f"Last Updated: {revision}" not in text
+    ):
+        raise ValueError(f"{source_id}: expected language, title, or revision anchor not found")
+
+    parser = ReadyGovMainTextParser()
+    parser.feed(text)
+    sentences: list[str] = []
+    seen: set[str] = set()
+    for block in parser.blocks:
+        for sentence in complete_chinese_sentences(block, minimum_length=8):
+            if re.search(
+                r"(?:https?://|\b[\w.-]+\.(?:gov|org)\b|\(?\d{3}\)?[ -]\d{3}[ -]\d{4}|9-1-1)",
+                sentence,
+                re.I,
+            ):
+                continue
+            if sentence not in seen:
+                seen.add(sentence)
+                sentences.append(sentence)
+    return [
+        ("article", f"sentence-{index:03d}", sentence)
+        for index, sentence in enumerate(sentences, 1)
+    ]
+
+
 def parse_project_original(source_id: str, content: bytes) -> list[tuple[str, str, str]]:
     source = json.loads(content.decode("utf-8"))
     schema = load_json(PROJECT_SOURCE_SCHEMA)
@@ -437,6 +514,8 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
         raw_rows = parse_ftc_small_business_pdf(content)
     elif source_kind == "nps_acadia_html":
         raw_rows = parse_nps_acadia_html(content)
+    elif source_kind == "ready_gov_html":
+        raw_rows = parse_ready_gov_html(manifest["id"], content)
     elif source_kind == "permissioned_user_report_json":
         raw_rows = parse_permissioned_user_reports(manifest["id"], content)
     else:

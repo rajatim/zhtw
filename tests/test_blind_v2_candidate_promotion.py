@@ -28,8 +28,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-007-2026-07-23.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-008-2026-07-23.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-009-2026-07-23.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-008-2026-07-23.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-009-2026-07-23.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -58,24 +60,24 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 611,
+        "total": 696,
         "by_domain": {
-            "formal_news": 84,
-            "high_stakes": 108,
+            "formal_news": 88,
+            "high_stakes": 189,
             "it_api_cli": 121,
             "llm_generated": 48,
             "social_daily": 167,
             "ui_i18n": 83,
         },
         "by_risk": {
-            "baseline_guard": 185,
-            "candidate_gap": 309,
-            "over_conversion_guard": 117,
+            "baseline_guard": 219,
+            "candidate_gap": 357,
+            "over_conversion_guard": 120,
         },
         "by_source_class": {
             "permissive_license": 265,
             "project_original": 200,
-            "public_domain": 146,
+            "public_domain": 231,
         },
         "by_source": {
             "cdc-stacks-111808-v1": 18,
@@ -85,14 +87,18 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ftc-small-business-simplified-v1": 55,
             "massive-1-0-zh-cn-v1": 98,
             "nps-essential-acadia-simplified-v1": 30,
+            "ready-gov-earthquakes-zh-hans-v1": 31,
+            "ready-gov-floods-zh-hans-v1": 28,
+            "ready-gov-hurricanes-zh-hans-v1": 26,
             "ud-chinese-cfl-v1": 69,
             "zhtw-project-it-api-cli-v1": 100,
             "zhtw-project-llm-product-v1": 50,
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == report["promoted"] == 611
-    assert report["excluded_by_dedupe"] == 0
+    assert report["confirmed_eligible"] == 697
+    assert report["promoted"] == 696
+    assert report["excluded_by_dedupe"] == 1
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
         "permissive_license",
@@ -109,4 +115,6 @@ def test_collecting_pool_is_not_ready_for_formal_sampling() -> None:
     assert any("source class permissive_license exceeds 35%" in error for error in errors)
     assert not any("source class project_original exceeds 35%" in error for error in errors)
     assert any("source flores-200-zho-hans-v1 exceeds 10%" in error for error in errors)
-    assert any("source ud-chinese-cfl-v1 exceeds 10%" in error for error in errors)
+    assert any("source massive-1-0-zh-cn-v1 exceeds 10%" in error for error in errors)
+    assert any("source zhtw-project-it-api-cli-v1 exceeds 10%" in error for error in errors)
+    assert not any("source ud-chinese-cfl-v1 exceeds 10%" in error for error in errors)

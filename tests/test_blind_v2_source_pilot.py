@@ -21,6 +21,7 @@ from scripts.import_blind_v2_source_pilot import (
     parse_massive,
     parse_nps_acadia_html,
     parse_project_original,
+    parse_ready_gov_html,
     validate_dataset,
 )
 from scripts.validate_benchmark_assets import validate_manifest
@@ -195,6 +196,21 @@ def test_nps_parser_keeps_only_complete_article_paragraph_sentences() -> None:
     ]
 
 
+def test_ready_gov_parser_keeps_main_prose_and_excludes_phone_and_navigation() -> None:
+    content = """<!doctype html><html lang="zh-hans"><head>
+    <title>洪水 | Ready.gov</title></head><body>
+    <nav><p>导航噪音。</p></nav><main>
+    <p>洪水可能导致严重损害。</p>
+    <ul><li><strong>收到警报后立即撤离。</strong></li>
+    <li>如遇紧急情况，打 9-1-1。</li></ul>
+    <p>Last Updated: 10/22/2025</p></main>
+    <footer><p>页脚噪音。</p></footer></body></html>""".encode()
+
+    rows = parse_ready_gov_html("ready-gov-floods-zh-hans-v1", content)
+
+    assert [row[2] for row in rows] == ["洪水可能导致严重损害。", "收到警报后立即撤离。"]
+
+
 def test_source_class_is_copied_from_manifest(tmp_path: Path) -> None:
     source = tmp_path / "flores.tar.gz"
     source.write_bytes(flores_archive(["公共资料"], []))
@@ -259,6 +275,9 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("massive-1-0-zh-cn-v1", 15619),
         ("ftc-small-business-simplified-v1", 81),
         ("nps-essential-acadia-simplified-v1", 32),
+        ("ready-gov-floods-zh-hans-v1", 53),
+        ("ready-gov-hurricanes-zh-hans-v1", 53),
+        ("ready-gov-earthquakes-zh-hans-v1", 48),
     ),
 )
 def test_committed_source_pilots_are_pinned_and_input_only(

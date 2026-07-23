@@ -114,6 +114,39 @@ is missing.
 - Bias notice: U.S. national-park visitor guidance concentrates travel,
   outdoor-safety, park-rule, and mixed-language place-name usage.
 
+## ready-gov-floods-zh-hans-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Floods*, Simplified
+  Chinese, page last updated October 22, 2025.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded
+- Attribution: Federal Emergency Management Agency, Ready.gov, Floods, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. flood, evacuation, insurance, medical, and safety guidance
+  is not representative of ordinary Taiwan traffic.
+
+## ready-gov-hurricanes-zh-hans-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Hurricanes*,
+  Simplified Chinese, page last updated July 9, 2026.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded
+- Attribution: Federal Emergency Management Agency, Ready.gov, Hurricanes, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. hurricane, evacuation, insurance, medical, and safety
+  guidance is not representative of ordinary Taiwan traffic.
+
+## ready-gov-earthquakes-zh-hans-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Earthquakes*,
+  Simplified Chinese, page last updated October 22, 2025.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded
+- Attribution: Federal Emergency Management Agency, Ready.gov, Earthquakes, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. earthquake, evacuation, medical, and safety guidance is not
+  representative of ordinary Taiwan traffic.
+
 ## cdc-stacks-111808-v1
 
 - Source: CDC Stacks item `cdc:111808`, *当您生病时*, main-document checksum

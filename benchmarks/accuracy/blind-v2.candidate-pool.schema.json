@@ -109,7 +109,7 @@
           "properties": {
             "class": {
               "type": "string",
-              "enum": ["project_original", "permissioned_user_report", "public_domain", "permissive_license"]
+              "enum": ["project_original", "permissioned", "public_domain", "permissive_license"]
             },
             "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
             "citation": { "type": "string", "minLength": 1 },
