@@ -13,6 +13,7 @@ import sys
 import tarfile
 import unicodedata
 import urllib.request
+import xml.etree.ElementTree as ET
 from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
@@ -56,6 +57,7 @@ SUPPORTED_SOURCES = {
     "osha-disaster-cleanup-simplified-v1": "osha_pdf",
     "osha-fallen-workers-family-simplified-v1": "osha_pdf",
     "vscode-loc-zh-hans-v1": "vscode_loc_json",
+    "aosp-framework-zh-rcn-v1": "aosp_strings_xml",
 }
 READY_GOV_SOURCE_ANCHORS = {
     "ready-gov-floods-zh-hans-v1": ("洪水", "10/22/2025"),
@@ -140,6 +142,7 @@ def read_raw_source(manifest: dict[str, Any], source_file: Path | None = None) -
         "flores-200-zho-hans-v1": "flores200_dataset.tar.gz",
         "ud-chinese-cfl-v1": "zh_cfl-ud-test.conllu",
         "vscode-loc-zh-hans-v1": "main.i18n.json",
+        "aosp-framework-zh-rcn-v1": "strings.xml",
     }
     marker = markers.get(manifest["id"])
     data_urls = [url for url in raw_sha256 if marker and url.endswith(marker)]
@@ -290,6 +293,53 @@ def parse_vscode_loc(content: bytes) -> list[tuple[str, str, str]]:
                 raise ValueError(f"VS Code localization source ID collision: {source_case_id}")
             seen_ids.add(source_case_id)
             rows.append(("language_pack", source_case_id, text))
+    return rows
+
+
+def parse_aosp_strings(content: bytes) -> list[tuple[str, str, str]]:
+    """Extract stable Simplified Chinese UI strings from a pinned AOSP resource file."""
+    source_text = content.decode("utf-8")
+    if (
+        "Copyright 2006, The Android Open Source Project" not in source_text
+        or "Licensed under the Apache License, Version 2.0" not in source_text
+    ):
+        raise ValueError("AOSP strings source is missing copyright or license anchors")
+    try:
+        root = ET.fromstring(content)
+    except ET.ParseError as exc:
+        raise ValueError("AOSP strings source is not valid XML") from exc
+    if root.tag != "resources":
+        raise ValueError("AOSP strings source root must be resources")
+
+    rows: list[tuple[str, str, str]] = []
+    seen_keys: set[str] = set()
+    for element in root.findall("string"):
+        name = element.get("name")
+        msgid = element.get("msgid")
+        if not name or not msgid or not msgid.isdigit():
+            raise ValueError("AOSP string must have a name and numeric msgid")
+        source_key = f"{name}\0{msgid}"
+        if source_key in seen_keys:
+            raise ValueError(f"AOSP duplicate resource key: {name}/{msgid}")
+        seen_keys.add(source_key)
+
+        raw_text = "".join(element.itertext())
+        text = normalize_input(raw_text.strip('"'))
+        han_count = len(re.findall(r"[\u3400-\u9fff]", text))
+        if (
+            "\n" in raw_text
+            or r"\n" in raw_text
+            or not 4 <= len(text) <= 240
+            or han_count < 2
+            or re.search(
+                r"(?:https?://|www\.|[\w.+-]+@[\w.-]+|\b[\w-]+\.(?:com|net|org|gov)\b)",
+                text,
+                re.I,
+            )
+        ):
+            continue
+        source_case_id = "string-" + hashlib.sha256(source_key.encode()).hexdigest()[:16]
+        rows.append(("framework_ui", source_case_id, text))
     return rows
 
 
@@ -738,6 +788,8 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
         raw_rows = parse_massive(content)
     elif source_kind == "vscode_loc_json":
         raw_rows = parse_vscode_loc(content)
+    elif source_kind == "aosp_strings_xml":
+        raw_rows = parse_aosp_strings(content)
     elif source_kind == "ftc_pdf":
         raw_rows = parse_ftc_small_business_pdf(content)
     elif source_kind == "ftc_heads_up_pdf":

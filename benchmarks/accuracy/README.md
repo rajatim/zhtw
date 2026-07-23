@@ -283,6 +283,18 @@ field-level adjustments. Maintainer `tim` confirmed the synthesis on 2026-07-24;
 all 100 passed exact/reference and character 5-gram Jaccard 0.85 deduplication
 and entered the collecting pool.
 
+The Apache-2.0 AOSP `platform/frameworks/base` Simplified Chinese framework
+resource pilot is pinned at commit
+`1cdfff555f4a21f71ccc978290e2e212e2f8b168`. Its deterministic XML importer
+retains 1,697 unique single-line input-only `<string>` values after excluding
+escaped multiline content, URLs, email addresses, short non-prose values, and
+138 exact duplicates. Classification batch 014 fixes the first deterministic
+100-case selection. Codex and Gemini via Antigravity CLI independently reviewed
+all 100: 75 exact classifications and 25 risk/domain differences. Codex
+synthesis recommends all 100 as eligible, using 75 agreements, 19 Codex
+selections, 5 Gemini selections, and 1 Codex field-level synthesis. Maintainer
+confirmation is pending; none of these cases is in the collecting pool.
+
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
 checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
 conservative, excludes layout fragments, and never runs zhtw or creates

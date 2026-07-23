@@ -254,6 +254,34 @@ THIRTEENTH_GEMINI_CASE_IDS = {
         "llm-049",
     )
 }
+FOURTEENTH_PACKET_PATH = ACCURACY_ROOT / (
+    "review-packets/blind-v2-source-classification-batch-014.json"
+)
+FOURTEENTH_CODEX_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-first-pass-batch-014-2026-07-24.json"
+)
+FOURTEENTH_GEMINI_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-gemini-independent-batch-014-2026-07-24.json"
+)
+FOURTEENTH_SYNTHESIS_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-synthesis-batch-014-2026-07-24.json"
+)
+FOURTEENTH_ADJUSTMENTS_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-synthesis-adjustments-batch-014-2026-07-24.json"
+)
+FOURTEENTH_DIFF_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-diff-batch-014-2026-07-24.md"
+)
+FOURTEENTH_GEMINI_CASE_IDS = {
+    f"aosp-framework-zh-rcn-v1/{case_id}"
+    for case_id in (
+        "string-04e490f612fcaa02",
+        "string-114f2dd20598dd3d",
+        "string-6b65b8fa97b1b2c5",
+        "string-7179b94f61589660",
+        "string-cd5eacc89701c0a9",
+    )
+}
 
 
 def load(path: Path) -> dict[str, object]:
@@ -1024,4 +1052,58 @@ def test_thirteenth_maintainer_synthesis_decision_is_reproducible() -> None:
         decision_date="2026-07-24",
         selected_advisory="synthesis",
         synthesis_path=THIRTEENTH_SYNTHESIS_PATH,
+    )
+
+
+def test_fourteenth_advisories_and_codex_synthesis_are_reproducible() -> None:
+    packet = load(FOURTEENTH_PACKET_PATH)
+    codex = load(FOURTEENTH_CODEX_PATH)
+    gemini = load(FOURTEENTH_GEMINI_PATH)
+    synthesis = load(FOURTEENTH_SYNTHESIS_PATH)
+    adjustments = load(FOURTEENTH_ADJUSTMENTS_PATH)
+    packet_hash = hashlib.sha256(FOURTEENTH_PACKET_PATH.read_bytes()).hexdigest()
+
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    packet_ids = [case["id"] for case in packet["cases"]]
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert [case["id"] for case in synthesis["cases"]] == packet_ids
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 100,
+        "exact": 75,
+        "review_queue": 25,
+        "by_field": {"eligible": 0, "script": 0, "domain": 1, "risk": 25},
+    }
+    assert len(differences) == 25
+    assert gemini["reviewer"] == "Gemini via Antigravity CLI"
+    assert gemini["model"] == "gemini-3.1-pro-high"
+    assert gemini["validation"]["exact_id_coverage"] == "100/100"
+    assert gemini["validation"]["tool_calls"] == 0
+    assert gemini["validation"]["api_errors"] == 0
+    assert synthesis["stats"] == {
+        "total": 100,
+        "eligible": 100,
+        "excluded": 0,
+        "by_selection_basis": {
+            "agreement": 75,
+            "codex": 19,
+            "codex_synthesis": 1,
+            "gemini": 5,
+        },
+    }
+    overrides = {case["id"]: case["classification"] for case in adjustments["cases"]}
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=FOURTEENTH_GEMINI_CASE_IDS,
+        generated_date="2026-07-24",
+        overrides=overrides,
+        override_basis="codex_synthesis",
+    )
+    assert FOURTEENTH_DIFF_PATH.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-24",
     )

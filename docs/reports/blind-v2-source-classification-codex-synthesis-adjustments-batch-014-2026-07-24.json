@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-014.json",
+  "packet_sha256": "c1d4641b153ac4827143b5d26cba263ea6da22f762252cfe59a2feeefe9e500a",
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-850768a853e8e22d",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 內容是災害撤離指示，domain 應依語義列 high_stakes；用語主要是標準字形轉換，因此 risk 採 baseline_guard。"
+    }
+  ]
+}

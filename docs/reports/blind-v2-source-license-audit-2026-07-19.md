@@ -3,7 +3,7 @@
 
 Status: twenty-four source pilots imported; Tatoeba CC0 pilot rejected; classification ongoing
 
-Updated: 2026-07-24 (project-original formal/LLM semantic pilot added)
+Updated: 2026-07-24 (AOSP framework Simplified Chinese pilot added)
 
 Issue: #43
 
@@ -53,6 +53,27 @@ input alone.
   Codex and Gemini advisories plus Codex synthesis are complete. The maintainer
   confirmed all 100 as eligible, including four explicit eligibility/risk
   adjustments. All 100 passed exact/near dedupe and entered the collecting pool.
+
+### AOSP framework Simplified Chinese resources
+
+- Repository: <https://android.googlesource.com/platform/frameworks/base/>;
+  mirrored at <https://github.com/aosp-mirror/platform_frameworks_base>.
+- Pinned revision: `1cdfff555f4a21f71ccc978290e2e212e2f8b168`.
+- Source XML SHA-256:
+  `71e241287957d068dcf6df1df1f8279109bd79f68e69b7de9137b60d4ff8d915`.
+- License: Apache License 2.0, stated directly in the pinned `strings.xml`
+  header. Source class: `permissive_license`.
+- Import result: 1,835 structurally eligible `<string>` resources before
+  within-source dedupe; 138 exact duplicates removed and 1,697 unique
+  input-only candidates retained. Escaped multiline values, URLs, email
+  addresses, and short non-prose values are excluded before selection.
+- Known bias: Android platform localization is dominated by system UI,
+  telephony, security, device management, and formatting placeholders; it is
+  not independently authored organic market-frequency evidence.
+- Decision: accepted as an input-only pilot and at most 588 final cases.
+  Classification batch 014 fixes a deterministic first 100-case selection.
+  Codex and Gemini independent advisories plus Codex synthesis are complete;
+  maintainer confirmation and promotion remain pending.
 
 ### NPS *Essential Acadia: Simplified Chinese*
 
@@ -326,11 +347,12 @@ the pilot ceiling is:
 | OSHA disaster cleanup | 76 | 588 | 76 |
 | OSHA fallen-workers family guide | 23 | 588 | 23 |
 | VS Code zh-hans localization | 15,618 | 588 | 588 |
+| AOSP framework zh-rCN | 1,697 | 588 | 588 |
 | FTC Heads Up online safety | 117 | 588 | 117 |
-| **Source-cap total** | **34,628** | | **3,146 (53.50%)** |
+| **Source-cap total** | **36,325** | | **3,734 (63.50%)** |
 | **Class-adjusted total** | | | **2,989 (50.83%)** |
 
-FLORES, UD-CFL, MASSIVE, and VS Code localization are `permissive_license`;
+FLORES, UD-CFL, MASSIVE, VS Code localization, and AOSP are `permissive_license`;
 the three CDC documents, two FTC publications, NPS, three Ready.gov pages, and seven OSHA publications are
 `public_domain`; the four synthetic sources are `project_original`. All
 permissive source caps total 2,215, so that class is limited to 2,058 by the

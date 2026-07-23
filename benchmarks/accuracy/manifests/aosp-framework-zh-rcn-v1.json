@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "aosp-framework-zh-rcn-v1",
+  "track": "blind",
+  "source_class": "permissive_license",
+  "source_urls": [
+    "https://android.googlesource.com/platform/frameworks/base/",
+    "https://github.com/aosp-mirror/platform_frameworks_base",
+    "https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/1cdfff555f4a21f71ccc978290e2e212e2f8b168/core/res/res/values-zh-rCN/strings.xml"
+  ],
+  "upstream_revision": "AOSP platform/frameworks/base commit 1cdfff555f4a21f71ccc978290e2e212e2f8b168; core framework Simplified Chinese resources; raw XML SHA-256: 71e241287957d068dcf6df1df1f8279109bd79f68e69b7de9137b60d4ff8d915",
+  "retrieved_at": "2026-07-24T12:00:00+08:00",
+  "license": "Apache License 2.0",
+  "license_url": "https://android.googlesource.com/platform/frameworks/base/+/1cdfff555f4a21f71ccc978290e2e212e2f8b168/core/res/res/values-zh-rCN/strings.xml",
+  "output_license": "Apache License 2.0",
+  "attribution": "Android Open Source Project contributors.",
+  "modification_notice": "Extracted single-line Simplified Chinese <string> resources with stable name/msgid keys, applied Unicode NFC and whitespace normalization, and excluded short non-prose values, URLs, email addresses, and converter or expected output.",
+  "notice_id": "aosp-framework-zh-rcn-v1",
+  "raw_sha256": {
+    "https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/1cdfff555f4a21f71ccc978290e2e212e2f8b168/core/res/res/values-zh-rCN/strings.xml": "71e241287957d068dcf6df1df1f8279109bd79f68e69b7de9137b60d4ff8d915"
+  },
+  "normalized_path": "benchmarks/accuracy/external/aosp-framework-zh-rcn-v1.json",
+  "normalized_sha256": "5767a706a12bea1912bf55833219f078aa74c2edac81c27d1df5f6ea0f85886f",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "The source is a platform localization resource rather than independently authored organic Simplified Chinese traffic.",
+    "Android system UI, telephony, networking, security, and device-management terminology are heavily represented.",
+    "Short labels, placeholders, and context-dependent messages require input-only eligibility review.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

@@ -1,0 +1,1021 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex",
+  "stage": "codex_first_pass",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-014.json",
+  "packet_sha256": "c1d4641b153ac4827143b5d26cba263ea6da22f762252cfe59a2feeefe9e500a",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "high": 94,
+    "medium": 6,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0424226521199e8f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-04e490f612fcaa02",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0946febe118277d9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0ca79400d5aedfe9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-114f2dd20598dd3d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1a5670eef6532f3b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1ba0929f75dfc62e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-22ae42ed309c657d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-24a39a5ccc2b3d12",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-24f9a59d6edfe704",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-266474f0624c0fa9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-26eb68f22b27f7f8",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2ab218a86a830b0e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2c548aef4c9b8a7e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2da0f76e24790062",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2faf016ae57bcbe0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-33497b75cd3276b2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-33ea5d6d1619e312",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；格式參數、通訊縮寫或服務類型識別內容必須保留。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-40373104931a7918",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-457ff5281833fb50",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4670ad17ee38c5c3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4695084eb2d32977",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-494f5b86cc9c7377",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4a412374573e6352",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4a58f86c1c7a6b6a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4a599454a08ef5f4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4b719e399a50e69d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4c575f52dc87f314",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4c8586dc364b10e4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4d04bf8219b9df1d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4eda306d86b00340",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4f7bba6c7fb6a053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-502106f58c008f9b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-521753f3af0502e4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-53374a62da2cd1aa",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-54982c33c74de5c1",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5916f4df616747a6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-595b481f2395bd6b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5da7c1e0395b67f5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5f9ffea22b251641",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-626a12d2f524d3db",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；格式參數、通訊縮寫或服務類型識別內容必須保留。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-63bafa656a3d9130",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6475efdefe0af907",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-67d886e7a97cb71a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6b514c1ea9245e27",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6b65b8fa97b1b2c5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整 Android UI 字串；格式參數、通訊縮寫或服務類型識別內容必須保留。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7067239e308a821f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7102c318b00ba79a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7179b94f61589660",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；格式參數、通訊縮寫或服務類型識別內容必須保留。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-733a23a842172f89",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-750be27937a5c235",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-762cf6bfaabd23dd",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-76f2bac743a964fd",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-782d0225fab979c7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-79497cf5e3ff2d00",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-818e3249352984ff",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；格式參數、通訊縮寫或服務類型識別內容必須保留。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-83f6199d1ca745e2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-850768a853e8e22d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-863c9ad46af65fb8",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；格式參數、通訊縮寫或服務類型識別內容必須保留。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9440eb5840670613",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-976a999e97ed096a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-985f3e62d4cdd3d3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-986a04962838aa55",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9d0f7c56ca13f88a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a46154151628b3de",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a4edace6360cdf43",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a70033321575eb47",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a7e7f2f478cbd1b2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ab602cb466482e30",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ae32634a8cf6fdbb",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-af32478cab475d8f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整 Android UI 字串；格式參數、通訊縮寫或服務類型識別內容必須保留。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b0999d914ef3bd30",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；格式參數、通訊縮寫或服務類型識別內容必須保留。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b87cd6acf41d4c27",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c079cfa3784c1cd0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c0a18cc4146ea15d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c32debe746f13f35",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c51e0a1a2bf8e18a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c8134055d6de6cb3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-cae1479e8ce258d9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-cd5eacc89701c0a9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-cd9d9be8c34b912c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-cfe4cf1440d7306e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d19f2ec2c3c33890",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d234e63792616c07",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d4ab84b405404718",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d6b9ae56be94e5c1",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d8b4cc362c506011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d8c148817cdc822d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；格式參數、通訊縮寫或服務類型識別內容必須保留。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-dbf7e0f65226f5ec",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-dce3aca9f1101e72",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e074d2c8d848f2bc",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e07fed05b9506dff",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-eb647928054501d0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ed21101bfa5b9c28",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；格式參數、通訊縮寫或服務類型識別內容必須保留。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f0b543124d7b6571",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f282e8289858b6a7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f322f38dcd55df00",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f8dfa816a844a084",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-faac0818af4d4291",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；含臺灣產品介面常需正規化的簡體用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fcb0f21fdfcadcbc",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 Android UI 字串；主要需要字形轉換，保留作基準護衛。"
+    }
+  ]
+}

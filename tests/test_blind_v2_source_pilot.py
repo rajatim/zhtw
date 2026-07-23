@@ -16,6 +16,7 @@ from scripts.benchmark_metrics import canonical_json_bytes
 from scripts.import_blind_v2_source_pilot import (
     build_dataset,
     normalize_input,
+    parse_aosp_strings,
     parse_cdc_pages,
     parse_ftc_heads_up_pages,
     parse_ftc_small_business_pages,
@@ -166,6 +167,27 @@ def test_vscode_loc_parser_keeps_structured_ui_text_only() -> None:
     assert [row[2] for row in rows] == ["无法保存文件: {0}", "打开辅助视图"]
     assert all(row[0] == "language_pack" for row in rows)
     assert all(row[1].startswith("entry-") for row in rows)
+
+
+def test_aosp_parser_keeps_stable_single_line_ui_strings() -> None:
+    content = """<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2006, The Android Open Source Project
+Licensed under the Apache License, Version 2.0 -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="save" msgid="1">"保存文件"</string>
+  <string name="retry" msgid="2"
+    >"无法连接。请在 <xliff:g id="SECONDS">%1$d</xliff:g> 秒后重试。"</string>
+  <string name="url" msgid="3">"请访问 https://example.test"</string>
+  <string name="short" msgid="4">"未知"</string>
+  <string name="escaped_newline" msgid="5">"第一行\\n第二行"</string>
+  <string name="bare_domain" msgid="6">"请访问 google.com"</string>
+</resources>""".encode()
+
+    rows = parse_aosp_strings(content)
+
+    assert [row[2] for row in rows] == ["保存文件", "无法连接。请在 %1$d 秒后重试。"]
+    assert all(row[0] == "framework_ui" for row in rows)
+    assert all(row[1].startswith("string-") for row in rows)
 
 
 def test_cdc_pdf_parser_joins_layout_wraps_and_keeps_complete_sentences() -> None:
@@ -358,6 +380,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("osha-disaster-cleanup-simplified-v1", 76),
         ("osha-fallen-workers-family-simplified-v1", 23),
         ("vscode-loc-zh-hans-v1", 15618),
+        ("aosp-framework-zh-rcn-v1", 1697),
     ),
 )
 def test_committed_source_pilots_are_pinned_and_input_only(

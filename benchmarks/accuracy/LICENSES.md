@@ -79,6 +79,19 @@ is missing.
   authored organic Simplified Chinese traffic. Short commands, fragments, wake
   words, and mixed-language rows require input-only quality review.
 
+## aosp-framework-zh-rcn-v1
+
+- Source: Android Open Source Project `platform/frameworks/base`, Simplified
+  Chinese core framework string resources at commit
+  `1cdfff555f4a21f71ccc978290e2e212e2f8b168`.
+- License: Apache License 2.0, stated in the source-file header.
+- Attribution: Android Open Source Project contributors.
+- Modifications: Extracted single-line Simplified Chinese <string> resources with stable name/msgid keys, applied Unicode NFC and whitespace normalization, and excluded short non-prose values, URLs, email addresses, and converter or expected output.
+- Output license: Apache License 2.0.
+- Bias notice: Platform-localized Android UI and system terminology are not
+  independently authored organic Simplified Chinese traffic. Context-dependent
+  messages and formatting placeholders require input-only review.
+
 ## vscode-loc-zh-hans-v1
 
 - Source: Microsoft `vscode-loc` Chinese (Simplified) language pack,
