@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 013 (2026-07-24)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `42467a73426931d5153f555036d323fae3af302d7c45a8e4043939e19ba45957`
 Cases: 100
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 43 advisory disagreements and batch-confirmed the 57 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 法定表決程序完整且需保留通過語義。
 
 Gemini reason: 一般門檻轉寫，無特殊歧義
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 02. zhtw-project-formal-llm-semantic-v1/formal-005
 
@@ -63,7 +63,7 @@ Codex reason: 金融發行語境完整，不得誤作一般發布。
 
 Gemini reason: 金融發行語境，防誤改發布
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 03. zhtw-project-formal-llm-semantic-v1/formal-006
 
@@ -84,7 +84,7 @@ Codex reason: 貨幣發行屬金融高風險語境。
 
 Gemini reason: 貨幣發行語境，防誤改發布
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 04. zhtw-project-formal-llm-semantic-v1/formal-008
 
@@ -105,7 +105,7 @@ Codex reason: 機關發布報告屬正式文字。
 
 Gemini reason: 政府發布報告，標準用語
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 05. zhtw-project-formal-llm-semantic-v1/formal-009
 
@@ -126,7 +126,7 @@ Codex reason: 政府發布統計的正式語境完整。
 
 Gemini reason: 發布統計資料，標準用語
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 06. zhtw-project-formal-llm-semantic-v1/formal-013
 
@@ -147,7 +147,7 @@ Codex reason: 人體研究同意與研究對象屬高風險語境。
 
 Gemini reason: 研究對象語境，防誤轉物件
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 07. zhtw-project-formal-llm-semantic-v1/formal-014
 
@@ -168,7 +168,7 @@ Codex reason: 社福服務對象語境完整。
 
 Gemini reason: 服務對象語境，防誤轉物件
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 08. zhtw-project-formal-llm-semantic-v1/formal-015
 
@@ -189,7 +189,7 @@ Codex reason: 正式審議中的支持語義清楚。
 
 Gemini reason: 支持提案語境，防誤改支援
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 09. zhtw-project-formal-llm-semantic-v1/formal-018
 
@@ -210,7 +210,7 @@ Codex reason: 機關執行決議的正式語境完整。
 
 Gemini reason: 行政執行決議，防過度轉換
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 10. zhtw-project-formal-llm-semantic-v1/formal-026
 
@@ -231,7 +231,7 @@ Codex reason: 帳號與公司註銷的對照完整，但帳號動作仍需語境
 
 Gemini reason: 含帳號詞彙，需台化轉換
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 11. zhtw-project-formal-llm-semantic-v1/formal-027
 
@@ -252,7 +252,7 @@ Codex reason: 應用理論不是應用程式。
 
 Gemini reason: 學術定義語境，標準轉換
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 12. zhtw-project-formal-llm-semantic-v1/formal-029
 
@@ -273,7 +273,7 @@ Codex reason: 偏遠醫療支持屬高風險公共服務語境。
 
 Gemini reason: 醫療支援服務，標準轉換
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 13. zhtw-project-formal-llm-semantic-v1/formal-032
 
@@ -294,7 +294,7 @@ Codex reason: 項目為比賽項目，不是專案。
 
 Gemini reason: 體育賽事分組，標準轉換
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 14. zhtw-project-formal-llm-semantic-v1/formal-035
 
@@ -315,7 +315,7 @@ Codex reason: 補助與服務對象屬高風險公共政策語境。
 
 Gemini reason: 社會補助標準，標準轉換
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 15. zhtw-project-formal-llm-semantic-v1/formal-036
 
@@ -336,7 +336,7 @@ Codex reason: 節目為電視內容，不是軟體程式。
 
 Gemini reason: 媒體訪談節目，標準轉換
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 16. zhtw-project-formal-llm-semantic-v1/formal-038
 
@@ -357,7 +357,7 @@ Codex reason: 港口受損容器涉及現場安全。
 
 Gemini reason: 港口受損容器，防誤改軟體容器
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 17. zhtw-project-formal-llm-semantic-v1/formal-040
 
@@ -378,7 +378,7 @@ Codex reason: 分支為組織分支，語義完整。
 
 Gemini reason: 地方分支機構，防誤改程式分支
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 18. zhtw-project-formal-llm-semantic-v1/formal-047
 
@@ -399,7 +399,7 @@ Codex reason: 正式審議語境中的返回較可能需要在地化為退回。
 
 Gemini reason: 委員會審議流程，標準轉換
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 19. zhtw-project-formal-llm-semantic-v1/llm-009
 
@@ -420,7 +420,7 @@ Codex reason: 餐廳與軟體選單語境對照。
 
 Gemini reason: 菜單與選單本地化提示
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 20. zhtw-project-formal-llm-semantic-v1/llm-011
 
@@ -441,7 +441,7 @@ Codex reason: 郵寄地址與網路位址語境對照。
 
 Gemini reason: 地址與位址語境辨識
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 21. zhtw-project-formal-llm-semantic-v1/llm-012
 
@@ -462,7 +462,7 @@ Codex reason: 偏遠地區與遠端連線語境對照。
 
 Gemini reason: 遠程與遠端語境區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 22. zhtw-project-formal-llm-semantic-v1/llm-015
 
@@ -483,7 +483,7 @@ Codex reason: 行政事務與資料庫交易語境對照。
 
 Gemini reason: 行政事務與資料庫交易區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 23. zhtw-project-formal-llm-semantic-v1/llm-016
 
@@ -504,7 +504,7 @@ Codex reason: 案例與雲端執行個體語境對照。
 
 Gemini reason: 說明實例與雲端執行個體區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 24. zhtw-project-formal-llm-semantic-v1/llm-021
 
@@ -525,7 +525,7 @@ Codex reason: 港口與技術端口對照完整，但句中也要求先確認原
 
 Gemini reason: 海港港口與網路連接埠區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 25. zhtw-project-formal-llm-semantic-v1/llm-024
 
@@ -546,7 +546,7 @@ Codex reason: 圖書館與程式庫語境對照。
 
 Gemini reason: 圖書館與程式庫之簡稱歧義
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 26. zhtw-project-formal-llm-semantic-v1/llm-025
 
@@ -567,7 +567,7 @@ Codex reason: 包裹與軟體套件語境對照。
 
 Gemini reason: 快遞包裹與軟體套件區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 27. zhtw-project-formal-llm-semantic-v1/llm-026
 
@@ -588,7 +588,7 @@ Codex reason: 產品類別與程式類別語境對照。
 
 Gemini reason: 產品類別與程式類別區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 28. zhtw-project-formal-llm-semantic-v1/llm-027
 
@@ -609,7 +609,7 @@ Codex reason: 農田與資料欄位語境對照。
 
 Gemini reason: 農田與資料欄位多義字區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 29. zhtw-project-formal-llm-semantic-v1/llm-028
 
@@ -630,7 +630,7 @@ Codex reason: 數學函數與程式函式語境對照。
 
 Gemini reason: 數學函數與程式函式名稱區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 30. zhtw-project-formal-llm-semantic-v1/llm-029
 
@@ -651,7 +651,7 @@ Codex reason: 數學與模板變數語境對照。
 
 Gemini reason: 數學與模板變數保護說明
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 31. zhtw-project-formal-llm-semantic-v1/llm-032
 
@@ -672,7 +672,7 @@ Codex reason: 經濟恢復與備份還原語境對照。
 
 Gemini reason: 經濟復甦與備份還原區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 32. zhtw-project-formal-llm-semantic-v1/llm-033
 
@@ -693,7 +693,7 @@ Codex reason: 理論應用與應用程式語境對照。
 
 Gemini reason: 應用理論與開啟應用程式區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 33. zhtw-project-formal-llm-semantic-v1/llm-034
 
@@ -714,7 +714,7 @@ Codex reason: 範圍擴展與瀏覽器擴充功能語境對照。
 
 Gemini reason: 擴展範圍與擴充功能區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 34. zhtw-project-formal-llm-semantic-v1/llm-035
 
@@ -735,7 +735,7 @@ Codex reason: 貨物裝載與網頁載入語境對照。
 
 Gemini reason: 裝載貨物與載入網頁區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 35. zhtw-project-formal-llm-semantic-v1/llm-036
 
@@ -756,7 +756,7 @@ Codex reason: 實體連接處與網頁連結語境對照。
 
 Gemini reason: 實體連接與網頁連結區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 36. zhtw-project-formal-llm-semantic-v1/llm-037
 
@@ -777,7 +777,7 @@ Codex reason: 商品標籤與介面分頁標籤語境對照。
 
 Gemini reason: 商品標籤與分頁標籤區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 37. zhtw-project-formal-llm-semantic-v1/llm-041
 
@@ -798,7 +798,7 @@ Codex reason: 舞台表現與系統效能語境對照。
 
 Gemini reason: 舞台表現與系統效能區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 38. zhtw-project-formal-llm-semantic-v1/llm-042
 
@@ -819,7 +819,7 @@ Codex reason: 記者回應與介面回應語境對照。
 
 Gemini reason: 記者回應與介面回應區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 39. zhtw-project-formal-llm-semantic-v1/llm-044
 
@@ -840,7 +840,7 @@ Codex reason: 統計與監控指標語境對照。
 
 Gemini reason: 統計與監控指標區分說明
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 40. zhtw-project-formal-llm-semantic-v1/llm-045
 
@@ -861,7 +861,7 @@ Codex reason: 包裹追蹤與分散式追蹤語境對照。
 
 Gemini reason: 包裹追蹤與分散式追蹤區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 41. zhtw-project-formal-llm-semantic-v1/llm-046
 
@@ -882,7 +882,7 @@ Codex reason: 人類記憶與電腦記憶體語境對照。
 
 Gemini reason: 人類記憶與電腦記憶體區分
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 42. zhtw-project-formal-llm-semantic-v1/llm-049
 
@@ -903,7 +903,7 @@ Codex reason: 歧義偵測與避免猜測的 LLM 情境。
 
 Gemini reason: 多義句歧義指出指示
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 43. zhtw-project-formal-llm-semantic-v1/llm-050
 
@@ -924,4 +924,4 @@ Codex reason: 上下文不足時要求澄清，屬語義防護。
 
 Gemini reason: 語境不足時請求補充指示
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`

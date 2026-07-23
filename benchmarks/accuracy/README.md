@@ -275,12 +275,13 @@ The project-original `zhtw-project-formal-llm-semantic-v1` pilot adds 100
 Codex-drafted input-only candidates: 50 formal-writing contexts and 50 LLM
 semantic-preservation contexts. It is synthetic coverage, not organic market
 traffic. The source and normalized snapshot are checksum-pinned, contain no
-expected or converter output, and remain outside the collecting pool until
-maintainer confirmation is complete. Codex and Gemini via Antigravity CLI
+expected or converter output. Codex and Gemini via Antigravity CLI
 independently classified all 100 cases: 57 four-field matches and 43
 differences. Codex synthesis recommends all 100 as eligible, with 57 agreements,
 24 Gemini selections, 16 Codex selections, and 3 explicitly labeled Codex
-field-level adjustments. No maintainer decision has been recorded.
+field-level adjustments. Maintainer `tim` confirmed the synthesis on 2026-07-24;
+all 100 passed exact/reference and character 5-gram Jaccard 0.85 deduplication
+and entered the collecting pool.
 
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
 checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
@@ -352,12 +353,12 @@ recommends 55 eligible and 26 context-dependent exclusions. Maintainer
 exact/reference and character 5-gram Jaccard 0.85 near-deduplication and entered
 the collecting pool; all 26 context-dependent inputs remain excluded.
 
-Classification batches 001-012 now contribute 981 maintainer-confirmed eligible
+Classification batches 001-013 now contribute 1,081 maintainer-confirmed eligible
 inputs to the `collecting` candidate pool after cross-batch/reference exact and
 character 5-gram Jaccard 0.85 near-deduplication.
 All six domains now have coverage, but the pool is not ready to freeze or sample.
 Permissioned user-report batch 001 is collecting at 0/100 and therefore is not
-included in the 981 cases.
+included in the 1,081 cases.
 
 Source-classification batch 008 covers 32 complete sentences from the NPS
 public-domain *Essential Acadia: Simplified Chinese* article. Codex and Gemini
@@ -411,6 +412,16 @@ synthesis uses 49 agreements, 50 Codex classifications, and 1 maintainer
 adjustment. All 100 passed exact/reference and character 5-gram Jaccard 0.85
 deduplication and entered the pool. The pool is now 981 cases, leaving a
 4,899-case minimum-pool gap.
+
+Source-classification batch 013 covers 100 project-original input-only cases:
+50 formal-writing contexts and 50 LLM semantic-preservation contexts. Codex and
+Gemini via Antigravity CLI (`gemini-3.1-pro-high`) independently reviewed all
+100 IDs with zero Gemini tool calls and zero API errors. They match exactly on
+57 cases and differ on 43. Maintainer `tim` confirmed the Codex synthesis on
+2026-07-24: 57 agreements, 24 Gemini selections, 16 Codex selections, and 3
+Codex field-level synthesis decisions. All 100 are eligible and passed
+exact/reference and character 5-gram Jaccard 0.85 deduplication. The pool is now
+1,081 cases, leaving a 4,799-case minimum-pool gap.
 
 Rebuild and validate the current collecting pool:
 

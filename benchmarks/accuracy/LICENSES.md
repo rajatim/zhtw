@@ -110,7 +110,9 @@ is missing.
 - Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
 - Output license: MIT.
 - Bias notice: Synthetic challenge coverage is not independently observed
-  market-frequency evidence. Domain and risk remain pending input-only review.
+  market-frequency evidence. Independent Gemini advisory and maintainer
+  input-only review completed on 2026-07-24; all 100 cases passed promotion
+  deduplication.
 
 ## ftc-small-business-simplified-v1
 

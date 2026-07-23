@@ -222,6 +222,9 @@ THIRTEENTH_ADJUSTMENTS_PATH = ROOT / (
 THIRTEENTH_DIFF_PATH = ROOT / (
     "docs/reports/blind-v2-source-classification-diff-batch-013-2026-07-24.md"
 )
+THIRTEENTH_DECISION_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-decision-batch-013-2026-07-24.json"
+)
 THIRTEENTH_GEMINI_CASE_IDS = {
     f"zhtw-project-formal-llm-semantic-v1/{case_id}"
     for case_id in (
@@ -961,6 +964,7 @@ def test_thirteenth_advisories_and_codex_synthesis_are_reproducible() -> None:
     codex = load(THIRTEENTH_CODEX_PATH)
     gemini = load(THIRTEENTH_GEMINI_PATH)
     synthesis = load(THIRTEENTH_SYNTHESIS_PATH)
+    decision = load(THIRTEENTH_DECISION_PATH)
     adjustments = load(THIRTEENTH_ADJUSTMENTS_PATH)
     packet_hash = hashlib.sha256(THIRTEENTH_PACKET_PATH.read_bytes()).hexdigest()
 
@@ -1007,4 +1011,17 @@ def test_thirteenth_advisories_and_codex_synthesis_are_reproducible() -> None:
         codex,
         gemini,
         generated_date="2026-07-24",
+        maintainer_decisions=decision,
+    )
+
+
+def test_thirteenth_maintainer_synthesis_decision_is_reproducible() -> None:
+    assert load(THIRTEENTH_DECISION_PATH) == build_decision(
+        THIRTEENTH_PACKET_PATH,
+        THIRTEENTH_CODEX_PATH,
+        THIRTEENTH_GEMINI_PATH,
+        maintainer="tim",
+        decision_date="2026-07-24",
+        selected_advisory="synthesis",
+        synthesis_path=THIRTEENTH_SYNTHESIS_PATH,
     )

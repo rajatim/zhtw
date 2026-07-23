@@ -122,11 +122,11 @@ input alone.
 - License: MIT; source class `project_original`.
 - Restrictions: synthetic quota coverage only, not organic market-frequency
   evidence. No converter output or expected text influenced drafting or source
-  acceptance. Domain and risk remain unset pending independent input-only review.
+  acceptance. Domain and risk were assigned only through input-only review.
 - Decision: accepted as an input-only pilot. Codex and Gemini via Antigravity
-  CLI independently classified all 100 inputs; Codex synthesis is complete,
-  but maintainer confirmation is pending, so the source is not eligible for
-  promotion.
+  CLI independently classified all 100 inputs; maintainer `tim` confirmed the
+  Codex synthesis on 2026-07-24. All 100 passed the promotion dedupe gate and
+  entered the collecting pool.
 
 ### MASSIVE 1.0 `zh-CN`
 
