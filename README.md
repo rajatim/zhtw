@@ -573,6 +573,14 @@ pytest
 ruff check .
 ```
 
+## 協助建立公開 Benchmark
+
+你可以透過
+[專用表單](https://github.com/rajatim/zhtw/issues/new?template=permissioned-user-report.yml)
+提供 1 至 10 個由你原創或有權提供的真實簡體中文句子。請勿附上繁體答案、轉換器
+輸出或敏感資料；授權條款與收集進度請見
+[issue #47](https://github.com/rajatim/zhtw/issues/47)。
+
 有問題？[開 Issue](https://github.com/rajatim/zhtw/issues) | 想貢獻？[看 Contributing Guide](CONTRIBUTING.md)
 
 ---

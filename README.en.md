@@ -573,6 +573,16 @@ pytest
 ruff check .
 ```
 
+## Help Build the Public Benchmark
+
+Use the
+[dedicated form](https://github.com/rajatim/zhtw/issues/new?template=permissioned-user-report.yml)
+to contribute 1–10 real Simplified Chinese sentences that you wrote or have the
+right to provide. Do not include Traditional Chinese answers, converter output,
+or sensitive data. See
+[issue #47](https://github.com/rajatim/zhtw/issues/47) for consent terms and
+collection progress.
+
 Questions? [Open an issue](https://github.com/rajatim/zhtw/issues). Want to contribute? [See the contributing guide](CONTRIBUTING.md).
 
 ---
