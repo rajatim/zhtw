@@ -32,8 +32,12 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-009-2026-07-23.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-010-2026-07-24.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-011-2026-07-24.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-012-2026-07-24.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-010-2026-07-24.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-012-2026-07-24.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -62,30 +66,31 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 781,
+        "total": 981,
         "by_domain": {
             "formal_news": 110,
-            "high_stakes": 249,
-            "it_api_cli": 121,
-            "llm_generated": 48,
-            "social_daily": 170,
-            "ui_i18n": 83,
+            "high_stakes": 250,
+            "it_api_cli": 219,
+            "llm_generated": 57,
+            "social_daily": 223,
+            "ui_i18n": 122,
         },
         "by_risk": {
-            "baseline_guard": 244,
-            "candidate_gap": 405,
-            "over_conversion_guard": 132,
+            "baseline_guard": 297,
+            "candidate_gap": 521,
+            "over_conversion_guard": 163,
         },
         "by_source_class": {
-            "permissive_license": 265,
+            "permissive_license": 365,
             "project_original": 200,
-            "public_domain": 316,
+            "public_domain": 416,
         },
         "by_source": {
             "cdc-stacks-111808-v1": 18,
             "cdc-stacks-116683-v1": 21,
             "cdc-stacks-120024-v1": 22,
             "flores-200-zho-hans-v1": 98,
+            "ftc-heads-up-simplified-v1": 100,
             "ftc-small-business-simplified-v1": 55,
             "massive-1-0-zh-cn-v1": 98,
             "nps-essential-acadia-simplified-v1": 30,
@@ -100,13 +105,14 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ready-gov-floods-zh-hans-v1": 28,
             "ready-gov-hurricanes-zh-hans-v1": 26,
             "ud-chinese-cfl-v1": 69,
+            "vscode-loc-zh-hans-v1": 100,
             "zhtw-project-it-api-cli-v1": 100,
             "zhtw-project-llm-product-v1": 50,
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 782
-    assert report["promoted"] == 781
+    assert report["confirmed_eligible"] == 982
+    assert report["promoted"] == 981
     assert report["excluded_by_dedupe"] == 1
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
@@ -121,10 +127,12 @@ def test_collecting_pool_is_not_ready_for_formal_sampling() -> None:
     errors = validate_pool(POOL, require_ready=True)
 
     assert any("requires at least 5880 cases" in error for error in errors)
-    assert not any("source class permissive_license exceeds 35%" in error for error in errors)
+    assert any("source class permissive_license exceeds 35%" in error for error in errors)
     assert any("source class public_domain exceeds 35%" in error for error in errors)
     assert not any("source class project_original exceeds 35%" in error for error in errors)
-    assert any("source flores-200-zho-hans-v1 exceeds 10%" in error for error in errors)
-    assert any("source massive-1-0-zh-cn-v1 exceeds 10%" in error for error in errors)
+    assert not any("source flores-200-zho-hans-v1 exceeds 10%" in error for error in errors)
+    assert any("source ftc-heads-up-simplified-v1 exceeds 10%" in error for error in errors)
+    assert not any("source massive-1-0-zh-cn-v1 exceeds 10%" in error for error in errors)
+    assert any("source vscode-loc-zh-hans-v1 exceeds 10%" in error for error in errors)
     assert any("source zhtw-project-it-api-cli-v1 exceeds 10%" in error for error in errors)
     assert not any("source ud-chinese-cfl-v1 exceeds 10%" in error for error in errors)

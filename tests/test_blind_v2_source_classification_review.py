@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 
+from scripts.build_blind_v2_codex_synthesis import build_synthesis
 from scripts.compare_blind_v2_source_classifications import build_comparison, render_markdown
 from scripts.record_blind_v2_source_classification_decision import (
     build_decision,
@@ -154,6 +155,54 @@ TENTH_DIFF_PATH = ROOT / (
 )
 TENTH_DECISION_PATH = ROOT / (
     "docs/reports/blind-v2-source-classification-maintainer-decision-batch-010-2026-07-24.json"
+)
+ELEVENTH_PACKET_PATH = ACCURACY_ROOT / (
+    "review-packets/blind-v2-source-classification-batch-011.json"
+)
+ELEVENTH_CODEX_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-first-pass-batch-011-2026-07-24.json"
+)
+ELEVENTH_GEMINI_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-gemini-independent-batch-011-2026-07-24.json"
+)
+ELEVENTH_SYNTHESIS_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-synthesis-batch-011-2026-07-24.json"
+)
+ELEVENTH_ADJUSTMENTS_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-adjustments-batch-011-2026-07-24.json"
+)
+ELEVENTH_DIFF_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-diff-batch-011-2026-07-24.md"
+)
+ELEVENTH_DECISION_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-decision-batch-011-2026-07-24.json"
+)
+ELEVENTH_GEMINI_CASE_IDS = {
+    "vscode-loc-zh-hans-v1/entry-0e09bd6f9c17b08d",
+    "vscode-loc-zh-hans-v1/entry-28115d85b27abca4",
+    "vscode-loc-zh-hans-v1/entry-3bc2558a39853869",
+    "vscode-loc-zh-hans-v1/entry-695847b5a35b3aea",
+}
+TWELFTH_PACKET_PATH = ACCURACY_ROOT / (
+    "review-packets/blind-v2-source-classification-batch-012.json"
+)
+TWELFTH_CODEX_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-first-pass-batch-012-2026-07-24.json"
+)
+TWELFTH_GEMINI_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-gemini-independent-batch-012-2026-07-24.json"
+)
+TWELFTH_SYNTHESIS_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-synthesis-batch-012-2026-07-24.json"
+)
+TWELFTH_ADJUSTMENTS_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-adjustments-batch-012-2026-07-24.json"
+)
+TWELFTH_DIFF_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-diff-batch-012-2026-07-24.md"
+)
+TWELFTH_DECISION_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-decision-batch-012-2026-07-24.json"
 )
 
 
@@ -683,4 +732,140 @@ def test_tenth_maintainer_synthesis_decision_is_reproducible() -> None:
         decision_date="2026-07-24",
         selected_advisory="synthesis",
         synthesis_path=TENTH_SYNTHESIS_PATH,
+    )
+
+
+def test_eleventh_advisories_and_pending_synthesis_cover_vscode_packet() -> None:
+    packet = load(ELEVENTH_PACKET_PATH)
+    codex = load(ELEVENTH_CODEX_PATH)
+    gemini = load(ELEVENTH_GEMINI_PATH)
+    synthesis = load(ELEVENTH_SYNTHESIS_PATH)
+    adjustments = load(ELEVENTH_ADJUSTMENTS_PATH)
+    decision = load(ELEVENTH_DECISION_PATH)
+    packet_hash = hashlib.sha256(ELEVENTH_PACKET_PATH.read_bytes()).hexdigest()
+
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    packet_ids = [case["id"] for case in packet["cases"]]
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert [case["id"] for case in synthesis["cases"]] == packet_ids
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 100,
+        "exact": 35,
+        "review_queue": 65,
+        "by_field": {"eligible": 4, "script": 0, "domain": 31, "risk": 50},
+    }
+    assert len(differences) == 65
+    assert gemini["validation"]["exact_id_coverage"] == "100/100"
+    assert gemini["validation"]["tool_calls"] == 0
+    assert gemini["validation"]["api_errors"] == 0
+    assert synthesis["stats"] == {
+        "total": 100,
+        "eligible": 100,
+        "excluded": 0,
+        "by_selection_basis": {
+            "agreement": 35,
+            "codex": 57,
+            "gemini": 4,
+            "maintainer_feedback": 4,
+        },
+    }
+    overrides = {case["id"]: case["classification"] for case in adjustments["cases"]}
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=ELEVENTH_GEMINI_CASE_IDS,
+        generated_date="2026-07-24",
+        overrides=overrides,
+    )
+    assert validate_decision(decision) == []
+    assert sum(case["classification"]["eligible"] for case in decision["cases"]) == 100
+    rendered_diff = render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-24",
+        maintainer_decisions=decision,
+    )
+    assert ELEVENTH_DIFF_PATH.read_text(encoding="utf-8") == rendered_diff
+    assert all(line == line.rstrip() for line in rendered_diff.splitlines())
+
+
+def test_eleventh_maintainer_synthesis_decision_is_reproducible() -> None:
+    assert load(ELEVENTH_DECISION_PATH) == build_decision(
+        ELEVENTH_PACKET_PATH,
+        ELEVENTH_CODEX_PATH,
+        ELEVENTH_GEMINI_PATH,
+        maintainer="tim",
+        decision_date="2026-07-24",
+        selected_advisory="synthesis",
+        synthesis_path=ELEVENTH_SYNTHESIS_PATH,
+    )
+
+
+def test_twelfth_advisories_and_pending_synthesis_cover_ftc_heads_up_packet() -> None:
+    packet = load(TWELFTH_PACKET_PATH)
+    codex = load(TWELFTH_CODEX_PATH)
+    gemini = load(TWELFTH_GEMINI_PATH)
+    synthesis = load(TWELFTH_SYNTHESIS_PATH)
+    adjustments = load(TWELFTH_ADJUSTMENTS_PATH)
+    decision = load(TWELFTH_DECISION_PATH)
+    packet_hash = hashlib.sha256(TWELFTH_PACKET_PATH.read_bytes()).hexdigest()
+
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    packet_ids = [case["id"] for case in packet["cases"]]
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert [case["id"] for case in synthesis["cases"]] == packet_ids
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 100,
+        "exact": 49,
+        "review_queue": 51,
+        "by_field": {"eligible": 1, "script": 0, "domain": 25, "risk": 34},
+    }
+    assert len(differences) == 51
+    assert gemini["validation"]["exact_id_coverage"] == "100/100"
+    assert gemini["validation"]["tool_calls"] == 0
+    assert gemini["validation"]["api_errors"] == 0
+    assert gemini["validation"]["response_json_extracted_from_markdown_fence"] is True
+    assert synthesis["stats"] == {
+        "total": 100,
+        "eligible": 100,
+        "excluded": 0,
+        "by_selection_basis": {
+            "agreement": 49,
+            "codex": 50,
+            "maintainer_feedback": 1,
+        },
+    }
+    overrides = {case["id"]: case["classification"] for case in adjustments["cases"]}
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=set(),
+        generated_date="2026-07-24",
+        overrides=overrides,
+    )
+    assert validate_decision(decision) == []
+    assert sum(case["classification"]["eligible"] for case in decision["cases"]) == 100
+    assert TWELFTH_DIFF_PATH.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-24",
+        maintainer_decisions=decision,
+    )
+
+
+def test_twelfth_maintainer_synthesis_decision_is_reproducible() -> None:
+    assert load(TWELFTH_DECISION_PATH) == build_decision(
+        TWELFTH_PACKET_PATH,
+        TWELFTH_CODEX_PATH,
+        TWELFTH_GEMINI_PATH,
+        maintainer="tim",
+        decision_date="2026-07-24",
+        selected_advisory="synthesis",
+        synthesis_path=TWELFTH_SYNTHESIS_PATH,
     )

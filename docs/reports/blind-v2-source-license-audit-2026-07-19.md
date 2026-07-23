@@ -1,9 +1,9 @@
 <!-- zhtw:disable -->
 # Blind-v2 Candidate Source Audit (2026-07-19)
 
-Status: fourteen source pilots imported; Tatoeba CC0 pilot rejected; classification ongoing
+Status: sixteen source pilots imported; Tatoeba CC0 pilot rejected; classification ongoing
 
-Updated: 2026-07-23 (three Ready.gov Simplified Chinese pilots added)
+Updated: 2026-07-24 (FTC Heads Up Simplified Chinese pilot added)
 
 Issue: #43
 
@@ -15,6 +15,44 @@ review, exact/near-deduplication audit, and domain/risk classification from the
 input alone.
 
 ## Source Decisions
+
+### FTC *Heads Up: Stop. Think. Connect.*, Simplified Chinese
+
+- Official resource index: <https://consumer.ftc.gov/resources-simplified-chinese>.
+- PDF SHA-256:
+  `fd48b428794f5a70b32da3d56f264149963b68d8b9382a8fedf1c434d3a01112`.
+- Rights: FTC-authored material is U.S. public domain under the FTC website
+  policy; the pilot excludes graphics, seals, links, English parallel text, and
+  third-party content.
+- Import result: 117 complete input-only sentences from the 15-page booklet
+  after removing headings, page furniture, URLs, and incomplete fragments.
+- Known bias: youth online-safety translation concentrating social media,
+  privacy, account security, cyberbullying, and device safety.
+- Decision: source accepted. Classification batch 012 fixes a deterministic
+  100-case selection. Codex and Gemini independent advisories plus Codex
+  synthesis are complete. The maintainer confirmed all 100 as eligible and
+  explicitly classified `优惠卷 → 優惠券` as a candidate gap. All 100 passed
+  exact/near dedupe and entered the collecting pool.
+
+### VS Code Simplified Chinese localization pack
+
+- Repository: <https://github.com/microsoft/vscode-loc>.
+- Pinned revision: `da6509eed60b550e0e785d0d78ac05be46d5e982` (2026-07-20).
+- Source JSON SHA-256:
+  `dd07fd811a728567b1360c4d48f55f5717bf4145df1e7245412bd846c6e14517`.
+- License: MIT; pinned license SHA-256:
+  `d8428ce0697ff754457dbebb25ff82da1a7f95b281f4fef4cc0cd2fa4586a144`.
+- Source class: `permissive_license`.
+- Import result: 18,290 prefiltered message values, 2,672 exact within-source
+  duplicates removed, and 15,618 unique input-only candidates retained.
+- Known bias: Microsoft-managed product localization dominated by VS Code UI,
+  developer-tool terminology, short labels, placeholders, and translated text;
+  it is not independent organic market-frequency evidence.
+- Decision: accepted as an input-only pilot and at most 588 final cases.
+  Classification batch 011 fixes a deterministic 100-case first selection;
+  Codex and Gemini advisories plus Codex synthesis are complete. The maintainer
+  confirmed all 100 as eligible, including four explicit eligibility/risk
+  adjustments. All 100 passed exact/near dedupe and entered the collecting pool.
 
 ### NPS *Essential Acadia: Simplified Chinese*
 
@@ -269,13 +307,18 @@ the pilot ceiling is:
 | OSHA small-business consultation | 22 | 588 | 22 |
 | OSHA disaster cleanup | 76 | 588 | 76 |
 | OSHA fallen-workers family guide | 23 | 588 | 23 |
-| **Total** | **18,793** | | **2,341 (39.81%)** |
+| VS Code zh-hans localization | 15,618 | 588 | 588 |
+| FTC Heads Up online safety | 117 | 588 | 117 |
+| **Source-cap total** | **34,528** | | **3,046 (51.80%)** |
+| **Class-adjusted total** | | | **2,889 (49.13%)** |
 
-FLORES, UD-CFL, and MASSIVE are `permissive_license`; the three CDC documents,
-FTC, NPS, three Ready.gov pages, and seven OSHA publications are
+FLORES, UD-CFL, MASSIVE, and VS Code localization are `permissive_license`;
+the three CDC documents, two FTC publications, NPS, three Ready.gov pages, and seven OSHA publications are
 `public_domain`; the three synthetic sources are `project_original`. All
-class totals remain below the 2,058 class cap. The source-cap ceiling therefore
-leaves at least 3,539 candidate slots unfilled. Actual usable
+permissive source caps total 2,215, so that class is limited to 2,058 by the
+35% class cap. Public-domain and project-original totals remain below their
+class caps. The class-adjusted ceiling therefore leaves at least 2,991 candidate
+slots unfilled. Actual usable
 capacity can only decrease after input-only quality/strata review and the fixed
 exact/near-deduplication audit. The final pool still needs at least:
 
@@ -285,7 +328,8 @@ exact/near-deduplication audit. The final pool still needs at least:
   25/20/15/15/15/10 domain and 40/40/20 risk quotas;
 - reserve cases in every stratum for deterministic replacement.
 
-The 2026-07-18 Tatoeba CC0 snapshot added zero eligible capacity. The next source
-work is to add new public-domain or permissioned sources to satisfy source-class
-and domain diversity.
+The 2026-07-18 Tatoeba CC0 snapshot added zero eligible capacity. Additional
+permissive sources cannot increase the class-adjusted ceiling until the pool
+grows in other classes. The next source work is therefore to add new
+public-domain or permissioned sources while preserving domain diversity.
 Converter performance must not influence source or strata selection.

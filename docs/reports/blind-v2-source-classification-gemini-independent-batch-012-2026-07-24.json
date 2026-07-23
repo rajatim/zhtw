@@ -1,0 +1,1034 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Gemini CLI",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-012.json",
+  "packet_sha256": "be7a588478ff27dbcf26fbc3e693469912e9f59573d3fe354f83caf86906651c",
+  "policy": "input_only_no_converter_output",
+  "model": "gemini-2.5-pro",
+  "gemini_cli_version": "0.52.0",
+  "session_id": "e4e15a4c-c610-4430-8cf6-2531808a5498",
+  "validation": {
+    "exact_id_coverage": "100/100",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0,
+    "response_json_extracted_from_markdown_fence": true
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "policy_violations": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「上网」，在台灣通常說「上網」，字形雖同但為地域用語。整體為網路安全宣導內容。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準書面語，無特殊轉換風險。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「在线」、「网络欺凌」、「信息」，在台灣多用「線上」、「網路霸凌」、「資訊」，有地域化轉換需求。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「科技」一詞兩岸通用，風險較低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「上网」為大陸用語，台灣多稱「上網」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「内容」、「视频」，在台灣慣用「內容」、「影片」，是典型的地域化詞彙。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「内容」是需要轉換的地域詞彙，對應台灣的「內容」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句子結構和用詞在兩岸間差異不大。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「键盘」、「手机」、「平板电脑」、「网络」，皆為 IT 術語，在台灣有特定對應說法如「鍵盤」、「手機」、「平板」、「網路」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「账户」和「设备」，台灣多用「帳號」和「裝置」，需要地域化轉換。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「信息」和「电脑」，對應台灣的「資訊」和「電腦」，有轉換需求。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「个人资料」、「视频」、「文本」、「隐私设置」、「应用软件」，皆是需要高度地域化的 IT 術語。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「发贴」、「截图」、「录像」在台灣說「發文/Po文」、「截圖」、「錄影」，存在地域用語差異。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用句子，無明顯地域詞彙。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「视频」對應台灣用語「影片」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「当事人」兩岸通用，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「发布」對應「發佈」，但情境清晰，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网上」對應「網路上」，是常見轉換。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「视频」，台灣慣用「影片」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「发贴」在台灣多稱「發文」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「内容」、「网上」，皆為地域用語。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "討論「Sexting」的敏感話題，屬於高風險內容，但用詞直接。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "同前，涉及「Sexting」，高風險內容。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單警告句，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「视频」，台灣用「影片」。此句涉及法律與個人聲譽，風險高。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及法律後果，為高風險內容。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「社交媒体」、「平台」、「内容」皆為大陸用語，台灣說「社群媒體」、「平台」、「內容」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「发短信」、「发帖」、「电子游戏」在台灣多稱「傳簡訊」、「發文」、「電動遊戲」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用勸告，無特別地域詞彙。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用問句，無特別地域詞彙。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网上」對應「網路上」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「头像」在台灣通常稱「頭像」或「大頭貼」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述文字格式，屬於 UI/UX 指導，用詞直接。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「群聊」在台灣也普遍使用，或稱「群組聊天」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「群发」和「全部回复」是電子郵件/訊息功能，用詞接近。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「发贴」對應台灣的「發文」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「内容」對應「內容」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用句子，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网上」和「内容」是地域用語。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「应用软件」和「平台」是需轉換的 IT 詞彙。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网上」對應「網路上」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「表情包」是大陸網路用語，台灣多用「梗圖」或「貼圖」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「欺凌」兩岸都懂，台灣更常用「霸凌」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用建議，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「拉黑」是大陸網路用語，台灣說「封鎖」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「应用软件」和「平台」是需轉換的 IT 詞彙。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-054",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用詞直接，無特別地域詞彙。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及校方和警方，屬於高風險內容。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网络欺凌」對應「網路霸凌」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-057",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用語句，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-058",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网上」對應「網路上」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-059",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「信息」對應「資訊」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-060",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「设备」、「应用软件」、「社交媒体账户」、「隐私设置」皆為需地域化的 IT 詞彙。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用詞直接，風險較低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-063",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「应用软件」對應「應用軟體」或「App」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-064",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用描述，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-065",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「位置」兩岸通用。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-066",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「位置共享」是 IT 功能，但詞語本身直接。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-067",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「设备」和「摄像头」對應台灣的「裝置」和「相機/鏡頭」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-068",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「自拍」和「手机」在台灣也使用，但「摄像头」是大陸用語。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-070",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网友」一詞台灣也用，或稱「網友」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-072",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「信息」對應「資訊」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-073",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「社保号」和「银行账户信息」對應台灣的「身分證號碼」和「銀行帳戶資訊」，屬高風險個資。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-074",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「邮件」對應「電子郵件」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-076",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「信息」對應「資訊」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-077",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「邮件」和「垃圾邮件」對應「電子郵件」和「垃圾郵件」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-078",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「应用软件」和「信息」是地域用語。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-079",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「应用软件」、「信息」、「联系人列表」、「摄像头」、「存储」、「麦克风」皆為需轉換的 IT 詞彙。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-080",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「应用软件」、「隐私政策」、「数据」是需轉換的 IT 詞彙。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-081",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用句子，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-082",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「应用软件内购物」對應「App 內購買」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-084",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「账户」對應「帳號」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-085",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「密码」兩岸通用。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-086",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述密碼規則，用詞直接。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-087",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「密码短语」是 IT 術語，但兩岸用法接近。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-088",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用建議，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-089",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「密码」兩岸通用。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-090",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「账户」對應「帳號」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-091",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「账户」對應「帳號」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-092",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「密码管理器」是 IT 術語，兩岸用法相同。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-094",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「安全问题」是 IT 術語，兩岸用法相同。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-095",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用建議，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-096",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「邮政编码」和「母亲的闺名」對應「郵遞區號」和「母親本名」，涉及個資，風險高。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-097",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用建議，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-098",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用建議，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-099",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用建議，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-100",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「多重身份验证」對應台灣的「多重要素驗證」(MFA)。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-101",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「多重身份验证」和「账户」皆為需轉換的 IT 術語。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-104",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「数据泄露」、「黑客」、「账户」皆為需轉換的 IT 術語。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-105",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「账户」對應「帳號」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-107",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「设备」對應「裝置」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-108",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「设备」、「互联网浏览器」、「操作系统」、「安全软件」、「自动更新」皆為需轉換的 IT 術語。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-110",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「链接」和「附件」對應「連結」和「附件」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-111",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「短信」、「电子邮件」、「链接」、「附件」皆為需轉換的 IT 術語。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-112",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「优惠卷」對應「優惠券」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-113",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「链接」、「附件」、「病毒」、「间谍软件」、「平板电脑」皆為需轉換的 IT 術語。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-114",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「设备」對應「裝置」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-115",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「帐户」對應「帳號」。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-116",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用建議，風險低。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-117",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「台式机」和「平板电脑」對應「桌上型電腦」和「平板」。"
+    }
+  ]
+}

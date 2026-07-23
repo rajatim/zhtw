@@ -1,0 +1,1025 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex",
+  "stage": "codex_first_pass",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-011.json",
+  "packet_sha256": "862db4947e11dc11df809b01d42d0b08e1e65135b978b70de8259552c2909970",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 100,
+    "eligible": 98,
+    "excluded": 2,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-0051ac02d21f3951",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-0069e37b6f0e20de",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的 AI／聊天產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-04436e351d686605",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-09618f3bdd3c063c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-0cfd4e1544007e6f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-0e09bd6f9c17b08d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-0eb9c25c118ea361",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-185b91993d167e5b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-19cf8a61d70b2fb0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-1c52c0716654e119",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-248c8ba7416e401a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-26688e3e2c17a256",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的 AI／聊天產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-28115d85b27abca4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-2e4d6e8f0c8c6125",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-30855006f8ec5f0e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-30c400765bc76010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的 AI／聊天產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-32ab407624a81ed6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-3943d6d54a855e67",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-3a1e175eae85a6ca",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-3bc2558a39853869",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-3d6cbb5643cc10df",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-3da3a66cc6801c1f",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "heading_fragment"
+      ],
+      "confidence": "high",
+      "notes": "冒號結尾的標題失去後續列表或正文，無法獨立裁決。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-4369b3e0444509a5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-44cd8d8b3e5f81ec",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-451643b3ebef0ac0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-4c58151a363a4042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-503b40f2b9c3bc66",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-50fe5444ea0eead4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-54162df786ccad7d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-5442b7940224caa1",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的 AI／聊天產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-54df0e9edf3d5a1f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-57457c86d93f5f43",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-59e7eccd502ceb69",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-5afbf4378bd5830a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-5b0abfcd5e3e929e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-5dcc08b30461b6b4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-5f5b0496699c2ff0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-64a03661b97583f0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-66638959e243f413",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-695847b5a35b3aea",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-6dbf9426a4d30c06",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-6e8b497db0d8de97",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-6e911f787c32b03e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-6ec38c7aa4ddc709",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-6f1385d789f24d6e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-724594337954550d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的 AI／聊天產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-72ce544d66a729cb",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-72e568afd72214df",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-7e36d9bf95e8bed9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-7ed8bbe9a5f3b75f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-7f0e900dae3691eb",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "heading_fragment"
+      ],
+      "confidence": "high",
+      "notes": "冒號結尾的標題失去後續列表或正文，無法獨立裁決。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-7f8e48ba6d106341",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-856cbd656423cb94",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-86458014aa22542c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-8a6cfdaef94da7ac",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-8fc02f08634e4b0d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-94381a24276104af",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-9b6362038d22e2cf",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-9c70830d7d27fdd0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-9ca9abf622010003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-9cbbc08caf93b140",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-9ea6ebf32e5ff215",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-9eb53ad2eb50b106",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-a090a75ec1580ca3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-a099104a591d86b5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-a10503591691a1f3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-a14d33d9d6cf7275",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-a21c3874499a1b82",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-a3dbd60b440641ab",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-a8e95d30efdb9a64",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-b0d0ad04694b0ea8",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的 AI／聊天產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-b143b64fca5f5204",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-b68b647051b9a314",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-b8a5e8d3e63c3849",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-ba8b4ae78b44f3ec",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的 AI／聊天產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-c418fc97de5ef87b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-c4afd73241a1bddf",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-c83d1deefd9b34c4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-c871a62cd669ef44",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-ca5513941592c416",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-ca69b4c84786a324",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的 AI／聊天產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-cb126e5b4fa8ec31",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-cc76f89e4c58a0d2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-d31dd4dfff81eca9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-d703bfb0a5c29bea",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-d87fdb7d2e15f8c2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-da6ce9d13d0acf5c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的安全警告。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-e433e1dfab11db9c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-e5872f63c3f3ffdb",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-e5b17dc9f9497135",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-e8c009efa14ec353",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-eca73a68a4ad8491",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的 AI／聊天產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-ede28d50696fc56b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-eef38cc7593d8aaa",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-f5510e85cd7fc11b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-f684886e6f1776ae",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的產品介面文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-f70da209d44d911d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-f85cf53973975aae",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-fa06d285423fec57",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-fb67fda66dd60fa8",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立裁決的開發工具或技術設定文字。"
+    }
+  ]
+}

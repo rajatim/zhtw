@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "id": "ftc-heads-up-simplified-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://consumer.ftc.gov/resources-simplified-chinese",
+    "https://consumer.ftc.gov/system/files/consumer_ftc_gov/pdf/792A_Heads%20Up%20Stop%20Think%20Connect_Chinese-Simplified_508.pdf",
+    "https://www.ftc.gov/policy-notices/website-policy"
+  ],
+  "upstream_revision": "FTC Heads Up: Stop. Think. Connect., Simplified Chinese, August 2023; PDF Last-Modified 2024-02-28T20:57:23Z; raw SHA-256: fd48b428794f5a70b32da3d56f264149963b68d8b9382a8fedf1c434d3a01112",
+  "retrieved_at": "2026-07-24T02:01:14+08:00",
+  "license": "U.S. Public Domain",
+  "license_url": "https://www.ftc.gov/policy-notices/website-policy",
+  "output_license": "U.S. Public Domain",
+  "attribution": "Federal Trade Commission, Heads Up: Stop. Think. Connect., Simplified Chinese, August 2023; no FTC endorsement or affiliation is implied.",
+  "modification_notice": "Extracted only complete Simplified Chinese prose sentences from the checksum-pinned FTC-authored PDF, joined PDF layout wraps and cross-page sentences, removed headings, page furniture, English parallel text, navigation URLs, and incomplete fragments, and added input-only provenance; no images, seals, expected text, or converter output were used.",
+  "notice_id": "ftc-heads-up-simplified-v1",
+  "raw_sha256": {
+    "https://consumer.ftc.gov/system/files/consumer_ftc_gov/pdf/792A_Heads%20Up%20Stop%20Think%20Connect_Chinese-Simplified_508.pdf": "fd48b428794f5a70b32da3d56f264149963b68d8b9382a8fedf1c434d3a01112"
+  },
+  "normalized_path": "benchmarks/accuracy/external/ftc-heads-up-simplified-v1.json",
+  "normalized_sha256": "bc4cacb047aeefec319954644bcb6168624d34eaab0b88ca9552a6afc27f154e",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "The booklet is an official U.S.-focused online-safety translation for children and caregivers, not representative of all Taiwan traffic.",
+    "Social-media, privacy, account-security, cyberbullying, and device-safety language is intentionally concentrated.",
+    "Short commands and pronoun-dependent sentences require input-only eligibility review.",
+    "Only PDF text authored by the FTC is extracted; graphics, seals, and linked or third-party materials are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

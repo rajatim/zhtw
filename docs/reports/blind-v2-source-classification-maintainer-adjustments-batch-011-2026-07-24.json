@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "source_classification_maintainer_adjustments",
+  "status": "maintainer_confirmed",
+  "decision_date": "2026-07-24",
+  "maintainer": "tim",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-011.json",
+  "packet_sha256": "862db4947e11dc11df809b01d42d0b08e1e65135b978b70de8259552c2909970",
+  "cases": [
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-3da3a66cc6801c1f",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Maintainer confirmed that the wording is used in Taiwan and only requires conversion to Traditional Chinese characters."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-5b0abfcd5e3e929e",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Maintainer confirmed that the wording is used in Taiwan and only requires conversion to Traditional Chinese characters."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-6dbf9426a4d30c06",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Maintainer confirmed that the wording is used in Taiwan and only requires conversion to Traditional Chinese characters."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-7f0e900dae3691eb",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Maintainer confirmed that Web 视图 is not Taiwan usage and should remain as a candidate-gap conversion case."
+    }
+  ]
+}

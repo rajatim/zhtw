@@ -175,9 +175,9 @@ def render_markdown(
                     f"{', '.join(gemini_case['quality_flags']) or '-'} |"
                 ),
                 "",
-                f"Codex reason: {codex_case['notes']}",
+                f"Codex reason: {codex_case['notes'] or '-'}",
                 "",
-                f"Gemini reason: {gemini_case['notes']}",
+                f"Gemini reason: {gemini_case['notes'] or '-'}",
                 "",
                 (
                     f"Maintainer decision: `{decision_cases[item['id']]['selected_advisory']}` "

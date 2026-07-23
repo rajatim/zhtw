@@ -79,6 +79,17 @@ is missing.
   authored organic Simplified Chinese traffic. Short commands, fragments, wake
   words, and mixed-language rows require input-only quality review.
 
+## vscode-loc-zh-hans-v1
+
+- Source: Microsoft `vscode-loc` Chinese (Simplified) language pack,
+  `main.i18n.json`, commit `da6509eed60b550e0e785d0d78ac05be46d5e982`.
+- License: MIT License.
+- Attribution: Visual Studio Code Localization Packs, Copyright Microsoft Corporation, Chinese (Simplified) language pack, microsoft/vscode-loc commit da6509eed60b550e0e785d0d78ac05be46d5e982.
+- Modifications: Extracted Simplified Chinese UI message values from the checksum-pinned main.i18n.json, applied Unicode NFC and whitespace normalization, generated stable IDs from module/message keys, removed exact within-source duplicate values, and excluded multiline text, pure placeholders, URLs, email addresses, HTML, Markdown links, code fragments, and converter or expected output.
+- Output license: MIT License.
+- Bias notice: Microsoft-managed developer-tool localization is not organic
+  market traffic and heavily represents UI and software terminology.
+
 ## zhtw-project-it-api-cli-v1
 
 - Source: zhtw project-original IT, API, and CLI input-only scenarios drafted
@@ -101,6 +112,18 @@ is missing.
 - Output license: U.S. Public Domain.
 - Bias notice: U.S.-focused fraud and small-business guidance intentionally
   concentrates financial, legal, and cybersecurity language.
+
+## ftc-heads-up-simplified-v1
+
+- Source: Federal Trade Commission, *Heads Up: Stop. Think. Connect.*,
+  Simplified Chinese, August 2023.
+- License: U.S. Public Domain under the FTC website policy; third-party content,
+  graphics, and agency seals are excluded.
+- Attribution: Federal Trade Commission, Heads Up: Stop. Think. Connect., Simplified Chinese, August 2023; no FTC endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese prose sentences from the checksum-pinned FTC-authored PDF, joined PDF layout wraps and cross-page sentences, removed headings, page furniture, English parallel text, navigation URLs, and incomplete fragments, and added input-only provenance; no images, seals, expected text, or converter output were used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S.-focused youth online-safety guidance concentrates social
+  media, privacy, account-security, cyberbullying, and device-safety language.
 
 ## nps-essential-acadia-simplified-v1
 

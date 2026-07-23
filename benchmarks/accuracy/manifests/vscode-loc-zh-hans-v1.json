@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "id": "vscode-loc-zh-hans-v1",
+  "track": "blind",
+  "source_class": "permissive_license",
+  "source_urls": [
+    "https://github.com/microsoft/vscode-loc",
+    "https://raw.githubusercontent.com/microsoft/vscode-loc/da6509eed60b550e0e785d0d78ac05be46d5e982/i18n/vscode-language-pack-zh-hans/translations/main.i18n.json",
+    "https://raw.githubusercontent.com/microsoft/vscode-loc/da6509eed60b550e0e785d0d78ac05be46d5e982/LICENSE.md"
+  ],
+  "upstream_revision": "microsoft/vscode-loc commit da6509eed60b550e0e785d0d78ac05be46d5e982 (2026-07-20), VS Code Localization Packs main.i18n.json version 1.0.0; raw JSON SHA-256: dd07fd811a728567b1360c4d48f55f5717bf4145df1e7245412bd846c6e14517",
+  "retrieved_at": "2026-07-24T01:26:34+08:00",
+  "license": "MIT License",
+  "license_url": "https://github.com/microsoft/vscode-loc/blob/da6509eed60b550e0e785d0d78ac05be46d5e982/LICENSE.md",
+  "output_license": "MIT License",
+  "attribution": "Visual Studio Code Localization Packs, Copyright Microsoft Corporation, Chinese (Simplified) language pack, microsoft/vscode-loc commit da6509eed60b550e0e785d0d78ac05be46d5e982.",
+  "modification_notice": "Extracted Simplified Chinese UI message values from the checksum-pinned main.i18n.json, applied Unicode NFC and whitespace normalization, generated stable IDs from module/message keys, removed exact within-source duplicate values, and excluded multiline text, pure placeholders, URLs, email addresses, HTML, Markdown links, code fragments, and converter or expected output.",
+  "notice_id": "vscode-loc-zh-hans-v1",
+  "raw_sha256": {
+    "https://raw.githubusercontent.com/microsoft/vscode-loc/da6509eed60b550e0e785d0d78ac05be46d5e982/i18n/vscode-language-pack-zh-hans/translations/main.i18n.json": "dd07fd811a728567b1360c4d48f55f5717bf4145df1e7245412bd846c6e14517",
+    "https://raw.githubusercontent.com/microsoft/vscode-loc/da6509eed60b550e0e785d0d78ac05be46d5e982/LICENSE.md": "d8428ce0697ff754457dbebb25ff82da1a7f95b281f4fef4cc0cd2fa4586a144"
+  },
+  "normalized_path": "benchmarks/accuracy/external/vscode-loc-zh-hans-v1.json",
+  "normalized_sha256": "fa9f2233207cc4d440a9fd7d62bd1936cb66cf46a96ea00da396b5a007dd8391",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "The source is a Microsoft-managed localization export rather than independently authored organic Simplified Chinese traffic.",
+    "Product UI and developer-tool terminology are heavily represented.",
+    "Short labels, placeholders, command names, and context-dependent messages require input-only eligibility review.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

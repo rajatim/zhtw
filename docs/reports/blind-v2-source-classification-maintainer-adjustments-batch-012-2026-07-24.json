@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "source_classification_maintainer_adjustments",
+  "status": "maintainer_confirmed",
+  "decision_date": "2026-07-24",
+  "maintainer": "tim",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-012.json",
+  "packet_sha256": "be7a588478ff27dbcf26fbc3e693469912e9f59573d3fe354f83caf86906651c",
+  "cases": [
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-112",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Maintainer confirmed that 优惠卷 must be normalized to the correct Taiwan Traditional form 優惠券, so the case remains eligible as a candidate gap."
+    }
+  ]
+}

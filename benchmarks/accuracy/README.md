@@ -264,10 +264,12 @@ The source/license gate is recorded in
 CC0 only in principle but rejects the malformed one-row audited snapshot. It
 imports FLORES-200 `zho_Hans`, UD Chinese-CFL, and three individually verified
 CDC Stacks items. It also imports the CC BY 4.0 MASSIVE 1.0 `zh-CN` source from
-a checksum-pinned archive and three separately pinned FEMA-authored Ready.gov
-Simplified Chinese disaster-preparedness pages. It rejects converter-derived GSDSimp,
-Traditional-only Chinese-PUD, and Common Voice under the current no-rehosting
-download terms.
+a checksum-pinned archive, three separately pinned FEMA-authored Ready.gov
+Simplified Chinese disaster-preparedness pages, two FTC public-domain
+publications, and the MIT-licensed VS Code
+Simplified Chinese localization pack at a fixed commit. It rejects
+converter-derived GSDSimp, Traditional-only Chinese-PUD, and Common Voice under
+the current no-rehosting download terms.
 
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
 checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
@@ -339,12 +341,12 @@ recommends 55 eligible and 26 context-dependent exclusions. Maintainer
 exact/reference and character 5-gram Jaccard 0.85 near-deduplication and entered
 the collecting pool; all 26 context-dependent inputs remain excluded.
 
-Classification batches 001-010 now contribute 781 maintainer-confirmed eligible
+Classification batches 001-012 now contribute 981 maintainer-confirmed eligible
 inputs to the `collecting` candidate pool after cross-batch/reference exact and
 character 5-gram Jaccard 0.85 near-deduplication.
 All six domains now have coverage, but the pool is not ready to freeze or sample.
 Permissioned user-report batch 001 is collecting at 0/100 and therefore is not
-included in the 781 cases.
+included in the 981 cases.
 
 Source-classification batch 008 covers 32 complete sentences from the NPS
 public-domain *Essential Acadia: Simplified Chinese* article. Codex and Gemini
@@ -372,6 +374,32 @@ The maintainer confirmed the Codex synthesis on 2026-07-24: 85 eligible and 15
 source-quality exclusions. All 85 eligible inputs passed exact/reference and
 character 5-gram Jaccard 0.85 deduplication and entered the collecting pool.
 The pool is now 781 cases, leaving a 5,099-case minimum-pool gap.
+
+Source-classification batch 011 fixes 100 input-only cases from the
+MIT-licensed VS Code Simplified Chinese localization pack. The pinned source
+contains 15,618 unique message values after removing 2,672 exact duplicates.
+Codex and Gemini CLI 0.52.0 (`gemini-2.5-pro`) independently reviewed all 100
+IDs without converter or expected output and match exactly on 35 cases. The
+maintainer confirmed all 100 as eligible and explicitly corrected four cases:
+three Taiwan-acceptable phrases are `baseline_guard`, while `Web 视图` remains
+eligible as a `candidate_gap`. The final synthesis uses 35 agreements, 57 Codex
+classifications, 4 Gemini technical-domain corrections, and 4 maintainer
+adjustments. All 100 passed exact/reference and character 5-gram Jaccard 0.85
+deduplication and entered the pool. After batch 011 the pool contained 881 cases.
+
+Source-classification batch 012 fixes 100 input-only cases selected from 117
+complete sentences in the FTC public-domain Simplified Chinese *Heads Up: Stop.
+Think. Connect.* booklet. The source emphasizes social media, privacy, account
+security, cyberbullying, and device safety. Codex and Gemini CLI 0.52.0
+(`gemini-2.5-pro`) independently reviewed all 100 IDs with zero Gemini tool
+calls and zero API errors. They match exactly on 49 cases and differ on 51.
+The maintainer confirmed all 100 as eligible and explicitly classified
+`优惠卷 → 優惠券` as a `candidate_gap`, because the correct Taiwan Traditional
+form requires lexical normalization rather than a literal `優惠卷`. The final
+synthesis uses 49 agreements, 50 Codex classifications, and 1 maintainer
+adjustment. All 100 passed exact/reference and character 5-gram Jaccard 0.85
+deduplication and entered the pool. The pool is now 981 cases, leaving a
+4,899-case minimum-pool gap.
 
 Rebuild and validate the current collecting pool:
 
