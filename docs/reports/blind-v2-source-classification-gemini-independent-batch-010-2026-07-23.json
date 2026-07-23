@@ -1,0 +1,1049 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Gemini CLI",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-23",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-010.json",
+  "packet_sha256": "c7ce213e6c8805c0a9e51431d663f5e8108b7067dc765a64c6f50e3f40981799",
+  "policy": "input_only_no_converter_output",
+  "model": "gemini-2.5-pro",
+  "gemini_cli_version": "0.52.0",
+  "session_id": "4866c99d-8a03-41e0-86d8-26ed6ba29024",
+  "validation": {
+    "exact_id_coverage": "100/100",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 92,
+    "excluded": 8,
+    "policy_violations": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明，包含英制單位。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明，包含英制單位。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準鏈鋸安全操作說明。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「反冲」的對應台灣用語可能不同。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「反冲」的對應台灣用語可能不同。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全說明。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全說明。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全說明。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全說明。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全說明。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全說明。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全說明。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全說明。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全說明。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全說明。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含專有名詞縮寫 GFCI。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全說明。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-062",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含法規編號，不應翻譯。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-070",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名稱 OSHA。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-075",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準的無障礙服務說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-006",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "heading_text_join"
+      ],
+      "confidence": "high",
+      "notes": "文本由兩個不連貫的片段組成。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-disaster-falls-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變人員安全說明。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「触电（死亡）」的表達方式特殊。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明，包含英制單位。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含專有名詞縮寫 GFCI。"
+    },
+    {
+      "id": "osha-electrical-safety-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準電氣安全說明。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "帶有個人情感支持的文字。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名稱 OSHA。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-007",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "heading_text_join"
+      ],
+      "confidence": "high",
+      "notes": "標題與內文結合，且包含列表。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "處理哀傷的建議。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名稱 OSHA。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含多個美國州名，需注意專有名詞轉換。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名稱 OSHA。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "行政程序說明。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名稱 OSHA。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名稱 OSHA。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "行政程序說明。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名稱 OSHA。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含法律名稱及組織縮寫 (FOIA, OSHA)，需注意專有名詞轉換。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含法律名稱及組織縮寫 (FOIA, OSHA)。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名稱 OSHA。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-019",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "heading_text_join"
+      ],
+      "confidence": "high",
+      "notes": "問句與陳述句的組合，類似標題與內文，語氣不連貫。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於企業安全與健康項目的說明。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "作業區交通安全說明。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "作業區交通安全說明。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "作業區交通安全說明。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "作業區交通安全說明。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-007",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "heading_text_join"
+      ],
+      "confidence": "high",
+      "notes": "包含「作业区防护：」標題。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-008",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "heading_text_join"
+      ],
+      "confidence": "high",
+      "notes": "包含「信号：」標題。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "作業區交通安全說明。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "作業區交通安全說明。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "作業區交通安全說明。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-012",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "heading_text_join"
+      ],
+      "confidence": "high",
+      "notes": "包含「照明：」標題。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含物理單位「英尺烛光」及「勒克斯」。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "作業區交通安全說明。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-015",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "heading_text_join"
+      ],
+      "confidence": "high",
+      "notes": "包含「培训：」標題。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-016",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "heading_text_join"
+      ],
+      "confidence": "high",
+      "notes": "包含「行驶：」標題。"
+    }
+  ]
+}

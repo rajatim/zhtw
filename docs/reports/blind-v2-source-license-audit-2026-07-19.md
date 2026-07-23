@@ -176,6 +176,34 @@ translation and verification workflow.
   third-party material. All 62 rows still require input-only quality/domain/risk
   review before pool promotion.
 
+## OSHA Simplified Chinese Publications
+
+- Publication index: <https://www.osha.gov/publications/bylanguage/chinese-simplified>
+- Reuse policy: <https://www.dol.gov/general/aboutdol/copyright>
+- Source class: `public_domain` for OSHA-authored federal-government text;
+  third-party material is excluded and no endorsement is implied.
+- Pinned inputs:
+
+| Source ID | Cases | Raw PDF SHA-256 |
+|-----------|------:|----------------|
+| `osha-electrical-safety-simplified-v1` | 14 | `073a474bfa93e92f2e8dbc4c4fd36688bee6a81b5e4005e1679bd538f33ec6a6` |
+| `osha-chainsaw-safety-simplified-v1` | 20 | `10e48e358ac6aa74e718919dacac8968a1791d1a2cd4414b7cef3bd58ba99751` |
+| `osha-work-zone-traffic-simplified-v1` | 16 | `b9c3cf515de9b0bbb8e74b0857bdc01afe1fd408475f0a07912856071dd1f502` |
+| `osha-disaster-falls-simplified-v1` | 14 | `f2683f14e4ca64f01679e91dd43f0422e7f13721f0cf16a2c2f6cdea714079f3` |
+| `osha-small-business-consultation-simplified-v1` | 22 | `cdcedd100ce05013968026e640079d7044deb913178496424f71b89481a5567e` |
+| `osha-disaster-cleanup-simplified-v1` | 76 | `3cf0356ce7fc80af1c560c6ba6be3b01ae2968ef155f164f2bb8b2b1afb58670` |
+| `osha-fallen-workers-family-simplified-v1` | 23 | `9af69756e3640e385f51a13825bce70110faa340b5e8f163e779d582a3f2c213` |
+
+- Restrictions: validate each PDF's page count, title, and OSHA corporate-author
+  metadata; extract only configured Simplified Chinese pages. Exclude English
+  pages, URLs, telephone instructions, page furniture, images, logos, and named
+  third-party testimonials. Keep each publication as an independent source ID.
+- Known bias: U.S. occupational-safety and administrative language is not
+  representative of ordinary Taiwan traffic and concentrates high-stakes text.
+- Decision: all seven source snapshots are accepted as input-only pilots. The
+  maintainer confirmed the 100-case classification batch on 2026-07-24; all 85
+  eligible inputs passed exact/near deduplication and entered the collecting pool.
+
 ## Rejected
 
 ### UD Chinese-GSDSimp
@@ -234,13 +262,20 @@ the pilot ceiling is:
 | Ready.gov earthquakes | 48 | 588 | 48 |
 | Ready.gov floods | 53 | 588 | 53 |
 | Ready.gov hurricanes | 53 | 588 | 53 |
-| **Total** | **18,608** | | **2,156 (36.67%)** |
+| OSHA electrical safety | 14 | 588 | 14 |
+| OSHA chainsaw safety | 20 | 588 | 20 |
+| OSHA work-zone traffic | 16 | 588 | 16 |
+| OSHA disaster falls | 14 | 588 | 14 |
+| OSHA small-business consultation | 22 | 588 | 22 |
+| OSHA disaster cleanup | 76 | 588 | 76 |
+| OSHA fallen-workers family guide | 23 | 588 | 23 |
+| **Total** | **18,793** | | **2,341 (39.81%)** |
 
-FLORES, UD-CFL, and MASSIVE are `permissive_license`; the three CDC documents
-and the FTC, NPS, and three Ready.gov pages are `public_domain`; the three
-synthetic sources are `project_original`. All
+FLORES, UD-CFL, and MASSIVE are `permissive_license`; the three CDC documents,
+FTC, NPS, three Ready.gov pages, and seven OSHA publications are
+`public_domain`; the three synthetic sources are `project_original`. All
 class totals remain below the 2,058 class cap. The source-cap ceiling therefore
-leaves at least 3,724 candidate slots unfilled. Actual usable
+leaves at least 3,539 candidate slots unfilled. Actual usable
 capacity can only decrease after input-only quality/strata review and the fixed
 exact/near-deduplication audit. The final pool still needs at least:
 
@@ -251,6 +286,6 @@ exact/near-deduplication audit. The final pool still needs at least:
 - reserve cases in every stratum for deterministic replacement.
 
 The 2026-07-18 Tatoeba CC0 snapshot added zero eligible capacity. The next source
-work is to complete the Ready.gov human gate and add new public-domain or
-permissioned sources to satisfy source-class and domain diversity.
+work is to add new public-domain or permissioned sources to satisfy source-class
+and domain diversity.
 Converter performance must not influence source or strata selection.

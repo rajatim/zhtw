@@ -20,6 +20,7 @@ from scripts.import_blind_v2_source_pilot import (
     parse_ftc_small_business_pages,
     parse_massive,
     parse_nps_acadia_html,
+    parse_osha_pdf,
     parse_project_original,
     parse_ready_gov_html,
     validate_dataset,
@@ -211,6 +212,25 @@ def test_ready_gov_parser_keeps_main_prose_and_excludes_phone_and_navigation() -
     assert [row[2] for row in rows] == ["洪水可能导致严重损害。", "收到警报后立即撤离。"]
 
 
+def test_osha_parser_keeps_only_selected_simplified_pages(monkeypatch: pytest.MonkeyPatch) -> None:
+    class Page:
+        def __init__(self, text: str) -> None:
+            self.text = text
+
+        def extract_text(self) -> str:
+            return self.text
+
+    class Reader:
+        pages = [Page("Electrical Safety."), Page("这是用电安全指南。切勿接触掉落的架空电线。")]
+        metadata = type("Metadata", (), {"author": "OSHA"})()
+
+    monkeypatch.setattr("scripts.import_blind_v2_source_pilot.PdfReader", lambda _: Reader())
+
+    rows = parse_osha_pdf("osha-electrical-safety-simplified-v1", b"pdf")
+
+    assert [row[2] for row in rows] == ["这是用电安全指南。", "切勿接触掉落的架空电线。"]
+
+
 def test_source_class_is_copied_from_manifest(tmp_path: Path) -> None:
     source = tmp_path / "flores.tar.gz"
     source.write_bytes(flores_archive(["公共资料"], []))
@@ -278,6 +298,13 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("ready-gov-floods-zh-hans-v1", 53),
         ("ready-gov-hurricanes-zh-hans-v1", 53),
         ("ready-gov-earthquakes-zh-hans-v1", 48),
+        ("osha-electrical-safety-simplified-v1", 14),
+        ("osha-chainsaw-safety-simplified-v1", 20),
+        ("osha-work-zone-traffic-simplified-v1", 16),
+        ("osha-disaster-falls-simplified-v1", 14),
+        ("osha-small-business-consultation-simplified-v1", 22),
+        ("osha-disaster-cleanup-simplified-v1", 76),
+        ("osha-fallen-workers-family-simplified-v1", 23),
     ),
 )
 def test_committed_source_pilots_are_pinned_and_input_only(

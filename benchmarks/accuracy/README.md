@@ -339,12 +339,12 @@ recommends 55 eligible and 26 context-dependent exclusions. Maintainer
 exact/reference and character 5-gram Jaccard 0.85 near-deduplication and entered
 the collecting pool; all 26 context-dependent inputs remain excluded.
 
-Classification batches 001-009 now contribute 696 maintainer-confirmed eligible
+Classification batches 001-010 now contribute 781 maintainer-confirmed eligible
 inputs to the `collecting` candidate pool after cross-batch/reference exact and
 character 5-gram Jaccard 0.85 near-deduplication.
 All six domains now have coverage, but the pool is not ready to freeze or sample.
 Permissioned user-report batch 001 is collecting at 0/100 and therefore is not
-included in the 696 cases.
+included in the 781 cases.
 
 Source-classification batch 008 covers 32 complete sentences from the NPS
 public-domain *Essential Acadia: Simplified Chinese* article. Codex and Gemini
@@ -361,6 +361,17 @@ match on 68 cases and differ on 32. The maintainer confirmed the Codex synthesis
 86 eligible and 14 excluded. Exact/near dedupe promoted 85; flood `sentence-045`
 was excluded as an exact duplicate of earthquake `sentence-047`. The collecting
 pool is now 696 cases, leaving a 5,184-case minimum-pool gap.
+
+Source-classification batch 010 fixes 100 input-only cases selected equally from
+seven checksum-pinned OSHA Simplified Chinese publications. The source pilots
+contain 185 OSHA-authored sentences in total; URLs, phone instructions, page
+furniture, images, logos, named third-party testimonials, and English pages are
+excluded. Codex and Gemini CLI 0.52.0 (`gemini-2.5-pro`) independently reviewed
+all 100 IDs without converter or expected output and match exactly on 41 cases.
+The maintainer confirmed the Codex synthesis on 2026-07-24: 85 eligible and 15
+source-quality exclusions. All 85 eligible inputs passed exact/reference and
+character 5-gram Jaccard 0.85 deduplication and entered the collecting pool.
+The pool is now 781 cases, leaving a 5,099-case minimum-pool gap.
 
 Rebuild and validate the current collecting pool:
 

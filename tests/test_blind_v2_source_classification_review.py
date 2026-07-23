@@ -139,6 +139,22 @@ EIGHTH_DIFF_PATH = ROOT / (
 EIGHTH_DECISION_PATH = ROOT / (
     "docs/reports/blind-v2-source-classification-maintainer-decision-batch-008-2026-07-23.json"
 )
+TENTH_PACKET_PATH = ACCURACY_ROOT / ("review-packets/blind-v2-source-classification-batch-010.json")
+TENTH_CODEX_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-first-pass-batch-010-2026-07-23.json"
+)
+TENTH_GEMINI_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-gemini-independent-batch-010-2026-07-23.json"
+)
+TENTH_SYNTHESIS_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-synthesis-batch-010-2026-07-23.json"
+)
+TENTH_DIFF_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-diff-batch-010-2026-07-23.md"
+)
+TENTH_DECISION_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-decision-batch-010-2026-07-24.json"
+)
 
 
 def load(path: Path) -> dict[str, object]:
@@ -606,4 +622,65 @@ def test_eighth_maintainer_synthesis_decision_is_reproducible() -> None:
         decision_date="2026-07-23",
         selected_advisory="synthesis",
         synthesis_path=EIGHTH_SYNTHESIS_PATH,
+    )
+
+
+def test_tenth_advisories_synthesis_and_decision_cover_osha_packet() -> None:
+    packet = load(TENTH_PACKET_PATH)
+    codex = load(TENTH_CODEX_PATH)
+    gemini = load(TENTH_GEMINI_PATH)
+    synthesis = load(TENTH_SYNTHESIS_PATH)
+    decision = load(TENTH_DECISION_PATH)
+    packet_hash = hashlib.sha256(TENTH_PACKET_PATH.read_bytes()).hexdigest()
+
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    packet_ids = [case["id"] for case in packet["cases"]]
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert [case["id"] for case in synthesis["cases"]] == packet_ids
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 100,
+        "exact": 41,
+        "review_queue": 59,
+        "by_field": {"eligible": 17, "script": 0, "domain": 20, "risk": 59},
+    }
+    assert len(differences) == 59
+    assert gemini["validation"]["exact_id_coverage"] == "100/100"
+    assert gemini["validation"]["tool_calls"] == 0
+    assert gemini["validation"]["api_errors"] == 0
+    assert synthesis["stats"] == {
+        "total": 100,
+        "eligible": 85,
+        "excluded": 15,
+        "by_selection_basis": {"agreement": 41, "codex": 56, "gemini": 3},
+    }
+    assert validate_decision(decision) == []
+    assert decision["stats"] == {
+        "packet_cases": 100,
+        "confirmed_cases": 100,
+        "resolved_disagreements": 59,
+        "confirmed_exact_matches": 41,
+        "remaining_cases": 0,
+    }
+    assert sum(case["classification"]["eligible"] for case in decision["cases"]) == 85
+    assert all(case["selected_advisory"] == "synthesis" for case in decision["cases"])
+    assert TENTH_DIFF_PATH.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-23",
+        maintainer_decisions=decision,
+    )
+
+
+def test_tenth_maintainer_synthesis_decision_is_reproducible() -> None:
+    assert load(TENTH_DECISION_PATH) == build_decision(
+        TENTH_PACKET_PATH,
+        TENTH_CODEX_PATH,
+        TENTH_GEMINI_PATH,
+        maintainer="tim",
+        decision_date="2026-07-24",
+        selected_advisory="synthesis",
+        synthesis_path=TENTH_SYNTHESIS_PATH,
     )

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "id": "osha-small-business-consultation-simplified-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://www.osha.gov/sites/default/files/publications/OSHA4230.pdf",
+    "https://www.osha.gov/publications/bylanguage/chinese-simplified",
+    "https://www.dol.gov/general/aboutdol/copyright"
+  ],
+  "upstream_revision": "OSHA 4230-05 2023, On-Site Consultation for Small Business, Chinese Simplified; retrieved PDF SHA-256: cdcedd100ce05013968026e640079d7044deb913178496424f71b89481a5567e",
+  "retrieved_at": "2026-07-23T23:03:36+08:00",
+  "license": "U.S. Public Domain for OSHA-authored text under the DOL reuse policy; third-party content excluded",
+  "license_url": "https://www.dol.gov/general/aboutdol/copyright",
+  "output_license": "U.S. Public Domain",
+  "attribution": "Occupational Safety and Health Administration, On-Site Consultation for Small Business, OSHA 4230-05 2023, Chinese Simplified; no OSHA or U.S. Department of Labor endorsement or affiliation is implied.",
+  "modification_notice": "Extracted complete Simplified Chinese sentences from the checksum-pinned OSHA PDF, excluded URLs, phone instructions, page furniture, images, logos, attributed third-party testimonials, and other third-party content, and added input-only provenance; no expected text or converter output was used.",
+  "notice_id": "osha-small-business-consultation-simplified-v1",
+  "raw_sha256": {
+    "https://www.osha.gov/sites/default/files/publications/OSHA4230.pdf": "cdcedd100ce05013968026e640079d7044deb913178496424f71b89481a5567e"
+  },
+  "normalized_path": "benchmarks/accuracy/external/osha-small-business-consultation-simplified-v1.json",
+  "normalized_sha256": "cd83181968a804ea24da4e2cce59a453c8aaed60e82948c37f78985d008daf56",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Official U.S. small-business guidance is not representative of ordinary Taiwan traffic.",
+    "Employer consultation and workplace-safety language is intentionally concentrated.",
+    "Multi-column PDF layout and inline headings require input-only eligibility review.",
+    "Attributed third-party testimonials, images, logos, and external resources are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

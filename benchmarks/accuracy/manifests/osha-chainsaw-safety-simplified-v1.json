@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "id": "osha-chainsaw-safety-simplified-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://www.osha.gov/sites/default/files/publications/OSHA4286.pdf",
+    "https://www.osha.gov/publications/bylanguage/chinese-simplified",
+    "https://www.dol.gov/general/aboutdol/copyright"
+  ],
+  "upstream_revision": "OSHA 4286-08 2023, Chainsaw Safety, Chinese Simplified; retrieved PDF SHA-256: 10e48e358ac6aa74e718919dacac8968a1791d1a2cd4414b7cef3bd58ba99751",
+  "retrieved_at": "2026-07-23T23:03:36+08:00",
+  "license": "U.S. Public Domain for OSHA-authored text under the DOL reuse policy; third-party content excluded",
+  "license_url": "https://www.dol.gov/general/aboutdol/copyright",
+  "output_license": "U.S. Public Domain",
+  "attribution": "Occupational Safety and Health Administration, Chainsaw Safety, OSHA 4286-08 2023, Chinese Simplified; no OSHA or U.S. Department of Labor endorsement or affiliation is implied.",
+  "modification_notice": "Extracted complete Simplified Chinese sentences from the checksum-pinned OSHA PDF, excluded the English page, URLs, phone instructions, page furniture, images, logos, and third-party content, and added input-only provenance; no expected text or converter output was used.",
+  "notice_id": "osha-chainsaw-safety-simplified-v1",
+  "raw_sha256": {
+    "https://www.osha.gov/sites/default/files/publications/OSHA4286.pdf": "10e48e358ac6aa74e718919dacac8968a1791d1a2cd4414b7cef3bd58ba99751"
+  },
+  "normalized_path": "benchmarks/accuracy/external/osha-chainsaw-safety-simplified-v1.json",
+  "normalized_sha256": "1d2c6b40bc30c0f3dca097963787716e3413035c7f722af9f8e226888fdeb382",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Official U.S. workplace-safety guidance is not representative of ordinary Taiwan traffic.",
+    "Chainsaw operation instructions intentionally concentrate high-stakes terminology.",
+    "PDF list items and heading joins require input-only eligibility review.",
+    "Only OSHA-authored text is extracted; images, logos, and third-party content are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

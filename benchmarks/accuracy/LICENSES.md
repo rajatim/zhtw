@@ -147,6 +147,62 @@ is missing.
 - Bias notice: U.S. earthquake, evacuation, medical, and safety guidance is not
   representative of ordinary Taiwan traffic.
 
+## osha-electrical-safety-simplified-v1
+
+- Source: OSHA 4281-08 2023, *Electrical Safety*, Chinese Simplified.
+- License: U.S. Public Domain for OSHA-authored text under the DOL reuse policy; third-party content excluded
+- Attribution: Occupational Safety and Health Administration, Electrical Safety, OSHA 4281-08 2023, Chinese Simplified; no OSHA or U.S. Department of Labor endorsement or affiliation is implied.
+- Modifications: Extracted complete Simplified Chinese sentences from the checksum-pinned OSHA PDF, excluded the English page, URLs, phone instructions, page furniture, images, logos, and third-party content, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+
+## osha-chainsaw-safety-simplified-v1
+
+- Source: OSHA 4286-08 2023, *Chainsaw Safety*, Chinese Simplified.
+- License: U.S. Public Domain for OSHA-authored text under the DOL reuse policy; third-party content excluded
+- Attribution: Occupational Safety and Health Administration, Chainsaw Safety, OSHA 4286-08 2023, Chinese Simplified; no OSHA or U.S. Department of Labor endorsement or affiliation is implied.
+- Modifications: Extracted complete Simplified Chinese sentences from the checksum-pinned OSHA PDF, excluded the English page, URLs, phone instructions, page furniture, images, logos, and third-party content, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+
+## osha-work-zone-traffic-simplified-v1
+
+- Source: OSHA 4291-08 2023, *Work Zone Traffic Safety*, Chinese Simplified.
+- License: U.S. Public Domain for OSHA-authored text under the DOL reuse policy; third-party content excluded
+- Attribution: Occupational Safety and Health Administration, Work Zone Traffic Safety, OSHA 4291-08 2023, Chinese Simplified; no OSHA or U.S. Department of Labor endorsement or affiliation is implied.
+- Modifications: Extracted complete Simplified Chinese sentences from the checksum-pinned OSHA PDF, excluded the English page, URLs, phone instructions, page furniture, images, logos, and third-party content, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+
+## osha-disaster-falls-simplified-v1
+
+- Source: OSHA 4301-08 2023, *Protecting Workers from Slips, Trips and Falls during Disaster Response*, Chinese Simplified.
+- License: U.S. Public Domain for OSHA-authored text under the DOL reuse policy; third-party content excluded
+- Attribution: Occupational Safety and Health Administration, Protecting Workers from Slips, Trips and Falls during Disaster Response, OSHA 4301-08 2023, Chinese Simplified; no OSHA or U.S. Department of Labor endorsement or affiliation is implied.
+- Modifications: Extracted complete Simplified Chinese sentences from the checksum-pinned OSHA PDF, excluded the English page, URLs, phone instructions, page furniture, images, logos, and third-party content, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+
+## osha-small-business-consultation-simplified-v1
+
+- Source: OSHA 4230-05 2023, *On-Site Consultation for Small Business*, Chinese Simplified.
+- License: U.S. Public Domain for OSHA-authored text under the DOL reuse policy; third-party content excluded
+- Attribution: Occupational Safety and Health Administration, On-Site Consultation for Small Business, OSHA 4230-05 2023, Chinese Simplified; no OSHA or U.S. Department of Labor endorsement or affiliation is implied.
+- Modifications: Extracted complete Simplified Chinese sentences from the checksum-pinned OSHA PDF, excluded URLs, phone instructions, page furniture, images, logos, attributed third-party testimonials, and other third-party content, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+
+## osha-disaster-cleanup-simplified-v1
+
+- Source: OSHA DTSEM FS-4355 08/2023, *Keeping Workers Safe during Disaster Cleanup and Recovery*, Chinese Simplified.
+- License: U.S. Public Domain for OSHA-authored text under the DOL reuse policy; third-party content excluded
+- Attribution: Occupational Safety and Health Administration, Keeping Workers Safe during Disaster Cleanup and Recovery, DTSEM FS-4355 08/2023, Chinese Simplified; no OSHA or U.S. Department of Labor endorsement or affiliation is implied.
+- Modifications: Extracted complete Simplified Chinese sentences from the checksum-pinned OSHA PDF, excluded URLs, phone instructions, page furniture, images, logos, photo credits, and other third-party content, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+
+## osha-fallen-workers-family-simplified-v1
+
+- Source: OSHA 2023, *Fallen Workers Brochure*, Chinese Simplified.
+- License: U.S. Public Domain for OSHA-authored text under the DOL reuse policy; third-party content excluded
+- Attribution: Occupational Safety and Health Administration, Fallen Workers Brochure, 2023, Chinese Simplified; no OSHA or U.S. Department of Labor endorsement or affiliation is implied.
+- Modifications: Extracted complete Simplified Chinese sentences from the checksum-pinned OSHA PDF, excluded URLs, phone and crisis-line instructions, email addresses, page furniture, images, logos, external organizations, and other third-party content, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+
 ## cdc-stacks-111808-v1
 
 - Source: CDC Stacks item `cdc:111808`, *当您生病时*, main-document checksum

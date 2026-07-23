@@ -46,11 +46,73 @@ SUPPORTED_SOURCES = {
     "ready-gov-floods-zh-hans-v1": "ready_gov_html",
     "ready-gov-hurricanes-zh-hans-v1": "ready_gov_html",
     "ready-gov-earthquakes-zh-hans-v1": "ready_gov_html",
+    "osha-electrical-safety-simplified-v1": "osha_pdf",
+    "osha-chainsaw-safety-simplified-v1": "osha_pdf",
+    "osha-work-zone-traffic-simplified-v1": "osha_pdf",
+    "osha-disaster-falls-simplified-v1": "osha_pdf",
+    "osha-small-business-consultation-simplified-v1": "osha_pdf",
+    "osha-disaster-cleanup-simplified-v1": "osha_pdf",
+    "osha-fallen-workers-family-simplified-v1": "osha_pdf",
 }
 READY_GOV_SOURCE_ANCHORS = {
     "ready-gov-floods-zh-hans-v1": ("洪水", "10/22/2025"),
     "ready-gov-hurricanes-zh-hans-v1": ("飓风", "07/09/2026"),
     "ready-gov-earthquakes-zh-hans-v1": ("地震", "10/22/2025"),
+}
+OSHA_SOURCE_CONFIG = {
+    "osha-electrical-safety-simplified-v1": (2, (2,), "用电安全指南"),
+    "osha-chainsaw-safety-simplified-v1": (2, (2,), "链锯安全指南"),
+    "osha-work-zone-traffic-simplified-v1": (2, (2,), "作业区交通安全指南"),
+    "osha-disaster-falls-simplified-v1": (2, (2,), "避免滑倒、绊倒和跌倒"),
+    "osha-small-business-consultation-simplified-v1": (
+        2,
+        (1, 2),
+        "小型企业可信赖的安全及健康建议",
+    ),
+    "osha-disaster-cleanup-simplified-v1": (
+        2,
+        (1, 2),
+        "在灾后清理以及重建时确保工人安全",
+    ),
+    "osha-fallen-workers-family-simplified-v1": (2, (1, 2), "亲人在工作中离世"),
+}
+OSHA_IGNORED_LINES = {
+    "速览卡",
+    "用电安全指南",
+    "链锯安全指南",
+    "启动链锯之前",
+    "为链锯加油",
+    "作业区交通安全指南",
+    "救灾期间保护救援人员",
+    "避免滑倒、绊倒和跌倒",
+    "防止滑倒、绊倒和跌倒的方法",
+    "请牢记",
+    "小型企业可信赖的安全及健康建议",
+    "现场咨询项目",
+    "请求咨询的好处",
+    "节省资金",
+    "调动劳动力",
+    "告诉我们您的安全顾虑 — 咨询会帮您找出解决方案",
+    "方式",
+    "咨询访问是什么样的呢?",
+    "初次会议",
+    "详解",
+    "结束会议以及后续跟进",
+    "纠正安全隐患",
+    "顾问是谁?",
+    "请求服务",
+    "亲人在工作",
+    "中离世",
+    "联系方式",
+    "记住...",
+    "帮助你应对哀伤情绪的建议:",
+    "向牺牲的员工致敬",
+    "家庭资源",
+    "机构组织",
+    "联系您的区域OSHA办公室",
+    "你不是孤单的那个人",
+    "须知和期望",
+    "索取检查档案",
 }
 
 
@@ -328,6 +390,49 @@ def parse_ftc_small_business_pdf(content: bytes) -> list[tuple[str, str, str]]:
     return parse_ftc_small_business_pages(pages)
 
 
+def parse_osha_pdf(source_id: str, content: bytes) -> list[tuple[str, str, str]]:
+    """Extract input-only sentences from a pinned OSHA Simplified Chinese PDF."""
+    expected_pages, selected_pages, title_anchor = OSHA_SOURCE_CONFIG[source_id]
+    reader = PdfReader(io.BytesIO(content))
+    if len(reader.pages) != expected_pages:
+        raise ValueError(
+            f"{source_id}: expected {expected_pages} PDF pages, found {len(reader.pages)}"
+        )
+    metadata = reader.metadata
+    if metadata is None or metadata.author not in {None, "OSHA"}:
+        raise ValueError(f"{source_id}: unexpected PDF author metadata")
+
+    pages = [page.extract_text() or "" for page in reader.pages]
+    selected_text = "\n".join(pages[page_number - 1] for page_number in selected_pages)
+    if title_anchor not in normalize_pdf_text(selected_text):
+        raise ValueError(f"{source_id}: Simplified Chinese title anchor not found")
+
+    rows: list[tuple[str, str, str]] = []
+    for page_number in selected_pages:
+        kept_lines = []
+        for raw_line in pages[page_number - 1].splitlines():
+            if normalize_pdf_text(raw_line) in OSHA_IGNORED_LINES:
+                continue
+            kept_lines.append(re.sub(r"^\s*(?:[y•●]|[–-](?=\s))\s*", "", raw_line))
+        page = "\n".join(kept_lines)
+        for sentence in complete_chinese_sentences(page, minimum_length=8):
+            if source_id == "osha-small-business-consultation-simplified-v1" and re.search(
+                r"(?:EWP|Mark St|ESCO Manufacturing|现场顾问项目合作帮我们|赔偿保险费降低)",
+                sentence,
+            ):
+                continue
+            if re.search(
+                r"(?:https?://|www\.|\b[\w.-]+\.(?:gov|org)\b|"
+                r"[\w.+-]+@[\w.-]+|\(?\d{3}\)?[ -]\d{3}[ -]\d{4}|"
+                r"1-800-321-OSHA|\b(?:911|988)\b)",
+                sentence,
+                re.I,
+            ):
+                continue
+            rows.append(("document", f"sentence-{len(rows) + 1:03d}", sentence))
+    return rows
+
+
 class NpsArticleParagraphParser(HTMLParser):
     """Collect paragraph text only from the NPS article content container."""
 
@@ -516,6 +621,8 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
         raw_rows = parse_nps_acadia_html(content)
     elif source_kind == "ready_gov_html":
         raw_rows = parse_ready_gov_html(manifest["id"], content)
+    elif source_kind == "osha_pdf":
+        raw_rows = parse_osha_pdf(manifest["id"], content)
     elif source_kind == "permissioned_user_report_json":
         raw_rows = parse_permissioned_user_reports(manifest["id"], content)
     else:
