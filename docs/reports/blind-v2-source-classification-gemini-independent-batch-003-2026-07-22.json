@@ -1,0 +1,657 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only_policy_review_required",
+  "generated_date": "2026-07-22",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-003.json",
+  "packet_sha256": "3ada05e07e54145bede74f1514bcfd1aa9d296102893e0bf8ec3e4aed19e97d3",
+  "reviewer": "Gemini CLI",
+  "gemini_cli_version": "0.51.0",
+  "model": "gemini-2.5-pro",
+  "policy": "input_only_no_converter_output",
+  "validation": {
+    "exact_id_coverage": "62/62",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0
+  },
+  "stats": {
+    "total": 62,
+    "eligible": 62,
+    "excluded": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "cdc-stacks-111808-v1/p01-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生建議，基本轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生建議，包含『与』、『距离』等基本簡體字。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生建議，基本轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生建議，包含『喷』、『时』等簡體字。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生建議，包含『清洁』、『高频触碰』等詞語。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生建議，包含『呆在』一詞，需注意地區用詞差異。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生建議，包含『宠物』一詞。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生建議，包含『应』、『单独』等簡體字。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生建議，包含『家里』、『戴上』等詞語。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生建議，包含『共用碗碟』、『床上用品』等詞語。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "醫療症狀描述，包含『症状』、『发烧』、『咳嗽』等詞。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "醫療指示，包含『医疗保健』、『卫生』等詞。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "醫療緊急症狀描述。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "醫療緊急症狀描述，包含『持续性』一詞。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "醫療緊急症狀描述。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "醫療症狀描述，包含『皮肤』、『嘴唇』、『指甲盖』、『浅色』、『肤色』等詞，其中『盖』有歧義風險。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "醫療指示，基本轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急醫療指示，包含『拨打』、『致电』、『机构』、『接线员』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生政策文件，用詞正式，包含『实现』一詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生政策文件，包含『解决』、『障碍』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生政策文件，包含『疫情』、『始终』、『重点』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生政策文件，包含『阅读』、『详细』、『信息』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專案目標描述，包含『开发』、『监测』、『解决』、『种族主义』等術語。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專案目標描述，用詞正式。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專案目標描述，包含『从业人员』、『监测』、『边缘化』等術語。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "long_sentence"
+      ],
+      "confidence": "high",
+      "notes": "長句，但語意清晰，可測試多個基本簡繁轉換的穩定性，如『通过』、『药剂师』、『组织』。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專案目標描述，包含『与』、『合作』、『传递』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p03-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "long_sentence"
+      ],
+      "confidence": "high",
+      "notes": "專案目標描述，包含『残障』一詞，需注意地區用詞（如台灣用『身心障礙』）。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p03-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專案合作描述，包含『共享』、『错误信息』、『无障碍』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p03-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專案合作描述，包含『大学』、『信息图』、『图像』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p03-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專案目標描述，包含『制定』、『执行』、『全国』、『活动』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p04-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專案目標描述，包含『建立』、『合作伙伴关系』、『提供』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p05-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及心理健康專業術語，如『抑郁』、『焦虑』、『创伤后应激障碍』，對轉換的準確性要求高。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p05-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及心理健康領域，包含『研究』、『后果』、『确定』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p06-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "long_sentence"
+      ],
+      "confidence": "high",
+      "notes": "公共衛生倡議，包含『倡导』、『体育活动』、『营养』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p06-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生應急準備，包含『加强』、『合作伙伴关系』、『组织』、『应对』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p07-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生項目描述，包含『招募』、『组织』、『动员』、『风险』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p08-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "醫療項目描述，包含『艾滋病毒』、『药品』等專業詞彙。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p08-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "醫療項目描述，包含『治疗』、『指导方针』、『医疗服务提供者』、『实施』等詞。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p08-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "long_sentence"
+      ],
+      "confidence": "high",
+      "notes": "公共衛生項目描述，長句，包含『部署』、『解决』、『加强』等詞。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p01-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "兒童活動手冊的引言，包含『美国』、『制作』、『活动』、『与』、『谈论』等詞。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p01-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "給父母和兒童的健康建議，包含『有规律』、『习惯』、『洁牙』等詞。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p01-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "活動手冊的適用對象說明。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p02-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口腔衛生教育內容，包含『含氟牙膏』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p02-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "活動手冊中的指示，包含『涂上』、『颜色』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p02-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "活動手冊中的互動問題，包含『数一下』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p03-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口腔衛生教育標語，包含『保护』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p03-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "活動手冊中的指示，包含『对』、『涂上』、『颜色』、『标上』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p04-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口腔衛生教育內容，包含『用牙线清洁牙齿』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p04-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "活動手冊中的互動問題，包含『帮』、『绕到』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p05-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "活動手冊中的互動問題，包含『图片』、『隐藏』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口腔衛生教育知識，包含『至少』、『两分钟』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "生活建議，包含『听』、『歌曲』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "生活建議，包含『计时器』、『设置为』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口腔衛生教育內容，包含『这样做』、『细菌』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "活動手冊中的鼓勵話語。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "活動手冊中的指示，包含『连起来』、『找出』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p07-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口腔衛生核心建議之一。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p07-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口腔衛生核心建議之一。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p07-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "飲食健康建議，包含『蔬菜』、『含糖』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p07-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口腔衛生建議，包含『饮用』、『含氟化物』。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p07-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口腔衛生核心建議之一。"
+    }
+  ]
+}

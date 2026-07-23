@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "id": "cdc-stacks-116683-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://stacks.cdc.gov/view/cdc/116683",
+    "https://stacks.cdc.gov/view/cdc/116683/cdc_116683_DS1.pdf",
+    "https://stacks.cdc.gov/Content%20and%20Copyright",
+    "https://www.cdc.gov/other/agencymaterials.html"
+  ],
+  "upstream_revision": "CDC Stacks cdc:116683; updated 2022-04-22; main document urn:sha256:53fcf122e5009fecf2f7caa24cacbf7a43f55367a3b69ccdbcd69a90eae870a7",
+  "retrieved_at": "2026-07-21T13:00:00+08:00",
+  "license": "U.S. Public Domain",
+  "license_url": "https://stacks.cdc.gov/Content%20and%20Copyright",
+  "output_license": "U.S. Public Domain",
+  "attribution": "National Center for Immunization and Respiratory Diseases (U.S.). Division of Viral Diseases.",
+  "modification_notice": "Extracted complete Simplified Chinese introductory and purpose sentences from the checksum-pinned PDF with pypdf 5.9.0, applied Unicode NFC and conservative PDF-whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; complex lists, headings, fragments, third-party links, and converter output were excluded, and no expected text was used.",
+  "notice_id": "cdc-stacks-116683-v1",
+  "raw_sha256": {
+    "https://stacks.cdc.gov/view/cdc/116683/cdc_116683_DS1.pdf": "53fcf122e5009fecf2f7caa24cacbf7a43f55367a3b69ccdbcd69a90eae870a7"
+  },
+  "normalized_path": "benchmarks/accuracy/external/cdc-stacks-116683-v1.json",
+  "normalized_sha256": "48f6448f185d6e5ee2f8ed4f0827e9f4807a280c2c9fd06c60fc7c3b609f9297",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Translated U.S. public-health program descriptions are not representative of ordinary Taiwan product traffic.",
+    "The document describes historical COVID-19 programs and must not be treated as current medical guidance.",
+    "Only complete introductory and purpose sentences are retained because the PDF text layer merges complex columns and lists.",
+    "Domain and conversion-risk labels remain unset until input-only review.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

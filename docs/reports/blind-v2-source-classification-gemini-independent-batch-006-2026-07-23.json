@@ -1,0 +1,1033 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-23",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-006.json",
+  "packet_sha256": "24ee1f560805f539ac9d259b23f4a26dba642f875ee40dd2bc46c515c78d68f1",
+  "reviewer": "Gemini CLI",
+  "gemini_cli_version": "0.52.0",
+  "model": "gemini-2.5-pro",
+  "session_id": "e66609dc-51c7-4f34-9702-ee5337bc3db9",
+  "policy": "input_only_no_converter_output",
+  "validation": {
+    "exact_id_coverage": "100/100",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "policy_violations": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「接口」、「令牌」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "主要為字元層級轉換，無特殊術語風險。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「服務器」、「客戶端」、「響應頭」等術語，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「接口」、「游標」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "主要為字元層級轉換，「狀態碼」一詞通用。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「接口」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-007",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含英文專有名詞「Webhook」，需避免轉換。同時涉及術語「簽名」、「校驗」。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「客戶端」、「分塊」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含英文專有名詞「GraphQL」，需避免轉換。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含英文縮寫「API」，需避免轉換。同時涉及術語「版本」、「升級」、「字段」、「遷移」。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「終端」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含命令列參數「--dry-run」，需避免轉換。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「退出碼」、「腳本」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「管道」，在台灣可能用「管線」。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「密碼」、「命令行」、「參數」，存在潛在用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「配置文件」、「環境變量」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「日誌」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「交互模式」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "主要為字元層級轉換，無特殊術語風險。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「參數」、「默認值」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「遠程分支」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「合併衝突」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「共享分支」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「拉取請求」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「發布標籤」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「子模塊」、「主倉庫」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「版本控制」、「配置模板」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「變基」(rebase)，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「代碼審查」、「持續集成」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「緊急修復」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「數據庫遷移」、「事務」、「回滾」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「索引」、「延遲」、「磁盤」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「租戶」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「連接池」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「只讀副本」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「鎖表」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「備份」、「恢復流程」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-038",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含時區標準「UTC」，需避免轉換。同時涉及「時間戳」、「時區」。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「唯一約束」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「慢查詢日誌」、「敏感參數」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「容器鏡像」、「软件包」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「構建鏡像」、「摘要值」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-043",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含系統用戶名「root」，需避免轉換。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「健康檢查」、「進程」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「部署」、「命名空間」、「集群」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「資源限制」、「容器」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「滾動更新」、「實例」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「臨時文件」、「容器」、「只讀文件系統」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「密鑰」、「鏡像」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「服務網格」、「代理」、「兼容性」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「持續集成」、「依賴項」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "主要為字元層級轉換，無特殊術語風險。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「緩存鍵」、「操作系統」、「運行時」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-054",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "主要為字元層級轉換，無特殊術語風險。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「部署生產環境」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「回滾腳本」、「制品」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-057",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「構建日誌」、「訪問令牌」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-058",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「定時任務」、「實例」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-059",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「制品」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-060",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「預發布環境」、「生產環境」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「依賴性鎖定文件」、「软件包清單」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-062",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「升級主版本」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-063",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「私有软件包源」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-064",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「安裝腳本」、「摘要」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-065",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「可選依賴」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-066",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「依賴解析」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-067",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「許可證」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-068",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「软件包」、「模塊」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-069",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「開發依賴」、「生產制品」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-070",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「軟件物料清單」(SBOM)、「間接依賴」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-071",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "主要為字元層級轉換，無特殊術語風險。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-072",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「刷新令牌」、「會話」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-073",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「跨域請求」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-074",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「參數綁定」，是重要的安全概念。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-075",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「文件上傳服務」、「客戶端」、「擴展名」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-076",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「審計日誌」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-077",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「簽名密鑰輪換」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-078",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含協定名稱「TLS」，需避免轉換。同時涉及「證書」。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-079",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「堆棧跟蹤」、「服務器路徑」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-080",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "主要為字元層級轉換，無特殊術語風險。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-081",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「指標標籤」、「高基數」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-082",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「分佈式跟踪」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-083",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "主要為字元層級轉換，無特殊術語風險。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-084",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「日誌級別」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-085",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「儀表板」、「延遲」、「分位數」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-086",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「採樣率」、「監控」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-087",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「健康檢查」、「訪問日誌」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-088",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「錯誤預算」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-089",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「系統時間漂移」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-090",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "主要為字元層級轉換，無特殊術語風險。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-091",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「消息消費者」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-092",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「事件格式」、「字段」、「消費者」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-093",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「隊列」、「擴容」、「實例」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-094",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「死信隊列」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-095",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「對象存儲」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-096",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「緩存」、「數據庫」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-097",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含協定名稱「DNS」，需避免轉換。同時涉及「域名」、「記錄」、「生存時間」。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-098",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "主要為字元層級轉換，無特殊術語風險。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-099",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「配置中心」，存在地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-it-api-cli-v1/it-100",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及術語「遠程端點」、「斷路器」，存在地區用詞差異。"
+    }
+  ]
+}

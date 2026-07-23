@@ -1,0 +1,1142 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_synthesis_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-23",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-005.json",
+  "packet_sha256": "cd5746f6aacad45fa964dbb747e97dd1d20941598e8e59748f9478ae8691a357",
+  "reviewer": "Codex synthesis after independent Gemini review",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 100,
+    "eligible": 98,
+    "excluded": 2,
+    "by_selection_basis": {
+      "agreement": 35,
+      "codex": 16,
+      "gemini": 45,
+      "hybrid": 4
+    }
+  },
+  "cases": [
+    {
+      "id": "massive-1-0-zh-cn-v1/10144",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "unusual_localized_wording"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10221",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "non_command_utterance"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10276",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10467",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10514",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10615",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10635",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10872",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "hybrid"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10952",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11084",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11108",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11438",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11570",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11601",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/118",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "hybrid"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11816",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11830",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11904",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1193",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "hybrid"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12226",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12301",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12393",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "awkward_localization"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12560",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12682",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12830",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12903",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13074",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13225",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13301",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13416",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13540",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14337",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14413",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "awkward_localization"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14482",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14778",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15057",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15127",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15225",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15238",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15448",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15605",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15870",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15939",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "missing_message_content"
+      ],
+      "confidence": "high",
+      "notes": "缺少可獨立判讀的必要內容，建議排除。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16166",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16168",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/162",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16436",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16682",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "run_on_utterance"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/17000",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/17031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "run_on_utterance"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/17108",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1866",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1983",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2096",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2248",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2260",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2651",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2685",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2920",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2992",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3318",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3399",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3452",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3777",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3795",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4674",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4845",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5355",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5561",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5601",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5695",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5869",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/635",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "hybrid"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6782",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6821",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6847",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6887",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "contextless_fragment"
+      ],
+      "confidence": "high",
+      "notes": "缺少可獨立判讀的必要內容，建議排除。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6965",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/709",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7168",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7179",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7230",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7256",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "run_on_utterance"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7344",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7423",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/748",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7491",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7595",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7718",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/787",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7902",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8077",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8116",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8225",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8769",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9099",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/961",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 綜合 input-only 語意、Gemini 獨立意見與固定 domain/risk 規則後的建議。",
+      "selection_basis": "gemini"
+    }
+  ]
+}

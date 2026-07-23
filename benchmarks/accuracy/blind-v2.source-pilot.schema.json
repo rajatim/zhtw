@@ -16,7 +16,10 @@
     "purpose": { "type": "string", "const": "candidate_source_pilot" },
     "input_only": { "type": "boolean", "const": true },
     "converter_output_used": { "type": "boolean", "const": false },
-    "source_class": { "type": "string", "const": "permissive_license" },
+    "source_class": {
+      "type": "string",
+      "enum": ["permissive_license", "public_domain", "project_original", "permissioned"]
+    },
     "license": { "type": "string", "minLength": 1 },
     "attribution": { "type": "string", "minLength": 1 },
     "modification_notice": { "type": "string", "minLength": 1 },
@@ -47,7 +50,7 @@
             "required": ["raw_url", "source_case_id", "split"],
             "additionalProperties": false,
             "properties": {
-              "raw_url": { "type": "string", "format": "uri" },
+              "raw_url": { "type": "string", "format": "uri-reference" },
               "source_case_id": { "type": "string", "minLength": 1 },
               "split": { "type": "string", "minLength": 1 }
             }

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "id": "zhtw-project-llm-product-v1",
+  "track": "blind",
+  "source_class": "project_original",
+  "source_urls": [
+    "https://github.com/rajatim/zhtw/tree/main/benchmarks/accuracy/sources"
+  ],
+  "upstream_revision": "zhtw project-original LLM product input-only source snapshot drafted 2026-07-23; raw SHA-256: e9b93c421c42ec3b691237e3e114529def34ef22001a59b28158adbccbe70146",
+  "retrieved_at": "2026-07-23T12:00:00+08:00",
+  "license": "MIT",
+  "license_url": "https://github.com/rajatim/zhtw/blob/main/LICENSE",
+  "output_license": "MIT",
+  "attribution": "Copyright zhtw contributors; initial input-only scenarios drafted by Codex and subject to independent Gemini and maintainer review.",
+  "modification_notice": "Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.",
+  "notice_id": "zhtw-project-llm-product-v1",
+  "raw_sha256": {
+    "benchmarks/accuracy/sources/zhtw-project-llm-product-v1.json": "e9b93c421c42ec3b691237e3e114529def34ef22001a59b28158adbccbe70146"
+  },
+  "normalized_path": "benchmarks/accuracy/external/zhtw-project-llm-product-v1.json",
+  "normalized_sha256": "3c1db11164fd846ef6e4083c0410eff9fc76749fc8cb96e89d2980673c60e453",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "These scenarios were drafted by Codex and are synthetic project-original inputs, not independently observed market traffic.",
+    "The source intentionally concentrates on LLM product behavior and is not representative of general prose.",
+    "Independent Gemini and maintainer source review remain pending.",
+    "Domain and conversion-risk labels remain unset until input-only review.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

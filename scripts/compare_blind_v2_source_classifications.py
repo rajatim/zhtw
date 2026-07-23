@@ -89,13 +89,27 @@ def render_markdown(
     gemini: dict[str, Any],
     *,
     generated_date: str,
+    maintainer_decisions: dict[str, Any] | None = None,
 ) -> str:
     stats, differences = build_comparison(packet, codex, gemini)
+    decision_cases = (
+        case_map(maintainer_decisions, label="maintainer decisions")
+        if maintainer_decisions is not None
+        else {}
+    )
+    difference_ids = {item["id"] for item in differences}
+    if decision_cases and not difference_ids.issubset(decision_cases):
+        raise ValueError("maintainer decisions must cover the complete review queue")
+    resolved = bool(decision_cases) and difference_ids.issubset(decision_cases)
     lines = [
         "<!-- zhtw:disable -->",
-        f"# Blind-v2 Source Classification Diff 001 ({generated_date})",
+        (f"# Blind-v2 Source Classification Diff {packet['batch_number']:03d} ({generated_date})"),
         "",
-        "Status: advisory only; maintainer decisions pending",
+        (
+            "Status: all advisory disagreements resolved by maintainer"
+            if resolved
+            else "Status: advisory only; maintainer decisions pending"
+        ),
         "",
         f"Packet SHA-256: `{codex['packet_sha256']}`",
         f"Cases: {stats['total']}",
@@ -115,10 +129,20 @@ def render_markdown(
             f"Gemini marked {gemini['stats']['policy_violations']} cases as eligible even though "
             "its own quality flags identified malformed or fragmentary input. These suggestions "
             "fail the declared source-quality rule and are not auto-adopted."
+            if gemini["stats"]["policy_violations"]
+            else "Gemini reported no eligibility/quality-policy conflicts; its validation also "
+            "recorded zero tool calls and zero API errors."
         ),
         "",
-        "Codex is the current conservative recommendation. Neither AI review is a human decision, "
-        "and no classification in this report has been written into the candidate pool.",
+        (
+            f"The maintainer resolved all {stats['review_queue']} advisory disagreements and "
+            f"batch-confirmed the {stats['exact']} exact AI matches after reviewing the Codex "
+            "synthesis. No classification in this report has been written into the candidate pool."
+            if resolved
+            else "Neither advisory is auto-preferred. Codex must synthesize the differences before "
+            "maintainer confirmation; no classification in this report has been written into the "
+            "candidate pool."
+        ),
         "",
         "## Review Queue",
         "",
@@ -155,7 +179,13 @@ def render_markdown(
                 "",
                 f"Gemini reason: {gemini_case['notes']}",
                 "",
-                "Maintainer decision: `pending`",
+                (
+                    f"Maintainer decision: `{decision_cases[item['id']]['selected_advisory']}` "
+                    f"accepted by `{maintainer_decisions['maintainer']}` on "
+                    f"`{maintainer_decisions['decision_date']}`"
+                    if resolved
+                    else "Maintainer decision: `pending`"
+                ),
                 "",
             ]
         )
@@ -168,15 +198,18 @@ def main() -> int:
     parser.add_argument("--codex", type=Path, required=True)
     parser.add_argument("--gemini", type=Path, required=True)
     parser.add_argument("--generated-date", required=True)
+    parser.add_argument("--maintainer-decisions", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
 
+    decisions = load_json(args.maintainer_decisions) if args.maintainer_decisions else None
     content = render_markdown(
         load_json(args.packet),
         load_json(args.codex),
         load_json(args.gemini),
         generated_date=args.generated_date,
+        maintainer_decisions=decisions,
     )
     if args.check:
         if not args.output.is_file() or args.output.read_text(encoding="utf-8") != content:

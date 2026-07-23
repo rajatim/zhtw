@@ -1,0 +1,1029 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only_policy_review_required",
+  "generated_date": "2026-07-23",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-004.json",
+  "packet_sha256": "014e1cc3e3dba34464bef7f6f8e566e9a5e00d2b7443ac7d56a883b784dca93f",
+  "reviewer": "Gemini CLI",
+  "gemini_cli_version": "0.52.0",
+  "model": "gemini-2.5-pro",
+  "policy": "input_only_no_converter_output",
+  "validation": {
+    "exact_id_coverage": "100/100",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "zhtw-project-llm-product-v1/llm-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「模型」、「工具」等 LLM 相關技術術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「工具調用」、「代理」等 LLM 相關技術術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「模型」、「來源」等 LLM 相關術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「檢索」、「內容」等 LLM 相關術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「上下文限制」、「用戶」等 LLM/UI 相關術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「流式輸出」、「界面」等 LLM/UI 相關術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「用戶」、「模型請求」等 LLM 相關術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `{{user_locale}}` 樣板字面值，需防止過度轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `JSON` 專有名詞，需防止過度轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「工具參數」、「調用」等 LLM/API 相關術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「代理」、「高風險操作」等 LLM/安全術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用句子，關於模型表達不確定性，地區詞彙差異風險較低。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「系統消息」、「用戶消息」等 LLM 專有術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「檢索」、「文件」、「段落」等 RAG 相關術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「檢索結果」、「重試」等 RAG/API 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「嵌入向量」、「索引」等 LLM/向量資料庫術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「知識庫」、「索引」等 RAG 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「分塊策略」、「評測」等 LLM/NLP 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「模型」、「界面」等 LLM/UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「令牌上限」、「輸出空間」等 LLM 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「輸入令牌」、「輸出令牌」等 LLM 計價術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「敏感信息」、「脫敏」等資料安全術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `API` 專有名詞及「密鑰」、「令牌」等術語，需防止過度轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「緩存副本」等技術術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「內容過濾器」等 LLM 安全術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用審核流程說明，地區詞彙差異風險較低。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「多代理協作」、「工具」等 LLM Agent 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「代理」、「上下文摘要」等 LLM Agent 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「工具返回的數據」、「系統指令」等 LLM 安全術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「提示注入」、「不可信輸入」等 LLM 安全術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「生成代碼」、「隔離環境」等 LLM/開發術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「自動修改文件」等 CLI/Agent 功能術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「代碼審查」、「主分支」等 Git 工作流程術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「評測集」、「訓練提示」等 LLM 評估術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「評測」、「模型」、「參數」等 LLM 評估術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「評分腳本」、「模型版本」、「溫度」、「隨機總子」等 LLM 評估術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「人工審核」、「模型建議」、「標準答案」等 LLM 評估流程術語。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「審核模型」、「人工確認」等 LLM 評估流程術語。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「低信心案例」、「人工審核隊列」等 LLM 評估流程術語。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「流式渲染」、「列結構」等 UI/LLM 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `Markdown` 專有名詞及「代碼塊」、「變量名稱」等術語，需防止過度轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「繁體中文」、「專有名詞」等語言處理術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用安全說明，地區詞彙差異風險較低。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「語音轉寫」、「關鍵詞」等 ASR 相關術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「圖片識別」、「模型推斷」等多模態術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「文件解析」等通用技術術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用長文摘要規則，地區詞彙差異風險較低。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「翻譯請求」、「代碼」等術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「批量生成任務」等術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「服務降級」、「模型功能」等後端服務術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「用戶」、「按鈕」、「頁面」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「表單」、「焦點」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「下拉列表」、「高亮」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「上傳」、「文件」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「文件大小」、「容量」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「日期選擇器」、「鍵盤」等 UI 無障礙術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「彈窗」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「搜索結果」、「空白狀態」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「網絡」、「請求」等 UI/Web 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「刪除操作」、「撤銷」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「導航菜單」等 UI 國際化術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「界面」、「佈局方向」等 UI 國際化 (RTL) 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「輸入框」、「地區格式」等 UI 國際化術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「時區」、「日程」等 UI 國際化術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「日期格式」、「語言區域」等 UI 國際化術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「按鈕標籤」、「圖標」等 UI 國際化佈局術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「翻譯」、「鍵名」、「默認語言」等 UI 國際化術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `{{user_name}}` 樣板字面值，需防止過度轉換。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「複數消息」等 UI 國際化 (pluralization) 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「螢幕閱讀器」、「輸入框」等 UI 無障礙術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「替代文字」等 UI 無障礙術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用 UI 無障礙原則，地區詞彙差異風險較低。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「對話框」、「鍵盤焦點」等 UI 無障礙術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `Escape` 鍵名，需防止過度轉換。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「工具欄」等 UI 響應式設計術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「移動設備」、「橫屏」、「表格」等 UI 響應式設計術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「分頁」、「列表」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「篩選條件」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「排序」、「表頭」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「骨架屏」、「頁面跳動」等 UI 加載體驗術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「重複提交」等 UI 表單術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「會話」、「登錄頁面」、「跳轉」等 Web 應用術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「權限」、「批量操作」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「通知中心」、「未讀消息」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「已讀狀態」、「設備同步」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「默認值」、「重置」等 UI 設置術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「自動保存」、「本地草稿」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「地址表單」、「郵政編碼」等 UI 國際化術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「電話號碼輸入框」、「國家格式」等 UI 國際化術語。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用姓名欄位規則，地區詞彙差異風險較低。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「排版方向」、「圖標」等 UI 國際化 (RTL) 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「深色模式」、「刷新頁面」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「高對比度模式」等 UI 無障礙術語，有地区词汇差异风险。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「觸摸目標」、「誤觸」等移動 UI 設計術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「錯誤提示」、「提交按鈕」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「表格列名」、「截斷」等 UI 國際化佈局術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「導出」、「下載通知」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「預覽區域」、「文件」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「圖片裁剪工具」、「比例」等 UI 術語，有地區詞彙差異風險。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「應用更新」、「版本說明」等 UI 術語，有地區詞彙差異風險。"
+    }
+  ]
+}

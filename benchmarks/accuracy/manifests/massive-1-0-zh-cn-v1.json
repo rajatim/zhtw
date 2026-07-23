@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "id": "massive-1-0-zh-cn-v1",
+  "track": "blind",
+  "source_class": "permissive_license",
+  "source_urls": [
+    "https://github.com/alexa/massive",
+    "https://amazon-massive-nlu-dataset.s3.amazonaws.com/amazon-massive-dataset-1.0.tar.gz",
+    "https://aclanthology.org/2022.acl-long.297/"
+  ],
+  "upstream_revision": "MASSIVE dataset 1.0; alexa/massive main commit f966f21846043aabef9b0f974fa7970027f43738; archive Last-Modified 2022-06-08T23:56:32Z; raw SHA-256: 7df623fd2d300a4d235d6ee5bd396c9a28258d3a0ccb29abdb054506eba153f8",
+  "retrieved_at": "2026-07-23T10:46:51+08:00",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "output_license": "CC BY 4.0",
+  "attribution": "MASSIVE dataset, Copyright Amazon.com, Inc. or its affiliates; localized from the CC BY 4.0 SLURP text dataset; cite FitzGerald et al. (2022) and Bastianelli et al. (2020).",
+  "modification_notice": "Extracted only id, partition, and Simplified Chinese utterance text from the checksum-pinned zh-CN JSONL member, applied Unicode NFC and whitespace normalization, removed exact within-source duplicate utterances, and added input-only candidate metadata; worker identifiers, judgments, intents, slot annotations, converter output, and expected text were excluded.",
+  "notice_id": "massive-1-0-zh-cn-v1",
+  "raw_sha256": {
+    "https://amazon-massive-nlu-dataset.s3.amazonaws.com/amazon-massive-dataset-1.0.tar.gz": "7df623fd2d300a4d235d6ee5bd396c9a28258d3a0ccb29abdb054506eba153f8"
+  },
+  "normalized_path": "benchmarks/accuracy/external/massive-1-0-zh-cn-v1.json",
+  "normalized_sha256": "37078e382b5ed4e0e25bd71edf4c24199fcbde9956b4dd6e1163684646c000be",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "MASSIVE zh-CN was localized from English SLURP voice-assistant utterances and is not independently authored organic Simplified Chinese traffic.",
+    "Many utterances are short commands or fragments that require input-only quality review before eligibility.",
+    "Wake words, names, services, and mixed Latin text may require over-conversion guard classification.",
+    "Intent, scenario, slot, worker, and judgment fields are excluded so domain and risk review uses candidate input text only.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

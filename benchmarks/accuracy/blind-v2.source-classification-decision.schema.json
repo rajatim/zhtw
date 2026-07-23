@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.source-classification-decision.schema.json",
+  "title": "zhtw Blind-v2 source classification maintainer decision",
+  "type": "object",
+  "required": [
+    "version", "dataset", "stage", "status", "decision_date", "maintainer",
+    "decision_method", "packet_path", "packet_sha256", "codex_path", "codex_sha256",
+    "gemini_path", "gemini_sha256", "stats", "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "dataset": { "type": "string", "const": "blind-v2" },
+    "stage": { "type": "string", "const": "source_classification_maintainer_decision" },
+    "status": { "type": "string", "const": "all_classifications_confirmed" },
+    "decision_date": { "type": "string", "format": "date" },
+    "maintainer": { "type": "string", "minLength": 1 },
+    "decision_method": { "type": "string", "const": "batch_human_confirmation" },
+    "packet_path": { "type": "string", "minLength": 1 },
+    "packet_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "codex_path": { "type": "string", "minLength": 1 },
+    "codex_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "gemini_path": { "type": "string", "minLength": 1 },
+    "gemini_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "synthesis_path": { "type": "string", "minLength": 1 },
+    "synthesis_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "stats": {
+      "type": "object",
+      "required": ["packet_cases", "confirmed_cases", "resolved_disagreements", "confirmed_exact_matches", "remaining_cases"],
+      "additionalProperties": false,
+      "properties": {
+        "packet_cases": { "type": "integer", "minimum": 1 },
+        "confirmed_cases": { "type": "integer", "minimum": 1 },
+        "resolved_disagreements": { "type": "integer", "minimum": 1 },
+        "confirmed_exact_matches": { "type": "integer", "minimum": 0 },
+        "remaining_cases": { "type": "integer", "const": 0 }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "advisory_relation", "selected_advisory", "classification"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "advisory_relation": { "type": "string", "enum": ["disagreement", "exact_match"] },
+          "selected_advisory": { "type": "string", "enum": ["codex", "gemini", "synthesis"] },
+          "classification": {
+            "type": "object",
+            "required": ["eligible", "script", "domain", "risk", "quality_flags", "confidence", "notes"],
+            "additionalProperties": false,
+            "properties": {
+              "eligible": { "type": "boolean" },
+              "script": { "type": "string", "enum": ["simplified", "mixed", "traditional", "uncertain"] },
+              "domain": {
+                "type": ["string", "null"],
+                "enum": ["it_api_cli", "ui_i18n", "llm_generated", "formal_news", "social_daily", "high_stakes", null]
+              },
+              "risk": {
+                "type": ["string", "null"],
+                "enum": ["candidate_gap", "over_conversion_guard", "baseline_guard", null]
+              },
+              "quality_flags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+              "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "cases": {
+            "contains": {
+              "properties": {
+                "selected_advisory": { "const": "synthesis" }
+              },
+              "required": ["selected_advisory"]
+            }
+          }
+        }
+      },
+      "then": {
+        "required": ["synthesis_path", "synthesis_sha256"]
+      }
+    }
+  ]
+}

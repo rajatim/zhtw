@@ -13,6 +13,24 @@ is missing.
 - Modifications: Human annotation and Taiwan Traditional normalization.
 - Output license: MIT.
 
+## zhtw-project-ui-i18n-v1
+
+- Source: Project-original Simplified Chinese UI and internationalization input-only scenarios drafted 2026-07-23.
+- License: MIT
+- Attribution: Copyright zhtw contributors; initial input-only scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT
+- Bias notice: Synthetic Codex-drafted scenarios are not independently observed market traffic. Independent Gemini and maintainer source review remain pending.
+
+## zhtw-project-llm-product-v1
+
+- Source: Project-original Simplified Chinese LLM product input-only scenarios drafted 2026-07-23.
+- License: MIT
+- Attribution: Copyright zhtw contributors; initial input-only scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT
+- Bias notice: Synthetic Codex-drafted scenarios are not independently observed market traffic. Independent Gemini and maintainer source review remain pending.
+
 ## ud-gsd-v1
 
 - Source: Universal Dependencies Chinese GSD commit
@@ -49,6 +67,85 @@ is missing.
 - Output license: CC BY-SA 4.0
 - Bias notice: Learner essays contain non-native wording and source errors.
   Domain and risk remain pending input-only review.
+
+## massive-1-0-zh-cn-v1
+
+- Source: MASSIVE dataset 1.0 `zh-CN`, localized from the SLURP text dataset.
+- License: CC BY 4.0
+- Attribution: MASSIVE dataset, Copyright Amazon.com, Inc. or its affiliates; localized from the CC BY 4.0 SLURP text dataset; cite FitzGerald et al. (2022) and Bastianelli et al. (2020).
+- Modifications: Extracted only id, partition, and Simplified Chinese utterance text from the checksum-pinned zh-CN JSONL member, applied Unicode NFC and whitespace normalization, removed exact within-source duplicate utterances, and added input-only candidate metadata; worker identifiers, judgments, intents, slot annotations, converter output, and expected text were excluded.
+- Output license: CC BY 4.0
+- Bias notice: Localized single-shot voice-assistant utterances are not independently
+  authored organic Simplified Chinese traffic. Short commands, fragments, wake
+  words, and mixed-language rows require input-only quality review.
+
+## zhtw-project-it-api-cli-v1
+
+- Source: zhtw project-original IT, API, and CLI input-only scenarios drafted
+  on 2026-07-23.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only IT, API, and CLI scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: Synthetic engineering scenarios are coverage material, not
+  independently observed market-frequency evidence.
+
+## ftc-small-business-simplified-v1
+
+- Source: Federal Trade Commission, *Scams and Your Small Business*, Simplified
+  Chinese, July 2023.
+- License: U.S. Public Domain under the FTC website policy; third-party content,
+  graphics, and agency seals are excluded.
+- Attribution: Federal Trade Commission, Scams and Your Small Business, Simplified Chinese, July 2023; no FTC endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese prose sentences from the checksum-pinned FTC-authored PDF, joined PDF layout wraps, removed headings, page furniture, navigation URLs, phone instructions, and incomplete fragments, and added input-only provenance; no images, seals, expected text, or converter output were used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S.-focused fraud and small-business guidance intentionally
+  concentrates financial, legal, and cybersecurity language.
+
+## nps-essential-acadia-simplified-v1
+
+- Source: National Park Service, Acadia National Park, *Essential Acadia:
+  Simplified Chinese*, page last updated October 6, 2023.
+- License: U.S. Public Domain under the NPS website disclaimer; third-party
+  content, images, graphics, and agency insignia are excluded.
+- Attribution: National Park Service, Acadia National Park, Essential Acadia: Simplified Chinese; no NPS endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese prose sentences from the checksum-pinned NPS article content container, removed navigation, images, English labels, page furniture, URLs without complete sentences, and incomplete fragments, and added input-only provenance; no trademarks, expected text, or converter output were used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. national-park visitor guidance concentrates travel,
+  outdoor-safety, park-rule, and mixed-language place-name usage.
+
+## cdc-stacks-111808-v1
+
+- Source: CDC Stacks item `cdc:111808`, *当您生病时*, main-document checksum
+  `af99f6f5dc63f2dbebd5d1ed0010dd492b27d9b742fd8416cff2f90b26f63b78`.
+- License: U.S. Public Domain.
+- Attribution: Centers for Disease Control and Prevention (U.S.).
+- Modifications: Extracted complete Simplified Chinese sentences from the checksum-pinned PDF with pypdf 5.9.0, applied Unicode NFC and conservative PDF-whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; headings, fragments, and converter output were excluded, and no expected text was used.
+- Output license: U.S. Public Domain.
+- Bias notice: Historical translated COVID-19 guidance is not current medical
+  advice or representative of ordinary Taiwan product traffic.
+
+## cdc-stacks-120024-v1
+
+- Source: CDC Stacks item `cdc:120024`, *照顾好你的牙齿*, main-document
+  checksum `41a685b4c0ff1805b23afca4599d60583c6ffb5ccb892b391955956c9e365020`.
+- License: U.S. Public Domain.
+- Attribution: National Center for Chronic Disease Prevention and Health Promotion (U.S.).
+- Modifications: Extracted complete Simplified Chinese sentences from the checksum-pinned PDF with pypdf 5.9.0, applied Unicode NFC and conservative PDF-whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; headings without sentence punctuation, fragments, and converter output were excluded, and no expected text was used.
+- Output license: U.S. Public Domain.
+- Bias notice: A children's oral-health activity booklet is not representative
+  of ordinary Taiwan product traffic.
+
+## cdc-stacks-116683-v1
+
+- Source: CDC Stacks item `cdc:116683`, *健康平等措施*, main-document checksum
+  `53fcf122e5009fecf2f7caa24cacbf7a43f55367a3b69ccdbcd69a90eae870a7`.
+- License: U.S. Public Domain.
+- Attribution: National Center for Immunization and Respiratory Diseases (U.S.). Division of Viral Diseases.
+- Modifications: Extracted complete Simplified Chinese introductory and purpose sentences from the checksum-pinned PDF with pypdf 5.9.0, applied Unicode NFC and conservative PDF-whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; complex lists, headings, fragments, third-party links, and converter output were excluded, and no expected text was used.
+- Output license: U.S. Public Domain.
+- Bias notice: Historical translated U.S. public-health program descriptions are
+  not current medical guidance or representative of ordinary Taiwan traffic.
 
 ## naer-terms-v1
 

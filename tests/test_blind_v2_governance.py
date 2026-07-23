@@ -256,13 +256,15 @@ def test_exact_and_near_duplicate_candidates_are_detected(tmp_path: Path) -> Non
     assert pairs and pairs[0][:2] == ("first", "second")
 
 
-def test_source_caps_are_fail_closed(tmp_path: Path) -> None:
+def test_source_caps_are_enforced_when_pool_is_ready(tmp_path: Path) -> None:
     cases = [candidate(number, source_id="one-source") for number in range(1, 21)]
     pool = pool_fixture(cases)
     path = tmp_path / "pool.json"
     write_json(path, pool)
 
-    errors = validate_pool(path, check_references=False)
+    assert validate_pool(path, check_references=False) == []
+
+    errors = validate_pool(path, require_ready=True, check_references=False)
 
     assert any("source class project_original exceeds 35%" in error for error in errors)
     assert any("source one-source exceeds 10%" in error for error in errors)
@@ -434,3 +436,26 @@ def test_reference_scan_does_not_read_untracked_json(
 
     assert texts == []
     assert errors == []
+
+
+def test_reference_snapshot_ignores_tracked_json_without_reference_text(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    reports = tmp_path / "docs/reports"
+    reports.mkdir(parents=True)
+    metadata = reports / "metadata.json"
+    metadata.write_text('{"status": "reviewed"}\n', encoding="utf-8")
+    reference = reports / "reference.json"
+    reference.write_text('{"input": "候選參考句"}\n', encoding="utf-8")
+    monkeypatch.setattr(governance, "PROJECT_ROOT", tmp_path)
+    monkeypatch.setattr(governance, "_is_tracked", lambda path: True)
+    pool = pool_fixture([])
+    pool["deduplication"]["reference_globs"] = ["docs/reports/*.json"]
+
+    texts, errors, snapshot_hash = reference_texts(pool, tmp_path / "pool.json")
+    reference.unlink()
+    _, second_errors, metadata_only_hash = reference_texts(pool, tmp_path / "pool.json")
+
+    assert texts == ["候選參考句"]
+    assert errors == second_errors == []
+    assert snapshot_hash != metadata_only_hash

@@ -203,11 +203,140 @@ converter. Codex and Gemini remain advisory; only the maintainer can create a
 final decision. A public decision summary must cover every selected case exactly
 once before private expected can be sealed.
 
-The initial source/license gate is recorded in
+### Permissioned user-report intake
+
+The first permissioned batch is an empty 100-case collection template at
+`sources/permissioned-user-report-batch-001.json`. Contributors submit 1-10
+original Simplified Chinese sentences through
+`.github/ISSUE_TEMPLATE/permissioned-user-report.yml` after accepting
+`docs/benchmark/PERMISSIONED-USER-REPORT-CONSENT.md`. The public issue URL and
+consent record are retained with every input.
+
+This channel is input-only. It rejects expected text and converter output,
+duplicate normalized inputs, incomplete consent, and common sensitive-data
+patterns. A flagged sentence is rejected for resubmission rather than silently
+redacted, because an unrecorded rewrite would break source provenance. Context
+entered in the issue is not imported as benchmark truth.
+
+Validate the collection while it is being filled:
+
+```bash
+make benchmark-blind-v2-permissioned-intake-check
+```
+
+After exactly 100 reviewed cases are present, change `status` to
+`ready_for_import` and run the fail-closed import gate:
+
+```bash
+make benchmark-blind-v2-permissioned-ready-check
+```
+
+Passing this gate does not promote cases directly. The batch must still go
+through Codex first-pass classification, independent Gemini advisory,
+maintainer confirmation, and the existing exact/near-deduplication gate.
+
+The source/license gate is recorded in
 `docs/reports/blind-v2-source-license-audit-2026-07-19.md`. It accepts Tatoeba
-CC0, FLORES-200 `zho_Hans`, UD Chinese-CFL, and individually verified CDC Stacks
-items for pinned pilots. It rejects converter-derived GSDSimp, Traditional-only
-Chinese-PUD, and Common Voice under the current no-rehosting download terms.
+CC0 only in principle but rejects the malformed one-row audited snapshot. It
+imports FLORES-200 `zho_Hans`, UD Chinese-CFL, and three individually verified
+CDC Stacks items. It also imports the CC BY 4.0 MASSIVE 1.0 `zh-CN` source from
+a checksum-pinned archive. It rejects converter-derived GSDSimp,
+Traditional-only Chinese-PUD, and Common Voice under the current no-rehosting
+download terms.
+
+The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
+checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
+conservative, excludes layout fragments, and never runs zhtw or creates
+expected text. Batch 003 completed their input-only quality/domain/risk review:
+61 are in the collecting pool and one malformed fragment was excluded.
+
+Source-classification batch 001 has 40 Codex/Gemini disagreements resolved by
+maintainer `tim`, who accepted the Codex classifications on 2026-07-21. The
+decision is recorded in
+`docs/reports/blind-v2-source-classification-maintainer-decision-batch-001-2026-07-21.json`.
+After a conservative Codex re-audit found no additional exceptions, the
+maintainer batch-confirmed the 60 exact AI matches on the same date. Batch 001
+therefore has 100/100 human source-classification decisions and was later
+promoted through the checksum-verified collecting-pool rebuild.
+
+Source-classification batch 002 was generated on 2026-07-21 and independently
+reviewed by Codex and Gemini CLI 0.51.0 using `gemini-2.5-pro`. Gemini made no
+tool calls and covered all 100 IDs. The reviews match on 55 cases; the remaining
+45 cases were resolved by maintainer `tim` on 2026-07-21 by accepting the Codex
+first pass. Batch 002 therefore has 100/100 human source-classification
+decisions and was later promoted through the checksum-verified collecting-pool
+rebuild.
+
+Source-classification batch 003 covers all 62 CDC Stacks pilot inputs. Codex and
+Gemini CLI 0.51.0 (`gemini-2.5-pro`, Vertex mode) independently reviewed the
+input-only packet on 2026-07-22; Gemini made zero tool calls and covered all
+IDs. The reviews match exactly on 33 cases. Maintainer `tim` selected the Codex
+classification for all 62 cases on 2026-07-22, resolving the remaining 29
+differences: 61 inputs are eligible and one malformed input is excluded. No
+expected text was created.
+
+Source-classification batch 004 covers 100 project-original input-only
+scenarios: 50 UI/i18n and 50 LLM product cases. Codex and Gemini CLI 0.52.0
+(`gemini-2.5-pro`) independently reviewed the packet on 2026-07-23 with zero
+Gemini tool calls or API errors. The reviews match on 69 cases. Maintainer
+`tim` confirmed the Codex synthesis on 2026-07-23: 21 differences use the
+Gemini classification, 9 use the Codex classification, and 1 uses a field-level
+hybrid. All 100 are eligible. These synthetic Codex-drafted scenarios are
+project-original coverage, not organic market-frequency evidence.
+
+Source-classification batch 005 covers the first deterministic 100-case
+selection round from MASSIVE 1.0 `zh-CN`. Codex and Gemini CLI 0.52.0
+(`gemini-2.5-pro`) independently reviewed the input-only packet on 2026-07-23.
+The accepted Gemini run covered all IDs with zero tool calls and API errors;
+two earlier rejected attempts remain disclosed in its advisory. The reviews
+match exactly on 35 cases and differ on 65. Codex synthesis recommends 98
+eligible and 2 excluded cases. Maintainer `tim` confirmed the full synthesis
+on 2026-07-23. All 98 eligible inputs passed exact/reference and character
+5-gram Jaccard 0.85 near-deduplication and entered the collecting pool.
+
+Source-classification batch 006 covers 100 project-original IT/API/CLI inputs.
+They were drafted by Codex as synthetic coverage without converter output or
+expected text. Gemini CLI 0.52.0 (`gemini-2.5-pro`) independently reviewed all
+100 IDs with zero tool calls and API errors. Codex and Gemini match on 58 cases;
+42 have script or risk differences. Codex synthesis recommends all 100 as
+eligible. A second Codex case-level review corrected five initial synthesis
+choices, leaving 82 candidate-gap, 8 over-conversion guard, and 10 baseline cases.
+Maintainer `tim` confirmed the revised synthesis on 2026-07-23. All 100 passed
+exact/reference and character 5-gram Jaccard 0.85 near-deduplication and entered
+the collecting pool.
+
+Source-classification batch 007 covers 81 conservatively extracted prose
+sentences from the FTC public-domain Simplified Chinese small-business fraud
+guide. Codex and Gemini independently reviewed the input-only packet and match
+on 53 cases; 28 have eligibility, domain, or risk differences. Codex synthesis
+recommends 55 eligible and 26 context-dependent exclusions. Maintainer
+`tim` confirmed the synthesis on 2026-07-23. All 55 eligible inputs passed
+exact/reference and character 5-gram Jaccard 0.85 near-deduplication and entered
+the collecting pool; all 26 context-dependent inputs remain excluded.
+
+Classification batches 001-008 now contribute 611 maintainer-confirmed eligible
+inputs to the `collecting` candidate pool. All 611 passed cross-batch/reference
+exact and character 5-gram Jaccard 0.85 near-deduplication; zero were excluded.
+All six domains now have coverage, but the pool is not ready to freeze or sample.
+Permissioned user-report batch 001 is collecting at 0/100 and therefore is not
+included in the 611 cases.
+
+Source-classification batch 008 covers 32 complete sentences from the NPS
+public-domain *Essential Acadia: Simplified Chinese* article. Codex and Gemini
+match exactly on 7 cases and differ on 25. Codex synthesis recommends 30
+eligible and 2 excluded cases. Maintainer `tim` confirmed the synthesis on
+2026-07-23. All 30 eligible inputs passed exact/reference and character 5-gram
+Jaccard 0.85 near-deduplication and entered the collecting pool.
+
+Rebuild and validate the current collecting pool:
+
+```bash
+make benchmark-blind-v2-pool-collecting-check
+```
+
+`make benchmark-blind-v2-pool-validate` intentionally retains
+`--require-ready` and must fail until the 5,880-case minimum, final source caps,
+and all domain/risk strata are satisfied.
 
 ## regression-v1
 

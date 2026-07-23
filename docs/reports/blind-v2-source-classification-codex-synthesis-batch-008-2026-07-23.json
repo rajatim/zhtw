@@ -1,0 +1,380 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_synthesis_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-23",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-008.json",
+  "packet_sha256": "91979d925fd5e084ef315fe78982d9cd3031e2a81bba3c531c18f2cd2907b3e2",
+  "reviewer": "Codex synthesis after independent Gemini review",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 32,
+    "eligible": 30,
+    "excluded": 2,
+    "by_selection_basis": {
+      "agreement": 7,
+      "codex": 21,
+      "gemini": 1,
+      "hybrid": 3
+    }
+  },
+  "cases": [
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "hybrid"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-005",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_url_subject"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "hybrid"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-010",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "hybrid"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    }
+  ]
+}

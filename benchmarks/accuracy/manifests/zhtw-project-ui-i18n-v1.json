@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "id": "zhtw-project-ui-i18n-v1",
+  "track": "blind",
+  "source_class": "project_original",
+  "source_urls": [
+    "https://github.com/rajatim/zhtw/tree/main/benchmarks/accuracy/sources"
+  ],
+  "upstream_revision": "zhtw project-original UI/i18n input-only source snapshot drafted 2026-07-23; raw SHA-256: 7f0384c072c0fd023acafa209657411686be15efa8c70662c009f14266f51692",
+  "retrieved_at": "2026-07-23T12:00:00+08:00",
+  "license": "MIT",
+  "license_url": "https://github.com/rajatim/zhtw/blob/main/LICENSE",
+  "output_license": "MIT",
+  "attribution": "Copyright zhtw contributors; initial input-only scenarios drafted by Codex and subject to independent Gemini and maintainer review.",
+  "modification_notice": "Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.",
+  "notice_id": "zhtw-project-ui-i18n-v1",
+  "raw_sha256": {
+    "benchmarks/accuracy/sources/zhtw-project-ui-i18n-v1.json": "7f0384c072c0fd023acafa209657411686be15efa8c70662c009f14266f51692"
+  },
+  "normalized_path": "benchmarks/accuracy/external/zhtw-project-ui-i18n-v1.json",
+  "normalized_sha256": "126b838215997ba872c52d7f235d3c4dbbb1e9ef96625cec22d112815f9c1c72",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "These scenarios were drafted by Codex and are synthetic project-original inputs, not independently observed market traffic.",
+    "The source intentionally concentrates on UI and internationalization behavior and is not representative of general prose.",
+    "Independent Gemini and maintainer source review remain pending.",
+    "Domain and conversion-risk labels remain unset until input-only review.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

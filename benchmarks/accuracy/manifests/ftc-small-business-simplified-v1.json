@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "id": "ftc-small-business-simplified-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://consumer.ftc.gov/resources-simplified-chinese",
+    "https://consumer.ftc.gov/system/files/consumer_ftc_gov/pdf/1033A_Scams%20and%20Your%20Small%20Business_July%202023_ZHS_508.pdf",
+    "https://www.ftc.gov/policy-notices/website-policy"
+  ],
+  "upstream_revision": "FTC Scams and Your Small Business, Simplified Chinese, July 2023; PDF Last-Modified 2023-09-12T14:41:50Z; raw SHA-256: c5bdddabd3570861a623134a768d253cc3a9200db683303d09624f3736c1b6a7",
+  "retrieved_at": "2026-07-23T13:20:04+08:00",
+  "license": "U.S. Public Domain",
+  "license_url": "https://www.ftc.gov/policy-notices/website-policy",
+  "output_license": "U.S. Public Domain",
+  "attribution": "Federal Trade Commission, Scams and Your Small Business, Simplified Chinese, July 2023; no FTC endorsement or affiliation is implied.",
+  "modification_notice": "Extracted only complete Simplified Chinese prose sentences from the checksum-pinned FTC-authored PDF, joined PDF layout wraps, removed headings, page furniture, navigation URLs, phone instructions, and incomplete fragments, and added input-only provenance; no images, seals, expected text, or converter output were used.",
+  "notice_id": "ftc-small-business-simplified-v1",
+  "raw_sha256": {
+    "https://consumer.ftc.gov/system/files/consumer_ftc_gov/pdf/1033A_Scams%20and%20Your%20Small%20Business_July%202023_ZHS_508.pdf": "c5bdddabd3570861a623134a768d253cc3a9200db683303d09624f3736c1b6a7"
+  },
+  "normalized_path": "benchmarks/accuracy/external/ftc-small-business-simplified-v1.json",
+  "normalized_sha256": "3ef43990c644a420d43a857b67ef645e14e80721a29b0931ae6a88ac2a857766",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "The booklet is an official U.S.-focused consumer-protection translation and is not representative of ordinary Taiwan traffic.",
+    "Fraud, financial, legal, and cybersecurity language is intentionally concentrated and requires high-stakes/formal domain review.",
+    "Pronoun-dependent or context-poor sentences may be excluded during input-only quality review.",
+    "Only PDF text authored by the FTC is extracted; graphics, seals, and linked or third-party materials are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

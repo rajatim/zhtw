@@ -1,0 +1,1029 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only_policy_review_required",
+  "generated_date": "2026-07-21",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-002.json",
+  "packet_sha256": "0e646d6113b7c0134b449de725d9a08afba21f2d42fef7af65c271037fd0e305",
+  "reviewer": "Gemini CLI",
+  "gemini_cli_version": "0.51.0",
+  "model": "gemini-2.5-pro",
+  "policy": "input_only_no_converter_output",
+  "validation": {
+    "exact_id_coverage": "100/100",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 95,
+    "excluded": 5,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "flores-200-zho-hans-v1/dev-0061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含蘋果公司、史蒂夫·喬布斯、iPhone等專有名詞，需注意過度轉換的風險。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0088",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名及人名（紅湖社區、傑夫·韋斯），以及「校園槍擊案」等事件名稱，需注意轉換的準確性。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0243",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句子結構完整，為正式新聞描述。術語「月球探測器」和「搭載」在台灣有對應的常用詞彙，屬於常規轉換。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0253",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含人名（列昂諾夫）、國名（蘇聯），以及特定術語「宇航員」（台灣常用「太空人」），存在地區用詞差異。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0287",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名稱、國名，且「閉路電視攝像頭」在台灣常用「監視器」，屬於地區詞差異。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0335",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句子簡潔，描述性內容。專有名詞「旋轉的苦行僧」轉換直接，風險較低。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0448",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「卓錦萬代蘭」為專有名詞，需保護其不被錯誤轉換。句子結構清晰。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0488",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及宗教術語「Gurmat」、「旁遮普語」、「古魯」，需注意專有名詞的準確轉換。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0501",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含人名「約翰•史密斯」，需保護其不被錯誤轉換。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0502",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「刻板印象」一詞兩岸通用，句子屬於社會學通用描述，風險較低。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0540",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句子為歷史事件描述，用詞直接，屬於常規轉換。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0549",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述賽跑的句子，用詞通用，風險低。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0588",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句子談論人性與合作，雖然邏輯稍顯晦澀，但語法尚屬完整，用詞通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0626",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「信息收集」在台灣多用「資訊收集」，存在地區用詞差異。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0659",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述北歐旅遊注意事項，用詞通用，風險低。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0660",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「舊金山」，需確保專有名詞正確。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0672",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述許可證規定，用詞正式且通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0701",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述移居規定，用詞正式，風險低。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0772",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「喀拉拉邦」，需保護專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0775",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述園藝博覽會，用詞通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0845",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「喷漆」在台灣稱「噴漆」，但「破坏公共和私有财产」的表述較為書面，可能存在更自然的說法。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0864",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "科普內容，描述細菌繁殖，用詞通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0870",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "旅遊建議，關於野外睡眠安全，用詞通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0877",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "解釋醫學術語，用詞正式，風險低。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0884",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「夏洛特上城區」，需保護專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0893",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「拖拉机」在台灣多稱「牽引機」或「拖拉機」，「补给」常用「補給」，存在地區用詞差異。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0895",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用詞「濕滑」、「路面」、「人行道」兩岸通用，風險低。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0910",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「区域码」在台灣稱「區碼」，「非法复制」稱「非法拷貝/盜拷」，「磁盘」稱「磁碟」，存在多處地區用詞差異。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0933",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述簽證資訊，用詞正式通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "天文學術語，用詞專業，兩岸差異小。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0117",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「疫苗」兩岸通用，但「优先级」在台灣多用「優先級」或「優先順序」，存在用詞差異。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0123",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含人名「吉布森」，需保護專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0139",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地理現象描述，用詞通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0152",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名、人名、地名（無國界醫生組織、理查德·維爾曼、安哥拉），需保護專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0177",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含多個地名、隊伍名（南非、勒斯滕堡、皇家巴福肯體育場、全黑隊），需保護專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0181",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含多個地名、隊伍名（約翰內斯堡、埃利斯公園、斯普林博克斯），需保護專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0183",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含組織名稱，且「信息」在台灣稱「資訊」，存在地區用詞差異。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0221",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含國名「伊朗」，需保護專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0274",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含人名「卡帕內多」，需保護專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0283",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述事故後果，用詞通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0402",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含電影名《國家寶藏》，需保護其譯名不被錯誤轉換。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0438",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "歐洲歷史描述，用詞通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0480",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "歐洲歷史分期描述，用詞通用。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0569",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含多個人名、印刷廠名（約翰·漢考克、查爾斯·湯姆遜、約翰·鄧拉普），需保護專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0578",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「计算机」在台灣稱「電腦」，「二进制编码」稱「二進位編碼」，存在地區用詞差異。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0637",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含人名「亞里士多德」，需保護專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0687",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名、學校名，且「网站」在台灣稱「網站」，「在线」稱「線上」，「剪贴簿」稱「剪貼簿」，存在多處地區用詞差異。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0727",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含專有名詞「萬能卡（Wild Card）」及地名「南非」，需謹慎處理。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0746",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含族群名「瓜拉尼人」及地名「東巴拉圭」，需保護專有名詞。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0808",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「游猎活动」在台灣多稱「狩獵旅遊」或「野外狩獵」，存在地區用詞差異。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_A_1-6_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人生活經歷的簡單陳述，用語直接，屬於常規轉換。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_B_1-11_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述宗教信仰，包含專有名詞「克爾白」、「真主」，需謹慎處理。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_C_1-11_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單日常對話，用詞直接。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_C_1-20_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "單詞「玩笑」，為不完整片段，不適合做為評測基準。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_C_1-5_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "語氣正式的個人陳述，句子結構完整。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_1-11_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單日常陳述，用詞直接。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_2-10a_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，句子結構完整。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_2-18_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述個人情緒，句子簡短但完整。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_2-22_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述沿途風景，句子完整。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_2-23_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述個人感受，句子結構雖稍顯複雜但仍通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_D_2-7_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句子語法稍有不自然（「因開車就睡著了」），但意思尚清晰，屬於個人日常描述。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_E_1-7_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句子語法嚴重不通順，包含「头订」、「血力上起来」等費解詞語，意思極不清楚，不適合作為基準。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_2-13_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "成語「心有餘悸」使用正確，句子通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_2-29_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「台灣」，需保護專有名詞。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_2-31_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "成語「素不相識」使用正確，句子通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_2-37_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人經歷描述，句子結構完整。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_F_2-4_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人旅行習慣描述，用詞直接。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-10_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單描述句，結構清晰。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-22_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單描述句，結構清晰。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-23_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單描述個人感受，結構清晰。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-3_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單問句，結構清晰。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-4_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句子「我已經去過還沒去過嗎？」語意矛盾且不通順，不適合作為基準。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_1-6_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人經歷描述，用詞和結構清晰。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_H_2-12_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「韓國」，需保護專有名詞。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_I_1-10_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句子「幫我助我了」存在語法重複錯誤，不適合作為基準。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_I_1-11_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單的個人感受描述，結構完整。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_I_1-12_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句子稍長且結構有些繞，但基本語意清晰。存在「告訴了我真的是一個真的好女孩兒」等輕微語法瑕疵。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_I_1-18_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單的陳述句，結構清晰。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_I_1-4_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含口語化的「小倆歲」，但句子整體通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_I_1-8_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人關係的描述，用詞直接。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_J_1-7_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述一個簡單動作，句子通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_K_1-4_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "長句，個人感想。包含口語詞彙「哥們」、「玩兒」，以及「卡車」（台灣或稱貨車），可能存在地區差異。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-10_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人感受描述，句子通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-15_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「天池」，需保護專有名詞。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-19_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人感受描述，句子通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-1_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「天池」，需保護專有名詞。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_L_1-3_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「新疆」，需保護專有名詞。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_M_1-23_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人經歷描述，句子通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_M_1-24_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人經歷描述，句子通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_M_1-31_ori",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「辛亏」應為「幸虧」，且句子邏輯「來中國學習漢語便很快忘記了她」不甚連貫，不適合作為基準。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_O_1-14_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人經歷描述，句子通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_O_1-4_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「名古屋」，需保護專有名詞。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_P_1-6_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「味口」應為「胃口」，包含地名「中國」，需保護專有名詞。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Y_1-11_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單描述句，結構清晰。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Y_1-15_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單描述句，結構清晰。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Z_1-16_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「北京」，且「公共自行车」在台灣稱「公共自行車」或具體品牌名如「YouBike」，存在用詞差異。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Z_1-19_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「与日俱增」為標準成語，句子通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Z_1-1_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「北京」，需保護專有名詞。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Z_1-21_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人觀察總結，句子通順。"
+    },
+    {
+      "id": "ud-chinese-cfl-v1/CFL_Z_1-5_ori",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含地名「中國」，需保護專有名詞。"
+    }
+  ]
+}

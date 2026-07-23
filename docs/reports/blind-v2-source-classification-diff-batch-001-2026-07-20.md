@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 001 (2026-07-20)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `432f4d299ec4509b64f1705e1c2bb1b1a750df573d85ef29a0d59c580da844f0`
 Cases: 100
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini marked 16 cases as eligible even though its own quality flags identified malformed or fragmentary input. These suggestions fail the declared source-quality rule and are not auto-adopted.
 
-Codex is the current conservative recommendation. Neither AI review is a human decision, and no classification in this report has been written into the candidate pool.
+The maintainer resolved all 40 advisory disagreements and batch-confirmed the 60 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 標準正式新聞用語，簡體轉繁體。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 02. flores-200-zho-hans-v1/dev-0165
 
@@ -63,7 +63,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 標準新聞報導，地名與組織名。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 03. flores-200-zho-hans-v1/dev-0262
 
@@ -84,7 +84,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 國際新聞，涉及國家與組織名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 04. flores-200-zho-hans-v1/dev-0305
 
@@ -105,7 +105,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 一般敘事句，詞彙通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 05. flores-200-zho-hans-v1/dev-0529
 
@@ -126,7 +126,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 一般性描述，詞彙普遍。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 06. flores-200-zho-hans-v1/dev-0620
 
@@ -147,7 +147,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 標準敘述，詞彙通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 07. flores-200-zho-hans-v1/dev-0621
 
@@ -168,7 +168,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 標準敘述，詞彙通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 08. flores-200-zho-hans-v1/devtest-0100
 
@@ -189,7 +189,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 包含音譯人名'莫尔'。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 09. flores-200-zho-hans-v1/devtest-0208
 
@@ -210,7 +210,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 國際新聞，包含國家與組織名。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 10. flores-200-zho-hans-v1/devtest-0284
 
@@ -231,7 +231,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 包含汽車品牌'奥迪'，為專有名詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 11. flores-200-zho-hans-v1/devtest-0376
 
@@ -252,7 +252,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 科普內容，詞彙通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 12. flores-200-zho-hans-v1/devtest-0425
 
@@ -273,7 +273,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 涉及臺灣歷史，用詞需精確，但本句詞彙尚屬通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 13. flores-200-zho-hans-v1/devtest-0584
 
@@ -294,7 +294,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: '术语'一詞在臺灣雖可用'術語'，但有時'用語'或'專有名詞'更自然。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 14. flores-200-zho-hans-v1/devtest-0837
 
@@ -315,7 +315,7 @@ Codex reason: 句意完整；依輸入語域與詞彙風險分類。
 
 Gemini reason: 描述食物，詞彙通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 15. ud-chinese-cfl-v1/CFL_A_1-14_ori
 
@@ -336,7 +336,7 @@ Codex reason: 缺少可獨立判讀的完整語境。
 
 Gemini reason: 學習者語料，日常對話。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 16. ud-chinese-cfl-v1/CFL_A_1-7_ori
 
@@ -357,7 +357,7 @@ Codex reason: 缺少可獨立判讀的完整語境。
 
 Gemini reason: 學習者語料，日常對話。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 17. ud-chinese-cfl-v1/CFL_A_2-11_ori
 
@@ -378,7 +378,7 @@ Codex reason: 缺少可獨立判讀的完整語境。
 
 Gemini reason: 學習者語料，日常對話。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 18. ud-chinese-cfl-v1/CFL_B_1-21_ori
 
@@ -399,7 +399,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，'感动坏了'語法較不自然。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 19. ud-chinese-cfl-v1/CFL_B_1-3_ori
 
@@ -420,7 +420,7 @@ Codex reason: 缺少可獨立判讀的完整語境。
 
 Gemini reason: 學習者語料，包含地名'麦加'。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 20. ud-chinese-cfl-v1/CFL_C_1-21_ori
 
@@ -441,7 +441,7 @@ Codex reason: 缺少可獨立判讀的完整語境。
 
 Gemini reason: 片段，書信結尾用語。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 21. ud-chinese-cfl-v1/CFL_C_1-6_ori
 
@@ -462,7 +462,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，包含國名'白俄罗斯'。'增家'應為'增加'之誤。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 22. ud-chinese-cfl-v1/CFL_C_1-9_ori
 
@@ -483,7 +483,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，'提议妥善的答案'語意稍不順暢。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 23. ud-chinese-cfl-v1/CFL_D_1-10_ori
 
@@ -504,7 +504,7 @@ Codex reason: 缺少可獨立判讀的完整語境。
 
 Gemini reason: 學習者語料，語句不完整。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 24. ud-chinese-cfl-v1/CFL_D_1-26_ori
 
@@ -525,7 +525,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，'也却'重複，語法錯誤。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 25. ud-chinese-cfl-v1/CFL_D_1-29_ori
 
@@ -546,7 +546,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，'回忆是感动的'語法不自然。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 26. ud-chinese-cfl-v1/CFL_D_2-11_ori
 
@@ -567,7 +567,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，成語'秀色可餐'使用不當。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 27. ud-chinese-cfl-v1/CFL_D_2-14_ori
 
@@ -588,7 +588,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，日常對話。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 28. ud-chinese-cfl-v1/CFL_E_1-14_ori
 
@@ -609,7 +609,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，語句不通順，語法錯誤。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 29. ud-chinese-cfl-v1/CFL_F_1-16_ori
 
@@ -630,7 +630,7 @@ Codex reason: 句意可獨立判讀；保留學習者語料特性。
 
 Gemini reason: 學習者語料，用詞不當，應為'温暖'而非'暖和'。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 30. ud-chinese-cfl-v1/CFL_F_1-20_ori
 
@@ -651,7 +651,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，'哪家'應為'那家'之誤。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 31. ud-chinese-cfl-v1/CFL_G_1-3_ori
 
@@ -672,7 +672,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，語句冗長且包含多處語法及錯別字錯誤（'女士门'、'我门'）。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 32. ud-chinese-cfl-v1/CFL_H_1-2_ori
 
@@ -693,7 +693,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，包含國名'菲律宾'。'希望了'語法錯誤。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 33. ud-chinese-cfl-v1/CFL_I_1-1_ori
 
@@ -714,7 +714,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，'讲对'語法不自然。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 34. ud-chinese-cfl-v1/CFL_J_1-6_ori
 
@@ -735,7 +735,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，'被着'應為'被這'之誤。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 35. ud-chinese-cfl-v1/CFL_L_1-13_ori
 
@@ -756,7 +756,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，語序'公开求婚在山顶上'不自然。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 36. ud-chinese-cfl-v1/CFL_L_1-6_ori
 
@@ -777,7 +777,7 @@ Codex reason: 學習者語法、用字或語意錯誤影響可用性。
 
 Gemini reason: 學習者語料，包含地名'兰州'。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 37. ud-chinese-cfl-v1/CFL_P_1-5_ori
 
@@ -798,7 +798,7 @@ Codex reason: 句意可獨立判讀；保留學習者語料特性。
 
 Gemini reason: 學習者語料，包含'中国'。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 38. ud-chinese-cfl-v1/CFL_X_1-2_ori
 
@@ -819,7 +819,7 @@ Codex reason: 句意可獨立判讀；保留學習者語料特性。
 
 Gemini reason: 學習者語料，日常對話。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 39. ud-chinese-cfl-v1/CFL_Y_1-4_ori
 
@@ -840,7 +840,7 @@ Codex reason: 句意可獨立判讀；保留學習者語料特性。
 
 Gemini reason: 學習者語料，描述性文字。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`
 
 ### 40. ud-chinese-cfl-v1/CFL_Y_1-6_ori
 
@@ -861,4 +861,4 @@ Codex reason: 句意可獨立判讀；保留學習者語料特性。
 
 Gemini reason: 學習者語料，日常敘述。
 
-Maintainer decision: `pending`
+Maintainer decision: `codex` accepted by `tim` on `2026-07-21`

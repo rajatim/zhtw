@@ -12,7 +12,16 @@ from typing import Any
 import pytest
 
 from scripts.benchmark_metrics import canonical_json_bytes
-from scripts.import_blind_v2_source_pilot import build_dataset, normalize_input, validate_dataset
+from scripts.import_blind_v2_source_pilot import (
+    build_dataset,
+    normalize_input,
+    parse_cdc_pages,
+    parse_ftc_small_business_pages,
+    parse_massive,
+    parse_nps_acadia_html,
+    parse_project_original,
+    validate_dataset,
+)
 from scripts.validate_benchmark_assets import validate_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -103,9 +112,153 @@ def test_normalization_does_not_convert_script() -> None:
     assert normalize_input("开发  软件\r\n接口") == "开发 软件 接口"
 
 
+def test_massive_parser_extracts_only_input_provenance_fields() -> None:
+    rows = [
+        {
+            "id": "7",
+            "locale": "zh-CN",
+            "partition": "train",
+            "scenario": "audio",
+            "intent": "audio_volume_mute",
+            "utt": "暂停十秒钟",
+            "annot_utt": "暂停 [time : 十秒钟]",
+            "worker_id": "35",
+            "judgments": [{"worker_id": "0", "grammar_score": 4}],
+        }
+    ]
+    buffer = io.BytesIO()
+    with tarfile.open(fileobj=buffer, mode="w:gz") as archive:
+        content = ("\n".join(json.dumps(row, ensure_ascii=False) for row in rows)).encode()
+        info = tarfile.TarInfo("1.0/data/zh-CN.jsonl")
+        info.size = len(content)
+        archive.addfile(info, io.BytesIO(content))
+
+    assert parse_massive(buffer.getvalue()) == [("train", "7", "暂停十秒钟")]
+
+
+def test_cdc_pdf_parser_joins_layout_wraps_and_keeps_complete_sentences() -> None:
+    pages = [
+        "标题 佩戴口罩。 与其他人保持至少 6 英尺的距离。 可访问版本：https://example.test",
+        (
+            "标题 请勿与家里的其他人共用 碗 碟 、水 杯。"
+            " 遵循当地 卫生部门的指示。 如果某人出现 呼吸困难。"
+        ),
+    ]
+
+    rows = parse_cdc_pages("cdc-stacks-111808-v1", pages)
+
+    assert [row[2] for row in rows] == [
+        "佩戴口罩。",
+        "与其他人保持至少 6 英尺的距离。",
+        "请勿与家里的其他人共用碗碟、水杯。",
+        "遵循当地卫生部门的指示。",
+        "呼吸困难。",
+    ]
+
+
+def test_ftc_parser_removes_layout_navigation_and_joins_cross_page_sentence() -> None:
+    pages = ["诈骗与你的小型企业: 企业指南"] + [""] * 9
+    pages[1] = (
+        "诈骗与你的小型企业: 企业指南\n1\n► 诈骗犯的伎俩\n"
+        "● 诈骗犯会营造一种紧迫感，甚至施以威胁。\n"
+        "请前往 ftc.gov/example 查阅更多信息。\n"
+        "他们会要求你将企"
+    )
+    pages[2] = "诈骗与你的小型企业: 企业指南\n2\n业资料交给对方。"
+
+    rows = parse_ftc_small_business_pages(pages)
+
+    assert [row[2] for row in rows] == [
+        "诈骗犯会营造一种紧迫感，甚至施以威胁。",
+        "他们会要求你将企业资料交给对方。",
+    ]
+
+
+def test_nps_parser_keeps_only_complete_article_paragraph_sentences() -> None:
+    content = """<!doctype html><html><body>
+    <nav><p>导航噪音。</p></nav>
+    <h1 class="page-title">Essential Acadia: Simplified Chinese</h1>
+    <div class="Article__Content"><div><p>
+    欢迎来到阿卡迪亚国家公园。<br />
+    请不要将手机当作地图或手电筒。
+    请在 <a href="https://example.test">example.test</a> 上查看当前状
+    </p></div></div>
+    <footer><p>页脚噪音。</p></footer>
+    <p>Last updated: October 6, 2023</p></body></html>""".encode()
+
+    rows = parse_nps_acadia_html(content)
+
+    assert [row[2] for row in rows] == [
+        "\u6b22\u8fce\u6765\u5230\u963f\u5361\u8fea\u4e9a\u56fd\u5bb6\u516c\u56ed\u3002",
+        "\u8bf7\u4e0d\u8981\u5c06\u624b\u673a\u5f53\u4f5c\u5730\u56fe\u6216\u624b\u7535\u7b52\u3002",
+    ]
+
+
+def test_source_class_is_copied_from_manifest(tmp_path: Path) -> None:
+    source = tmp_path / "flores.tar.gz"
+    source.write_bytes(flores_archive(["公共资料"], []))
+    fixture = manifest("flores-200-zho-hans-v1", source)
+    fixture["source_class"] = "public_domain"
+
+    assert build_dataset(fixture, source_file=source)["source_class"] == "public_domain"
+
+
+def test_project_original_import_validates_input_only_schema(tmp_path: Path) -> None:
+    source = tmp_path / "project-source.json"
+    source.write_text(
+        json.dumps(
+            {
+                "version": 1,
+                "id": "zhtw-project-ui-i18n-v1",
+                "created_date": "2026-07-23",
+                "authorship": "Codex-drafted input-only fixture pending review.",
+                "input_only": True,
+                "converter_output_used": False,
+                "cases": [{"id": "ui-001", "input": "用户界面"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    fixture = manifest("zhtw-project-ui-i18n-v1", source)
+    fixture["source_class"] = "project_original"
+
+    dataset = build_dataset(fixture, source_file=source)
+
+    assert dataset["stats"]["by_split"] == {"project_original": 1}
+    assert dataset["cases"][0]["input"] == "用户界面"
+    assert find_forbidden_keys(dataset) == set()
+
+
+def test_project_original_source_rejects_expected_text() -> None:
+    source = {
+        "version": 1,
+        "id": "zhtw-project-ui-i18n-v1",
+        "created_date": "2026-07-23",
+        "authorship": "Input-only fixture.",
+        "input_only": True,
+        "converter_output_used": False,
+        "cases": [{"id": "ui-001", "input": "用户界面", "expected": "使用者介面"}],
+    }
+
+    with pytest.raises(ValueError, match="invalid project-original source"):
+        parse_project_original(source["id"], json.dumps(source).encode())
+
+
 @pytest.mark.parametrize(
     ("source_id", "expected_cases"),
-    (("flores-200-zho-hans-v1", 2009), ("ud-chinese-cfl-v1", 451)),
+    (
+        ("flores-200-zho-hans-v1", 2009),
+        ("ud-chinese-cfl-v1", 451),
+        ("cdc-stacks-111808-v1", 18),
+        ("cdc-stacks-120024-v1", 22),
+        ("cdc-stacks-116683-v1", 22),
+        ("zhtw-project-ui-i18n-v1", 50),
+        ("zhtw-project-llm-product-v1", 50),
+        ("zhtw-project-it-api-cli-v1", 100),
+        ("massive-1-0-zh-cn-v1", 15619),
+        ("ftc-small-business-simplified-v1", 81),
+        ("nps-essential-acadia-simplified-v1", 32),
+    ),
 )
 def test_committed_source_pilots_are_pinned_and_input_only(
     source_id: str, expected_cases: int

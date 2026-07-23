@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-23",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-008.json",
+  "packet_sha256": "91979d925fd5e084ef315fe78982d9cd3031e2a81bba3c531c18f2cd2907b3e2",
+  "reviewer": "Gemini CLI",
+  "gemini_cli_version": "0.52.0",
+  "model": "gemini-2.5-pro",
+  "session_id": "0b7ee2ce-f121-4ff5-af31-48f41e65dcdb",
+  "policy": "input_only_no_converter_output",
+  "validation": {
+    "exact_id_coverage": "32/32",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0
+  },
+  "stats": {
+    "total": 32,
+    "eligible": 32,
+    "excluded": 0,
+    "policy_violations": 0,
+    "high": 32,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公園介紹，用語較為正式。'瑰宝'在台灣較常用'瑰寶'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含不應轉換的網址 (URL)。'游览'在台灣多用'遊覽'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及公園入場規定，屬重要資訊。'通行证'在台灣多用'通行證'，'游客'多用'遊客'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及車輛規定，為重要安全資訊。'车辆'對應'車輛'，'挡风玻璃'對應'擋風玻璃'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "minor_spacing_issue"
+      ],
+      "confidence": "high",
+      "notes": "包含不應轉換的網址及專有名稱(AcadiaPass)。'在线'在台灣多用'線上'。網址與後文間有不自然的空格。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及車輛預約規定，為重要資訊。'凯迪拉克'為地名，'预订'在台灣多用'預約'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "購票規定，屬重要資訊。'预定'對應'預訂'，'在线'在台灣多用'線上'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "露營規定，屬重要資訊。包含不應轉換的專有網址(Recreation.gov)。'预订'在台灣多用'預約'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "禁止規定，關乎公共秩序與安全。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提供旅遊資訊。'城镇'在台灣多用'城鎮'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提供交通資訊。包含不應轉換的專有名稱(Island Explorer)。'凯迪拉克'為地名。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "說明公共服務效益。'丙烷动力巴士'在台灣可能稱'丙烷動力巴士'或'瓦斯巴士'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "寵物規定，關乎公共秩序。'宠物'在台灣用'寵物'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "引用法律，為高風險內容。'联邦'對應'聯邦'，'皮带'在台灣多用'牽繩'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公共衛生規定。'垃圾容器'在台灣多用'垃圾桶'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "一般性安全警告。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "強調個人責任的安全警告。'判断'對應'判斷'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "徒步前安全指示，為重要資訊。'研究计划'對應'研究計畫'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "安全建議，提醒勿過度依賴電子產品。'手机'對應'手機'，'手电筒'對應'手電筒'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "健行安全裝備建議。'携带'對應'攜帶'，'脚部牵引器'可能指(足部)冰爪或防滑套，需依上下文確認。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "明確的禁止規定。'自行车'在台灣也用'自行車'或'腳踏車'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "設施用途說明。'马车道'對應'馬車道'，'娱乐'對應'娛樂'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "路權規定，關乎安全。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "交通工具規定。'1类' 指 'Class 1'，'电动自行车'在台灣稱'電動輔助自行車'或'電動自行車'，定義可能不同。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "禁止規定。'机动车辆'對應'機動車輛'。'2类、3类'指'Class 2, Class 3'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "維護設施及安全的規定。'践踏'對應'踐踏'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "保護環境的原則性呼籲。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "環境保護及個人安全規定，屬於 Leave No Trace 原則。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "環境衛生規定。'宠物垃圾'對應'寵物排泄物'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於食物儲存與野生動物的互動安全規定。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "禁止改變環境及破壞步道標示，關乎多數遊客安全。'石标'在台灣可能稱'石堆'或'疊石路標'。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於發現文物的處理方式規定。'护林员'在台灣常稱'巡山員'或'森林護管員'。"
+    }
+  ]
+}

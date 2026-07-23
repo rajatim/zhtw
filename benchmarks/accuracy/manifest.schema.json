@@ -32,6 +32,10 @@
       "type": "string",
       "enum": ["external_context", "external_terminology", "external_regional", "blind"]
     },
+    "source_class": {
+      "type": "string",
+      "enum": ["permissive_license", "public_domain", "project_original", "permissioned"]
+    },
     "source_urls": {
       "type": "array",
       "minItems": 1,

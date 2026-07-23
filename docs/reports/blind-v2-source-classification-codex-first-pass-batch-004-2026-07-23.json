@@ -1,0 +1,1021 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_first_pass",
+  "status": "advisory_only",
+  "generated_date": "2026-07-23",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-004.json",
+  "packet_sha256": "014e1cc3e3dba34464bef7f6f8e566e9a5e00d2b7443ac7d56a883b784dca93f",
+  "reviewer": "Codex",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "zhtw-project-llm-product-v1/llm-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含模板、程式符號或需精確保留的技術邊界，列為過度轉換防護。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含模板、程式符號或需精確保留的技術邊界，列為過度轉換防護。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含模板、程式符號或需精確保留的技術邊界，列為過度轉換防護。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含模板、程式符號或需精確保留的技術邊界，列為過度轉換防護。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含模板、程式符號或需精確保留的技術邊界，列為過度轉換防護。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含模板、程式符號或需精確保留的技術邊界，列為過度轉換防護。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含模板、程式符號或需精確保留的技術邊界，列為過度轉換防護。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-llm-product-v1/llm-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含模板、程式符號或需精確保留的技術邊界，列為過度轉換防護。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含模板、程式符號或需精確保留的技術邊界，列為過度轉換防護。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整可判讀，主要覆蓋一般字形轉換與不應擴張的基線行為。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    },
+    {
+      "id": "zhtw-project-ui-i18n-v1/ui-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含臺灣產品或技術語境可能需要調整的區域術語，列為候選缺口。"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "nps-essential-acadia-simplified-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://www.nps.gov/articles/000/essential-acadia_simplified-chinese.htm",
+    "https://www.nps.gov/aboutus/disclaimer.htm"
+  ],
+  "upstream_revision": "NPS Essential Acadia: Simplified Chinese; page last updated 2023-10-06; retrieved HTML SHA-256: b3ba2eb004722ae23749ab20610f45ba0262fd3e94e0a20cc59e069e184885a0",
+  "retrieved_at": "2026-07-23T14:16:23+08:00",
+  "license": "U.S. Public Domain",
+  "license_url": "https://www.nps.gov/aboutus/disclaimer.htm",
+  "output_license": "U.S. Public Domain",
+  "attribution": "National Park Service, Acadia National Park, Essential Acadia: Simplified Chinese; no NPS endorsement or affiliation is implied.",
+  "modification_notice": "Extracted only complete Simplified Chinese prose sentences from the checksum-pinned NPS article content container, removed navigation, images, English labels, page furniture, URLs without complete sentences, and incomplete fragments, and added input-only provenance; no trademarks, expected text, or converter output were used.",
+  "notice_id": "nps-essential-acadia-simplified-v1",
+  "raw_sha256": {
+    "https://www.nps.gov/articles/000/essential-acadia_simplified-chinese.htm": "b3ba2eb004722ae23749ab20610f45ba0262fd3e94e0a20cc59e069e184885a0"
+  },
+  "normalized_path": "benchmarks/accuracy/external/nps-essential-acadia-simplified-v1.json",
+  "normalized_sha256": "f654d0a39a3ca2ea74403d097b448ddebe12bbb9da8394042d06382b0436d344",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "The article is official U.S. national-park visitor guidance and is not representative of ordinary Taiwan traffic.",
+    "Travel, outdoor safety, park rules, and U.S.-specific place names are intentionally concentrated.",
+    "The source mixes Simplified Chinese with English product, service, and place names.",
+    "Only paragraph text inside the NPS article content container is extracted; images, insignia, navigation, and linked third-party content are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

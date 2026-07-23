@@ -270,13 +270,15 @@ def reference_texts(pool: dict[str, Any], pool_path: Path) -> tuple[list[str], l
                 )
                 continue
             extractor = _mapping_strings if "src/zhtw/data/terms/" in str(path) else _iter_strings
-            texts.extend(extractor(value))
-            snapshot.append(
-                {
-                    "path": str(path.relative_to(PROJECT_ROOT)),
-                    "sha256": sha256_file(path),
-                }
-            )
+            extracted = list(extractor(value))
+            if extracted:
+                texts.extend(extracted)
+                snapshot.append(
+                    {
+                        "path": str(path.relative_to(PROJECT_ROOT)),
+                        "sha256": sha256_file(path),
+                    }
+                )
     snapshot_bytes = (
         json.dumps(snapshot, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n"
     ).encode()
@@ -380,7 +382,8 @@ def validate_pool(
     minimum = max(MINIMUM_CANDIDATES, 3 * pool["formal_n"])
     if (require_ready or pool["status"] == "frozen") and total < minimum:
         errors.append(f"candidate pool requires at least {minimum} cases for N={pool['formal_n']}")
-    if total:
+    enforce_final_caps = require_ready or pool["status"] == "frozen"
+    if total and enforce_final_caps:
         class_limit = pool["source_policy"]["maximum_source_class_fraction"]
         source_limit = pool["source_policy"]["maximum_source_fraction"]
         for source_class, count in expected_stats["by_source_class"].items():

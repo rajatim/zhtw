@@ -1,0 +1,341 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_first_pass",
+  "status": "advisory_only",
+  "generated_date": "2026-07-23",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-008.json",
+  "packet_sha256": "91979d925fd5e084ef315fe78982d9cd3031e2a81bba3c531c18f2cd2907b3e2",
+  "reviewer": "Codex",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 32,
+    "eligible": 30,
+    "excluded": 2,
+    "high": 32,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整旅遊介紹句；保留國家公園專名。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整旅遊規劃句；網址需保持不變。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整入園規定；通行證語境具地域用語價值。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整車輛通行證規定。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-005",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": ["malformed_url_subject"],
+      "confidence": "high",
+      "notes": "以帶空格的裸網址作句子主詞，屬網頁版面殘留。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整旅遊預約句；保留山峰路專名。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整線上預約規則，具臺灣用語差異。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整露營預約句；網站名稱需保持不變。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整公園禁止事項，含露營與停車用語。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-010",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": ["context_dependent_fragment"],
+      "confidence": "high",
+      "notes": "「附近」缺少句內參照地點，無法獨立裁決。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整交通服務句；保留服務與地名專名。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整環境與交通句，含交通壅塞地域用語。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整寵物規定引介；保留公園專名。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整聯邦法律要求；寵物牽繩用語需臺灣化。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整寵物清潔指示，垃圾容器具地域用語差異。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "可獨立理解的戶外風險陳述。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "可獨立理解的安全提醒。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整徒步安全指示，含路線規劃用語。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整手機與戶外安全提醒。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整裝備建議；腳部牽引器需語境化臺灣用語。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整步道使用規定。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整休閒設施說明。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整通行安全規則，含讓路語境。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整電動自行車分類規定。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整車輛禁止規定，機動車輛具地域語境。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整冬季步道安全指示。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整環境保護號召；保留公園專名。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整步道與地面使用規定。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整垃圾清理指示。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整食物與野生動物安全指示。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整步道保護規定，石標與導航用語具地域價值。"
+    },
+    {
+      "id": "nps-essential-acadia-simplified-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整文物處置規定，護林員具臺灣地域用語差異。"
+    }
+  ]
+}

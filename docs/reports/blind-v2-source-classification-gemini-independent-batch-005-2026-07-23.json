@@ -1,0 +1,1043 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only_policy_review_required",
+  "generated_date": "2026-07-23",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-005.json",
+  "packet_sha256": "cd5746f6aacad45fa964dbb747e97dd1d20941598e8e59748f9478ae8691a357",
+  "reviewer": "Gemini CLI",
+  "gemini_cli_version": "0.52.0",
+  "model": "gemini-2.5-pro",
+  "policy": "input_only_no_converter_output",
+  "validation": {
+    "exact_id_coverage": "100/100",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0,
+    "rejected_attempts": [
+      {
+        "session_id": "9be4346c-12bf-4798-9856-937fe6061f94",
+        "reason": "write_file tool call invalidated the attempt",
+        "tool_calls": 1,
+        "api_errors": 0
+      },
+      {
+        "session_id": "84d36f38-cb9d-4fee-81f9-f4a63504c169",
+        "reason": "Gemini CLI 0.52.0 deny-all wildcard policy produced an invalid empty tools request",
+        "tool_calls": 0,
+        "api_errors": 1
+      }
+    ]
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "massive-1-0-zh-cn-v1/10144",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「冰餅」在臺灣較少使用，可能指冰皮月餅，需地區詞彙轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10221",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準書面語，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10276",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「吃雞」為遊戲術語（PUBG），應視為專有名詞，避免過度轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10467",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "語音助理指令，詞彙在臺灣通用，主要為字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10514",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常生活用語，「必做清單」在臺灣通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10615",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「創建」在臺灣UI中較少用，通常為「建立」或「新增」，存在地區用詞差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10635",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "語音助理指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10872",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「番茄酱」在簡體中文可能指ketchup或tomato paste，在臺灣「番茄醬」通常僅指ketchup，存在細微語意差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10952",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「踢球」是標題的一部分，應視為字面內容保留，避免轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11084",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準語音指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11108",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11438",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "臺灣常用「Podcast」或「單集」而非「播客」和「節目」，存在地區詞彙差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11570",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常問句，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11601",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常問句，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/118",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準語音指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11816",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「小紅」為人名，應保持不變。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11830",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常問句，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11904",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常問句，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1193",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含喚醒詞「奧利」、歌手名「蕭敬騰」及歌名「如果沒有你」，皆需避免不當轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12226",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12301",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「優步」為品牌名稱 (Uber)，應視為專有名詞處理。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12393",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準請求，詞彙通用，但臺灣口語可能更常用「路線」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12560",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「出租車」為中國大陸用詞，臺灣慣用「計程車」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12682",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「亞特蘭大」為地名，應正確轉換並視為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12830",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「出租車」為中國大陸用詞，臺灣慣用「計程車」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12903",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準請求，但「火車時刻」在臺灣語境下更精確。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13074",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「周星馳」為人名，應正確轉換並視為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13225",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「王菲」為人名，應正確轉換並視為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13301",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準請求，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13416",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「摩根費里曼」為人名，需注意音譯轉換的臺灣慣例。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13540",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準請求，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "臺灣口語和書面更常用「對」而非「兌」來表示匯率交換，存在用詞頻率差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14337",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「谷歌」為品牌名稱 (Google)，應視為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14413",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「幹得怎麼樣」是大陸口語，臺灣會說「做得怎麼樣」或「表現怎麼樣」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14482",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「公共汽車」為中國大陸用詞，臺灣慣用「公車」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14778",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含喚醒詞「艾利克斯」。語句結構在臺灣較書面，但不影響理解。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15057",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含人名「阿爾伯特·愛因斯坦」和理論「相對論」，需作為專有名詞處理。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15127",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「揚聲器」為中國大陸用詞，臺灣慣用「喇叭」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15225",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準語音指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15238",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「中國日報」和「微博」為機構和平台專名，應保持不變。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15448",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「發條微博」是大陸網路用語，臺灣會說「發一篇文」或「發文」。「微博」和「小米」是專名。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15605",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「微博」為平台專名，應保持不變。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15870",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「家俊」為人名，應保持不變。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15939",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "臺灣UI中，「聯絡人」比「聯繫人」更常用，存在用詞頻率差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16166",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「小美」為人名。「項目」在臺灣商務情境常稱「專案」，有地區用詞差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16168",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/162",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "臺灣對於製作咖啡，更常用「泡」或「沖」，「煮」通常指特定烹煮方式。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16436",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「天貓精靈」為品牌名稱，應視為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16682",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「家明」為人名，應保持不變。指令結構是典型的長語音輸入。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/17000",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準語音指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/17031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "長語音指令，但詞彙和語法通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/17108",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準語音指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1866",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1983",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2096",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「全聚德」為品牌名稱，應視為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2248",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2260",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「梁博」為人名，應視為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2651",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "新聞用語，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2685",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含喚醒詞「olly」和人名「山姆」，需避免不當轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2920",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「中國新聞網」和「微博」為機構和平台專名，應保持不變。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2992",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「科技」一詞通用，但「頭條」在臺灣多聯想到特定媒體，用「重點新聞」可能更中性。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "新聞相關用語，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3318",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「中國新聞網」是專有名稱，應保留。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3399",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3452",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「中國經濟網」是專有名稱，應保留。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3777",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3795",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「北京」為地名，應正確轉換並視為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4674",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「特朗普」是人名（川普），「新聞發布會」在臺灣多稱「記者會」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4845",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「紐約」為地名，應正確轉換並視為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5355",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5561",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5601",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5695",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「新德里」為地名，應正確轉換並視為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5869",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「上海」為地名。口語「啥情況啊」在臺灣較少用，但可理解。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/635",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「掃地機器人」詞彙通用，但「啟動」在臺灣UI情境中，「開啟」或「開始」更常用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6782",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準問句，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6821",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「攝政公園」為地名，應正確轉換並視為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6847",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「早期用戶項目」在臺灣通常稱為「早期採用者計畫」或類似名稱。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6887",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "單字「好」，通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6965",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「待處理」通用，但「提醒」在臺灣常用作名詞，「提醒事項」更完整。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/709",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "新聞用語，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7168",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「方程式比賽」在臺灣通常稱為「方程式賽車」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7179",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7230",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7256",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「重新安排日程」在臺灣口語中，更常說「重排行程」或「改時間」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7344",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7423",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/748",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7491",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「李強」為人名，應保持不變。「包裹」一詞通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7595",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「曲奇」在臺灣通常稱為「餅乾」，前者是香港及大陸常用詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7718",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「羅斯先生」為人名。「日程」在臺灣多用「行程」或「行事曆」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/787",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「天咋樣啊」是北方口語，臺灣會說「天氣怎麼樣」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7902",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「約翰」為人名，應保持不變。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8077",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8116",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8225",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8769",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9099",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/961",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準指令，詞彙通用。"
+    }
+  ]
+}

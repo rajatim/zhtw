@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "id": "cdc-stacks-120024-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://stacks.cdc.gov/view/cdc/120024",
+    "https://stacks.cdc.gov/view/cdc/120024/cdc_120024_DS1.pdf",
+    "https://stacks.cdc.gov/Content%20and%20Copyright",
+    "https://www.cdc.gov/other/agencymaterials.html"
+  ],
+  "upstream_revision": "CDC Stacks cdc:120024; main document urn:sha256:41a685b4c0ff1805b23afca4599d60583c6ffb5ccb892b391955956c9e365020",
+  "retrieved_at": "2026-07-21T13:00:00+08:00",
+  "license": "U.S. Public Domain",
+  "license_url": "https://stacks.cdc.gov/Content%20and%20Copyright",
+  "output_license": "U.S. Public Domain",
+  "attribution": "National Center for Chronic Disease Prevention and Health Promotion (U.S.).",
+  "modification_notice": "Extracted complete Simplified Chinese sentences from the checksum-pinned PDF with pypdf 5.9.0, applied Unicode NFC and conservative PDF-whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; headings without sentence punctuation, fragments, and converter output were excluded, and no expected text was used.",
+  "notice_id": "cdc-stacks-120024-v1",
+  "raw_sha256": {
+    "https://stacks.cdc.gov/view/cdc/120024/cdc_120024_DS1.pdf": "41a685b4c0ff1805b23afca4599d60583c6ffb5ccb892b391955956c9e365020"
+  },
+  "normalized_path": "benchmarks/accuracy/external/cdc-stacks-120024-v1.json",
+  "normalized_sha256": "f25e36430e2bd60e74fd3f2000c924580229490bfd41a438e8ad77fe5907e07d",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "A children's oral-health activity booklet is not representative of ordinary Taiwan product traffic.",
+    "PDF layout extraction is intentionally conservative and excludes fragments and labels without sentence punctuation.",
+    "Domain and conversion-risk labels remain unset until input-only review.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

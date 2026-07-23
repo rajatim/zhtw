@@ -17,6 +17,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.benchmark_metrics import paired_power_analysis  # noqa: E402
 from scripts.validate_competitor_environment import validate_lock  # noqa: E402
+from scripts.validate_permissioned_user_reports import validate_collection  # noqa: E402
 
 ACCURACY_ROOT = PROJECT_ROOT / "benchmarks" / "accuracy"
 MANIFEST_SCHEMA = ACCURACY_ROOT / "manifest.schema.json"
@@ -24,9 +25,13 @@ PREREGISTRATION_SCHEMA = ACCURACY_ROOT / "preregistration.schema.json"
 LICENSES = ACCURACY_ROOT / "LICENSES.md"
 RANKING_POLICY = ACCURACY_ROOT / "ranking-policy-v1.json"
 COMPETITORS_LOCK = ACCURACY_ROOT / "competitors.lock.json"
+PERMISSIONED_COLLECTION = ACCURACY_ROOT / "sources" / "permissioned-user-report-batch-001.json"
 BLIND_V2_SCHEMAS = (
+    ACCURACY_ROOT / "blind-v2.project-original-source.schema.json",
+    ACCURACY_ROOT / "blind-v2.permissioned-user-report-source.schema.json",
     ACCURACY_ROOT / "blind-v2.source-pilot.schema.json",
     ACCURACY_ROOT / "blind-v2.source-classification-packet.schema.json",
+    ACCURACY_ROOT / "blind-v2.source-classification-decision.schema.json",
     ACCURACY_ROOT / "blind-v2.candidate-pool.schema.json",
     ACCURACY_ROOT / "blind-v2.inputs.schema.json",
     ACCURACY_ROOT / "blind-v2.expected.schema.json",
@@ -204,6 +209,13 @@ def main() -> int:
 
     if COMPETITORS_LOCK.is_file():
         errors.extend(f"{COMPETITORS_LOCK}: {error}" for error in validate_lock(COMPETITORS_LOCK))
+    if PERMISSIONED_COLLECTION.is_file():
+        errors.extend(
+            f"{PERMISSIONED_COLLECTION}: {error}"
+            for error in validate_collection(load_json(PERMISSIONED_COLLECTION))
+        )
+    else:
+        errors.append(f"required benchmark governance file missing: {PERMISSIONED_COLLECTION}")
 
     manifests = args.manifest or discover(ACCURACY_ROOT / "manifests")
     preregistrations = args.preregistration or discover(ACCURACY_ROOT / "preregistrations")

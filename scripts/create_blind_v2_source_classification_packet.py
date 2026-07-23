@@ -57,11 +57,15 @@ def build_packet(
     batch_number: int,
     seed: int,
     generated_date: str,
+    all_source_cases: bool = False,
+    selection_round: int | None = None,
 ) -> dict[str, Any]:
-    if batch_size < len(source_paths):
+    if not all_source_cases and batch_size < len(source_paths):
         raise ValueError("batch size must be at least the number of sources")
     if batch_number < 1:
         raise ValueError("batch number must be at least 1")
+    if selection_round is not None and selection_round < 1:
+        raise ValueError("selection round must be at least 1")
 
     sources: list[tuple[Path, dict[str, Any]]] = []
     for path in source_paths:
@@ -71,16 +75,25 @@ def build_packet(
         sources.append((path, source))
     sources.sort(key=lambda item: item[1]["id"])
 
-    weights = tuple((source["id"], 1) for _, source in sources)
-    quotas = apportion(batch_size, weights)
+    if all_source_cases:
+        quotas = {source["id"]: len(source["cases"]) for _, source in sources}
+        selection_policy = "all-source-cases-sorted-v1"
+    else:
+        weights = tuple((source["id"], 1) for _, source in sources)
+        quotas = apportion(batch_size, weights)
+        selection_policy = "equal-source-deterministic-sha256-v1"
     selected: list[dict[str, Any]] = []
     source_snapshots: list[dict[str, str]] = []
     for path, source in sources:
         source_id = source["id"]
         required = quotas[source_id]
-        start = (batch_number - 1) * required
-        ranked = sorted(source["cases"], key=lambda case: (rank(seed, case["id"]), case["id"]))
-        source_cases = ranked[start : start + required]
+        if all_source_cases:
+            source_cases = sorted(source["cases"], key=lambda case: case["id"])
+            start = 0
+        else:
+            start = ((selection_round or batch_number) - 1) * required
+            ranked = sorted(source["cases"], key=lambda case: (rank(seed, case["id"]), case["id"]))
+            source_cases = ranked[start : start + required]
         if len(source_cases) != required:
             raise ValueError(
                 f"{source_id}: batch {batch_number} requires {required} cases at offset "
@@ -113,7 +126,7 @@ def build_packet(
             )
     selected.sort(key=lambda case: case["id"])
 
-    return {
+    packet = {
         "version": 1,
         "name": f"blind-v2-source-classification-batch-{batch_number:03d}",
         "dataset": "blind-v2",
@@ -121,8 +134,8 @@ def build_packet(
         "generated_date": generated_date,
         "seed": seed,
         "batch_number": batch_number,
-        "batch_size": batch_size,
-        "selection_policy": "equal-source-deterministic-sha256-v1",
+        "batch_size": len(selected),
+        "selection_policy": selection_policy,
         "input_only": True,
         "converter_output_used": False,
         "source_snapshots": source_snapshots,
@@ -132,6 +145,9 @@ def build_packet(
         },
         "cases": selected,
     }
+    if selection_round is not None:
+        packet["selection_round"] = selection_round
+    return packet
 
 
 def validate_packet(packet: dict[str, Any]) -> list[str]:
@@ -159,6 +175,7 @@ def render_markdown(packet_path: Path, packet: dict[str, Any]) -> str:
         f"Cases: {packet['stats']['total']}",
         f"Seed: `{packet['seed']}`",
         f"Selection: `{packet['selection_policy']}`",
+        *([f"Selection round: {packet['selection_round']}"] if "selection_round" in packet else []),
         "",
         "## Rules",
         "",
@@ -213,6 +230,8 @@ def main() -> int:
     parser.add_argument("--batch-size", type=int, default=100)
     parser.add_argument("--batch-number", type=int, default=1)
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
+    parser.add_argument("--all-source-cases", action="store_true")
+    parser.add_argument("--selection-round", type=int)
     parser.add_argument("--generated-date", default=dt.date.today().isoformat())
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--markdown-output", type=Path)
@@ -226,6 +245,8 @@ def main() -> int:
         batch_number=args.batch_number,
         seed=args.seed,
         generated_date=args.generated_date,
+        all_source_cases=args.all_source_cases,
+        selection_round=args.selection_round,
     )
     errors = validate_packet(packet)
     if errors:

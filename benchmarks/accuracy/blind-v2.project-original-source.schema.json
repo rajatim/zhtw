@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.project-original-source.schema.json",
+  "title": "zhtw Blind-v2 project-original input source",
+  "type": "object",
+  "required": [
+    "version", "id", "created_date", "authorship", "input_only",
+    "converter_output_used", "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "created_date": { "type": "string", "format": "date" },
+    "authorship": { "type": "string", "minLength": 1 },
+    "input_only": { "type": "boolean", "const": true },
+    "converter_output_used": { "type": "boolean", "const": false },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": ["id", "input"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+          "input": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,862 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-23",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-007.json",
+  "packet_sha256": "ab08de50069ca4f06fb0daeb3ccdcb2fb5d6d4778e6abbeb57960496bd8c1adf",
+  "reviewer": "Gemini CLI",
+  "gemini_cli_version": "0.52.0",
+  "model": "gemini-2.5-pro",
+  "session_id": "1dc86559-5d26-40ad-ab2b-e49e93c01caf",
+  "policy": "input_only_no_converter_output",
+  "validation": {
+    "exact_id_coverage": "81/81",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0,
+    "raw_summary_mismatch": "summary claimed 73 eligible; 81 case records contain 72 eligible"
+  },
+  "stats": {
+    "total": 81,
+    "eligible": 72,
+    "excluded": 9,
+    "policy_violations": 0,
+    "high": 81,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及商業詐騙與財務損失，屬高風險領域。'盈虧'、'聲譽'、'企業'等詞彙可能需注意地區用語差異。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-002",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "transition_phrase"
+      ],
+      "confidence": "high",
+      "notes": "句子為過渡性疑問句，無法獨立評估，不符合資格。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "內容為資訊性指引，關於如何識別詐騙，屬正式新聞/公告文體。'迹象' 轉換需注意。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-004",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "deictic_dependency"
+      ],
+      "confidence": "high",
+      "notes": "開頭的'然後'使其依賴前文，不具備獨立性，不符資格。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述詐騙核心手法，涉及信任詐欺，屬高風險領域。'伪装' 用詞可能存在地區差異。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述冒充政府或公司的詐騙手法，屬高風險領域。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡短的陳述句，是詐騙情境的一部分。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述詐騙者製造的心理壓力，屬高風險領域。'紧迫感', '施以威胁' 用詞需注意。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述詐騙手法，'查证' 一詞在台灣可能用 '查證'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於商業資訊安全的建議，屬高風險。'敏感'、'商业信息' 等詞值得注意。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述詐騙付款手法的引子。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提及'电汇', '加密货币', '礼品卡'，涉及金融與科技，屬於 IT API/CLI 風險。這些詞彙在兩岸有不同慣用法。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-013",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "deictic_dependency"
+      ],
+      "confidence": "high",
+      "notes": "'上述支付方法' 依賴前文，無法獨立評估，不符資格。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用的資安建議，'训练有素' 的用法較為正式。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及密碼、電子郵件等資訊安全議題，屬 IT 風險。'密码', '敏感信息' 為潛在術語差異點。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於員工內部溝通的建議，'疑似' 用法常見。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及採購、發票等財務流程，屬高風險領域。'发票', '核查' 等詞需注意地區用法。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提醒注意付款方式，與財務安全相關。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "重複提及'电汇', '加密货币', '礼品卡'，這些金融科技詞彙具地區差異性。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及電話號碼和來電顯示技術，'来电显示' 在台灣通常稱為'來電顯示'，但'伪造'等詞可能用法不同。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及資訊安全操作（點擊連結、附件），屬 IT 技術領域。'短信'、'链接' 等均為潛在術語差異點。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提及'恶意软件'、'网络'，為典型 IT 安全詞彙，兩岸用語差異大，如'惡意軟體'、'網路'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提及'社交媒体账号'被'黑入'，為社群與資安術語，'黑入'在台灣多用'駭入'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提供背景調查的建議，'诈骗', '投诉' 等詞需比對用法。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用的建議，轉換風險較低。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用的建議，轉換風險較低。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述虛假發票詐騙，屬高風險財務領域。'发票', '产品', '服务' 均可能存在用語差異。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述詐騙心理，'认定', '真实性' 等詞在書面語中通用，但口語可能有別。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-029",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "deictic_dependency"
+      ],
+      "confidence": "high",
+      "notes": "'这一切' 指代不明確，依賴前文，不符合獨立性要求。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述詐騙手法，'核实', '产品目录', '样品' 等商業詞彙需注意。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-031",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "deictic_dependency"
+      ],
+      "confidence": "high",
+      "notes": "'上述要求' 依賴前文，無法獨立評估，不符資格。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "直接的財務建議，'这时' 指涉的時間點雖模糊但指令本身是獨立的。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提供法律權益資訊，'合法权利' 屬於法律術語，需謹慎處理。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述廣告和企業名錄詐騙，'企业名录' 等詞可能具地區性。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述詐騙手法，'联系信息', '确认' 等詞需注意用法。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及錄音證據和催款，'录音' 詞在台灣通用，但整個句子情境下的用詞可能需調整。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "概括性描述恐嚇詐騙手法。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "冒充公用事業公司詐騙，'公用事业公司' 在台灣可能稱 '公用事業' 或具體公司名。'用气' 台灣多稱 '瓦斯'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "冒充政府機構威脅，'吊销', '营业执照', '起诉' 均為法律術語，風險高。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提及欠稅、執照更新，'拖欠税费', '执照', '登记信息' 都是需要注意的術語。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及冒充政府機構（美國勞工部）進行詐騙，屬高風險。'美国劳工部' 為專有名詞，需防止過度轉換。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述政府援助計畫的詐騙，'诓骗', '从头到尾' 用法較為生動。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及'美国专利商标局'（專有名詞）和'商标专用权'（法律術語），需防止過度轉換。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述註冊服務費用的詐騙，'注册服务' 用詞需斟酌。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提及 'URL'（技術術語）和網站，屬 IT 風險。'URL' 不應被轉換。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述技術支援詐騙的起手式，'技术支持'、'弹出警示信息' 均為 IT 詞彙。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述技術支援詐騙，'电脑存在安全问题' 是典型 IT 術語情境。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述詐騙目的，包含騙錢和訪問電腦，'访问你的电脑' 是 IT 操作。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及電腦維護、電腦網路、機密數據和身份盜竊，大量 IT 和資安術語。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提及網路詐騙、密碼、銀行資訊，'网络诈骗犯', '密码', '银行信息' 均為術語。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述'网络钓鱼电子邮件'、'社交媒体'等攻擊媒介，屬 IT 資安領域。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述看似正常的密碼更新請求，實為竊取資訊，'密码更新', '窃取你的信息'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提及'恶意软件'和'勒索'，即勒索軟體攻擊，是嚴重的 IT 安全威脅。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-054",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述虛假商業輔導計畫，涉及'推荐信', '视频', '研讨会', '营销'等商業詞彙。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述詐騙的虛假承諾，'“经过验证”的独家系统' 是典型的行銷話術。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述低價誘惑的詐騙手法。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-057",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述詐騙後果，'新手企业家', '巨额债务' 等詞需注意。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-058",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述操控網路評價的服務，'负面评价', '正面评价', '评分网站'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-059",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "陳述法律事實，'虚假评价', '违法'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-060",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "引用 FTC 法律指南，屬高風險（法律合規）。'FTC' 為專有縮寫，需保護不被錯誤轉換。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述信用卡處理和設備租賃詐騙，'信用卡交易', '设备租赁'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-062",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述簽署合約時的詐騙手法，'小号字体的细则', '半真半假的表述'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-063",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述要求簽署空白文件的行為，'毫无道德的销售代理'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-064",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "deictic_dependency"
+      ],
+      "confidence": "high",
+      "notes": "'这样做' 指代前文的“簽署空白文件”，無法獨立存在，不符合資格。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-065",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提及事後更改條款的騙局。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-066",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提供法律建議，'当场提供所有文件的副本'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-067",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述判斷是否為詐騙的跡象。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-068",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述支票超額支付騙局，'支票', '超额支付'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-069",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述騙局的下一步，要求返還多餘款項。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-070",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "解釋支票騙局的原理，'虚假支票', '已结清'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-071",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述受害者需要承擔的後果，'偿还银行'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-072",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提及其他可疑行為，例如虛假工作機會。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-073",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述不必要的企業信用報告服務騙局。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-074",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述災後重建服務的詐騙，'未经授权的承包商', '垃圾清理'。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-075",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "deictic_dependency"
+      ],
+      "confidence": "high",
+      "notes": "'这些“承诺”' 依賴前文，無法獨立評估，不符資格。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-076",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提供通報管道的建議，'总检察长' 在不同地區有不同稱謂。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-077",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "重複的結論性建議。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-078",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "直接的建議。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-079",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "deictic_dependency"
+      ],
+      "confidence": "high",
+      "notes": "'本手册' 指代不明，句子無法獨立存在，不符合資格。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-080",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "FTC 的使命宣言，涉及'计算机', '网络', '客户数据'，'FTC' 為專有名稱。"
+    },
+    {
+      "id": "ftc-small-business-simplified-v1/sentence-081",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "deictic_dependency"
+      ],
+      "confidence": "high",
+      "notes": "'在此' 使句子依賴上下文連結，無法獨立評估，不符資格。"
+    }
+  ]
+}

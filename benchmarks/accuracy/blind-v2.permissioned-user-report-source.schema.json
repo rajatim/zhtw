@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.permissioned-user-report-source.schema.json",
+  "title": "zhtw Blind-v2 permissioned user-report collection",
+  "type": "object",
+  "required": [
+    "version", "id", "batch_number", "created_date", "status", "source_class",
+    "target_count", "input_only", "converter_output_used", "consent_policy_version",
+    "redaction_policy", "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "id": {
+      "type": "string",
+      "pattern": "^permissioned-user-report-batch-[0-9]{3}$"
+    },
+    "batch_number": { "type": "integer", "minimum": 1 },
+    "created_date": { "type": "string", "format": "date" },
+    "status": {
+      "type": "string",
+      "enum": ["collecting", "ready_for_import"]
+    },
+    "source_class": { "type": "string", "const": "permissioned" },
+    "target_count": { "type": "integer", "const": 100 },
+    "input_only": { "type": "boolean", "const": true },
+    "converter_output_used": { "type": "boolean", "const": false },
+    "consent_policy_version": {
+      "type": "string",
+      "const": "permissioned-user-report-v1"
+    },
+    "redaction_policy": {
+      "type": "string",
+      "const": "reject_and_resubmit_no_automatic_mutation"
+    },
+    "cases": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "required": ["id", "input", "submitted_at", "issue_url", "consent"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^report-[0-9]{4}$"
+          },
+          "input": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "submitted_at": { "type": "string", "format": "date-time" },
+          "issue_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://github\\.com/rajatim/zhtw/issues/[0-9]+(?:#issuecomment-[0-9]+)?$"
+          },
+          "consent": {
+            "type": "object",
+            "required": [
+              "policy_version", "cc0_applied", "rights_confirmed",
+              "public_redistribution_confirmed", "no_sensitive_data_confirmed"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "policy_version": {
+                "type": "string",
+                "const": "permissioned-user-report-v1"
+              },
+              "cc0_applied": { "type": "boolean", "const": true },
+              "rights_confirmed": { "type": "boolean", "const": true },
+              "public_redistribution_confirmed": { "type": "boolean", "const": true },
+              "no_sensitive_data_confirmed": { "type": "boolean", "const": true }
+            }
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "const": "ready_for_import" } },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": { "cases": { "minItems": 100, "maxItems": 100 } }
+      }
+    }
+  ]
+}

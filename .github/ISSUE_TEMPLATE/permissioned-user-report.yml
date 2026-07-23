@@ -1,0 +1,45 @@
+name: 提供簡體中文真實用例
+description: 以 CC0 提供 input-only 簡體中文句子，供 zhtw 公開 benchmark 評估
+title: "[語料回報] "
+labels: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交內容與 GitHub 帳號會公開。請勿貼上個資、秘密、客戶資料、內部記錄或 expected。
+        每行一個完整簡體中文句子；建議每次 1 至 10 句。
+        詳細條款請先閱讀 [Permissioned User Report Consent v1](https://github.com/rajatim/zhtw/blob/main/docs/benchmark/PERMISSIONED-USER-REPORT-CONSENT.md)。
+  - type: textarea
+    id: inputs
+    attributes:
+      label: 簡體中文原句
+      description: 每行一個 input。不得附上繁體答案或任何轉換器輸出。
+      placeholder: |-
+        请先检查当前账号是否有访问权限。
+        打开设置后，页面应该显示空白状态。
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 非敏感情境說明
+      description: 選填；只說明使用場景，不要貼日誌、截圖、網址參數或識別資料。
+      placeholder: 例如：軟體設定頁、客服常見問題、日常對話。
+    validations:
+      required: false
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: 權利、公開與資料安全確認
+      options:
+        - label: 我是文字原作者或有權提供，內容不是從受保護的私人或第三方資料直接複製。
+          required: true
+        - label: 我在可處分權利範圍內對提交文字適用 [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)。
+          required: true
+        - label: 我了解文字、GitHub 帳號、issue 與同意紀錄會公開，且可能被複製、修改、翻譯與再散布。
+          required: true
+        - label: 內容不含個資、帳號、客戶資料、密碼、API key、token、私鑰、內部網址參數或未公開資料。
+          required: true
+        - label: 我只提交 input，未提交 expected 或 converter output，也未依轉換器結果挑選句子。
+          required: true

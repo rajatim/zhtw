@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "id": "cdc-stacks-111808-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://stacks.cdc.gov/view/cdc/111808",
+    "https://stacks.cdc.gov/view/cdc/111808/cdc_111808_DS1.pdf",
+    "https://stacks.cdc.gov/Content%20and%20Copyright",
+    "https://www.cdc.gov/other/agencymaterials.html"
+  ],
+  "upstream_revision": "CDC Stacks cdc:111808; published 2021-10-09; main document urn:sha256:af99f6f5dc63f2dbebd5d1ed0010dd492b27d9b742fd8416cff2f90b26f63b78",
+  "retrieved_at": "2026-07-21T13:00:00+08:00",
+  "license": "U.S. Public Domain",
+  "license_url": "https://stacks.cdc.gov/Content%20and%20Copyright",
+  "output_license": "U.S. Public Domain",
+  "attribution": "Centers for Disease Control and Prevention (U.S.).",
+  "modification_notice": "Extracted complete Simplified Chinese sentences from the checksum-pinned PDF with pypdf 5.9.0, applied Unicode NFC and conservative PDF-whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; headings, fragments, and converter output were excluded, and no expected text was used.",
+  "notice_id": "cdc-stacks-111808-v1",
+  "raw_sha256": {
+    "https://stacks.cdc.gov/view/cdc/111808/cdc_111808_DS1.pdf": "af99f6f5dc63f2dbebd5d1ed0010dd492b27d9b742fd8416cff2f90b26f63b78"
+  },
+  "normalized_path": "benchmarks/accuracy/external/cdc-stacks-111808-v1.json",
+  "normalized_sha256": "a26e99a7ddcbc2a108539b89d10fbb666dbde9aac860a7d3faf2e7abffd97e35",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Translated U.S. public-health guidance is not representative of ordinary Taiwan product traffic.",
+    "The document contains historical COVID-19 guidance published in 2021 and must not be treated as current medical advice.",
+    "PDF layout extraction is intentionally conservative and excludes headings and fragments.",
+    "Domain and conversion-risk labels remain unset until input-only review.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

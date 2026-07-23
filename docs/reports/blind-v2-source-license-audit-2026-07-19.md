@@ -1,7 +1,9 @@
 <!-- zhtw:disable -->
 # Blind-v2 Candidate Source Audit (2026-07-19)
 
-Status: two source pilots imported; Tatoeba CC0 pilot rejected; classification pending
+Status: eleven source pilots imported; Tatoeba CC0 pilot rejected; classification ongoing
+
+Updated: 2026-07-23 (FTC Simplified Chinese small-business pilot added)
 
 Issue: #43
 
@@ -13,6 +15,65 @@ review, exact/near-deduplication audit, and domain/risk classification from the
 input alone.
 
 ## Source Decisions
+
+### NPS *Essential Acadia: Simplified Chinese*
+
+- Official article: <https://www.nps.gov/articles/000/essential-acadia_simplified-chinese.htm>
+- HTML SHA-256: `b3ba2eb004722ae23749ab20610f45ba0262fd3e94e0a20cc59e069e184885a0`.
+- Rights: the NPS disclaimer states NPS-created website material is generally
+  public domain unless otherwise indicated; this pilot extracts only article
+  prose and excludes images, insignia, navigation, and linked content.
+- Import result: 32 complete input-only sentences after conservative HTML
+  container and sentence-boundary filtering.
+- Decision: source accepted. Maintainer confirmed the Codex synthesis after
+  Codex and Gemini review; 30 eligible inputs entered the collecting pool and
+  2 malformed or context-dependent inputs were excluded.
+
+### FTC *Scams and Your Small Business*, Simplified Chinese
+
+- Official PDF author: Federal Trade Commission; publication date July 2023.
+- PDF SHA-256: `c5bdddabd3570861a623134a768d253cc3a9200db683303d09624f3736c1b6a7`.
+- Rights: FTC website policy states most FTC-created material is U.S. public
+  domain; this pilot excludes graphics, seals, links, and third-party content.
+- Import result: 81 complete input-only prose sentences after removing headings,
+  page furniture, navigation URLs, phone instructions, and fragments.
+- Decision: source accepted. Maintainer confirmed the Codex synthesis after
+  Codex and Gemini classification review; 55 eligible inputs entered the
+  collecting pool and 26 context-dependent inputs were excluded.
+
+### zhtw project-original IT/API/CLI v1
+
+- Source: 100 Simplified Chinese engineering scenarios drafted by Codex on
+  2026-07-23 and committed as an immutable input-only source snapshot.
+- Raw SHA-256: `d41619cc854ce4d4d106717e35b9e511d1928b9a0935c48d8d1aab3fc68d488b`.
+- License: MIT; source class `project_original`.
+- Provenance: synthetic coverage for API, CLI, Git, databases, containers,
+  CI/CD, packages, security, observability, messaging, and infrastructure.
+- Restrictions: must be reported as Codex-drafted synthetic coverage, not
+  organic market-frequency evidence. No converter output or expected text may
+  influence source acceptance or source classification.
+- Decision: accepted as an input-only pilot. Codex and Gemini advisories plus
+  maintainer confirmation completed on 2026-07-23; all 100 eligible inputs
+  passed the promotion dedupe gate.
+
+### MASSIVE 1.0 `zh-CN`
+
+- Repository: <https://github.com/alexa/massive>
+- Dataset archive: <https://amazon-massive-nlu-dataset.s3.amazonaws.com/amazon-massive-dataset-1.0.tar.gz>
+- Pinned repository revision: `f966f21846043aabef9b0f974fa7970027f43738`.
+- Archive SHA-256: `7df623fd2d300a4d235d6ee5bd396c9a28258d3a0ccb29abdb054506eba153f8`.
+- License: CC BY 4.0 for the dataset, stated in the archive LICENSE and official
+  repository NOTICE.
+- Source class: `permissive_license`.
+- Script provenance: official `zh-CN` locale localized from the English SLURP
+  seed corpus; no converter is used by zhtw.
+- Raw capacity: 16,521 utterances; 15,619 unique after exact text dedupe.
+- Privacy minimization: worker IDs and judgments are excluded from normalized
+  output, together with intent and slot annotations.
+- Known bias: translated/localized single-shot voice-assistant requests, many
+  short commands and fragments, and recurring wake words.
+- Decision: accepted for an input-only pilot and at most 588 final cases,
+  subject to quality/domain/risk review and cross-source/reference dedupe.
 
 ### Tatoeba Mandarin CC0 export
 
@@ -79,17 +140,24 @@ translation and verification workflow.
 - Source class: `public_domain`.
 - Script provenance: only item records explicitly labelled Simplified Chinese
   and Public Domain may be used.
-- Candidate examples:
-  - <https://stacks.cdc.gov/view/cdc/111808>
-  - <https://stacks.cdc.gov/view/cdc/154488>
-  - <https://stacks.cdc.gov/view/cdc/116683>
+- Imported items:
+  - `cdc:111808`, *当您生病时*: 18 complete input-only sentences; PDF
+    SHA-256 `af99f6f5dc63f2dbebd5d1ed0010dd492b27d9b742fd8416cff2f90b26f63b78`.
+  - `cdc:120024`, *照顾好你的牙齿*: 22 complete input-only sentences; PDF
+    SHA-256 `41a685b4c0ff1805b23afca4599d60583c6ffb5ccb892b391955956c9e365020`.
+  - `cdc:116683`, *健康平等措施*: 22 complete input-only sentences; PDF
+    SHA-256 `53fcf122e5009fecf2f7caa24cacbf7a43f55367a3b69ccdbcd69a90eae870a7`.
+- Canonicalization note: the previously audited `cdc:154488` URL redirects to
+  `cdc:120024`; only the canonical item ID and checksum are retained.
 - Restrictions: each document is a separate source ID; retain corporate author,
   item URL, publication date, and document checksum. Include CDC attribution,
   no-endorsement language, free-source URL, and no substantive alteration.
 - Known bias: health and government translation language; use mainly for the
   high-stakes/formal strata and keep within both source and source-class caps.
-- Decision: conditionally accepted per item. A collection-wide assumption is
-  insufficient because CDC pages may include third-party material.
+- Decision: the three listed items are individually accepted and pinned. A
+  collection-wide assumption remains insufficient because CDC pages may include
+  third-party material. All 62 rows still require input-only quality/domain/risk
+  review before pool promotion.
 
 ## Rejected
 
@@ -125,7 +193,7 @@ translation and verification workflow.
 
 ## Capacity Assessment
 
-The two pinned pilots are not sufficient to freeze the pool. Under the
+The nine pinned pilots are not sufficient to freeze the pool. Under the
 conservative 10% discordant-rate assumption, formal N is 1,960 and the minimum
 candidate pool is 5,880. Each source may contribute at most 10% and each broad
 source class at most 35%.
@@ -137,21 +205,32 @@ the pilot ceiling is:
 |--------|---------:|---------------:|--------------------------:|
 | FLORES-200 zho_Hans | 2,009 | 588 | 588 |
 | UD Chinese-CFL | 451 | 588 | 451 |
-| **Total** | **2,460** | | **1,039 (17.67%)** |
+| CDC Stacks cdc:111808 | 18 | 588 | 18 |
+| CDC Stacks cdc:120024 | 22 | 588 | 22 |
+| CDC Stacks cdc:116683 | 22 | 588 | 22 |
+| MASSIVE 1.0 zh-CN | 15,619 | 588 | 588 |
+| Project UI/i18n | 50 | 588 | 50 |
+| Project LLM product | 50 | 588 | 50 |
+| Project IT/API/CLI | 100 | 588 | 100 |
+| FTC small-business fraud guide | 81 | 588 | 81 |
+| NPS Essential Acadia | 32 | 588 | 32 |
+| **Total** | **18,454** | | **2,002 (34.05%)** |
 
-Both pilots are `permissive_license`, whose class cap is 2,058. The pilot
-ceiling therefore leaves at least 4,841 candidate slots unfilled. Actual usable
+FLORES, UD-CFL, and MASSIVE are `permissive_license`; the three CDC documents
+and the FTC and NPS guides are `public_domain`; the three synthetic sources are
+`project_original`. All
+class totals remain below the 2,058 class cap. The source-cap ceiling therefore
+leaves at least 3,878 candidate slots unfilled. Actual usable
 capacity can only decrease after input-only quality/strata review and the fixed
 exact/near-deduplication audit. The final pool still needs at least:
 
-- three broad source classes;
-- ten independently identified sources overall;
+- sustained coverage across the three broad source classes;
+- continued publisher and source diversity beyond the ten-source floor;
 - enough input-only cases in every domain/risk stratum to satisfy the fixed
   25/20/15/15/15/10 domain and 40/40/20 risk quotas;
 - reserve cases in every stratum for deterministic replacement.
 
 The 2026-07-18 Tatoeba CC0 snapshot added zero eligible capacity. The next source
-work is to classify the two accepted pilots from input alone, then audit
-individually verified CDC Stacks documents. Additional project-original and
-permissioned-user-report sources are required to satisfy source-class diversity.
+work is to classify the accepted pilots from input alone and add project-original
+and permissioned-user-report sources to satisfy source-class and domain diversity.
 Converter performance must not influence source or strata selection.

@@ -17,8 +17,12 @@
     "generated_date": { "type": "string", "format": "date" },
     "seed": { "type": "integer", "const": 20260719 },
     "batch_number": { "type": "integer", "minimum": 1 },
+    "selection_round": { "type": "integer", "minimum": 1 },
     "batch_size": { "type": "integer", "minimum": 2 },
-    "selection_policy": { "type": "string", "const": "equal-source-deterministic-sha256-v1" },
+    "selection_policy": {
+      "type": "string",
+      "enum": ["equal-source-deterministic-sha256-v1", "all-source-cases-sorted-v1"]
+    },
     "input_only": { "type": "boolean", "const": true },
     "converter_output_used": { "type": "boolean", "const": false },
     "source_snapshots": {

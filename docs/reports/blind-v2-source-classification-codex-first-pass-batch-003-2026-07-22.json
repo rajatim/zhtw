@@ -1,0 +1,657 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_first_pass",
+  "status": "advisory_only",
+  "generated_date": "2026-07-22",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-003.json",
+  "packet_sha256": "3ada05e07e54145bede74f1514bcfd1aa9d296102893e0bf8ec3e4aed19e97d3",
+  "reviewer": "Codex",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 62,
+    "eligible": 61,
+    "excluded": 1,
+    "high": 55,
+    "medium": 7,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "cdc-stacks-111808-v1/p01-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p01-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "list_item_fragment"
+      ],
+      "confidence": "medium",
+      "notes": "可由症狀清單語境獨立理解，但形式為名詞片語，保留品質旗標。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "list_item_fragment"
+      ],
+      "confidence": "medium",
+      "notes": "可由症狀清單語境獨立理解，但形式為名詞片語，保留品質旗標。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "list_item_fragment"
+      ],
+      "confidence": "medium",
+      "notes": "可由症狀清單語境獨立理解，但形式為名詞片語，保留品質旗標。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "list_item_fragment"
+      ],
+      "confidence": "medium",
+      "notes": "可由症狀清單語境獨立理解，但形式為名詞片語，保留品質旗標。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-111808-v1/p02-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含機構名、疫情名稱或英文字母縮寫，應保護專名並避免過度轉換。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含 COVID-19 專名，應避免過度轉換；其餘主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "awkward_source_wording"
+      ],
+      "confidence": "medium",
+      "notes": "句意仍可判讀，但上游翻譯措辭不自然，保留品質旗標供後續抽樣過濾。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p01-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p03-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p03-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p03-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p03-004",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_sentence"
+      ],
+      "confidence": "high",
+      "notes": "「免疫而集中」使核心目的無法可靠判讀，屬上游文字錯誤，建議排除。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p04-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「合作伙伴关系」有臺灣慣用詞差異；AA、NH/PI 與 COVID-19 應原樣保護。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p05-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p05-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p06-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p06-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p07-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p08-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p08-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-116683-v1/p08-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "awkward_source_wording"
+      ],
+      "confidence": "medium",
+      "notes": "句意仍可判讀，但上游翻譯措辭不自然，保留品質旗標供後續抽樣過濾。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p01-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含機構名、疫情名稱或英文字母縮寫，應保護專名並避免過度轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p01-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含區域詞或專業用語，可能需要臺灣慣用詞轉換；句意可獨立判讀。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p01-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p02-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p02-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p02-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p03-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p03-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p04-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p04-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p05-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p06-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "awkward_source_wording"
+      ],
+      "confidence": "medium",
+      "notes": "句意仍可判讀，但上游翻譯措辭不自然，保留品質旗標供後續抽樣過濾。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p07-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p07-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p07-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p07-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    },
+    {
+      "id": "cdc-stacks-120024-v1/p07-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句意可獨立判讀，主要為一般字形轉換。"
+    }
+  ]
+}
