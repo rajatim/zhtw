@@ -1,3 +1,4 @@
+<!-- zhtw:disable -->
 # Blind-v2 Permissioned User Report Intake Readiness
 
 日期：2026-07-23
@@ -16,10 +17,13 @@
 - JSON Schema：
   `benchmarks/accuracy/blind-v2.permissioned-user-report-source.schema.json`
 - 收集驗證器：`scripts/validate_permissioned_user_reports.py`
+- GitHub issue 預覽／確認匯入器：
+  `scripts/import_permissioned_user_report_issue.py`。預設 dry-run；只有明確提供
+  `--write`、maintainer 與含時區 review timestamp 才會原子寫入。
 - Blind-v2 importer 已支援 `permissioned-user-report-batch-NNN`，但只有
   `ready_for_import` 且恰好 100 筆時才接受。
 - 測試涵蓋 collecting/ready 狀態、100 筆門檻、input-only、同意欄位、來源 ID、
-  normalized duplicate 與敏感資料模式。
+  normalized duplicate、敏感資料模式、GitHub form parsing、dry-run 與 atomic write。
 
 ## 收集規則
 
@@ -32,6 +36,8 @@
    另送已自行去識別的新句，不由工具靜默遮罩或改寫。
 5. 收滿 100 筆並人工完成來源／敏感資料檢查後，才可把狀態改為
    `ready_for_import`。
+6. 每筆保存 maintainer、review timestamp、`accepted` decision 與 reviewed issue
+   body SHA-256。Issue 後續若被編輯，仍可辨認當時核准的公開內容。
 
 ## 驗證指令
 
@@ -39,6 +45,21 @@
 
 ```bash
 make benchmark-blind-v2-permissioned-intake-check
+```
+
+收到 issue 後先預覽，不修改 collection：
+
+```bash
+make benchmark-blind-v2-permissioned-issue-preview ISSUE=123
+```
+
+Maintainer 讀過原始 issue 並接受全部 proposed inputs 後才寫入：
+
+```bash
+make benchmark-blind-v2-permissioned-issue-import \
+  ISSUE=123 \
+  MAINTAINER=tim \
+  REVIEWED_AT=2026-07-23T17:00:00+08:00
 ```
 
 收滿 100 筆後：

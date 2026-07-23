@@ -6,6 +6,9 @@ PYTHON := uv run python
 VERSION ?=
 BATCH ?= it-api-cli
 DATE ?= $(shell date +%F)
+ISSUE ?=
+MAINTAINER ?= tim
+REVIEWED_AT ?=
 ID_FROM ?=
 ID_TO ?=
 COMPETITORS ?= zhtw
@@ -107,6 +110,15 @@ benchmark-blind-v2-source-import-check: ## Download pinned Blind-v2 source pilot
 
 benchmark-blind-v2-permissioned-intake-check: ## Validate the collecting permissioned user-report batch
 	$(PYTHON) scripts/validate_permissioned_user_reports.py benchmarks/accuracy/sources/permissioned-user-report-batch-001.json
+
+benchmark-blind-v2-permissioned-issue-preview: ## Preview a permissioned GitHub issue (ISSUE=N)
+	@test -n "$(ISSUE)" || (echo "ISSUE is required" >&2; exit 2)
+	$(PYTHON) scripts/import_permissioned_user_report_issue.py --issue $(ISSUE)
+
+benchmark-blind-v2-permissioned-issue-import: ## Import a reviewed issue (ISSUE=N REVIEWED_AT=ISO8601)
+	@test -n "$(ISSUE)" || (echo "ISSUE is required" >&2; exit 2)
+	@test -n "$(REVIEWED_AT)" || (echo "REVIEWED_AT is required" >&2; exit 2)
+	$(PYTHON) scripts/import_permissioned_user_report_issue.py --issue $(ISSUE) --write --maintainer $(MAINTAINER) --reviewed-at $(REVIEWED_AT)
 
 benchmark-blind-v2-permissioned-ready-check: ## Require a complete 100-case permissioned user-report batch
 	$(PYTHON) scripts/validate_permissioned_user_reports.py --require-ready benchmarks/accuracy/sources/permissioned-user-report-batch-001.json

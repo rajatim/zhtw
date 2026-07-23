@@ -1,4 +1,5 @@
 """Tests for permissioned Blind-v2 user-report intake."""
+# zhtw:disable  # 測試 input 必須保持簡體
 
 from __future__ import annotations
 
@@ -35,6 +36,12 @@ def report_case(index: int) -> dict[str, Any]:
             "rights_confirmed": True,
             "public_redistribution_confirmed": True,
             "no_sensitive_data_confirmed": True,
+        },
+        "intake_review": {
+            "reviewer": "tim",
+            "reviewed_at": "2026-07-23T13:00:00+08:00",
+            "decision": "accepted",
+            "issue_body_sha256": "a" * 64,
         },
     }
 

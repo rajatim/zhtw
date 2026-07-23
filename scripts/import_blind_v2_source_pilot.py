@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# zhtw:disable  # 來源 parser 的簡體錨點不可被轉換
 """Import a pinned Simplified Chinese source as a Blind-v2 input-only pilot."""
 
 from __future__ import annotations

@@ -38,7 +38,9 @@
       "maxItems": 100,
       "items": {
         "type": "object",
-        "required": ["id", "input", "submitted_at", "issue_url", "consent"],
+        "required": [
+          "id", "input", "submitted_at", "issue_url", "consent", "intake_review"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": {
@@ -68,6 +70,22 @@
               "rights_confirmed": { "type": "boolean", "const": true },
               "public_redistribution_confirmed": { "type": "boolean", "const": true },
               "no_sensitive_data_confirmed": { "type": "boolean", "const": true }
+            }
+          },
+          "intake_review": {
+            "type": "object",
+            "required": [
+              "reviewer", "reviewed_at", "decision", "issue_body_sha256"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "reviewer": { "type": "string", "minLength": 1 },
+              "reviewed_at": { "type": "string", "format": "date-time" },
+              "decision": { "type": "string", "const": "accepted" },
+              "issue_body_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
             }
           }
         }

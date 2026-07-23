@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# zhtw:disable  # 敏感資料規則需同時保留簡體與繁體標籤
 """Validate permissioned Blind-v2 user-report collections and sensitive-data gates."""
 
 from __future__ import annotations

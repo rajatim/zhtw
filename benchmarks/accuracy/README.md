@@ -218,6 +218,30 @@ patterns. A flagged sentence is rejected for resubmission rather than silently
 redacted, because an unrecorded rewrite would break source provenance. Context
 entered in the issue is not imported as benchmark truth.
 
+Preview a submitted issue without changing the collection:
+
+```bash
+make benchmark-blind-v2-permissioned-issue-preview ISSUE=123
+```
+
+The preview validates the canonical repository/issue URL, expected form
+sections, all five checked consent statements, the 1-10 input limit, sensitive
+data patterns, available batch capacity, and normalized duplicates. After the
+maintainer reads the original public issue and accepts every proposed line,
+write it with an explicit review timestamp:
+
+```bash
+make benchmark-blind-v2-permissioned-issue-import \
+  ISSUE=123 \
+  MAINTAINER=tim \
+  REVIEWED_AT=2026-07-23T17:00:00+08:00
+```
+
+The write is atomic and records the reviewer, review time, accepted decision,
+and SHA-256 of the reviewed issue body. If the issue is edited later, the hash
+preserves which public text was actually reviewed. The tool never imports the
+optional context section.
+
 Validate the collection while it is being filled:
 
 ```bash

@@ -1,4 +1,5 @@
 """Tests for pinned Blind-v2 input-only source pilots."""
+# zhtw:disable  # 測試來源必須保持簡體
 
 from __future__ import annotations
 
