@@ -303,8 +303,8 @@ baseline prose. It intentionally concentrates formal-news and
 over-conversion-guard gaps and is synthetic coverage, not organic market
 traffic. Codex and Gemini via Antigravity CLI independently classified all 100
 cases: 73 four-field matches and 27 domain/risk differences. Codex synthesis
-recommends all 100 as eligible, using 73 agreements, 13 Codex selections, and
-14 Gemini selections. The candidate pool remains at 1,181 until the maintainer
+recommends all 100 as eligible, using 73 agreements, 12 Codex selections, and
+15 Gemini selections after a conservative Codex re-review. The candidate pool remains at 1,181 until the maintainer
 confirms this advisory and the promotion deduplication gate passes.
 
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62

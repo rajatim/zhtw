@@ -14,8 +14,8 @@
     "excluded": 0,
     "by_selection_basis": {
       "agreement": 73,
-      "codex": 13,
-      "gemini": 14
+      "codex": 12,
+      "gemini": 15
     }
   },
   "cases": [
@@ -24,11 +24,11 @@
       "eligible": true,
       "script": "simplified",
       "domain": "formal_news",
-      "risk": "candidate_gap",
+      "risk": "baseline_guard",
       "quality_flags": [],
       "confidence": "high",
       "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
-      "selection_basis": "codex"
+      "selection_basis": "gemini"
     },
     {
       "id": "zhtw-project-formal-entity-guard-v1/baseline-002",
@@ -101,11 +101,11 @@
       "eligible": true,
       "script": "simplified",
       "domain": "formal_news",
-      "risk": "candidate_gap",
+      "risk": "baseline_guard",
       "quality_flags": [],
       "confidence": "high",
       "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
-      "selection_basis": "codex"
+      "selection_basis": "gemini"
     },
     {
       "id": "zhtw-project-formal-entity-guard-v1/baseline-009",
@@ -1079,12 +1079,12 @@
       "id": "zhtw-project-formal-entity-guard-v1/title-017",
       "eligible": true,
       "script": "simplified",
-      "domain": "high_stakes",
+      "domain": "formal_news",
       "risk": "over_conversion_guard",
       "quality_flags": [],
       "confidence": "high",
       "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
-      "selection_basis": "gemini"
+      "selection_basis": "codex"
     },
     {
       "id": "zhtw-project-formal-entity-guard-v1/title-018",

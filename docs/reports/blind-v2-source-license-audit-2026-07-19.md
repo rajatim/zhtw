@@ -166,7 +166,8 @@ input alone.
   acceptance, or input-only classification.
 - Decision: accepted as an input-only pilot. Codex and Gemini via Antigravity
   CLI independently classified all 100 inputs; Codex synthesis recommends all
-  100 as eligible (73 agreement, 13 Codex, 14 Gemini). Maintainer confirmation
+  100 as eligible (73 agreement, 12 Codex, 15 Gemini) after a conservative
+  Codex re-review. Maintainer confirmation
   and promotion deduplication remain pending, so none have entered the pool.
 
 ### MASSIVE 1.0 `zh-CN`

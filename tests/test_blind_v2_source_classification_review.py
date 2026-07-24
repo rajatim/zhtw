@@ -303,8 +303,10 @@ FIFTEENTH_DIFF_PATH = ROOT / (
 FIFTEENTH_GEMINI_CASE_IDS = {
     f"zhtw-project-formal-entity-guard-v1/{case_id}"
     for case_id in (
+        "baseline-001",
         "baseline-002",
         "baseline-007",
+        "baseline-008",
         "baseline-019",
         "code-012",
         "code-016",
@@ -316,7 +318,6 @@ FIFTEENTH_GEMINI_CASE_IDS = {
         "title-009",
         "title-015",
         "title-016",
-        "title-017",
     )
 }
 
@@ -1189,7 +1190,7 @@ def test_fifteenth_pending_advisories_and_codex_synthesis_are_reproducible() -> 
         "total": 100,
         "eligible": 100,
         "excluded": 0,
-        "by_selection_basis": {"agreement": 73, "codex": 13, "gemini": 14},
+        "by_selection_basis": {"agreement": 73, "codex": 12, "gemini": 15},
     }
     assert synthesis == build_synthesis(
         codex,
