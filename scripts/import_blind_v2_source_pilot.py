@@ -59,6 +59,7 @@ SUPPORTED_SOURCES = {
     "osha-fallen-workers-family-simplified-v1": "osha_pdf",
     "vscode-loc-zh-hans-v1": "vscode_loc_json",
     "aosp-framework-zh-rcn-v1": "aosp_strings_xml",
+    "cisa-cyber-hygiene-zh-hans-v1": "cisa_cyber_hygiene_pdf",
 }
 READY_GOV_SOURCE_ANCHORS = {
     "ready-gov-floods-zh-hans-v1": ("洪水", "10/22/2025"),
@@ -562,6 +563,36 @@ def parse_ftc_heads_up_pdf(content: bytes) -> list[tuple[str, str, str]]:
     return parse_ftc_heads_up_pages(pages)
 
 
+def parse_cisa_cyber_hygiene_pages(pages: list[str]) -> list[tuple[str, str, str]]:
+    """Extract complete CISA-authored prose from the one-page cyber hygiene guide."""
+    if len(pages) != 1:
+        raise ValueError(f"CISA Cyber Hygiene: expected 1 PDF page, found {len(pages)}")
+    page = normalize_pdf_text(pages[0])
+    if "做网络聪明：把你的“盾牌举起”" not in page or "CISA Region 4" not in page:
+        raise ValueError("CISA Cyber Hygiene: Simplified Chinese title anchor not found")
+
+    region = anchored_region(page, "网络骗局已不是新事物了。", "欲了解更多信息")
+    sentences = complete_chinese_sentences(region, minimum_length=8)
+    sentences = [
+        sentence for sentence in sentences if not sentence.startswith("以下是四个简单的步骤")
+    ]
+    return [
+        ("guide", f"sentence-{index:03d}", sentence) for index, sentence in enumerate(sentences, 1)
+    ]
+
+
+def parse_cisa_cyber_hygiene_pdf(content: bytes) -> list[tuple[str, str, str]]:
+    reader = PdfReader(io.BytesIO(content))
+    metadata = reader.metadata
+    if (
+        metadata is None
+        or metadata.author != "Cybersecurity & Infrastructure Security Agency (CISA)"
+    ):
+        raise ValueError("CISA Cyber Hygiene: unexpected PDF author metadata")
+    pages = [page.extract_text() or "" for page in reader.pages]
+    return parse_cisa_cyber_hygiene_pages(pages)
+
+
 def parse_osha_pdf(source_id: str, content: bytes) -> list[tuple[str, str, str]]:
     """Extract input-only sentences from a pinned OSHA Simplified Chinese PDF."""
     expected_pages, selected_pages, title_anchor = OSHA_SOURCE_CONFIG[source_id]
@@ -795,6 +826,8 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
         raw_rows = parse_ftc_small_business_pdf(content)
     elif source_kind == "ftc_heads_up_pdf":
         raw_rows = parse_ftc_heads_up_pdf(content)
+    elif source_kind == "cisa_cyber_hygiene_pdf":
+        raw_rows = parse_cisa_cyber_hygiene_pdf(content)
     elif source_kind == "nps_acadia_html":
         raw_rows = parse_nps_acadia_html(content)
     elif source_kind == "ready_gov_html":

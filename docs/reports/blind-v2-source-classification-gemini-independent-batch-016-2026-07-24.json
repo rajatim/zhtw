@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Gemini via Antigravity CLI",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-016.json",
+  "packet_sha256": "f9764f1d5d6aace6c1d65aa2ed2ef9f7034b07eb47e8d2a1702df1a413dca72b",
+  "policy": "input_only_no_converter_output",
+  "model": "gemini-3.1-pro-high",
+  "cli": "Antigravity CLI",
+  "cli_version": "1.1.5",
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "accepted",
+      "reason": "JSON parse, field validation, packet order, and exact 24/24 ID coverage passed."
+    }
+  ],
+  "validation": {
+    "exact_id_coverage": "24/24",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0,
+    "response_json_extracted_from_markdown_fence": false
+  },
+  "stats": {
+    "total": 24,
+    "eligible": 24,
+    "excluded": 0,
+    "policy_violations": 0,
+    "high": 24,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网络」需轉換為臺灣慣用語「網路」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「黑客」、「网络」、「网上」需轉換為「駭客」、「網路」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网上」需轉換為「網路」或「線上」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「信息」（資訊）、「账户」（帳戶）、「网上」（網路）等需區域詞彙轉換之用語。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "無大陸特有 IT 詞彙，僅需標準簡繁字形轉換。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网络」需轉換為「網路」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网络」需轉換為「網路」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网上」需轉換為「網路」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「设置」（設定）、「短信」（簡訊）、「软件」（軟體）、「代码」（程式碼）、「登录」（登入）等多項 IT 詞彙轉換。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「黑客」、「信息」需轉換為「駭客」、「資訊」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「黑客」、「软件」需轉換為「駭客」、「軟體」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「设备」（裝置）、「软件」（軟體）、「笔记本电脑」（筆記型電腦）等詞彙轉換。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「应用」、「设备」需轉換為「應用程式」、「裝置」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「设备」、「应用」、「操作系统」需轉換為「裝置」、「應用程式」、「作業系統」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「点击」轉為「點擊」屬於標準字形轉換。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网络」、「链接」需轉換為「網路」、「連結」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「链接」、「信息」需轉換為「連結」、「資訊」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「运行」、「软件」需轉換為「執行」、「軟體」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「链接」需轉換為「連結」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "密碼長度脈絡下的「数位」應防止被誤轉為臺灣表示 digital 之「數位」（宜轉為位數或字元）。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「账户」需轉換為「帳戶」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「存储」需轉換為「儲存」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「联网」、「网络」需轉換為「連網」、「網路」。"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「网络」需轉換為「網路」，「窍门」可轉換為「小技巧」或「撇步」。"
+    }
+  ]
+}

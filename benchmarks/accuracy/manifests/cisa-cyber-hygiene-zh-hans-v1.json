@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "id": "cisa-cyber-hygiene-zh-hans-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://www.cisa.gov/sites/default/files/publications/CHINESE-Simplified_4_Things_You_Can_Do_To_Keep_Yourself_Cyber_Safe_508c.pdf",
+    "https://www.copyright.gov/title17/92chap1.html#105"
+  ],
+  "upstream_revision": "CISA Cyber Hygiene, Simplified Chinese, PDF created 2022-04-22; retrieved PDF SHA-256: a5b3fe3f5c4ce5f6c5c7643892b859a2911593364e67fba0ee52b0b68a19b65f",
+  "retrieved_at": "2026-07-24T16:00:00+08:00",
+  "license": "U.S. Public Domain for CISA-authored text under 17 U.S.C. 105; third-party content excluded",
+  "license_url": "https://www.copyright.gov/title17/92chap1.html#105",
+  "output_license": "U.S. Public Domain",
+  "attribution": "Cybersecurity and Infrastructure Security Agency, Cyber Hygiene, Simplified Chinese; no CISA or U.S. Department of Homeland Security endorsement or affiliation is implied.",
+  "modification_notice": "Extracted complete Simplified Chinese sentences from the checksum-pinned CISA PDF; excluded headings, page furniture, logos, contact details, external links, and third-party content; no expected text or converter output was used.",
+  "notice_id": "cisa-cyber-hygiene-zh-hans-v1",
+  "raw_sha256": {
+    "https://www.cisa.gov/sites/default/files/publications/CHINESE-Simplified_4_Things_You_Can_Do_To_Keep_Yourself_Cyber_Safe_508c.pdf": "a5b3fe3f5c4ce5f6c5c7643892b859a2911593364e67fba0ee52b0b68a19b65f"
+  },
+  "normalized_path": "benchmarks/accuracy/external/cisa-cyber-hygiene-zh-hans-v1.json",
+  "normalized_sha256": "1ed350d426b370927d88e3f7310fad5d823507b9a214bc625dc2e5b12a0aa5bd",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Official U.S. cyber-safety guidance is not representative of ordinary Taiwan traffic.",
+    "The one-page translated guide concentrates account security, phishing, malware, software updates, and password terminology.",
+    "Only CISA-authored prose is extracted; headings, logos, contact details, links, and third-party content are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

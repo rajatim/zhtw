@@ -1,9 +1,9 @@
 <!-- zhtw:disable -->
 # Blind-v2 Candidate Source Audit (2026-07-19)
 
-Status: twenty-five source pilots imported; Tatoeba CC0 pilot rejected; classification ongoing
+Status: twenty-six source pilots imported; Tatoeba CC0 pilot rejected; classification ongoing
 
-Updated: 2026-07-24 (project-original formal entity-guard pilot added)
+Updated: 2026-07-24 (CISA Cyber Hygiene Simplified Chinese pilot added)
 
 Issue: #43
 
@@ -75,6 +75,24 @@ input alone.
   Codex and Gemini independent advisories plus Codex synthesis are complete.
   Maintainer `tim` confirmed the synthesis on 2026-07-24; all 100 passed the
   promotion dedupe gate and entered the collecting pool.
+
+### CISA *Cyber Hygiene*, Simplified Chinese
+
+- Official PDF: <https://www.cisa.gov/sites/default/files/publications/CHINESE-Simplified_4_Things_You_Can_Do_To_Keep_Yourself_Cyber_Safe_508c.pdf>.
+- PDF SHA-256:
+  `a5b3fe3f5c4ce5f6c5c7643892b859a2911593364e67fba0ee52b0b68a19b65f`.
+- Rights: CISA-authored U.S. government text is public domain under 17 U.S.C.
+  105. PDF metadata identifies CISA as author; no third-party author or
+  copyright notice appears. Logos, contact details, links, and any third-party
+  content are excluded.
+- Import result: 24 complete input-only sentences from one page after fixed
+  page-count, metadata, title, and body-anchor checks.
+- Known bias: translated consumer cyber-safety guidance concentrates account
+  security, phishing, malware, software updates, and password terminology.
+- Decision: accepted as an input-only pilot. Codex and Gemini independently
+  classified all 24 cases; Codex synthesis recommends 21 eligible and 3
+  malformed/context-dependent exclusions. Maintainer confirmation remains
+  pending; none have entered the collecting pool.
 
 ### NPS *Essential Acadia: Simplified Chinese*
 
@@ -371,15 +389,16 @@ the pilot ceiling is:
 | VS Code zh-hans localization | 15,618 | 588 | 588 |
 | AOSP framework zh-rCN | 1,697 | 588 | 588 |
 | FTC Heads Up online safety | 117 | 588 | 117 |
-| **Source-cap total** | **36,425** | | **3,834 (65.20%)** |
-| **Class-adjusted total** | | | **3,089 (52.53%)** |
+| CISA Cyber Hygiene zh-hans | 24 | 588 | 24 |
+| **Source-cap total** | **36,449** | | **3,858 (65.61%)** |
+| **Class-adjusted total** | | | **3,113 (52.94%)** |
 
 FLORES, UD-CFL, MASSIVE, VS Code localization, and AOSP are `permissive_license`;
-the three CDC documents, two FTC publications, NPS, three Ready.gov pages, and seven OSHA publications are
+the CISA guide, three CDC documents, two FTC publications, NPS, three Ready.gov pages, and seven OSHA publications are
 `public_domain`; the five synthetic sources are `project_original`. All
 permissive source caps total 2,215, so that class is limited to 2,058 by the
 35% class cap. Public-domain and project-original totals remain below their
-class caps. The class-adjusted ceiling therefore leaves at least 2,791 candidate
+class caps. The class-adjusted ceiling therefore leaves at least 2,767 candidate
 slots unfilled. Actual usable
 capacity can only decrease after input-only quality/strata review and the fixed
 exact/near-deduplication audit. The final pool still needs at least:

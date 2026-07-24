@@ -272,6 +272,17 @@ is missing.
 - Bias notice: Historical translated COVID-19 guidance is not current medical
   advice or representative of ordinary Taiwan product traffic.
 
+## cisa-cyber-hygiene-zh-hans-v1
+
+- Source: Cybersecurity and Infrastructure Security Agency, *Cyber Hygiene*,
+  Simplified Chinese, PDF created 2022-04-22.
+- License: U.S. Public Domain for CISA-authored text under 17 U.S.C. 105; third-party content excluded
+- Attribution: Cybersecurity and Infrastructure Security Agency, Cyber Hygiene, Simplified Chinese; no CISA or U.S. Department of Homeland Security endorsement or affiliation is implied.
+- Modifications: Extracted complete Simplified Chinese sentences from the checksum-pinned CISA PDF; excluded headings, page furniture, logos, contact details, external links, and third-party content; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: A one-page translated U.S. cyber-safety guide is not
+  representative of ordinary Taiwan traffic.
+
 ## cdc-stacks-120024-v1
 
 - Source: CDC Stacks item `cdc:120024`, *照顾好你的牙齿*, main-document

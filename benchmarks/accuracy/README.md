@@ -308,6 +308,17 @@ recommends all 100 as eligible, using 73 agreements, 12 Codex selections, and
 confirmed the synthesis on 2026-07-24; all 100 passed exact/reference and
 character 5-gram Jaccard 0.85 deduplication and entered the collecting pool.
 
+The CISA-authored public-domain *Cyber Hygiene* Simplified Chinese pilot is
+checksum-pinned and uses PDF author, page-count, title, and body anchors. Its
+conservative parser retains 24 complete input-only sentences after excluding
+headings, page furniture, logos, contact details, links, and third-party
+content. Classification batch 016 completed independent Codex and Gemini via
+Antigravity CLI review: 1 exact classification and 23 differences. Codex
+synthesis recommends 21 eligible cases and 3 malformed or context-dependent
+exclusions; the eligible cases contain 16 IT, 4 social, and 1 high-stakes
+inputs, with 19 candidate gaps and 2 baselines. Maintainer confirmation and
+promotion remain pending, so the pool stays at 1,281.
+
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
 checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
 conservative, excludes layout fragments, and never runs zhtw or creates

@@ -18,6 +18,7 @@ from scripts.import_blind_v2_source_pilot import (
     normalize_input,
     parse_aosp_strings,
     parse_cdc_pages,
+    parse_cisa_cyber_hygiene_pages,
     parse_ftc_heads_up_pages,
     parse_ftc_small_business_pages,
     parse_massive,
@@ -116,6 +117,24 @@ def test_ud_cfl_import_rejects_incomplete_conllu(tmp_path: Path) -> None:
 
 def test_normalization_does_not_convert_script() -> None:
     assert normalize_input("开发  软件\r\n接口") == "开发 软件 接口"
+
+
+def test_cisa_cyber_hygiene_parser_is_anchored_and_excludes_page_furniture() -> None:
+    page = """
+    CISA Region 4 做网络聪明：把你的“盾牌举起”
+    网络骗局已不是新事物了。每天都要更新软件。
+    以下是四个简单的步骤，你今天就可以开始： • 使用多因素身份验证。
+    避免在不同账户上使用同一个密码。欲了解更多信息，请访问：example.gov
+    """
+
+    assert parse_cisa_cyber_hygiene_pages([page]) == [
+        ("guide", "sentence-001", "网络骗局已不是新事物了。"),
+        ("guide", "sentence-002", "每天都要更新软件。"),
+        ("guide", "sentence-003", "避免在不同账户上使用同一个密码。"),
+    ]
+
+    with pytest.raises(ValueError, match="title anchor"):
+        parse_cisa_cyber_hygiene_pages(["网络骗局已不是新事物了。"])
 
 
 def test_massive_parser_extracts_only_input_provenance_fields() -> None:
@@ -382,6 +401,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("osha-fallen-workers-family-simplified-v1", 23),
         ("vscode-loc-zh-hans-v1", 15618),
         ("aosp-framework-zh-rcn-v1", 1697),
+        ("cisa-cyber-hygiene-zh-hans-v1", 24),
     ),
 )
 def test_committed_source_pilots_are_pinned_and_input_only(

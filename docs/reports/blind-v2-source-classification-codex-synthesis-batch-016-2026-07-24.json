@@ -1,0 +1,292 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex synthesis after independent Gemini review",
+  "stage": "codex_synthesis_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-016.json",
+  "packet_sha256": "f9764f1d5d6aace6c1d65aa2ed2ef9f7034b07eb47e8d2a1702df1a413dca72b",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 24,
+    "eligible": 21,
+    "excluded": 3,
+    "by_selection_basis": {
+      "agreement": 1,
+      "codex": 23
+    }
+  },
+  "cases": [
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-005",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-006",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-010",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "cisa-cyber-hygiene-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    }
+  ]
+}
