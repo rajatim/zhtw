@@ -72,8 +72,9 @@ input alone.
   not independently authored organic market-frequency evidence.
 - Decision: accepted as an input-only pilot and at most 588 final cases.
   Classification batch 014 fixes a deterministic first 100-case selection.
-  Codex and Gemini independent advisories plus Codex synthesis are complete;
-  maintainer confirmation and promotion remain pending.
+  Codex and Gemini independent advisories plus Codex synthesis are complete.
+  Maintainer `tim` confirmed the synthesis on 2026-07-24; all 100 passed the
+  promotion dedupe gate and entered the collecting pool.
 
 ### NPS *Essential Acadia: Simplified Chinese*
 

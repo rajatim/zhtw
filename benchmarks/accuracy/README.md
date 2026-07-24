@@ -293,7 +293,8 @@ escaped multiline content, URLs, email addresses, short non-prose values, and
 all 100: 75 exact classifications and 25 risk/domain differences. Codex
 synthesis recommends all 100 as eligible, using 75 agreements, 19 Codex
 selections, 5 Gemini selections, and 1 Codex field-level synthesis. Maintainer
-confirmation is pending; none of these cases is in the collecting pool.
+`tim` confirmed the synthesis on 2026-07-24. All 100 passed exact/reference and
+character 5-gram Jaccard 0.85 deduplication and entered the collecting pool.
 
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
 checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
@@ -365,12 +366,12 @@ recommends 55 eligible and 26 context-dependent exclusions. Maintainer
 exact/reference and character 5-gram Jaccard 0.85 near-deduplication and entered
 the collecting pool; all 26 context-dependent inputs remain excluded.
 
-Classification batches 001-013 now contribute 1,081 maintainer-confirmed eligible
+Classification batches 001-014 now contribute 1,181 maintainer-confirmed eligible
 inputs to the `collecting` candidate pool after cross-batch/reference exact and
 character 5-gram Jaccard 0.85 near-deduplication.
 All six domains now have coverage, but the pool is not ready to freeze or sample.
 Permissioned user-report batch 001 is collecting at 0/100 and therefore is not
-included in the 1,081 cases.
+included in the 1,181 cases.
 
 Source-classification batch 008 covers 32 complete sentences from the NPS
 public-domain *Essential Acadia: Simplified Chinese* article. Codex and Gemini
@@ -434,6 +435,16 @@ Gemini via Antigravity CLI (`gemini-3.1-pro-high`) independently reviewed all
 Codex field-level synthesis decisions. All 100 are eligible and passed
 exact/reference and character 5-gram Jaccard 0.85 deduplication. The pool is now
 1,081 cases, leaving a 4,799-case minimum-pool gap.
+
+Source-classification batch 014 fixes 100 input-only cases from the Apache-2.0
+AOSP Simplified Chinese framework resources. Codex and Gemini via Antigravity
+CLI (`gemini-3.1-pro-high`) independently reviewed all 100 IDs and agree on 75;
+25 have domain or risk differences, with no eligibility or script difference.
+Maintainer `tim` confirmed the Codex synthesis on 2026-07-24: 75 agreements,
+19 Codex selections, 5 Gemini selections, and 1 Codex field-level synthesis.
+All 100 passed exact/reference and character 5-gram Jaccard 0.85 deduplication
+and entered the pool. The pool is now 1,181 cases, leaving a 4,699-case
+minimum-pool gap.
 
 Rebuild and validate the current collecting pool:
 

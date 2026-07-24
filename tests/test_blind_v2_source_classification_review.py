@@ -272,6 +272,9 @@ FOURTEENTH_ADJUSTMENTS_PATH = ROOT / (
 FOURTEENTH_DIFF_PATH = ROOT / (
     "docs/reports/blind-v2-source-classification-diff-batch-014-2026-07-24.md"
 )
+FOURTEENTH_DECISION_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-decision-batch-014-2026-07-24.json"
+)
 FOURTEENTH_GEMINI_CASE_IDS = {
     f"aosp-framework-zh-rcn-v1/{case_id}"
     for case_id in (
@@ -1060,6 +1063,7 @@ def test_fourteenth_advisories_and_codex_synthesis_are_reproducible() -> None:
     codex = load(FOURTEENTH_CODEX_PATH)
     gemini = load(FOURTEENTH_GEMINI_PATH)
     synthesis = load(FOURTEENTH_SYNTHESIS_PATH)
+    decision = load(FOURTEENTH_DECISION_PATH)
     adjustments = load(FOURTEENTH_ADJUSTMENTS_PATH)
     packet_hash = hashlib.sha256(FOURTEENTH_PACKET_PATH.read_bytes()).hexdigest()
 
@@ -1106,4 +1110,17 @@ def test_fourteenth_advisories_and_codex_synthesis_are_reproducible() -> None:
         codex,
         gemini,
         generated_date="2026-07-24",
+        maintainer_decisions=decision,
+    )
+
+
+def test_fourteenth_maintainer_synthesis_decision_is_reproducible() -> None:
+    assert load(FOURTEENTH_DECISION_PATH) == build_decision(
+        FOURTEENTH_PACKET_PATH,
+        FOURTEENTH_CODEX_PATH,
+        FOURTEENTH_GEMINI_PATH,
+        maintainer="tim",
+        decision_date="2026-07-24",
+        selected_advisory="synthesis",
+        synthesis_path=FOURTEENTH_SYNTHESIS_PATH,
     )

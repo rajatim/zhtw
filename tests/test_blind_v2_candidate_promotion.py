@@ -38,8 +38,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-012-2026-07-24.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-013-2026-07-24.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-014-2026-07-24.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-013-2026-07-24.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-014-2026-07-24.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -68,26 +70,27 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 1081,
+        "total": 1181,
         "by_domain": {
             "formal_news": 139,
-            "high_stakes": 271,
+            "high_stakes": 272,
             "it_api_cli": 219,
             "llm_generated": 107,
             "social_daily": 223,
-            "ui_i18n": 122,
+            "ui_i18n": 221,
         },
         "by_risk": {
-            "baseline_guard": 300,
-            "candidate_gap": 546,
-            "over_conversion_guard": 235,
+            "baseline_guard": 320,
+            "candidate_gap": 615,
+            "over_conversion_guard": 246,
         },
         "by_source_class": {
-            "permissive_license": 365,
+            "permissive_license": 465,
             "project_original": 300,
             "public_domain": 416,
         },
         "by_source": {
+            "aosp-framework-zh-rcn-v1": 100,
             "cdc-stacks-111808-v1": 18,
             "cdc-stacks-116683-v1": 21,
             "cdc-stacks-120024-v1": 22,
@@ -114,8 +117,8 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 1082
-    assert report["promoted"] == 1081
+    assert report["confirmed_eligible"] == 1182
+    assert report["promoted"] == 1181
     assert report["excluded_by_dedupe"] == 1
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
@@ -130,7 +133,7 @@ def test_collecting_pool_is_not_ready_for_formal_sampling() -> None:
     errors = validate_pool(POOL, require_ready=True)
 
     assert any("requires at least 5880 cases" in error for error in errors)
-    assert not any("source class permissive_license exceeds 35%" in error for error in errors)
+    assert any("source class permissive_license exceeds 35%" in error for error in errors)
     assert any("source class public_domain exceeds 35%" in error for error in errors)
     assert not any("source class project_original exceeds 35%" in error for error in errors)
     assert not any("source flores-200-zho-hans-v1 exceeds 10%" in error for error in errors)
