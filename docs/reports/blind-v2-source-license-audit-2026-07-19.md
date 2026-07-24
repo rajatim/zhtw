@@ -167,8 +167,8 @@ input alone.
 - Decision: accepted as an input-only pilot. Codex and Gemini via Antigravity
   CLI independently classified all 100 inputs; Codex synthesis recommends all
   100 as eligible (73 agreement, 12 Codex, 15 Gemini) after a conservative
-  Codex re-review. Maintainer confirmation
-  and promotion deduplication remain pending, so none have entered the pool.
+  Codex re-review. Maintainer `tim` confirmed the synthesis on 2026-07-24; all
+  100 passed the promotion deduplication gate and entered the collecting pool.
 
 ### MASSIVE 1.0 `zh-CN`
 

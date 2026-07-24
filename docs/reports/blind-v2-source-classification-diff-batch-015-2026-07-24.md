@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 015 (2026-07-24)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `e7370151640f2ec4e65b3f43a465d834f808f988c901807b1b8b178a5bc2969e`
 Cases: 100
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 27 advisory disagreements and batch-confirmed the 73 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整正式文本；含臺灣正式用語需要的詞彙正規化
 
 Gemini reason: 公文/報告基準例句，測試基本字形轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 02. zhtw-project-formal-entity-guard-v1/baseline-002
 
@@ -63,7 +63,7 @@ Codex reason: 完整正式文本；主要需要一般字形轉換，無額外地
 
 Gemini reason: 地方政府預算執行公文，基準轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 03. zhtw-project-formal-entity-guard-v1/baseline-007
 
@@ -84,7 +84,7 @@ Codex reason: 完整正式文本；主要需要一般字形轉換，無額外地
 
 Gemini reason: 審計人員核對支出憑證，財務基準句。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 04. zhtw-project-formal-entity-guard-v1/baseline-008
 
@@ -105,7 +105,7 @@ Codex reason: 完整正式文本；含臺灣正式用語需要的詞彙正規化
 
 Gemini reason: 出版社修訂版引用來源確認，基準轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 05. zhtw-project-formal-entity-guard-v1/baseline-012
 
@@ -126,7 +126,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 主管機關要求改善標示，行政公文基準句。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 06. zhtw-project-formal-entity-guard-v1/baseline-019
 
@@ -147,7 +147,7 @@ Codex reason: 完整正式文本；主要需要一般字形轉換，無額外地
 
 Gemini reason: 公司董事會財務報告，金融/商業基準句。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 07. zhtw-project-formal-entity-guard-v1/code-001
 
@@ -168,7 +168,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 統計模型希臘字母與下標符號（β₁、β₂），需防過度轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 08. zhtw-project-formal-entity-guard-v1/code-012
 
@@ -189,7 +189,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 國際證券識別碼 ISIN，金融代碼不可改寫。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 09. zhtw-project-formal-entity-guard-v1/code-015
 
@@ -210,7 +210,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 聯合國危險品編號 UN 3480，防法規運輸代碼改壞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 10. zhtw-project-formal-entity-guard-v1/code-016
 
@@ -231,7 +231,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 國際專利申請號 WO 2026/012345，法律專利代碼保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 11. zhtw-project-formal-entity-guard-v1/code-018
 
@@ -252,7 +252,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 會計科目代碼 4010-A，防財政表格編碼變更。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 12. zhtw-project-formal-entity-guard-v1/entity-002
 
@@ -273,7 +273,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 世衛組織縮寫 WHO 及編號格式保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 13. zhtw-project-formal-entity-guard-v1/entity-003
 
@@ -294,7 +294,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 國際貨幣基金組織 IMF 縮寫保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 14. zhtw-project-formal-entity-guard-v1/entity-015
 
@@ -315,7 +315,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 法院登記拼音姓名 Chen Wei-Lun，法律文件人名保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 15. zhtw-project-formal-entity-guard-v1/entity-020
 
@@ -336,7 +336,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 國名官方法文拼寫 Côte d’Ivoire 保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 16. zhtw-project-formal-entity-guard-v1/quote-001
 
@@ -357,7 +357,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 法律引語 “due process”，原文不可意譯或改寫。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 17. zhtw-project-formal-entity-guard-v1/quote-003
 
@@ -378,7 +378,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 拉丁文法律專有名詞 “habeas corpus” 原文保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 18. zhtw-project-formal-entity-guard-v1/quote-004
 
@@ -399,7 +399,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 拉丁文引語 “status quo ante”，原文引述保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 19. zhtw-project-formal-entity-guard-v1/quote-005
 
@@ -420,7 +420,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 法律術語 “amicus curiae”，判決理由原文保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 20. zhtw-project-formal-entity-guard-v1/quote-007
 
@@ -441,7 +441,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 電腦產品型號 ThinkPad X1 Carbon，防型號拆分誤譯。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 21. zhtw-project-formal-entity-guard-v1/quote-017
 
@@ -462,7 +462,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 地理座標系統 WGS 84，技術標準代號保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 22. zhtw-project-formal-entity-guard-v1/title-009
 
@@ -483,7 +483,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 資訊安全標準 ISO/IEC 27001:2022，技術規範號保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 23. zhtw-project-formal-entity-guard-v1/title-011
 
@@ -504,7 +504,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 歐盟委員會官方文件編號 COM(2026) 42 final 保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 24. zhtw-project-formal-entity-guard-v1/title-012
 
@@ -525,7 +525,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 官方文件附件代號 Annex III，羅馬數字保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 25. zhtw-project-formal-entity-guard-v1/title-015
 
@@ -546,7 +546,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 聯合國人權理事會文件代號 A/HRC/56/12 保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 26. zhtw-project-formal-entity-guard-v1/title-016
 
@@ -567,7 +567,7 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 財政年度識別碼 FY2027，會計代碼保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 27. zhtw-project-formal-entity-guard-v1/title-017
 
@@ -588,4 +588,4 @@ Codex reason: 完整正式文本；專名、引文、標題、型號、代碼或
 
 Gemini reason: 法庭/調查展覽件編號 Exhibit B-4，證物代號保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`

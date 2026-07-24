@@ -304,8 +304,9 @@ over-conversion-guard gaps and is synthetic coverage, not organic market
 traffic. Codex and Gemini via Antigravity CLI independently classified all 100
 cases: 73 four-field matches and 27 domain/risk differences. Codex synthesis
 recommends all 100 as eligible, using 73 agreements, 12 Codex selections, and
-15 Gemini selections after a conservative Codex re-review. The candidate pool remains at 1,181 until the maintainer
-confirms this advisory and the promotion deduplication gate passes.
+15 Gemini selections after a conservative Codex re-review. Maintainer `tim`
+confirmed the synthesis on 2026-07-24; all 100 passed exact/reference and
+character 5-gram Jaccard 0.85 deduplication and entered the collecting pool.
 
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
 checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
@@ -377,12 +378,12 @@ recommends 55 eligible and 26 context-dependent exclusions. Maintainer
 exact/reference and character 5-gram Jaccard 0.85 near-deduplication and entered
 the collecting pool; all 26 context-dependent inputs remain excluded.
 
-Classification batches 001-014 now contribute 1,181 maintainer-confirmed eligible
+Classification batches 001-015 now contribute 1,281 maintainer-confirmed eligible
 inputs to the `collecting` candidate pool after cross-batch/reference exact and
 character 5-gram Jaccard 0.85 near-deduplication.
 All six domains now have coverage, but the pool is not ready to freeze or sample.
 Permissioned user-report batch 001 is collecting at 0/100 and therefore is not
-included in the 1,181 cases.
+included in the 1,281 cases.
 
 Source-classification batch 008 covers 32 complete sentences from the NPS
 public-domain *Essential Acadia: Simplified Chinese* article. Codex and Gemini
@@ -456,6 +457,14 @@ Maintainer `tim` confirmed the Codex synthesis on 2026-07-24: 75 agreements,
 All 100 passed exact/reference and character 5-gram Jaccard 0.85 deduplication
 and entered the pool. The pool is now 1,181 cases, leaving a 4,699-case
 minimum-pool gap.
+
+Source-classification batch 015 covers 100 project-original formal entity,
+citation, identifier, and baseline guards. Codex and Gemini via Antigravity CLI
+agree on 73 cases and differ on 27 domain/risk labels. After a conservative
+Codex re-review, maintainer `tim` confirmed the synthesis on 2026-07-24: 73
+agreements, 12 Codex selections, and 15 Gemini selections. All 100 passed
+exact/reference and character 5-gram Jaccard 0.85 deduplication and entered the
+pool. The pool is now 1,281 cases, leaving a 4,599-case minimum-pool gap.
 
 Rebuild and validate the current collecting pool:
 
