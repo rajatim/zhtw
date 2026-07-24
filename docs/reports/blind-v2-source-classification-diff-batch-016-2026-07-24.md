@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 016 (2026-07-24)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `f9764f1d5d6aace6c1d65aa2ed2ef9f7034b07eb47e8d2a1702df1a413dca72b`
 Cases: 24
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 23 advisory disagreements and batch-confirmed the 1 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整消費者資安句；網路詐騙用語需要臺灣化。
 
 Gemini reason: 「网络」需轉換為臺灣慣用語「網路」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 02. cisa-cyber-hygiene-zh-hans-v1/sentence-002
 
@@ -63,7 +63,7 @@ Codex reason: 完整資安句；黑客與網上用語需要臺灣化。
 
 Gemini reason: 「黑客」、「网络」、「网上」需轉換為「駭客」、「網路」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 03. cisa-cyber-hygiene-zh-hans-v1/sentence-003
 
@@ -84,7 +84,7 @@ Codex reason: 完整消費者警示句；網上掠食者需要臺灣用語判斷
 
 Gemini reason: 「网上」需轉換為「網路」或「線上」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 04. cisa-cyber-hygiene-zh-hans-v1/sentence-004
 
@@ -105,7 +105,7 @@ Codex reason: 完整帳號安全句；身分資訊與電子郵件用語需要臺
 
 Gemini reason: 包含「信息」（資訊）、「账户」（帳戶）、「网上」（網路）等需區域詞彙轉換之用語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 05. cisa-cyber-hygiene-zh-hans-v1/sentence-005
 
@@ -126,7 +126,7 @@ Codex reason: 單獨抽出後未交代「他們」所指對象，依來源品質
 
 Gemini reason: 無大陸特有 IT 詞彙，僅需標準簡繁字形轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 06. cisa-cyber-hygiene-zh-hans-v1/sentence-006
 
@@ -147,7 +147,7 @@ Codex reason: 「防範自己不會成為」為不自然雙重否定，依 malfo
 
 Gemini reason: 「网络」需轉換為「網路」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 07. cisa-cyber-hygiene-zh-hans-v1/sentence-007
 
@@ -168,7 +168,7 @@ Codex reason: 意思可獨立裁決；網路衛生與線上保護用語需要臺
 
 Gemini reason: 「网络」需轉換為「網路」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 08. cisa-cyber-hygiene-zh-hans-v1/sentence-008
 
@@ -189,7 +189,7 @@ Codex reason: 完整密碼安全句；網上安全需要臺灣用語判斷。
 
 Gemini reason: 「网上」需轉換為「網路」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 09. cisa-cyber-hygiene-zh-hans-v1/sentence-009
 
@@ -210,7 +210,7 @@ Codex reason: 完整驗證安全句；簡訊、驗證碼、金鑰與網站用語
 
 Gemini reason: 包含「设置」（設定）、「短信」（簡訊）、「软件」（軟體）、「代码」（程式碼）、「登录」（登入）等多項 IT 詞彙轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 10. cisa-cyber-hygiene-zh-hans-v1/sentence-010
 
@@ -231,7 +231,7 @@ Codex reason: 「99%更不會」比較結構不自然且可能造成量化語意
 
 Gemini reason: 「黑客」、「信息」需轉換為「駭客」、「資訊」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 11. cisa-cyber-hygiene-zh-hans-v1/sentence-011
 
@@ -252,7 +252,7 @@ Codex reason: 完整資安句；軟件需轉為臺灣慣用詞。
 
 Gemini reason: 「黑客」、「软件」需轉換為「駭客」、「軟體」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 12. cisa-cyber-hygiene-zh-hans-v1/sentence-012
 
@@ -273,7 +273,7 @@ Codex reason: 完整裝置更新句；軟件與筆記本電腦需要臺灣化。
 
 Gemini reason: 包含「设备」（裝置）、「软件」（軟體）、「笔记本电脑」（筆記型電腦）等詞彙轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 13. cisa-cyber-hygiene-zh-hans-v1/sentence-013
 
@@ -294,7 +294,7 @@ Codex reason: 完整更新句；應用的產品語境需要臺灣化。
 
 Gemini reason: 「应用」、「设备」需轉換為「應用程式」、「裝置」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 14. cisa-cyber-hygiene-zh-hans-v1/sentence-014
 
@@ -315,7 +315,7 @@ Codex reason: 完整自動更新句；應用與操作系統需要臺灣化。
 
 Gemini reason: 「设备」、「应用」、「操作系统」需轉換為「裝置」、「應用程式」、「作業系統」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 15. cisa-cyber-hygiene-zh-hans-v1/sentence-015
 
@@ -336,7 +336,7 @@ Codex reason: 短但完整的消費者指示，僅需一般字形轉換。
 
 Gemini reason: 「点击」轉為「點擊」屬於標準字形轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 16. cisa-cyber-hygiene-zh-hans-v1/sentence-016
 
@@ -357,7 +357,7 @@ Codex reason: 完整網路釣魚句；鏈接與網路攻擊用語需要臺灣化
 
 Gemini reason: 「网络」、「链接」需轉換為「網路」、「連結」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 17. cisa-cyber-hygiene-zh-hans-v1/sentence-018
 
@@ -378,7 +378,7 @@ Codex reason: 完整惡意程式句；惡意軟件需要臺灣化。
 
 Gemini reason: 「运行」、「软件」需轉換為「執行」、「軟體」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 18. cisa-cyber-hygiene-zh-hans-v1/sentence-019
 
@@ -399,7 +399,7 @@ Codex reason: 完整連結安全句；鏈接需轉為臺灣慣用詞。
 
 Gemini reason: 「链接」需轉換為「連結」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 19. cisa-cyber-hygiene-zh-hans-v1/sentence-020
 
@@ -420,7 +420,7 @@ Codex reason: 完整密碼規則句；位數與字元表達需要臺灣化。
 
 Gemini reason: 密碼長度脈絡下的「数位」應防止被誤轉為臺灣表示 digital 之「數位」（宜轉為位數或字元）。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 20. cisa-cyber-hygiene-zh-hans-v1/sentence-021
 
@@ -441,7 +441,7 @@ Codex reason: 完整密碼安全句，主要需要一般字形轉換。
 
 Gemini reason: 「账户」需轉換為「帳戶」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 21. cisa-cyber-hygiene-zh-hans-v1/sentence-022
 
@@ -462,7 +462,7 @@ Codex reason: 完整密碼管理句；生成與存儲需要臺灣化。
 
 Gemini reason: 「存储」需轉換為「儲存」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 22. cisa-cyber-hygiene-zh-hans-v1/sentence-023
 
@@ -483,7 +483,7 @@ Codex reason: 完整網路安全句；聯網用語需要臺灣化。
 
 Gemini reason: 「联网」、「网络」需轉換為「連網」、「網路」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`
 
 ### 23. cisa-cyber-hygiene-zh-hans-v1/sentence-024
 
@@ -504,4 +504,4 @@ Codex reason: 意思可獨立裁決；網路安全與竅門用語需要臺灣化
 
 Gemini reason: 「网络」需轉換為「網路」，「窍门」可轉換為「小技巧」或「撇步」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-24`

@@ -42,8 +42,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-014-2026-07-24.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-015-2026-07-24.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-016-2026-07-24.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-015-2026-07-24.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-016-2026-07-24.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -72,27 +74,28 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 1281,
+        "total": 1302,
         "by_domain": {
             "formal_news": 197,
-            "high_stakes": 307,
-            "it_api_cli": 226,
+            "high_stakes": 308,
+            "it_api_cli": 242,
             "llm_generated": 107,
-            "social_daily": 223,
+            "social_daily": 227,
             "ui_i18n": 221,
         },
         "by_risk": {
-            "baseline_guard": 339,
-            "candidate_gap": 615,
+            "baseline_guard": 341,
+            "candidate_gap": 634,
             "over_conversion_guard": 327,
         },
         "by_source_class": {
             "permissive_license": 465,
             "project_original": 400,
-            "public_domain": 416,
+            "public_domain": 437,
         },
         "by_source": {
             "aosp-framework-zh-rcn-v1": 100,
+            "cisa-cyber-hygiene-zh-hans-v1": 21,
             "cdc-stacks-111808-v1": 18,
             "cdc-stacks-116683-v1": 21,
             "cdc-stacks-120024-v1": 22,
@@ -120,8 +123,8 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 1282
-    assert report["promoted"] == 1281
+    assert report["confirmed_eligible"] == 1303
+    assert report["promoted"] == 1302
     assert report["excluded_by_dedupe"] == 1
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {

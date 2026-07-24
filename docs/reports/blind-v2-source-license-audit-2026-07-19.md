@@ -91,8 +91,9 @@ input alone.
   security, phishing, malware, software updates, and password terminology.
 - Decision: accepted as an input-only pilot. Codex and Gemini independently
   classified all 24 cases; Codex synthesis recommends 21 eligible and 3
-  malformed/context-dependent exclusions. Maintainer confirmation remains
-  pending; none have entered the collecting pool.
+  malformed/context-dependent exclusions. Maintainer `tim` confirmed the
+  synthesis on 2026-07-24; all 21 eligible inputs passed the promotion dedupe
+  gate and entered the collecting pool, while the 3 exclusions stayed out.
 
 ### NPS *Essential Acadia: Simplified Chinese*
 

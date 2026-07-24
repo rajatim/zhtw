@@ -317,7 +317,9 @@ Antigravity CLI review: 1 exact classification and 23 differences. Codex
 synthesis recommends 21 eligible cases and 3 malformed or context-dependent
 exclusions; the eligible cases contain 16 IT, 4 social, and 1 high-stakes
 inputs, with 19 candidate gaps and 2 baselines. Maintainer confirmation and
-promotion remain pending, so the pool stays at 1,281.
+promotion completed on 2026-07-24. All 21 eligible inputs passed
+exact/reference and character 5-gram Jaccard 0.85 deduplication and entered the
+collecting pool; the three excluded inputs remain outside it.
 
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
 checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
@@ -389,12 +391,12 @@ recommends 55 eligible and 26 context-dependent exclusions. Maintainer
 exact/reference and character 5-gram Jaccard 0.85 near-deduplication and entered
 the collecting pool; all 26 context-dependent inputs remain excluded.
 
-Classification batches 001-015 now contribute 1,281 maintainer-confirmed eligible
+Classification batches 001-016 now contribute 1,302 maintainer-confirmed eligible
 inputs to the `collecting` candidate pool after cross-batch/reference exact and
 character 5-gram Jaccard 0.85 near-deduplication.
 All six domains now have coverage, but the pool is not ready to freeze or sample.
 Permissioned user-report batch 001 is collecting at 0/100 and therefore is not
-included in the 1,281 cases.
+included in the 1,302 cases.
 
 Source-classification batch 008 covers 32 complete sentences from the NPS
 public-domain *Essential Acadia: Simplified Chinese* article. Codex and Gemini
@@ -476,6 +478,14 @@ Codex re-review, maintainer `tim` confirmed the synthesis on 2026-07-24: 73
 agreements, 12 Codex selections, and 15 Gemini selections. All 100 passed
 exact/reference and character 5-gram Jaccard 0.85 deduplication and entered the
 pool. The pool is now 1,281 cases, leaving a 4,599-case minimum-pool gap.
+
+Source-classification batch 016 covers 24 CISA-authored public-domain cyber
+hygiene sentences. Codex and Gemini via Antigravity CLI agree on 1 case and
+differ on 23 classification fields. Maintainer `tim` confirmed the Codex
+synthesis on 2026-07-24: 21 eligible cases and 3 malformed or context-dependent
+exclusions. All 21 eligible inputs passed exact/reference and character 5-gram
+Jaccard 0.85 deduplication and entered the pool. The pool is now 1,302 cases,
+leaving a 4,578-case minimum-pool gap.
 
 Rebuild and validate the current collecting pool:
 
