@@ -321,6 +321,18 @@ promotion completed on 2026-07-24. All 21 eligible inputs passed
 exact/reference and character 5-gram Jaccard 0.85 deduplication and entered the
 collecting pool; the three excluded inputs remain outside it.
 
+The CISA-authored public-domain *Personal Security Considerations Action Guide*
+Simplified Chinese pilot is checksum-pinned and verifies the eight-page PDF's
+author, title, revision, and body anchors. Its conservative parser retains 134
+complete input-only sentences after excluding page furniture, contact details,
+external links, references, and third-party cited passages. Batch 017
+completed independent Codex and Gemini review: 55 exact classifications and 45
+differences. After a Codex synthesis audit, the recommendation is 90 eligible
+cases and 10 fragment or context-dependent exclusions, using 55 agreements, 41
+Codex selections, 3 Gemini selections, and 1 Codex synthesis adjustment.
+Maintainer confirmation remains pending, so none of these cases are in the
+collecting pool yet.
+
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
 checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
 conservative, excludes layout fragments, and never runs zhtw or creates

@@ -19,6 +19,7 @@ from scripts.import_blind_v2_source_pilot import (
     parse_aosp_strings,
     parse_cdc_pages,
     parse_cisa_cyber_hygiene_pages,
+    parse_cisa_personal_security_pages,
     parse_ftc_heads_up_pages,
     parse_ftc_small_business_pages,
     parse_massive,
@@ -135,6 +136,43 @@ def test_cisa_cyber_hygiene_parser_is_anchored_and_excludes_page_furniture() -> 
 
     with pytest.raises(ValueError, match="title anchor"):
         parse_cisa_cyber_hygiene_pages(["网络骗局已不是新事物了。"])
+
+
+def test_cisa_personal_security_parser_is_anchored_and_excludes_references() -> None:
+    pages = [
+        "关键基础设施员工个人安全考虑与行动指南 在当今的威胁环境中，请保持警惕。1 ProtectUK",
+        "人身安全 您可以考虑采取许多简单的措施，以保护您和您的家。枪械袭击 3 联邦调查局",
+        "态势感知 抗议和示威如果局势变得不稳定，您也要保持冷静。5 美国国土安全部",
+        (
+            "如果您在公共场所/环境中感到担忧，请靠近人群。"
+            "请查看 CISA 指南，了解更多信息。关键基础设施员工个人安全考虑与行动指南"
+        ),
+        (
+            "及时更新软件，让攻击者无法利用漏洞。机动车辆和旅行请始终保持安全驾驶。"
+            "匿名电话和威胁6 网络安全请勿从未知来源下载应用程序。"
+            "在您的网络浏览器中 6 联邦调查局"
+        ),
+        "移动设备和网络可以保存各种个人资料。8 联邦通信委员会",
+        (
+            "在网上发布信息时，请务必注意发布的内容和方式。"
+            "如果您需要帮助，请访问 example.gov。11 国土安全部 识别并报告网络钓鱼"
+        ),
+        "资源",
+    ]
+
+    assert parse_cisa_personal_security_pages(pages) == [
+        ("guide", "sentence-001", "在当今的威胁环境中，请保持警惕。"),
+        ("guide", "sentence-002", "您可以考虑采取许多简单的措施，以保护您和您的家。"),
+        ("guide", "sentence-003", "如果局势变得不稳定，您也要保持冷静。"),
+        ("guide", "sentence-004", "如果您在公共场所/环境中感到担忧，请靠近人群。"),
+        ("guide", "sentence-005", "及时更新软件，让攻击者无法利用漏洞。"),
+        ("guide", "sentence-006", "请始终保持安全驾驶。"),
+        ("guide", "sentence-007", "请勿从未知来源下载应用程序。"),
+        ("guide", "sentence-008", "在网上发布信息时，请务必注意发布的内容和方式。"),
+    ]
+
+    with pytest.raises(ValueError, match="expected 8 PDF pages"):
+        parse_cisa_personal_security_pages(pages[:-1])
 
 
 def test_massive_parser_extracts_only_input_provenance_fields() -> None:
@@ -402,6 +440,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("vscode-loc-zh-hans-v1", 15618),
         ("aosp-framework-zh-rcn-v1", 1697),
         ("cisa-cyber-hygiene-zh-hans-v1", 24),
+        ("cisa-personal-security-zh-hans-v1", 134),
     ),
 )
 def test_committed_source_pilots_are_pinned_and_input_only(

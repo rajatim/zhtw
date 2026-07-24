@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-017.json",
+  "packet_sha256": "ec8fe952e9bedee004d20d1e9c390f0848d0ac1faaa8a83ccda776aebdace21e",
+  "cases": [
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-134",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 句子可獨立理解為回報網路釣魚郵件後刪除郵件；「進行報告」在臺灣語境需改為「通報」或「回報」，因此納入 it_api_cli / candidate_gap。"
+    }
+  ]
+}

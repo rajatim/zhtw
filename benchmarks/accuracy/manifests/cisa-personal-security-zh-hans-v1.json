@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "id": "cisa-personal-security-zh-hans-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://www.cisa.gov/sites/default/files/2025-03/personal-security-considerations-action-guide-critical-infrastructure-workers_06-07-2024_508_ZHS.pdf",
+    "https://www.cisa.gov/resources-tools/resources/personal-security-considerations-action-guide",
+    "https://www.copyright.gov/title17/92chap1.html#105"
+  ],
+  "upstream_revision": "CISA Personal Security Considerations Action Guide: Critical Infrastructure Workers, Simplified Chinese, June 2024 update; PDF modified 2025-02-20; retrieved PDF SHA-256: 79d3d5db6b8a39f7ac4b6ac4a901d95c977b0054c3f082a795822a8d417e7d65",
+  "retrieved_at": "2026-07-24T18:00:00+08:00",
+  "license": "U.S. Public Domain for CISA-authored text under 17 U.S.C. 105; third-party references and cited content excluded",
+  "license_url": "https://www.copyright.gov/title17/92chap1.html#105",
+  "output_license": "U.S. Public Domain",
+  "attribution": "Cybersecurity and Infrastructure Security Agency, Personal Security Considerations Action Guide: Critical Infrastructure Workers, Simplified Chinese; no CISA or U.S. Department of Homeland Security endorsement or affiliation is implied.",
+  "modification_notice": "Extracted complete Simplified Chinese body sentences from the checksum-pinned CISA PDF; excluded headings, page furniture, logos, contact details, external links, references, and third-party cited content; no expected text or converter output was used.",
+  "notice_id": "cisa-personal-security-zh-hans-v1",
+  "raw_sha256": {
+    "https://www.cisa.gov/sites/default/files/2025-03/personal-security-considerations-action-guide-critical-infrastructure-workers_06-07-2024_508_ZHS.pdf": "79d3d5db6b8a39f7ac4b6ac4a901d95c977b0054c3f082a795822a8d417e7d65"
+  },
+  "normalized_path": "benchmarks/accuracy/external/cisa-personal-security-zh-hans-v1.json",
+  "normalized_sha256": "17664a8b9517b5edef722e4487a5c9821845a4bb1619748866012c02f34184eb",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Official U.S. critical-infrastructure security guidance is not representative of ordinary Taiwan traffic.",
+    "The translated guide concentrates physical safety, threat response, privacy, social media, and cybersecurity terminology.",
+    "Only CISA-authored body prose is extracted; headings, page furniture, contact details, links, references, and third-party cited content are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

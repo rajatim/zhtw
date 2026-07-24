@@ -95,6 +95,23 @@ input alone.
   synthesis on 2026-07-24; all 21 eligible inputs passed the promotion dedupe
   gate and entered the collecting pool, while the 3 exclusions stayed out.
 
+### CISA *Personal Security Considerations Action Guide*, Simplified Chinese
+
+- Official resource page: <https://www.cisa.gov/resources-tools/resources/personal-security-considerations-action-guide>.
+- PDF SHA-256:
+  `79d3d5db6b8a39f7ac4b6ac4a901d95c977b0054c3f082a795822a8d417e7d65`.
+- Rights: CISA-authored U.S. government text is public domain under 17 U.S.C.
+  105. PDF metadata identifies CISA as author. References, external links, and
+  third-party cited passages are excluded.
+- Import result: 134 complete input-only sentences from eight pages after fixed
+  page-count, metadata, title, revision, body-anchor, and reference checks.
+- Known bias: translated critical-infrastructure guidance concentrates physical
+  safety, threat response, privacy, social media, and cybersecurity.
+- Decision: accepted as an input-only pilot. Codex and Gemini completed
+  independent domain/risk classification and Codex completed synthesis;
+  maintainer confirmation remains pending, so none have entered the collecting
+  pool.
+
 ### NPS *Essential Acadia: Simplified Chinese*
 
 - Official article: <https://www.nps.gov/articles/000/essential-acadia_simplified-chinese.htm>
@@ -391,15 +408,16 @@ the pilot ceiling is:
 | AOSP framework zh-rCN | 1,697 | 588 | 588 |
 | FTC Heads Up online safety | 117 | 588 | 117 |
 | CISA Cyber Hygiene zh-hans | 24 | 588 | 24 |
-| **Source-cap total** | **36,449** | | **3,858 (65.61%)** |
-| **Class-adjusted total** | | | **3,113 (52.94%)** |
+| CISA Personal Security zh-hans | 134 | 588 | 134 |
+| **Source-cap total** | **36,583** | | **3,992 (67.89%)** |
+| **Class-adjusted total** | | | **3,247 (55.22%)** |
 
 FLORES, UD-CFL, MASSIVE, VS Code localization, and AOSP are `permissive_license`;
-the CISA guide, three CDC documents, two FTC publications, NPS, three Ready.gov pages, and seven OSHA publications are
+the two CISA guides, three CDC documents, two FTC publications, NPS, three Ready.gov pages, and seven OSHA publications are
 `public_domain`; the five synthetic sources are `project_original`. All
 permissive source caps total 2,215, so that class is limited to 2,058 by the
 35% class cap. Public-domain and project-original totals remain below their
-class caps. The class-adjusted ceiling therefore leaves at least 2,767 candidate
+class caps. The class-adjusted ceiling therefore leaves at least 2,633 candidate
 slots unfilled. Actual usable
 capacity can only decrease after input-only quality/strata review and the fixed
 exact/near-deduplication audit. The final pool still needs at least:

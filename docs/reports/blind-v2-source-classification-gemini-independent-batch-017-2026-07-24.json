@@ -1,0 +1,1053 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Gemini via Antigravity CLI",
+  "stage": "gemini_independent",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-017.json",
+  "packet_sha256": "ec8fe952e9bedee004d20d1e9c390f0848d0ac1faaa8a83ccda776aebdace21e",
+  "policy": "input_only_no_converter_output",
+  "model": "gemini-3.1-pro-high",
+  "cli": "Antigravity CLI",
+  "stats": {
+    "total": 100,
+    "eligible": 91,
+    "excluded": 9,
+    "policy_violations": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "validation": {
+    "exact_id_coverage": "100/100",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0,
+    "response_json_extracted_from_markdown_fence": false,
+    "successful_chunks": 4,
+    "discarded_unusable_responses": 8
+  },
+  "cases": [
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-006",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "fragment"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-007",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "fragment"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-008",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "fragment"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "question"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "question"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-012",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "fragment"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-028",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "fragment"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "complete"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-033",
+      "notes": "camera",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-034",
+      "notes": "lighting",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-035",
+      "notes": "parking",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-036",
+      "notes": "cctv",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-039",
+      "notes": "tracking",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-041",
+      "notes": "protest",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-042",
+      "notes": "calm",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-043",
+      "notes": "indoor",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-044",
+      "notes": "police",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-047",
+      "notes": "factsheet",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-048",
+      "notes": "awareness",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-050",
+      "notes": "peephole",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-051",
+      "notes": "visitor",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-052",
+      "notes": "monitoring",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-054",
+      "notes": "pii",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-055",
+      "notes": "definition",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-056",
+      "notes": "public",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-058",
+      "notes": "routes",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-059",
+      "notes": "crowd",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-060",
+      "notes": "rideshare",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-063",
+      "notes": "valuables",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-064",
+      "notes": "surroundings",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-065",
+      "notes": "traffic",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-066",
+      "notes": "vigilant",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-068",
+      "notes": "loitering",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-070",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-071",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-072",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-073",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-074",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": false,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-076",
+      "notes": "fragment",
+      "quality_flags": [
+        "fragment"
+      ],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": false,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-077",
+      "notes": "fragment",
+      "quality_flags": [
+        "fragment"
+      ],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": false,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-078",
+      "notes": "fragment",
+      "quality_flags": [
+        "fragment"
+      ],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": false,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-079",
+      "notes": "fragment",
+      "quality_flags": [
+        "fragment"
+      ],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-081",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-082",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-083",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-084",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-085",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-087",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-088",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-089",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-090",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-091",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-093",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-094",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-096",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-099",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-100",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "cisa-personal-security-zh-hans-v1/sentence-101",
+      "notes": "security",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-103",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "vehicle"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-104",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "breakdown"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-105",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "instruction"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-107",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "app"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-108",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "mfa"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-109",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "privacy"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-110",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "posting"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-111",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "safety"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-112",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "profiling"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-113",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "brokers"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-114",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "friends"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-116",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "permissions"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-117",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "alerts"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-118",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "optout"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-119",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "location"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-120",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "exposure"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-122",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "screenshot"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-123",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "assessment"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-124",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "removal"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-125",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "privacy"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-126",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "identity"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-129",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "phishing"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-131",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "channels"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-132",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "redflags"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-134",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "action"
+    }
+  ]
+}

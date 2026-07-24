@@ -283,6 +283,19 @@ is missing.
 - Bias notice: A one-page translated U.S. cyber-safety guide is not
   representative of ordinary Taiwan traffic.
 
+## cisa-personal-security-zh-hans-v1
+
+- Source: Cybersecurity and Infrastructure Security Agency, *Personal Security
+  Considerations Action Guide: Critical Infrastructure Workers*, Simplified
+  Chinese, June 2024 update.
+- License: U.S. Public Domain for CISA-authored text under 17 U.S.C. 105; third-party references and cited content excluded
+- Attribution: Cybersecurity and Infrastructure Security Agency, Personal Security Considerations Action Guide: Critical Infrastructure Workers, Simplified Chinese; no CISA or U.S. Department of Homeland Security endorsement or affiliation is implied.
+- Modifications: Extracted complete Simplified Chinese body sentences from the checksum-pinned CISA PDF; excluded headings, page furniture, logos, contact details, external links, references, and third-party cited content; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: Translated U.S. critical-infrastructure security guidance
+  concentrates physical safety, threat response, privacy, and cybersecurity;
+  it is not representative of ordinary Taiwan traffic.
+
 ## cdc-stacks-120024-v1
 
 - Source: CDC Stacks item `cdc:120024`, *照顾好你的牙齿*, main-document

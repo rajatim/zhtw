@@ -60,6 +60,7 @@ SUPPORTED_SOURCES = {
     "vscode-loc-zh-hans-v1": "vscode_loc_json",
     "aosp-framework-zh-rcn-v1": "aosp_strings_xml",
     "cisa-cyber-hygiene-zh-hans-v1": "cisa_cyber_hygiene_pdf",
+    "cisa-personal-security-zh-hans-v1": "cisa_personal_security_pdf",
 }
 READY_GOV_SOURCE_ANCHORS = {
     "ready-gov-floods-zh-hans-v1": ("洪水", "10/22/2025"),
@@ -593,6 +594,95 @@ def parse_cisa_cyber_hygiene_pdf(content: bytes) -> list[tuple[str, str, str]]:
     return parse_cisa_cyber_hygiene_pages(pages)
 
 
+def parse_cisa_personal_security_pages(pages: list[str]) -> list[tuple[str, str, str]]:
+    """Extract complete CISA-authored body sentences from the personal-security guide."""
+    if len(pages) != 8:
+        raise ValueError(f"CISA Personal Security: expected 8 PDF pages, found {len(pages)}")
+    normalized_pages = [normalize_pdf_text(page) for page in pages]
+    required_anchors = (
+        (0, "关键基础设施员工个人安全考虑与行动指南"),
+        (1, "人身安全"),
+        (2, "态势感知"),
+        (4, "网络安全"),
+        (6, "识别并报告网络钓鱼"),
+        (7, "资源"),
+    )
+    for page_index, anchor in required_anchors:
+        if anchor not in normalized_pages[page_index]:
+            raise ValueError(
+                f"CISA Personal Security: page {page_index + 1} anchor not found: {anchor!r}"
+            )
+
+    selected = (
+        anchored_region(normalized_pages[0], "在当今的威胁环境中", "1 ProtectUK"),
+        anchored_region(normalized_pages[1], "您可以考虑采取许多简单的措施", "枪械袭击"),
+        anchored_region(normalized_pages[2], "抗议和示威", "5 美国国土安全部"),
+        anchored_region(
+            normalized_pages[3],
+            "如果您在公共场所/环境中",
+            "关键基础设施员工个人安全考虑与行动指南",
+        ),
+        anchored_region(normalized_pages[4], "及时更新软件", "匿名电话和威胁6"),
+        anchored_region(normalized_pages[4], "网络安全", "在您的网络浏览器中"),
+        anchored_region(normalized_pages[6], "在网上发布信息时", "11 国土安全部"),
+    )
+
+    heading_prefixes = (
+        "评估对关键基础设施员工的适当保护水平",
+        "识别并报告网络钓鱼",
+        "识别并报告可疑活动",
+        "机动车辆和旅行",
+        "个人保护装置",
+        "抗议和示威",
+        "拼车服务",
+        "敏感材料",
+        "行人安全",
+        "网络安全",
+        "访客",
+        "冲突",
+    )
+    rows: list[tuple[str, str, str]] = []
+    for region in selected:
+        for sentence in complete_chinese_sentences(region, minimum_length=8):
+            sentence = re.sub(r"^\d+(?:,\s*\d+)?\s*", "", sentence)
+            if sentence.startswith("态势感知态势感知"):
+                sentence = sentence.removeprefix("态势感知")
+            for prefix in heading_prefixes:
+                if sentence.startswith(prefix):
+                    sentence = sentence.removeprefix(prefix)
+                    break
+            if (
+                not 8 <= len(sentence) <= 240
+                or "•" in sentence
+                or "采取以下预防措施：" in sentence
+                or sentence.startswith("注意各应用程序访问手机上其他信息的权限")
+                or sentence.startswith("本行动指南并非详尽无遗")
+                or sentence.startswith("脆弱性是一种物理特征")
+                or sentence.startswith(("请查看", "如需了解", "请访问"))
+                or re.search(
+                    r"(?:https?://|www\.|\b[\w.-]+\.(?:gov|org|com)\b|[\w.+-]+@[\w.-]+)",
+                    sentence,
+                    re.I,
+                )
+            ):
+                continue
+            rows.append(("guide", f"sentence-{len(rows) + 1:03d}", sentence))
+    return rows
+
+
+def parse_cisa_personal_security_pdf(content: bytes) -> list[tuple[str, str, str]]:
+    reader = PdfReader(io.BytesIO(content))
+    metadata = reader.metadata
+    if (
+        metadata is None
+        or metadata.author != "网络安全和基础设施安全局"
+        or metadata.title != "关键基础设施员工个人安全考虑与行动指南"
+    ):
+        raise ValueError("CISA Personal Security: unexpected PDF metadata")
+    pages = [page.extract_text() or "" for page in reader.pages]
+    return parse_cisa_personal_security_pages(pages)
+
+
 def parse_osha_pdf(source_id: str, content: bytes) -> list[tuple[str, str, str]]:
     """Extract input-only sentences from a pinned OSHA Simplified Chinese PDF."""
     expected_pages, selected_pages, title_anchor = OSHA_SOURCE_CONFIG[source_id]
@@ -828,6 +918,8 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
         raw_rows = parse_ftc_heads_up_pdf(content)
     elif source_kind == "cisa_cyber_hygiene_pdf":
         raw_rows = parse_cisa_cyber_hygiene_pdf(content)
+    elif source_kind == "cisa_personal_security_pdf":
+        raw_rows = parse_cisa_personal_security_pdf(content)
     elif source_kind == "nps_acadia_html":
         raw_rows = parse_nps_acadia_html(content)
     elif source_kind == "ready_gov_html":
