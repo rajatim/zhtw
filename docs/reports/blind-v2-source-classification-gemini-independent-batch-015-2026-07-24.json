@@ -1,0 +1,1041 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Gemini via Antigravity CLI",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-015.json",
+  "packet_sha256": "e7370151640f2ec4e65b3f43a465d834f808f988c901807b1b8b178a5bc2969e",
+  "policy": "input_only_no_converter_output",
+  "model": "gemini-3.1-pro-high",
+  "cli": "Antigravity CLI",
+  "cli_version": "1.1.5",
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "accepted",
+      "reason": "JSON parse, field validation, packet order, and exact 100/100 ID coverage passed."
+    }
+  ],
+  "validation": {
+    "exact_id_coverage": "100/100",
+    "extra_ids": 0,
+    "missing_ids": 0,
+    "eligible_with_exclusion_quality_flag": [],
+    "tool_calls": 0,
+    "api_errors": 0,
+    "response_json_extracted_from_markdown_fence": false
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "policy_violations": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-001",
+      "notes": "公文/報告基準例句，測試基本字形轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-002",
+      "notes": "地方政府預算執行公文，基準轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-003",
+      "notes": "學術研究實驗紀錄例句，基準轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-004",
+      "notes": "法院通知書面意見，法律領域基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-005",
+      "notes": "博物館典藏目錄更新公告，基準轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-006",
+      "notes": "學校委員會審議例句，基準轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-007",
+      "notes": "審計人員核對支出憑證，財務基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-008",
+      "notes": "出版社修訂版引用來源確認，基準轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-009",
+      "notes": "氣象監測例句，基準轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-010",
+      "notes": "醫院通報感染事件，醫療領域基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-011",
+      "notes": "代表團共同聲明，正式新聞/公文基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-012",
+      "notes": "主管機關要求改善標示，行政公文基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-013",
+      "notes": "民調/調查結果例句，新聞通稿基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-014",
+      "notes": "工程團隊評估橋樑，技術報告基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-015",
+      "notes": "統計資料季度更新公告，基準轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-016",
+      "notes": "委員會表決流程例句，公文基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-017",
+      "notes": "圖書館開放時間公告，公共服務基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-018",
+      "notes": "研究報告限制條件說明，學術基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-019",
+      "notes": "公司董事會財務報告，金融/商業基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-020",
+      "notes": "法院裁定違法程序，法律裁判基準句。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "it_api_cli",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-001",
+      "notes": "統計模型希臘字母與下標符號（β₁、β₂），需防過度轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-002",
+      "notes": "物理符號 ΔT（溫度變化），防符號誤轉。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-003",
+      "notes": "化學式 NaCl 元素符號，需維持原大小寫。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-004",
+      "notes": "化學式 H₂O 下標與字母，需防過度轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-005",
+      "notes": "醫學單位 mmHg（毫米水銀柱），需保留標準單位符號。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-006",
+      "notes": "地震矩震級符號 Mw 7.2，防單位與數值被破壞。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-007",
+      "notes": "時區代碼 UTC+8，防時間標準格式誤改。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-008",
+      "notes": "天文專有名詞與符號 M87*，防星體代號改壞。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-009",
+      "notes": "基因變異位點編號 rs429358，防代碼改寫。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-010",
+      "notes": "臨床試驗登記號 NCT01234567，醫療代碼不可變更。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-011",
+      "notes": "化學物質 CAS 登記號，防化學編號格式改壞。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-012",
+      "notes": "國際證券識別碼 ISIN，金融代碼不可改寫。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-013",
+      "notes": "銀行 SWIFT 代碼，金融國際代碼不可變更。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-014",
+      "notes": "航空代碼與航班號 BR 015，防英數組合誤改。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-015",
+      "notes": "聯合國危險品編號 UN 3480，防法規運輸代碼改壞。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-016",
+      "notes": "國際專利申請號 WO 2026/012345，法律專利代碼保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-017",
+      "notes": "選區識別碼 Precinct 04-12，防行政區域代碼被意譯。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-018",
+      "notes": "會計科目代碼 4010-A，防財政表格編碼變更。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "it_api_cli",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-019",
+      "notes": "雜湊演算法名稱 SHA-256，IT技術專有名詞保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "it_api_cli",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/code-020",
+      "notes": "網路標準規範 RFC 3339，IT規格代號保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-001",
+      "notes": "國際組織英文縮寫 UNESCO，防機構代號誤改。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-002",
+      "notes": "世衛組織縮寫 WHO 及編號格式保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-003",
+      "notes": "國際貨幣基金組織 IMF 縮寫保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-004",
+      "notes": "科研機構縮寫 CERN，防機構名稱過度轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-005",
+      "notes": "太空計畫專名 Artemis II，防專有名詞與羅馬數字改壞。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-006",
+      "notes": "歐洲航天局官方縮寫 ESA 保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-007",
+      "notes": "國際標準組織 ISO 大寫縮寫保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-008",
+      "notes": "人道組織縮寫 ICRC 保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-009",
+      "notes": "國際能源署 IEA 英文縮寫保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-010",
+      "notes": "經合組織 OECD 標記保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-011",
+      "notes": "人名英文拼寫 Tim Berners-Lee，防英文人名誤譯。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-012",
+      "notes": "歷史人名 Ada Lovelace，防英文姓名改寫。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-013",
+      "notes": "藝術家羅馬拼音 Hokusai 與專名保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-014",
+      "notes": "居禮夫人英文原名 Marie Curie 保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-015",
+      "notes": "法院登記拼音姓名 Chen Wei-Lun，法律文件人名保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-016",
+      "notes": "英文人名縮寫 A. K. Rao 句點與縮寫格式保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-017",
+      "notes": "地理專有名詞 Denali，防字面錯譯。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-018",
+      "notes": "高雄英文名 Kaohsiung 及港口代碼 TWKHH 保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-019",
+      "notes": "氣象術語 El Niño 附加符號（ñ）保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/entity-020",
+      "notes": "國名官方法文拼寫 Côte d’Ivoire 保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-001",
+      "notes": "法律引語 “due process”，原文不可意譯或改寫。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-002",
+      "notes": "引號內英文片語 “net zero”，保持小寫原文。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-003",
+      "notes": "拉丁文法律專有名詞 “habeas corpus” 原文保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-004",
+      "notes": "拉丁文引語 “status quo ante”，原文引述保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-005",
+      "notes": "法律術語 “amicus curiae”，判決理由原文保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-006",
+      "notes": "商業產品型號 iPhone 17 Pro，品牌型號保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-007",
+      "notes": "電腦產品型號 ThinkPad X1 Carbon，防型號拆分誤譯。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "it_api_cli",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-008",
+      "notes": "硬體設備型號 NVIDIA H100，科技品牌與型號保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "it_api_cli",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-009",
+      "notes": "協定/認證名稱 Wi-Fi 7，技術規範標記保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "it_api_cli",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-010",
+      "notes": "介面規格名稱 USB-C，防標準硬體介面被意譯。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-011",
+      "notes": "病毒學學名 SARS-CoV-2，醫療專名與連字符保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-012",
+      "notes": "基因符號 BRCA1/BRCA2，防醫學代碼改壞。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-013",
+      "notes": "基因編輯技術名稱 CRISPR-Cas9，格式與連字符保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-014",
+      "notes": "蛋白/基因符號 p53，大小寫與數字組合保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-015",
+      "notes": "化學符號 CO₂ 下標，防改為一般數字。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-016",
+      "notes": "能量單位 kWh（千瓦時），標準單位符號保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "it_api_cli",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-017",
+      "notes": "地理座標系統 WGS 84，技術標準代號保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-018",
+      "notes": "跑道代號 09L/27R，專業航務代碼保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-019",
+      "notes": "列车型號 EMU3000，交通設備專名保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/quote-020",
+      "notes": "國際海事組織船舶編號 IMO 9876543 保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-001",
+      "notes": "法規名稱《個人資料保護法》，法律專名防誤改。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-002",
+      "notes": "國際條約名稱《公民與政治權利國際公約》，法規專名保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-003",
+      "notes": "國際協定專名《巴黎協定》，防通俗詞混淆。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-004",
+      "notes": "醫學倫理宣言《赫爾辛基宣言》，規範專名保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-005",
+      "notes": "國際公約全名《瀕危野生動植物種國際貿易公約》保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-006",
+      "notes": "歐盟法院判決案號 Case C-311/18，法規案號與連字符保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-007",
+      "notes": "聯合國決議案號 Resolution 1325，英文案號格式保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-008",
+      "notes": "國際財務報導準則 IFRS 17，會計準則代碼保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "it_api_cli",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-009",
+      "notes": "資訊安全標準 ISO/IEC 27001:2022，技術規範號保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-010",
+      "notes": "歐洲無障礙標準 EN 301 549，規範代碼保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-011",
+      "notes": "歐盟委員會官方文件編號 COM(2026) 42 final 保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-012",
+      "notes": "官方文件附件代號 Annex III，羅馬數字保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-013",
+      "notes": "會議議程項目編號 Agenda Item 7(b) 保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-014",
+      "notes": "條約正式條次 Article 5 bis，拉丁文條次保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-015",
+      "notes": "聯合國人權理事會文件代號 A/HRC/56/12 保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-016",
+      "notes": "財政年度識別碼 FY2027，會計代碼保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-017",
+      "notes": "法庭/調查展覽件編號 Exhibit B-4，證物代號保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-018",
+      "notes": "歐洲法院判決識別碼 ECLI，司法資料庫代碼保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-019",
+      "notes": "國際標準書號 ISBN 格式與連字符保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-entity-guard-v1/title-020",
+      "notes": "數位物件識別碼 DOI 格式保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    }
+  ]
+}

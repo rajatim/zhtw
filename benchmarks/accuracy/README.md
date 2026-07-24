@@ -296,6 +296,17 @@ selections, 5 Gemini selections, and 1 Codex field-level synthesis. Maintainer
 `tim` confirmed the synthesis on 2026-07-24. All 100 passed exact/reference and
 character 5-gram Jaccard 0.85 deduplication and entered the collecting pool.
 
+The project-original `zhtw-project-formal-entity-guard-v1` pilot adds 100
+Codex-drafted input-only candidates across institution/person/place names,
+official titles and identifiers, quoted names, scientific codes, and formal
+baseline prose. It intentionally concentrates formal-news and
+over-conversion-guard gaps and is synthetic coverage, not organic market
+traffic. Codex and Gemini via Antigravity CLI independently classified all 100
+cases: 73 four-field matches and 27 domain/risk differences. Codex synthesis
+recommends all 100 as eligible, using 73 agreements, 13 Codex selections, and
+14 Gemini selections. The candidate pool remains at 1,181 until the maintainer
+confirms this advisory and the promotion deduplication gate passes.
+
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
 checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
 conservative, excludes layout fragments, and never runs zhtw or creates

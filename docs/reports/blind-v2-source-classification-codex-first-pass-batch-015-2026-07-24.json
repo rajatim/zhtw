@@ -1,0 +1,1021 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex",
+  "stage": "codex_first_pass",
+  "status": "advisory_only",
+  "generated_date": "2026-07-24",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-015.json",
+  "packet_sha256": "e7370151640f2ec4e65b3f43a465d834f808f988c901807b1b8b178a5bc2969e",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；含臺灣正式用語需要的詞彙正規化。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；含臺灣正式用語需要的詞彙正規化。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/baseline-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；主要需要一般字形轉換，無額外地域改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/code-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/entity-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/quote-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    },
+    {
+      "id": "zhtw-project-formal-entity-guard-v1/title-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整正式文本；專名、引文、標題、型號、代碼或符號必須保留。"
+    }
+  ]
+}
