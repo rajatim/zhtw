@@ -291,6 +291,9 @@ is missing.
 - License: U.S. Public Domain for CISA-authored text under 17 U.S.C. 105; third-party references and cited content excluded
 - Attribution: Cybersecurity and Infrastructure Security Agency, Personal Security Considerations Action Guide: Critical Infrastructure Workers, Simplified Chinese; no CISA or U.S. Department of Homeland Security endorsement or affiliation is implied.
 - Modifications: Extracted complete Simplified Chinese body sentences from the checksum-pinned CISA PDF; excluded headings, page furniture, logos, contact details, external links, references, and third-party cited content; no expected text or converter output was used.
+- Extraction quality: Punctuation-terminated extraction can retain list
+  fragments; input-only classification must reject them fail-closed before
+  promotion.
 - Output license: U.S. Public Domain.
 - Bias notice: Translated U.S. critical-infrastructure security guidance
   concentrates physical safety, threat response, privacy, and cybersecurity;

@@ -595,7 +595,7 @@ def parse_cisa_cyber_hygiene_pdf(content: bytes) -> list[tuple[str, str, str]]:
 
 
 def parse_cisa_personal_security_pages(pages: list[str]) -> list[tuple[str, str, str]]:
-    """Extract complete CISA-authored body sentences from the personal-security guide."""
+    """Extract CISA-authored body sentence candidates from the personal-security guide."""
     if len(pages) != 8:
         raise ValueError(f"CISA Personal Security: expected 8 PDF pages, found {len(pages)}")
     normalized_pages = [normalize_pdf_text(page) for page in pages]

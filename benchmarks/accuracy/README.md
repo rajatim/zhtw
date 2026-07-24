@@ -324,8 +324,9 @@ collecting pool; the three excluded inputs remain outside it.
 The CISA-authored public-domain *Personal Security Considerations Action Guide*
 Simplified Chinese pilot is checksum-pinned and verifies the eight-page PDF's
 author, title, revision, and body anchors. Its conservative parser retains 134
-complete input-only sentences after excluding page furniture, contact details,
-external links, references, and third-party cited passages. Batch 017
+punctuation-terminated input-only sentence candidates after excluding page
+furniture, contact details, external links, references, and third-party cited
+passages; classification rejects fragments fail-closed. Batch 017
 completed independent Codex and Gemini review: 55 exact classifications and 45
 differences. After a Codex synthesis audit, the recommendation is 90 eligible
 cases and 10 fragment or context-dependent exclusions, using 55 agreements, 41

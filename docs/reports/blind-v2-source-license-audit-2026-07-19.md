@@ -103,8 +103,10 @@ input alone.
 - Rights: CISA-authored U.S. government text is public domain under 17 U.S.C.
   105. PDF metadata identifies CISA as author. References, external links, and
   third-party cited passages are excluded.
-- Import result: 134 complete input-only sentences from eight pages after fixed
-  page-count, metadata, title, revision, body-anchor, and reference checks.
+- Import result: 134 punctuation-terminated input-only sentence candidates from
+  eight pages after fixed page-count, metadata, title, revision, body-anchor,
+  and reference checks. Fragments are rejected fail-closed during input-only
+  classification.
 - Known bias: translated critical-infrastructure guidance concentrates physical
   safety, threat response, privacy, social media, and cybersecurity.
 - Decision: accepted as an input-only pilot. Codex and Gemini completed
