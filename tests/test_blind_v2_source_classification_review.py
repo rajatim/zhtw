@@ -359,6 +359,9 @@ SEVENTEENTH_ADJUSTMENTS_PATH = ROOT / (
 SEVENTEENTH_DIFF_PATH = ROOT / (
     "docs/reports/blind-v2-source-classification-diff-batch-017-2026-07-24.md"
 )
+SEVENTEENTH_DECISION_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-decision-batch-017-2026-07-25.json"
+)
 SEVENTEENTH_GEMINI_CASE_IDS = {
     "cisa-personal-security-zh-hans-v1/sentence-010",
     "cisa-personal-security-zh-hans-v1/sentence-020",
@@ -1323,11 +1326,12 @@ def test_sixteenth_maintainer_synthesis_decision_is_reproducible() -> None:
     )
 
 
-def test_seventeenth_pending_advisories_and_codex_synthesis_are_reproducible() -> None:
+def test_seventeenth_advisories_and_codex_synthesis_are_reproducible() -> None:
     packet = load(SEVENTEENTH_PACKET_PATH)
     codex = load(SEVENTEENTH_CODEX_PATH)
     gemini = load(SEVENTEENTH_GEMINI_PATH)
     synthesis = load(SEVENTEENTH_SYNTHESIS_PATH)
+    decision = load(SEVENTEENTH_DECISION_PATH)
     packet_hash = hashlib.sha256(SEVENTEENTH_PACKET_PATH.read_bytes()).hexdigest()
 
     assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
@@ -1375,4 +1379,17 @@ def test_seventeenth_pending_advisories_and_codex_synthesis_are_reproducible() -
         codex,
         gemini,
         generated_date="2026-07-24",
+        maintainer_decisions=decision,
+    )
+
+
+def test_seventeenth_maintainer_synthesis_decision_is_reproducible() -> None:
+    assert load(SEVENTEENTH_DECISION_PATH) == build_decision(
+        SEVENTEENTH_PACKET_PATH,
+        SEVENTEENTH_CODEX_PATH,
+        SEVENTEENTH_GEMINI_PATH,
+        maintainer="tim",
+        decision_date="2026-07-25",
+        selected_advisory="synthesis",
+        synthesis_path=SEVENTEENTH_SYNTHESIS_PATH,
     )

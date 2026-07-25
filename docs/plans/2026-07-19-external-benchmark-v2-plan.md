@@ -584,7 +584,7 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   schema 只接受公開 issue provenance，禁止 expected／converter output，並攔截重複
   input 與常見敏感資料。收集狀態可在未滿 100 筆時驗證，但 importer 與 ready gate
   均要求恰好 100 筆。偵測到敏感內容時拒絕並要求重送，不靜默改寫。目前 batch 001
-  為 `collecting` 0/100，尚未加入目前 1,302 筆 candidate pool。
+  為 `collecting` 0/100，尚未加入目前 1,392 筆 candidate pool。
 - [x] 檢查公開 `benchmark-user-report` issues；截至 2026-07-24 仍為 0 筆，沒有
   可合法代填或匯入的 permissioned input。
 - [x] 固定 AOSP `platform/frameworks/base` commit
@@ -637,8 +637,10 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   Codex 41、Gemini 3、Codex synthesis 1。Gemini 最終 100/100 ID 覆蓋、零工具
   呼叫、零 API 錯誤；8 個
   截斷、malformed 或 enum 不合法的中間回應依 fail-closed 規則丟棄。
-- [ ] Maintainer 確認 batch 017 synthesis 後，才建立 human decision artifact 並
-  執行 promotion dedupe；確認前 candidate pool 維持 1,302 筆。
+- [x] Maintainer 於 2026-07-25 確認 batch 017 synthesis，建立 human decision
+  artifact；90 筆 eligible 全數通過 exact/reference 與 character 5-gram
+  Jaccard 0.85 promotion gate 並寫入 pool，10 筆 excluded 維持排除。Pool 現為
+  1,392 筆，距最低 5,880 筆仍差 4,488。
 - [x] 建立 GitHub issue fail-closed 匯入器：預設只產生 dry-run preview，驗證表單
   sections、五項 consent、1–10 筆 input、公開 issue URL、容量、敏感資料與 normalized
   duplicate；只有 maintainer 確認並提供含時區 review timestamp 才原子寫入。每筆保存

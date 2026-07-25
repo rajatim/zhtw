@@ -331,8 +331,9 @@ completed independent Codex and Gemini review: 55 exact classifications and 45
 differences. After a Codex synthesis audit, the recommendation is 90 eligible
 cases and 10 fragment or context-dependent exclusions, using 55 agreements, 41
 Codex selections, 3 Gemini selections, and 1 Codex synthesis adjustment.
-Maintainer confirmation remains pending, so none of these cases are in the
-collecting pool yet.
+Maintainer `tim` confirmed the synthesis on 2026-07-25. All 90 eligible inputs
+passed exact/reference and character 5-gram Jaccard 0.85 deduplication and
+entered the collecting pool; the 10 excluded inputs remain outside it.
 
 The CDC Stacks pilots (`cdc:111808`, `cdc:120024`, and `cdc:116683`) add 62
 checksum-pinned `public_domain` inputs. Their deterministic pypdf extraction is
@@ -404,12 +405,12 @@ recommends 55 eligible and 26 context-dependent exclusions. Maintainer
 exact/reference and character 5-gram Jaccard 0.85 near-deduplication and entered
 the collecting pool; all 26 context-dependent inputs remain excluded.
 
-Classification batches 001-016 now contribute 1,302 maintainer-confirmed eligible
+Classification batches 001-017 now contribute 1,392 maintainer-confirmed eligible
 inputs to the `collecting` candidate pool after cross-batch/reference exact and
 character 5-gram Jaccard 0.85 near-deduplication.
 All six domains now have coverage, but the pool is not ready to freeze or sample.
 Permissioned user-report batch 001 is collecting at 0/100 and therefore is not
-included in the 1,302 cases.
+included in the 1,392 cases.
 
 Source-classification batch 008 covers 32 complete sentences from the NPS
 public-domain *Essential Acadia: Simplified Chinese* article. Codex and Gemini
@@ -499,6 +500,15 @@ synthesis on 2026-07-24: 21 eligible cases and 3 malformed or context-dependent
 exclusions. All 21 eligible inputs passed exact/reference and character 5-gram
 Jaccard 0.85 deduplication and entered the pool. The pool is now 1,302 cases,
 leaving a 4,578-case minimum-pool gap.
+
+Source-classification batch 017 covers 100 deterministically selected candidates
+from the CISA-authored public-domain personal-security guide. Codex and Gemini
+via Antigravity CLI agree on 55 cases and differ on 45 eligibility, domain, or
+risk labels. Maintainer `tim` confirmed the audited Codex synthesis on
+2026-07-25: 90 eligible cases and 10 fragment or context-dependent exclusions.
+All 90 eligible inputs passed exact/reference and character 5-gram Jaccard 0.85
+deduplication and entered the pool. The pool is now 1,392 cases, leaving a
+4,488-case minimum-pool gap.
 
 Rebuild and validate the current collecting pool:
 

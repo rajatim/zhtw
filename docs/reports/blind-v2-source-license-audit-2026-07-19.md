@@ -111,8 +111,9 @@ input alone.
   safety, threat response, privacy, social media, and cybersecurity.
 - Decision: accepted as an input-only pilot. Codex and Gemini completed
   independent domain/risk classification and Codex completed synthesis;
-  maintainer confirmation remains pending, so none have entered the collecting
-  pool.
+  maintainer `tim` confirmed the synthesis on 2026-07-25. All 90 eligible inputs
+  passed the promotion dedupe gate and entered the collecting pool, while the
+  10 exclusions stayed out.
 
 ### NPS *Essential Acadia: Simplified Chinese*
 

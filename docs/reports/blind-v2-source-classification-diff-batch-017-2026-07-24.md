@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 017 (2026-07-24)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `ec8fe952e9bedee004d20d1e9c390f0848d0ac1faaa8a83ccda776aebdace21e`
 Cases: 100
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 45 advisory disagreements and batch-confirmed the 55 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: complete
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 02. cisa-personal-security-zh-hans-v1/sentence-003
 
@@ -63,7 +63,7 @@ Codex reason: Complete input-only sentence; technical terms, abbreviations, or c
 
 Gemini reason: complete
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 03. cisa-personal-security-zh-hans-v1/sentence-004
 
@@ -84,7 +84,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: complete
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 04. cisa-personal-security-zh-hans-v1/sentence-010
 
@@ -105,7 +105,7 @@ Codex reason: The extracted text is a list fragment, incomplete phrase, or depen
 
 Gemini reason: question
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 05. cisa-personal-security-zh-hans-v1/sentence-016
 
@@ -126,7 +126,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: complete
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 06. cisa-personal-security-zh-hans-v1/sentence-020
 
@@ -147,7 +147,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: complete
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 07. cisa-personal-security-zh-hans-v1/sentence-024
 
@@ -168,7 +168,7 @@ Codex reason: Complete input-only sentence; technical terms, abbreviations, or c
 
 Gemini reason: complete
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 08. cisa-personal-security-zh-hans-v1/sentence-025
 
@@ -189,7 +189,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: complete
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 09. cisa-personal-security-zh-hans-v1/sentence-036
 
@@ -210,7 +210,7 @@ Codex reason: Complete input-only sentence; technical terms, abbreviations, or c
 
 Gemini reason: cctv
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 10. cisa-personal-security-zh-hans-v1/sentence-039
 
@@ -231,7 +231,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: tracking
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 11. cisa-personal-security-zh-hans-v1/sentence-047
 
@@ -252,7 +252,7 @@ Codex reason: Complete input-only sentence; technical terms, abbreviations, or c
 
 Gemini reason: factsheet
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 12. cisa-personal-security-zh-hans-v1/sentence-048
 
@@ -273,7 +273,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: awareness
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 13. cisa-personal-security-zh-hans-v1/sentence-052
 
@@ -294,7 +294,7 @@ Codex reason: The extracted text is a list fragment, incomplete phrase, or depen
 
 Gemini reason: monitoring
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 14. cisa-personal-security-zh-hans-v1/sentence-054
 
@@ -315,7 +315,7 @@ Codex reason: Complete input-only sentence; technical terms, abbreviations, or c
 
 Gemini reason: pii
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 15. cisa-personal-security-zh-hans-v1/sentence-055
 
@@ -336,7 +336,7 @@ Codex reason: Complete input-only sentence; technical terms, abbreviations, or c
 
 Gemini reason: definition
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 16. cisa-personal-security-zh-hans-v1/sentence-060
 
@@ -357,7 +357,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: rideshare
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 17. cisa-personal-security-zh-hans-v1/sentence-073
 
@@ -378,7 +378,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: security
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 18. cisa-personal-security-zh-hans-v1/sentence-084
 
@@ -399,7 +399,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: security
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 19. cisa-personal-security-zh-hans-v1/sentence-085
 
@@ -420,7 +420,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: security
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 20. cisa-personal-security-zh-hans-v1/sentence-087
 
@@ -441,7 +441,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: security
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 21. cisa-personal-security-zh-hans-v1/sentence-088
 
@@ -462,7 +462,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: security
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 22. cisa-personal-security-zh-hans-v1/sentence-089
 
@@ -483,7 +483,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: security
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 23. cisa-personal-security-zh-hans-v1/sentence-103
 
@@ -504,7 +504,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: vehicle
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 24. cisa-personal-security-zh-hans-v1/sentence-107
 
@@ -525,7 +525,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: app
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 25. cisa-personal-security-zh-hans-v1/sentence-108
 
@@ -546,7 +546,7 @@ Codex reason: Complete input-only sentence; technical terms, abbreviations, or c
 
 Gemini reason: mfa
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 26. cisa-personal-security-zh-hans-v1/sentence-109
 
@@ -567,7 +567,7 @@ Codex reason: Complete input-only sentence; technical terms, abbreviations, or c
 
 Gemini reason: privacy
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 27. cisa-personal-security-zh-hans-v1/sentence-110
 
@@ -588,7 +588,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: posting
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 28. cisa-personal-security-zh-hans-v1/sentence-111
 
@@ -609,7 +609,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: safety
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 29. cisa-personal-security-zh-hans-v1/sentence-112
 
@@ -630,7 +630,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: profiling
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 30. cisa-personal-security-zh-hans-v1/sentence-113
 
@@ -651,7 +651,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: brokers
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 31. cisa-personal-security-zh-hans-v1/sentence-114
 
@@ -672,7 +672,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: friends
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 32. cisa-personal-security-zh-hans-v1/sentence-116
 
@@ -693,7 +693,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: permissions
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 33. cisa-personal-security-zh-hans-v1/sentence-117
 
@@ -714,7 +714,7 @@ Codex reason: Complete input-only sentence; technical terms, abbreviations, or c
 
 Gemini reason: alerts
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 34. cisa-personal-security-zh-hans-v1/sentence-118
 
@@ -735,7 +735,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: optout
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 35. cisa-personal-security-zh-hans-v1/sentence-119
 
@@ -756,7 +756,7 @@ Codex reason: Complete input-only sentence; technical terms, abbreviations, or c
 
 Gemini reason: location
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 36. cisa-personal-security-zh-hans-v1/sentence-120
 
@@ -777,7 +777,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: exposure
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 37. cisa-personal-security-zh-hans-v1/sentence-122
 
@@ -798,7 +798,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: screenshot
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 38. cisa-personal-security-zh-hans-v1/sentence-123
 
@@ -819,7 +819,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: assessment
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 39. cisa-personal-security-zh-hans-v1/sentence-124
 
@@ -840,7 +840,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: removal
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 40. cisa-personal-security-zh-hans-v1/sentence-125
 
@@ -861,7 +861,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: privacy
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 41. cisa-personal-security-zh-hans-v1/sentence-126
 
@@ -882,7 +882,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: identity
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 42. cisa-personal-security-zh-hans-v1/sentence-129
 
@@ -903,7 +903,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: phishing
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 43. cisa-personal-security-zh-hans-v1/sentence-131
 
@@ -924,7 +924,7 @@ Codex reason: Complete input-only sentence; Taiwan terminology needs a lexical d
 
 Gemini reason: channels
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 44. cisa-personal-security-zh-hans-v1/sentence-132
 
@@ -945,7 +945,7 @@ Codex reason: Complete input-only sentence; technical terms, abbreviations, or c
 
 Gemini reason: redflags
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
 
 ### 45. cisa-personal-security-zh-hans-v1/sentence-134
 
@@ -966,4 +966,4 @@ Codex reason: The extracted text is a list fragment, incomplete phrase, or depen
 
 Gemini reason: action
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-25`
