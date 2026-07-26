@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "zhtw-project-balanced-baseline-guard-v1",
+  "track": "blind",
+  "source_class": "project_original",
+  "source_urls": [
+    "https://github.com/rajatim/zhtw/tree/main/benchmarks/accuracy/sources"
+  ],
+  "upstream_revision": "zhtw project-original balanced LLM, formal-writing, social, and UI baseline-guard input-only source snapshot drafted 2026-07-26; raw SHA-256: 181082e988eac5e6c8a8e0266d56a8bb0e7f497a3a521cc900829d4304384aed",
+  "retrieved_at": "2026-07-26T22:30:00+08:00",
+  "license": "MIT",
+  "license_url": "https://github.com/rajatim/zhtw/blob/main/LICENSE",
+  "output_license": "MIT",
+  "attribution": "Copyright zhtw contributors; initial input-only balanced baseline and preservation scenarios drafted by Codex and subject to independent Gemini and maintainer review.",
+  "modification_notice": "Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.",
+  "notice_id": "zhtw-project-balanced-baseline-guard-v1",
+  "raw_sha256": {
+    "benchmarks/accuracy/sources/zhtw-project-balanced-baseline-guard-v1.json": "181082e988eac5e6c8a8e0266d56a8bb0e7f497a3a521cc900829d4304384aed"
+  },
+  "normalized_path": "benchmarks/accuracy/external/zhtw-project-balanced-baseline-guard-v1.json",
+  "normalized_sha256": "6add7d8926c81b6d117515b3555cc20e13a9726da189bc5f6616b391c2de76bc",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "These scenarios were drafted by Codex and are synthetic project-original inputs, not independently observed market traffic.",
+    "The source intentionally balances LLM, formal-writing, social, and UI contexts while emphasizing baseline and preservation risks needed by the collecting pool.",
+    "The inputs were drafted from fixed domain and risk gaps without running zhtw, OpenCC, zhconv, or another converter.",
+    "Independent Gemini and maintainer source classification remain required before promotion.",
+    "The normalized source remains input-only; confirmed domain and risk labels live only in separately hashed decision and candidate-pool artifacts.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

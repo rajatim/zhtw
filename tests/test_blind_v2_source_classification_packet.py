@@ -31,6 +31,12 @@ EIGHTH_PACKET = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-b
 EIGHTH_MARKDOWN = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-batch-008.md"
 TWENTIETH_PACKET = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-batch-020.json"
 TWENTIETH_MARKDOWN = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-batch-020.md"
+TWENTY_FIRST_PACKET = ACCURACY_ROOT / (
+    "review-packets/blind-v2-source-classification-batch-021.json"
+)
+TWENTY_FIRST_MARKDOWN = ACCURACY_ROOT / (
+    "review-packets/blind-v2-source-classification-batch-021.md"
+)
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -420,4 +426,28 @@ def test_twentieth_packet_balances_unreviewed_public_domain_cases() -> None:
     assert validate_packet(packet) == []
     assert TWENTIETH_MARKDOWN.read_text(encoding="utf-8") == render_markdown(
         TWENTIETH_PACKET, packet
+    )
+
+
+def test_twenty_first_packet_covers_balanced_project_original_source() -> None:
+    packet = json.loads(TWENTY_FIRST_PACKET.read_text(encoding="utf-8"))
+    source = ACCURACY_ROOT / "external/zhtw-project-balanced-baseline-guard-v1.json"
+    generated = build_packet(
+        [source],
+        batch_size=100,
+        batch_number=21,
+        seed=20260719,
+        generated_date="2026-07-26",
+        all_source_cases=True,
+    )
+
+    assert packet == generated
+    assert packet["stats"] == {
+        "total": 100,
+        "by_source": {"zhtw-project-balanced-baseline-guard-v1": 100},
+    }
+    assert find_forbidden_keys(packet) == set()
+    assert validate_packet(packet) == []
+    assert TWENTY_FIRST_MARKDOWN.read_text(encoding="utf-8") == render_markdown(
+        TWENTY_FIRST_PACKET, packet
     )

@@ -443,6 +443,22 @@ TWENTIETH_DIFF_PATH = ROOT / (
 TWENTIETH_DECISION_PATH = ROOT / (
     "docs/reports/blind-v2-source-classification-maintainer-decision-batch-020-2026-07-26.json"
 )
+TWENTY_FIRST_PACKET_PATH = ACCURACY_ROOT / (
+    "review-packets/blind-v2-source-classification-batch-021.json"
+)
+TWENTY_FIRST_CODEX_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-first-pass-batch-021-2026-07-26.json"
+)
+TWENTY_FIRST_GEMINI_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-gemini-independent-batch-021-2026-07-26.json"
+)
+TWENTY_FIRST_SYNTHESIS_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-synthesis-batch-021-2026-07-26.json"
+)
+TWENTY_FIRST_DIFF_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-diff-batch-021-2026-07-26.md"
+)
+TWENTY_FIRST_GEMINI_CASE_IDS = {"zhtw-project-balanced-baseline-guard-v1/ui-010"}
 
 
 def load(path: Path) -> dict[str, object]:
@@ -1645,4 +1661,49 @@ def test_twentieth_maintainer_synthesis_decision_is_reproducible() -> None:
         decision_date="2026-07-26",
         selected_advisory="synthesis",
         synthesis_path=TWENTIETH_SYNTHESIS_PATH,
+    )
+
+
+def test_twenty_first_advisories_and_pending_synthesis_are_reproducible() -> None:
+    packet = load(TWENTY_FIRST_PACKET_PATH)
+    codex = load(TWENTY_FIRST_CODEX_PATH)
+    gemini = load(TWENTY_FIRST_GEMINI_PATH)
+    synthesis = load(TWENTY_FIRST_SYNTHESIS_PATH)
+    packet_hash = hashlib.sha256(TWENTY_FIRST_PACKET_PATH.read_bytes()).hexdigest()
+
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    packet_ids = [case["id"] for case in packet["cases"]]
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert [case["id"] for case in synthesis["cases"]] == packet_ids
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 100,
+        "exact": 47,
+        "review_queue": 53,
+        "by_field": {"eligible": 0, "script": 40, "domain": 0, "risk": 13},
+    }
+    assert len(differences) == 53
+    assert gemini["reviewer"] == "Gemini via Gemini CLI"
+    assert gemini["model"] == "gemini-2.5-pro"
+    assert gemini["execution"]["cli_version"] == "0.52.0"
+    assert gemini["execution"]["tool_calls"] == 0
+    assert gemini["execution"]["total_errors"] == 0
+    assert synthesis["stats"] == {
+        "total": 100,
+        "eligible": 100,
+        "excluded": 0,
+        "by_selection_basis": {"agreement": 47, "codex": 52, "gemini": 1},
+    }
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=TWENTY_FIRST_GEMINI_CASE_IDS,
+        generated_date="2026-07-26",
+    )
+    assert TWENTY_FIRST_DIFF_PATH.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-26",
     )

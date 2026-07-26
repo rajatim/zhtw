@@ -553,6 +553,18 @@ entered the collecting pool; Ready.gov earthquake `sentence-048` was excluded
 as an exact duplicate. The pool is now 1,675 cases, leaving a 4,205-case
 minimum-pool gap.
 
+Source-classification batch 021 adds a 100-case project-original input-only
+source balanced across LLM, formal-writing, social, and UI contexts. The source,
+manifest, and normalized pilot are checksum-pinned and contain no expected or
+converter output. Codex and Gemini CLI 0.52.0 (`gemini-2.5-pro`) independently
+recommend all 100 inputs as eligible with identical domains and zero Gemini tool
+calls or API errors. They agree exactly on 47 cases; 53 differ in script or risk.
+Codex synthesis keeps the established `simplified` treatment for Chinese text
+containing Latin identifiers, adopts Gemini baseline risk for UI case 010, and
+otherwise follows Codex, yielding 47 agreements, 52 Codex selections, and one
+Gemini selection. This batch is pending maintainer confirmation and has not
+entered the collecting pool.
+
 Rebuild and validate the current collecting pool:
 
 ```bash

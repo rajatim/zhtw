@@ -145,6 +145,15 @@ is missing.
 - Output license: MIT.
 - Bias notice: Synthetic challenge coverage is not independently observed market-frequency evidence. Independent Gemini advisory and maintainer input-only review completed on 2026-07-26.
 
+## zhtw-project-balanced-baseline-guard-v1
+
+- Source: zhtw project-original balanced LLM, formal-writing, social, and UI baseline-guard input-only scenarios drafted on 2026-07-26.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only balanced baseline and preservation scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: Synthetic benchmark coverage is not independently observed market-frequency evidence. Independent Gemini review is complete; maintainer input-only confirmation remains pending.
+
 ## ftc-small-business-simplified-v1
 
 - Source: Federal Trade Commission, *Scams and Your Small Business*, Simplified
