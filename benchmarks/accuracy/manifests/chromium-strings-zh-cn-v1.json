@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "id": "chromium-strings-zh-cn-v1",
+  "track": "blind",
+  "source_class": "permissive_license",
+  "source_urls": [
+    "https://github.com/chromium/chromium",
+    "https://raw.githubusercontent.com/chromium/chromium/13ef0a3b8e7a97c94d0acbef5da410b68a0f7d81/chrome/app/resources/chromium_strings_zh-CN.xtb",
+    "https://raw.githubusercontent.com/chromium/chromium/13ef0a3b8e7a97c94d0acbef5da410b68a0f7d81/LICENSE"
+  ],
+  "upstream_revision": "chromium/chromium commit 13ef0a3b8e7a97c94d0acbef5da410b68a0f7d81 (2026-07-27); chromium_strings_zh-CN.xtb raw SHA-256: ed5b42f52f9a1f168cb04b3677193974edb21a12e2147f147588d37e97b4981e",
+  "retrieved_at": "2026-07-27T15:30:00+08:00",
+  "license": "BSD 3-Clause License",
+  "license_url": "https://github.com/chromium/chromium/blob/13ef0a3b8e7a97c94d0acbef5da410b68a0f7d81/LICENSE",
+  "output_license": "BSD 3-Clause License",
+  "attribution": "Copyright 2015 The Chromium Authors; Chinese (Simplified) Chromium browser UI at commit 13ef0a3b8e7a97c94d0acbef5da410b68a0f7d81.",
+  "modification_notice": "Parsed the checksum-pinned XTB XML resource, extracted variable-free Simplified Chinese translation values with stable numeric IDs, applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and excluded placeholders, URLs, email addresses, markup, code fragments, converter output, and expected text.",
+  "notice_id": "chromium-strings-zh-cn-v1",
+  "raw_sha256": {
+    "https://raw.githubusercontent.com/chromium/chromium/13ef0a3b8e7a97c94d0acbef5da410b68a0f7d81/chrome/app/resources/chromium_strings_zh-CN.xtb": "ed5b42f52f9a1f168cb04b3677193974edb21a12e2147f147588d37e97b4981e",
+    "https://raw.githubusercontent.com/chromium/chromium/13ef0a3b8e7a97c94d0acbef5da410b68a0f7d81/LICENSE": "368cca1106be99d39ecd32a38d8305585d802a475effb66380b91ffc9bcf709b"
+  },
+  "normalized_path": "benchmarks/accuracy/external/chromium-strings-zh-cn-v1.json",
+  "normalized_sha256": "b8a3202a5dc4dc269da7291c29d7453e3b789df787e0e831b90f2d0a0042e128",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "The source is Chromium-managed browser localization rather than independently authored organic Simplified Chinese traffic.",
+    "Browser, account, privacy, and Google service terminology are heavily represented.",
+    "Short labels and context-dependent messages require input-only eligibility review.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

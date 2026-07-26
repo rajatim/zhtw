@@ -500,6 +500,21 @@ TWENTY_SECOND_GEMINI_CASE_IDS = {
     "ready-gov-radiation-zh-hans-v1/sentence-036",
     "ready-gov-radiation-zh-hans-v1/sentence-050",
 }
+TWENTY_THIRD_PACKET_PATH = ACCURACY_ROOT / (
+    "review-packets/blind-v2-source-classification-batch-023.json"
+)
+TWENTY_THIRD_CODEX_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-first-pass-batch-023-2026-07-27.json"
+)
+TWENTY_THIRD_GEMINI_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-gemini-independent-batch-023-2026-07-27.json"
+)
+TWENTY_THIRD_SYNTHESIS_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-synthesis-batch-023-2026-07-27.json"
+)
+TWENTY_THIRD_DIFF_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-diff-batch-023-2026-07-27.md"
+)
 
 
 def load(path: Path) -> dict[str, object]:
@@ -1837,4 +1852,51 @@ def test_twenty_second_maintainer_synthesis_decision_is_reproducible() -> None:
         decision_date="2026-07-27",
         selected_advisory="synthesis",
         synthesis_path=TWENTY_SECOND_SYNTHESIS_PATH,
+    )
+
+
+def test_twenty_third_pending_advisories_and_synthesis_are_reproducible() -> None:
+    packet = load(TWENTY_THIRD_PACKET_PATH)
+    codex = load(TWENTY_THIRD_CODEX_PATH)
+    gemini = load(TWENTY_THIRD_GEMINI_PATH)
+    synthesis = load(TWENTY_THIRD_SYNTHESIS_PATH)
+    packet_hash = hashlib.sha256(TWENTY_THIRD_PACKET_PATH.read_bytes()).hexdigest()
+
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    packet_ids = [case["id"] for case in packet["cases"]]
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert [case["id"] for case in synthesis["cases"]] == packet_ids
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 100,
+        "exact": 85,
+        "review_queue": 15,
+        "by_field": {"eligible": 2, "script": 0, "domain": 2, "risk": 15},
+    }
+    assert len(differences) == 15
+    assert gemini["execution"]["cli_version"] == "0.52.0"
+    assert gemini["execution"]["tool_calls"] == 0
+    assert gemini["execution"]["total_errors"] == 0
+    assert gemini["stats"]["policy_violations"] == 0
+    assert synthesis["stats"] == {
+        "total": 100,
+        "eligible": 98,
+        "excluded": 2,
+        "by_selection_basis": {
+            "agreement": 85,
+            "codex": 15,
+        },
+    }
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=set(),
+        generated_date="2026-07-27",
+    )
+    assert TWENTY_THIRD_DIFF_PATH.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-27",
     )

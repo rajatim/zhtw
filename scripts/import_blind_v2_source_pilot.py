@@ -64,6 +64,7 @@ SUPPORTED_SOURCES = {
     "osha-disaster-cleanup-simplified-v1": "osha_pdf",
     "osha-fallen-workers-family-simplified-v1": "osha_pdf",
     "vscode-loc-zh-hans-v1": "vscode_loc_json",
+    "chromium-strings-zh-cn-v1": "chromium_xtb",
     "aosp-framework-zh-rcn-v1": "aosp_strings_xml",
     "cisa-cyber-hygiene-zh-hans-v1": "cisa_cyber_hygiene_pdf",
     "cisa-personal-security-zh-hans-v1": "cisa_personal_security_pdf",
@@ -155,6 +156,7 @@ def read_raw_source(manifest: dict[str, Any], source_file: Path | None = None) -
         "flores-200-zho-hans-v1": "flores200_dataset.tar.gz",
         "ud-chinese-cfl-v1": "zh_cfl-ud-test.conllu",
         "vscode-loc-zh-hans-v1": "main.i18n.json",
+        "chromium-strings-zh-cn-v1": "chromium_strings_zh-CN.xtb",
         "aosp-framework-zh-rcn-v1": "strings.xml",
     }
     marker = markers.get(manifest["id"])
@@ -306,6 +308,46 @@ def parse_vscode_loc(content: bytes) -> list[tuple[str, str, str]]:
                 raise ValueError(f"VS Code localization source ID collision: {source_case_id}")
             seen_ids.add(source_case_id)
             rows.append(("language_pack", source_case_id, text))
+    return rows
+
+
+def parse_chromium_xtb(content: bytes) -> list[tuple[str, str, str]]:
+    """Extract stable, placeholder-free UI text from a pinned Chromium XTB file."""
+    try:
+        root = ET.fromstring(content)
+    except ET.ParseError as exc:
+        raise ValueError("Chromium XTB source is not valid XML") from exc
+    if root.tag != "translationbundle" or root.get("lang") != "zh-CN":
+        raise ValueError("Chromium XTB source must be a zh-CN translationbundle")
+
+    rows: list[tuple[str, str, str]] = []
+    seen_ids: set[str] = set()
+    for element in root:
+        if element.tag != "translation":
+            raise ValueError(f"Chromium XTB contains unexpected element: {element.tag}")
+        translation_id = element.get("id")
+        if not translation_id or not translation_id.isdigit():
+            raise ValueError("Chromium XTB translation must have a numeric id")
+        if translation_id in seen_ids:
+            raise ValueError(f"Chromium XTB duplicate translation id: {translation_id}")
+        seen_ids.add(translation_id)
+        if list(element):
+            continue
+
+        raw_text = element.text or ""
+        text = normalize_input(raw_text)
+        han_count = len(re.findall(r"[\u3400-\u9fff]", text))
+        if (
+            "\n" in raw_text
+            or not 4 <= len(text) <= 240
+            or han_count < 2
+            or "{" in text
+            or "}" in text
+            or re.search(r"(?:https?://|www\.|[\w.+-]+@[\w.-]+)", text, re.I)
+            or re.search(r"(?:`|<[^>]+>|\[[^]]+]\([^)]*\))", text)
+        ):
+            continue
+        rows.append(("browser_ui", f"translation-{translation_id}", text))
     return rows
 
 
@@ -920,6 +962,8 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
         raw_rows = parse_massive(content)
     elif source_kind == "vscode_loc_json":
         raw_rows = parse_vscode_loc(content)
+    elif source_kind == "chromium_xtb":
+        raw_rows = parse_chromium_xtb(content)
     elif source_kind == "aosp_strings_xml":
         raw_rows = parse_aosp_strings(content)
     elif source_kind == "ftc_pdf":

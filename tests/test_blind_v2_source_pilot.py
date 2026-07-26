@@ -18,6 +18,7 @@ from scripts.import_blind_v2_source_pilot import (
     normalize_input,
     parse_aosp_strings,
     parse_cdc_pages,
+    parse_chromium_xtb,
     parse_cisa_cyber_hygiene_pages,
     parse_cisa_personal_security_pages,
     parse_ftc_heads_up_pages,
@@ -224,6 +225,36 @@ def test_vscode_loc_parser_keeps_structured_ui_text_only() -> None:
     assert [row[2] for row in rows] == ["无法保存文件: {0}", "打开辅助视图"]
     assert all(row[0] == "language_pack" for row in rows)
     assert all(row[1].startswith("entry-") for row in rows)
+
+
+def test_chromium_xtb_parser_keeps_variable_free_ui_text() -> None:
+    content = """<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="zh-CN">
+  <translation id="1">继续安装</translation>
+  <translation id="2">Chromium 建议您检查此扩展程序</translation>
+  <translation id="3">请<ph name="BEGIN_LINK" />登录<ph name="END_LINK" />。</translation>
+  <translation id="4">请访问 https://example.test</translation>
+  <translation id="5">设置</translation>
+  <translation id="6">{COUNT,plural, =1{一个标签页}other{多个标签页}}</translation>
+</translationbundle>
+""".encode()
+
+    assert parse_chromium_xtb(content) == [
+        ("browser_ui", "translation-1", "继续安装"),
+        ("browser_ui", "translation-2", "Chromium 建议您检查此扩展程序"),
+    ]
+
+
+def test_chromium_xtb_parser_requires_zh_cn_bundle_and_numeric_unique_ids() -> None:
+    with pytest.raises(ValueError, match="zh-CN translationbundle"):
+        parse_chromium_xtb(b'<translationbundle lang="zh-TW" />')
+
+    duplicate = """<translationbundle lang="zh-CN">
+<translation id="1">继续安装</translation><translation id="1">重新启动</translation>
+</translationbundle>""".encode()
+    with pytest.raises(ValueError, match="duplicate translation id"):
+        parse_chromium_xtb(duplicate)
 
 
 def test_aosp_parser_keeps_stable_single_line_ui_strings() -> None:
@@ -444,6 +475,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("osha-disaster-cleanup-simplified-v1", 76),
         ("osha-fallen-workers-family-simplified-v1", 23),
         ("vscode-loc-zh-hans-v1", 15618),
+        ("chromium-strings-zh-cn-v1", 535),
         ("aosp-framework-zh-rcn-v1", 1697),
         ("cisa-cyber-hygiene-zh-hans-v1", 24),
         ("cisa-personal-security-zh-hans-v1", 134),

@@ -103,6 +103,19 @@ is missing.
 - Bias notice: Microsoft-managed developer-tool localization is not organic
   market traffic and heavily represents UI and software terminology.
 
+## chromium-strings-zh-cn-v1
+
+- Source: Chromium Chinese (Simplified) browser UI, `chromium_strings_zh-CN.xtb`,
+  commit `13ef0a3b8e7a97c94d0acbef5da410b68a0f7d81`.
+- License: BSD 3-Clause License.
+- Attribution: Copyright 2015 The Chromium Authors; Chinese (Simplified) Chromium browser UI at commit 13ef0a3b8e7a97c94d0acbef5da410b68a0f7d81.
+- Modifications: Parsed the checksum-pinned XTB XML resource, extracted variable-free Simplified Chinese translation values with stable numeric IDs, applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and excluded placeholders, URLs, email addresses, markup, code fragments, converter output, and expected text.
+- Output license: BSD 3-Clause License.
+- Bias notice: Chromium-managed browser localization is not independently
+  authored organic Simplified Chinese traffic. Browser, account, privacy, and
+  Google service terminology are overrepresented, and context-dependent labels
+  still require input-only review.
+
 ## zhtw-project-it-api-cli-v1
 
 - Source: zhtw project-original IT, API, and CLI input-only scenarios drafted

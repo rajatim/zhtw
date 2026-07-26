@@ -593,6 +593,17 @@ leaving a 4,012-case minimum-pool gap. AOSP remains above the final 10%
 per-source cap, and public-domain material is temporarily above the final 35%
 source-class cap while collection continues.
 
+Source-classification batch 023 uses a new checksum-pinned Chromium Chinese
+(Simplified) browser UI source under the BSD 3-Clause License. Its structured
+XTB parser produced 535 placeholder-free input-only candidates with stable
+numeric IDs after excluding 27 exact duplicates. The deterministic 100-case
+packet yielded 85 exact Codex/Gemini classifications and 15 review-queue cases:
+13 risk-bucket differences and 2 truncated fragments that only Codex excluded.
+Gemini ran independently with zero tool calls and zero reported errors. Codex
+synthesis recommends 98 eligible cases and 2 exclusions, selecting the 85
+agreements and Codex for all 15 differences. Maintainer confirmation remains
+pending, so none of these cases has entered the 1,868-case collecting pool.
+
 Rebuild and validate the current collecting pool:
 
 ```bash
