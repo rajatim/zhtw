@@ -540,6 +540,15 @@ confirmed all three exclusions and the full synthesis on 2026-07-26. All 97
 eligible inputs passed promotion deduplication and entered the collecting pool,
 which is now 1,589 cases, leaving a 4,291-case minimum-pool gap.
 
+Source-classification batch 020 deterministically balances 100 previously
+unreviewed public-domain inputs from CISA, FTC, Ready.gov, and OSHA after
+checksum-pinned exclusion of batches 009, 010, 012, and 017. Codex and Gemini
+CLI 0.52.0 (`gemini-2.5-pro`) independently reviewed the input-only packet with
+zero Gemini tool calls or API errors. They agree exactly on 23 cases; 77 differ,
+including 6 eligibility, 34 domain, and 59 risk fields. Codex synthesis
+recommends 87 eligible cases and 13 source-quality exclusions. This batch is
+pending maintainer confirmation and has not entered the collecting pool.
+
 Rebuild and validate the current collecting pool:
 
 ```bash

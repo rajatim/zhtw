@@ -59,13 +59,22 @@ def build_packet(
     generated_date: str,
     all_source_cases: bool = False,
     selection_round: int | None = None,
+    exclude_packet_paths: list[Path] | None = None,
+    balanced_remaining: bool = False,
 ) -> dict[str, Any]:
+    exclude_packet_paths = exclude_packet_paths or []
     if not all_source_cases and batch_size < len(source_paths):
         raise ValueError("batch size must be at least the number of sources")
     if batch_number < 1:
         raise ValueError("batch number must be at least 1")
     if selection_round is not None and selection_round < 1:
         raise ValueError("selection round must be at least 1")
+    if balanced_remaining and not exclude_packet_paths:
+        raise ValueError("balanced remaining selection requires at least one exclusion packet")
+    if balanced_remaining and (all_source_cases or selection_round is not None):
+        raise ValueError(
+            "balanced remaining selection cannot be combined with all-source or selection-round"
+        )
 
     sources: list[tuple[Path, dict[str, Any]]] = []
     for path in source_paths:
@@ -75,7 +84,61 @@ def build_packet(
         sources.append((path, source))
     sources.sort(key=lambda item: item[1]["id"])
 
-    if all_source_cases:
+    excluded_ids: set[str] = set()
+    exclusion_snapshots: list[dict[str, str]] = []
+    for path in sorted(exclude_packet_paths, key=lambda item: relative_path(item)):
+        packet = load_json(path)
+        if packet.get("input_only") is not True or packet.get("converter_output_used") is not False:
+            raise ValueError(
+                f"{path}: exclusion packet must be input-only with no converter output"
+            )
+        cases = packet.get("cases")
+        if not isinstance(cases, list):
+            raise ValueError(f"{path}: exclusion packet cases must be an array")
+        for case in cases:
+            if not isinstance(case, dict) or not isinstance(case.get("id"), str):
+                raise ValueError(f"{path}: exclusion packet contains an invalid case ID")
+            excluded_ids.add(case["id"])
+        exclusion_snapshots.append(
+            {
+                "id": str(packet.get("name", path.stem)),
+                "path": relative_path(path),
+                "sha256": sha256_file(path),
+            }
+        )
+
+    if balanced_remaining:
+        quotas: dict[str, int] = {source["id"]: 0 for _, source in sources}
+        ranked_remaining: dict[str, list[dict[str, Any]]] = {}
+        for _, source in sources:
+            ranked_remaining[source["id"]] = sorted(
+                (case for case in source["cases"] if case["id"] not in excluded_ids),
+                key=lambda case: (rank(seed, case["id"]), case["id"]),
+            )
+        remaining_total = sum(len(cases) for cases in ranked_remaining.values())
+        if remaining_total < batch_size:
+            raise ValueError(
+                f"balanced remaining selection requires {batch_size} cases, has {remaining_total}"
+            )
+        selected_by_source: dict[str, list[dict[str, Any]]] = {
+            source_id: [] for source_id in ranked_remaining
+        }
+        selected_total = 0
+        while selected_total < batch_size:
+            progressed = False
+            for source_id in sorted(ranked_remaining):
+                if not ranked_remaining[source_id]:
+                    continue
+                selected_by_source[source_id].append(ranked_remaining[source_id].pop(0))
+                quotas[source_id] += 1
+                selected_total += 1
+                progressed = True
+                if selected_total == batch_size:
+                    break
+            if not progressed:
+                raise ValueError("balanced remaining selection exhausted available cases")
+        selection_policy = "balanced-remaining-deterministic-sha256-v1"
+    elif all_source_cases:
         quotas = {source["id"]: len(source["cases"]) for _, source in sources}
         selection_policy = "all-source-cases-sorted-v1"
     else:
@@ -87,7 +150,10 @@ def build_packet(
     for path, source in sources:
         source_id = source["id"]
         required = quotas[source_id]
-        if all_source_cases:
+        if balanced_remaining:
+            source_cases = selected_by_source[source_id]
+            start = 0
+        elif all_source_cases:
             source_cases = sorted(source["cases"], key=lambda case: case["id"])
             start = 0
         else:
@@ -147,6 +213,8 @@ def build_packet(
     }
     if selection_round is not None:
         packet["selection_round"] = selection_round
+    if exclusion_snapshots:
+        packet["exclusion_snapshots"] = exclusion_snapshots
     return packet
 
 
@@ -232,6 +300,8 @@ def main() -> int:
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
     parser.add_argument("--all-source-cases", action="store_true")
     parser.add_argument("--selection-round", type=int)
+    parser.add_argument("--exclude-packet", action="append", type=Path, default=[])
+    parser.add_argument("--balanced-remaining", action="store_true")
     parser.add_argument("--generated-date", default=dt.date.today().isoformat())
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--markdown-output", type=Path)
@@ -247,6 +317,8 @@ def main() -> int:
         generated_date=args.generated_date,
         all_source_cases=args.all_source_cases,
         selection_round=args.selection_round,
+        exclude_packet_paths=args.exclude_packet,
+        balanced_remaining=args.balanced_remaining,
     )
     errors = validate_packet(packet)
     if errors:

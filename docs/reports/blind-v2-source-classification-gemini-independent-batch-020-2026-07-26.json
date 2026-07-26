@@ -1,0 +1,1044 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "gemini_independent_advisory",
+  "status": "advisory_only",
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "generated_date": "2026-07-26",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-020.json",
+  "packet_sha256": "6c14bba7c61829f927fdbf311040aefb70c71a3bfb19dbebcc9089c6eee4cb42",
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "4a325f1a-c043-4a3a-b183-c690eb446e6d",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 93,
+    "excluded": 7,
+    "policy_violations": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人安全問題，語氣正式。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "安全指南，語氣正式，句子結構完整。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "應對突發事件的指示，語氣正式。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "安全程序說明，簡潔清楚。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人安全建議，簡單明確。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-057",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "安全原則說明，語氣正式。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-067",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "具體行為建議，保持警覺。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-069",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "金融安全提示，具體場景。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-080",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "句子不完整，疑似清單項目，缺乏上下文。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-095",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "車輛安全指示，清楚明確。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-097",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "駕駛安全建議，普遍適用。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-102",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "緊急情況下的應對指示，重要性高。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-128",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "官方建議，指導民眾尋求協助。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "社交媒體隱私建議，使用問句引導思考。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "社交禮儀建議，關於尊重他人。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "網路社交觀察，句子簡短但完整。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "解釋網路行為的比喻，生動易懂。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-062",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "數位安全操作指令，簡潔。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-069",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "引導使用者思考隱私設定，實用性高。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-071",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於網路交友的提醒，揭示風險。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-075",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "網路安全警語，關於個資保護。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-093",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "密碼安全金句，適用各種關係。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-102",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "解釋多重要素驗證的定義。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-103",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "密碼洩露後的標準應對程序。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-106",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "開放式問題，引導思考。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-109",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "軟體更新的重要性，資訊安全領域。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "操作機械前的安全檢查步驟。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "操作機械時的禁止事項，安全規則。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "特定情境下的安全操作指南。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "操作中的注意事項，預防意外。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "安全裝置的使用指示，簡潔有力。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災害清理工作的風險警告。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-025",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "句子不完整，為清單項目，描述一種危險。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-027",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "句子不完整，為清單項目，描述一種傷害。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "處理電力線的安全程序。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "工作現場安全提醒，注意地面狀況。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-045",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "句子不完整，為清單項目，描述一種火災風險。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "工地交通與通訊安全措施。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-054",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "對車輛操作人員的培訓要求。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "車輛安全裝置的強制使用規定。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-057",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "句子不完整，為清單項目，描述一種危險空間。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-060",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人防護裝備的規定，提及法規編號。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-063",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "防止塌陷的工程方法。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-076",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "contact_info"
+      ],
+      "confidence": "high",
+      "notes": "僅包含聯絡電話，無通用內容。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-001",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent"
+      ],
+      "confidence": "high",
+      "notes": "信件開頭，包含特定人名與職稱，非通用語句。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準的商業或官方溝通信件用語。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "官方的制式慰問語句。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "官方的制式服務承諾語句。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "心理健康建議，語氣溫和。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "心理健康建議，關於掌控感。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "對州計劃覆蓋範圍的說明。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "指導民眾如何與政府機構互動。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "指導民眾如何提供資訊給政府機構。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "說明工傷預防的經濟效益，包含具體數字。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於員工留存與企業健康的正面陳述。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "說明安全諮詢服務的價值。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "陳述安全工作的目標。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述諮詢流程中的一個步驟。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "說明顧問可提供的具體服務。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "總結諮詢服務帶來的益處。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述顧問的專業資格與能力。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "工作區交通管制的基本原則。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "列舉可使用的交通控制裝置。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災難應變計畫的一部分，簡潔指令。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於保險覆蓋範圍的重要資訊。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "駕駛時的地震應對指令。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "戶外地震應對指令。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "室內地震應對指令。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地震中的個人防護動作。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地震中的個人防護動作細節。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地震掩護時的附加動作指令。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地震後的安全警告。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "被困時的求救方法。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地震後應對海嘯風險的指示。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的安全警告。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於兒童參與災後清理的禁令。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "解釋洪水成因。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "洪水期間的安全警告。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提供獲取緊急警報的途徑資訊。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "駕駛時的安全禁令。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於尋求醫療協助的建議。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災時尋求庇護的建議。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "獲取最新緊急資訊的指示。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "車輛被困時的應對指示。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "車輛進水時的升級應對指示。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後的通用安全原則。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理的個人防護裝備要求。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "預防觸電的安全指示。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "資訊性陳述，提供颶風季節時間。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "資訊性陳述，提供颱風季節時間。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提醒民眾颶風風險的普遍性。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "對企業的災難應變建議。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "強調聽從官方指示的重要性。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "準備防災物資的指令。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於強制疏散的明確指示。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "風暴期間的避難指令。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於避難地點的具體禁令，防止危險。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後清理時使用防護裝備的指示。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "對特定健康狀況人群的災後環境安全警告。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "災後處理保險事務的建議。"
+    }
+  ]
+}

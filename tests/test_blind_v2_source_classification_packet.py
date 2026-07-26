@@ -29,6 +29,8 @@ SEVENTH_PACKET = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-
 SEVENTH_MARKDOWN = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-batch-007.md"
 EIGHTH_PACKET = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-batch-008.json"
 EIGHTH_MARKDOWN = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-batch-008.md"
+TWENTIETH_PACKET = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-batch-020.json"
+TWENTIETH_MARKDOWN = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-batch-020.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -192,6 +194,82 @@ def test_all_source_cases_mode_keeps_uneven_sources_complete(tmp_path: Path) -> 
     assert validate_packet(packet) == []
 
 
+def test_balanced_remaining_selection_excludes_prior_packets(tmp_path: Path) -> None:
+    first_source = tmp_path / "first.json"
+    second_source = tmp_path / "second.json"
+    exclusion_path = tmp_path / "prior.json"
+    write_source(first_source, "first-source", 8)
+    write_source(second_source, "second-source", 8)
+    exclusion_path.write_text(
+        json.dumps(
+            {
+                "name": "prior-packet",
+                "input_only": True,
+                "converter_output_used": False,
+                "cases": [
+                    {"id": "first-source/case-001"},
+                    {"id": "first-source/case-002"},
+                    {"id": "second-source/case-001"},
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    packet = build_packet(
+        [second_source, first_source],
+        batch_size=10,
+        batch_number=20,
+        seed=20260719,
+        generated_date="2026-07-26",
+        exclude_packet_paths=[exclusion_path],
+        balanced_remaining=True,
+    )
+
+    assert packet["selection_policy"] == "balanced-remaining-deterministic-sha256-v1"
+    assert packet["stats"] == {
+        "total": 10,
+        "by_source": {"first-source": 5, "second-source": 5},
+    }
+    assert {case["id"] for case in packet["cases"]}.isdisjoint(
+        {"first-source/case-001", "first-source/case-002", "second-source/case-001"}
+    )
+    assert packet["exclusion_snapshots"][0]["id"] == "prior-packet"
+    assert validate_packet(packet) == []
+
+
+def test_balanced_remaining_selection_rejects_insufficient_capacity(tmp_path: Path) -> None:
+    source = tmp_path / "source.json"
+    exclusion_path = tmp_path / "prior.json"
+    write_source(source, "source", 3)
+    exclusion_path.write_text(
+        json.dumps(
+            {
+                "name": "prior-packet",
+                "input_only": True,
+                "converter_output_used": False,
+                "cases": [{"id": "source/case-001"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    try:
+        build_packet(
+            [source],
+            batch_size=3,
+            batch_number=20,
+            seed=20260719,
+            generated_date="2026-07-26",
+            exclude_packet_paths=[exclusion_path],
+            balanced_remaining=True,
+        )
+    except ValueError as exc:
+        assert "requires 3 cases, has 2" in str(exc)
+    else:
+        raise AssertionError("insufficient remaining capacity must be rejected")
+
+
 def test_committed_packet_is_valid_input_only_and_reproducible() -> None:
     packet = json.loads(PACKET.read_text(encoding="utf-8"))
 
@@ -299,3 +377,47 @@ def test_eighth_packet_covers_nps_acadia_source_and_is_reproducible() -> None:
     }
     assert find_forbidden_keys(packet) == set()
     assert EIGHTH_MARKDOWN.read_text(encoding="utf-8") == render_markdown(EIGHTH_PACKET, packet)
+
+
+def test_twentieth_packet_balances_unreviewed_public_domain_cases() -> None:
+    packet = json.loads(TWENTIETH_PACKET.read_text(encoding="utf-8"))
+    sources = [
+        ACCURACY_ROOT / "external/cisa-personal-security-zh-hans-v1.json",
+        ACCURACY_ROOT / "external/ftc-heads-up-simplified-v1.json",
+        ACCURACY_ROOT / "external/osha-chainsaw-safety-simplified-v1.json",
+        ACCURACY_ROOT / "external/osha-disaster-cleanup-simplified-v1.json",
+        ACCURACY_ROOT / "external/osha-fallen-workers-family-simplified-v1.json",
+        ACCURACY_ROOT / "external/osha-small-business-consultation-simplified-v1.json",
+        ACCURACY_ROOT / "external/osha-work-zone-traffic-simplified-v1.json",
+        ACCURACY_ROOT / "external/ready-gov-earthquakes-zh-hans-v1.json",
+        ACCURACY_ROOT / "external/ready-gov-floods-zh-hans-v1.json",
+        ACCURACY_ROOT / "external/ready-gov-hurricanes-zh-hans-v1.json",
+    ]
+    exclusions = [
+        ACCURACY_ROOT / f"review-packets/blind-v2-source-classification-batch-{number:03d}.json"
+        for number in (9, 10, 12, 17)
+    ]
+    generated = build_packet(
+        sources,
+        batch_size=100,
+        batch_number=20,
+        seed=20260719,
+        generated_date="2026-07-26",
+        exclude_packet_paths=exclusions,
+        balanced_remaining=True,
+    )
+
+    assert packet == generated
+    assert packet["selection_policy"] == "balanced-remaining-deterministic-sha256-v1"
+    assert packet["stats"]["total"] == 100
+    excluded_ids = {
+        case["id"]
+        for path in exclusions
+        for case in json.loads(path.read_text(encoding="utf-8"))["cases"]
+    }
+    assert {case["id"] for case in packet["cases"]}.isdisjoint(excluded_ids)
+    assert find_forbidden_keys(packet) == set()
+    assert validate_packet(packet) == []
+    assert TWENTIETH_MARKDOWN.read_text(encoding="utf-8") == render_markdown(
+        TWENTIETH_PACKET, packet
+    )

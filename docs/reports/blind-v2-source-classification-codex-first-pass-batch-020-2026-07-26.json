@@ -1,0 +1,1047 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_first_pass",
+  "status": "advisory_only",
+  "reviewer": "Codex",
+  "generated_date": "2026-07-26",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-020.json",
+  "packet_sha256": "6c14bba7c61829f927fdbf311040aefb70c71a3bfb19dbebcc9089c6eee4cb42",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 100,
+    "eligible": 87,
+    "excluded": 13,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-057",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-067",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-069",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；代碼、縮寫、機構名或技術搭配需保守保留。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-080",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-095",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-097",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-102",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-128",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-039",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-062",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-069",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-071",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-075",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-093",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-102",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；代碼、縮寫、機構名或技術搭配需保守保留。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-103",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-106",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-109",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-chainsaw-safety-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-025",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-027",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-045",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-054",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-057",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-060",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；代碼、縮寫、機構名或技術搭配需保守保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-063",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed_source_text"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-076",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "contact_information_only"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-001",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed_source_text"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；代碼、縮寫、機構名或技術搭配需保守保留。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；代碼、縮寫、機構名或技術搭配需保守保留。"
+    },
+    {
+      "id": "osha-fallen-workers-family-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；代碼、縮寫、機構名或技術搭配需保守保留。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-small-business-consultation-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "osha-work-zone-traffic-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-003",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；代碼、縮寫、機構名或技術搭配需保守保留。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；代碼、縮寫、機構名或技術搭配需保守保留。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-008",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "merged_heading"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-024",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "merged_heading"
+      ],
+      "confidence": "high",
+      "notes": "單獨抽出後為條列片段、黏連標題、聯絡資訊或來源文字異常，依 input-only 品質 gate 排除。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；含臺灣用語或專業術語正規化候選。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整且可獨立判讀；適合作為高風險或日常語境的基準轉換案例。"
+    }
+  ]
+}
