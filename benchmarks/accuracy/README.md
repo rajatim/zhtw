@@ -562,8 +562,11 @@ calls or API errors. They agree exactly on 47 cases; 53 differ in script or risk
 Codex synthesis keeps the established `simplified` treatment for Chinese text
 containing Latin identifiers, adopts Gemini baseline risk for UI case 010, and
 otherwise follows Codex, yielding 47 agreements, 52 Codex selections, and one
-Gemini selection. This batch is pending maintainer confirmation and has not
-entered the collecting pool.
+Gemini selection. Maintainer `tim` confirmed the full synthesis on 2026-07-27;
+all 100 inputs passed promotion deduplication and entered the collecting pool.
+The pool is now 1,775 cases, leaving a 4,105-case minimum-pool gap. All source
+classes are below the final 35% cap; AOSP remains the only source above the
+final 10% per-source cap while collection continues.
 
 Rebuild and validate the current collecting pool:
 

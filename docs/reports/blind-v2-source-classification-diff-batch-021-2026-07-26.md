@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 021 (2026-07-26)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `3364332dbd8c9099ee251f466a38a22ba64aee66b00c6d5cdfed6324000f45d9`
 Cases: 100
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 53 advisory disagreements and batch-confirmed the 47 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 標準正式用語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. zhtw-project-balanced-baseline-guard-v1/formal-016
 
@@ -63,7 +63,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的實體名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. zhtw-project-balanced-baseline-guard-v1/formal-017
 
@@ -84,7 +84,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的實體名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. zhtw-project-balanced-baseline-guard-v1/formal-018
 
@@ -105,7 +105,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的實體名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. zhtw-project-balanced-baseline-guard-v1/formal-019
 
@@ -126,7 +126,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的實體名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. zhtw-project-balanced-baseline-guard-v1/formal-020
 
@@ -147,7 +147,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的網址。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. zhtw-project-balanced-baseline-guard-v1/formal-021
 
@@ -168,7 +168,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的實體名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. zhtw-project-balanced-baseline-guard-v1/formal-022
 
@@ -189,7 +189,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的實體名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. zhtw-project-balanced-baseline-guard-v1/formal-023
 
@@ -210,7 +210,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的電子郵件地址。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. zhtw-project-balanced-baseline-guard-v1/formal-024
 
@@ -231,7 +231,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的實體名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. zhtw-project-balanced-baseline-guard-v1/formal-025
 
@@ -252,7 +252,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的引言。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. zhtw-project-balanced-baseline-guard-v1/llm-001
 
@@ -273,7 +273,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 描述大型語言模型或相關系統行為。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. zhtw-project-balanced-baseline-guard-v1/llm-016
 
@@ -294,7 +294,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的技術性字串。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. zhtw-project-balanced-baseline-guard-v1/llm-017
 
@@ -315,7 +315,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的技術性字串。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. zhtw-project-balanced-baseline-guard-v1/llm-018
 
@@ -336,7 +336,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的技術性字串。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 16. zhtw-project-balanced-baseline-guard-v1/llm-019
 
@@ -357,7 +357,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的技術性字串。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 17. zhtw-project-balanced-baseline-guard-v1/llm-020
 
@@ -378,7 +378,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的變數。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 18. zhtw-project-balanced-baseline-guard-v1/llm-021
 
@@ -399,7 +399,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的技術性字串。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 19. zhtw-project-balanced-baseline-guard-v1/llm-022
 
@@ -420,7 +420,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的技術性字串。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 20. zhtw-project-balanced-baseline-guard-v1/llm-023
 
@@ -441,7 +441,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的技術性字串。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 21. zhtw-project-balanced-baseline-guard-v1/llm-024
 
@@ -462,7 +462,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的 XML 標籤。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 22. zhtw-project-balanced-baseline-guard-v1/llm-025
 
@@ -483,7 +483,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應轉換的技術性字串。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 23. zhtw-project-balanced-baseline-guard-v1/social-007
 
@@ -504,7 +504,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 日常社交對話。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 24. zhtw-project-balanced-baseline-guard-v1/social-011
 
@@ -525,7 +525,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 日常社交對話。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 25. zhtw-project-balanced-baseline-guard-v1/social-016
 
@@ -546,7 +546,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的英文名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 26. zhtw-project-balanced-baseline-guard-v1/social-017
 
@@ -567,7 +567,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的標籤。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 27. zhtw-project-balanced-baseline-guard-v1/social-018
 
@@ -588,7 +588,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的代碼。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 28. zhtw-project-balanced-baseline-guard-v1/social-019
 
@@ -609,7 +609,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的引言。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 29. zhtw-project-balanced-baseline-guard-v1/social-020
 
@@ -630,7 +630,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的英文名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 30. zhtw-project-balanced-baseline-guard-v1/social-021
 
@@ -651,7 +651,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 31. zhtw-project-balanced-baseline-guard-v1/social-022
 
@@ -672,7 +672,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的選項標號。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 32. zhtw-project-balanced-baseline-guard-v1/social-023
 
@@ -693,7 +693,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的 URL 參數。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 33. zhtw-project-balanced-baseline-guard-v1/social-024
 
@@ -714,7 +714,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的實體名稱與符號。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 34. zhtw-project-balanced-baseline-guard-v1/social-025
 
@@ -735,7 +735,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的 ID。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 35. zhtw-project-balanced-baseline-guard-v1/ui-002
 
@@ -756,7 +756,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 使用者介面(UI)文字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 36. zhtw-project-balanced-baseline-guard-v1/ui-003
 
@@ -777,7 +777,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 使用者介面(UI)文字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 37. zhtw-project-balanced-baseline-guard-v1/ui-004
 
@@ -798,7 +798,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 使用者介面(UI)文字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 38. zhtw-project-balanced-baseline-guard-v1/ui-005
 
@@ -819,7 +819,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 使用者介面(UI)文字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 39. zhtw-project-balanced-baseline-guard-v1/ui-008
 
@@ -840,7 +840,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 使用者介面(UI)文字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 40. zhtw-project-balanced-baseline-guard-v1/ui-009
 
@@ -861,7 +861,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 使用者介面(UI)文字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 41. zhtw-project-balanced-baseline-guard-v1/ui-010
 
@@ -882,7 +882,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 使用者介面(UI)文字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 42. zhtw-project-balanced-baseline-guard-v1/ui-012
 
@@ -903,7 +903,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 使用者介面(UI)文字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 43. zhtw-project-balanced-baseline-guard-v1/ui-014
 
@@ -924,7 +924,7 @@ Codex reason: 完整且可獨立判讀；含臺灣常用詞或介面用語正規
 
 Gemini reason: 使用者介面(UI)文字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 44. zhtw-project-balanced-baseline-guard-v1/ui-016
 
@@ -945,7 +945,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的變數。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 45. zhtw-project-balanced-baseline-guard-v1/ui-017
 
@@ -966,7 +966,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的產品名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 46. zhtw-project-balanced-baseline-guard-v1/ui-018
 
@@ -987,7 +987,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的錯誤碼。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 47. zhtw-project-balanced-baseline-guard-v1/ui-019
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的 URL 參數。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 48. zhtw-project-balanced-baseline-guard-v1/ui-020
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的路徑。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 49. zhtw-project-balanced-baseline-guard-v1/ui-021
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的快捷鍵組合。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 50. zhtw-project-balanced-baseline-guard-v1/ui-022
 
@@ -1071,7 +1071,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的日期格式碼。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 51. zhtw-project-balanced-baseline-guard-v1/ui-023
 
@@ -1092,7 +1092,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的狀態值。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 52. zhtw-project-balanced-baseline-guard-v1/ui-024
 
@@ -1113,7 +1113,7 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的 HTML 屬性。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 53. zhtw-project-balanced-baseline-guard-v1/ui-025
 
@@ -1134,4 +1134,4 @@ Codex reason: 完整且可獨立判讀；識別碼、引用、標籤或格式字
 
 Gemini reason: 包含不應翻譯的版本號。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`

@@ -152,7 +152,7 @@ is missing.
 - Attribution: Copyright zhtw contributors; initial input-only balanced baseline and preservation scenarios drafted by Codex and subject to independent Gemini and maintainer review.
 - Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
 - Output license: MIT.
-- Bias notice: Synthetic benchmark coverage is not independently observed market-frequency evidence. Independent Gemini review is complete; maintainer input-only confirmation remains pending.
+- Bias notice: Synthetic benchmark coverage is not independently observed market-frequency evidence. Independent Gemini advisory and maintainer input-only review completed on 2026-07-27; all 100 cases passed promotion deduplication.
 
 ## ftc-small-business-simplified-v1
 
