@@ -396,6 +396,35 @@ EIGHTEENTH_GEMINI_CASE_IDS = {
         "ui-019",
     )
 }
+NINETEENTH_PACKET_PATH = ACCURACY_ROOT / (
+    "review-packets/blind-v2-source-classification-batch-019.json"
+)
+NINETEENTH_CODEX_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-first-pass-batch-019-2026-07-26.json"
+)
+NINETEENTH_GEMINI_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-gemini-independent-batch-019-2026-07-26.json"
+)
+NINETEENTH_SYNTHESIS_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-synthesis-batch-019-2026-07-26.json"
+)
+NINETEENTH_DIFF_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-diff-batch-019-2026-07-26.md"
+)
+NINETEENTH_DECISION_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-decision-batch-019-2026-07-26.json"
+)
+NINETEENTH_GEMINI_CASE_IDS = {
+    f"aosp-framework-zh-rcn-v1/{case_id}"
+    for case_id in (
+        "string-41fe8896d8230745",
+        "string-5a5974d7da8c2911",
+        "string-8df6c3c7d0c01665",
+        "string-bcdd661feca46e04",
+        "string-e4707e773f73e282",
+        "string-f614093d4cc36a75",
+    )
+}
 
 
 def load(path: Path) -> dict[str, object]:
@@ -1480,4 +1509,63 @@ def test_eighteenth_maintainer_synthesis_decision_is_reproducible() -> None:
         decision_date="2026-07-26",
         selected_advisory="synthesis",
         synthesis_path=EIGHTEENTH_SYNTHESIS_PATH,
+    )
+
+
+def test_nineteenth_advisories_and_confirmed_synthesis_are_reproducible() -> None:
+    packet = load(NINETEENTH_PACKET_PATH)
+    codex = load(NINETEENTH_CODEX_PATH)
+    gemini = load(NINETEENTH_GEMINI_PATH)
+    synthesis = load(NINETEENTH_SYNTHESIS_PATH)
+    decision = load(NINETEENTH_DECISION_PATH)
+    packet_hash = hashlib.sha256(NINETEENTH_PACKET_PATH.read_bytes()).hexdigest()
+
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    packet_ids = [case["id"] for case in packet["cases"]]
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert [case["id"] for case in synthesis["cases"]] == packet_ids
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 100,
+        "exact": 39,
+        "review_queue": 61,
+        "by_field": {"eligible": 3, "script": 0, "domain": 0, "risk": 59},
+    }
+    assert len(differences) == 61
+    assert gemini["reviewer"] == "Gemini via Gemini CLI"
+    assert gemini["model"] == "gemini-2.5-pro"
+    assert gemini["execution"]["cli_version"] == "0.52.0"
+    assert gemini["execution"]["tool_calls"] == 0
+    assert gemini["execution"]["total_errors"] == 0
+    assert synthesis["stats"] == {
+        "total": 100,
+        "eligible": 97,
+        "excluded": 3,
+        "by_selection_basis": {"agreement": 39, "codex": 55, "gemini": 6},
+    }
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=NINETEENTH_GEMINI_CASE_IDS,
+        generated_date="2026-07-26",
+    )
+    assert NINETEENTH_DIFF_PATH.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-26",
+        maintainer_decisions=decision,
+    )
+
+
+def test_nineteenth_maintainer_synthesis_decision_is_reproducible() -> None:
+    assert load(NINETEENTH_DECISION_PATH) == build_decision(
+        NINETEENTH_PACKET_PATH,
+        NINETEENTH_CODEX_PATH,
+        NINETEENTH_GEMINI_PATH,
+        maintainer="tim",
+        decision_date="2026-07-26",
+        selected_advisory="synthesis",
+        synthesis_path=NINETEENTH_SYNTHESIS_PATH,
     )

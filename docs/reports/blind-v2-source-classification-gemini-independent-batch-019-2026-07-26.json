@@ -1,0 +1,1030 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "stage": "gemini_independent",
+  "status": "advisory_only",
+  "generated_date": "2026-07-26",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-019.json",
+  "packet_sha256": "727c29673b4ee87288d09393ccd74612ac32a74534ca62ce2fd57835edf15641",
+  "policy": "input_only_no_converter_output_no_codex_visibility",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "5ac3da12-9ff7-4f1f-a1b9-b4f5b6ca9be9",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "policy_violations": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-002a18ce98edc794",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準 AOSP UI 權限說明。主要為簡轉繁，如「允许」轉「允許」、「应用」轉「應用程式」、「事务」轉「交易」、「信息」轉「資訊」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-018e31011ab7313f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "需處理術語對應：「进程」應為「處理程序」、「内存」應為「記憶體」、「堆转储」應為「堆積轉儲」。同時需保護 %1$s, %2$s 預留位置。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-023f2382b4138962",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "需保護 `FACTORY_TEST` 不被錯誤轉換。`软件包` 應轉換為 `軟體套件`。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-02a52e73c37acdb6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準 UI 權限說明。主要為簡轉繁，如「应用」轉「應用程式」、「设备」轉「裝置」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-04f19b0f466976cb",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 設定標籤。「漫游」應轉為「漫遊」、「指示符」應轉為「指示器」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0f6ad26054168eee",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串，需保護 `%s` 預留位置。「选择」應轉為「選取」、「格式设置」應轉為「格式設定」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0ffcf4719fc805c4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「查询」應轉為「查詢」、「软件包」應轉為「軟體套件」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-12018ce27baa6ebd",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「重置设备」應轉為「正在重設裝置」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1310b9ae32d82675",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "無障礙功能描述，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-146890244b8c178b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「监听网络状况」應轉為「監聽網路狀況」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-146d19f97c0840d6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「解锁设备麦克风」應轉為「解鎖裝置麥克風」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-15dcb24724143674",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示訊息。「应用」轉「應用程式」、「后台」轉「背景」、「耗电」轉「耗電量」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1aa95729d9b4e93b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「应用」轉「應用程式」、「连接到已配对的蓝牙设备」轉「連線至已配對的藍牙裝置」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1ab375c3e88ffb8d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「输入PIN码进行解锁」轉「輸入 PIN 碼以解鎖」。PIN 碼為台灣慣用語。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1e0015b0876e1140",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「免受录音限制」轉「不受錄音限制」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1f1d41380d5f37ef",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。需保護 `health` 字樣不被轉換。「应用」轉「應用程式」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1fbbc0220477fdbd",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 元素描述，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-25334c4d3b2d3e6c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「无法连接到移动网络」轉「無法連線至行動網路」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-27b291506eb6bc5b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "聯絡人關係標籤，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2a201da8614435b5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限群組名稱，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2b70311ea5f2c9c1",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 服務名稱。「音乐识别管理器服务」轉「音樂辨識管理員服務」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2c7e9ad3a227042d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。需保護 `WiMAX`。詞彙轉換：「应用」→「應用程式」、「确定」→「判斷」、「启用」→「啟用」、「信息」→「資訊」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2cce47053dde5088",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示訊息。需保護 `Android 13`。「应用」轉「應用程式」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2da608a993f54c02",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「不支持卫星紧急呼救功能」轉「不支援衛星緊急呼救功能」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-312fa1bd385e41f3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「有网络获取了设备 ID」轉「有網路擷取了裝置 ID」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-318f4bc7e24721ed",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「点按即可管理网络」轉「輕觸即可管理網路」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-35e6558066934dd2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「点按即可查看相关选项」轉「輕觸即可查看相關選項」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-38559b715b47eb62",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「应用」轉「應用程式」、「停用键锁」轉「停用按鍵鎖」、「关联」轉「相關聯」、「启用」轉「啟用」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-40dccf85e052716c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 元件名稱。「无障碍功能快捷方式选择器」轉「無障礙功能捷徑選擇器」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-41fe8896d8230745",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「正在分享错误报告」轉「正在分享錯誤報告」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-47180d1275b1668a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 時間選擇器標籤，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4851d5d46b06bfc3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 操作按鈕。「切换到工作资料」轉「切換至公司設定檔」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-48a6d27f60ea8e1f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「无法使用移动数据服务」轉「無法使用行動數據服務」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4a29c5797bd60253",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4ade323520ddd9e2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「平板电脑」轉「平板電腦」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4dc65cad3e5bb72b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 確認對話框。需保護 `%1$s`、`%2$s`、`%3$s`。「更新」在台灣語境通常指軟體，若指聯絡人等資料可用「更新」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4eb1e7c2914f92c1",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 設定選項，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-50c612d5a1abb9a3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「查看和控制屏幕」轉「查看及控制螢幕」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-53343decbacde448",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「已超出移动数据流量上限」轉「已超出行動數據流量上限」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-54fefd5d0291a089",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「应用」轉「應用程式」、「平板电脑」轉「平板電腦」、「休眠状态」轉「休眠狀態」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-58160384a156a61e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 錯誤訊息。「漫游」轉「漫遊」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5a5974d7da8c2911",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 錯誤訊息。需保護 `%1$s`。「内存」應轉為「記憶體」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6085144c2705c63d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 標籤。「无障碍功能快捷方式」轉「無障礙功能捷徑」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6a80e5cc31b34245",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「无法使用语音通话服务」轉「無法使用語音通話服務」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6c0d45e8a2c8a72b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 按鈕文字。「关闭快捷方式」轉「關閉捷徑」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6cf09d2f9cd18b7a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6fd3b98a69bf421a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 錯誤訊息。「贵组织」應轉為「貴機構」。「私密空间」在 Android 中通常指「安全資料夾」，但此處保留原文語意，譯為「私密空間」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-744297ed74509a35",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「无需用户操作即可更新应用」轉「不需使用者操作即可更新應用程式」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-75b7e9fdd6bee705",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。需保護 `USB`。「为此设备充电」轉「正在為這個裝置充電」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-790903a7da19497e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「绑定到通知侦听器服务」轉「繫結至通知接聽器服務」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7afbf5733bb6dc9d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-82128ac90962ce4e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 標籤，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8527a21e410c89b6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「配套应用」轉「配套應用程式」、「后台」轉「背景」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8bb09bad9216fb39",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「继续进行来自其他应用的通话」轉「接續其他應用程式的通話」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8c1c23cf92751cd9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 操作按鈕。「取消暂停应用」轉「取消暫停應用程式」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8df6c3c7d0c01665",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 按鈕文字。「前往“设置”」轉「前往「設定」」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8fb0445ed8741b70",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「输入 SIM 卡 PIN 码」轉「輸入 SIM 卡 PIN 碼」。需保護 `SIM` 和 `PIN`。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-90f0add0f478dd2a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 標籤，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9198584bbe35d6a5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 按鈕文字，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-92590365c6d35e58",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「请确认所需的PIN码」轉「請確認所需的 PIN 碼」。需保護 `PIN`。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-931512dca7eef905",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「使用屏幕键盘」轉「使用螢幕鍵盤」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9cfd744ace808666",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「请点按以删除您的脸部模型...」轉「請輕觸以刪除你的人臉模型...」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9f176d552784b47f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 確認對話框。需保護 `%1$s`。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a185971db7d0cb8f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「登录到WLAN网络」應轉為「登入 WLAN 網路」。「WLAN」在台灣較常用「Wi-Fi」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a6c2484b8bab6cc2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 服務名稱。`Twilight` 為服務代號，應保留不翻。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a83149e30ab437b4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「应用」→「應用程式」，「查看手机上的蓝牙配置」→「查看手機上的藍牙設定」，「配对设备」→「已配對的裝置」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-aab3b55e12989ccf",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 錯誤訊息。「无法存储新的人脸数据」轉「無法儲存新的人臉資料」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ab9b7edcb675dc35",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「点按即可取消限制」轉「輕觸即可取消限制」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ae6439f1fadb12e6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 標籤。需保護 `SP`、`Equivalent Home PLMN`、`PIN` 等電信術語縮寫。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b25527b293d5216d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「读取您共享存储空间中的内容」轉「讀取您共用儲存空間中的內容」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b3d985307d59e5c8",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。需保護 `Android TV`。「应用」轉「應用程式」、「休眠状态」轉「休眠狀態」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b6333ff9c1a866f2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「点按即可了解详情或停止应用」轉「輕觸即可瞭解詳情或停止應用程式」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b66616095894f0ae",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「未能识别指纹」轉「無法辨識指紋」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b6950cd8aef4c268",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。需保護 `%s`。「预览效果」轉「預覽效果」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b7877f68622d0dda",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「隐私权」轉「隱私權」、「摄像头使用权限」轉「相機使用權限」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b8eab5143130a9ce",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「访问与您的生命体征相关的传感器数据」轉「存取與你的生命體徵相關的感應器資料」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b907d464bd9b6d1d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 按鈕文字。「结束会话」轉「結束工作階段」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bb62a0d3b16d92e9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「应用」轉「應用程式」、「绑定网络连接」轉「繫結網路連線」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bcdd661feca46e04",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 標籤。「实体键盘」轉「實體鍵盤」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c045271502c3fa09",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。需保護 `SIM`。「解锁」轉「解鎖」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c6286d49853e5688",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 標籤。「外部设备」轉「外部裝置」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d441a065ad3ff01e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「漫游」轉「漫遊」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d6e109ea93d97cc3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 錯誤訊息。「无法复制到剪贴板」轉「無法複製到剪貼簿」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-dad72e1d03268b3b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 標籤。需保護 `SIM`、`PIN`。「网络解锁」轉「網路解鎖」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-db508ee5d7d32308",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 錯誤訊息。「无法截取错误报告的屏幕截图」轉「無法擷取錯誤報告的螢幕截圖」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-de43e4b8c88ed94a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「控制近距离通信」應轉為「控制近距離無線通訊」，或更常用的「控制 NFC」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e4707e773f73e282",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「自动化测试框架模式已启用」轉「自動化測試架構模式已啟用」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e875ab12789ec47f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 操作按鈕。「截取屏幕截图」轉「擷取螢幕截圖」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e9caa8a4c81e562a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 錯誤訊息。需保護 `%1$s`。「平板电脑」轉「平板電腦」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f3d319db6ef6f125",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 功能名稱。「无线显示」轉「無線顯示」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f3f8907609657281",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 設定描述。「本机号码」在台灣通常稱「本機號碼」或「自己的號碼」。整句可改寫為「預設顯示本機號碼，但下次通話不顯示」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f614093d4cc36a75",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「读取同步设置」轉「讀取同步設定」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f7721d671526c67b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。需保護 `IMPI`。「解锁」轉「解鎖」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f7ec00ff7e6cbc3c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。需保護 `TTY`。「对方」轉「對方」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f9b066d1b2a21bc0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 元素描述，簡轉繁即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fa36de99d8f0af41",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 警告訊息。需保護 `USB`。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fab446ca8fd868da",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態訊息。「此设备不支持人脸解锁」轉「此裝置不支援人臉解鎖」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fc6ecb5dc786fc2a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限說明。「访问通知」轉「存取通知」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-feff13dcd4e19596",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "開發者選項狀態訊息。需保護 `MTE` (Memory Tagging Extension)。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ffa64e8101462310",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 動作建議。「使用其他应用」轉「使用其他應用程式」。"
+    }
+  ]
+}

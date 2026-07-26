@@ -48,8 +48,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-017-2026-07-25.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-018-2026-07-26.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-019-2026-07-26.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-018-2026-07-26.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-019-2026-07-26.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -71,34 +73,34 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     generated, report = build_pool(
         list(DECISIONS),
         output=POOL,
-        created_at="2026-07-26T00:00:00+08:00",
+        created_at="2026-07-26T12:00:00+08:00",
     )
 
     assert generated == committed
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 1492,
+        "total": 1589,
         "by_domain": {
             "formal_news": 198,
             "high_stakes": 372,
             "it_api_cli": 302,
             "llm_generated": 137,
             "social_daily": 242,
-            "ui_i18n": 241,
+            "ui_i18n": 338,
         },
         "by_risk": {
-            "baseline_guard": 392,
-            "candidate_gap": 699,
-            "over_conversion_guard": 401,
+            "baseline_guard": 417,
+            "candidate_gap": 756,
+            "over_conversion_guard": 416,
         },
         "by_source_class": {
-            "permissive_license": 465,
+            "permissive_license": 562,
             "project_original": 500,
             "public_domain": 527,
         },
         "by_source": {
-            "aosp-framework-zh-rcn-v1": 100,
+            "aosp-framework-zh-rcn-v1": 197,
             "cisa-cyber-hygiene-zh-hans-v1": 21,
             "cisa-personal-security-zh-hans-v1": 90,
             "cdc-stacks-111808-v1": 18,
@@ -129,8 +131,8 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 1493
-    assert report["promoted"] == 1492
+    assert report["confirmed_eligible"] == 1590
+    assert report["promoted"] == 1589
     assert report["excluded_by_dedupe"] == 1
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
@@ -145,9 +147,10 @@ def test_collecting_pool_is_not_ready_for_formal_sampling() -> None:
     errors = validate_pool(POOL, require_ready=True)
 
     assert any("requires at least 5880 cases" in error for error in errors)
-    assert not any("source class permissive_license exceeds 35%" in error for error in errors)
-    assert any("source class public_domain exceeds 35%" in error for error in errors)
+    assert any("source class permissive_license exceeds 35%" in error for error in errors)
+    assert not any("source class public_domain exceeds 35%" in error for error in errors)
     assert not any("source class project_original exceeds 35%" in error for error in errors)
+    assert any("source aosp-framework-zh-rcn-v1 exceeds 10%" in error for error in errors)
     assert not any("source flores-200-zho-hans-v1 exceeds 10%" in error for error in errors)
     assert not any("source ftc-heads-up-simplified-v1 exceeds 10%" in error for error in errors)
     assert not any("source massive-1-0-zh-cn-v1 exceeds 10%" in error for error in errors)

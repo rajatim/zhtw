@@ -1,0 +1,1027 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex",
+  "stage": "codex_first_pass",
+  "status": "advisory_only",
+  "generated_date": "2026-07-26",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-019.json",
+  "packet_sha256": "727c29673b4ee87288d09393ccd74612ac32a74534ca62ce2fd57835edf15641",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 100,
+    "eligible": 97,
+    "excluded": 3,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-002a18ce98edc794",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-018e31011ab7313f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-023f2382b4138962",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-02a52e73c37acdb6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-04f19b0f466976cb",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0f6ad26054168eee",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0ffcf4719fc805c4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-12018ce27baa6ebd",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1310b9ae32d82675",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-146890244b8c178b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-146d19f97c0840d6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-15dcb24724143674",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1aa95729d9b4e93b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1ab375c3e88ffb8d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1e0015b0876e1140",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1f1d41380d5f37ef",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1fbbc0220477fdbd",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-25334c4d3b2d3e6c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-27b291506eb6bc5b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2a201da8614435b5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2b70311ea5f2c9c1",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2c7e9ad3a227042d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2cce47053dde5088",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2da608a993f54c02",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-312fa1bd385e41f3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-318f4bc7e24721ed",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-35e6558066934dd2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-38559b715b47eb62",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-40dccf85e052716c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-41fe8896d8230745",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-47180d1275b1668a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4851d5d46b06bfc3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-48a6d27f60ea8e1f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4a29c5797bd60253",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4ade323520ddd9e2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4dc65cad3e5bb72b",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "malformed_source_escaping"
+      ],
+      "confidence": "high",
+      "notes": "來源字串含重複或未閉合引號，無法可靠還原實際使用者介面文字。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4eb1e7c2914f92c1",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-50c612d5a1abb9a3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-53343decbacde448",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-54fefd5d0291a089",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-58160384a156a61e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5a5974d7da8c2911",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6085144c2705c63d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6a80e5cc31b34245",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6c0d45e8a2c8a72b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6cf09d2f9cd18b7a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6fd3b98a69bf421a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-744297ed74509a35",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-75b7e9fdd6bee705",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-790903a7da19497e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7afbf5733bb6dc9d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-82128ac90962ce4e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8527a21e410c89b6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8bb09bad9216fb39",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8c1c23cf92751cd9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8df6c3c7d0c01665",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8fb0445ed8741b70",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-90f0add0f478dd2a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9198584bbe35d6a5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-92590365c6d35e58",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-931512dca7eef905",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9cfd744ace808666",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9f176d552784b47f",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "malformed_source_escaping"
+      ],
+      "confidence": "high",
+      "notes": "來源字串含重複或未閉合引號，無法可靠還原實際使用者介面文字。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a185971db7d0cb8f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a6c2484b8bab6cc2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a83149e30ab437b4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-aab3b55e12989ccf",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ab9b7edcb675dc35",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ae6439f1fadb12e6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b25527b293d5216d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b3d985307d59e5c8",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b6333ff9c1a866f2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b66616095894f0ae",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b6950cd8aef4c268",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b7877f68622d0dda",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "malformed_source_escaping"
+      ],
+      "confidence": "high",
+      "notes": "來源字串含重複或未閉合引號，無法可靠還原實際使用者介面文字。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b8eab5143130a9ce",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b907d464bd9b6d1d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bb62a0d3b16d92e9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bcdd661feca46e04",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c045271502c3fa09",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c6286d49853e5688",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d441a065ad3ff01e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d6e109ea93d97cc3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-dad72e1d03268b3b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-db508ee5d7d32308",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-de43e4b8c88ed94a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e4707e773f73e282",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e875ab12789ec47f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e9caa8a4c81e562a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f3d319db6ef6f125",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f3f8907609657281",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f614093d4cc36a75",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f7721d671526c67b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f7ec00ff7e6cbc3c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f9b066d1b2a21bc0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要只需一般字形轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fa36de99d8f0af41",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fab446ca8fd868da",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fc6ecb5dc786fc2a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-feff13dcd4e19596",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；主要需保護 placeholder、縮寫、協定名稱或識別碼。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ffa64e8101462310",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整 AOSP UI 輸入；含臺灣介面或技術用語正規化候選。"
+    }
+  ]
+}

@@ -530,6 +530,16 @@ Gemini selections, producing 35 candidate gaps, 63 over-conversion guards, and
 principle on 2026-07-26. All 100 cases passed promotion deduplication and entered
 the collecting pool, which is now 1,492 cases.
 
+Source-classification batch 019 fixes the second non-overlapping 100-case AOSP
+selection. Codex and Gemini CLI 0.52.0 (`gemini-2.5-pro`) independently reviewed
+the input-only packet and agree on 39 cases; 61 differ, including 3 eligibility
+and 59 risk fields. Codex synthesis recommends 97 eligible cases and excludes 3
+strings with duplicated or unclosed quote escaping. The advisory uses 39
+agreements, 55 Codex selections, and 6 Gemini selections. Maintainer `tim`
+confirmed all three exclusions and the full synthesis on 2026-07-26. All 97
+eligible inputs passed promotion deduplication and entered the collecting pool,
+which is now 1,589 cases, leaving a 4,291-case minimum-pool gap.
+
 Rebuild and validate the current collecting pool:
 
 ```bash
