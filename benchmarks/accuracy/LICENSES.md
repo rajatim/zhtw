@@ -223,6 +223,42 @@ is missing.
 - Bias notice: U.S. earthquake, evacuation, medical, and safety guidance is not
   representative of ordinary Taiwan traffic.
 
+## ready-gov-drought-zh-hans-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Drought*, Simplified Chinese, page last updated October 31, 2025.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded.
+- Attribution: Federal Emergency Management Agency, Ready.gov, Drought, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. drought, water-conservation, agriculture, and public-safety guidance is not representative of ordinary Taiwan traffic.
+
+## ready-gov-home-fires-zh-hans-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Home Fires*, Simplified Chinese, page last updated October 31, 2025.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded.
+- Attribution: Federal Emergency Management Agency, Ready.gov, Home Fires, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. fire-prevention, evacuation, burn, smoke-alarm, and emergency-response guidance is not representative of ordinary Taiwan traffic.
+
+## ready-gov-landslides-debris-flow-zh-hans-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Landslides and Debris Flow*, Simplified Chinese, page last updated November 12, 2025.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded.
+- Attribution: Federal Emergency Management Agency, Ready.gov, Landslides and Debris Flow, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. landslide, debris-flow, evacuation, geology, and public-safety guidance is not representative of ordinary Taiwan traffic.
+
+## ready-gov-radiation-zh-hans-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Radiation Emergencies*, Simplified Chinese, page last updated April 8, 2025.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded.
+- Attribution: Federal Emergency Management Agency, Ready.gov, Radiation Emergencies, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. radiation, nuclear-incident, decontamination, sheltering, and medical guidance is not representative of ordinary Taiwan traffic.
+
 ## osha-electrical-safety-simplified-v1
 
 - Source: OSHA 4281-08 2023, *Electrical Safety*, Chinese Simplified.

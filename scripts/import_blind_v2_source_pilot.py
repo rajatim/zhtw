@@ -52,6 +52,10 @@ SUPPORTED_SOURCES = {
     "ready-gov-floods-zh-hans-v1": "ready_gov_html",
     "ready-gov-hurricanes-zh-hans-v1": "ready_gov_html",
     "ready-gov-earthquakes-zh-hans-v1": "ready_gov_html",
+    "ready-gov-drought-zh-hans-v1": "ready_gov_html",
+    "ready-gov-home-fires-zh-hans-v1": "ready_gov_html",
+    "ready-gov-landslides-debris-flow-zh-hans-v1": "ready_gov_html",
+    "ready-gov-radiation-zh-hans-v1": "ready_gov_html",
     "osha-electrical-safety-simplified-v1": "osha_pdf",
     "osha-chainsaw-safety-simplified-v1": "osha_pdf",
     "osha-work-zone-traffic-simplified-v1": "osha_pdf",
@@ -65,9 +69,13 @@ SUPPORTED_SOURCES = {
     "cisa-personal-security-zh-hans-v1": "cisa_personal_security_pdf",
 }
 READY_GOV_SOURCE_ANCHORS = {
+    "ready-gov-drought-zh-hans-v1": ("干旱", "10/31/2025"),
     "ready-gov-floods-zh-hans-v1": ("洪水", "10/22/2025"),
+    "ready-gov-home-fires-zh-hans-v1": ("家中火灾", "10/31/2025"),
     "ready-gov-hurricanes-zh-hans-v1": ("飓风", "07/09/2026"),
+    "ready-gov-landslides-debris-flow-zh-hans-v1": ("山体滑坡和泥石流", "11/12/2025"),
     "ready-gov-earthquakes-zh-hans-v1": ("地震", "10/22/2025"),
+    "ready-gov-radiation-zh-hans-v1": ("辐射应急", "04/08/2025"),
 }
 OSHA_SOURCE_CONFIG = {
     "osha-electrical-safety-simplified-v1": (2, (2,), "用电安全指南"),

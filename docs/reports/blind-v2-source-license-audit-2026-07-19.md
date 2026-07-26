@@ -436,3 +436,22 @@ permissive sources cannot increase the class-adjusted ceiling until the pool
 grows in other classes. The next source work is therefore to add new
 public-domain or permissioned sources while preserving domain diversity.
 Converter performance must not influence source or strata selection.
+
+## 2026-07-27 Ready.gov capacity expansion
+
+Four additional FEMA-authored Simplified Chinese pages passed the same
+source-level rights and provenance gate used for the existing Ready.gov pilots:
+
+| Source ID | Page revision | Input-only cases |
+|-----------|---------------|-----------------:|
+| `ready-gov-drought-zh-hans-v1` | 2025-10-31 | 73 |
+| `ready-gov-home-fires-zh-hans-v1` | 2025-10-31 | 86 |
+| `ready-gov-landslides-debris-flow-zh-hans-v1` | 2025-11-12 | 61 |
+| `ready-gov-radiation-zh-hans-v1` | 2025-04-08 | 64 |
+
+The four independent public-domain sources add 284 gross candidates. Each
+manifest pins the official page URL, retrieved HTML SHA-256, title and revision
+anchors, 17 U.S.C. 105 basis, attribution, modification notice, and known bias.
+The existing Ready.gov parser excludes navigation, linked resources, page
+furniture, phone/URL instructions, and exact within-source duplicates. No
+converter output, competitor output, or expected text influenced extraction.

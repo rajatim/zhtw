@@ -350,6 +350,15 @@ conservative, excludes layout fragments, and never runs zhtw or creates
 expected text. Batch 003 completed their input-only quality/domain/risk review:
 61 are in the collecting pool and one malformed fragment was excluded.
 
+Four additional Ready.gov public-domain Simplified Chinese pilots add 284
+checksum-pinned input-only candidates: drought 73, home fires 86, landslides
+and debris flow 61, and radiation emergencies 64. Each page remains a separate
+source with its own URL, revision anchor, HTML hash, attribution, and 10%
+source cap. Their shared parser extracts only complete paragraph and list-item
+sentences from the main element and excludes navigation, linked resources,
+phone/URL instructions, and duplicate text. These inputs have not been run
+through zhtw or any competitor and remain pending input-only classification.
+
 Source-classification batch 001 has 40 Codex/Gemini disagreements resolved by
 maintainer `tim`, who accepted the Codex classifications on 2026-07-21. The
 decision is recorded in
@@ -567,6 +576,17 @@ all 100 inputs passed promotion deduplication and entered the collecting pool.
 The pool is now 1,775 cases, leaving a 4,105-case minimum-pool gap. All source
 classes are below the final 35% cap; AOSP remains the only source above the
 final 10% per-source cap while collection continues.
+
+Source-classification batch 022 fixes 100 input-only cases selected equally
+from four new Ready.gov public-domain sources: drought, home fires, landslides
+and debris flow, and radiation emergencies. Codex and Gemini CLI 0.52.0
+(`gemini-2.5-pro`) independently reviewed all IDs without converter output or
+expected text; the accepted Gemini run used one API request, zero tools, and
+zero API errors. They agree exactly on 43 cases and differ on 57, including 7
+eligibility, 26 domain, and 39 risk fields. Codex synthesis recommends 93
+eligible and 7 source-quality exclusions, selecting 43 agreements, 39 Codex
+classifications, and 18 Gemini classifications. Maintainer confirmation is
+pending, so batch 022 has not entered the collecting pool.
 
 Rebuild and validate the current collecting pool:
 

@@ -1,0 +1,1141 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex synthesis after independent Gemini review",
+  "stage": "codex_synthesis_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-27",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-022.json",
+  "packet_sha256": "cb66ffbcc92bbe7b299e40b98b08704283164771c91862cac229930a39b94957",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 100,
+    "eligible": 93,
+    "excluded": 7,
+    "by_selection_basis": {
+      "agreement": 43,
+      "codex": 39,
+      "gemini": 18
+    }
+  },
+  "cases": [
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "translation_artifact"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-057",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-065",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-067",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-068",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-069",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-070",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-071",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-028",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-054",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-057",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-058",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-062",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-063",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-071",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-072",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-082",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-084",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-085",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-014",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "contact_information_only"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "contains_code"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-050",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-051",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "malformed_source_text"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-057",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-058",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-060",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-013",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "gemini"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-057",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-060",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    }
+  ]
+}
