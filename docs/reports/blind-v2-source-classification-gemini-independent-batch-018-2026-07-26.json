@@ -1,0 +1,1030 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "stage": "gemini_independent",
+  "status": "advisory_only",
+  "generated_date": "2026-07-26",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-018.json",
+  "packet_sha256": "583998140501ba09f594fb2ecd48fa95604fbdce7670e773cbad3fd6497248d2",
+  "policy": "input_only_no_converter_output_no_codex_visibility",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "33b9d40c-e34d-4f51-ab66-ef5548fe45c3",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "policy_violations": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 指令，核心價值是保護 git 命令 `git rebase --onto release main feature` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 指令，核心價值是保護 kubectl 命令 `kubectl get pods -n staging` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，涉及術語正規化 (服务器->伺服器, 标头->標頭)，同時需保護 `HTTP 429` 與 `Retry-After`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 HTTP 標頭 `If-None-Match` 與 `ETag` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護路徑 `/healthz` 不變，同時有術語正規化需求 (负载均衡器->負載平衡器)。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護標頭 `X-Request-ID` 與 `access token` 概念不被錯誤翻譯。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 `Content-Type` 與 `application/json` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護專有名詞 `OAuth 2.0`, `Authorization Code`, `PKCE` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 JWT 欄位名 `iss`, `aud`, `exp` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 `TLS 1.3` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 `2.4.1` 與 `2.5.0-beta.1` 的版本號格式。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 指令，核心價值是保護套件名稱 `@acme/design-system` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護檔案路徑 `/etc/acme/service.yaml` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護環境變數 `DATABASE_URL` 與 `worker` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 SQL 欄位 `user_sessions.last_seen_at` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護正規表示式 `^[a-z0-9_-]{3,32}$` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 `SHA-256` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 `trace_id` 與 UUID `550e8400-e29b-41d4-a716-446655440000` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 ISO 8601 日期時間格式 `2026-07-26T14:30:00+08:00` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 IP 與埠號 `127.0.0.1:8080` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 IPv6 CIDR `2001:db8::/32` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 MIME 類型 `image/avif` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 HTTP 狀態碼 `201 Created` 不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 `userId`, `displayName`, `camelCase` 等命名慣例。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 YAML 語法 `&defaults` 與 `*defaults`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 指令，核心價值是保護 `npm ci` 與 `package-lock.json`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 指令，核心價值是保護 `cargo test --workspace`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 指令，核心價值是保護 `uv run pytest -q`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 Java class name `com.acme.billing.Main`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 C# 屬性 `Nullable` 與值 `enable`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 Docker image tag `ghcr.io/acme/api:2026.07`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 Kubernetes Secret name `billing-db`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 Terraform S3 path `s3://acme-tfstate/prod.tfstate`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 Git ref `refs/heads/main`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 GraphQL 語法 `node(id: $id)` 與 `title`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 gRPC service name `acme.billing.v1.InvoiceService`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 WebSocket subprotocol `graphql-transport-ws`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 message topic `orders.created.v2`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 Redis key 格式 `session:{user_id}`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 Prometheus 指標名稱 `http_request_duration_seconds`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 `p95` 與 `500 ms`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 release tag 格式 `web @4.8.2`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 OpenTelemetry span 屬性鍵 `http.request.method`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 CSP `default-src` 與 `'self'`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 Cookie 屬性 `Secure`, `HttpOnly`, `SameSite=Lax`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 HTTP 方法 `OPTIONS`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護快取控制標頭 `max-age=3600, immutable`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護資料庫遷移編號 `202607260915_add_index`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護備份檔名格式 `customers_2026-07-26.sql.gz`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/it-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 IT 技術陳述，核心價值是保護 `exit code 137`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護參數 `temperature` 與值 `0.2`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護參數 `top_p` 與 `temperature`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護參數 `max_tokens`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護角色 `system`, `user`, `assistant`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護工具調用名稱 `get_weather` 與參數 `location`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `response_format` 與 `JSON Schema`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `JSON mode` 與 `JSON`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `embedding_dimensions`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `cosine similarity`，同時有術語正規化需求 (检索->檢索)。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，涉及術語正規化 (流程->流程, 检索->檢索, 文档->文件, 上下文->上下文, 模型->模型)，同時需保護 `RAG`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，涉及術語正規化 (提示注入->提示詞注入)。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `safety_label`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護引用的英文字串 `Do not translate this string`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 Markdown 語法 ```json。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 LaTeX 語法 `$P(y\\mid x)$`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護引用標記格式 `[doc-3:12]`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護模板變數 `{{question}}`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `custom_id`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `delta`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `finish_reason` 與 `tool_calls`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `usage`, `input_tokens`, `output_tokens`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `model`, `prompt_hash`, `schema_version`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護評測指標 `exact_match` 與 `pass@1`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `A/B`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `malformed_response`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `allowlist`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `conversation_id`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護 `CVE-2026-12345`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護時間碼格式 `00:01:23.450`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 LLM 技術陳述，核心價值是保護語言標籤 `zh-TW`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護 i18n placeholder `{count}`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護 i18n placeholder `%1$s`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護 ICU MessageFormat `{count, plural, one {# item} other {# items}}`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護快捷鍵 `Ctrl+Shift+P`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護應用名稱 `Acme Drive`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護 URL `https://example.com/privacy?lang=zh-CN`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護 email `help @example.com` 的格式。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，單純的狀態文字，只需字型轉換。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 技術陳述，核心價值是保護 HTML 屬性 `aria-label`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 技術陳述，核心價值是保護日期格式 `YYYY-MM-DD`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護貨幣與金額格式 `NT$1,280`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 技術陳述，核心價值是保護 `RTL`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 技術陳述，核心價值是保護換行符 `\\n`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護分頁名稱 `General`, `Privacy`, `Advanced`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，單純的描述性文字，只需字型轉換。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護編號格式 `build #1842`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護副檔名 `.csv` 與 `.tsv`。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 佔位文字，只需字型轉換。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 空白狀態文字，只需字型轉換。"
+    },
+    {
+      "id": "zhtw-project-it-llm-ui-guard-v1/ui-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡體 UI 字串，核心價值是保護百分比格式 `75%`。"
+    }
+  ]
+}

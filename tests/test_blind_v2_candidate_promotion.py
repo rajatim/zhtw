@@ -46,8 +46,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-016-2026-07-24.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-017-2026-07-25.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-018-2026-07-26.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-017-2026-07-25.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-018-2026-07-26.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -69,30 +71,30 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     generated, report = build_pool(
         list(DECISIONS),
         output=POOL,
-        created_at="2026-07-25T00:00:00+08:00",
+        created_at="2026-07-26T00:00:00+08:00",
     )
 
     assert generated == committed
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 1392,
+        "total": 1492,
         "by_domain": {
             "formal_news": 198,
             "high_stakes": 372,
-            "it_api_cli": 252,
-            "llm_generated": 107,
+            "it_api_cli": 302,
+            "llm_generated": 137,
             "social_daily": 242,
-            "ui_i18n": 221,
+            "ui_i18n": 241,
         },
         "by_risk": {
-            "baseline_guard": 390,
-            "candidate_gap": 664,
-            "over_conversion_guard": 338,
+            "baseline_guard": 392,
+            "candidate_gap": 699,
+            "over_conversion_guard": 401,
         },
         "by_source_class": {
             "permissive_license": 465,
-            "project_original": 400,
+            "project_original": 500,
             "public_domain": 527,
         },
         "by_source": {
@@ -122,12 +124,13 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-formal-entity-guard-v1": 100,
             "zhtw-project-formal-llm-semantic-v1": 100,
             "zhtw-project-it-api-cli-v1": 100,
+            "zhtw-project-it-llm-ui-guard-v1": 100,
             "zhtw-project-llm-product-v1": 50,
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 1393
-    assert report["promoted"] == 1392
+    assert report["confirmed_eligible"] == 1493
+    assert report["promoted"] == 1492
     assert report["excluded_by_dedupe"] == 1
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {

@@ -308,6 +308,15 @@ recommends all 100 as eligible, using 73 agreements, 12 Codex selections, and
 confirmed the synthesis on 2026-07-24; all 100 passed exact/reference and
 character 5-gram Jaccard 0.85 deduplication and entered the collecting pool.
 
+The project-original `zhtw-project-it-llm-ui-guard-v1` pilot adds 100
+Codex-drafted input-only candidates: 50 IT/API/CLI, 30 LLM, and 20 UI cases.
+It targets underrepresented over-conversion guards around identifiers,
+commands, protocol fields, placeholders, formatting syntax, and model
+parameters. It is synthetic coverage rather than market-frequency evidence.
+Independent Gemini review and maintainer confirmation completed on 2026-07-26.
+For `ui-018`, the maintainer confirmed that the later expected wording must use
+`搜尋框的提示文字為「輸入關鍵字」`, not a mechanical `佔位符` substitution.
+
 The CISA-authored public-domain *Cyber Hygiene* Simplified Chinese pilot is
 checksum-pinned and uses PDF author, page-count, title, and body anchors. Its
 conservative parser retains 24 complete input-only sentences after excluding
@@ -509,6 +518,17 @@ risk labels. Maintainer `tim` confirmed the audited Codex synthesis on
 All 90 eligible inputs passed exact/reference and character 5-gram Jaccard 0.85
 deduplication and entered the pool. The pool is now 1,392 cases, leaving a
 4,488-case minimum-pool gap.
+
+Source-classification batch 018 covers 100 project-original IT, LLM, and UI
+guard inputs. Codex and Gemini CLI 0.52.0 (`gemini-2.5-pro`) independently
+reviewed the same input-only packet with no converter output or expected text.
+They agree on eligibility, script, and domain for all 100 cases, with 61 exact
+four-field classifications and 39 risk-label differences. Codex synthesis
+recommends all 100 as eligible: 61 agreements, 33 Codex selections, and 6
+Gemini selections, producing 35 candidate gaps, 63 over-conversion guards, and
+2 baselines. Maintainer `tim` confirmed the synthesis and the `ui-018` wording
+principle on 2026-07-26. All 100 cases passed promotion deduplication and entered
+the collecting pool, which is now 1,492 cases.
 
 Rebuild and validate the current collecting pool:
 

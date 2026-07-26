@@ -134,7 +134,16 @@ is missing.
 - Attribution: Copyright zhtw contributors; initial input-only formal entity-guard scenarios drafted by Codex and subject to independent Gemini and maintainer review.
 - Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
 - Output license: MIT.
-- Bias notice: Synthetic challenge coverage is not independently observed market-frequency evidence. Domain and risk remain pending input-only review.
+- Bias notice: Synthetic challenge coverage is not independently observed market-frequency evidence. Independent Gemini advisory and maintainer input-only review completed on 2026-07-24.
+
+## zhtw-project-it-llm-ui-guard-v1
+
+- Source: zhtw project-original IT, LLM, and UI guard input-only scenarios drafted on 2026-07-26.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only IT, LLM, and UI guard scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: Synthetic challenge coverage is not independently observed market-frequency evidence. Independent Gemini advisory and maintainer input-only review completed on 2026-07-26.
 
 ## ftc-small-business-simplified-v1
 
