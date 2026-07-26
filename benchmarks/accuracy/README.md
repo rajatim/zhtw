@@ -546,8 +546,12 @@ checksum-pinned exclusion of batches 009, 010, 012, and 017. Codex and Gemini
 CLI 0.52.0 (`gemini-2.5-pro`) independently reviewed the input-only packet with
 zero Gemini tool calls or API errors. They agree exactly on 23 cases; 77 differ,
 including 6 eligibility, 34 domain, and 59 risk fields. Codex synthesis
-recommends 87 eligible cases and 13 source-quality exclusions. This batch is
-pending maintainer confirmation and has not entered the collecting pool.
+recommends 87 eligible cases and 13 source-quality exclusions. Maintainer `tim`
+confirmed the full synthesis and all six Codex eligibility exclusions on
+2026-07-26. Of the 87 eligible inputs, 86 passed promotion deduplication and
+entered the collecting pool; Ready.gov earthquake `sentence-048` was excluded
+as an exact duplicate. The pool is now 1,675 cases, leaving a 4,205-case
+minimum-pool gap.
 
 Rebuild and validate the current collecting pool:
 

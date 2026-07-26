@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 020 (2026-07-26)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `6c14bba7c61829f927fdbf311040aefb70c71a3bfb19dbebcc9089c6eee4cb42`
 Cases: 100
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 77 advisory disagreements and batch-confirmed the 23 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 個人安全問題，語氣正式。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 02. cisa-personal-security-zh-hans-v1/sentence-040
 
@@ -63,7 +63,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 應對突發事件的指示，語氣正式。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 03. cisa-personal-security-zh-hans-v1/sentence-053
 
@@ -84,7 +84,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 個人安全建議，簡單明確。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 04. cisa-personal-security-zh-hans-v1/sentence-067
 
@@ -105,7 +105,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 具體行為建議，保持警覺。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 05. cisa-personal-security-zh-hans-v1/sentence-069
 
@@ -126,7 +126,7 @@ Codex reason: 完整且可獨立判讀；代碼、縮寫、機構名或技術搭
 
 Gemini reason: 金融安全提示，具體場景。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 06. cisa-personal-security-zh-hans-v1/sentence-080
 
@@ -147,7 +147,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 句子不完整，疑似清單項目，缺乏上下文。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 07. cisa-personal-security-zh-hans-v1/sentence-095
 
@@ -168,7 +168,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 車輛安全指示，清楚明確。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 08. cisa-personal-security-zh-hans-v1/sentence-102
 
@@ -189,7 +189,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 緊急情況下的應對指示，重要性高。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 09. cisa-personal-security-zh-hans-v1/sentence-128
 
@@ -210,7 +210,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 官方建議，指導民眾尋求協助。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 10. ftc-heads-up-simplified-v1/sentence-015
 
@@ -231,7 +231,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 社交媒體隱私建議，使用問句引導思考。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 11. ftc-heads-up-simplified-v1/sentence-019
 
@@ -252,7 +252,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 社交禮儀建議，關於尊重他人。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 12. ftc-heads-up-simplified-v1/sentence-034
 
@@ -273,7 +273,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 網路社交觀察，句子簡短但完整。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 13. ftc-heads-up-simplified-v1/sentence-039
 
@@ -294,7 +294,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 解釋網路行為的比喻，生動易懂。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 14. ftc-heads-up-simplified-v1/sentence-062
 
@@ -315,7 +315,7 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 數位安全操作指令，簡潔。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 15. ftc-heads-up-simplified-v1/sentence-069
 
@@ -336,7 +336,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 引導使用者思考隱私設定，實用性高。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 16. ftc-heads-up-simplified-v1/sentence-071
 
@@ -357,7 +357,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 關於網路交友的提醒，揭示風險。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 17. ftc-heads-up-simplified-v1/sentence-075
 
@@ -378,7 +378,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 網路安全警語，關於個資保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 18. ftc-heads-up-simplified-v1/sentence-093
 
@@ -399,7 +399,7 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 密碼安全金句，適用各種關係。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 19. ftc-heads-up-simplified-v1/sentence-102
 
@@ -420,7 +420,7 @@ Codex reason: 完整且可獨立判讀；代碼、縮寫、機構名或技術搭
 
 Gemini reason: 解釋多重要素驗證的定義。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 20. ftc-heads-up-simplified-v1/sentence-103
 
@@ -441,7 +441,7 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 密碼洩露後的標準應對程序。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 21. ftc-heads-up-simplified-v1/sentence-106
 
@@ -462,7 +462,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 開放式問題，引導思考。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 22. ftc-heads-up-simplified-v1/sentence-109
 
@@ -483,7 +483,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 軟體更新的重要性，資訊安全領域。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 23. osha-chainsaw-safety-simplified-v1/sentence-002
 
@@ -504,7 +504,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 操作機械前的安全檢查步驟。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 24. osha-chainsaw-safety-simplified-v1/sentence-009
 
@@ -525,7 +525,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 操作機械時的禁止事項，安全規則。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 25. osha-chainsaw-safety-simplified-v1/sentence-012
 
@@ -546,7 +546,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 特定情境下的安全操作指南。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 26. osha-chainsaw-safety-simplified-v1/sentence-016
 
@@ -567,7 +567,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 操作中的注意事項，預防意外。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 27. osha-chainsaw-safety-simplified-v1/sentence-020
 
@@ -588,7 +588,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 安全裝置的使用指示，簡潔有力。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 28. osha-disaster-cleanup-simplified-v1/sentence-025
 
@@ -609,7 +609,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 句子不完整，為清單項目，描述一種危險。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 29. osha-disaster-cleanup-simplified-v1/sentence-027
 
@@ -630,7 +630,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 句子不完整，為清單項目，描述一種傷害。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 30. osha-disaster-cleanup-simplified-v1/sentence-028
 
@@ -651,7 +651,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 處理電力線的安全程序。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 31. osha-disaster-cleanup-simplified-v1/sentence-045
 
@@ -672,7 +672,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 句子不完整，為清單項目，描述一種火災風險。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 32. osha-disaster-cleanup-simplified-v1/sentence-053
 
@@ -693,7 +693,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 工地交通與通訊安全措施。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 33. osha-disaster-cleanup-simplified-v1/sentence-054
 
@@ -714,7 +714,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 對車輛操作人員的培訓要求。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 34. osha-disaster-cleanup-simplified-v1/sentence-055
 
@@ -735,7 +735,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 車輛安全裝置的強制使用規定。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 35. osha-disaster-cleanup-simplified-v1/sentence-057
 
@@ -756,7 +756,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 句子不完整，為清單項目，描述一種危險空間。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 36. osha-disaster-cleanup-simplified-v1/sentence-060
 
@@ -777,7 +777,7 @@ Codex reason: 完整且可獨立判讀；代碼、縮寫、機構名或技術搭
 
 Gemini reason: 個人防護裝備的規定，提及法規編號。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 37. osha-disaster-cleanup-simplified-v1/sentence-063
 
@@ -798,7 +798,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 防止塌陷的工程方法。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 38. osha-disaster-cleanup-simplified-v1/sentence-076
 
@@ -819,7 +819,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 僅包含聯絡電話，無通用內容。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 39. osha-fallen-workers-family-simplified-v1/sentence-001
 
@@ -840,7 +840,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 信件開頭，包含特定人名與職稱，非通用語句。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 40. osha-fallen-workers-family-simplified-v1/sentence-003
 
@@ -861,7 +861,7 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 標準的商業或官方溝通信件用語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 41. osha-fallen-workers-family-simplified-v1/sentence-005
 
@@ -882,7 +882,7 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 官方的制式慰問語句。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 42. osha-fallen-workers-family-simplified-v1/sentence-006
 
@@ -903,7 +903,7 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 官方的制式服務承諾語句。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 43. osha-fallen-workers-family-simplified-v1/sentence-009
 
@@ -924,7 +924,7 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 心理健康建議，語氣溫和。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 44. osha-fallen-workers-family-simplified-v1/sentence-010
 
@@ -945,7 +945,7 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 心理健康建議，關於掌控感。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 45. osha-fallen-workers-family-simplified-v1/sentence-012
 
@@ -966,7 +966,7 @@ Codex reason: 完整且可獨立判讀；代碼、縮寫、機構名或技術搭
 
 Gemini reason: 對州計劃覆蓋範圍的說明。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 46. osha-fallen-workers-family-simplified-v1/sentence-018
 
@@ -987,7 +987,7 @@ Codex reason: 完整且可獨立判讀；代碼、縮寫、機構名或技術搭
 
 Gemini reason: 指導民眾如何與政府機構互動。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 47. osha-fallen-workers-family-simplified-v1/sentence-019
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整且可獨立判讀；代碼、縮寫、機構名或技術搭
 
 Gemini reason: 指導民眾如何提供資訊給政府機構。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 48. osha-small-business-consultation-simplified-v1/sentence-001
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 說明工傷預防的經濟效益，包含具體數字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 49. osha-small-business-consultation-simplified-v1/sentence-003
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 關於員工留存與企業健康的正面陳述。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 50. osha-small-business-consultation-simplified-v1/sentence-006
 
@@ -1071,7 +1071,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 說明安全諮詢服務的價值。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 51. osha-small-business-consultation-simplified-v1/sentence-009
 
@@ -1092,7 +1092,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 陳述安全工作的目標。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 52. osha-small-business-consultation-simplified-v1/sentence-012
 
@@ -1113,7 +1113,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 描述諮詢流程中的一個步驟。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 53. osha-small-business-consultation-simplified-v1/sentence-014
 
@@ -1134,7 +1134,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 說明顧問可提供的具體服務。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 54. osha-small-business-consultation-simplified-v1/sentence-016
 
@@ -1155,7 +1155,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 總結諮詢服務帶來的益處。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 55. osha-small-business-consultation-simplified-v1/sentence-020
 
@@ -1176,7 +1176,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 描述顧問的專業資格與能力。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 56. osha-work-zone-traffic-simplified-v1/sentence-003
 
@@ -1197,7 +1197,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 工作區交通管制的基本原則。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 57. osha-work-zone-traffic-simplified-v1/sentence-006
 
@@ -1218,7 +1218,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 列舉可使用的交通控制裝置。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 58. ready-gov-earthquakes-zh-hans-v1/sentence-015
 
@@ -1239,7 +1239,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 關於保險覆蓋範圍的重要資訊。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 59. ready-gov-earthquakes-zh-hans-v1/sentence-017
 
@@ -1260,7 +1260,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 駕駛時的地震應對指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 60. ready-gov-earthquakes-zh-hans-v1/sentence-020
 
@@ -1281,7 +1281,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 室內地震應對指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 61. ready-gov-earthquakes-zh-hans-v1/sentence-037
 
@@ -1302,7 +1302,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 地震後應對海嘯風險的指示。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 62. ready-gov-floods-zh-hans-v1/sentence-003
 
@@ -1323,7 +1323,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 解釋洪水成因。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 63. ready-gov-floods-zh-hans-v1/sentence-016
 
@@ -1344,7 +1344,7 @@ Codex reason: 完整且可獨立判讀；代碼、縮寫、機構名或技術搭
 
 Gemini reason: 提供獲取緊急警報的途徑資訊。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 64. ready-gov-floods-zh-hans-v1/sentence-032
 
@@ -1365,7 +1365,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 關於尋求醫療協助的建議。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 65. ready-gov-floods-zh-hans-v1/sentence-033
 
@@ -1386,7 +1386,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 災時尋求庇護的建議。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 66. ready-gov-floods-zh-hans-v1/sentence-034
 
@@ -1407,7 +1407,7 @@ Codex reason: 完整且可獨立判讀；代碼、縮寫、機構名或技術搭
 
 Gemini reason: 獲取最新緊急資訊的指示。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 67. ready-gov-floods-zh-hans-v1/sentence-050
 
@@ -1428,7 +1428,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 預防觸電的安全指示。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 68. ready-gov-hurricanes-zh-hans-v1/sentence-006
 
@@ -1449,7 +1449,7 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 資訊性陳述，提供颶風季節時間。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 69. ready-gov-hurricanes-zh-hans-v1/sentence-007
 
@@ -1470,7 +1470,7 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 資訊性陳述，提供颱風季節時間。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 70. ready-gov-hurricanes-zh-hans-v1/sentence-008
 
@@ -1491,7 +1491,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 提醒民眾颶風風險的普遍性。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 71. ready-gov-hurricanes-zh-hans-v1/sentence-012
 
@@ -1512,7 +1512,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 對企業的災難應變建議。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 72. ready-gov-hurricanes-zh-hans-v1/sentence-015
 
@@ -1533,7 +1533,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 強調聽從官方指示的重要性。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 73. ready-gov-hurricanes-zh-hans-v1/sentence-024
 
@@ -1554,7 +1554,7 @@ Codex reason: 單獨抽出後為條列片段、黏連標題、聯絡資訊或來
 
 Gemini reason: 準備防災物資的指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 74. ready-gov-hurricanes-zh-hans-v1/sentence-029
 
@@ -1575,7 +1575,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 關於強制疏散的明確指示。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 75. ready-gov-hurricanes-zh-hans-v1/sentence-031
 
@@ -1596,7 +1596,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 風暴期間的避難指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 76. ready-gov-hurricanes-zh-hans-v1/sentence-039
 
@@ -1617,7 +1617,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 災後清理時使用防護裝備的指示。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`
 
 ### 77. ready-gov-hurricanes-zh-hans-v1/sentence-052
 
@@ -1638,4 +1638,4 @@ Codex reason: 完整且可獨立判讀；適合作為高風險或日常語境的
 
 Gemini reason: 災後處理保險事務的建議。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-26`

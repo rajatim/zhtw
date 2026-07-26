@@ -440,6 +440,9 @@ TWENTIETH_SYNTHESIS_PATH = ROOT / (
 TWENTIETH_DIFF_PATH = ROOT / (
     "docs/reports/blind-v2-source-classification-diff-batch-020-2026-07-26.md"
 )
+TWENTIETH_DECISION_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-decision-batch-020-2026-07-26.json"
+)
 
 
 def load(path: Path) -> dict[str, object]:
@@ -1586,11 +1589,12 @@ def test_nineteenth_maintainer_synthesis_decision_is_reproducible() -> None:
     )
 
 
-def test_twentieth_advisories_and_pending_synthesis_are_reproducible() -> None:
+def test_twentieth_advisories_and_confirmed_synthesis_are_reproducible() -> None:
     packet = load(TWENTIETH_PACKET_PATH)
     codex = load(TWENTIETH_CODEX_PATH)
     gemini = load(TWENTIETH_GEMINI_PATH)
     synthesis = load(TWENTIETH_SYNTHESIS_PATH)
+    decision = load(TWENTIETH_DECISION_PATH)
     packet_hash = hashlib.sha256(TWENTIETH_PACKET_PATH.read_bytes()).hexdigest()
 
     assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
@@ -1628,4 +1632,17 @@ def test_twentieth_advisories_and_pending_synthesis_are_reproducible() -> None:
         codex,
         gemini,
         generated_date="2026-07-26",
+        maintainer_decisions=decision,
+    )
+
+
+def test_twentieth_maintainer_synthesis_decision_is_reproducible() -> None:
+    assert load(TWENTIETH_DECISION_PATH) == build_decision(
+        TWENTIETH_PACKET_PATH,
+        TWENTIETH_CODEX_PATH,
+        TWENTIETH_GEMINI_PATH,
+        maintainer="tim",
+        decision_date="2026-07-26",
+        selected_advisory="synthesis",
+        synthesis_path=TWENTIETH_SYNTHESIS_PATH,
     )
