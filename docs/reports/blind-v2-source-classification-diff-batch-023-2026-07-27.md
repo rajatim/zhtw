@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 023 (2026-07-27)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `a932c5d04aafd958ae618db3888473a875d479ad753a90c43cbe8bf1009c106b`
 Cases: 100
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 15 advisory disagreements and batch-confirmed the 85 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI訊息，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. chromium-strings-zh-cn-v1/translation-2135919691573380097
 
@@ -63,7 +63,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI標籤，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. chromium-strings-zh-cn-v1/translation-3667616615096815454
 
@@ -84,7 +84,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI錯誤訊息，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. chromium-strings-zh-cn-v1/translation-4549180975214802957
 
@@ -105,7 +105,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI說明文字，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. chromium-strings-zh-cn-v1/translation-4598116752460667024
 
@@ -126,7 +126,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI操作提示，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. chromium-strings-zh-cn-v1/translation-5174969993834422967
 
@@ -147,7 +147,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI提示訊息，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. chromium-strings-zh-cn-v1/translation-5346389065299425353
 
@@ -168,7 +168,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI說明文字，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. chromium-strings-zh-cn-v1/translation-5579324208890605088
 
@@ -189,7 +189,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI錯誤訊息，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. chromium-strings-zh-cn-v1/translation-5924017743176219022
 
@@ -210,7 +210,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI狀態訊息，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. chromium-strings-zh-cn-v1/translation-6182736845697986886
 
@@ -231,7 +231,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI錯誤訊息，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. chromium-strings-zh-cn-v1/translation-6648212540664651655
 
@@ -252,7 +252,7 @@ Codex reason: 字串以「請前往」結尾但缺少目的地，是脫離 place
 
 Gemini reason: UI說明文字，簡體混合拉丁產品名，有過度轉換風險。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. chromium-strings-zh-cn-v1/translation-7413153308467572558
 
@@ -273,7 +273,7 @@ Codex reason: 字串以「請前往」結尾但缺少目的地，是脫離 place
 
 Gemini reason: UI說明文字，簡體混合拉丁產品名，有過度轉換風險。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. chromium-strings-zh-cn-v1/translation-7624307931717240213
 
@@ -294,7 +294,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI法律條款說明，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. chromium-strings-zh-cn-v1/translation-8556420416730706394
 
@@ -315,7 +315,7 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI操作提示，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. chromium-strings-zh-cn-v1/translation-945522503751344254
 
@@ -336,4 +336,4 @@ Codex reason: 完整 UI 字串；含中國軟體用語或臺灣慣用詞差異�
 
 Gemini reason: UI按鈕，純簡體，為基準轉換標的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`

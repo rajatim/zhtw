@@ -601,8 +601,12 @@ packet yielded 85 exact Codex/Gemini classifications and 15 review-queue cases:
 13 risk-bucket differences and 2 truncated fragments that only Codex excluded.
 Gemini ran independently with zero tool calls and zero reported errors. Codex
 synthesis recommends 98 eligible cases and 2 exclusions, selecting the 85
-agreements and Codex for all 15 differences. Maintainer confirmation remains
-pending, so none of these cases has entered the 1,868-case collecting pool.
+agreements and Codex for all 15 differences. Maintainer `tim` confirmed the
+full synthesis on 2026-07-27, and all 98 eligible inputs passed promotion
+deduplication and entered the collecting pool. The pool is now 1,966 cases,
+leaving a 3,914-case minimum-pool gap. Public-domain material remains slightly
+above the final 35% source-class cap, and AOSP remains slightly above the final
+10% per-source cap while collection continues.
 
 Rebuild and validate the current collecting pool:
 
