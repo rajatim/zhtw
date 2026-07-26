@@ -477,6 +477,9 @@ TWENTY_SECOND_SYNTHESIS_PATH = ROOT / (
 TWENTY_SECOND_DIFF_PATH = ROOT / (
     "docs/reports/blind-v2-source-classification-diff-batch-022-2026-07-27.md"
 )
+TWENTY_SECOND_DECISION_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-decision-batch-022-2026-07-27.json"
+)
 TWENTY_SECOND_GEMINI_CASE_IDS = {
     "ready-gov-drought-zh-hans-v1/sentence-011",
     "ready-gov-home-fires-zh-hans-v1/sentence-045",
@@ -1770,11 +1773,12 @@ def test_twenty_first_maintainer_synthesis_decision_is_reproducible() -> None:
     )
 
 
-def test_twenty_second_advisories_and_pending_synthesis_are_reproducible() -> None:
+def test_twenty_second_advisories_synthesis_and_decision_are_reproducible() -> None:
     packet = load(TWENTY_SECOND_PACKET_PATH)
     codex = load(TWENTY_SECOND_CODEX_PATH)
     gemini = load(TWENTY_SECOND_GEMINI_PATH)
     synthesis = load(TWENTY_SECOND_SYNTHESIS_PATH)
+    decision = load(TWENTY_SECOND_DECISION_PATH)
     packet_hash = hashlib.sha256(TWENTY_SECOND_PACKET_PATH.read_bytes()).hexdigest()
 
     assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
@@ -1806,9 +1810,31 @@ def test_twenty_second_advisories_and_pending_synthesis_are_reproducible() -> No
         gemini_case_ids=TWENTY_SECOND_GEMINI_CASE_IDS,
         generated_date="2026-07-27",
     )
+    assert validate_decision(decision) == []
+    assert decision["stats"] == {
+        "packet_cases": 100,
+        "confirmed_cases": 100,
+        "resolved_disagreements": 57,
+        "confirmed_exact_matches": 43,
+        "remaining_cases": 0,
+    }
+    assert all(case["selected_advisory"] == "synthesis" for case in decision["cases"])
     assert TWENTY_SECOND_DIFF_PATH.read_text(encoding="utf-8") == render_markdown(
         packet,
         codex,
         gemini,
         generated_date="2026-07-27",
+        maintainer_decisions=decision,
+    )
+
+
+def test_twenty_second_maintainer_synthesis_decision_is_reproducible() -> None:
+    assert load(TWENTY_SECOND_DECISION_PATH) == build_decision(
+        TWENTY_SECOND_PACKET_PATH,
+        TWENTY_SECOND_CODEX_PATH,
+        TWENTY_SECOND_GEMINI_PATH,
+        maintainer="tim",
+        decision_date="2026-07-27",
+        selected_advisory="synthesis",
+        synthesis_path=TWENTY_SECOND_SYNTHESIS_PATH,
     )

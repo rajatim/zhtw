@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 022 (2026-07-27)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `cb66ffbcc92bbe7b299e40b98b08704283164771c91862cac229930a39b94957`
 Cases: 100
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini marked 10 cases as eligible even though its own quality flags identified malformed or fragmentary input. These suggestions fail the declared source-quality rule and are not auto-adopted.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 57 advisory disagreements and batch-confirmed the 43 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整且可獨立判讀；專名、縮寫、數值單位或既有
 
 Gemini reason: 基本字詞轉換，無特殊用語。'地区' -> '地區'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. ready-gov-drought-zh-hans-v1/sentence-003
 
@@ -63,7 +63,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: 基本字詞轉換。'防备' -> '防備', '干旱' -> '乾旱', '节水' -> '節水'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. ready-gov-drought-zh-hans-v1/sentence-005
 
@@ -84,7 +84,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '下水道'、'浇灌'、'室内'、'花园' 均為兩岸通用或可直接轉換，風險較低。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. ready-gov-drought-zh-hans-v1/sentence-011
 
@@ -105,7 +105,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: 用語'绝缘'在此應指保溫或隔熱，臺灣多用'隔熱'處理來'减少热量损失'(減少熱量損失)。'绝缘'(絕緣)多指電力方面。此處存在用詞差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. ready-gov-drought-zh-hans-v1/sentence-012
 
@@ -126,7 +126,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '软水系统'、'矿物质'在臺灣通用，但'管道'常依情境稱為'管線'。此處保留'管道'亦可理解。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. ready-gov-drought-zh-hans-v1/sentence-016
 
@@ -147,7 +147,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 基本字詞轉換。'马桶' -> '馬桶', '装置' -> '裝置'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. ready-gov-drought-zh-hans-v1/sentence-017
 
@@ -168,7 +168,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 中國用語'塑料'在臺灣對應'塑膠'。'加仑' -> '加侖'。主要風險為地域用詞轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. ready-gov-drought-zh-hans-v1/sentence-020
 
@@ -189,7 +189,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '垃圾处理器'在臺灣不普及，對應的詞是'廚餘處理機'。'垃圾箱'在臺灣通常稱為'垃圾桶'。存在用詞差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. ready-gov-drought-zh-hans-v1/sentence-022
 
@@ -210,7 +210,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 基本詞彙轉換。'耐旱'、'青草'、'灌木'、'树木'(樹木)等詞語通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. ready-gov-drought-zh-hans-v1/sentence-024
 
@@ -231,7 +231,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '循环再用水' 在台灣多稱為 '回收水' 或 '中水'。'水景' 一詞可用，但 '水景設施' 或 '景觀水池' 更常見。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. ready-gov-drought-zh-hans-v1/sentence-031
 
@@ -252,7 +252,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: 基本字詞轉換。'割草'、'草根'、'土壤'、'水分' 為兩岸通用詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. ready-gov-drought-zh-hans-v1/sentence-033
 
@@ -273,7 +273,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: 基本字詞轉換。'草坪'為兩岸通用詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. ready-gov-drought-zh-hans-v1/sentence-037
 
@@ -294,7 +294,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '秋冬两季' -> '秋冬兩季'，'手动' -> '手動'，皆為基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. ready-gov-drought-zh-hans-v1/sentence-039
 
@@ -315,7 +315,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '智能灌溉控制器' 中的 '智能' 在臺灣資訊科技領域多用 '智慧'，如 '智慧型手機'。此處可轉換為 '智慧灌溉控制器'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. ready-gov-drought-zh-hans-v1/sentence-044
 
@@ -336,7 +336,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '水疗设备' 在此上下文中指的應是 spa pool 或 hot tub，直翻 '水療設備' 稍嫌奇怪，台灣較常見的說法可能是 '水療池'、'按摩浴缸'。需依原文確認。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 16. ready-gov-drought-zh-hans-v1/sentence-047
 
@@ -357,7 +357,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '纸巾'(衛生紙)、'昆虫'(昆蟲)、'垃圾桶'、'马桶'(馬桶) 皆為通用或可直接對應的詞語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 17. ready-gov-drought-zh-hans-v1/sentence-049
 
@@ -378,7 +378,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 句子 '只在湿身和用皂时打开水' 語法稍不自然，但意思尚可理解。應指 '僅在淋濕身體與塗抹肥皂時才開水'。'洗净'(洗淨) 為基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 18. ready-gov-drought-zh-hans-v1/sentence-057
 
@@ -399,7 +399,7 @@ Codex reason: 單獨抽出後缺少必要前文、含聯絡指令或來源文字
 
 Gemini reason: '接住' 在此指收集流出的冷水，用 '收集' 或 '承接' 可能更貼切。'炉子' 詞意較廣，此處指 '瓦斯爐'。'微波炉' -> '微波爐'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 19. ready-gov-drought-zh-hans-v1/sentence-061
 
@@ -420,7 +420,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: 基本字詞轉換。'大雨'、'浇水'(澆水)為通用詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 20. ready-gov-drought-zh-hans-v1/sentence-065
 
@@ -441,7 +441,7 @@ Codex reason: 單獨抽出後缺少必要前文、含聯絡指令或來源文字
 
 Gemini reason: '踩着时会弹回来' 語法較不順，應指 '踩踏後能回彈'。'草坪' 為通用詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 21. ready-gov-drought-zh-hans-v1/sentence-067
 
@@ -462,7 +462,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '径流'是專業術語，對應繁體為'逕流'。轉換風險在於是否為常用詞，但術語對應直接。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 22. ready-gov-drought-zh-hans-v1/sentence-068
 
@@ -483,7 +483,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '鼓风机'在此情境下指'吹葉機'，直接轉換會詞意不清。'车道' -> '車道'。'人行道' -> '人行道'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 23. ready-gov-drought-zh-hans-v1/sentence-069
 
@@ -504,7 +504,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '洒水器'(灑水器)、'水管'為通用詞語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 24. ready-gov-drought-zh-hans-v1/sentence-070
 
@@ -525,7 +525,7 @@ Codex reason: 完整且可獨立判讀；專名、縮寫、數值單位或既有
 
 Gemini reason: '加仑' 為單位，需正確轉為 '加侖'，並注意數字 '600' 不可變動。'花园水管' -> '花園水管'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 25. ready-gov-drought-zh-hans-v1/sentence-071
 
@@ -546,7 +546,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: 基本字詞轉換。'干旱'(乾旱)、'草坪'、'树木'(樹木)、'灌木'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 26. ready-gov-home-fires-zh-hans-v1/sentence-006
 
@@ -567,7 +567,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 基本字詞轉換。'烧焦'(燒焦)、'肺部'、'皮肤'(皮膚)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 27. ready-gov-home-fires-zh-hans-v1/sentence-015
 
@@ -588,7 +588,7 @@ Codex reason: 完整且可獨立判讀；專名、縮寫、數值單位或既有
 
 Gemini reason: '视障者'(視障者)、'听障者'(聽障者)、'闪光灯'(閃光燈)等詞語兩岸通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 28. ready-gov-home-fires-zh-hans-v1/sentence-017
 
@@ -609,7 +609,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '投保'、'保险公司'(保險公司)、'盘点'(盤點)等詞語可直接轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 29. ready-gov-home-fires-zh-hans-v1/sentence-028
 
@@ -630,7 +630,7 @@ Codex reason: 單獨抽出後缺少必要前文、含聯絡指令或來源文字
 
 Gemini reason: '联系' 在臺灣常用 '聯絡'。'消防部门' 可用，'消防局' 更常見。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 30. ready-gov-home-fires-zh-hans-v1/sentence-039
 
@@ -651,7 +651,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '趴下'、'滚动'(滾動) 是標準的消防口訣用詞 'Stop, Drop, and Roll' 的翻譯，兩岸通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 31. ready-gov-home-fires-zh-hans-v1/sentence-045
 
@@ -672,7 +672,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: 用語'核实'在臺灣較少使用，通常用'確認'。'消防部门' 可對應 '消防局' 或 '消防單位'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 32. ready-gov-home-fires-zh-hans-v1/sentence-050
 
@@ -693,7 +693,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '放好'、'收据'(收據)，基本字詞轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 33. ready-gov-home-fires-zh-hans-v1/sentence-072
 
@@ -714,7 +714,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '壁炉屏风'(壁爐屏風)、'柴火'、'火花' 等詞語可直接轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 34. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-001
 
@@ -735,7 +735,7 @@ Codex reason: 完整且可獨立判讀；專名、縮寫、數值單位或既有
 
 Gemini reason: '山体滑坡'在臺灣稱為'山崩'。'风暴' -> '風暴'。'火灾' -> '火災'。此為重要地域性用詞差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 35. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-002
 
@@ -756,7 +756,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '山体滑坡' 在臺灣稱為 '山崩'。'很少有人注意到' 在台灣可說 '幾乎不會被察覺'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 36. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-004
 
@@ -777,7 +777,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '野火'、'斜坡' 為通用詞。'山体滑坡' -> '山崩'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 37. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-009
 
@@ -798,7 +798,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '山体滑坡' -> '山崩'。'人员伤亡' -> '人員傷亡'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 38. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-011
 
@@ -819,7 +819,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '注册' 在台灣多用於 '註冊' (如帳號)，此處 '登記' 或 '訂閱' 可能更適合 '警告系统'(警報系統)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 39. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-014
 
@@ -840,7 +840,7 @@ Codex reason: 單獨抽出後缺少必要前文、含聯絡指令或來源文字
 
 Gemini reason: 包含指令'SHELTER'、數字'43362'、'4FEMA'、'12345'，絕不可轉換。'邮政编码'在臺灣稱為'郵遞區號'。混合了指令和需要地域轉換的詞彙，風險高。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 40. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-023
 
@@ -861,7 +861,7 @@ Codex reason: 完整且可獨立判讀；專名、縮寫、數值單位或既有
 
 Gemini reason: '国家洪水保险计划(NFIP)' 專有名詞需謹慎處理。'泥石流' -> '土石流'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 41. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-025
 
@@ -882,7 +882,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 基本詞彙轉換。'湍急'、'泥浆'(泥漿)、'声音'(聲音)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 42. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-028
 
@@ -903,7 +903,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '巨石'、'景观'(景觀)通用。'泥石流' -> '土石流'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 43. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-037
 
@@ -924,7 +924,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '栅栏'(柵欄)、'挡土墙'(擋土牆)、'电线杆'(電線桿)、'树木'(樹木) 轉換直接。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 44. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-047
 
@@ -945,7 +945,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '山体滑坡' -> '山崩'。'路径'(路徑)、'上坡' 可直接轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 45. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-049
 
@@ -966,7 +966,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '溪流'、'河道'、'清澈'、'浑浊'(混濁) 為通用詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 46. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-050
 
@@ -987,7 +987,7 @@ Codex reason: 單獨抽出後缺少必要前文、含聯絡指令或來源文字
 
 Gemini reason: '山体滑坡' -> '山崩'。'来临'(來臨) -> '即將發生'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 47. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-051
 
@@ -1008,7 +1008,7 @@ Codex reason: 單獨抽出後缺少必要前文、含聯絡指令或來源文字
 
 Gemini reason: '额外的载玻片' (Extra slides) 是明顯的誤譯，應為 '额外的山崩' (Additional landslides)。'载玻片'是實驗室用品 (microscope slide)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 48. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-053
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '洪水'、'山体滑坡' -> '山崩'、'泥石流' -> '土石流'。均為地域性詞彙差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 49. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-061
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '专业人士' -> '專業人士'。'滑坡' -> '邊坡滑動' 或 '山崩'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 50. ready-gov-radiation-zh-hans-v1/sentence-013
 
@@ -1071,7 +1071,7 @@ Codex reason: 單獨抽出後缺少必要前文、含聯絡指令或來源文字
 
 Gemini reason: '垃圾袋'通用。'受污染' 在臺灣也用，但 '遭污染' 或 '受汙染' 更常見。'药品' -> '藥品'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 51. ready-gov-radiation-zh-hans-v1/sentence-017
 
@@ -1092,7 +1092,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '撤离' 在台灣稱 '疏散'。'住宿' 通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 52. ready-gov-radiation-zh-hans-v1/sentence-032
 
@@ -1113,7 +1113,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '砖墙' -> '磚牆'。'混凝土' 在台灣亦稱 '混凝土' 或口語 '水泥'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 53. ready-gov-radiation-zh-hans-v1/sentence-035
 
@@ -1134,7 +1134,7 @@ Codex reason: 完整且可獨立判讀；專名、縮寫、數值單位或既有
 
 Gemini reason: '辐射水平'(輻射水平)、'危险性'(危險性)，可直接轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 54. ready-gov-radiation-zh-hans-v1/sentence-036
 
@@ -1155,7 +1155,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: 基本句，'待在室内'(待在室內)。'避难'(避難)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 55. ready-gov-radiation-zh-hans-v1/sentence-040
 
@@ -1176,7 +1176,7 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '庇护'(庇護)通用。數字 '24' 不應變動。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 56. ready-gov-radiation-zh-hans-v1/sentence-043
 
@@ -1197,7 +1197,7 @@ Codex reason: 完整且可獨立判讀；適合作為一般字形與不需地域
 
 Gemini reason: '撤离' -> '疏散'。'当地政府' -> '地方政府'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 57. ready-gov-radiation-zh-hans-v1/sentence-050
 
@@ -1218,4 +1218,4 @@ Codex reason: 完整且可獨立判讀；含臺灣用語或專業術語正規化
 
 Gemini reason: '抹布'、'湿布'(濕布)、'皮肤'(皮膚)、'头发'(頭髮)通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`

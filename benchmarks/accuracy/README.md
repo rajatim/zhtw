@@ -586,7 +586,12 @@ zero API errors. They agree exactly on 43 cases and differ on 57, including 7
 eligibility, 26 domain, and 39 risk fields. Codex synthesis recommends 93
 eligible and 7 source-quality exclusions, selecting 43 agreements, 39 Codex
 classifications, and 18 Gemini classifications. Maintainer confirmation is
-pending, so batch 022 has not entered the collecting pool.
+complete: `tim` confirmed the full synthesis on 2026-07-27. All 93 eligible
+inputs passed promotion deduplication and entered the collecting pool; the 7
+source-quality exclusions remain outside it. The pool is now 1,868 cases,
+leaving a 4,012-case minimum-pool gap. AOSP remains above the final 10%
+per-source cap, and public-domain material is temporarily above the final 35%
+source-class cap while collection continues.
 
 Rebuild and validate the current collecting pool:
 
