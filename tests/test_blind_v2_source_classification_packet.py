@@ -176,6 +176,37 @@ def test_selection_round_is_independent_from_global_batch_number(tmp_path: Path)
     assert validate_packet(first_round) == []
 
 
+def test_exclusion_packet_requires_balanced_remaining(tmp_path: Path) -> None:
+    source = tmp_path / "source.json"
+    exclusion_path = tmp_path / "prior.json"
+    write_source(source, "source", 10)
+    exclusion_path.write_text(
+        json.dumps(
+            {
+                "name": "prior-packet",
+                "input_only": True,
+                "converter_output_used": False,
+                "cases": [{"id": "source/case-001"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    try:
+        build_packet(
+            [source],
+            batch_size=5,
+            batch_number=2,
+            seed=20260719,
+            generated_date="2026-07-27",
+            exclude_packet_paths=[exclusion_path],
+        )
+    except ValueError as exc:
+        assert str(exc) == "exclusion packets require balanced remaining selection"
+    else:
+        raise AssertionError("ignored exclusion packets must fail closed")
+
+
 def test_all_source_cases_mode_keeps_uneven_sources_complete(tmp_path: Path) -> None:
     first_source = tmp_path / "first.json"
     second_source = tmp_path / "second.json"

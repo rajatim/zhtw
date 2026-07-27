@@ -2214,3 +2214,77 @@ def test_twenty_sixth_and_seventh_synthesis_decisions_are_reproducible() -> None
             generated_date="2026-07-27",
             maintainer_decisions=decision_data,
         )
+
+
+def test_twenty_eighth_advisories_and_pending_synthesis_are_reproducible() -> None:
+    prefix = ROOT / "docs/reports"
+    packet_path = ACCURACY_ROOT / ("review-packets/blind-v2-source-classification-batch-028.json")
+    prior_packet_path = ACCURACY_ROOT / (
+        "review-packets/blind-v2-source-classification-batch-027.json"
+    )
+    codex_path = prefix / (
+        "blind-v2-source-classification-codex-first-pass-batch-028-2026-07-27.json"
+    )
+    gemini_path = prefix / (
+        "blind-v2-source-classification-gemini-independent-batch-028-2026-07-27.json"
+    )
+    adjustments_path = prefix / (
+        "blind-v2-source-classification-codex-synthesis-adjustments-" "batch-028-2026-07-27.json"
+    )
+    synthesis_path = prefix / (
+        "blind-v2-source-classification-codex-synthesis-batch-028-2026-07-27.json"
+    )
+    diff_path = prefix / "blind-v2-source-classification-diff-batch-028-2026-07-27.md"
+    packet = load(packet_path)
+    prior_packet = load(prior_packet_path)
+    codex = load(codex_path)
+    gemini = load(gemini_path)
+    adjustments = load(adjustments_path)
+    synthesis = load(synthesis_path)
+    packet_hash = hashlib.sha256(packet_path.read_bytes()).hexdigest()
+    packet_ids = [case["id"] for case in packet["cases"]]
+
+    assert packet["selection_policy"] == "balanced-remaining-deterministic-sha256-v1"
+    assert packet["stats"] == {"total": 90, "by_source": {"kubernetes-docs-zh-cn-v1": 90}}
+    assert set(packet_ids).isdisjoint(case["id"] for case in prior_packet["cases"])
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert gemini["execution"] == {
+        "cli": "@google/gemini-cli",
+        "cli_version": "0.52.0",
+        "session_id": "0341974b-d3bf-4c6b-b1eb-e1cac1d01f56",
+        "tool_calls": 0,
+        "total_errors": 0,
+    }
+    assert gemini["stats"]["policy_violations"] == 0
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 90,
+        "exact": 3,
+        "review_queue": 87,
+        "by_field": {"eligible": 10, "script": 74, "domain": 10, "risk": 40},
+    }
+    assert len(differences) == 87
+    overrides = {case["id"]: case["classification"] for case in adjustments["cases"]}
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=set(),
+        generated_date="2026-07-27",
+        overrides=overrides,
+        override_basis="codex_synthesis",
+    )
+    assert synthesis["stats"] == {
+        "total": 90,
+        "eligible": 80,
+        "excluded": 10,
+        "by_selection_basis": {"codex_synthesis": 90},
+    }
+    assert diff_path.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-27",
+        maintainer_decisions=None,
+    )

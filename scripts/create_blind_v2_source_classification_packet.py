@@ -71,6 +71,8 @@ def build_packet(
         raise ValueError("selection round must be at least 1")
     if balanced_remaining and not exclude_packet_paths:
         raise ValueError("balanced remaining selection requires at least one exclusion packet")
+    if exclude_packet_paths and not balanced_remaining:
+        raise ValueError("exclusion packets require balanced remaining selection")
     if balanced_remaining and (all_source_cases or selection_round is not None):
         raise ValueError(
             "balanced remaining selection cannot be combined with all-source or selection-round"

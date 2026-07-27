@@ -1,0 +1,939 @@
+{
+  "version": 1,
+  "reviewer": "Codex",
+  "model": null,
+  "review_date": null,
+  "policy": "input_only_no_converter_output",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-028.json",
+  "packet_sha256": "bf4c643ea5d989199fe5f188ce7a1b9d3698dce7bd36f144c93b89663121fa84",
+  "stats": {
+    "total": 90,
+    "eligible": 80,
+    "excluded": 10,
+    "high": 10,
+    "medium": 80,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0001",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Markdown 结构、链接文字或表格标记移除后成为残句、格式残留或指代不清，离开上下文后不适合独立裁决。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可独立判读的 Kubernetes 技术文件句；适合作为保守字形转换基准。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含中国大陆技术用语或台湾术语正规化候选。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含中国大陆技术用语或台湾术语正规化候选。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0034",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0039",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0001",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0037",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Markdown 结构、链接文字或表格标记移除后成为残句、格式残留或指代不清，离开上下文后不适合独立裁决。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0044",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0045",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0054",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Markdown 结构、链接文字或表格标记移除后成为残句、格式残留或指代不清，离开上下文后不适合独立裁决。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0061",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0065",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0079",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含中国大陆技术用语或台湾术语正规化候选。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0084",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0085",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0086",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含中国大陆技术用语或台湾术语正规化候选。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0087",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含中国大陆技术用语或台湾术语正规化候选。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0091",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0093",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含中国大陆技术用语或台湾术语正规化候选。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0099",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0109",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0116",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0118",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0127",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0129",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含中国大陆技术用语或台湾术语正规化候选。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0144",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0145",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0147",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0150",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0177",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0205",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0215",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0217",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含中国大陆技术用语或台湾术语正规化候选。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0221",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可独立判读的 Kubernetes 技术文件句；适合作为保守字形转换基准。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0222",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0232",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0235",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0242",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0257",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可独立判读的 Kubernetes 技术文件句；适合作为保守字形转换基准。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0271",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0303",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含中国大陆技术用语或台湾术语正规化候选。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0310",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0320",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0325",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Markdown 结构、链接文字或表格标记移除后成为残句、格式残留或指代不清，离开上下文后不适合独立裁决。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0327",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0347",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Markdown 结构、链接文字或表格标记移除后成为残句、格式残留或指代不清，离开上下文后不适合独立裁决。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0026",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0036",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0043",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0048",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0049",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0053",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Markdown 结构、链接文字或表格标记移除后成为残句、格式残留或指代不清，离开上下文后不适合独立裁决。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0069",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0070",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0071",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0072",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0074",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Markdown 结构、链接文字或表格标记移除后成为残句、格式残留或指代不清，离开上下文后不适合独立裁决。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0075",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0076",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0085",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0086",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0091",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0096",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Markdown 结构、链接文字或表格标记移除后成为残句、格式残留或指代不清，离开上下文后不适合独立裁决。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0112",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0119",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0126",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0135",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0146",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含中国大陆技术用语或台湾术语正规化候选。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0158",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0160",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0162",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0167",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Markdown 结构、链接文字或表格标记移除后成为残句、格式残留或指代不清，离开上下文后不适合独立裁决。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0172",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0174",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0179",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0186",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0187",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0188",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0189",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可独立判读的 Kubernetes 技术文件句；适合作为保守字形转换基准。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0211",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0232",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Markdown 结构、链接文字或表格标记移除后成为残句、格式残留或指代不清，离开上下文后不适合独立裁决。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0236",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0239",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0240",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0256",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0264",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 Kubernetes 技术文件句；含专名、API、协议、字段或识别码，适合检查技术术语转换与受保护 token 保留。"
+    }
+  ]
+}
