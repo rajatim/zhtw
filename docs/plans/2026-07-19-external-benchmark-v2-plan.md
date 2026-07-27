@@ -676,13 +676,15 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   exact／near-duplicate promotion，8 筆來源品質案例維持排除；collecting pool
   `2,154 → 2,326`。目前 `permissive_license` 752/2,326、`project_original`
   780/2,326、`public_domain` 794/2,326，三類均在最終 35% gate 內。
-- [ ] 2026-07-27 建立 Kubernetes 第二輪 batch 028：明確排除 batch 027 後，
+- [x] 2026-07-27 建立 Kubernetes 第二輪 batch 028：明確排除 batch 027 後，
   以 `balanced-remaining-deterministic-sha256-v1` 固定 90 筆且跨批重疊為零。
   Codex first pass 建議 80 筆 eligible、10 筆因 Markdown 連結文字移除、表格
   殘留、殘句或指代不清而排除；Gemini CLI 0.52.0 (`gemini-2.5-pro`) 在隔離
   目錄完成 90/90 input-only 獨立審查，零工具呼叫、零 API 錯誤，建議 90 筆
-  全部 eligible。Codex synthesis 維持 80/10 的 fail-closed 建議，尚待
-  maintainer 確認，因此未 promotion、pool 仍為 2,326 筆。
+  全部 eligible。Maintainer 已確認 Codex synthesis 的 80/10 fail-closed 建議；
+  80 筆 eligible 全數通過 promotion，pool `2,326 → 2,406`，距最低 5,880 筆
+  尚差 3,474。`permissive_license` 832/2,406（34.58%）、`project_original`
+  780/2,406（32.42%）、`public_domain` 794/2,406（33.00%），皆低於 35%。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

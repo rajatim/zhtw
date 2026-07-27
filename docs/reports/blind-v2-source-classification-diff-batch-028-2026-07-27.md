@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 028 (2026-07-27)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `bf4c643ea5d989199fe5f188ce7a1b9d3698dce7bd36f144c93b89663121fa84`
 Cases: 90
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 87 advisory disagreements and batch-confirmed the 3 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: Markdown 结构、链接文字或表格标记移除后成为残句
 
 Gemini reason: 標準的技術文檔句子，說明資源的唯一性。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. kubernetes-docs-zh-cn-v1/page-01-sentence-0017
 
@@ -63,7 +63,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及技術標準 RFC 1123，此類術語不應翻譯。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. kubernetes-docs-zh-cn-v1/page-01-sentence-0019
 
@@ -84,7 +84,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及技術標準 RFC 1035 和 RFC 1123，此類術語不應翻譯。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. kubernetes-docs-zh-cn-v1/page-01-sentence-0022
 
@@ -105,7 +105,7 @@ Codex reason: 完整且可独立判读的 Kubernetes 技术文件句；适合作
 
 Gemini reason: 列出不能使用的特殊字符，這些字符在轉換中必須保持原樣。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. kubernetes-docs-zh-cn-v1/page-02-sentence-0023
 
@@ -126,7 +126,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含中国大陆技术用语
 
 Gemini reason: 關於「對象配置」的基本技術概念解釋。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. kubernetes-docs-zh-cn-v1/page-02-sentence-0030
 
@@ -147,7 +147,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含中国大陆技术用语
 
 Gemini reason: 描述聲明式對象配置，句子較長但邏輯清晰。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. kubernetes-docs-zh-cn-v1/page-02-sentence-0034
 
@@ -168,7 +168,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 比較 patch 和 replace API 操作，涉及關鍵技術術語的區別。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. kubernetes-docs-zh-cn-v1/page-02-sentence-0039
 
@@ -189,7 +189,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 diff、合併和補丁，均為軟體開發中的關鍵術語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. kubernetes-docs-zh-cn-v1/page-03-sentence-0001
 
@@ -210,7 +210,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 介紹頁面主題，核心概念 Pod 不應翻譯。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. kubernetes-docs-zh-cn-v1/page-03-sentence-0015
 
@@ -231,7 +231,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 Pod 調度就緒態的用途。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. kubernetes-docs-zh-cn-v1/page-03-sentence-0037
 
@@ -252,7 +252,7 @@ Codex reason: Markdown 结构、链接文字或表格标记移除后成为残句
 
 Gemini reason: 表格格式的項目，其中術語 Succeeded 不應翻譯。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. kubernetes-docs-zh-cn-v1/page-03-sentence-0044
 
@@ -273,7 +273,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 區分 kubectl 顯示的 Status 和 Pod 的 phase，涉及特定工具輸出和 API 字段。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. kubernetes-docs-zh-cn-v1/page-03-sentence-0045
 
@@ -294,7 +294,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 強調 Pod 階段 (phase) 是 API 的一部分，術語需準確。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. kubernetes-docs-zh-cn-v1/page-03-sentence-0054
 
@@ -315,7 +315,7 @@ Codex reason: Markdown 结构、链接文字或表格标记移除后成为残句
 
 Gemini reason: 包含 kubectl describe pod 命令，此類命令和參數不應更改。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. kubernetes-docs-zh-cn-v1/page-03-sentence-0061
 
@@ -336,7 +336,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 kubectl 和 Running 狀態，均為特定術語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 16. kubernetes-docs-zh-cn-v1/page-03-sentence-0065
 
@@ -357,7 +357,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 Pod spec 中的 restartPolicy 字段，為 API 關鍵字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 17. kubernetes-docs-zh-cn-v1/page-03-sentence-0084
 
@@ -378,7 +378,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 關於資源限制的通用性建議。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 18. kubernetes-docs-zh-cn-v1/page-03-sentence-0085
 
@@ -399,7 +399,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 增加資源配置是解決問題的常見方法。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 19. kubernetes-docs-zh-cn-v1/page-03-sentence-0086
 
@@ -420,7 +420,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含中国大陆技术用语
 
 Gemini reason: 關於應用程式調試的通用性建議。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 20. kubernetes-docs-zh-cn-v1/page-03-sentence-0087
 
@@ -441,7 +441,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含中国大陆技术用语
 
 Gemini reason: 在本地環境重現問題是標準的調試步驟。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 21. kubernetes-docs-zh-cn-v1/page-03-sentence-0091
 
@@ -462,7 +462,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及「雲原生原則」和「彈性設計」，這些是需要準確理解和翻譯的行業術語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 22. kubernetes-docs-zh-cn-v1/page-03-sentence-0093
 
@@ -483,7 +483,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含中国大陆技术用语
 
 Gemini reason: 關於工作負載可用性的通用性陳述。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 23. kubernetes-docs-zh-cn-v1/page-03-sentence-0099
 
@@ -504,7 +504,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 OnFailure 重啟策略，OnFailure 是 API 的枚舉值。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 24. kubernetes-docs-zh-cn-v1/page-03-sentence-0109
 
@@ -525,7 +525,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及特性門控 ContainerRestartRules 和字段 restartPolicy，均為專有術語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 25. kubernetes-docs-zh-cn-v1/page-03-sentence-0116
 
@@ -546,7 +546,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 restartPolicyRules 字段，為 API 關鍵字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 26. kubernetes-docs-zh-cn-v1/page-03-sentence-0118
 
@@ -567,7 +567,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 restartPolicyRules 的作用，為 API 關鍵字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 27. kubernetes-docs-zh-cn-v1/page-03-sentence-0127
 
@@ -588,7 +588,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 Init 容器，為 Kubernetes 專有概念。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 28. kubernetes-docs-zh-cn-v1/page-03-sentence-0129
 
@@ -609,7 +609,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含中国大陆技术用语
 
 Gemini reason: 關於重啟規則應用的通用性描述。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 29. kubernetes-docs-zh-cn-v1/page-03-sentence-0144
 
@@ -630,7 +630,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 描述邊車容器（Sidecar container）的作用，為常見設計模式。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 30. kubernetes-docs-zh-cn-v1/page-03-sentence-0145
 
@@ -651,7 +651,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 watcher 邊車，為一種具體的邊車實現模式。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 31. kubernetes-docs-zh-cn-v1/page-03-sentence-0147
 
@@ -672,7 +672,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及特定的退出碼 88，數字和術語 watcher-sidecar 不應更改。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 32. kubernetes-docs-zh-cn-v1/page-03-sentence-0150
 
@@ -693,7 +693,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 列出 Pod 的屬性（UID、沙箱、IP、卷），為技術術語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 33. kubernetes-docs-zh-cn-v1/page-03-sentence-0177
 
@@ -714,7 +714,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及歷史命名 PodHasNetwork，此類開發術語應保持原樣。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 34. kubernetes-docs-zh-cn-v1/page-03-sentence-0205
 
@@ -735,7 +735,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 建議使用 PodDisruptionBudget，為 Kubernetes API 對象。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 35. kubernetes-docs-zh-cn-v1/page-03-sentence-0215
 
@@ -756,7 +756,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 gRPC 探針的 SERVING 狀態，為特定協議的狀態值。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 36. kubernetes-docs-zh-cn-v1/page-03-sentence-0217
 
@@ -777,7 +777,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含中国大陆技术用语
 
 Gemini reason: 描述基於 HTTP 狀態碼的健康檢查成功條件，是通用實踐。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 37. kubernetes-docs-zh-cn-v1/page-03-sentence-0221
 
@@ -798,7 +798,7 @@ Codex reason: 完整且可独立判读的 Kubernetes 技术文件句；适合作
 
 Gemini reason: 描述 TCP 探針的一種邊緣情況，需要準確理解和表達。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 38. kubernetes-docs-zh-cn-v1/page-03-sentence-0222
 
@@ -819,7 +819,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 exec 探針，並描述其性能影響。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 39. kubernetes-docs-zh-cn-v1/page-03-sentence-0232
 
@@ -840,7 +840,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 Service 和 EndpointSlice，均為 Kubernetes API 對象。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 40. kubernetes-docs-zh-cn-v1/page-03-sentence-0235
 
@@ -861,7 +861,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 定義 startupProbe 的用途，為 API 關鍵字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 41. kubernetes-docs-zh-cn-v1/page-03-sentence-0242
 
@@ -882,7 +882,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋就緒態探針的用途，是流量管理的常見模式。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 42. kubernetes-docs-zh-cn-v1/page-03-sentence-0271
 
@@ -903,7 +903,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及特性門控 ContainerStopSignals 和生命周期配置，均為專有術語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 43. kubernetes-docs-zh-cn-v1/page-03-sentence-0303
 
@@ -924,7 +924,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含中国大陆技术用语
 
 Gemini reason: 描述默認的 30 秒寬限期。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 44. kubernetes-docs-zh-cn-v1/page-03-sentence-0310
 
@@ -945,7 +945,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋節點側 Pod 的終止行為。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 45. kubernetes-docs-zh-cn-v1/page-03-sentence-0320
 
@@ -966,7 +966,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 preStop 鉤子，為 Pod 生命週期的一部分。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 46. kubernetes-docs-zh-cn-v1/page-03-sentence-0325
 
@@ -987,7 +987,7 @@ Codex reason: Markdown 结构、链接文字或表格标记移除后成为残句
 
 Gemini reason: 列舉孤兒 Pod 的幾種情況，並提及污點 node.kubernetes.io/out-of-service。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 47. kubernetes-docs-zh-cn-v1/page-03-sentence-0327
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 PodGC，為 Kubernetes 的一個組件。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 48. kubernetes-docs-zh-cn-v1/page-03-sentence-0347
 
@@ -1029,7 +1029,7 @@ Codex reason: Markdown 结构、链接文字或表格标记移除后成为残句
 
 Gemini reason: 引導讀者了解 Sidecar 容器。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 49. kubernetes-docs-zh-cn-v1/page-04-sentence-0026
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 Service 和 EndpointSlice，均為 Kubernetes API 對象。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 50. kubernetes-docs-zh-cn-v1/page-04-sentence-0036
 
@@ -1071,7 +1071,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及「集群 IP」（Cluster IP），為 Kubernetes 網絡的核心概念。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 51. kubernetes-docs-zh-cn-v1/page-04-sentence-0043
 
@@ -1092,7 +1092,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 RFC 1123 標籤名稱規範。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 52. kubernetes-docs-zh-cn-v1/page-04-sentence-0048
 
@@ -1113,7 +1113,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 Service 的默認協議是 TCP。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 53. kubernetes-docs-zh-cn-v1/page-04-sentence-0049
 
@@ -1134,7 +1134,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 Service 支持多端口的設計原因。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 54. kubernetes-docs-zh-cn-v1/page-04-sentence-0053
 
@@ -1155,7 +1155,7 @@ Codex reason: Markdown 结构、链接文字或表格标记移除后成为残句
 
 Gemini reason: 描述 Service 指向其他集群中 Service 的用例。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 55. kubernetes-docs-zh-cn-v1/page-04-sentence-0069
 
@@ -1176,7 +1176,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 包含 IP 地址和端口號的具體示例，不應更改。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 56. kubernetes-docs-zh-cn-v1/page-04-sentence-0070
 
@@ -1197,7 +1197,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 API 服務器的一個重要安全約束。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 57. kubernetes-docs-zh-cn-v1/page-04-sentence-0071
 
@@ -1218,7 +1218,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 包含一個失敗的 kubectl 命令示例，此命令不應更改。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 58. kubernetes-docs-zh-cn-v1/page-04-sentence-0072
 
@@ -1239,7 +1239,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 API 服務器代理限制的安全原因。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 59. kubernetes-docs-zh-cn-v1/page-04-sentence-0074
 
@@ -1260,7 +1260,7 @@ Codex reason: Markdown 结构、链接文字或表格标记移除后成为残句
 
 Gemini reason: 引導讀者參考 ExternalName 章節。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 60. kubernetes-docs-zh-cn-v1/page-04-sentence-0075
 
@@ -1281,7 +1281,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 定義 EndpointSlice 對象。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 61. kubernetes-docs-zh-cn-v1/page-04-sentence-0076
 
@@ -1302,7 +1302,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋集群如何跟踪 EndpointSlice。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 62. kubernetes-docs-zh-cn-v1/page-04-sentence-0085
 
@@ -1323,7 +1323,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 Endpoints 對象的數量限制。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 63. kubernetes-docs-zh-cn-v1/page-04-sentence-0086
 
@@ -1344,7 +1344,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋當端點超過 1000 個時 Endpoints 對象的行為。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 64. kubernetes-docs-zh-cn-v1/page-04-sentence-0091
 
@@ -1365,7 +1365,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋手動更新 Endpoints 的限制。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 65. kubernetes-docs-zh-cn-v1/page-04-sentence-0096
 
@@ -1386,7 +1386,7 @@ Codex reason: Markdown 结构、链接文字或表格标记移除后成为残句
 
 Gemini reason: 提及 IANA 標準服務名稱。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 66. kubernetes-docs-zh-cn-v1/page-04-sentence-0112
 
@@ -1407,7 +1407,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 說明 Kubernetes 本身不提供負載均衡器實現。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 67. kubernetes-docs-zh-cn-v1/page-04-sentence-0119
 
@@ -1428,7 +1428,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋默認 Service 類型的 IP 地址分配方式。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 68. kubernetes-docs-zh-cn-v1/page-04-sentence-0126
 
@@ -1449,7 +1449,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及非法 clusterIP 值會導致 HTTP 422 錯誤。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 69. kubernetes-docs-zh-cn-v1/page-04-sentence-0135
 
@@ -1470,7 +1470,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 nodePort 字段，為 API 關鍵字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 70. kubernetes-docs-zh-cn-v1/page-04-sentence-0146
 
@@ -1491,7 +1491,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含中国大陆技术用语
 
 Gemini reason: 解釋在多網絡環境下指定節點 IP 的用例。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 71. kubernetes-docs-zh-cn-v1/page-04-sentence-0158
 
@@ -1512,7 +1512,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 type: LoadBalancer 和 type: NodePort 服務的關係。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 72. kubernetes-docs-zh-cn-v1/page-04-sentence-0160
 
@@ -1533,7 +1533,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 說明可以將負載均衡服務配置為忽略節點端口。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 73. kubernetes-docs-zh-cn-v1/page-04-sentence-0162
 
@@ -1554,7 +1554,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 loadBalancerIP 字段，為 API 關鍵字。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 74. kubernetes-docs-zh-cn-v1/page-04-sentence-0167
 
@@ -1575,7 +1575,7 @@ Codex reason: Markdown 结构、链接文字或表格标记移除后成为残句
 
 Gemini reason: 提及不支持雙協議棧，這是一個重要的功能限制。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 75. kubernetes-docs-zh-cn-v1/page-04-sentence-0172
 
@@ -1596,7 +1596,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋負載均衡器健康檢查的通用目的。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 76. kubernetes-docs-zh-cn-v1/page-04-sentence-0174
 
@@ -1617,7 +1617,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及 externalTrafficPolicy 字段，為 Service 的一個重要配置。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 77. kubernetes-docs-zh-cn-v1/page-04-sentence-0179
 
@@ -1638,7 +1638,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋一種高級路由場景：負載均衡器直接將流量路由到 Pod。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 78. kubernetes-docs-zh-cn-v1/page-04-sentence-0186
 
@@ -1659,7 +1659,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋默認負載均衡器實現的行為。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 79. kubernetes-docs-zh-cn-v1/page-04-sentence-0187
 
@@ -1680,7 +1680,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 .spec.loadBalancerClass 字段的使用限制。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 80. kubernetes-docs-zh-cn-v1/page-04-sentence-0188
 
@@ -1701,7 +1701,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 .spec.loadBalancerClass 值的格式要求，並給出示例。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 81. kubernetes-docs-zh-cn-v1/page-04-sentence-0211
 
@@ -1722,7 +1722,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 描述不需要負載均衡或 Service IP 的用例。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 82. kubernetes-docs-zh-cn-v1/page-04-sentence-0232
 
@@ -1743,7 +1743,7 @@ Codex reason: Markdown 结构、链接文字或表格标记移除后成为残句
 
 Gemini reason: 引導讀者閱讀 makeLinkVariables 了解實現細節。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 83. kubernetes-docs-zh-cn-v1/page-04-sentence-0236
 
@@ -1764,7 +1764,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 用具體示例 my-service.my-ns 解釋 DNS 記錄的生成。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 84. kubernetes-docs-zh-cn-v1/page-04-sentence-0239
 
@@ -1785,7 +1785,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 DNS 名稱如何解析到集群 IP。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 85. kubernetes-docs-zh-cn-v1/page-04-sentence-0240
 
@@ -1806,7 +1806,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 提及支持命名端口的 DNS SRV 記錄。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 86. kubernetes-docs-zh-cn-v1/page-04-sentence-0256
 
@@ -1827,7 +1827,7 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 Service 如何通過 externalIPs 暴露。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 87. kubernetes-docs-zh-cn-v1/page-04-sentence-0264
 
@@ -1848,4 +1848,4 @@ Codex reason: 完整的 Kubernetes 技术文件句；含专名、API、协议、
 
 Gemini reason: 解釋 Ingress 的作用。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`

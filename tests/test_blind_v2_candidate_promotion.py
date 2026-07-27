@@ -66,8 +66,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-026-2026-07-27.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-027-2026-07-27.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-028-2026-07-27.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-027-2026-07-27.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-028-2026-07-27.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -89,29 +91,29 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     generated, report = build_pool(
         list(DECISIONS),
         output=POOL,
-        created_at="2026-07-27T14:55:00+08:00",
+        created_at="2026-07-27T15:40:00+08:00",
     )
 
     assert generated == committed
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 2326,
+        "total": 2406,
         "by_domain": {
             "formal_news": 359,
             "high_stakes": 555,
-            "it_api_cli": 408,
+            "it_api_cli": 488,
             "llm_generated": 212,
             "social_daily": 318,
             "ui_i18n": 474,
         },
         "by_risk": {
-            "baseline_guard": 673,
-            "candidate_gap": 976,
-            "over_conversion_guard": 677,
+            "baseline_guard": 677,
+            "candidate_gap": 1028,
+            "over_conversion_guard": 701,
         },
         "by_source_class": {
-            "permissive_license": 752,
+            "permissive_license": 832,
             "project_original": 780,
             "public_domain": 794,
         },
@@ -127,7 +129,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "flores-200-zho-hans-v1": 98,
             "ftc-heads-up-simplified-v1": 111,
             "ftc-small-business-simplified-v1": 55,
-            "kubernetes-docs-zh-cn-v1": 92,
+            "kubernetes-docs-zh-cn-v1": 172,
             "massive-1-0-zh-cn-v1": 98,
             "nps-essential-acadia-simplified-v1": 30,
             "osha-chainsaw-safety-simplified-v1": 20,
@@ -157,8 +159,8 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 2328
-    assert report["promoted"] == 2326
+    assert report["confirmed_eligible"] == 2408
+    assert report["promoted"] == 2406
     assert report["excluded_by_dedupe"] == 2
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
