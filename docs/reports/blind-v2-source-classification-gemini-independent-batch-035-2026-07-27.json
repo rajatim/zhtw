@@ -1,0 +1,989 @@
+{
+  "version": 1,
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": null,
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-035.json",
+  "packet_sha256": "bca4a8b496dbdd270e5e42b45f39ff3d9dc98250d068d26e636ee26680c519b5",
+  "stats": {
+    "total": 96,
+    "eligible": 96,
+    "excluded": 0,
+    "high": 93,
+    "medium": 3,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "d7cc5f57-52a8-4596-ac63-cf7803e4b17b,92e0e4b1-d217-4ac7-ad81-c6b573543933,f3621105-3b2c-47a6-93ad-8128af43217f",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "cases": [
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含英數術語 (COVID-19)，需保護。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含多個英文術語 (state, Area Census Office, NRFU)，需保護。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「迁移」等詞彙需轉換為台灣慣用詞「遷徙」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準體例，基準轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "動詞「开展」可能需要轉換為台灣慣用詞「進行」或「舉辦」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「算上」屬口語，應轉換為較正式的「計入」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含品牌/產品名 (2020 Census)，需保護。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "語句結構與用詞（如「跟进访谈」）需大幅在地化。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準體例，基準轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含英文術語 (area census offices)，需保護。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「社交疏离」需轉換為台灣慣用詞「社交距離」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準體例，基準轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準體例，基準轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準體例，基準轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準體例，基準轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "動詞「走访」可能需轉換為台灣慣用詞「訪視」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準體例，基準轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-006",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含英文術語 (state)，且「操作」可能需轉換為「作業」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「社交疏离」需轉換為台灣慣用詞「社交距離」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「操作」需轉換為「作業」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「软启动」和「未回复随访」等詞彙需在地化。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含地名 (Alaska)，需保護或使用台灣慣用譯名。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「无线电广播」、「供应商」等詞彙需轉換為台灣慣用詞。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準體例，基準轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「警示」、「递送」等動詞需轉換為台灣慣用詞。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含英數術語 (COVID-19)，需保護。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準體例，基準轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「估值」應為「估計值」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「重要统计数据记录」是術語「生命統計」(vital statistics) 的直譯，應轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用詞需微調以符合台灣語氣，如「有价值的资源」可為「寶貴的資源」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準體例，基準轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-037",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "含需保護的標記「(仅英语)」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "一般日常問題，基本字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10510",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常指令，基本字元轉換。「清单」直接對應「清單」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10567",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「杂货清单」在台灣可能說「購物清單」或「採買清單」，存在詞彙轉換差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11073",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「必做清单」是中國大陸用語，台灣對應「待辦清單」或「待辦事項」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11186",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，基本字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11286",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「年轻的土耳其人」是一個特定播客（The Young Turks）的名稱，屬於專有名詞，應避免過度轉譯。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11552",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "「以主题为导向」的說法較書面語，台灣口語可能用「主題導向的」或「更聚焦主題」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11811",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「光明大剧院」為專有名詞（地點），應保留其名，僅做字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1197",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "天氣詢問，基本字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11973",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "常用詞，兩岸用語相同，基本字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「巡回竞赛」在台灣通常稱為「巡迴賽」，存在詞彙差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12238",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「科德角」為地名音譯（Cape Cod），是專有名詞，應僅做字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12312",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「公园大道」可能為街道專有名詞（如 Park Avenue），應視為專有名詞處理。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12815",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "unnatural_phrasing"
+      ],
+      "confidence": "high",
+      "notes": "語法結構稍不自然（告诉我的），但詞彙為基本轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12867",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「优步」是品牌名稱 Uber 的中文譯名，為專有名詞，不可轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13281",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「短信」是中國大陸用語，台灣稱「簡訊」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1342",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，基本字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13642",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「纹理」在台灣也用，但在電腦圖學等領域常稱「材質」，存在領域詞彙差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13721",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「加币」是加拿大元的簡稱，台灣多稱「加幣」，但用語習慣上可能有些微差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1379",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含專有名詞「必胜客」(Pizza Hut)，且「外卖」在台灣對應「外帶」(takeout) 或「外送」(delivery)，存在詞彙差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14267",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "數學問題，基本字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15452",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「微博」、「中国电信」等平台與公司專有名詞，應避免過度轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/156",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "「调低」在台灣可能也會用，但「降低」可能更常用於此情境。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16604",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「发送」是中國大陸用語，台灣多用「寄送」或「寄」。「电子邮件」較正式，口語多稱 email 或郵件。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16860",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「家明」是人名，為專有名詞。同時，「发送」在台灣應為「寄送」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2282",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "智慧家庭指令，基本字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3363",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "笑話開頭，基本字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3662",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「闹钟」在台灣稱為「鬧鐘」，字元不同，且「创建」較書面，口語為「設定」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「开启」為大陸用語，台灣多用「打開」。「闹钟」對應「鬧鐘」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6126",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "天氣相關詢問，基本字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6826",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「重复事项」在台灣通常稱為「重複提醒」或「週期性活動」。「看电影时间」說法較不自然，可能為「電影時間」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6890",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「演出时间」在台灣多用「表演時間」或「上映時間」，存在詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/LLM 領域用語，'消息' 在台灣慣用'訊息'。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "機器學習評估指標術語，'准确率'、'召回率' 在台灣有特定對應詞 '準確率'、'召回率'。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-007",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含應受保護的英文術語 'JSON'。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及 IT 術語的地區用詞差異，例如'调用' (呼叫)、'工作流' (工作流程)。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT 用語差異：'令牌' (權杖)、'字段' (欄位)。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI/IT 用語差異：'批量' (批次)、'记录' (紀錄)。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：'语音转写' 在台灣多稱 '語音轉錄'。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準技術用語，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "ML 術語，'训练资料'、'验证分数' 用詞可更精確（如：訓練資料集、驗證集分數），但目前表述也可理解。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準技術用語，簡繁轉換即可，'图片' 對應 '圖片'。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-038",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含應受保護的英文縮寫 'SQL'。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "軟體開發用語，'补丁' (修補程式)、'代码审查' (程式碼審查) 是地區用詞差異。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準技術用語('检索' -> '檢索')，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：'用户' (使用者)。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準用語，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用語句，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "生活用語差異：'快递' (快遞/包裹)、'管理处' (管理室)。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用口語，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用口語，簡繁轉換即可。'节奏' 對應 '節奏'。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用口語，'脚后跟' 對應 '腳後跟'，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用口語，'地图' 對應 '地圖'，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "生活用語差異：'空调' (冷氣)。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用口語，'钥匙' 對應 '鑰匙'，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用語句，'停车场' 對應 '停車場'，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用口語，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用語句，'账单'、'备注' 分別對應 '帳單'、'備註'，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用口語，'优惠券' 對應 '優惠券'，簡繁轉換即可。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口語用詞差異：'盖子' (蓋子/杯蓋)，'盖子' 較偏向中國北方用語。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：剪髮的 '设计师' 在台灣通常稱為 '髮型師'。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "生活用語差異：'小区' (社區)。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "口語用詞差異：量詞 '三箱' 在台灣更常說 '三箱的書' 或直接說 '三大箱書'。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "通用口語，'顺口' 對應 '順口'，簡繁轉換即可。"
+    }
+  ]
+}

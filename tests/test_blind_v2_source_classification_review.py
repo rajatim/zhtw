@@ -2977,3 +2977,90 @@ def test_thirty_fourth_synthesis_decision_is_reproducible() -> None:
         generated_date="2026-07-27",
         maintainer_decisions=decision,
     )
+
+
+def test_thirty_fifth_synthesis_advisory_is_reproducible() -> None:
+    prefix = ROOT / "docs/reports"
+    packet_path = ACCURACY_ROOT / ("review-packets/blind-v2-source-classification-batch-035.json")
+    codex_path = prefix / (
+        "blind-v2-source-classification-codex-first-pass-batch-035-2026-07-27.json"
+    )
+    gemini_path = prefix / (
+        "blind-v2-source-classification-gemini-independent-batch-035-2026-07-27.json"
+    )
+    synthesis_path = prefix / (
+        "blind-v2-source-classification-codex-synthesis-batch-035-2026-07-27.json"
+    )
+    diff_path = prefix / "blind-v2-source-classification-diff-batch-035-2026-07-27.md"
+    packet = load(packet_path)
+    codex = load(codex_path)
+    gemini = load(gemini_path)
+    synthesis = load(synthesis_path)
+    packet_ids = [case["id"] for case in packet["cases"]]
+    prior_ids = {
+        case["id"]
+        for batch_number in range(1, 35)
+        for case in load(
+            ACCURACY_ROOT
+            / f"review-packets/blind-v2-source-classification-batch-{batch_number:03d}.json"
+        )["cases"]
+    }
+    packet_hash = hashlib.sha256(packet_path.read_bytes()).hexdigest()
+
+    assert packet["selection_policy"] == "balanced-remaining-deterministic-sha256-v1"
+    assert packet["stats"] == {
+        "total": 96,
+        "by_source": {
+            "census-newsroom-zh-hans-v1": 32,
+            "massive-1-0-zh-cn-v1": 32,
+            "zhtw-project-llm-social-baseline-v1": 32,
+        },
+    }
+    assert set(packet_ids).isdisjoint(prior_ids)
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert gemini["execution"] == {
+        "cli": "@google/gemini-cli",
+        "cli_version": "0.52.0",
+        "session_id": (
+            "d7cc5f57-52a8-4596-ac63-cf7803e4b17b,"
+            "92e0e4b1-d217-4ac7-ad81-c6b573543933,"
+            "f3621105-3b2c-47a6-93ad-8128af43217f"
+        ),
+        "tool_calls": 0,
+        "total_errors": 0,
+    }
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 96,
+        "exact": 61,
+        "review_queue": 35,
+        "by_field": {"eligible": 6, "script": 1, "domain": 15, "risk": 29},
+    }
+    assert len(differences) == 35
+    gemini_case_ids = {
+        "census-newsroom-zh-hans-v1/page-02-sentence-002",
+        "census-newsroom-zh-hans-v1/page-04-sentence-010",
+        "census-newsroom-zh-hans-v1/page-05-sentence-010",
+        "zhtw-project-llm-social-baseline-v1/llm-003",
+        "zhtw-project-llm-social-baseline-v1/llm-009",
+    }
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=gemini_case_ids,
+        generated_date="2026-07-27",
+    )
+    assert synthesis["stats"] == {
+        "total": 96,
+        "eligible": 90,
+        "excluded": 6,
+        "by_selection_basis": {"agreement": 61, "codex": 30, "gemini": 5},
+    }
+    assert diff_path.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-27",
+    )

@@ -43,6 +43,12 @@ THIRTY_FOURTH_PACKET = ACCURACY_ROOT / (
 THIRTY_FOURTH_MARKDOWN = ACCURACY_ROOT / (
     "review-packets/blind-v2-source-classification-batch-034.md"
 )
+THIRTY_FIFTH_PACKET = ACCURACY_ROOT / (
+    "review-packets/blind-v2-source-classification-batch-035.json"
+)
+THIRTY_FIFTH_MARKDOWN = ACCURACY_ROOT / (
+    "review-packets/blind-v2-source-classification-batch-035.md"
+)
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -524,4 +530,41 @@ def test_thirty_fourth_packet_balances_all_source_classes() -> None:
     assert validate_packet(packet) == []
     assert THIRTY_FOURTH_MARKDOWN.read_text(encoding="utf-8") == render_markdown(
         THIRTY_FOURTH_PACKET, packet
+    )
+
+
+def test_thirty_fifth_packet_balances_all_source_classes() -> None:
+    packet = json.loads(THIRTY_FIFTH_PACKET.read_text(encoding="utf-8"))
+    sources = [
+        ACCURACY_ROOT / "external/massive-1-0-zh-cn-v1.json",
+        ACCURACY_ROOT / "external/census-newsroom-zh-hans-v1.json",
+        ACCURACY_ROOT / "external/zhtw-project-llm-social-baseline-v1.json",
+    ]
+    exclusions = [
+        ACCURACY_ROOT / f"review-packets/blind-v2-source-classification-batch-{number:03d}.json"
+        for number in range(1, 35)
+    ]
+    generated = build_packet(
+        sources,
+        batch_size=96,
+        batch_number=35,
+        seed=20260719,
+        generated_date="2026-07-27",
+        exclude_packet_paths=exclusions,
+        balanced_remaining=True,
+    )
+
+    assert packet == generated
+    assert packet["stats"] == {
+        "total": 96,
+        "by_source": {
+            "census-newsroom-zh-hans-v1": 32,
+            "massive-1-0-zh-cn-v1": 32,
+            "zhtw-project-llm-social-baseline-v1": 32,
+        },
+    }
+    assert find_forbidden_keys(packet) == set()
+    assert validate_packet(packet) == []
+    assert THIRTY_FIFTH_MARKDOWN.read_text(encoding="utf-8") == render_markdown(
+        THIRTY_FIFTH_PACKET, packet
     )
