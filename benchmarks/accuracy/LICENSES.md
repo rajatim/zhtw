@@ -165,7 +165,8 @@ is missing.
 - Bias notice: This is synthetic project-original coverage, not independently
   observed market traffic. It intentionally targets preregistered IT
   over-conversion, LLM candidate/baseline, and social entity-guard quota gaps.
-  AI source classification remains advisory until maintainer confirmation.
+  Independent Gemini review and maintainer confirmation completed on 2026-07-28;
+  32 sampled cases passed promotion deduplication.
 
 ## zhtw-project-it-api-cli-v1
 
