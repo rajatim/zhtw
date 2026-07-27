@@ -774,6 +774,19 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   5,880 筆尚差 2,766；`permissive_license` 1,073/3,114（34.46%）、
   `public_domain` 1,067/3,114（34.26%）、`project_original` 974/3,114（31.28%），
   皆低於 35%。
+- [x] 2026-07-28 建立 project-original IT／LLM／social guard v1 input-only
+  pilot 100 筆：40 筆 IT 識別碼與協定保護、30 筆 LLM candidate/baseline、30 筆
+  social entity guard。Raw 與 normalized SHA-256 已固定，來源內 100/100 ID 與
+  input 唯一，對既有 project sources 與 candidate pool 無 exact duplicate；未使用
+  converter output 或 expected。新增 source-class-balanced remaining deterministic
+  selection policy，先平衡 source class，再於 class 內輪流抽取來源。
+- [ ] 2026-07-28 建立 source-class-balanced batch 037：MASSIVE 32 筆、新增
+  project-original 32 筆，以及 Census Newsroom、Ready.gov Home Fires、Ready.gov
+  Landslides 合計 32 筆；與 batches 001-036 ID 重疊為零。Codex first pass 建議
+  88 筆納入、8 筆排除；Gemini CLI 0.52.0 以五個來源隔離 session 完成 96/96
+  input-only 獨立審查，零工具呼叫、零 API 錯誤，建議 94 筆納入、2 筆排除。
+  Codex synthesis 修正 1 筆過度排除後，建議 89 筆納入、7 筆排除；目前等待
+  maintainer confirmation，確認前不得 promotion。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

@@ -61,19 +61,23 @@ def build_packet(
     selection_round: int | None = None,
     exclude_packet_paths: list[Path] | None = None,
     balanced_remaining: bool = False,
+    balanced_source_class_remaining: bool = False,
 ) -> dict[str, Any]:
     exclude_packet_paths = exclude_packet_paths or []
+    remaining_selection = balanced_remaining or balanced_source_class_remaining
     if not all_source_cases and batch_size < len(source_paths):
         raise ValueError("batch size must be at least the number of sources")
     if batch_number < 1:
         raise ValueError("batch number must be at least 1")
     if selection_round is not None and selection_round < 1:
         raise ValueError("selection round must be at least 1")
-    if balanced_remaining and not exclude_packet_paths:
+    if balanced_remaining and balanced_source_class_remaining:
+        raise ValueError("remaining selection modes are mutually exclusive")
+    if remaining_selection and not exclude_packet_paths:
         raise ValueError("balanced remaining selection requires at least one exclusion packet")
-    if exclude_packet_paths and not balanced_remaining:
+    if exclude_packet_paths and not remaining_selection:
         raise ValueError("exclusion packets require balanced remaining selection")
-    if balanced_remaining and (all_source_cases or selection_round is not None):
+    if remaining_selection and (all_source_cases or selection_round is not None):
         raise ValueError(
             "balanced remaining selection cannot be combined with all-source or selection-round"
         )
@@ -109,7 +113,7 @@ def build_packet(
             }
         )
 
-    if balanced_remaining:
+    if remaining_selection:
         quotas: dict[str, int] = {source["id"]: 0 for _, source in sources}
         ranked_remaining: dict[str, list[dict[str, Any]]] = {}
         for _, source in sources:
@@ -125,21 +129,55 @@ def build_packet(
         selected_by_source: dict[str, list[dict[str, Any]]] = {
             source_id: [] for source_id in ranked_remaining
         }
-        selected_total = 0
-        while selected_total < batch_size:
-            progressed = False
-            for source_id in sorted(ranked_remaining):
-                if not ranked_remaining[source_id]:
-                    continue
-                selected_by_source[source_id].append(ranked_remaining[source_id].pop(0))
-                quotas[source_id] += 1
-                selected_total += 1
-                progressed = True
-                if selected_total == batch_size:
-                    break
-            if not progressed:
-                raise ValueError("balanced remaining selection exhausted available cases")
-        selection_policy = "balanced-remaining-deterministic-sha256-v1"
+        if balanced_source_class_remaining:
+            source_classes: dict[str, list[str]] = {}
+            for _, source in sources:
+                source_class = source.get("source_class")
+                if not isinstance(source_class, str) or not source_class:
+                    raise ValueError(f"{source['id']}: source class is required")
+                source_classes.setdefault(source_class, []).append(source["id"])
+            class_quotas = apportion(
+                batch_size,
+                tuple((source_class, 1) for source_class in sorted(source_classes)),
+            )
+            for source_class, required in class_quotas.items():
+                source_ids = sorted(source_classes[source_class])
+                available = sum(len(ranked_remaining[source_id]) for source_id in source_ids)
+                if available < required:
+                    raise ValueError(
+                        f"source class {source_class} requires {required} cases, has {available}"
+                    )
+                selected_total = 0
+                while selected_total < required:
+                    progressed = False
+                    for source_id in source_ids:
+                        if not ranked_remaining[source_id]:
+                            continue
+                        selected_by_source[source_id].append(ranked_remaining[source_id].pop(0))
+                        quotas[source_id] += 1
+                        selected_total += 1
+                        progressed = True
+                        if selected_total == required:
+                            break
+                    if not progressed:
+                        raise ValueError(f"source class {source_class} exhausted available cases")
+            selection_policy = "balanced-source-class-remaining-deterministic-sha256-v1"
+        else:
+            selected_total = 0
+            while selected_total < batch_size:
+                progressed = False
+                for source_id in sorted(ranked_remaining):
+                    if not ranked_remaining[source_id]:
+                        continue
+                    selected_by_source[source_id].append(ranked_remaining[source_id].pop(0))
+                    quotas[source_id] += 1
+                    selected_total += 1
+                    progressed = True
+                    if selected_total == batch_size:
+                        break
+                if not progressed:
+                    raise ValueError("balanced remaining selection exhausted available cases")
+            selection_policy = "balanced-remaining-deterministic-sha256-v1"
     elif all_source_cases:
         quotas = {source["id"]: len(source["cases"]) for _, source in sources}
         selection_policy = "all-source-cases-sorted-v1"
@@ -152,7 +190,7 @@ def build_packet(
     for path, source in sources:
         source_id = source["id"]
         required = quotas[source_id]
-        if balanced_remaining:
+        if remaining_selection:
             source_cases = selected_by_source[source_id]
             start = 0
         elif all_source_cases:
@@ -304,6 +342,7 @@ def main() -> int:
     parser.add_argument("--selection-round", type=int)
     parser.add_argument("--exclude-packet", action="append", type=Path, default=[])
     parser.add_argument("--balanced-remaining", action="store_true")
+    parser.add_argument("--balanced-source-class-remaining", action="store_true")
     parser.add_argument("--generated-date", default=dt.date.today().isoformat())
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--markdown-output", type=Path)
@@ -321,6 +360,7 @@ def main() -> int:
         selection_round=args.selection_round,
         exclude_packet_paths=args.exclude_packet,
         balanced_remaining=args.balanced_remaining,
+        balanced_source_class_remaining=args.balanced_source_class_remaining,
     )
     errors = validate_packet(packet)
     if errors:

@@ -52,7 +52,9 @@ THIRTY_FIFTH_MARKDOWN = ACCURACY_ROOT / (
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
-def write_source(path: Path, source_id: str, count: int) -> None:
+def write_source(
+    path: Path, source_id: str, count: int, source_class: str = "permissive_license"
+) -> None:
     cases = []
     for number in range(1, count + 1):
         cases.append(
@@ -75,6 +77,7 @@ def write_source(path: Path, source_id: str, count: int) -> None:
         json.dumps(
             {
                 "id": source_id,
+                "source_class": source_class,
                 "input_only": True,
                 "converter_output_used": False,
                 "cases": cases,
@@ -317,6 +320,52 @@ def test_balanced_remaining_selection_rejects_insufficient_capacity(tmp_path: Pa
         assert "requires 3 cases, has 2" in str(exc)
     else:
         raise AssertionError("insufficient remaining capacity must be rejected")
+
+
+def test_source_class_balanced_remaining_selection(tmp_path: Path) -> None:
+    permissive = tmp_path / "permissive.json"
+    project = tmp_path / "project.json"
+    public_first = tmp_path / "public-first.json"
+    public_second = tmp_path / "public-second.json"
+    exclusion_path = tmp_path / "prior.json"
+    write_source(permissive, "permissive", 20, "permissive_license")
+    write_source(project, "project", 20, "project_original")
+    write_source(public_first, "public-first", 20, "public_domain")
+    write_source(public_second, "public-second", 20, "public_domain")
+    exclusion_path.write_text(
+        json.dumps(
+            {
+                "name": "prior-packet",
+                "input_only": True,
+                "converter_output_used": False,
+                "cases": [{"id": "public-first/case-001"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    packet = build_packet(
+        [public_second, permissive, project, public_first],
+        batch_size=30,
+        batch_number=37,
+        seed=20260719,
+        generated_date="2026-07-28",
+        exclude_packet_paths=[exclusion_path],
+        balanced_source_class_remaining=True,
+    )
+
+    assert packet["selection_policy"] == ("balanced-source-class-remaining-deterministic-sha256-v1")
+    assert packet["stats"] == {
+        "total": 30,
+        "by_source": {
+            "permissive": 10,
+            "project": 10,
+            "public-first": 5,
+            "public-second": 5,
+        },
+    }
+    assert "public-first/case-001" not in {case["id"] for case in packet["cases"]}
+    assert validate_packet(packet) == []
 
 
 def test_committed_packet_is_valid_input_only_and_reproducible() -> None:

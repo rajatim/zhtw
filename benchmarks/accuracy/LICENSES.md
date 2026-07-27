@@ -154,6 +154,19 @@ is missing.
   everyday-social usage. AI source classification remains advisory until
   maintainer confirmation.
 
+## zhtw-project-it-llm-social-guard-v1
+
+- Source: zhtw project-original IT guard, LLM, and social entity input-only
+  scenarios drafted on 2026-07-28.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only IT guard, LLM, and social entity scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: This is synthetic project-original coverage, not independently
+  observed market traffic. It intentionally targets preregistered IT
+  over-conversion, LLM candidate/baseline, and social entity-guard quota gaps.
+  AI source classification remains advisory until maintainer confirmation.
+
 ## zhtw-project-it-api-cli-v1
 
 - Source: zhtw project-original IT, API, and CLI input-only scenarios drafted

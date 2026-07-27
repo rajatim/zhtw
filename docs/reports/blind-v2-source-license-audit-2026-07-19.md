@@ -209,6 +209,22 @@ input alone.
   Codex re-review. Maintainer `tim` confirmed the synthesis on 2026-07-24; all
   100 passed the promotion deduplication gate and entered the collecting pool.
 
+### zhtw project-original IT / LLM / social guard v1
+
+- Source: 100 Simplified Chinese scenarios drafted by Codex on 2026-07-28 and
+  committed as an immutable input-only source snapshot: 40 IT identifier and
+  protocol guards, 30 LLM candidate/baseline cases, and 30 social entity guards.
+- Raw SHA-256:
+  `d9353ba6a716db782b7ef275a4dce460202a9886a66f2b26789efb77fddf617e`.
+- Normalized SHA-256:
+  `2635093893426c59d227a4991f5064deca91de4ec86603affec356389b441a9a`.
+- License: MIT; source class `project_original`.
+- Restrictions: synthetic quota coverage only, not organic market-frequency
+  evidence. Drafting used the preregistered domain/risk gaps only; no converter
+  output or expected text influenced the source. Independent Gemini and
+  maintainer classification remain required before promotion.
+- Decision: accepted as an input-only pilot; source classification is pending.
+
 ### MASSIVE 1.0 `zh-CN`
 
 - Repository: <https://github.com/alexa/massive>

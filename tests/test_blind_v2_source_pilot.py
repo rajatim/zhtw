@@ -587,6 +587,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("zhtw-project-competitor-risk-taxonomy-v1", 80),
         ("zhtw-project-llm-domain-balance-v1", 100),
         ("zhtw-project-llm-social-baseline-v1", 100),
+        ("zhtw-project-it-llm-social-guard-v1", 100),
         ("massive-1-0-zh-cn-v1", 15619),
         ("ftc-small-business-simplified-v1", 81),
         ("ftc-heads-up-simplified-v1", 117),
