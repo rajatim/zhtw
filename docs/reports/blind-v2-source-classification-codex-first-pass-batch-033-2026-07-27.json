@@ -1,0 +1,989 @@
+{
+  "version": 1,
+  "reviewer": "Codex",
+  "model": null,
+  "review_date": null,
+  "policy": "input_only_no_converter_output",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-033.json",
+  "packet_sha256": "b07f481061d43600da3bffe5a2e21c6c1e57504274829b0dad4644a53c55f8b4",
+  "stats": {
+    "total": 96,
+    "eligible": 91,
+    "excluded": 5,
+    "high": 5,
+    "medium": 91,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-000f78e9828d66e4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0beac066a573530a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1ed1b5bf0473b146",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-334f5b2aed29285c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-3728e54a6b2d650f",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5c9c7d07d7979efa",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7426c6c0c7d314a0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-886a05c43b8972ad",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-91d87c559bb474dc",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-93577febefb99215",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a82a9893561bed3f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d0b75c9e07213975",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-dea0c648ec2a3538",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e0ddd1b2aecd1d59",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ec7b57c9f7b40775",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f94635bb8de14f82",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 Android 介面字串；用於檢驗臺灣 UI 用語、一般字形與受保護 token。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-006",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-020",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "句中「聯邦定立法人員」與「等關公共服務」有明顯黏字或缺字，正式語意不可靠。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-09-sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的政府新聞或人口統計敘述；用於檢驗正式用語與統計術語。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1262876892872089030",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1287534462498555020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1315551408014407711",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2099452623287920103",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2174917724755363426",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2210682093923538346",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2418322681019544463",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2915996080311180594",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-3068187312562070417",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-4427306783828095590",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-6096348254544841612",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-6510925080656968729",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7352651011704765696",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7867198900892795913",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-8401454788024434101",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-8862326446509486874",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺灣 UI 用語、產品名稱與受保護 token。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0029",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0121",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0153",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0169",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0237",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0260",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0313",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0321",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0035",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0107",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0108",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0109",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0132",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0168",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0243",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的技術文件敘述；用於檢驗 Kubernetes 術語、指令與識別碼保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-058",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "僅為「溝和基坑的挖掘事故（塌方）」表格項目，缺少可獨立判讀的完整敘述。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-064",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-065",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-068",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的職業安全指引；涉及安全語意，適合檢驗專業詞彙與單位保留。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-073",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "heading_text_join"
+      ],
+      "confidence": "high",
+      "notes": "機關頁首「職業安全與健康管理局」與簡報正文直接黏連，不是乾淨的單一句子。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-003",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "「濃煙充滿房屋或被火焰吞沒」的並列主體錯接，語意不完整。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-043",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "「用乾淨的乾布蓋住」缺少受詞，必須依賴上一句燒傷語境。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-064",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-078",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-086",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的居家防火指引；涉及安全語意，適合檢驗防災詞彙與臺灣用語。"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex synthesis",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-27",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-033.json",
+  "packet_sha256": "b07f481061d43600da3bffe5a2e21c6c1e57504274829b0dad4644a53c55f8b4",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 1
+  },
+  "cases": [
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-006",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    }
+  ]
+}

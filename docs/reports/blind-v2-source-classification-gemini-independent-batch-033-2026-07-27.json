@@ -1,0 +1,989 @@
+{
+  "version": 1,
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": null,
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-033.json",
+  "packet_sha256": "b07f481061d43600da3bffe5a2e21c6c1e57504274829b0dad4644a53c55f8b4",
+  "stats": {
+    "total": 96,
+    "eligible": 96,
+    "excluded": 0,
+    "high": 95,
+    "medium": 1,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-000f78e9828d66e4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common UI string from Android OS resources, suitable for basic conversion checks. The term '分钟' (minute) is standard."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0beac066a573530a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard UI term from Android. '私密' (private/secret) and '空间' (space) are common words."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1ed1b5bf0473b146",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A UI string from Android containing a placeholder '%d'. The placeholder must be preserved during conversion, making it a good guard against over-conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-334f5b2aed29285c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, complete instructional sentence from the Android UI, suitable for testing phrase-level conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-3728e54a6b2d650f",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Android UI string with indexed string format placeholders (%1$s, %2$s). These must be preserved correctly, testing the converter's ability to handle code elements."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5c9c7d07d7979efa",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common UI term. The character '视' (shì) in '视频' (video) needs to be correctly converted to '視' and not other homophones, testing the converter's context awareness."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7426c6c0c7d314a0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A UI status message from Android. '画中画' (picture-in-picture) is a good test for modern technical jargon conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-886a05c43b8972ad",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A permission-related description from Android UI. It contains multiple characters that have direct traditional counterparts ('读', '网', '络', '-用', '-况', '历', '史', '记', '录'), making it a solid baseline test."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-91d87c559bb474dc",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A lengthy permission description from Android containing the Latinism 'NFC'. This tests the ability to handle and preserve non-Chinese tokens within a sentence."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-93577febefb99215",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A permission description from Android. The character '转' in '转接' (to transfer a call) has a potential for ambiguity but should be converted to '轉' in this context."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a82a9893561bed3f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A security-related UI string. '诱骗' (phishing/luring) is a relatively formal term."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d0b75c9e07213975",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A formal permission string from Android. The term '优化' (optimization) is common in IT contexts and should convert to '優化'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-dea0c648ec2a3538",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common relative time format string from Android. Contains the placeholder '%d', which must be preserved."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e0ddd1b2aecd1d59",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard UI status message from the Android fingerprint authentication system. Clear and context-specific."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ec7b57c9f7b40775",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A technical error message containing the acronym 'IMPI' (IP Multimedia Private Identity). The acronym must be preserved, making it a good test for over-conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f94635bb8de14f82",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A UI status message from Android. The characters '暂' (temporarily) and '-用' (disabled/enabled) are common in this context."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal Simplified Chinese sentence from a government press release."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal Simplified Chinese sentence with numbers and dates, which do not alter the script classification."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal Simplified Chinese. The word '地图' is a common term and serves as a basic conversion check."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Mixed script (Simplified Chinese + Latin). The English token 'Census ID' must be preserved, making it a high-stakes instructional text."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal Simplified Chinese sentence. Contains '程序', testing if the converter correctly handles characters that are part of common IT and general terms."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal Simplified Chinese sentence containing common terms like '单元' and '覆盖率'."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "minor_grammatical_error"
+      ],
+      "confidence": "high",
+      "notes": "The input contains a minor grammatical error or typo: '等关公共服务' should likely be '等公共服务'. The sentence is otherwise a valid formal text."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Mixed script due to the presence of the Latin abbreviation 'ACO', which must be preserved."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Mixed script due to the Latin proper noun 'Alaska'. The word '操作' is also a relevant keyword."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal Simplified Chinese sentence. The character '算' is a common conversion case."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal Simplified Chinese. A good test for the context-dependent '后'/'後' conversion ('扩大后')."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal Simplified Chinese. The word '更新' is common in both general and technical contexts."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal Simplified Chinese. Provides a test for context-sensitive characters, specifically '布' in '公布' which should convert to '佈'."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Mixed script due to the long Latin phrase 'American Community Survey', which must be preserved."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Long but valid formal Simplified Chinese sentence. Another test case for the '后'/'後' conversion via the word '后裔'."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-09-sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal Simplified Chinese sentence. The word '明信片' provides a check for polyphone handling, although it's a common case."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1262876892872089030",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard Simplified Chinese UI string containing the brand name 'Chromium', which should be preserved."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1287534462498555020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple UI string in Simplified Chinese that includes the brand name 'Chromium'. The brand name acts as a guard against over-conversion."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1315551408014407711",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This input is a mix of Simplified Chinese and the Latin script brand name 'Chromium', which must not be converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2099452623287920103",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input contains two brand names, 'Google' and 'Chromium', in Latin script mixed with Simplified Chinese. These should be preserved."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2174917724755363426",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard, complete sentence in Simplified Chinese. It serves as a good baseline test case for general conversion accuracy."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2210682093923538346",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains the brand name 'Chromium' alongside Simplified Chinese text. The brand name should not be translated or converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2418322681019544463",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A UI instruction in Simplified Chinese featuring the brand name 'Chromium', which needs to be preserved during conversion."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2915996080311180594",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A short, common phrase in Simplified Chinese. It's a straightforward baseline case."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-3068187312562070417",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input mixes Simplified Chinese with the brand name 'Chromium', testing the converter's ability to preserve identifiers."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-4427306783828095590",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence uses specific IT security terms '网上诱骗' (phishing) and '恶意软件' (malware). It tests for correct mapping to their Traditional Chinese equivalents, which might not be a direct one-to-one character conversion."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-6096348254544841612",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard UI message in Simplified Chinese containing the brand name 'Chromium'."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-6510925080656968729",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Short UI text mixing a Simplified Chinese verb with the 'Chromium' brand name."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7352651011704765696",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A very common, colloquial phrase in Simplified Chinese, suitable as a baseline conversion test."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7867198900892795913",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This UI error message contains the brand name 'Chromium' and technical terms, testing both preservation of brand names and conversion of technical vocabulary."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-8401454788024434101",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A longer UI security warning that contains the brand name 'Chromium' and technical terms like '扩展程序' (extension)."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-8862326446509486874",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, formal instruction in Simplified Chinese using common IT terms like '管理员' (administrator) and '安装程序' (installer), making it a solid baseline case."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard technical documentation sentence. The term '对象' (object) is a key concept."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0029",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an English technical term 'Phase' alongside its Chinese translation. The English term should be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0121",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a code-formatted English token 'Restart' which must be preserved and not translated."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0153",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a code-formatted feature gate name 'KubeletCrashLoopBackOffMax' that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0169",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a code-formatted API path 'status.conditions' that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0237",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains the component name 'kubelet' in code format, which must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0260",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard technical sentence describing process termination logic."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0313",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains English technical terms 'StatefulSet' and 'Pod' that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0321",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple English tokens ('preStop', 'Sidecar', 'Pod', 'kubelet') that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0035",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple English tokens/labels ('Service', 'app.kubernetes.io/name: MyApp', 'Pod', 'TCP') that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0107",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains English tokens 'Service' and 'type' (in code format) which must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0108",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains proper nouns for APIs, 'Ingress' and 'Gateway API', which must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0109",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains English tokens 'NodePort', 'IP', and 'Service', which are technical terms and must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0132",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple English technical names and acronyms (NodePort, Service, Kubernetes, TCP, UDP, SCTP) that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0168",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains the common English acronym 'API', which should be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0243",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple English technical names ('ExternalName', 'Service', 'Pod', 'DNS') that must be preserved."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal text from an official government safety document. The presence of the proper noun 'OSHA' makes the script mixed."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward formal sentence. Key terms like '雇主' (gùzhǔ) and '工人' (gōngrén) are common in Mainland China; other regions might prefer '勞工' (láogōng) for 'worker'."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence. Contains common but important terms like '评估' (pínggū - assessment)."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The phrase '配备' (pèibèi - to equip) is a good test case; the character '配' must be handled as part of a compound word to avoid incorrect conversion."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Medical context. The term '疫苗' (yìmiáo - vaccine) is standard across most Chinese-speaking regions."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple imperative sentence about a safety action."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains specific technical terms like '耐化学腐蚀' (nài huàxué fǔshí - chemical resistant) and '护目镜' (hùmùjìng - goggles), which require precise equivalents."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Classic test case for the character '干'. In '干净' (gānjìng - clean), it must be converted to '乾' (gān), not '幹' (gàn)."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward sentence. The word '标记' (biāojì - mark/marker) converts directly to '標記'."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Good test for context-sensitive character mapping. The character '机' in '机械' (jīxiè - machinery) must be converted to '機'."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A critical safety warning. Contains several compound words that must be converted as units: '严禁' (yánjìn), '便携式' (biànxiéshì), '发电机' (fādiànjī)."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-058",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Contains technical terms ('基坑' - foundation pit, '塌方' - collapse/landslide) for which standard terminology might differ in engineering contexts across regions."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-064",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A reference to a legal code (29 CFR 1926.651). The non-Chinese elements (letters, numbers, punctuation) must be preserved exactly."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-065",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '小组' (xiǎozǔ - small group) is common in Mainland China, whereas '團隊' (tuánduì - team) might be more idiomatic in some professional contexts in Taiwan."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-068",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence presents a regional vocabulary choice: '雇员' (gùyuán) is standard for 'employee' in Mainland China, but '員工' (yuángōng) is far more common in Taiwan."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-073",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complex sentence containing the proper noun 'OSHA'. It also includes '计划' (jìhuà), which maps to '計畫' or '計劃' depending on nuance, and '合规' (héguī - compliance), which has direct but potentially stylistically different equivalents."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear, simple sentence from a government safety website. Good baseline."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward public safety sentence."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard conversion test for a technical but common term ('锂电池')."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests common vocabulary differences, especially '数字' (shùzì) for 'digital', which should become '數位' in many formal Traditional Chinese contexts."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety instruction with accessibility terms like '轮椅' (wheelchair)."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Basic fire safety science sentence."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests a critical, well-known safety instruction ('stop, drop, and roll')."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple and direct first-aid instruction where correctness is critical."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Excellent test for the polysemous character '干'. In this context ('干布' - dry cloth), '干' (gān) should be converted to '乾', not '幹'."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A post-disaster financial instruction. '房贷' (mortgage) is a common term."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple, clear public safety message."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Common fire safety tip about cooking."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests conversion of the common verb phrase '关掉' (guān diào), which should become '關掉' or a similar regional equivalent like '關上'."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-064",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Holiday fire safety instruction."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-078",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Space heater safety instructions."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-086",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests multiple technical terms ('便携式发电机') and the context-dependent word '加油' (refuel)."
+    }
+  ],
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "90ce21bc-00a5-43de-b0c1-8860f92d8756,54758c1f-4ae8-4182-be7e-18aa57450797,faaffe2d-007d-4d49-9c5c-0e80b5359a4c,5a6dfbad-1c4b-41f3-8ee4-3ce5a1f8e648,fa573059-57b5-4e4d-8370-2135e9eedb33,7603fd73-f780-4835-8f73-8dd7eb2208d0",
+    "tool_calls": 6,
+    "total_errors": 0
+  }
+}
