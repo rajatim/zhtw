@@ -672,8 +672,10 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   CLI 0.52.0／`gemini-2.5-pro` 獨立審查與 Codex synthesis；兩次 Gemini 均完整
   覆蓋 IDs、零工具呼叫、零 API 錯誤。Batch 026 綜合建議 80/80 eligible；Batch
   027 綜合建議 92/100 eligible，8 筆因 Markdown 結構移除後成為殘句、列表片段
-  或格式殘留而排除。兩批目前均為 advisory-only，等待 maintainer 確認後才建立
-  human decision、執行去重與 promotion；collecting pool 仍維持 2,154 筆。
+  或格式殘留而排除。Maintainer 已確認兩批 synthesis，172 筆 eligible 全數通過
+  exact／near-duplicate promotion，8 筆來源品質案例維持排除；collecting pool
+  `2,154 → 2,326`。目前 `permissive_license` 752/2,326、`project_original`
+  780/2,326、`public_domain` 794/2,326，三類均在最終 35% gate 內。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

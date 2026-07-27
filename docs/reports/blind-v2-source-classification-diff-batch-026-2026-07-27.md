@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 026 (2026-07-27)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `c08c3e7d39d16a58c51941eb15b98eadfc0335610510b620a5e55b2fc681b302`
 Cases: 80
@@ -12,14 +12,14 @@ Field differences:
 
 - Eligibility: 0
 - Script: 0
-- Domain: 24
+- Domain: 23
 - Risk: 64
 
 ## Policy Finding
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 68 advisory disagreements and batch-confirmed the 12 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試常用詞「負責」、「士兵」、「更換」、「崗位」的基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. zhtw-project-competitor-risk-taxonomy-v1/boundary-002
 
@@ -63,7 +63,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試常用詞「典禮」、「士官」、「穿著」、「制服」的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. zhtw-project-competitor-risk-taxonomy-v1/boundary-004
 
@@ -84,7 +84,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試「那只装有」，此處「只」為量詞，應轉換為「隻」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. zhtw-project-competitor-risk-taxonomy-v1/boundary-005
 
@@ -105,7 +105,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試中國用語「团队」(團隊)的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. zhtw-project-competitor-risk-taxonomy-v1/boundary-006
 
@@ -126,7 +126,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「字段」(欄位)和「编码」(編碼)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. zhtw-project-competitor-risk-taxonomy-v1/boundary-007
 
@@ -147,7 +147,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「字节」(位元組)和「消息标头」(訊息標頭)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. zhtw-project-competitor-risk-taxonomy-v1/boundary-008
 
@@ -168,7 +168,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「字节流」(位元組流)和「模块」(模組)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. zhtw-project-competitor-risk-taxonomy-v1/boundary-009
 
@@ -189,11 +189,11 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「线程」(執行緒)和「产品」(產品)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. zhtw-project-competitor-risk-taxonomy-v1/boundary-010
 
-Changed: `domain, risk`
+Changed: `risk`
 
 Input:
 
@@ -203,14 +203,14 @@ Input:
 
 | Reviewer | Eligible | Domain | Risk | Confidence | Quality |
 |----------|----------|--------|------|------------|---------|
-| Codex | yes | ui_i18n | over_conversion_guard | high | - |
+| Codex | yes | it_api_cli | over_conversion_guard | high | - |
 | Gemini | yes | it_api_cli | candidate_gap | high | - |
 
 Codex reason: 完整的 project-original 风险边界句；语境足以独立判断，适合检验过度转换与词组边界。
 
 Gemini reason: 測試 IT 術語「开发人员」(開發人員)、「线程」(執行緒)、「暂存」(暫存)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. zhtw-project-competitor-risk-taxonomy-v1/entity-001
 
@@ -231,7 +231,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試專有名詞「黄河科技学院」應不轉換，而「公布」、「简章」應轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. zhtw-project-competitor-risk-taxonomy-v1/entity-002
 
@@ -252,7 +252,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試專有名詞「白云山制药厂」，應不轉換或部分轉換，同時測試「产品包装」的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. zhtw-project-competitor-risk-taxonomy-v1/entity-006
 
@@ -273,7 +273,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試地名「范家村」不轉換，而「保存」、「清代」應轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. zhtw-project-competitor-risk-taxonomy-v1/entity-007
 
@@ -294,7 +294,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試包含英文的句子，英文部分「Project Cedar」應保持不變。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. zhtw-project-competitor-risk-taxonomy-v1/entity-008
 
@@ -315,7 +315,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試包含非 ASCII 字符的外文「Côte d’Ivoire」應保持不變。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. zhtw-project-competitor-risk-taxonomy-v1/entity-009
 
@@ -336,7 +336,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試包含字母和數字的型號「ThinkPad T14s」應保持不變。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 16. zhtw-project-competitor-risk-taxonomy-v1/entity-010
 
@@ -357,7 +357,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試羅馬拼音人名「Chen Yu-Han」應保持不變。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 17. zhtw-project-competitor-risk-taxonomy-v1/formal-001
 
@@ -378,7 +378,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試正式用語「主管机关」(主管機關)、「设置」(設置/設定)、「服务站」(服務站)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 18. zhtw-project-competitor-risk-taxonomy-v1/formal-002
 
@@ -399,7 +399,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT/UI 詞彙「系统设置」(系統設定)、「账号」(帳號)、「设备」(裝置/設備)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 19. zhtw-project-competitor-risk-taxonomy-v1/formal-003
 
@@ -420,7 +420,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試詞彙「高级中学」(高級中學)、「设备」(設備)的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 20. zhtw-project-competitor-risk-taxonomy-v1/formal-004
 
@@ -441,7 +441,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「进阶」(進階)和「高阶函数」(高階函式)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 21. zhtw-project-competitor-risk-taxonomy-v1/formal-005
 
@@ -462,7 +462,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試政治用語「财政」(財政)、「议会」(議會)、「审议」(審議)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 22. zhtw-project-competitor-risk-taxonomy-v1/formal-006
 
@@ -483,7 +483,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 用語「技术支持」(技術支援)、「远程」(遠端)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 23. zhtw-project-competitor-risk-taxonomy-v1/formal-007
 
@@ -504,7 +504,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試中國用語「社区」(社區)的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 24. zhtw-project-competitor-risk-taxonomy-v1/formal-008
 
@@ -525,7 +525,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 用語「开源社群」(開源社群)、「线上」(線上)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 25. zhtw-project-competitor-risk-taxonomy-v1/formal-009
 
@@ -546,7 +546,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試中國用語「数据」(數據)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 26. zhtw-project-competitor-risk-taxonomy-v1/formal-010
 
@@ -567,7 +567,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試涉及隱私的常用詞「个人资料」(個人資料)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 27. zhtw-project-competitor-risk-taxonomy-v1/glyph-001
 
@@ -588,7 +588,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試基本字形轉換：「后门」(後門)、「会议」(會議)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 28. zhtw-project-competitor-risk-taxonomy-v1/glyph-004
 
@@ -609,7 +609,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試詞彙「干燥」(乾燥)中「干」的正確轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 29. zhtw-project-competitor-risk-taxonomy-v1/glyph-006
 
@@ -630,7 +630,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試「里面」(裡面)中「里」的正確轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 30. zhtw-project-competitor-risk-taxonomy-v1/glyph-007
 
@@ -651,7 +651,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試「山谷里」(山谷裡)，並確保「谷」字不被誤轉為「穀」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 31. zhtw-project-competitor-risk-taxonomy-v1/glyph-009
 
@@ -672,7 +672,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試基本字形轉換：「公布」(公佈)、「历年」(歷年)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 32. zhtw-project-competitor-risk-taxonomy-v1/glyph-010
 
@@ -693,7 +693,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試字形轉換：「钟表」(鐘錶)、「后」(後)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 33. zhtw-project-competitor-risk-taxonomy-v1/it-001
 
@@ -714,7 +714,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「后台进程」(背景行程)和「缓存」(快取)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 34. zhtw-project-competitor-risk-taxonomy-v1/it-002
 
@@ -735,7 +735,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試常用詞「流程」、「审核」(審核)、「更换」(更換)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 35. zhtw-project-competitor-risk-taxonomy-v1/it-003
 
@@ -756,7 +756,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「容器」、「启动」(啟動)、「环境变量」(環境變數)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 36. zhtw-project-competitor-risk-taxonomy-v1/it-004
 
@@ -777,7 +777,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試「容器」在非 IT 情境（貨運）下的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 37. zhtw-project-competitor-risk-taxonomy-v1/it-005
 
@@ -798,7 +798,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「接口」(介面)和「返回」(回傳)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 38. zhtw-project-competitor-risk-taxonomy-v1/it-006
 
@@ -819,7 +819,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試「服务窗口」在非 IT 情境（臨櫃）下的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 39. zhtw-project-competitor-risk-taxonomy-v1/it-007
 
@@ -840,7 +840,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「数据库连接池」(資料庫連線池)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 40. zhtw-project-competitor-risk-taxonomy-v1/it-008
 
@@ -861,7 +861,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試「池」在非 IT 情境（游泳池）下的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 41. zhtw-project-competitor-risk-taxonomy-v1/it-009
 
@@ -882,7 +882,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「脚本」(腳本)和「字段」(欄位)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 42. zhtw-project-competitor-risk-taxonomy-v1/it-010
 
@@ -903,7 +903,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試「脚本」(腳本)在非 IT 情境（劇本）下的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 43. zhtw-project-competitor-risk-taxonomy-v1/semantic-001
 
@@ -924,7 +924,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試法律用語「当事人」、「程序」、「书面」、「答辩」的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 44. zhtw-project-competitor-risk-taxonomy-v1/semantic-002
 
@@ -945,7 +945,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「安装程序」(安裝程式)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 45. zhtw-project-competitor-risk-taxonomy-v1/semantic-003
 
@@ -966,7 +966,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試常用詞「文件」(檔案/文件)和「过程」(過程)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 46. zhtw-project-competitor-risk-taxonomy-v1/semantic-004
 
@@ -987,7 +987,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「文件」(檔案)和「目录」(目錄)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 47. zhtw-project-competitor-risk-taxonomy-v1/semantic-005
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試術語「数据」(數據)和「模型」(模型)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 48. zhtw-project-competitor-risk-taxonomy-v1/semantic-006
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 「补件」是台灣常用詞，測試「资料」(資料)的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 49. zhtw-project-competitor-risk-taxonomy-v1/semantic-007
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試詞彙「社区」(社區)和「托儿」(托兒)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 50. zhtw-project-competitor-risk-taxonomy-v1/semantic-008
 
@@ -1071,7 +1071,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 術語「旧版」(舊版)、「浏览器」(瀏覽器)、「支持」(支援)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 51. zhtw-project-competitor-risk-taxonomy-v1/semantic-009
 
@@ -1092,7 +1092,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試常用詞「列车」(列車)、「运行」(運行)、「期间」(期間)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 52. zhtw-project-competitor-risk-taxonomy-v1/semantic-010
 
@@ -1113,7 +1113,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試法律用語「执行」(執行)、「保障」、「当事人」的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 53. zhtw-project-competitor-risk-taxonomy-v1/social-001
 
@@ -1134,7 +1134,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試日常用語「群组」(群組)與「后」(後)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 54. zhtw-project-competitor-risk-taxonomy-v1/social-002
 
@@ -1155,7 +1155,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試日常用語「室内」(室內)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 55. zhtw-project-competitor-risk-taxonomy-v1/social-007
 
@@ -1176,7 +1176,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試常用詞「支持」(支持)與「后续」(後續)的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 56. zhtw-project-competitor-risk-taxonomy-v1/social-008
 
@@ -1197,7 +1197,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試常用詞「社区」(社區)、「志愿者」(志工/志願者)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 57. zhtw-project-competitor-risk-taxonomy-v1/social-009
 
@@ -1218,7 +1218,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 用語「链接」(連結)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 58. zhtw-project-competitor-risk-taxonomy-v1/social-010
 
@@ -1239,7 +1239,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試包含英文引用的句子，英文部分應保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 59. zhtw-project-competitor-risk-taxonomy-v1/ui-001
 
@@ -1260,7 +1260,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 UI 用語「默认值」(預設值)、「表单」(表單)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 60. zhtw-project-competitor-risk-taxonomy-v1/ui-002
 
@@ -1281,7 +1281,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 UI 用語「系统设置」(系統設定)、「语言」(語言)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 61. zhtw-project-competitor-risk-taxonomy-v1/ui-003
 
@@ -1302,7 +1302,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 UI 用語「高级选项」(進階選項)、「筛选」(篩選)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 62. zhtw-project-competitor-risk-taxonomy-v1/ui-004
 
@@ -1323,7 +1323,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 UI 用語「搜索框」(搜尋框)、「关键字」(關鍵字)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 63. zhtw-project-competitor-risk-taxonomy-v1/ui-005
 
@@ -1344,7 +1344,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 UI 用語「文件」(檔案)、「进度条」(進度條)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 64. zhtw-project-competitor-risk-taxonomy-v1/ui-006
 
@@ -1365,7 +1365,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 IT 用語「后台」(後端/背景)、「运行」(運行)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 65. zhtw-project-competitor-risk-taxonomy-v1/ui-007
 
@@ -1386,7 +1386,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 UI 及帳號安全用語「账号」(帳號)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 66. zhtw-project-competitor-risk-taxonomy-v1/ui-008
 
@@ -1407,7 +1407,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 UI 用語「对话框」(對話方塊)、「草稿」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 67. zhtw-project-competitor-risk-taxonomy-v1/ui-009
 
@@ -1428,7 +1428,7 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試 UI 用語「加载」(載入)、「筛选」(篩選)、「设置」(設定)。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 68. zhtw-project-competitor-risk-taxonomy-v1/ui-010
 
@@ -1449,4 +1449,4 @@ Codex reason: 完整的 project-original 风险边界句；语境足以独立判
 
 Gemini reason: 測試高風險情境下的用詞「错误消息」(錯誤訊息)，並確保 request_id 不變。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`

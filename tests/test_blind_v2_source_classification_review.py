@@ -2143,3 +2143,74 @@ def test_twenty_fifth_maintainer_synthesis_decision_is_reproducible() -> None:
         selected_advisory="synthesis",
         synthesis_path=TWENTY_FIFTH_SYNTHESIS_PATH,
     )
+
+
+def test_twenty_sixth_and_seventh_synthesis_decisions_are_reproducible() -> None:
+    expected_stats = {
+        26: {"total": 80, "eligible": 80, "excluded": 0},
+        27: {"total": 100, "eligible": 92, "excluded": 8},
+    }
+    for batch_number in (26, 27):
+        packet = ACCURACY_ROOT / (
+            f"review-packets/blind-v2-source-classification-batch-{batch_number:03d}.json"
+        )
+        prefix = ROOT / "docs/reports"
+        codex = prefix / (
+            "blind-v2-source-classification-codex-first-pass-"
+            f"batch-{batch_number:03d}-2026-07-27.json"
+        )
+        gemini = prefix / (
+            "blind-v2-source-classification-gemini-independent-"
+            f"batch-{batch_number:03d}-2026-07-27.json"
+        )
+        adjustments = prefix / (
+            "blind-v2-source-classification-codex-synthesis-adjustments-"
+            f"batch-{batch_number:03d}-2026-07-27.json"
+        )
+        synthesis = prefix / (
+            "blind-v2-source-classification-codex-synthesis-"
+            f"batch-{batch_number:03d}-2026-07-27.json"
+        )
+        decision = prefix / (
+            "blind-v2-source-classification-maintainer-decision-"
+            f"batch-{batch_number:03d}-2026-07-27.json"
+        )
+        diff = prefix / (
+            f"blind-v2-source-classification-diff-batch-{batch_number:03d}-2026-07-27.md"
+        )
+        packet_data = load(packet)
+        codex_data = load(codex)
+        gemini_data = load(gemini)
+        adjustments_data = load(adjustments)
+        synthesis_data = load(synthesis)
+        decision_data = load(decision)
+        overrides = {case["id"]: case["classification"] for case in adjustments_data["cases"]}
+
+        assert synthesis_data == build_synthesis(
+            codex_data,
+            gemini_data,
+            gemini_case_ids=set(),
+            generated_date="2026-07-27",
+            overrides=overrides,
+            override_basis="codex_synthesis",
+        )
+        assert synthesis_data["stats"] == {
+            **expected_stats[batch_number],
+            "by_selection_basis": {"codex_synthesis": expected_stats[batch_number]["total"]},
+        }
+        assert decision_data == build_decision(
+            packet,
+            codex,
+            gemini,
+            maintainer="tim",
+            decision_date="2026-07-27",
+            selected_advisory="synthesis",
+            synthesis_path=synthesis,
+        )
+        assert diff.read_text(encoding="utf-8") == render_markdown(
+            packet_data,
+            codex_data,
+            gemini_data,
+            generated_date="2026-07-27",
+            maintainer_decisions=decision_data,
+        )
