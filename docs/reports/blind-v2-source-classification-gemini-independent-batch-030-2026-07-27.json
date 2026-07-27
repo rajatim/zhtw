@@ -1,0 +1,987 @@
+{
+  "version": 1,
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": null,
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-030.json",
+  "packet_sha256": "7dbac14cff695ef87e16e15162e1e930775ac60105e3bb50c8535ef6853d2ff3",
+  "stats": {
+    "total": 96,
+    "eligible": 96,
+    "excluded": 0,
+    "high": 96,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-055a790be92a4f31",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「屏幕」是中國大陸用語，台灣稱「螢幕」，需在地化。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-39ee26479ef00a58",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。包含產品名稱 `Android`，必須保留。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-486ebbfb8149d65d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「生物识别」是中國大陸用語，台灣多稱「生物辨識」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4fc1884214f4fd7c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。用詞遣詞直譯即可，在台灣語境下亦可理解。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5287bf96626f0e09",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。包含 C-style 格式化預留位置 (`%1$s`, `%2$s`, `%3$s`)，必須保留，不可轉換。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-545165027303907e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「屏幕截图」是中國大陸用語，台灣稱「螢幕截圖」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-57315c6f0fad613a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。用詞通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5ac7573c30885803",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「调试」是中國大陸 IT 用語，台灣多稱「除錯」或「偵錯」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5fb1df005bceab4b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。包含多個中國大陸用語：「访问」(存取)、「设备」(裝置)、「视频」(影片)，需要針對台灣用語進行在地化。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6119391d5253c064",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「信用卡号」(信用卡號)、「密码」(密碼)、「数据」(資料) 均為需對應台灣用語的詞彙。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8498bff49e4f70ad",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「恢复出厂设置」是中國大陸用語，台灣稱「恢復原廠設定」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-915a14a331b6ffc3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「应用」在台灣通常指「應用程式」或「App」。「共享存储空间」用語也偏中國大陸，台灣會說「共用儲存空間」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9c4d2231777dbcde",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。用詞遣詞直譯即可，在台灣語境下亦可理解。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bae73a5b7e8edba2",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。包含多個中國大陸 IT 用語：「进程」(處理程序)、「堆转储」(堆疊傾印)、「数据」(資料)，需在地化。同時包含預留位置 (`%1$s`)，需保護。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-be1ae80b4d9c1724",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「手机号」是中國大陸簡稱，台灣通常說「手機號碼」。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fabbc3db5344bf41",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「PIN码」的「码」是簡體字，台灣用「碼」。包含拉丁縮寫 `PIN`，需保護。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。包含英文單詞 `state` 需保留。「运作指标」、「数据」、「级别」等為中國大陸用語，台灣會說「營運指標」、「資料」、「層級」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。「数据」是中國大陸用語，台灣稱「資料」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。「住房单元」是中國大陸用語，台灣稱「住宅單位」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。「统计数据」在台灣多稱「統計資料」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。「笔记本电脑」是中國大陸用語，台灣稱「筆記型電腦」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。「实时」是中國大陸用語，台灣稱「即時」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。包含英文單詞 `state` 需保留。「统计数据」在台灣多稱「統計資料」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。「打指纹」是中國大陸口語用法，台灣書面語多用「按捺指紋」或「採集指紋」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。「软启动」為術語直譯，可直接轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。「详细信息」在台灣 IT 語境中常稱「詳細資訊」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-09-sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府新聞稿。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1029669172902658969",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「操作系统」是中國大陸用語，台灣稱「作業系統」。`Chromium` 專有名稱與 `(&C)` 快捷鍵標識需保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1562320819937089394",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。在釘選到工具列或開始畫面的情境下，「固定」是中國大陸用語，台灣稱「釘選」。`Chromium` 需保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-22571759390241347",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。`Chromium` 為產品專有名稱，必須保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2648074677641340862",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「操作系统」是中國大陸用語，台灣稱「作業系統」。`Chromium` 為產品專有名稱，必須保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2676569452213089702",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「设备」是中國大陸用語，台灣稱「裝置」。`Chromium` 和 `Gemini` 是產品專有名稱，必須保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-302551344979399011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「账号」是中國大陸用語，台灣稱「帳戶」。包含 `AI`、`Google`、`Chromium` 等多個專有名稱需保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-3104828284009500087",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「搜索」和「内容」均為中國大陸用語，台灣稱「搜尋」和「內容」。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-3375770072980084583",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「密码」在台灣稱「密碼」。`Chromium` 是產品專有名稱，必須保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-4055805654398742145",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「密码」在台灣稱「密碼」。快捷鍵標識 `(&A)` 需保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-5324450571874973775",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。`Chromium` 和 `Gemini` 是產品專有名稱，必須保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-6751374565094704799",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。`Chromium` 和 `V8` 是產品/技術專有名稱，必須保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7047386856539490735",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-718435575166326686",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「摄像头」是中國大陸用語，台灣稱「攝影機」。`Chromium` 是產品專有名稱，必須保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7781047659465034537",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「任务栏」是 Windows 系統的中國大陸用語，台灣稱「工作列」。`Chromium` 是產品專有名稱，必須保留。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-8118331347066725040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「智能镜头」通常指 Google Lens，台灣直稱「智慧鏡頭」或 Google Lens。「反馈」在台灣多用「意見回饋」。"
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-8890569919834781711",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 字串。「账号」是中國大陸用語，台灣稱「帳戶」。`ChromiumOS`, `Chromium`, `Google` 是專有名稱，必須保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0002",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。`Kubernetes` 和 `UID` 是技術術語/專有名稱，必須保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0026",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。`Kubernetes` 是產品專有名稱，必須保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。`API` 是技術術語，必須保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。「Pod」和「节点」是 Kubernetes 術語，台灣分別稱「Pod」和「節點」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0058",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。包含多個需保護的技術術語 (`kubectl`, `Pod`, `Waiting`, `Reason`)。「容器」一詞通用。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0095",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。包含技術術語 `restartPolicy`、`Pod`、`Init` 容器，皆須保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0164",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。`PodResizePending` 和 `Pod` 是 Kubernetes 術語，必須保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0182",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。「kubelet」、「Pod」、「沙箱」是技術術語。台灣稱「kubelet」、「Pod」、「沙箱」。用語通用，但術語需保護。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0285",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。`Pod` 是 Kubernetes 術語，必須保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0031",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。`kubectl` 和 `API` 是技術術語，必須保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0045",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。`Service` 和 `Pod` 是 Kubernetes 術語，必須保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0082",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。`trafficDistribution` 是欄位名稱，屬於程式碼，必須保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0156",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。「负载均衡器」台灣稱「負載平衡器」。`Service` 和 `status.loadBalancer` 是技術術語/欄位名稱，必須保留。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0159",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。「cloud-controller-manager」是元件名稱，需保留。「负载均衡器」台灣稱「負載平衡器」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0212",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術文件。「spec.clusterIP」、「None」、「Headless Service」是技術術語/值，必須保留。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10234",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話。此句為指令。「配料」在台灣較常用於指稱佐料，此處可能指「食材」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10638",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11873",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12315",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13588",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。「土豆」在中國大陸指馬鈴薯，在台灣指花生。此處應指馬鈴薯，需轉換為「馬鈴薯」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16688",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16710",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。蘇州是地名，應保留。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/17170",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。「电子邮件」是中國大陸用語，台灣稱「電子郵件」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1982",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2174",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。「只要有你」是歌名，應保留。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3576",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。「搜狐新闻」是專有名稱，應保留。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3816",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。「音轨」是中國大陸用語，台灣稱「音軌」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7785",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。`萨拉` (Sara) 為音譯人名，應保留。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8697",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。李雷是人名，應保留。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9327",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。「扫描」在台灣多用於數位掃描，此處指收音機的「掃描頻道」，用法可通，但稍不自然。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9991",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，指令語氣。「教程」是中國大陸用語，台灣稱「教學」。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。「尘埃」在台灣口語較少用，但書面語可通。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。「尘埃」在台灣口語較少用，但書面語可通。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-054",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。「尘埃」在台灣口語較少用，但書面語可通。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-058",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-063",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。"
+    }
+  ],
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "e627b12b-9f5c-47ba-a178-8360b9424634",
+    "tool_calls": 0,
+    "total_errors": 0
+  }
+}
