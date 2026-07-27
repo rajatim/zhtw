@@ -1,0 +1,1039 @@
+{
+  "cases": [
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-001",
+      "notes": "美國人口普查局新聞稿，正式書面語，句子結構完整。包含'质量'、'计划'、'结果'、'数据'等基本轉換詞彙。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-002",
+      "notes": "美國人口普查局新聞稿，正式書面語，描述標準流程。測試'进行'、'广泛'、'发布'等詞的轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-004",
+      "notes": "美國人口普查局新聞稿，句子簡短完整。測試'与'、'专家'、'数据质量'。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-006",
+      "notes": "美國人口普查局新聞稿，句子簡短完整。測試'将'、'结果'、'总数'。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-007",
+      "notes": "美國人口普查局新聞稿，正式書面語，句子結構完整。測試'质量'、'审核'、'数据'等詞。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-008",
+      "notes": "政府新聞稿，包含英文單字 state，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-016",
+      "notes": "政府新聞稿，'访问' 在此數據情境下應為'存取'，考驗詞庫的精準度。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-018",
+      "notes": "政府新聞稿，'运作'一詞在台灣對應'運作'，是常見但需要正確對應的術語。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": null,
+      "eligible": false,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-020",
+      "notes": "句子片段，非完整句子，不適合作為獨立測試案例。",
+      "quality_flags": [
+        "fragment"
+      ],
+      "risk": null,
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-022",
+      "notes": "政府新聞稿，標準書面語，測試'隐私权'、'关注'等詞。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-023",
+      "notes": "政府新聞稿，'问卷调查'是核心術語，需要詞庫支援才能正確轉換為'問卷調查'。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-024",
+      "notes": "政府新聞稿，列舉人口群體，測試'复杂'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-025",
+      "notes": "政府新聞稿，測試'关系'、'计划'等標準轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-028",
+      "notes": "政府新聞稿，包含日期和'人口统计'、'后裔'等術語，作為基準測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-031",
+      "notes": "政府新聞稿，測試'计划'、'数据'等標準轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-033",
+      "notes": "政府新聞稿，'普查过后的问卷调查'是核心術語，需要詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-036",
+      "notes": "政府新聞稿，包含日期，測試'计划'、'发布'、'结果'等標準轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-001",
+      "notes": "政府新聞稿，句子完整，測試'决定'等基本詞彙。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-004",
+      "notes": "政府新聞稿，標準書面語，測試'统计数据'、'确定'、'众议院'、'边界'。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-009",
+      "notes": "政府新聞稿，'在线'對應台灣常用語'線上'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-012",
+      "notes": "政府新聞稿，祈使句，語氣直接，作為基本轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-014",
+      "notes": "政府新聞稿，句子結構複雜，測試'亲属'等基本詞彙。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-022",
+      "notes": "政府新聞稿，'在线'對應'線上'，'纸质问卷'對應'紙本問卷'，需要詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-024",
+      "notes": "政府新聞稿，'外勤操作'對應台灣常用語'外勤作業'，需要詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-026",
+      "notes": "政府新聞稿，'外勤操作'對應台灣常用語'外勤作業'，需要詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": null,
+      "eligible": false,
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-027",
+      "notes": "句子僅為註記，無實質內容可供轉換測試。",
+      "quality_flags": [
+        "boilerplate"
+      ],
+      "risk": null,
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-001",
+      "notes": "政府新聞稿，測試'后续活动'、'确保'、'准确'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-003",
+      "notes": "政府新聞稿，術語'问卷表'在台灣應轉換為'問卷'，需要詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-004",
+      "notes": "政府新聞稿，包含日期，作為基本轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-005",
+      "notes": "政府新聞稿，包含英文'ID'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-006",
+      "notes": "政府新聞稿，包含日期，作為基本轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-007",
+      "notes": "政府新聞稿，術語'软启动'(soft launch)對應'軟啟動'，需要特定IT詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-008",
+      "notes": "政府新聞稿，包含英文 'area census offices'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-011",
+      "notes": "政府新聞稿，包含重複的英文 'area census offices'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-014",
+      "notes": "政府新聞稿，'访谈'、'访问'、'数据收集'、'质量'等詞都需要精確的詞庫對應。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-017",
+      "notes": "政府新聞稿，'操作'應對應為'作業'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-018",
+      "notes": "政府新聞稿，'普查后问卷调查' 是核心術語，需要詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-021",
+      "notes": "政府新聞稿，標準書面語，作為基本轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-022",
+      "notes": "政府新聞稿，標準書面語，作為基本轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-024",
+      "notes": "政府新聞稿，測試'户籍'、'备选'等詞的轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-026",
+      "notes": "政府新聞稿，標準書面語，測試'敦促'、'确保'、'质量'。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-027",
+      "notes": "政府新聞稿，包含英文'ID'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-028",
+      "notes": "政府新聞稿，標準書面語，測試'履行'、'宪法'、'责任'。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-029",
+      "notes": "政府新聞稿，包含英文'state'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-002",
+      "notes": "政府新聞稿，'在线'對應'線上'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-003",
+      "notes": "政府新聞稿，包含引述，'在线'對應'線上'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-006",
+      "notes": "政府新聞稿，'问卷调查'和'数据'是核心術語，需要詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-008",
+      "notes": "政府新聞稿，'纸质问卷'對應'紙本問卷'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-009",
+      "notes": "政府新聞稿，括號內的補充說明，'纸质问卷'對應'紙本問卷'。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-011",
+      "notes": "政府新聞稿，'视频指南'、'在线'、'纸质问卷'等詞都需要精確的詞庫對應。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-012",
+      "notes": "政府新聞稿，'大字号'對應'大字體'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-014",
+      "notes": "政府新聞稿，測試'宣传'、'词汇表'、'关键字'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-015",
+      "notes": "政府新聞稿，'合作伙伴'對應'合作夥伴'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-003",
+      "notes": "政府新聞稿，'视频消息'對應'影片訊息'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-004",
+      "notes": "政府新聞稿，'纸质问卷'對應'紙本問卷'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-007",
+      "notes": "政府新聞稿，測試'邮件'、'恢复'、'邮包'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-008",
+      "notes": "政府新聞稿，包含特定操作名稱'更新/递送'和'操作过程'，需要詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-009",
+      "notes": "政府新聞稿，標準書面語，作為基本轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-013",
+      "notes": "政府新聞稿，包含英文州名'Minnesota', 'Utah'和'state'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-015",
+      "notes": "政府新聞稿，'在线工具包'和'点子'都需要詞庫支援以得到最自然的台灣用語。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-017",
+      "notes": "政府新聞稿，'在线'對應'線上'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-018",
+      "notes": "政府新聞稿，'纸质问卷'對應'紙本問卷'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-009",
+      "notes": "政府新聞稿，'操作'應對應為'作業'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-010",
+      "notes": "政府新聞稿，測試'计划'、'期间'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-011",
+      "notes": "政府新聞稿，包含英文縮寫'PPE'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-016",
+      "notes": "政府新聞稿，包含英文縮寫'ACO'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-018",
+      "notes": "政府新聞稿，'社交疏离'對應'社交距離'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-021",
+      "notes": "政府新聞稿，包含地名'Alaska'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-026",
+      "notes": "政府新聞稿，包含英文縮寫'CPEP'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-029",
+      "notes": "政府新聞稿，包含英文縮寫'MQA'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-030",
+      "notes": "政府新聞稿，包含英文縮寫'MQA'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-031",
+      "notes": "政府新聞稿，'项目'對應'專案'，'邻里'對應'鄰里'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-032",
+      "notes": "政府新聞稿，包含英文縮寫'MQA'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-033",
+      "notes": "政府新聞稿，'数据收集操作'對應'資料收集作業'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-034",
+      "notes": "政府新聞稿，'在线'對應'線上'，需詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-039",
+      "notes": "政府新聞稿，包含英文'state'和'PPE'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-040",
+      "notes": "政府新聞稿，測試'外勤'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-042",
+      "notes": "政府新聞稿，'佩带'在台灣常用'佩戴'，可作為基本轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-003",
+      "notes": "政府新聞稿，包含英文'COVID-19'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-006",
+      "notes": "政府新聞稿，測試'万'、'邮政邮箱'、'发送'、'计划'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-008",
+      "notes": "政府新聞稿，測試'发送'、'相关联'、'邮件'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-011",
+      "notes": "政府新聞稿，包含英文'Census ID'，必須保留不轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-012",
+      "notes": "政府新聞稿，'在线'、'纸质问卷'、'邮件'等詞都需要精確的詞庫對應。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-014",
+      "notes": "政府新聞稿，'访问'和'操作调整'需要特定的詞庫對應才能正確轉換為'造訪/瀏覽'和'作業調整'。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-006",
+      "notes": "政府新聞稿，測試'记录'、'数据'、'医疗'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-007",
+      "notes": "政府新聞稿，'输入数据'、'产生'等詞需要詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-008",
+      "notes": "政府新聞稿，測試'准确'、'记录系统'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-017",
+      "notes": "政府新聞稿，測試'记录'、'管辖区域'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-018",
+      "notes": "政府新聞稿，列舉多個種族分類，測試'亚裔'、'后裔'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-019",
+      "notes": "政府新聞稿，測試'记录'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-020",
+      "notes": "政府新聞稿，測試'低估'、'高估'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-021",
+      "notes": "政府新聞稿，'覆盖衡量计划'和'普查后问卷调查'等是核心術語，需要詞庫支援。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": null,
+      "eligible": false,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-025",
+      "notes": "句子片段且格式特殊，不適合作為一般轉換測試。",
+      "quality_flags": [
+        "fragment"
+      ],
+      "risk": null,
+      "script": "simplified"
+    },
+    {
+      "confidence": "medium",
+      "domain": null,
+      "eligible": false,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-026",
+      "notes": "句子片段且格式特殊，包含括號說明，語意不清。",
+      "quality_flags": [
+        "fragment",
+        "ambiguous"
+      ],
+      "risk": null,
+      "script": "simplified"
+    },
+    {
+      "confidence": "medium",
+      "domain": null,
+      "eligible": false,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-027",
+      "notes": "句子片段且格式特殊，包含括號說明，語意不清。",
+      "quality_flags": [
+        "fragment",
+        "ambiguous"
+      ],
+      "risk": null,
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-029",
+      "notes": "政府新聞稿，報告統計數據，作為基本轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-030",
+      "notes": "政府新聞稿，報告統計數據，作為基本轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-031",
+      "notes": "政府新聞稿，報告統計數據，作為基本轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-034",
+      "notes": "政府新聞稿，報告統計數據，作為基本轉換測試。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "census-newsroom-zh-hans-v1/page-09-sentence-001",
+      "notes": "政府新聞稿，測試'万'、'发送'等基本轉換。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    }
+  ],
+  "model": "gemini-2.5-pro",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-025.json",
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "review_date": null,
+  "reviewer": "Gemini via Gemini CLI",
+  "version": 1,
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "faf72476-cb78-4512-8825-fd16eabdd17f",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "packet_sha256": "429922cb4772c5ff22d2bd24a3f8c8adb48ecc321884bbfa1e5940af2d93dabd",
+  "stats": {
+    "eligible": 95,
+    "excluded": 5,
+    "high": 98,
+    "low": 0,
+    "medium": 2,
+    "policy_violations": 0,
+    "total": 100
+  }
+}

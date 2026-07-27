@@ -18,6 +18,8 @@ from scripts.import_blind_v2_source_pilot import (
     normalize_input,
     parse_aosp_strings,
     parse_cdc_pages,
+    parse_census_newsroom_archive,
+    parse_census_newsroom_html,
     parse_chromium_xtb,
     parse_cisa_cyber_hygiene_pages,
     parse_cisa_personal_security_pages,
@@ -106,6 +108,21 @@ def test_flores_import_is_deterministic_input_only_and_deduplicated(tmp_path: Pa
     assert canonical_json_bytes(first) == canonical_json_bytes(second)
 
 
+def test_source_file_override_only_reads_selected_data_source(tmp_path: Path) -> None:
+    source = tmp_path / "flores.tar.gz"
+    source.write_bytes(flores_archive(["开发工具"], ["用户界面"]))
+    fixture = manifest("flores-200-zho-hans-v1", source)
+    data_hash = fixture["raw_sha256"].pop("https://example.test/source")
+    fixture["raw_sha256"] = {
+        "https://example.test/metadata.json": "0" * 64,
+        "https://example.test/flores200_dataset.tar.gz": data_hash,
+    }
+
+    dataset = build_dataset(fixture, source_file=source)
+
+    assert dataset["stats"]["eligible_pending_review"] == 2
+
+
 def test_ud_cfl_import_rejects_incomplete_conllu(tmp_path: Path) -> None:
     source = tmp_path / "cfl.conllu"
     source.write_text(
@@ -119,6 +136,54 @@ def test_ud_cfl_import_rejects_incomplete_conllu(tmp_path: Path) -> None:
 
 def test_normalization_does_not_convert_script() -> None:
     assert normalize_input("开发  软件\r\n接口") == "开发 软件 接口"
+
+
+def test_census_newsroom_parser_is_anchored_and_excludes_contact_details() -> None:
+    content = """<!doctype html><html><head>
+    <meta name=\"DC.creator\" content=\"US Census Bureau\">
+    <meta name=\"DC.language\" scheme=\"DCTERMS.RFC1766\" content=\"zh-hans\">
+    </head><body>Chinese (Simplified) / 中文(简体)
+    <div class=\"uscb-text-image-text other\"><p>
+    人口普查局今天发布新的统计资料。这些资料将用于改善公共服务。
+    </p><li>请致电 301-763-3030 了解更多信息。</li></div>
+    <footer><p>这段页脚文字不应被收集。</p></footer>
+    </body></html>""".encode()
+
+    assert parse_census_newsroom_html(content) == [
+        ("press_release", "sentence-001", "人口普查局今天发布新的统计资料。"),
+        ("press_release", "sentence-002", "这些资料将用于改善公共服务。"),
+    ]
+
+    with pytest.raises(ValueError, match="creator or language anchor"):
+        parse_census_newsroom_html(content.replace(b"zh-hans", b"en"))
+
+
+def test_census_newsroom_archive_preserves_page_provenance() -> None:
+    page = """<meta name="DC.creator" content="US Census Bureau">
+    <meta name="DC.language" scheme="DCTERMS.RFC1766" content="zh-hans">
+    Chinese (Simplified) / 中文(简体)
+    <div class="uscb-text-image-text"><p>人口普查局发布新的统计资料。</p></div>
+    """.encode()
+    buffer = io.BytesIO()
+    with tarfile.open(fileobj=buffer, mode="w:gz") as archive:
+        info = tarfile.TarInfo("census-1.html")
+        info.size = len(page)
+        archive.addfile(info, io.BytesIO(page))
+    fixture = {
+        "source_urls": [
+            "https://www.census.gov/newsroom/press-releases/example.html",
+            "https://www.copyright.gov/title17/92chap1.html#105",
+        ]
+    }
+
+    assert parse_census_newsroom_archive(fixture, buffer.getvalue()) == [
+        (
+            "press_release_01",
+            "page-01-sentence-001",
+            "人口普查局发布新的统计资料。",
+            "https://www.census.gov/newsroom/press-releases/example.html",
+        )
+    ]
 
 
 def test_cisa_cyber_hygiene_parser_is_anchored_and_excludes_page_furniture() -> None:
@@ -480,6 +545,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("aosp-framework-zh-rcn-v1", 1697),
         ("cisa-cyber-hygiene-zh-hans-v1", 24),
         ("cisa-personal-security-zh-hans-v1", 134),
+        ("census-newsroom-zh-hans-v1", 235),
     ),
 )
 def test_committed_source_pilots_are_pinned_and_input_only(

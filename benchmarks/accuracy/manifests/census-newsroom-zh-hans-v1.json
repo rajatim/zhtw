@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "census-newsroom-zh-hans-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://www.census.gov/newsroom/press-releases/2020/2020-census-quality-assessments/2020-census-quality-assessments-chinese-simplified.html",
+    "https://www.census.gov/newsroom/press-releases/2020/census-day/census-day-chinese-simiplified.html",
+    "https://www.census.gov/newsroom/press-releases/2020/2020-additional-operations/ensure-accurate-census-count-chinese-simplified.html",
+    "https://www.census.gov/newsroom/press-releases/2020/languages/languages-chinese-simiplified.html",
+    "https://www.census.gov/newsroom/press-releases/2020/2020-census-60-percent/60-percent-chinese-simplified.html",
+    "https://www.census.gov/newsroom/press-releases/2020/update-census-operations/update-census-operations-chinese-simplified.html",
+    "https://www.census.gov/newsroom/press-releases/2020/additional-2020-reminder/additional-2020-reminder-chinese-simplified.html",
+    "https://www.census.gov/newsroom/press-releases/2020/2020-demographic-analysis-estimates/2020-demographic-analysis-estimates-chinese-simplified.html",
+    "https://www.census.gov/newsroom/press-releases/2020/2020-postcards/2020-postcards-chinese-simplified.html",
+    "https://www.census.gov/about/policies/citation.html",
+    "https://www.copyright.gov/title17/92chap1.html#105"
+  ],
+  "upstream_revision": "Nine U.S. Census Bureau Simplified Chinese newsroom releases published March-December 2020; page metadata revisions through 2021-10-08; retrieved and checksum-pinned 2026-07-27",
+  "retrieved_at": "2026-07-27T18:00:00+08:00",
+  "license": "U.S. Public Domain for Census Bureau-authored text under 17 U.S.C. 105; linked and third-party content excluded",
+  "license_url": "https://www.copyright.gov/title17/92chap1.html#105",
+  "output_license": "U.S. Public Domain",
+  "attribution": "United States Census Bureau, nine Simplified Chinese newsroom releases concerning the 2020 Census; no Census Bureau, Department of Commerce, or U.S. Government endorsement or affiliation is implied.",
+  "modification_notice": "Extracted complete Simplified Chinese sentences only from checksum-pinned Census newsroom body text components; excluded navigation, headings, page furniture, contact details, URLs, tables without sentence punctuation, and third-party linked content; normalized Unicode and whitespace and added input-only provenance; no expected text or converter output was used.",
+  "notice_id": "census-newsroom-zh-hans-v1",
+  "raw_sha256": {
+    "benchmarks/accuracy/sources/census-newsroom-zh-hans-v1.tar.gz": "e89d3f2d075fd36ca1fa59cfba83c80ac9b895dc4d1966e5d212cb33bb6fc7ef"
+  },
+  "normalized_path": "benchmarks/accuracy/external/census-newsroom-zh-hans-v1.json",
+  "normalized_sha256": "b9897301f51203244fa314a0351b9f5db7621f9ad67ef3a30e71505ca6241986",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Official U.S. Census Bureau press releases are formal government communications and are not representative of ordinary Taiwan product traffic.",
+    "The source is concentrated on 2020 Census operations, response rates, data quality, and demographic analysis.",
+    "The translated releases contain U.S.-specific institutions, geographic names, dates, and legacy pandemic context.",
+    "Only punctuation-complete body sentences are extracted; tables, headings, contact details, links, and third-party content are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

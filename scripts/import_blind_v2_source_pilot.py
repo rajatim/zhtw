@@ -69,6 +69,7 @@ SUPPORTED_SOURCES = {
     "aosp-framework-zh-rcn-v1": "aosp_strings_xml",
     "cisa-cyber-hygiene-zh-hans-v1": "cisa_cyber_hygiene_pdf",
     "cisa-personal-security-zh-hans-v1": "cisa_personal_security_pdf",
+    "census-newsroom-zh-hans-v1": "census_newsroom_archive",
 }
 READY_GOV_SOURCE_ANCHORS = {
     "ready-gov-drought-zh-hans-v1": ("干旱", "10/31/2025"),
@@ -151,6 +152,53 @@ def normalize_input(text: str) -> str:
     return " ".join(unicodedata.normalize("NFC", text).split())
 
 
+def read_raw_sources(
+    manifest: dict[str, Any],
+    source_file: Path | None = None,
+    source_url: str | None = None,
+) -> list[tuple[str, bytes]]:
+    """Read and checksum every raw source declared by a manifest."""
+    raw_sha256 = manifest["raw_sha256"]
+    if source_file is not None:
+        if source_url is None:
+            if len(raw_sha256) != 1:
+                raise ValueError("source_url is required when overriding one of multiple sources")
+            source_url = next(iter(raw_sha256))
+        urls = [source_url]
+    else:
+        urls = list(raw_sha256)
+
+    sources: list[tuple[str, bytes]] = []
+    for url in urls:
+        expected_hash = raw_sha256[url]
+        if source_file is not None:
+            content = source_file.read_bytes()
+        elif "://" in url:
+            request = urllib.request.Request(
+                url,
+                headers={
+                    "User-Agent": (
+                        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                        "AppleWebKit/537.36 Chrome/136.0 Safari/537.36"
+                    )
+                },
+            )
+            with urllib.request.urlopen(request, timeout=120) as response:
+                content = response.read()
+        else:
+            source_path = (PROJECT_ROOT / url).resolve()
+            try:
+                source_path.relative_to(PROJECT_ROOT)
+            except ValueError as exc:
+                raise ValueError(f"raw source path escapes project root: {url}") from exc
+            content = source_path.read_bytes()
+        actual_hash = sha256_bytes(content)
+        if actual_hash != expected_hash:
+            raise ValueError(f"raw sha256 mismatch for {url}: {actual_hash}")
+        sources.append((url, content))
+    return sources
+
+
 def read_raw_source(manifest: dict[str, Any], source_file: Path | None = None) -> tuple[str, bytes]:
     raw_sha256 = manifest["raw_sha256"]
     markers = {
@@ -167,40 +215,8 @@ def read_raw_source(manifest: dict[str, Any], source_file: Path | None = None) -
     if len(data_urls) != 1:
         raise ValueError("source pilot manifest must identify exactly one source data file")
     data_url = data_urls[0]
-    data_content: bytes | None = None
-    for url, expected_hash in raw_sha256.items():
-        if source_file is not None:
-            if url != data_url:
-                continue
-            content = source_file.read_bytes()
-        else:
-            if "://" in url:
-                request = urllib.request.Request(
-                    url,
-                    headers={
-                        "User-Agent": (
-                            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                            "AppleWebKit/537.36 Chrome/136.0 Safari/537.36"
-                        )
-                    },
-                )
-                with urllib.request.urlopen(request, timeout=120) as response:
-                    content = response.read()
-            else:
-                source_path = (PROJECT_ROOT / url).resolve()
-                try:
-                    source_path.relative_to(PROJECT_ROOT)
-                except ValueError as exc:
-                    raise ValueError(f"raw source path escapes project root: {url}") from exc
-                content = source_path.read_bytes()
-        actual_hash = sha256_bytes(content)
-        if actual_hash != expected_hash:
-            raise ValueError(f"raw sha256 mismatch for {url}: {actual_hash}")
-        if url == data_url:
-            data_content = content
-    if data_content is None:
-        raise ValueError("source data file was not read")
-    return data_url, data_content
+    sources = dict(read_raw_sources(manifest, source_file, data_url))
+    return data_url, sources[data_url]
 
 
 def parse_flores(content: bytes) -> list[tuple[str, str, str]]:
@@ -910,6 +926,115 @@ def parse_ready_gov_html(source_id: str, content: bytes) -> list[tuple[str, str,
     ]
 
 
+class CensusNewsroomTextParser(HTMLParser):
+    """Collect body paragraphs and list items from Census newsroom text components."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.div_depth = 0
+        self.content_depth: int | None = None
+        self.block_tag: str | None = None
+        self._parts: list[str] = []
+        self.blocks: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attributes = dict(attrs)
+        if tag == "div":
+            self.div_depth += 1
+            classes = (attributes.get("class") or "").split()
+            if self.content_depth is None and "uscb-text-image-text" in classes:
+                self.content_depth = self.div_depth
+        elif self.content_depth is not None and self.block_tag is None and tag in {"p", "li"}:
+            self.block_tag = tag
+            self._parts = []
+        elif self.block_tag is not None and tag == "br":
+            self._parts.append("\n")
+
+    def handle_endtag(self, tag: str) -> None:
+        if self.block_tag == tag:
+            self.blocks.append("".join(self._parts))
+            self.block_tag = None
+            self._parts = []
+        elif tag == "div":
+            if self.content_depth == self.div_depth:
+                self.content_depth = None
+            self.div_depth -= 1
+
+    def handle_data(self, data: str) -> None:
+        if self.block_tag is not None:
+            self._parts.append(data)
+
+
+def parse_census_newsroom_html(content: bytes) -> list[tuple[str, str, str]]:
+    """Extract complete Simplified Chinese sentences from one Census press release."""
+    text = content.decode("utf-8")
+    required_anchors = (
+        '<meta name="DC.creator" content="US Census Bureau"',
+        '<meta name="DC.language" scheme="DCTERMS.RFC1766" content="zh-hans"',
+        "Chinese (Simplified) / 中文(简体)",
+    )
+    if any(anchor not in text for anchor in required_anchors):
+        raise ValueError("Census newsroom page: expected creator or language anchor not found")
+
+    parser = CensusNewsroomTextParser()
+    parser.feed(text)
+    sentences: list[str] = []
+    seen: set[str] = set()
+    for block in parser.blocks:
+        for sentence in complete_chinese_sentences(block, minimum_length=8):
+            if re.search(
+                r"(?:https?://|\b[\w.-]+\.(?:gov|org)\b|"
+                r"\(?\d{3}\)?[ -]\d{3}[ -]\d{4}|仅提示表单)",
+                sentence,
+                re.I,
+            ):
+                continue
+            if sentence not in seen:
+                seen.add(sentence)
+                sentences.append(sentence)
+    if not sentences:
+        raise ValueError("Census newsroom page: no complete Simplified Chinese sentences found")
+    return [
+        ("press_release", f"sentence-{index:03d}", sentence)
+        for index, sentence in enumerate(sentences, 1)
+    ]
+
+
+def parse_census_newsroom_archive(
+    manifest: dict[str, Any], content: bytes
+) -> list[tuple[str, str, str, str]]:
+    """Extract newsroom sentences from the pinned raw HTML snapshot archive."""
+    page_urls = [
+        url
+        for url in manifest["source_urls"]
+        if "/newsroom/press-releases/" in url and url.endswith(".html")
+    ]
+    expected_members = [f"census-{index}.html" for index in range(1, len(page_urls) + 1)]
+    rows: list[tuple[str, str, str, str]] = []
+    with tarfile.open(fileobj=io.BytesIO(content), mode="r:gz") as archive:
+        member_names = [member.name for member in archive.getmembers() if member.isfile()]
+        if member_names != expected_members:
+            raise ValueError(
+                f"Census newsroom archive members do not match manifest page order: {member_names}"
+            )
+        for page_number, (member_name, page_url) in enumerate(
+            zip(expected_members, page_urls, strict=True), 1
+        ):
+            extracted = archive.extractfile(member_name)
+            if extracted is None:
+                raise ValueError(f"Census newsroom archive member is not a file: {member_name}")
+            for split, source_case_id, raw_text in parse_census_newsroom_html(extracted.read()):
+                rows.append(
+                    (
+                        f"{split}_{page_number:02d}",
+                        f"page-{page_number:02d}-{source_case_id}",
+                        raw_text,
+                        page_url,
+                    )
+                )
+    return rows
+
+
 def parse_project_original(source_id: str, content: bytes) -> list[tuple[str, str, str]]:
     source = json.loads(content.decode("utf-8"))
     schema = load_json(PROJECT_SOURCE_SCHEMA)
@@ -952,7 +1077,12 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
         source_kind = "permissioned_user_report_json"
     if source_kind is None:
         raise ValueError(f"unsupported Blind-v2 source pilot: {manifest['id']}")
+    raw_rows_with_urls: list[tuple[str, str, str, str]] | None = None
     raw_url, content = read_raw_source(manifest, source_file)
+    if source_kind == "census_newsroom_archive":
+        raw_rows_with_urls = parse_census_newsroom_archive(manifest, content)
+        raw_rows = []
+
     if source_kind == "flores":
         raw_rows = parse_flores(content)
     elif source_kind == "ud_cfl":
@@ -983,6 +1113,8 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
         raw_rows = parse_osha_pdf(manifest["id"], content)
     elif source_kind == "permissioned_user_report_json":
         raw_rows = parse_permissioned_user_reports(manifest["id"], content)
+    elif source_kind == "census_newsroom_archive":
+        pass
     else:
         raw_rows = parse_cdc_pdf(manifest["id"], content)
 
@@ -990,7 +1122,8 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
     exclusions = Counter()
     seen_inputs: set[str] = set()
     by_split = Counter()
-    for split, source_case_id, raw_text in raw_rows:
+    rows = raw_rows_with_urls or [(*row, raw_url) for row in raw_rows]
+    for split, source_case_id, raw_text, case_raw_url in rows:
         text = normalize_input(raw_text)
         if not text:
             exclusions["empty_after_normalization"] += 1
@@ -1005,7 +1138,7 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
                 "id": f"{manifest['id']}/{source_case_id}",
                 "input": text,
                 "provenance": {
-                    "raw_url": raw_url,
+                    "raw_url": case_raw_url,
                     "source_case_id": source_case_id,
                     "split": split,
                 },
@@ -1031,7 +1164,7 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
         "upstream_revision": manifest["upstream_revision"],
         "review_policy": "domain_and_risk_must_be_assigned_from_input_only",
         "stats": {
-            "raw_cases": len(raw_rows),
+            "raw_cases": len(rows),
             "eligible_pending_review": len(cases),
             "by_split": dict(sorted(by_split.items())),
             "exclusions": dict(sorted(exclusions.items())),

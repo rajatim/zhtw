@@ -543,6 +543,44 @@ TWENTY_FOURTH_GEMINI_CASE_IDS = {
     f"zhtw-project-formal-llm-balance-v1/formal-{number:03d}"
     for number in (2, 3, 4, 6, 7, 9, 10, 11, 12, 13, 17, 27, 30, 31, 38, 39, 40, 42, 44, 46, 47, 49)
 }
+TWENTY_FIFTH_PACKET_PATH = ACCURACY_ROOT / (
+    "review-packets/blind-v2-source-classification-batch-025.json"
+)
+TWENTY_FIFTH_CODEX_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-first-pass-batch-025-2026-07-27.json"
+)
+TWENTY_FIFTH_GEMINI_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-gemini-independent-batch-025-2026-07-27.json"
+)
+TWENTY_FIFTH_SYNTHESIS_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-codex-synthesis-batch-025-2026-07-27.json"
+)
+TWENTY_FIFTH_DIFF_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-diff-batch-025-2026-07-27.md"
+)
+TWENTY_FIFTH_GEMINI_CASE_IDS = {
+    f"census-newsroom-zh-hans-v1/{case_id}"
+    for case_id in (
+        "page-01-sentence-036",
+        "page-02-sentence-012",
+        "page-03-sentence-001",
+        "page-03-sentence-004",
+        "page-03-sentence-005",
+        "page-03-sentence-006",
+        "page-03-sentence-008",
+        "page-03-sentence-011",
+        "page-03-sentence-021",
+        "page-03-sentence-026",
+        "page-03-sentence-027",
+        "page-04-sentence-012",
+        "page-04-sentence-014",
+        "page-08-sentence-029",
+        "page-08-sentence-030",
+        "page-08-sentence-031",
+        "page-08-sentence-034",
+        "page-09-sentence-001",
+    )
+}
 
 
 def load(path: Path) -> dict[str, object]:
@@ -2030,4 +2068,52 @@ def test_twenty_fourth_maintainer_synthesis_decision_is_reproducible() -> None:
         decision_date="2026-07-27",
         selected_advisory="synthesis",
         synthesis_path=TWENTY_FOURTH_SYNTHESIS_PATH,
+    )
+
+
+def test_twenty_fifth_pending_advisories_and_synthesis_are_reproducible() -> None:
+    packet = load(TWENTY_FIFTH_PACKET_PATH)
+    codex = load(TWENTY_FIFTH_CODEX_PATH)
+    gemini = load(TWENTY_FIFTH_GEMINI_PATH)
+    synthesis = load(TWENTY_FIFTH_SYNTHESIS_PATH)
+    packet_hash = hashlib.sha256(TWENTY_FIFTH_PACKET_PATH.read_bytes()).hexdigest()
+
+    packet_ids = [case["id"] for case in packet["cases"]]
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert [case["id"] for case in synthesis["cases"]] == packet_ids
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 100,
+        "exact": 47,
+        "review_queue": 53,
+        "by_field": {"eligible": 7, "script": 3, "domain": 17, "risk": 49},
+    }
+    assert len(differences) == 53
+    assert gemini["execution"] == {
+        "cli": "@google/gemini-cli",
+        "cli_version": "0.52.0",
+        "session_id": "faf72476-cb78-4512-8825-fd16eabdd17f",
+        "tool_calls": 0,
+        "total_errors": 0,
+    }
+    assert gemini["stats"]["policy_violations"] == 0
+    assert synthesis["stats"] == {
+        "total": 100,
+        "eligible": 88,
+        "excluded": 12,
+        "by_selection_basis": {"agreement": 47, "codex": 35, "gemini": 18},
+    }
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=TWENTY_FIFTH_GEMINI_CASE_IDS,
+        generated_date="2026-07-27",
+    )
+    assert TWENTY_FIFTH_DIFF_PATH.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-27",
     )

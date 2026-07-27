@@ -400,6 +400,17 @@ is missing.
 - Bias notice: Historical translated U.S. public-health program descriptions are
   not current medical guidance or representative of ordinary Taiwan traffic.
 
+## census-newsroom-zh-hans-v1
+
+- Source: United States Census Bureau, nine Simplified Chinese newsroom releases
+  concerning 2020 Census operations, response, quality, and demographic analysis.
+- License: U.S. Public Domain for Census Bureau-authored text under 17 U.S.C. 105; linked and third-party content excluded
+- Attribution: United States Census Bureau, nine Simplified Chinese newsroom releases concerning the 2020 Census; no Census Bureau, Department of Commerce, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted complete Simplified Chinese sentences only from checksum-pinned Census newsroom body text components; excluded navigation, headings, page furniture, contact details, URLs, tables without sentence punctuation, and third-party linked content; normalized Unicode and whitespace and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: Formal U.S. census communications and 2020 operational context are not
+  representative of ordinary Taiwan product traffic.
+
 ## naer-terms-v1
 
 - Source: Government Data dataset 15275, `國家教育研究院-兩岸對照名詞-計算機學術名詞`;
