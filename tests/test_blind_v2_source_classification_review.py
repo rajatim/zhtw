@@ -2408,7 +2408,7 @@ def test_twenty_ninth_synthesis_decision_is_reproducible() -> None:
     )
 
 
-def test_thirtieth_advisories_and_pending_synthesis_are_reproducible() -> None:
+def test_thirtieth_synthesis_decision_is_reproducible() -> None:
     prefix = ROOT / "docs/reports"
     packet_path = ACCURACY_ROOT / ("review-packets/blind-v2-source-classification-batch-030.json")
     codex_path = prefix / (
@@ -2423,12 +2423,16 @@ def test_thirtieth_advisories_and_pending_synthesis_are_reproducible() -> None:
     synthesis_path = prefix / (
         "blind-v2-source-classification-codex-synthesis-batch-030-2026-07-27.json"
     )
+    decision_path = prefix / (
+        "blind-v2-source-classification-maintainer-decision-batch-030-2026-07-27.json"
+    )
     diff_path = prefix / "blind-v2-source-classification-diff-batch-030-2026-07-27.md"
     packet = load(packet_path)
     codex = load(codex_path)
     gemini = load(gemini_path)
     adjustments = load(adjustments_path)
     synthesis = load(synthesis_path)
+    decision = load(decision_path)
     packet_hash = hashlib.sha256(packet_path.read_bytes()).hexdigest()
     packet_ids = [case["id"] for case in packet["cases"]]
     prior_ids = {
@@ -2487,10 +2491,26 @@ def test_thirtieth_advisories_and_pending_synthesis_are_reproducible() -> None:
         "excluded": 8,
         "by_selection_basis": {"codex_synthesis": 96},
     }
+    assert decision == build_decision(
+        packet_path,
+        codex_path,
+        gemini_path,
+        maintainer="tim",
+        decision_date="2026-07-27",
+        selected_advisory="synthesis",
+        synthesis_path=synthesis_path,
+    )
+    assert decision["stats"] == {
+        "packet_cases": 96,
+        "confirmed_cases": 96,
+        "resolved_disagreements": 63,
+        "confirmed_exact_matches": 33,
+        "remaining_cases": 0,
+    }
     assert diff_path.read_text(encoding="utf-8") == render_markdown(
         packet,
         codex,
         gemini,
         generated_date="2026-07-27",
-        maintainer_decisions=None,
+        maintainer_decisions=decision,
     )

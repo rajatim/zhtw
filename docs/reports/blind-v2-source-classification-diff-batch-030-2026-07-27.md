@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 030 (2026-07-27)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `7dbac14cff695ef87e16e15162e1e930775ac60105e3bb50c8535ef6853d2ff3`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 63 advisory disagreements and batch-confirmed the 33 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整 Android UI 字串；适合检验台湾介面用语与受保
 
 Gemini reason: UI 字串。包含產品名稱 `Android`，必須保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. aosp-framework-zh-rcn-v1/string-4fc1884214f4fd7c
 
@@ -63,7 +63,7 @@ Codex reason: 完整 Android UI 字串；适合检验台湾介面用语与受保
 
 Gemini reason: UI 字串。用詞遣詞直譯即可，在台灣語境下亦可理解。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. aosp-framework-zh-rcn-v1/string-5287bf96626f0e09
 
@@ -84,7 +84,7 @@ Codex reason: 完整 Android UI 字串；适合检验台湾介面用语与受保
 
 Gemini reason: UI 字串。包含 C-style 格式化預留位置 (`%1$s`, `%2$s`, `%3$s`)，必須保留，不可轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. aosp-framework-zh-rcn-v1/string-57315c6f0fad613a
 
@@ -105,7 +105,7 @@ Codex reason: 完整 Android UI 字串；适合检验台湾介面用语与受保
 
 Gemini reason: UI 字串。用詞通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. aosp-framework-zh-rcn-v1/string-6119391d5253c064
 
@@ -126,7 +126,7 @@ Codex reason: 完整 Android UI 字串；适合检验台湾介面用语与受保
 
 Gemini reason: UI 字串。「信用卡号」(信用卡號)、「密码」(密碼)、「数据」(資料) 均為需對應台灣用語的詞彙。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. aosp-framework-zh-rcn-v1/string-9c4d2231777dbcde
 
@@ -147,7 +147,7 @@ Codex reason: 完整 Android UI 字串；适合检验台湾介面用语与受保
 
 Gemini reason: UI 字串。用詞遣詞直譯即可，在台灣語境下亦可理解。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. aosp-framework-zh-rcn-v1/string-bae73a5b7e8edba2
 
@@ -168,7 +168,7 @@ Codex reason: 完整 Android UI 字串；适合检验台湾介面用语与受保
 
 Gemini reason: UI 字串。包含多個中國大陸 IT 用語：「进程」(處理程序)、「堆转储」(堆疊傾印)、「数据」(資料)，需在地化。同時包含預留位置 (`%1$s`)，需保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. aosp-framework-zh-rcn-v1/string-fabbc3db5344bf41
 
@@ -189,7 +189,7 @@ Codex reason: 完整 Android UI 字串；适合检验台湾介面用语与受保
 
 Gemini reason: UI 字串。「PIN码」的「码」是簡體字，台灣用「碼」。包含拉丁縮寫 `PIN`，需保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. census-newsroom-zh-hans-v1/page-01-sentence-014
 
@@ -210,7 +210,7 @@ Codex reason: 完整的美国人口普查正式资讯句；适合检验机构、
 
 Gemini reason: 政府新聞稿。包含英文單詞 `state` 需保留。「运作指标」、「数据」、「级别」等為中國大陸用語，台灣會說「營運指標」、「資料」、「層級」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. census-newsroom-zh-hans-v1/page-02-sentence-005
 
@@ -231,7 +231,7 @@ Codex reason: 完整的美国人口普查正式资讯句；适合检验机构、
 
 Gemini reason: 政府新聞稿。「统计数据」在台灣多稱「統計資料」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. census-newsroom-zh-hans-v1/page-02-sentence-016
 
@@ -252,7 +252,7 @@ Codex reason: 完整的美国人口普查正式资讯句；适合检验机构、
 
 Gemini reason: 政府新聞稿。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. census-newsroom-zh-hans-v1/page-04-sentence-013
 
@@ -273,7 +273,7 @@ Codex reason: 完整的美国人口普查正式资讯句；适合检验机构、
 
 Gemini reason: 政府新聞稿。「实时」是中國大陸用語，台灣稱「即時」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. census-newsroom-zh-hans-v1/page-05-sentence-019
 
@@ -294,7 +294,7 @@ Codex reason: 完整的美国人口普查正式资讯句；适合检验机构、
 
 Gemini reason: 政府新聞稿。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. census-newsroom-zh-hans-v1/page-05-sentence-022
 
@@ -315,7 +315,7 @@ Codex reason: 完整的美国人口普查正式资讯句；适合检验机构、
 
 Gemini reason: 政府新聞稿。包含英文單詞 `state` 需保留。「统计数据」在台灣多稱「統計資料」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. census-newsroom-zh-hans-v1/page-06-sentence-013
 
@@ -336,7 +336,7 @@ Codex reason: 完整的美国人口普查正式资讯句；适合检验机构、
 
 Gemini reason: 政府新聞稿。「软启动」為術語直譯，可直接轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 16. census-newsroom-zh-hans-v1/page-08-sentence-014
 
@@ -357,7 +357,7 @@ Codex reason: 完整的美国人口普查正式资讯句；适合检验机构、
 
 Gemini reason: 政府新聞稿。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 17. census-newsroom-zh-hans-v1/page-08-sentence-035
 
@@ -378,7 +378,7 @@ Codex reason: 完整的美国人口普查正式资讯句；适合检验机构、
 
 Gemini reason: 政府新聞稿。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 18. census-newsroom-zh-hans-v1/page-09-sentence-005
 
@@ -399,7 +399,7 @@ Codex reason: 完整的美国人口普查正式资讯句；适合检验机构、
 
 Gemini reason: 政府新聞稿。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 19. chromium-strings-zh-cn-v1/translation-22571759390241347
 
@@ -420,7 +420,7 @@ Codex reason: 完整 Chromium UI 字串；适合检验产品介面用语与专�
 
 Gemini reason: UI 字串。`Chromium` 為產品專有名稱，必須保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 20. chromium-strings-zh-cn-v1/translation-2648074677641340862
 
@@ -441,7 +441,7 @@ Codex reason: 完整 Chromium UI 字串；适合检验产品介面用语与专�
 
 Gemini reason: UI 字串。「操作系统」是中國大陸用語，台灣稱「作業系統」。`Chromium` 為產品專有名稱，必須保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 21. chromium-strings-zh-cn-v1/translation-2676569452213089702
 
@@ -462,7 +462,7 @@ Codex reason: 完整 Chromium UI 字串；适合检验产品介面用语与专�
 
 Gemini reason: UI 字串。「设备」是中國大陸用語，台灣稱「裝置」。`Chromium` 和 `Gemini` 是產品專有名稱，必須保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 22. chromium-strings-zh-cn-v1/translation-302551344979399011
 
@@ -483,7 +483,7 @@ Codex reason: 完整 Chromium UI 字串；适合检验产品介面用语与专�
 
 Gemini reason: UI 字串。「账号」是中國大陸用語，台灣稱「帳戶」。包含 `AI`、`Google`、`Chromium` 等多個專有名稱需保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 23. chromium-strings-zh-cn-v1/translation-3104828284009500087
 
@@ -504,7 +504,7 @@ Codex reason: 完整 Chromium UI 字串；适合检验产品介面用语与专�
 
 Gemini reason: UI 字串。「搜索」和「内容」均為中國大陸用語，台灣稱「搜尋」和「內容」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 24. chromium-strings-zh-cn-v1/translation-7047386856539490735
 
@@ -525,7 +525,7 @@ Codex reason: 完整 Chromium UI 字串；适合检验产品介面用语与专�
 
 Gemini reason: UI 字串。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 25. chromium-strings-zh-cn-v1/translation-8118331347066725040
 
@@ -546,7 +546,7 @@ Codex reason: 完整 Chromium UI 字串；适合检验产品介面用语与专�
 
 Gemini reason: UI 字串。「智能镜头」通常指 Google Lens，台灣直稱「智慧鏡頭」或 Google Lens。「反馈」在台灣多用「意見回饋」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 26. chromium-strings-zh-cn-v1/translation-8890569919834781711
 
@@ -567,7 +567,7 @@ Codex reason: 完整 Chromium UI 字串；适合检验产品介面用语与专�
 
 Gemini reason: UI 字串。「账号」是中國大陸用語，台灣稱「帳戶」。`ChromiumOS`, `Chromium`, `Google` 是專有名稱，必須保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 27. kubernetes-docs-zh-cn-v1/page-01-sentence-0026
 
@@ -588,7 +588,7 @@ Codex reason: 完整且可独立判读的 Kubernetes 技术文件句；适合检
 
 Gemini reason: 技術文件。`Kubernetes` 是產品專有名稱，必須保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 28. kubernetes-docs-zh-cn-v1/page-02-sentence-0024
 
@@ -609,7 +609,7 @@ Codex reason: 完整且可独立判读的 Kubernetes 技术文件句；适合检
 
 Gemini reason: 技術文件。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 29. kubernetes-docs-zh-cn-v1/page-03-sentence-0025
 
@@ -630,7 +630,7 @@ Codex reason: 完整且可独立判读的 Kubernetes 技术文件句；适合检
 
 Gemini reason: 技術文件。「Pod」和「节点」是 Kubernetes 術語，台灣分別稱「Pod」和「節點」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 30. kubernetes-docs-zh-cn-v1/page-03-sentence-0058
 
@@ -651,7 +651,7 @@ Codex reason: 完整且可独立判读的 Kubernetes 技术文件句；适合检
 
 Gemini reason: 技術文件。包含多個需保護的技術術語 (`kubectl`, `Pod`, `Waiting`, `Reason`)。「容器」一詞通用。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 31. kubernetes-docs-zh-cn-v1/page-03-sentence-0095
 
@@ -672,7 +672,7 @@ Codex reason: 句中缺少被修饰的容器类型，离开原始 Markdown 结�
 
 Gemini reason: 技術文件。包含技術術語 `restartPolicy`、`Pod`、`Init` 容器，皆須保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 32. kubernetes-docs-zh-cn-v1/page-03-sentence-0182
 
@@ -693,7 +693,7 @@ Codex reason: 仅有时间条件从句而无主句，离开上下文后语意不
 
 Gemini reason: 技術文件。「kubelet」、「Pod」、「沙箱」是技術術語。台灣稱「kubelet」、「Pod」、「沙箱」。用語通用，但術語需保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 33. kubernetes-docs-zh-cn-v1/page-03-sentence-0285
 
@@ -714,7 +714,7 @@ Codex reason: 「定义了」之后缺少对象，无法独立判定原意。
 
 Gemini reason: 技術文件。`Pod` 是 Kubernetes 術語，必須保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 34. kubernetes-docs-zh-cn-v1/page-04-sentence-0082
 
@@ -735,7 +735,7 @@ Codex reason: 句子缺少主语，明显依赖被 Markdown 解析移除的上�
 
 Gemini reason: 技術文件。`trafficDistribution` 是欄位名稱，屬於程式碼，必須保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 35. kubernetes-docs-zh-cn-v1/page-04-sentence-0159
 
@@ -756,7 +756,7 @@ Codex reason: 完整且可独立判读的 Kubernetes 技术文件句；适合检
 
 Gemini reason: 技術文件。「cloud-controller-manager」是元件名稱，需保留。「负载均衡器」台灣稱「負載平衡器」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 36. massive-1-0-zh-cn-v1/10234
 
@@ -777,7 +777,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話。此句為指令。「配料」在台灣較常用於指稱佐料，此處可能指「食材」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 37. massive-1-0-zh-cn-v1/10638
 
@@ -798,7 +798,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 38. massive-1-0-zh-cn-v1/11873
 
@@ -819,7 +819,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 39. massive-1-0-zh-cn-v1/12315
 
@@ -840,7 +840,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 40. massive-1-0-zh-cn-v1/13588
 
@@ -861,7 +861,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。「土豆」在中國大陸指馬鈴薯，在台灣指花生。此處應指馬鈴薯，需轉換為「馬鈴薯」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 41. massive-1-0-zh-cn-v1/16688
 
@@ -882,7 +882,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 42. massive-1-0-zh-cn-v1/16710
 
@@ -903,7 +903,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。蘇州是地名，應保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 43. massive-1-0-zh-cn-v1/17170
 
@@ -924,7 +924,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。「电子邮件」是中國大陸用語，台灣稱「電子郵件」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 44. massive-1-0-zh-cn-v1/1982
 
@@ -945,7 +945,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 45. massive-1-0-zh-cn-v1/2174
 
@@ -966,7 +966,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。「只要有你」是歌名，應保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 46. massive-1-0-zh-cn-v1/3576
 
@@ -987,7 +987,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。「搜狐新闻」是專有名稱，應保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 47. massive-1-0-zh-cn-v1/3816
 
@@ -1008,7 +1008,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。「音轨」是中國大陸用語，台灣稱「音軌」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 48. massive-1-0-zh-cn-v1/7785
 
@@ -1029,7 +1029,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。`萨拉` (Sara) 為音譯人名，應保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 49. massive-1-0-zh-cn-v1/8697
 
@@ -1050,7 +1050,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。李雷是人名，應保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 50. massive-1-0-zh-cn-v1/9327
 
@@ -1071,7 +1071,7 @@ Codex reason: 「上午拨号盘」是 AM dial 的错误本地化，语意已明
 
 Gemini reason: 日常對話，指令語氣。「扫描」在台灣多用於數位掃描，此處指收音機的「掃描頻道」，用法可通，但稍不自然。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 51. massive-1-0-zh-cn-v1/9991
 
@@ -1092,7 +1092,7 @@ Codex reason: 可独立判读的日常语音助理指令；适合检验生活用
 
 Gemini reason: 日常對話，指令語氣。「教程」是中國大陸用語，台灣稱「教學」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 52. ready-gov-radiation-zh-hans-v1/sentence-006
 
@@ -1113,7 +1113,7 @@ Codex reason: 完整且可独立判读的辐射安全指示；需保守处理高
 
 Gemini reason: 政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 53. ready-gov-radiation-zh-hans-v1/sentence-025
 
@@ -1134,7 +1134,7 @@ Codex reason: 「它」依赖前句的核爆炸主题，单独抽出无法完整
 
 Gemini reason: 政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 54. ready-gov-radiation-zh-hans-v1/sentence-027
 
@@ -1155,7 +1155,7 @@ Codex reason: 完整且可独立判读的辐射安全指示；需保守处理高
 
 Gemini reason: 政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 55. ready-gov-radiation-zh-hans-v1/sentence-030
 
@@ -1176,7 +1176,7 @@ Codex reason: 完整且可独立判读的辐射安全指示；需保守处理高
 
 Gemini reason: 政府應急指南，屬高風險內容。「尘埃」在台灣口語較少用，但書面語可通。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 56. ready-gov-radiation-zh-hans-v1/sentence-041
 
@@ -1197,7 +1197,7 @@ Codex reason: 完整且可独立判读的辐射安全指示；需保守处理高
 
 Gemini reason: 政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 57. ready-gov-radiation-zh-hans-v1/sentence-045
 
@@ -1218,7 +1218,7 @@ Codex reason: 脱下外层衣物无法清除「体内」放射性物质；高风
 
 Gemini reason: 政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 58. ready-gov-radiation-zh-hans-v1/sentence-046
 
@@ -1239,7 +1239,7 @@ Codex reason: 完整且可独立判读的辐射安全指示；需保守处理高
 
 Gemini reason: 政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 59. ready-gov-radiation-zh-hans-v1/sentence-054
 
@@ -1260,7 +1260,7 @@ Codex reason: 完整且可独立判读的辐射安全指示；需保守处理高
 
 Gemini reason: 政府應急指南，屬高風險內容。「尘埃」在台灣口語較少用，但書面語可通。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 60. ready-gov-radiation-zh-hans-v1/sentence-055
 
@@ -1281,7 +1281,7 @@ Codex reason: 完整且可独立判读的辐射安全指示；需保守处理高
 
 Gemini reason: 政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 61. ready-gov-radiation-zh-hans-v1/sentence-058
 
@@ -1302,7 +1302,7 @@ Codex reason: 「这些毛巾或清洁布」依赖前文指涉，单句无法独
 
 Gemini reason: 政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 62. ready-gov-radiation-zh-hans-v1/sentence-061
 
@@ -1323,7 +1323,7 @@ Codex reason: 完整且可独立判读的辐射安全指示；需保守处理高
 
 Gemini reason: 政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 63. ready-gov-radiation-zh-hans-v1/sentence-063
 
@@ -1344,4 +1344,4 @@ Codex reason: 完整且可独立判读的辐射安全指示；需保守处理高
 
 Gemini reason: 政府應急指南，屬高風險內容。用語通用，單純簡繁轉換即可。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
