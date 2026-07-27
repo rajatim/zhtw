@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 032 (2026-07-27)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `8e13a4dd9f1f3bd4299a6afbe2b27e257aa00a299d7288246c765d383c7271e5`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 48 advisory disagreements and batch-confirmed the 48 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: Standard UI string. Key char: '话'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. aosp-framework-zh-rcn-v1/string-27d9fdead1a448e4
 
@@ -63,7 +63,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: Standard UI string. Involves multiple common simplified characters (确, 备, 间, 维).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. aosp-framework-zh-rcn-v1/string-4b7a12b0d424de44
 
@@ -84,7 +84,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: Standard UI string. Key char: '发'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. aosp-framework-zh-rcn-v1/string-5ac849f0cca94bdb
 
@@ -105,7 +105,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: Standard UI string with multiple simplified characters (这, 导, 产, 费).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. aosp-framework-zh-rcn-v1/string-6ae6f919648a2e41
 
@@ -126,7 +126,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: A longer permission-related string, good for block conversion accuracy.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. aosp-framework-zh-rcn-v1/string-6f8f5a67146ab91f
 
@@ -147,7 +147,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: Contains a technical acronym 'USSD' which must not be converted.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. aosp-framework-zh-rcn-v1/string-806bc01fc1b65653
 
@@ -168,7 +168,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: Standard UI string with multiple simplified characters (禁, 漫, 游, 横, 幅).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. aosp-framework-zh-rcn-v1/string-939146a9f0a8eb5d
 
@@ -189,7 +189,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: A high-stakes warning about data deletion. Accuracy is critical.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. aosp-framework-zh-rcn-v1/string-a305ae8c90ab8db1
 
@@ -210,7 +210,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: Standard UI string with multiple simplified characters (设备, 储, 间).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. aosp-framework-zh-rcn-v1/string-f697285350775f51
 
@@ -231,7 +231,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: Contains a technical acronym 'RUIM' which must not be converted.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. census-newsroom-zh-hans-v1/page-01-sentence-034
 
@@ -252,7 +252,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Standard formal sentence describing a process.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. census-newsroom-zh-hans-v1/page-03-sentence-002
 
@@ -273,7 +273,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: The terms '改进覆盖' and '跟进' are specific and require careful conversion to maintain meaning.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. census-newsroom-zh-hans-v1/page-03-sentence-013
 
@@ -294,7 +294,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Contains a Latin abbreviation (PPE) which must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. census-newsroom-zh-hans-v1/page-04-sentence-019
 
@@ -315,7 +315,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Standard formal sentence with a date.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. census-newsroom-zh-hans-v1/page-05-sentence-002
 
@@ -336,7 +336,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: A long, complex sentence but standard for formal reporting.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 16. census-newsroom-zh-hans-v1/page-05-sentence-014
 
@@ -357,7 +357,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Standard formal sentence (call to action).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 17. census-newsroom-zh-hans-v1/page-08-sentence-009
 
@@ -378,7 +378,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Contains technical terms like '国际人口移徙' and '管理记录'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 18. census-newsroom-zh-hans-v1/page-08-sentence-013
 
@@ -399,7 +399,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Contains specific demographic and technical terms like '西班牙后裔群体' and '净覆盖错误' that are sensitive to over-conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 19. census-newsroom-zh-hans-v1/page-08-sentence-015
 
@@ -420,7 +420,7 @@ Codex reason: 人口統計表列項目缺少完整述語，無法作為可獨立
 
 Gemini reason: The sentence structure is slightly complex due to the parenthetical, but it's a standard data description.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 20. census-newsroom-zh-hans-v1/page-08-sentence-016
 
@@ -441,7 +441,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Contains a Latin word '(state)' as an annotation, which must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 21. census-newsroom-zh-hans-v1/page-08-sentence-023
 
@@ -462,7 +462,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Contains a Latin word '(state)' as an annotation, which must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 22. chromium-strings-zh-cn-v1/translation-2451727308784734061
 
@@ -483,7 +483,7 @@ Codex reason: 完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺
 
 Gemini reason: A standard UI descriptive text that tests baseline conversion quality for a longer sentence.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 23. chromium-strings-zh-cn-v1/translation-7216228761061470870
 
@@ -504,7 +504,7 @@ Codex reason: 完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺
 
 Gemini reason: Contains key candidate term '服务器' (server) and technical token 'PDF' which should be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 24. chromium-strings-zh-cn-v1/translation-80790299200510644
 
@@ -525,7 +525,7 @@ Codex reason: 完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺
 
 Gemini reason: Simple feature name.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 25. kubernetes-docs-zh-cn-v1/page-01-sentence-0013
 
@@ -546,7 +546,7 @@ Codex reason: 完整且可獨立判讀的技術文件敘述；用於檢驗 Kuber
 
 Gemini reason: Standard technical documentation sentence.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 26. kubernetes-docs-zh-cn-v1/page-03-sentence-0070
 
@@ -567,7 +567,7 @@ Codex reason: 完整且可獨立判讀的技術文件敘述；用於檢驗 Kuber
 
 Gemini reason: Contains 'Kubernetes'. The character '退' is common but worth noting in '回退'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 27. kubernetes-docs-zh-cn-v1/page-03-sentence-0344
 
@@ -588,7 +588,7 @@ Codex reason: 教學連結標題與說明文字疑似誤接，語意及句法不
 
 Gemini reason: Contains several characters with potential one-to-many mappings (动, 实, 处, 理, 联).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 28. kubernetes-docs-zh-cn-v1/page-04-sentence-0170
 
@@ -609,7 +609,7 @@ Codex reason: 完整且可獨立判讀的技術文件敘述；用於檢驗 Kuber
 
 Gemini reason: Contains 'Kubernetes' and the term '负载均衡' which involves multiple character conversions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 29. osha-disaster-cleanup-simplified-v1/sentence-011
 
@@ -630,7 +630,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: Formal safety instruction from an OSHA document. Key characters for conversion include '证' (證), '确' (確), and '污' (汙).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 30. osha-disaster-cleanup-simplified-v1/sentence-023
 
@@ -651,7 +651,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: A clear, straightforward safety rule. Good baseline test for common character conversions like '过' (過), '备' (備), and '线' (線).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 31. osha-disaster-cleanup-simplified-v1/sentence-029
 
@@ -672,7 +672,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: A complex sentence from a safety document involving technical actions and units. Tests conversion of terms like '电力线' (電力線) and '修剪' (修剪).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 32. osha-disaster-cleanup-simplified-v1/sentence-031
 
@@ -693,7 +693,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: A list of personal protective equipment (PPE). It tests the conversion of common nouns such as '听' (聽) and '脸' (臉).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 33. osha-disaster-cleanup-simplified-v1/sentence-050
 
@@ -714,7 +714,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: A formal description of a potential workplace accident. It uses standard vocabulary, such as '车辆' (車輛) and '装置' (裝置).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 34. osha-disaster-cleanup-simplified-v1/sentence-052
 
@@ -735,7 +735,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: An instruction involving a list of items. It tests common nouns and punctuation within parentheses.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 35. osha-disaster-cleanup-simplified-v1/sentence-059
 
@@ -756,7 +756,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: A standard warning about potential injuries from manual labor, testing common anatomical and construction-related terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 36. osha-disaster-cleanup-simplified-v1/sentence-061
 
@@ -777,7 +777,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: A formal safety rule for confined spaces. The repetition of '许可' (許可) and the term '密闭空间' (密閉空間) make it a good test case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 37. osha-disaster-cleanup-simplified-v1/sentence-066
 
@@ -798,7 +798,7 @@ Codex reason: 英文文件頁首、語言標籤與中文正文黏連，不是乾
 
 Gemini reason: The input is a combination of document metadata/footer content (including English) and a grammatically awkward Chinese fragment. It is not a clean, complete sentence suitable for evaluation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 38. osha-disaster-cleanup-simplified-v1/sentence-072
 
@@ -819,7 +819,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: A very simple and common polite sentence. It serves as a basic sanity check for the converter, particularly for the character '们' (們).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 39. ready-gov-home-fires-zh-hans-v1/sentence-001
 
@@ -840,7 +840,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Source text from ready.gov, providing public safety information.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 40. ready-gov-home-fires-zh-hans-v1/sentence-012
 
@@ -861,7 +861,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Source text from ready.gov, providing public safety information.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 41. ready-gov-home-fires-zh-hans-v1/sentence-020
 
@@ -882,7 +882,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Source text from ready.gov, providing public safety information.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 42. ready-gov-home-fires-zh-hans-v1/sentence-029
 
@@ -903,7 +903,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Source text from ready.gov, providing public safety information.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 43. ready-gov-home-fires-zh-hans-v1/sentence-048
 
@@ -924,7 +924,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Source text from ready.gov, providing public safety information.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 44. ready-gov-home-fires-zh-hans-v1/sentence-060
 
@@ -945,7 +945,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Source text from ready.gov, providing public safety information.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 45. ready-gov-home-fires-zh-hans-v1/sentence-065
 
@@ -966,7 +966,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Source text from ready.gov, providing public safety information.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 46. ready-gov-home-fires-zh-hans-v1/sentence-069
 
@@ -987,7 +987,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Source text from ready.gov, providing public safety information.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 47. ready-gov-home-fires-zh-hans-v1/sentence-070
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Source text from ready.gov, providing public safety information.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 48. ready-gov-home-fires-zh-hans-v1/sentence-074
 
@@ -1029,4 +1029,4 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Source text from ready.gov, providing public safety information.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
