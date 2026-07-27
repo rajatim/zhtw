@@ -1,0 +1,733 @@
+{
+  "version": 1,
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": null,
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-029.json",
+  "packet_sha256": "8b2548e28d733aaf6cdf04da9f1392f1a201cd72815050542c3e88863a4874ad",
+  "stats": {
+    "total": 70,
+    "eligible": 67,
+    "excluded": 3,
+    "high": 70,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "ce278b43-730a-4bc6-bf11-257bc6fd6c3b",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "cases": [
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，內容關於數據分析流程，合格。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，說明人口普查局的職責，合格。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，為填寫普查的具體指令，屬高風險應用場景，合格。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-020",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "名詞短語，非完整句子，排除。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，描述工作人員的職責，合格。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於個人防護裝備的規定，涉及安全，合格。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，描述疫情期間的應對措施，合格。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供具體時間資訊，合格。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，包含統計數據，合格。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-09-sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，鼓勵民眾盡快回應普查，合格。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，概括安全指南內容，合格。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供人身安全建議，合格。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於車輛安全的具體指令，合格。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，指導如何協助警方調查，合格。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於居家安全的指令，合格。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-098",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於行車安全的建議，合格。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-106",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於網絡安全的建議，合格。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-115",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於通訊安全的建議，合格。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-121",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於在社交媒體發布信息的安全建議，合格。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-127",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供關於「人肉搜索」的法律建議，合格。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，介紹災後重建的安全主題，合格。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，雖然簡短但語意完整，合格。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於個人防護裝備的具體指令，合格。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，警告觸電風險，合格。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供避免觸電的明確安全距離指令，合格。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，描述作業面的潛在危險，合格。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-044",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "不完整的句子，缺少動詞，描述一個危險來源但未構成完整陳述，排除。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供穿著高反光服裝的安全指令，合格。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，描述接觸石棉的風險，合格。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-071",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，說明工人提出投訴的權利與程序，合格。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，為節約用水的建議，合格。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供檢查漏水的方法，合格。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於維護灑水系統的建議，合格。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於草坪維護以節水的建議，合格。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於選擇草種的建議，合格。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於日常節約用水的建議，合格。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於節約用水的建議，合格。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-054",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供手動洗碗節約用水的具體方法，合格。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-064",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供判斷是否需要澆水的建議，合格。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-072",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供節約用水洗車的建議，合格。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，強調火災中煙霧和毒氣的危害性，合格。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供火災逃生路線規劃的重要建議，合格。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供確保窗戶可作為逃生出口的安全建議，合格。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於放置滅火器的安全建議，合格。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供火災時應對煙霧的指令，合格。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，指導如何在火災後向急救人員提供信息，合格。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，指導如何救助寵物，合格。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": null,
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於火災後處理財物損失的建議，合格。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-079",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於兒童消防安全教育的重要建議，合格。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-081",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於兒童安全的具體警告，合格。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供防災的專業建議，合格。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，陳述關於泥石流的重要事實，合格。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供監測天氣預報以防災的指令，合格。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，描述山體滑坡的警示信號，合格。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，描述山體滑坡的警示信號，合格。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，描述山體滑坡的警示信號，合格。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，描述山體滑坡的警示信號，合格。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，強調聽從官方指示的重要性，合格。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於泥石流逃生的重要警告，合格。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，指導如何在災害後協助救援，合格。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，定義並舉例說明輻射緊急情況，合格。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供獲取緊急警報的建議，合格。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供輻射緊急情況下的核心防護指令，合格。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，解釋防護原理，合格。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供在室外遭遇核爆時的即時防護動作指令，合格。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供核爆後的避難指令，合格。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，提供額外的庇護所建議，合格。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，簡短但清晰的防護指令，合格。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-059",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整句子，關於食品安全的警告，合格。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-064",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "title_or_heading"
+      ],
+      "confidence": "high",
+      "notes": "引用標題，非完整敘述句，排除。"
+    }
+  ]
+}
