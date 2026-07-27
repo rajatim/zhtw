@@ -1,0 +1,1027 @@
+{
+  "version": 1,
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": null,
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-031.json",
+  "packet_sha256": "79d12a09e64acd2911d1e35e5afdbc8116398006307e6a78f48eeedff2c7d0d3",
+  "stats": {
+    "total": 100,
+    "eligible": 100,
+    "excluded": 0,
+    "high": 100,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "正式用語，關於委員會發布報告。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "正式公文用語，要求業者補件。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "財會審計用語。「审计」是中國大陸常用詞，台灣多用「查核」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "申請表單的指示。「联系方式」是中國大陸常用詞，台灣多用「聯絡方式」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "政府報告用語，說明預算執行情況。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "會議規範用語。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "法律或規章的生效條文。用語非常正式，繁簡體意思一致。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "機關作業流程說明。「计划」是中國大陸常用詞，台灣多用「計畫」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "新聞發布準則。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "法律文件用語，包含一個必須保持原樣的案件編號「115年度诉字第42号」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "合約規範用語。「契约」在台灣較少用，通用詞是「合約」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "銀行服務說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "保險合約說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "醫療法規要求。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "學術論文引用格式。包含一個 DOI 識別碼「DOI 10.1234/example.2026.7」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "文件管理規定。明確指出文件代號「A-17」需保留，不得改寫。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "財務報告用語。包含財政年度縮寫「FY2027」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "官方文件拼寫規定。明確指出專有名稱「Côte d’Ivoire」需保留原拼寫。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "檢驗報告規定。「型号」是中國大陸常用詞，台灣用「型號」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/formal-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "隱私權政策條款。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 提示工程用語。「用户」是中國大陸常用詞，台灣多用「使用者」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "AI 助理/工具使用情境。「调用」是程式開發的常用詞，在台灣通用對應詞為「呼叫」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "資訊檢索或 RAG 流程說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-004",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "API 或程式指令。包含專有名詞「JSON」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 技術說明。「窗口」是中國大陸常用詞，台灣多用「視窗」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "AI 互動設計原則。「用户」是中國大陸常用詞，台灣多用「使用者」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM/ML 技術說明，關於向量嵌入。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "資訊檢索/LLM 技術說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 行為準則，關於避免幻覺。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 輸出要求，關於引用。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "模板語法說明。包含一個程式佔位符「{{user_query}}」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "系統安全規定。包含一個變數名稱「API_TOKEN」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-013",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "文件處理指令。包含專有名稱「Markdown」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "文件格式規定。包含專有名稱「YAML」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "程式安全規定。包含專有名詞「SQL」且「审计」是中國大陸常用詞，台灣多用「查核」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "程式碼修改指令。明確指出函數名稱「fetch_user_profile」需保留原樣。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "錯誤碼說明。包含一個錯誤碼「E_MODEL_TIMEOUT」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 參數設定說明。包含參數名稱「temperature」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 參數設定說明。包含參數名稱「top_p」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "模型命名規定。明確指出模型名稱「acme-reasoner-v3」不應翻譯。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 評估流程說明。「评测」和「脚本」是中國大陸常用詞，台灣多用「評估」和「腳本」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 資料處理倫理規範。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "機器學習術語「验证集」(驗證集)在兩岸用法基本一致，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "資料處理或品管用語。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "機器學習訓練流程說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM/RAG 技術說明。「数据库」是中國大陸常用詞，台灣多用「資料庫」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "系統架構技術說明。「缓存」是中國大陸常用詞，台灣多用「快取」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "系統設計說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 功能說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "API 客戶端或系統韌性設計。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "AI 系統工作流程說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "機器學習模型設定說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "系統隱私規範。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "隱私資料處理說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "AI 安全與政策說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "AI 安全機制說明。「过滤器」是中國大陸常用詞，台灣多用「篩選器」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-037",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "API 格式規範。包含「role」、「user」、「assistant」等欄位名稱或值，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 對話管理說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "AI 個人化功能說明。「用户」是中國大陸常用詞，台灣多用「使用者」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 摘要任務要求。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "對 AI 的指令，要求使用特定語言。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-042",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "翻譯或寫作指令。明確指出術語「chain of thought」不得翻譯。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-043",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專有名稱使用規定。明確指出「OpenAI Responses API」必須保留。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-044",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "資料格式規定。明確指出時間戳「2026-07-27T16:45:00+08:00」不得改寫。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-045",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "資料引用規定。包含一個 URL，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-046",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "文件命名規定。明確指出檔案名稱「quarterly_review_v2.pdf」不應轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "程式碼處理指令。這是一條元規則，說明程式碼中的變數和字串必須保留。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-048",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "程式碼註解或技術說明。包含一個正規表示式「^user_[0-9]+$」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 效能評估指標。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/llm-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "AI 安全護欄(guardrail)行為說明。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常生活指令。「超市」雖在台灣也用，但「视频」對「影片」的轉換更為必要，此處標為 candidate_gap 以表示地區用語差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常生活指令。「设置」是中國大陸常用詞，台灣多用「設定」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常生活詢問。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常社交指令。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常生活對話。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常生活對話。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "導航指令用語。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "外送情境用語。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常購物清單指令。「土豆」在中國大陸指馬鈴薯，在台灣指花生，存在詞義差異，是重要的轉換候選。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常預約情境。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "即時通訊用語。「消息」是中國大陸常用詞，台灣多用「訊息」，存在地區詞彙差異。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "天氣預報用語。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "食譜用語。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "播放音樂指令。包含人名「陈绮贞」和歌曲名稱「旅行的意义」，屬於專有名稱，不應轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/social-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常溝通。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 文字。「上传」是中國大陸常用詞，台灣多用「上傳」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 文字。「占位文字」是中國大陸常用詞，台灣多用「預留位置文字」或「提示文字」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 權限提示。「访问」是中國大陸常用詞，台灣多用「存取」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 設定文字。「启用」是中國大陸常用詞，台灣多用「啟用」或「開啟」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 指示文字。「下载」和「应用程序」是中國大陸常用詞，台灣多用「下載」和「應用程式」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示文字。「鼠标」是中國大陸常用詞，台灣多用「滑鼠」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 警告訊息。用詞在繁簡體中通用，屬於基本轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 狀態文字。「同步您的联系人」中的「联系人」是中國大陸常用詞，台灣多用「聯絡人」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 控制項說明。「滑块」是中國大陸常用詞，台灣多用「滑桿」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 選單說明。「下拉菜单」是中國大陸常用詞，台灣多用「下拉式選單」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 提示。「验证码」是中國大陸常用詞，台灣也用，但有時也用「認證碼」。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 快捷鍵說明。包含鍵盤組合「Ctrl+Shift+P」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-013",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 錯誤訊息。包含錯誤碼「ERR_FILE_LOCKED」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 資訊文字。包含版本號「v3.2.1」，不得轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-domain-balance-v1/ui-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI 警告或提示。包含檔案路徑「/Users/demo/Documents」，不得轉換。"
+    }
+  ],
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "26231404-30c8-424a-bf1a-d4195510450c",
+    "tool_calls": 0,
+    "total_errors": 0
+  }
+}

@@ -704,6 +704,13 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   通過 promotion，pool `2,471 → 2,559`，距最低 5,880 筆尚差 3,321；
   `permissive_license` 891/2,559（34.82%）、`public_domain` 888/2,559（34.70%）、
   `project_original` 780/2,559（30.48%），皆低於 35%。
+- [ ] 2026-07-27 建立 project-original LLM domain-balance batch 031：起草 100 筆
+  input-only 簡體情境，來源明確標示為 Codex synthetic project-original，未使用
+  converter output 或 expected。固定配置為 LLM 50、正式 20、日常 15、UI 15，
+  與 batches 001-030 的 ID 重疊為零。Codex first pass 與 Gemini CLI 0.52.0
+  (`gemini-2.5-pro`) 均建議 100/100 eligible；Gemini 完整覆蓋 IDs、零工具呼叫、
+  零 API 錯誤。Codex synthesis 依語意調整 domain 與 risk 後仍建議 100 筆全數
+  納入，尚待 maintainer 確認；pool 暫維持 2,559 筆。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent
