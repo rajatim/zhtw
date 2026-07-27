@@ -78,6 +78,9 @@ ruff check .
 請勿提供繁體 expected、轉換器輸出、個資、客戶資料、憑證或未公開內容。提交前必須
 閱讀並接受
 [Permissioned User Report Consent v1](docs/benchmark/PERMISSIONED-USER-REPORT-CONSENT.md)。
+若要轉貼徵集訊息，請使用
+[三語邀請文](docs/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md)，避免省略授權、
+input-only 或敏感資料限制。
 
 ## 回報問題
 

@@ -582,6 +582,9 @@ right to provide. Do not include Traditional Chinese answers, converter output,
 or sensitive data. See
 [issue #47](https://github.com/rajatim/zhtw/issues/47) for consent terms and
 collection progress.
+Ready-to-share Traditional Chinese, Simplified Chinese, and English invitation
+text is available in the
+[corpus contribution invitation](docs/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md).
 
 Questions? [Open an issue](https://github.com/rajatim/zhtw/issues). Want to contribute? [See the contributing guide](CONTRIBUTING.md).
 

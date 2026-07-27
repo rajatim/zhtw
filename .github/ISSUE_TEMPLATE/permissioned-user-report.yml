@@ -1,6 +1,6 @@
 # zhtw:disable
-name: 提供簡體中文真實用例
-description: 以 CC0 提供 input-only 簡體中文句子，供 zhtw 公開 benchmark 評估
+name: 提供简体中文真实用例 / 提供簡體中文真實用例
+description: 以 CC0 提供 1–10 句 input-only 真實簡體中文，協助建立 zhtw 公開 benchmark
 title: "[語料回報] "
 labels: ["benchmark", "data contribution"]
 assignees: []
@@ -10,12 +10,14 @@ body:
       value: |
         提交內容與 GitHub 帳號會公開。請勿貼上個資、秘密、客戶資料、內部記錄或 expected。
         每行一個完整簡體中文句子；建議每次 1 至 10 句。
+        简体说明：请提交你原创或有权提供的 1–10 个完整句子；不要提交繁体答案、转换器输出或敏感资料。
+        English: Submit 1–10 complete Simplified Chinese sentences you wrote or have the right to provide. Do not include Traditional Chinese answers, converter output, or sensitive data.
         詳細條款請先閱讀 [Permissioned User Report Consent v1](https://github.com/rajatim/zhtw/blob/main/docs/benchmark/PERMISSIONED-USER-REPORT-CONSENT.md)。
   - type: textarea
     id: inputs
     attributes:
       label: 簡體中文原句
-      description: 每行一個 input。不得附上繁體答案或任何轉換器輸出。
+      description: 每行一個 input。不得附上繁體答案或任何轉換器輸出。每次少量投稿也可以，不需要一次提供 10 句。
       placeholder: |-
         请先检查当前账号是否有访问权限。
         打开设置后，页面应该显示空白状态。
@@ -25,7 +27,7 @@ body:
     id: context
     attributes:
       label: 非敏感情境說明
-      description: 選填；只說明使用場景，不要貼日誌、截圖、網址參數或識別資料。
+      description: 選填；只說明使用場景，不要貼日誌、截圖、網址參數或識別資料。可用簡體中文、繁體中文或英文填寫。
       placeholder: 例如：軟體設定頁、客服常見問題、日常對話。
     validations:
       required: false

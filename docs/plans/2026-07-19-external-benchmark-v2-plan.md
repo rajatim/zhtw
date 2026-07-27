@@ -653,6 +653,11 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   無 exact／near duplicate；完成 Codex first pass、Gemini CLI 0.52.0 獨立審查與
   Codex synthesis。Maintainer 已確認 100 筆 eligible，全部通過 promotion；pool
   增至 2,066，三個既有來源類別與 AOSP 都回到 freeze ratio gate 內。
+- [x] 2026-07-27 完成 Census public-domain batch 025：100 筆經 Codex、Gemini 與
+  maintainer 流程確認為 88 筆納入、12 筆排除；88 筆全數通過 promotion，pool 增至
+  2,154。`public_domain` 暫占 794/2,154（36.86%），因此後續來源優先順序改為
+  permissioned user reports 或其他非 public-domain 類別。Issue #47 已設為 pinned
+  issue，投稿表單與可分享邀請文提供簡體、繁體與英文說明；目前仍為 0/100。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

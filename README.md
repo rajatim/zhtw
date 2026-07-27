@@ -36,6 +36,7 @@
 > **協助建立可信的精準度 benchmark：** 如果你有自己原創、可公開且不含敏感資料的
 > 簡體中文句子，請透過[專用表單](https://github.com/rajatim/zhtw/issues/new?template=permissioned-user-report.yml)
 > 提供 1 至 10 句 input-only 真實用例。請勿附上繁體答案或任何轉換器輸出。
+> 可直接轉貼的簡體／繁體／英文邀請文見[語料徵集說明](docs/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md)。
 
 ---
 
@@ -584,6 +585,8 @@ ruff check .
 提供 1 至 10 個由你原創或有權提供的真實簡體中文句子。請勿附上繁體答案、轉換器
 輸出或敏感資料；授權條款與收集進度請見
 [issue #47](https://github.com/rajatim/zhtw/issues/47)。
+可直接分享的三語邀請文見
+[語料徵集說明](docs/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md)。
 
 有問題？[開 Issue](https://github.com/rajatim/zhtw/issues) | 想貢獻？[看 Contributing Guide](CONTRIBUTING.md)
 
