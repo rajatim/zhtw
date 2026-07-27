@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 034 (2026-07-27)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `2404d887831fc173f37f530c566ec66a89df27930cee1484b2b09a0d3a4f611b`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 3 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 57 advisory disagreements and batch-confirmed the 39 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 「谷歌」是中國大陸用法，台灣稱「Google」。術語「翻譯」需要轉換。屬於專有名詞保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. massive-1-0-zh-cn-v1/12480
 
@@ -63,7 +63,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 「滴滴順風車」是中國大陸的特定服務名稱，在台灣並不存在。屬於專有名詞，應予以保護，不應轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. massive-1-0-zh-cn-v1/1284
 
@@ -84,7 +84,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 「中國標準時間」是專有名稱，應保留其指涉的特定時區，僅做字元轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. massive-1-0-zh-cn-v1/15170
 
@@ -105,7 +105,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 「人民日報」和「微博」是專有名詞，應予以保護。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. massive-1-0-zh-cn-v1/16510
 
@@ -126,7 +126,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 語法和用詞帶有翻譯腔。「回覆到收到的電子郵件」不自然，台灣 UI 會說「回覆此郵件」。涉及語氣和習慣用語差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. massive-1-0-zh-cn-v1/3447
 
@@ -147,7 +147,7 @@ Codex reason: 來源句含明顯機器翻譯錯置或不可解片段，不適合
 
 Gemini reason: 「會來雨嗎」語法不自然，台灣說「會下雨嗎」。涉及動詞搭配和習慣用法。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. massive-1-0-zh-cn-v1/3488
 
@@ -168,7 +168,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 「歌曲列表」在台灣通常稱為「播放清單」。涉及術語轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. massive-1-0-zh-cn-v1/4464
 
@@ -189,7 +189,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 「播放列表」在台灣通常稱為「播放清單」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. massive-1-0-zh-cn-v1/6749
 
@@ -210,7 +210,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 標準簡轉繁句。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. massive-1-0-zh-cn-v1/705
 
@@ -231,7 +231,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 「告訴我些」的用法較偏口語，台灣書面或較正式語氣會用「告訴我一些」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. massive-1-0-zh-cn-v1/7772
 
@@ -252,7 +252,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 「這周」是中國大陸用法，台灣慣用「這週」或「這個星期」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. massive-1-0-zh-cn-v1/8229
 
@@ -273,7 +273,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 「項目」是中國大陸用語，台灣稱「專案」。涉及商業術語轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. massive-1-0-zh-cn-v1/8808
 
@@ -294,7 +294,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 「週一」在台灣雖可用，但「星期一」更普遍。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. massive-1-0-zh-cn-v1/9192
 
@@ -315,7 +315,7 @@ Codex reason: 完整或可獨立判讀的語音助理請求；用於檢驗日常
 
 Gemini reason: 用語稍嫌書面，「設定為重複提醒」或「設定為定期提醒」在台灣 UI 中更常見。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. massive-1-0-zh-cn-v1/9939
 
@@ -336,7 +336,7 @@ Codex reason: 來源句含明顯機器翻譯錯置或不可解片段，不適合
 
 Gemini reason: 「麥薯條」不是標準詞彙，可能是「炸薯條」的誤植或特殊菜餚。「油煎炸」說法冗贅，通常只用「油炸」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 16. ready-gov-drought-zh-hans-v1/sentence-004
 
@@ -357,7 +357,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「節水」在台灣更常用「省水」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 17. ready-gov-drought-zh-hans-v1/sentence-007
 
@@ -378,7 +378,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁，「加侖」為通用單位詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 18. ready-gov-drought-zh-hans-v1/sentence-008
 
@@ -399,7 +399,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「管道工」在台灣多稱「水管工人」或「水電工」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 19. ready-gov-drought-zh-hans-v1/sentence-009
 
@@ -420,7 +420,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 「起泡器」、「限流器」為技術名詞，應可直接轉換，但需確認台灣是否有更常用術語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 20. ready-gov-drought-zh-hans-v1/sentence-010
 
@@ -441,7 +441,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「即時熱水器」在台灣多稱「瞬熱式」或「即熱式」電熱水器。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 21. ready-gov-drought-zh-hans-v1/sentence-015
 
@@ -462,7 +462,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「小容量馬桶」在台灣通常以功能性稱呼為「省水馬桶」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 22. ready-gov-drought-zh-hans-v1/sentence-018
 
@@ -483,7 +483,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 23. ready-gov-drought-zh-hans-v1/sentence-019
 
@@ -504,7 +504,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「淋浴噴頭」在台灣的通用詞是「蓮蓬頭」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 24. ready-gov-drought-zh-hans-v1/sentence-023
 
@@ -525,7 +525,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 25. ready-gov-drought-zh-hans-v1/sentence-026
 
@@ -546,7 +546,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「聯繫」在台灣多用「聯絡」；「供水商」多為「自來水公司」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 26. ready-gov-drought-zh-hans-v1/sentence-027
 
@@ -567,7 +567,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 27. ready-gov-drought-zh-hans-v1/sentence-028
 
@@ -588,7 +588,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 28. ready-gov-drought-zh-hans-v1/sentence-034
 
@@ -609,7 +609,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 29. ready-gov-drought-zh-hans-v1/sentence-036
 
@@ -630,7 +630,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「節水」在台灣更常用「省水」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 30. ready-gov-drought-zh-hans-v1/sentence-038
 
@@ -651,7 +651,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 「護根物」為園藝術語，可直接轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 31. ready-gov-drought-zh-hans-v1/sentence-040
 
@@ -672,7 +672,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 句子含科學術語，可標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 32. ready-gov-drought-zh-hans-v1/sentence-041
 
@@ -693,7 +693,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「水務機構」非台灣常用詞，通常指「自來水公司」或「水利署」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 33. ready-gov-drought-zh-hans-v1/sentence-042
 
@@ -714,7 +714,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「節水」在台灣更常用「省水」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 34. ready-gov-drought-zh-hans-v1/sentence-045
 
@@ -735,7 +735,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 「州府」一詞適用於特定國家政體，非用語轉換問題。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 35. ready-gov-drought-zh-hans-v1/sentence-046
 
@@ -756,7 +756,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「聯繫」在台灣多用「聯絡」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 36. ready-gov-drought-zh-hans-v1/sentence-048
 
@@ -777,7 +777,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「淋浴」雖可使用，但在台灣日常用語中「沖澡」更為普遍。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 37. ready-gov-drought-zh-hans-v1/sentence-051
 
@@ -798,7 +798,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 38. ready-gov-drought-zh-hans-v1/sentence-053
 
@@ -819,7 +819,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: UI標籤「輕洗」為特定功能名稱，可能對應台灣洗衣機的「柔洗」或「快洗」，不宜直接字面轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 39. ready-gov-drought-zh-hans-v1/sentence-055
 
@@ -840,7 +840,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 40. ready-gov-drought-zh-hans-v1/sentence-056
 
@@ -861,7 +861,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 語氣可理解，但「讓水流掉」的說法在台灣可能較少用。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 41. ready-gov-drought-zh-hans-v1/sentence-058
 
@@ -882,7 +882,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 42. ready-gov-drought-zh-hans-v1/sentence-059
 
@@ -903,7 +903,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 43. ready-gov-drought-zh-hans-v1/sentence-060
 
@@ -924,7 +924,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 44. ready-gov-drought-zh-hans-v1/sentence-062
 
@@ -945,7 +945,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 45. ready-gov-drought-zh-hans-v1/sentence-063
 
@@ -966,7 +966,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：「鐵鍬」在台灣多稱「鏟子」或「圓鍬」；「螺絲刀」稱「螺絲起子」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 46. ready-gov-drought-zh-hans-v1/sentence-066
 
@@ -987,7 +987,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 標準簡轉繁。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 47. ready-gov-drought-zh-hans-v1/sentence-073
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整或可獨立判讀的節水指令；用於檢驗高風險公
 
 Gemini reason: 用語差異：洗車用的「水槍」在台灣多稱「高壓噴槍」或描述其可調式噴頭，單稱「水槍」易誤解為玩具。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 48. zhtw-project-llm-social-baseline-v1/llm-001
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整且可獨立判讀的 LLM 實務敘述；用於補強模型�
 
 Gemini reason: 涉及「用戶」、「文件」等潛在詞彙轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 49. zhtw-project-llm-social-baseline-v1/llm-008
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整且可獨立判讀的 LLM 實務敘述；用於補強模型�
 
 Gemini reason: 指令本身要求保留不應轉換的內容 (API 名稱、程式碼)，屬於過度轉換防護用例。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 50. zhtw-project-llm-social-baseline-v1/llm-027
 
@@ -1071,7 +1071,7 @@ Codex reason: 完整且可獨立判讀的 LLM 實務敘述；用於補強模型�
 
 Gemini reason: 涉及多個潛在詞彙轉換，如「本地文件」、「用戶」、「上傳」、「讀取」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 51. zhtw-project-llm-social-baseline-v1/llm-028
 
@@ -1092,7 +1092,7 @@ Codex reason: 完整且可獨立判讀的 LLM 實務敘述；用於補強模型�
 
 Gemini reason: 涉及關鍵 IT 術語「緩存」(快取) 的詞彙轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 52. zhtw-project-llm-social-baseline-v1/llm-034
 
@@ -1113,7 +1113,7 @@ Codex reason: 完整且可獨立判讀的 LLM 實務敘述；用於補強模型�
 
 Gemini reason: 包含應受保護不轉換的 token `request_id`。同時「訪問令牌」有詞彙轉換需求（存取權杖）。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 53. zhtw-project-llm-social-baseline-v1/llm-046
 
@@ -1134,7 +1134,7 @@ Codex reason: 完整且可獨立判讀的 LLM 實務敘述；用於補強模型�
 
 Gemini reason: 標準的簡轉繁描述。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 54. zhtw-project-llm-social-baseline-v1/social-001
 
@@ -1155,7 +1155,7 @@ Codex reason: 完整且自然的日常社群敘述；用於補強生活用語與
 
 Gemini reason: 日常對話。「車站」在台灣語境下可能更具體化，「剛」通常會說「剛剛」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 55. zhtw-project-llm-social-baseline-v1/social-017
 
@@ -1176,7 +1176,7 @@ Codex reason: 完整且自然的日常社群敘述；用於補強生活用語與
 
 Gemini reason: 包含常用詞彙差異：「裡面」在台灣慣用「裡面」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 56. zhtw-project-llm-social-baseline-v1/social-024
 
@@ -1197,7 +1197,7 @@ Codex reason: 完整且自然的日常社群敘述；用於補強生活用語與
 
 Gemini reason: 「實體店」在台灣雖可理解，但「實體店面」或直接說「店面」更常用。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 57. zhtw-project-llm-social-baseline-v1/social-048
 
@@ -1218,4 +1218,4 @@ Codex reason: 完整且自然的日常社群敘述；用於補強生活用語與
 
 Gemini reason: 「課程錄影」雖可理解，但「課程影片」或「上課錄影」在台灣更自然。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`

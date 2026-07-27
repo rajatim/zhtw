@@ -738,13 +738,17 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   exclusion。Pool `2,749 → 2,840`，距最低 5,880 筆尚差 3,040；
   `permissive_license` 986/2,840（34.72%）、`public_domain` 976/2,840（34.37%）、
   `project_original` 878/2,840（30.92%），皆低於 35%。
-- [ ] 2026-07-27 建立三來源平衡 batch 034：MASSIVE、Ready.gov Drought 與
+- [x] 2026-07-27 建立三來源平衡 batch 034：MASSIVE、Ready.gov Drought 與
   新增的 project-original LLM／日常社群 input-only 語料各固定抽取 32 筆，與
   batches 001-033 的 ID 重疊為零。Codex first pass 建議 93/96 eligible；
   Gemini CLI 0.52.0（`gemini-2.5-pro`）以三個來源隔離 session 完成 96/96 IDs，
   建議 95/96 eligible。Codex synthesis 建議 92 筆納入、4 筆排除；39 筆四欄
-  完全一致、50 筆採 Codex、1 筆採 Gemini、6 筆採綜合修正。目前仍為
-  advisory-only，等待 maintainer confirmation 後才可 promotion。
+  完全一致、50 筆採 Codex、1 筆採 Gemini、6 筆採綜合修正。Maintainer 已
+  確認 synthesis，建立 96/96 human decision；92 筆 eligible 全數通過 promotion，
+  4 筆來源品質案例維持排除，沒有新增 dedupe exclusion。Pool `2,840 → 2,932`，
+  距最低 5,880 筆尚差 2,948；`permissive_license` 1,015/2,932（34.62%）、
+  `public_domain` 1,007/2,932（34.34%）、`project_original` 910/2,932
+  （31.04%），皆低於 35%。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent
