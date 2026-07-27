@@ -81,6 +81,9 @@ ruff check .
 若要轉貼徵集訊息，請使用
 [三語邀請文](docs/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md)，避免省略授權、
 input-only 或敏感資料限制。
+對授權或資料安全有疑問時，可先到
+[Discussion #49](https://github.com/rajatim/zhtw/discussions/49) 提問；discussion 回覆
+不會被當作正式授權投稿匯入。
 
 ## 回報問題
 

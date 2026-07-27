@@ -658,6 +658,9 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   2,154。`public_domain` 暫占 794/2,154（36.86%），因此後續來源優先順序改為
   permissioned user reports 或其他非 public-domain 類別。Issue #47 已設為 pinned
   issue，投稿表單與可分享邀請文提供簡體、繁體與英文說明；目前仍為 0/100。
+- [x] 啟用 GitHub Discussions 並建立三語徵集公告 Discussion #49；公告只作導流與
+  問答，明確禁止把 discussion 回覆當作 consent。Issue chooser、CONTRIBUTING 與
+  三語邀請文均導向正式 issue form，只有表單投稿可進入 fail-closed intake review。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

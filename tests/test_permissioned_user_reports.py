@@ -21,6 +21,7 @@ COLLECTION = (
     ROOT / "benchmarks" / "accuracy" / "sources" / "permissioned-user-report-batch-001.json"
 )
 ISSUE_FORM = ROOT / ".github" / "ISSUE_TEMPLATE" / "permissioned-user-report.yml"
+ISSUE_CONFIG = ROOT / ".github" / "ISSUE_TEMPLATE" / "config.yml"
 CONSENT_VERSION = "permissioned-user-report-v1"
 
 
@@ -188,6 +189,13 @@ def test_issue_form_requires_all_consent_confirmations() -> None:
     assert "https://github.com/rajatim/zhtw/blob/main/docs/benchmark/" in form
     assert "CC0 1.0 Universal" in form
     assert "不得附上繁體答案或任何轉換器輸出" in form
+
+
+def test_issue_chooser_routes_questions_to_non_submission_discussion() -> None:
+    config = ISSUE_CONFIG.read_text(encoding="utf-8")
+
+    assert "https://github.com/rajatim/zhtw/discussions/49" in config
+    assert "不確定授權、敏感資料或投稿格式" in config
 
 
 def test_false_consent_cannot_pass_schema() -> None:

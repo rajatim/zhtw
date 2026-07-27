@@ -7,6 +7,12 @@ https://github.com/rajatim/zhtw/issues/new?template=permissioned-user-report.yml
 目前進度與審核規則：
 https://github.com/rajatim/zhtw/issues/47
 
+投稿前問題與公開討論：
+https://github.com/rajatim/zhtw/discussions/49
+
+Discussion 回覆不構成授權投稿；只有完成正式投稿表單的內容才會進入人工 intake
+review。
+
 ## 簡體中文
 
 zhtw 正在建立公开、可复现的简繁转换 benchmark，需要你原创或有权提供的真实
