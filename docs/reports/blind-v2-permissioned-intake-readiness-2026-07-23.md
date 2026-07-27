@@ -20,6 +20,8 @@
 - GitHub issue 預覽／確認匯入器：
   `scripts/import_permissioned_user_report_issue.py`。預設 dry-run；只有明確提供
   `--write`、maintainer 與含時區 review timestamp 才會原子寫入。
+- 每筆資料固定保存 issue 編號、投稿者 GitHub login 與 issue body SHA-256；非 GitHub
+  `User` 類型的自動帳號投稿會 fail closed。
 - Blind-v2 importer 已支援 `permissioned-user-report-batch-NNN`，但只有
   `ready_for_import` 且恰好 100 筆時才接受。
 - 測試涵蓋 collecting/ready 狀態、100 筆門檻、input-only、同意欄位、來源 ID、

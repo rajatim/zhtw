@@ -211,6 +211,9 @@ original Simplified Chinese sentences through
 `.github/ISSUE_TEMPLATE/permissioned-user-report.yml` after accepting
 `docs/benchmark/PERMISSIONED-USER-REPORT-CONSENT.md`. The public issue URL and
 consent record are retained with every input.
+Each accepted case also freezes the numeric issue ID and submitter login next to
+the reviewed issue-body SHA-256, so the public consent provenance does not rely
+on parsing the URL alone. Automated or bot-authored submissions are rejected.
 
 This channel is input-only. It rejects expected text and converter output,
 duplicate normalized inputs, incomplete consent, and common sensitive-data

@@ -58,6 +58,7 @@ def issue(
         ),
         "created_at": "2026-07-23T08:00:00Z",
         "html_url": f"https://github.com/rajatim/zhtw/issues/{number}",
+        "user": {"login": "contributor-1", "type": "User"},
     }
 
 
@@ -66,6 +67,8 @@ def test_parse_issue_extracts_only_inputs_and_provenance() -> None:
 
     assert parsed["inputs"] == ["请检查当前设置。", "打开页面后应该显示提示。"]
     assert parsed["issue_url"].endswith("/101")
+    assert parsed["number"] == 101
+    assert parsed["submitter_login"] == "contributor-1"
     assert len(parsed["issue_body_sha256"]) == 64
     assert "軟體設定頁" not in json.dumps(parsed, ensure_ascii=False)
 
@@ -75,6 +78,22 @@ def test_unchecked_consent_is_rejected() -> None:
     payload["body"] = payload["body"].replace("- [x] 我只提交 input", "- [ ] 我只提交 input")
 
     with pytest.raises(IntakeError, match="consent item is not checked"):
+        parse_issue(payload, repository="rajatim/zhtw")
+
+
+def test_missing_submitter_is_rejected() -> None:
+    payload = issue()
+    payload["user"] = None
+
+    with pytest.raises(IntakeError, match="issue is missing fields: user"):
+        parse_issue(payload, repository="rajatim/zhtw")
+
+
+def test_bot_submitter_is_rejected() -> None:
+    payload = issue()
+    payload["user"] = {"login": "example-bot", "type": "Bot"}
+
+    with pytest.raises(IntakeError, match="submitter must be a GitHub user"):
         parse_issue(payload, repository="rajatim/zhtw")
 
 
@@ -127,6 +146,8 @@ def test_confirmed_import_adds_auditable_review_metadata() -> None:
         "decision": "accepted",
         "issue_body_sha256": proposals[0]["issue_body_sha256"],
     }
+    assert updated["cases"][0]["issue_number"] == 101
+    assert updated["cases"][0]["submitter_login"] == "contributor-1"
     assert validate_collection(updated) == []
 
 

@@ -33,6 +33,10 @@
 
 一行 `zhtw scan` / `zhtw fix` 解決 —— 也就是 LLM 給你 100 個檔案後最該做的事。
 
+> **協助建立可信的精準度 benchmark：** 如果你有自己原創、可公開且不含敏感資料的
+> 簡體中文句子，請透過[專用表單](https://github.com/rajatim/zhtw/issues/new?template=permissioned-user-report.yml)
+> 提供 1 至 10 句 input-only 真實用例。請勿附上繁體答案或任何轉換器輸出。
+
 ---
 
 ## 使用情境

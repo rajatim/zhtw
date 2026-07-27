@@ -132,7 +132,7 @@ def parse_inputs(section: str) -> list[str]:
 
 
 def parse_issue(issue: dict[str, Any], *, repository: str) -> dict[str, Any]:
-    required = ("number", "title", "body", "created_at", "html_url")
+    required = ("number", "title", "body", "created_at", "html_url", "user")
     missing = [field for field in required if not issue.get(field)]
     if missing:
         raise IntakeError(f"issue is missing fields: {', '.join(missing)}")
@@ -149,11 +149,19 @@ def parse_issue(issue: dict[str, Any], *, repository: str) -> dict[str, Any]:
     if int(url_match.group("number")) != int(issue["number"]):
         raise IntakeError("issue number does not match html_url")
 
+    user = issue["user"]
+    if not isinstance(user, dict) or not user.get("login"):
+        raise IntakeError("issue submitter login is missing")
+    submitter_login = str(user["login"])
+    if user.get("type") not in (None, "User"):
+        raise IntakeError("issue submitter must be a GitHub user")
+
     body = str(issue["body"])
     sections = parse_sections(body)
     parse_consent(sections[CONSENT_HEADING])
     return {
         "number": int(issue["number"]),
+        "submitter_login": submitter_login,
         "issue_url": str(issue["html_url"]),
         "submitted_at": str(issue["created_at"]),
         "issue_body_sha256": hashlib.sha256(body.encode("utf-8")).hexdigest(),
@@ -229,7 +237,9 @@ def append_confirmed(
                 "id": f"report-{next_index + offset:04d}",
                 "input": proposal["input"],
                 "submitted_at": proposal["submitted_at"],
+                "issue_number": proposal["number"],
                 "issue_url": proposal["issue_url"],
+                "submitter_login": proposal["submitter_login"],
                 "consent": {
                     "policy_version": collection["consent_policy_version"],
                     "cc0_applied": True,

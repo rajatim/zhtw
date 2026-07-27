@@ -39,7 +39,8 @@
       "items": {
         "type": "object",
         "required": [
-          "id", "input", "submitted_at", "issue_url", "consent", "intake_review"
+          "id", "input", "submitted_at", "issue_number", "issue_url",
+          "submitter_login", "consent", "intake_review"
         ],
         "additionalProperties": false,
         "properties": {
@@ -49,10 +50,17 @@
           },
           "input": { "type": "string", "minLength": 1, "maxLength": 1000 },
           "submitted_at": { "type": "string", "format": "date-time" },
+          "issue_number": { "type": "integer", "minimum": 1 },
           "issue_url": {
             "type": "string",
             "format": "uri",
             "pattern": "^https://github\\.com/rajatim/zhtw/issues/[0-9]+(?:#issuecomment-[0-9]+)?$"
+          },
+          "submitter_login": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 39,
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$"
           },
           "consent": {
             "type": "object",

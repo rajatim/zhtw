@@ -29,7 +29,9 @@ def report_case(index: int) -> dict[str, Any]:
         "id": f"report-{index:04d}",
         "input": f"请检查第 {index} 个设置项目。",
         "submitted_at": "2026-07-23T12:00:00+08:00",
+        "issue_number": 1000 + index,
         "issue_url": f"https://github.com/rajatim/zhtw/issues/{1000 + index}",
+        "submitter_login": "benchmark-contributor",
         "consent": {
             "policy_version": CONSENT_VERSION,
             "cc0_applied": True,
