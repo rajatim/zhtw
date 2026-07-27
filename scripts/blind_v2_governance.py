@@ -235,7 +235,11 @@ def _is_tracked(path: Path) -> bool:
         capture_output=True,
         text=True,
     )
-    return result.returncode == 0
+    if result.returncode == 0:
+        return True
+    if result.returncode == 1:
+        return False
+    raise RuntimeError(f"git ls-files failed for {path}: {result.stderr.strip()}")
 
 
 def reference_texts(pool: dict[str, Any], pool_path: Path) -> tuple[list[str], list[str], str]:
@@ -249,12 +253,23 @@ def reference_texts(pool: dict[str, Any], pool_path: Path) -> tuple[list[str], l
             errors.append(f"dedupe reference glob matched no files: {pattern}")
         for path in matches:
             path = path.resolve()
+            relative_path = path.relative_to(PROJECT_ROOT)
             is_blind_v2_artifact = path.parent == ACCURACY_ROOT and path.name.startswith(
                 "blind-v2."
+            )
+            is_blind_v2_governance_report = relative_path.parts[:2] == (
+                "docs",
+                "reports",
+            ) and path.name.startswith(
+                (
+                    "blind-v2-candidate-promotion-",
+                    "blind-v2-source-classification-",
+                )
             )
             if (
                 path == pool_path.resolve()
                 or is_blind_v2_artifact
+                or is_blind_v2_governance_report
                 or path in seen_paths
                 or not path.is_file()
             ):

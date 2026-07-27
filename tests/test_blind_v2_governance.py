@@ -430,12 +430,30 @@ def test_reference_scan_does_not_read_untracked_json(
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text("private expected, not valid JSON", encoding="utf-8")
     monkeypatch.setattr(governance, "PROJECT_ROOT", tmp_path)
+    monkeypatch.setattr(governance, "_is_tracked", lambda path: False)
     pool = pool_fixture([])
 
     texts, errors, _ = reference_texts(pool, tmp_path / "pool.json")
 
     assert texts == []
     assert errors == []
+
+
+def test_tracked_check_does_not_treat_git_failure_as_untracked(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    path = tmp_path / "report.json"
+    monkeypatch.setattr(governance, "PROJECT_ROOT", tmp_path)
+    monkeypatch.setattr(
+        governance.subprocess,
+        "run",
+        lambda *args, **kwargs: subprocess.CompletedProcess(
+            args[0], 128, stdout="", stderr="fatal: invalid git configuration"
+        ),
+    )
+
+    with pytest.raises(RuntimeError, match="git ls-files failed"):
+        governance._is_tracked(path)
 
 
 def test_reference_snapshot_ignores_tracked_json_without_reference_text(
@@ -459,3 +477,23 @@ def test_reference_snapshot_ignores_tracked_json_without_reference_text(
     assert texts == ["候選參考句"]
     assert errors == second_errors == []
     assert snapshot_hash != metadata_only_hash
+
+
+def test_reference_scan_ignores_blind_v2_governance_reports(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    reports = tmp_path / "docs/reports"
+    reports.mkdir(parents=True)
+    governance_report = reports / "blind-v2-source-classification-maintainer-decision.json"
+    governance_report.write_text('{"input": "治理報告不應成為參考"}\n', encoding="utf-8")
+    benchmark_report = reports / "accuracy-public-cases.json"
+    benchmark_report.write_text('{"input": "公開評測案例仍須去重"}\n', encoding="utf-8")
+    monkeypatch.setattr(governance, "PROJECT_ROOT", tmp_path)
+    monkeypatch.setattr(governance, "_is_tracked", lambda path: True)
+    pool = pool_fixture([])
+    pool["deduplication"]["reference_globs"] = ["docs/reports/*.json"]
+
+    texts, errors, _ = reference_texts(pool, tmp_path / "pool.json")
+
+    assert errors == []
+    assert texts == ["公開評測案例仍須去重"]

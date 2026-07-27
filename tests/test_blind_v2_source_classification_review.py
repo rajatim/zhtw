@@ -558,6 +558,9 @@ TWENTY_FIFTH_SYNTHESIS_PATH = ROOT / (
 TWENTY_FIFTH_DIFF_PATH = ROOT / (
     "docs/reports/blind-v2-source-classification-diff-batch-025-2026-07-27.md"
 )
+TWENTY_FIFTH_DECISION_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-decision-batch-025-2026-07-27.json"
+)
 TWENTY_FIFTH_GEMINI_CASE_IDS = {
     f"census-newsroom-zh-hans-v1/{case_id}"
     for case_id in (
@@ -2071,11 +2074,12 @@ def test_twenty_fourth_maintainer_synthesis_decision_is_reproducible() -> None:
     )
 
 
-def test_twenty_fifth_pending_advisories_and_synthesis_are_reproducible() -> None:
+def test_twenty_fifth_advisories_synthesis_and_decision_are_reproducible() -> None:
     packet = load(TWENTY_FIFTH_PACKET_PATH)
     codex = load(TWENTY_FIFTH_CODEX_PATH)
     gemini = load(TWENTY_FIFTH_GEMINI_PATH)
     synthesis = load(TWENTY_FIFTH_SYNTHESIS_PATH)
+    decision = load(TWENTY_FIFTH_DECISION_PATH)
     packet_hash = hashlib.sha256(TWENTY_FIFTH_PACKET_PATH.read_bytes()).hexdigest()
 
     packet_ids = [case["id"] for case in packet["cases"]]
@@ -2111,9 +2115,31 @@ def test_twenty_fifth_pending_advisories_and_synthesis_are_reproducible() -> Non
         gemini_case_ids=TWENTY_FIFTH_GEMINI_CASE_IDS,
         generated_date="2026-07-27",
     )
+    assert validate_decision(decision) == []
+    assert decision["stats"] == {
+        "packet_cases": 100,
+        "confirmed_cases": 100,
+        "resolved_disagreements": 53,
+        "confirmed_exact_matches": 47,
+        "remaining_cases": 0,
+    }
+    assert all(case["selected_advisory"] == "synthesis" for case in decision["cases"])
     assert TWENTY_FIFTH_DIFF_PATH.read_text(encoding="utf-8") == render_markdown(
         packet,
         codex,
         gemini,
         generated_date="2026-07-27",
+        maintainer_decisions=decision,
+    )
+
+
+def test_twenty_fifth_maintainer_synthesis_decision_is_reproducible() -> None:
+    assert load(TWENTY_FIFTH_DECISION_PATH) == build_decision(
+        TWENTY_FIFTH_PACKET_PATH,
+        TWENTY_FIFTH_CODEX_PATH,
+        TWENTY_FIFTH_GEMINI_PATH,
+        maintainer="tim",
+        decision_date="2026-07-27",
+        selected_advisory="synthesis",
+        synthesis_path=TWENTY_FIFTH_SYNTHESIS_PATH,
     )

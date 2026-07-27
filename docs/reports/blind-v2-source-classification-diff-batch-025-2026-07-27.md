@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 025 (2026-07-27)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `429922cb4772c5ff22d2bd24a3f8c8adb48ecc321884bbfa1e5940af2d93dabd`
 Cases: 100
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 53 advisory disagreements and batch-confirmed the 47 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 美國人口普查局新聞稿，正式書面語，句子結構完整。包含'质量'、'计划'、'结果'、'数据'等基本轉換詞彙。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. census-newsroom-zh-hans-v1/page-01-sentence-002
 
@@ -63,7 +63,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 美國人口普查局新聞稿，正式書面語，描述標準流程。測試'进行'、'广泛'、'发布'等詞的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. census-newsroom-zh-hans-v1/page-01-sentence-004
 
@@ -84,7 +84,7 @@ Codex reason: 原頁條列片段缺少完整述語或主句，離開版面脈絡
 
 Gemini reason: 美國人口普查局新聞稿，句子簡短完整。測試'与'、'专家'、'数据质量'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. census-newsroom-zh-hans-v1/page-01-sentence-007
 
@@ -105,7 +105,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 美國人口普查局新聞稿，正式書面語，句子結構完整。測試'质量'、'审核'、'数据'等詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. census-newsroom-zh-hans-v1/page-01-sentence-008
 
@@ -126,7 +126,7 @@ Codex reason: 完整的官方人口普查文本；含法律、機關、地名、
 
 Gemini reason: 政府新聞稿，包含英文單字 state，必須保留不轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. census-newsroom-zh-hans-v1/page-01-sentence-016
 
@@ -147,7 +147,7 @@ Codex reason: 完整的官方人口普查文本；含法律、機關、地名、
 
 Gemini reason: 政府新聞稿，'访问' 在此數據情境下應為'存取'，考驗詞庫的精準度。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. census-newsroom-zh-hans-v1/page-01-sentence-022
 
@@ -168,7 +168,7 @@ Codex reason: 原頁條列片段缺少完整述語或主句，離開版面脈絡
 
 Gemini reason: 政府新聞稿，標準書面語，測試'隐私权'、'关注'等詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. census-newsroom-zh-hans-v1/page-01-sentence-023
 
@@ -189,7 +189,7 @@ Codex reason: 原頁條列片段缺少完整述語或主句，離開版面脈絡
 
 Gemini reason: 政府新聞稿，'问卷调查'是核心術語，需要詞庫支援才能正確轉換為'問卷調查'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. census-newsroom-zh-hans-v1/page-01-sentence-024
 
@@ -210,7 +210,7 @@ Codex reason: 原頁條列片段缺少完整述語或主句，離開版面脈絡
 
 Gemini reason: 政府新聞稿，列舉人口群體，測試'复杂'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. census-newsroom-zh-hans-v1/page-01-sentence-025
 
@@ -231,7 +231,7 @@ Codex reason: 原頁條列片段缺少完整述語或主句，離開版面脈絡
 
 Gemini reason: 政府新聞稿，測試'关系'、'计划'等標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. census-newsroom-zh-hans-v1/page-01-sentence-028
 
@@ -252,7 +252,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，包含日期和'人口统计'、'后裔'等術語，作為基準測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. census-newsroom-zh-hans-v1/page-01-sentence-031
 
@@ -273,7 +273,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'计划'、'数据'等標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. census-newsroom-zh-hans-v1/page-01-sentence-036
 
@@ -294,7 +294,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，包含日期，測試'计划'、'发布'、'结果'等標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. census-newsroom-zh-hans-v1/page-02-sentence-004
 
@@ -315,7 +315,7 @@ Codex reason: 完整的官方人口普查文本；含法律、機關、地名、
 
 Gemini reason: 政府新聞稿，標準書面語，測試'统计数据'、'确定'、'众议院'、'边界'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. census-newsroom-zh-hans-v1/page-02-sentence-012
 
@@ -336,7 +336,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，祈使句，語氣直接，作為基本轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 16. census-newsroom-zh-hans-v1/page-02-sentence-024
 
@@ -357,7 +357,7 @@ Codex reason: 完整的官方人口普查文本；含法律、機關、地名、
 
 Gemini reason: 政府新聞稿，'外勤操作'對應台灣常用語'外勤作業'，需要詞庫支援。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 17. census-newsroom-zh-hans-v1/page-03-sentence-001
 
@@ -378,7 +378,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'后续活动'、'确保'、'准确'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 18. census-newsroom-zh-hans-v1/page-03-sentence-004
 
@@ -399,7 +399,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，包含日期，作為基本轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 19. census-newsroom-zh-hans-v1/page-03-sentence-005
 
@@ -420,7 +420,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，包含英文'ID'，必須保留不轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 20. census-newsroom-zh-hans-v1/page-03-sentence-006
 
@@ -441,7 +441,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，包含日期，作為基本轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 21. census-newsroom-zh-hans-v1/page-03-sentence-008
 
@@ -462,7 +462,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，包含英文 'area census offices'，必須保留不轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 22. census-newsroom-zh-hans-v1/page-03-sentence-011
 
@@ -483,7 +483,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，包含重複的英文 'area census offices'，必須保留不轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 23. census-newsroom-zh-hans-v1/page-03-sentence-021
 
@@ -504,7 +504,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，標準書面語，作為基本轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 24. census-newsroom-zh-hans-v1/page-03-sentence-022
 
@@ -525,7 +525,7 @@ Codex reason: 原頁條列片段缺少完整述語或主句，離開版面脈絡
 
 Gemini reason: 政府新聞稿，標準書面語，作為基本轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 25. census-newsroom-zh-hans-v1/page-03-sentence-024
 
@@ -546,7 +546,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'户籍'、'备选'等詞的轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 26. census-newsroom-zh-hans-v1/page-03-sentence-026
 
@@ -567,7 +567,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，標準書面語，測試'敦促'、'确保'、'质量'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 27. census-newsroom-zh-hans-v1/page-03-sentence-027
 
@@ -588,7 +588,7 @@ Codex reason: 完整的官方人口普查文本；主要檢查基礎字形轉換
 
 Gemini reason: 政府新聞稿，包含英文'ID'，必須保留不轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 28. census-newsroom-zh-hans-v1/page-03-sentence-028
 
@@ -609,7 +609,7 @@ Codex reason: 完整的官方人口普查文本；含法律、機關、地名、
 
 Gemini reason: 政府新聞稿，標準書面語，測試'履行'、'宪法'、'责任'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 29. census-newsroom-zh-hans-v1/page-03-sentence-029
 
@@ -630,7 +630,7 @@ Codex reason: 完整的官方人口普查文本；含法律、機關、地名、
 
 Gemini reason: 政府新聞稿，包含英文'state'，必須保留不轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 30. census-newsroom-zh-hans-v1/page-04-sentence-003
 
@@ -651,7 +651,7 @@ Codex reason: 完整的官方人口普查文本；含法律、機關、地名、
 
 Gemini reason: 政府新聞稿，包含引述，'在线'對應'線上'，需詞庫支援。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 31. census-newsroom-zh-hans-v1/page-04-sentence-006
 
@@ -672,7 +672,7 @@ Codex reason: 完整的官方人口普查文本；含法律、機關、地名、
 
 Gemini reason: 政府新聞稿，'问卷调查'和'数据'是核心術語，需要詞庫支援。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 32. census-newsroom-zh-hans-v1/page-04-sentence-009
 
@@ -693,7 +693,7 @@ Codex reason: 輸入只有左括號且句子明顯截斷，不符合完整、可
 
 Gemini reason: 政府新聞稿，括號內的補充說明，'纸质问卷'對應'紙本問卷'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 33. census-newsroom-zh-hans-v1/page-04-sentence-012
 
@@ -714,7 +714,7 @@ Codex reason: 完整的官方人口普查文本；主要檢查基礎字形轉換
 
 Gemini reason: 政府新聞稿，'大字号'對應'大字體'，需詞庫支援。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 34. census-newsroom-zh-hans-v1/page-04-sentence-014
 
@@ -735,7 +735,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'宣传'、'词汇表'、'关键字'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 35. census-newsroom-zh-hans-v1/page-05-sentence-003
 
@@ -756,7 +756,7 @@ Codex reason: 完整的官方人口普查文本；含法律、機關、地名、
 
 Gemini reason: 政府新聞稿，'视频消息'對應'影片訊息'，需詞庫支援。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 36. census-newsroom-zh-hans-v1/page-05-sentence-007
 
@@ -777,7 +777,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'邮件'、'恢复'、'邮包'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 37. census-newsroom-zh-hans-v1/page-06-sentence-011
 
@@ -798,7 +798,7 @@ Codex reason: 完整的官方人口普查文本；含法律、機關、地名、
 
 Gemini reason: 政府新聞稿，包含英文縮寫'PPE'，必須保留不轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 38. census-newsroom-zh-hans-v1/page-06-sentence-039
 
@@ -819,7 +819,7 @@ Codex reason: 完整的官方人口普查文本；含法律、機關、地名、
 
 Gemini reason: 政府新聞稿，包含英文'state'和'PPE'，必須保留不轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 39. census-newsroom-zh-hans-v1/page-06-sentence-040
 
@@ -840,7 +840,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'外勤'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 40. census-newsroom-zh-hans-v1/page-06-sentence-042
 
@@ -861,7 +861,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，'佩带'在台灣常用'佩戴'，可作為基本轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 41. census-newsroom-zh-hans-v1/page-07-sentence-006
 
@@ -882,7 +882,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'万'、'邮政邮箱'、'发送'、'计划'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 42. census-newsroom-zh-hans-v1/page-07-sentence-008
 
@@ -903,7 +903,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'发送'、'相关联'、'邮件'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 43. census-newsroom-zh-hans-v1/page-08-sentence-006
 
@@ -924,7 +924,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'记录'、'数据'、'医疗'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 44. census-newsroom-zh-hans-v1/page-08-sentence-008
 
@@ -945,7 +945,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'准确'、'记录系统'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 45. census-newsroom-zh-hans-v1/page-08-sentence-017
 
@@ -966,7 +966,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'记录'、'管辖区域'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 46. census-newsroom-zh-hans-v1/page-08-sentence-018
 
@@ -987,7 +987,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，列舉多個種族分類，測試'亚裔'、'后裔'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 47. census-newsroom-zh-hans-v1/page-08-sentence-019
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'记录'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 48. census-newsroom-zh-hans-v1/page-08-sentence-020
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'低估'、'高估'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 49. census-newsroom-zh-hans-v1/page-08-sentence-029
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，報告統計數據，作為基本轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 50. census-newsroom-zh-hans-v1/page-08-sentence-030
 
@@ -1071,7 +1071,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，報告統計數據，作為基本轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 51. census-newsroom-zh-hans-v1/page-08-sentence-031
 
@@ -1092,7 +1092,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，報告統計數據，作為基本轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 52. census-newsroom-zh-hans-v1/page-08-sentence-034
 
@@ -1113,7 +1113,7 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，報告統計數據，作為基本轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 53. census-newsroom-zh-hans-v1/page-09-sentence-001
 
@@ -1134,4 +1134,4 @@ Codex reason: 完整的官方人口普查文本；含中國與臺灣正式用語
 
 Gemini reason: 政府新聞稿，測試'万'、'发送'等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
