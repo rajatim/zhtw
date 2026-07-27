@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 036 (2026-07-28)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `1c7c6f2ed9d05976b9c67ddf5844c05f1019aafb2ea6eeedbc9d1b267f096e53`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 51 advisory disagreements and batch-confirmed the 45 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 正式新聞稿風格，標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 02. census-newsroom-zh-hans-v1/page-01-sentence-017
 
@@ -63,7 +63,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 混合英文，括號中的「仅英语」需注意避免過度轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 03. census-newsroom-zh-hans-v1/page-01-sentence-026
 
@@ -84,7 +84,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 正式新聞稿，標準轉換風險。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 04. census-newsroom-zh-hans-v1/page-01-sentence-038
 
@@ -105,7 +105,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 正式新聞稿，標準轉換風險。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 05. census-newsroom-zh-hans-v1/page-02-sentence-010
 
@@ -126,7 +126,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 公眾宣導風格，標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 06. census-newsroom-zh-hans-v1/page-02-sentence-011
 
@@ -147,7 +147,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 新聞稿風格，標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 07. census-newsroom-zh-hans-v1/page-02-sentence-020
 
@@ -168,7 +168,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 社交口吻，「网络」是潛在的詞彙轉換點。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 08. census-newsroom-zh-hans-v1/page-03-sentence-031
 
@@ -189,7 +189,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 包含英文原文(state)與「数据」，有詞彙轉換與原文保護的雙重風險。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 09. census-newsroom-zh-hans-v1/page-06-sentence-003
 
@@ -210,7 +210,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 「在线」是典型的地區詞彙差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 10. census-newsroom-zh-hans-v1/page-06-sentence-005
 
@@ -231,7 +231,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 包含多個潛在的詞彙轉換點，如「信息」、「回复」、「移动」、「计划」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 11. census-newsroom-zh-hans-v1/page-06-sentence-024
 
@@ -252,7 +252,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 包含「房车」、「公园」等地區詞差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 12. census-newsroom-zh-hans-v1/page-06-sentence-027
 
@@ -273,7 +273,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 正式新聞稿，用語標準。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 13. census-newsroom-zh-hans-v1/page-06-sentence-035
 
@@ -294,7 +294,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 「计划」和「开展」是潛在的詞彙轉換點。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 14. census-newsroom-zh-hans-v1/page-07-sentence-013
 
@@ -315,7 +315,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 公眾宣導語氣，標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 15. census-newsroom-zh-hans-v1/page-08-sentence-004
 
@@ -336,7 +336,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 引文中的「质量」是關鍵的地區詞彙差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 16. census-newsroom-zh-hans-v1/page-08-sentence-028
 
@@ -357,7 +357,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 包含「记录」、「信息」等潛在轉換詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 17. census-newsroom-zh-hans-v1/page-09-sentence-006
 
@@ -378,7 +378,7 @@ Codex reason: 完整且可獨立判讀的人口普查新聞敘述；用於檢驗
 
 Gemini reason: 包含英文(Census ID)，需避免轉換。同時包含「线上」、「邮包」等具地區性的詞語。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 18. massive-1-0-zh-cn-v1/11605
 
@@ -399,7 +399,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 地名「武漢市」為專有名詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 19. massive-1-0-zh-cn-v1/13874
 
@@ -420,7 +420,7 @@ Codex reason: 來源句含明顯機器翻譯錯置、不可解片段或依賴未
 
 Gemini reason: 地名「加州」為專有名詞。句子本身語意不完整，但可獨立判斷。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 20. massive-1-0-zh-cn-v1/14279
 
@@ -441,7 +441,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 標準術語，穩定轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 21. massive-1-0-zh-cn-v1/14294
 
@@ -462,7 +462,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 財經領域，標準術語轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 22. massive-1-0-zh-cn-v1/14674
 
@@ -483,7 +483,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 日常詢問，標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 23. massive-1-0-zh-cn-v1/14717
 
@@ -504,7 +504,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 品牌名稱「紅旗汽車」為專有名詞，需防過度轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 24. massive-1-0-zh-cn-v1/2755
 
@@ -525,7 +525,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 地名「包頭」為專有名詞，需防過度轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 25. massive-1-0-zh-cn-v1/3006
 
@@ -546,7 +546,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 日常詢問，標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 26. massive-1-0-zh-cn-v1/3398
 
@@ -567,7 +567,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 日常用語，標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 27. massive-1-0-zh-cn-v1/3683
 
@@ -588,7 +588,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 包含不應轉換的英文名稱 'olly'。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 28. massive-1-0-zh-cn-v1/3820
 
@@ -609,7 +609,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 日常用語，標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 29. massive-1-0-zh-cn-v1/5926
 
@@ -630,7 +630,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 「手機」是兩岸慣用詞差異的典型案例。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 30. massive-1-0-zh-cn-v1/7446
 
@@ -651,7 +651,7 @@ Codex reason: 來源句含明顯機器翻譯錯置、不可解片段或依賴未
 
 Gemini reason: 日常用語，標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 31. massive-1-0-zh-cn-v1/826
 
@@ -672,7 +672,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 日常詢問，標準轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 32. massive-1-0-zh-cn-v1/840
 
@@ -693,7 +693,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 包含品牌「必勝客」，且「點外賣」、「比薩」均為兩岸慣用詞差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 33. zhtw-project-llm-social-baseline-v1/llm-011
 
@@ -714,7 +714,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: 關於 AI 模型的行為描述，用詞直接，轉換風險低。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 34. zhtw-project-llm-social-baseline-v1/llm-012
 
@@ -735,7 +735,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: 給予 AI 的指令，用字簡單明確，屬於穩定轉換範圍。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 35. zhtw-project-llm-social-baseline-v1/llm-015
 
@@ -756,7 +756,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: 涉及醫療建議，屬於高風險領域。用詞「助手」在臺灣可能需依情境調整為「助理」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 36. zhtw-project-llm-social-baseline-v1/llm-019
 
@@ -777,7 +777,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: 描述 API 客戶端行為，包含不應轉換的 HTTP 標頭 `Retry-After`。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 37. zhtw-project-llm-social-baseline-v1/llm-020
 
@@ -798,7 +798,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: IT 技術描述，包含中國大陸慣用詞「线上」，在臺灣應轉換為「線上」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 38. zhtw-project-llm-social-baseline-v1/llm-021
 
@@ -819,7 +819,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: 描述系統權限，用詞「工单」在臺灣 IT 情境中可能用「工單」或「票證」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 39. zhtw-project-llm-social-baseline-v1/llm-025
 
@@ -840,7 +840,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: 關於引用法規的格式要求，詞彙轉換直接，風險較低。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 40. zhtw-project-llm-social-baseline-v1/llm-029
 
@@ -861,7 +861,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: 描述內容過濾系統，用詞「过滤器」在臺灣慣用「過濾器」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 41. zhtw-project-llm-social-baseline-v1/llm-032
 
@@ -882,7 +882,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: 描述評審流程，詞彙雖屬特定領域但對應關係穩定。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 42. zhtw-project-llm-social-baseline-v1/llm-035
 
@@ -903,7 +903,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: 描述 AI 模型輸出格式，詞彙轉換直接。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 43. zhtw-project-llm-social-baseline-v1/llm-044
 
@@ -924,7 +924,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: IT 指令，包含不應轉換的檔案格式 `CSV` 與編碼 `UTF-8`。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 44. zhtw-project-llm-social-baseline-v1/llm-047
 
@@ -945,7 +945,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: 評估 AI 回答的指令，用詞直接，轉換風險低。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 45. zhtw-project-llm-social-baseline-v1/llm-049
 
@@ -966,7 +966,7 @@ Codex reason: 完整且可獨立判讀的 LLM 使用情境；用於檢驗模型�
 
 Gemini reason: IT 技術描述，包含中國大陸慣用詞「上线」，在臺灣應轉換為「上線」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 46. zhtw-project-llm-social-baseline-v1/social-022
 
@@ -987,7 +987,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 日常購物對話，詞彙在兩岸通用，轉換直接。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 47. zhtw-project-llm-social-baseline-v1/social-023
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 日常事務對話，詞彙轉換直接。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 48. zhtw-project-llm-social-baseline-v1/social-034
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 評論文章內容，用詞普遍，轉換風險低。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 49. zhtw-project-llm-social-baseline-v1/social-040
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 日常辦公對話，用詞「发送」在臺灣情境下也常用「傳送」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 50. zhtw-project-llm-social-baseline-v1/social-043
 
@@ -1071,7 +1071,7 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 網路購物情境，用詞在兩岸電商領域通用，轉換直接。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 51. zhtw-project-llm-social-baseline-v1/social-047
 
@@ -1092,4 +1092,4 @@ Codex reason: 完整且可獨立判讀的日常指令或敘述；用於檢驗臺
 
 Gemini reason: 日常對話，詞彙轉換直接。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`

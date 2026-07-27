@@ -82,8 +82,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-034-2026-07-27.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-035-2026-07-27.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-036-2026-07-28.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-035-2026-07-27.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-036-2026-07-28.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -105,31 +107,31 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     generated, report = build_pool(
         list(DECISIONS),
         output=POOL,
-        created_at="2026-07-27T23:59:23+08:00",
+        created_at="2026-07-28T00:27:40+08:00",
     )
 
     assert generated == committed
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 3022,
+        "total": 3114,
         "by_domain": {
-            "formal_news": 452,
-            "high_stakes": 713,
+            "formal_news": 484,
+            "high_stakes": 717,
             "it_api_cli": 541,
-            "llm_generated": 285,
-            "social_daily": 447,
+            "llm_generated": 298,
+            "social_daily": 490,
             "ui_i18n": 584,
         },
         "by_risk": {
-            "baseline_guard": 874,
-            "candidate_gap": 1283,
-            "over_conversion_guard": 865,
+            "baseline_guard": 909,
+            "candidate_gap": 1312,
+            "over_conversion_guard": 893,
         },
         "by_source_class": {
-            "permissive_license": 1045,
-            "project_original": 942,
-            "public_domain": 1035,
+            "permissive_license": 1073,
+            "project_original": 974,
+            "public_domain": 1067,
         },
         "by_source": {
             "aosp-framework-zh-rcn-v1": 245,
@@ -139,12 +141,12 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "cdc-stacks-111808-v1": 18,
             "cdc-stacks-116683-v1": 21,
             "cdc-stacks-120024-v1": 22,
-            "census-newsroom-zh-hans-v1": 171,
+            "census-newsroom-zh-hans-v1": 203,
             "flores-200-zho-hans-v1": 98,
             "ftc-heads-up-simplified-v1": 111,
             "ftc-small-business-simplified-v1": 55,
             "kubernetes-docs-zh-cn-v1": 215,
-            "massive-1-0-zh-cn-v1": 172,
+            "massive-1-0-zh-cn-v1": 200,
             "nps-essential-acadia-simplified-v1": 30,
             "osha-chainsaw-safety-simplified-v1": 20,
             "osha-disaster-cleanup-simplified-v1": 50,
@@ -171,12 +173,12 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-it-llm-ui-guard-v1": 100,
             "zhtw-project-llm-domain-balance-v1": 98,
             "zhtw-project-llm-product-v1": 50,
-            "zhtw-project-llm-social-baseline-v1": 64,
+            "zhtw-project-llm-social-baseline-v1": 96,
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 3026
-    assert report["promoted"] == 3022
+    assert report["confirmed_eligible"] == 3118
+    assert report["promoted"] == 3114
     assert report["excluded_by_dedupe"] == 4
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
