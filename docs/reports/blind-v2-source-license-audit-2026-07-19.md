@@ -491,3 +491,25 @@ anchors, 17 U.S.C. 105 basis, attribution, modification notice, and known bias.
 The existing Ready.gov parser excludes navigation, linked resources, page
 furniture, phone/URL instructions, and exact within-source duplicates. No
 converter output, competitor output, or expected text influenced extraction.
+
+## 2026-07-28 Ready.gov tornadoes expansion
+
+The FEMA-authored Simplified Chinese Tornadoes page is accepted as an
+input-only public-domain pilot under the same 17 U.S.C. 105, attribution,
+no-endorsement, extraction, and source-cap controls as the other Ready.gov
+pages. The manifest pins the official page URL, the 2025-11-12 revision anchor,
+raw HTML SHA-256
+`f9fcbe3c53fb45f1f948046eb0864905bbdc7915762ad5a0c60c7063e0b2ebdd`.
+The pinned extraction contains 34 unique input-only cases with normalized
+SHA-256 `3c47e904649de37cc10396b39ce5014dc2fe426e44c0d0e662b8ebfc376c6ed5`.
+Source classification remains pending; converter and expected output were not
+used during source selection or extraction.
+
+The FEMA-authored Simplified Chinese Winter Weather page is accepted under the
+same controls. Its manifest pins the official URL, 2025-11-12 revision anchor,
+and raw HTML SHA-256
+`9411cc75dda88b6cc92408ca86ca7400f3e6cf46da02371243eea3124e42723b`.
+The source is preferred for the next public-domain batch because 54 of its 56
+extracted cases are distinct from existing external source snapshots. Its
+normalized SHA-256 is
+`4f399a7fe7b5ab55ed382d5bbfc2fd01c1fac2b83ca62d05b428cd252e8f7135`.

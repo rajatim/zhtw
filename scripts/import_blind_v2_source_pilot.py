@@ -62,6 +62,8 @@ SUPPORTED_SOURCES = {
     "ready-gov-home-fires-zh-hans-v1": "ready_gov_html",
     "ready-gov-landslides-debris-flow-zh-hans-v1": "ready_gov_html",
     "ready-gov-radiation-zh-hans-v1": "ready_gov_html",
+    "ready-gov-tornadoes-zh-hans-v1": "ready_gov_html",
+    "ready-gov-winter-weather-zh-hans-v1": "ready_gov_html",
     "osha-electrical-safety-simplified-v1": "osha_pdf",
     "osha-chainsaw-safety-simplified-v1": "osha_pdf",
     "osha-work-zone-traffic-simplified-v1": "osha_pdf",
@@ -85,6 +87,8 @@ READY_GOV_SOURCE_ANCHORS = {
     "ready-gov-landslides-debris-flow-zh-hans-v1": ("山体滑坡和泥石流", "11/12/2025"),
     "ready-gov-earthquakes-zh-hans-v1": ("地震", "10/22/2025"),
     "ready-gov-radiation-zh-hans-v1": ("辐射应急", "04/08/2025"),
+    "ready-gov-tornadoes-zh-hans-v1": ("龙卷风", "11/12/2025"),
+    "ready-gov-winter-weather-zh-hans-v1": ("冬季天气", "11/12/2025"),
 }
 OSHA_SOURCE_CONFIG = {
     "osha-electrical-safety-simplified-v1": (2, (2,), "用电安全指南"),

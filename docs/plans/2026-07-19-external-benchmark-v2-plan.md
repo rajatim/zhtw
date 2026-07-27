@@ -816,6 +816,17 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   exclusion；pool `3,294 → 3,384`，距最低 5,880 筆尚差 2,496；
   `permissive_license` 1,161/3,384（34.31%）、`public_domain` 1,153/3,384
   （34.07%）、`project_original` 1,070/3,384（31.62%），皆低於 35%。
+- [x] 2026-07-28 新增 Ready.gov Tornadoes Simplified Chinese public-domain
+  input-only pilot。固定官方頁面 2025-11-12 revision anchor、raw HTML SHA-256
+  與 normalized SHA-256；抽取 34 筆 unique cases，對目前 candidate pool 無 exact
+  duplicate，未使用 converter output 或 expected。
+- [x] 2026-07-28 建立 source-class-balanced batch 040：MASSIVE、project-original
+  LLM／IT／UI baseline 與 Ready.gov Winter Weather 各 32 筆。排除 batches 001-039
+  後固定抽樣。Codex first pass 建議 84 筆納入、12 筆排除；Gemini CLI 0.52.0
+  以三個來源隔離 session 完成 96/96 input-only 獨立審查，零工具呼叫、零 API
+  錯誤，建議 83 筆納入、13 筆排除。兩者有 43 筆四欄完全一致、53 筆差異；
+  Codex synthesis 逐筆複核後建議 84 筆納入、12 筆排除。狀態仍為 advisory
+  only，等待 maintainer confirmation；確認前不得 promotion。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

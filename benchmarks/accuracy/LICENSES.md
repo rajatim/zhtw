@@ -336,6 +336,24 @@ is missing.
 - Output license: U.S. Public Domain.
 - Bias notice: U.S. radiation, nuclear-incident, decontamination, sheltering, and medical guidance is not representative of ordinary Taiwan traffic.
 
+## ready-gov-tornadoes-zh-hans-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Tornadoes*, Simplified Chinese, page last updated November 12, 2025.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded.
+- Attribution: Federal Emergency Management Agency, Ready.gov, Tornadoes, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. tornado, sheltering, evacuation, weather-alert, and public-safety guidance is not representative of ordinary Taiwan traffic.
+
+## ready-gov-winter-weather-zh-hans-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Winter Weather*, Simplified Chinese, page last updated November 12, 2025.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded.
+- Attribution: Federal Emergency Management Agency, Ready.gov, Winter Weather, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. winter-storm, cold-exposure, heating, travel, and public-safety guidance is not representative of ordinary Taiwan traffic.
+
 ## osha-electrical-safety-simplified-v1
 
 - Source: OSHA 4281-08 2023, *Electrical Safety*, Chinese Simplified.
