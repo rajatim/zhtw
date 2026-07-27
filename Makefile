@@ -22,6 +22,12 @@ BLIND_V2_REPLACEMENTS ?= benchmarks/accuracy/blind-v2.replacements.json
 BLIND_V2_DECISIONS ?= benchmarks/accuracy/blind-v2.final-decisions.json
 BLIND_V2_LEDGER ?= benchmarks/accuracy/private/blind-v2.evaluation-ledger.jsonl
 BLIND_V2_N ?= 1960
+BLIND_V2_BATCH_032_PRIOR_PACKETS := $(wildcard \
+	benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-00[1-9].json \
+	benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-01[0-9].json \
+	benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-02[0-9].json \
+	benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-030.json \
+	benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-031.json)
 
 # === Core ===
 
@@ -265,6 +271,9 @@ benchmark-blind-v2-source-classification-check: ## Verify deterministic input-on
 	$(PYTHON) scripts/build_blind_v2_codex_synthesis.py --codex docs/reports/blind-v2-source-classification-codex-first-pass-batch-031-2026-07-27.json --gemini docs/reports/blind-v2-source-classification-gemini-independent-batch-031-2026-07-27.json --synthesis-overrides docs/reports/blind-v2-source-classification-codex-synthesis-adjustments-batch-031-2026-07-27.json --generated-date 2026-07-27 --output docs/reports/blind-v2-source-classification-codex-synthesis-batch-031-2026-07-27.json --check
 	$(PYTHON) scripts/record_blind_v2_source_classification_decision.py --packet benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-031.json --codex docs/reports/blind-v2-source-classification-codex-first-pass-batch-031-2026-07-27.json --gemini docs/reports/blind-v2-source-classification-gemini-independent-batch-031-2026-07-27.json --synthesis docs/reports/blind-v2-source-classification-codex-synthesis-batch-031-2026-07-27.json --maintainer tim --decision-date 2026-07-27 --selected-advisory synthesis --output docs/reports/blind-v2-source-classification-maintainer-decision-batch-031-2026-07-27.json --check
 	$(PYTHON) scripts/compare_blind_v2_source_classifications.py --packet benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-031.json --codex docs/reports/blind-v2-source-classification-codex-first-pass-batch-031-2026-07-27.json --gemini docs/reports/blind-v2-source-classification-gemini-independent-batch-031-2026-07-27.json --maintainer-decisions docs/reports/blind-v2-source-classification-maintainer-decision-batch-031-2026-07-27.json --generated-date 2026-07-27 --output docs/reports/blind-v2-source-classification-diff-batch-031-2026-07-27.md --check
+	$(PYTHON) scripts/create_blind_v2_source_classification_packet.py --source benchmarks/accuracy/external/aosp-framework-zh-rcn-v1.json --source benchmarks/accuracy/external/census-newsroom-zh-hans-v1.json --source benchmarks/accuracy/external/chromium-strings-zh-cn-v1.json --source benchmarks/accuracy/external/kubernetes-docs-zh-cn-v1.json --source benchmarks/accuracy/external/osha-disaster-cleanup-simplified-v1.json --source benchmarks/accuracy/external/ready-gov-home-fires-zh-hans-v1.json $(foreach packet,$(BLIND_V2_BATCH_032_PRIOR_PACKETS),--exclude-packet $(packet)) --balanced-remaining --batch-size 96 --batch-number 32 --generated-date 2026-07-27 --output benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-032.json --markdown-output benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-032.md --check
+	$(PYTHON) scripts/build_blind_v2_codex_synthesis.py --codex docs/reports/blind-v2-source-classification-codex-first-pass-batch-032-2026-07-27.json --gemini docs/reports/blind-v2-source-classification-gemini-independent-batch-032-2026-07-27.json --synthesis-overrides docs/reports/blind-v2-source-classification-codex-synthesis-adjustments-batch-032-2026-07-27.json --generated-date 2026-07-27 --output docs/reports/blind-v2-source-classification-codex-synthesis-batch-032-2026-07-27.json --check
+	$(PYTHON) scripts/compare_blind_v2_source_classifications.py --packet benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-032.json --codex docs/reports/blind-v2-source-classification-codex-first-pass-batch-032-2026-07-27.json --gemini docs/reports/blind-v2-source-classification-gemini-independent-batch-032-2026-07-27.json --generated-date 2026-07-27 --output docs/reports/blind-v2-source-classification-diff-batch-032-2026-07-27.md --check
 
 benchmark-blind-v2-pool-validate: ## Validate Blind-v2 source, dedupe, quota, and size policy
 	$(PYTHON) scripts/blind_v2_governance.py validate-pool $(BLIND_V2_POOL) --require-ready

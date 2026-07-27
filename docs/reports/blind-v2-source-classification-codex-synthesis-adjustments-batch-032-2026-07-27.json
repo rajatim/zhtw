@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex synthesis",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-27",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-032.json",
+  "packet_sha256": "8e13a4dd9f1f3bd4299a6afbe2b27e257aa00a299d7288246c765d383c7271e5",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 4
+  },
+  "cases": [
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-029",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-066",
+      "classification": {
+        "eligible": false,
+        "script": "mixed",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "concatenated_content",
+          "footer_or_header",
+          "garbled_text"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-069",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-074",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      }
+    }
+  ]
+}

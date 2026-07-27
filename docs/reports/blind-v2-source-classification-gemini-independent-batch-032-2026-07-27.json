@@ -1,0 +1,996 @@
+{
+  "version": 1,
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": null,
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-032.json",
+  "packet_sha256": "8e13a4dd9f1f3bd4299a6afbe2b27e257aa00a299d7288246c765d383c7271e5",
+  "stats": {
+    "total": 96,
+    "eligible": 94,
+    "excluded": 2,
+    "high": 95,
+    "medium": 1,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-03aa6ccee6fefa59",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI string. Key char: '话'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-27d9fdead1a448e4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI string. Involves multiple common simplified characters (确, 备, 间, 维)."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-322703e4259565bc",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI string. Key chars: '关机'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4b7a12b0d424de44",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI string. Key char: '发'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5ac849f0cca94bdb",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI string with multiple simplified characters (这, 导, 产, 费)."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5d4360065706d5ba",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a C-style format placeholder (%d), which should not be altered."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-60aee697a0f9334a",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a C-style format placeholder (%s), which should not be altered."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6ae6f919648a2e41",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A longer permission-related string, good for block conversion accuracy."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6f8f5a67146ab91f",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a technical acronym 'USSD' which must not be converted."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-806bc01fc1b65653",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI string with multiple simplified characters (禁, 漫, 游, 横, 幅)."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-939146a9f0a8eb5d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A high-stakes warning about data deletion. Accuracy is critical."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9a6a7b2441679d3a",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains the acronym 'SIM', which should not be converted. Also '卡' has different meanings and should be tested."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a305ae8c90ab8db1",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI string with multiple simplified characters (设备, 储, 间)."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b724db6375280de8",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI string."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bfa142bb5d64d0a7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI warning string with multiple simplified characters (这, 产, 费)."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f697285350775f51",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a technical acronym 'RUIM' which must not be converted."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence from a press release."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence describing a process."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Public-facing informational sentence."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The terms '改进覆盖' and '跟进' are specific and require careful conversion to maintain meaning."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-013",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a Latin abbreviation (PPE) which must be preserved."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence with a date."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A long, complex sentence but standard for formal reporting."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence (call to action)."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard informational sentence."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The distinction between '资料' (materials/data) and '物质' (substances/physical items) is important and requires contextual understanding."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical terms like '国际人口移徙' and '管理记录'."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains specific demographic and technical terms like '西班牙后裔群体' and '净覆盖错误' that are sensitive to over-conversion."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "The sentence structure is slightly complex due to the parenthetical, but it's a standard data description."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a Latin word '(state)' as an annotation, which must be preserved."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a Latin word '(state)' as an annotation, which must be preserved."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Highly technical sentence with specific jargon ('低值组', '性别比') and numerical data that requires precise handling."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-132092532143527429",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains product names 'Chromium' and 'Gemini' that should not be converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1478370723027452770",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains product name 'Chrome for Testing' that should not be converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2307973900865360088",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '程序坞' (dock) is a key item for conversion, especially in the context of Apple products."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2451727308784734061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard UI descriptive text that tests baseline conversion quality for a longer sentence."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2592940277904433508",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains product name 'Chromium' that should not be converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2753623023919742414",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple, common UI action text."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-3962647064319009959",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains product name 'Chromium' that should not be converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-5939553720811388432",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains product name 'Chromium' that should not be converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-6119438414301547735",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains product name 'Chromium'. Also has a candidate term '扩展程序' (extension)."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-6691132793308828750",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains product name 'Chromium' that should not be converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7216228761061470870",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains key candidate term '服务器' (server) and technical token 'PDF' which should be preserved."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-731795002583552498",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains product name 'Chromium' that should not be converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7750130090210923118",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains product name 'Chromium' that should not be converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7888981273428720788",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains product name 'Chromium' that should not be converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-80790299200510644",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple feature name."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-9018218886431812662",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple status text."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard technical documentation sentence."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard technical documentation sentence."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains 'Git', a proper noun that should not be converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains 'Pod', a technical term that should not be converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0066",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical terms 'Kubernetes', 'Pod', and 'restartPolicy'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0070",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains 'Kubernetes'. The character '退' is common but worth noting in '回退'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0080",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains command-line syntax 'kubectl logs'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0165",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains 'Pod', a technical term."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0245",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple characters with one-to-many simplified-to-traditional mappings (后, 台, 应, 获)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0259",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains 'KILL', a technical term (signal name) that must not be translated or converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0329",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical terms 'kubelet' and 'Pod'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0330",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical terms 'Pod' and 'kubelet'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0344",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains several characters with potential one-to-many mappings (动, 实, 处, 理, 联)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0114",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical acronyms 'DNS' and 'CNAME'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0170",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains 'Kubernetes' and the term '负载均衡' which involves multiple character conversions."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0182",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical terms 'Service' and 'nodePorts'."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal safety instruction from an OSHA document. Key characters for conversion include '证' (證), '确' (確), and '污' (汙)."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A safety instruction that includes specific English technical terms (NIOSH, N-95) that must not be converted. Tests the converter's ability to handle mixed script."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, straightforward safety rule. Good baseline test for common character conversions like '过' (過), '备' (備), and '线' (線)."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complex sentence from a safety document involving technical actions and units. Tests conversion of terms like '电力线' (電力線) and '修剪' (修剪)."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A list of personal protective equipment (PPE). It tests the conversion of common nouns such as '听' (聽) and '脸' (臉)."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-037",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "garbled_text",
+        "concatenated_content"
+      ],
+      "confidence": "high",
+      "notes": "The text appears to be a malformed sentence, likely a result of concatenating a heading ('潜在危险防护措施') with a sentence fragment. It is grammatically incoherent."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, concise safety instruction, suitable as a standard baseline test. Key characters include '规' (規) and '机' (機)."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A technical safety instruction mentioning specific equipment. The terms '坠落限位' and '作业限位' test the converter's handling of specialized vocabulary."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A formal description of a potential workplace accident. It uses standard vocabulary, such as '车辆' (車輛) and '装置' (裝置)."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "An instruction involving a list of items. It tests common nouns and punctuation within parentheses."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-059",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard warning about potential injuries from manual labor, testing common anatomical and construction-related terms."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A formal safety rule for confined spaces. The repetition of '许可' (許可) and the term '密闭空间' (密閉空間) make it a good test case."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-066",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "concatenated_content",
+        "footer_or_header",
+        "garbled_text"
+      ],
+      "confidence": "high",
+      "notes": "The input is a combination of document metadata/footer content (including English) and a grammatically awkward Chinese fragment. It is not a clean, complete sentence suitable for evaluation."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-067",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A formal sentence referencing a specific law, the 'OSH Act'. It's a good test case for preserving the English acronym 'OSH' while converting surrounding Chinese text."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-069",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A formal sentence naming a government agency, which includes the acronym 'OSHA'. This tests the requirement to keep the acronym unchanged during conversion."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-072",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A very simple and common polite sentence. It serves as a basic sanity check for the converter, particularly for the character '们' (們)."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-059",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-060",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-065",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-069",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-070",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-073",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-074",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Source text from ready.gov, providing public safety information."
+    }
+  ],
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "40f6f6d0-5cba-4883-ac5b-73b69978ccaf,e3429365-fd9a-4426-a6f0-4d7e2428e3af,3891fd21-c2c0-48d1-a25f-d41ca8852042,a28b5e81-c9f6-494e-bf0a-375e17366c74,8ad29bbf-3d74-4848-8667-13d7d3f83273,ad1d42fe-5800-4369-8caa-aec7f2eebebb",
+    "tool_calls": 6,
+    "total_errors": 0,
+    "structural_normalization": "quality_flags_null_to_empty_array",
+    "structural_normalization_cases": 62
+  }
+}

@@ -2615,3 +2615,106 @@ def test_thirty_first_synthesis_decision_is_reproducible() -> None:
         generated_date="2026-07-27",
         maintainer_decisions=decision,
     )
+
+
+def test_thirty_second_pending_synthesis_is_reproducible() -> None:
+    prefix = ROOT / "docs/reports"
+    packet_path = ACCURACY_ROOT / ("review-packets/blind-v2-source-classification-batch-032.json")
+    codex_path = prefix / (
+        "blind-v2-source-classification-codex-first-pass-batch-032-2026-07-27.json"
+    )
+    gemini_path = prefix / (
+        "blind-v2-source-classification-gemini-independent-batch-032-2026-07-27.json"
+    )
+    adjustments_path = prefix / (
+        "blind-v2-source-classification-codex-synthesis-adjustments-" "batch-032-2026-07-27.json"
+    )
+    synthesis_path = prefix / (
+        "blind-v2-source-classification-codex-synthesis-batch-032-2026-07-27.json"
+    )
+    diff_path = prefix / "blind-v2-source-classification-diff-batch-032-2026-07-27.md"
+    packet = load(packet_path)
+    codex = load(codex_path)
+    gemini = load(gemini_path)
+    adjustments = load(adjustments_path)
+    synthesis = load(synthesis_path)
+    packet_ids = [case["id"] for case in packet["cases"]]
+    prior_ids = {
+        case["id"]
+        for batch_number in range(1, 32)
+        for case in load(
+            ACCURACY_ROOT
+            / f"review-packets/blind-v2-source-classification-batch-{batch_number:03d}.json"
+        )["cases"]
+    }
+    packet_hash = hashlib.sha256(packet_path.read_bytes()).hexdigest()
+
+    assert packet["selection_policy"] == "balanced-remaining-deterministic-sha256-v1"
+    assert packet["stats"] == {
+        "total": 96,
+        "by_source": {
+            "aosp-framework-zh-rcn-v1": 16,
+            "census-newsroom-zh-hans-v1": 16,
+            "chromium-strings-zh-cn-v1": 16,
+            "kubernetes-docs-zh-cn-v1": 16,
+            "osha-disaster-cleanup-simplified-v1": 16,
+            "ready-gov-home-fires-zh-hans-v1": 16,
+        },
+    }
+    assert set(packet_ids).isdisjoint(prior_ids)
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert all(isinstance(case["quality_flags"], list) for case in gemini["cases"])
+    assert gemini["execution"] == {
+        "cli": "@google/gemini-cli",
+        "cli_version": "0.52.0",
+        "session_id": (
+            "40f6f6d0-5cba-4883-ac5b-73b69978ccaf,"
+            "e3429365-fd9a-4426-a6f0-4d7e2428e3af,"
+            "3891fd21-c2c0-48d1-a25f-d41ca8852042,"
+            "a28b5e81-c9f6-494e-bf0a-375e17366c74,"
+            "8ad29bbf-3d74-4848-8667-13d7d3f83273,"
+            "ad1d42fe-5800-4369-8caa-aec7f2eebebb"
+        ),
+        "tool_calls": 6,
+        "total_errors": 0,
+        "structural_normalization": "quality_flags_null_to_empty_array",
+        "structural_normalization_cases": 62,
+    }
+    assert gemini["stats"]["policy_violations"] == 0
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 96,
+        "exact": 48,
+        "review_queue": 48,
+        "by_field": {"eligible": 2, "script": 4, "domain": 6, "risk": 43},
+    }
+    assert len(differences) == 48
+    overrides = {case["id"]: case["classification"] for case in adjustments["cases"]}
+    assert set(overrides) == {
+        "osha-disaster-cleanup-simplified-v1/sentence-029",
+        "osha-disaster-cleanup-simplified-v1/sentence-066",
+        "ready-gov-home-fires-zh-hans-v1/sentence-069",
+        "ready-gov-home-fires-zh-hans-v1/sentence-074",
+    }
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=set(),
+        generated_date="2026-07-27",
+        overrides=overrides,
+        override_basis="codex_synthesis",
+    )
+    assert synthesis["stats"] == {
+        "total": 96,
+        "eligible": 92,
+        "excluded": 4,
+        "by_selection_basis": {"agreement": 48, "codex": 44, "codex_synthesis": 4},
+    }
+    assert diff_path.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-27",
+    )
