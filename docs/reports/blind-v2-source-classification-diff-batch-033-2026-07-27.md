@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 033 (2026-07-27)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `b07f481061d43600da3bffe5a2e21c6c1e57504274829b0dad4644a53c55f8b4`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 49 advisory disagreements and batch-confirmed the 47 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: A standard UI term from Android. '私密' (private/secret) and '空间' (space) are common words.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. aosp-framework-zh-rcn-v1/string-7426c6c0c7d314a0
 
@@ -63,7 +63,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: A UI status message from Android. '画中画' (picture-in-picture) is a good test for modern technical jargon conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. aosp-framework-zh-rcn-v1/string-886a05c43b8972ad
 
@@ -84,7 +84,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: A permission-related description from Android UI. It contains multiple characters that have direct traditional counterparts ('读', '网', '络', '-用', '-况', '历', '史', '记', '录'), making it a solid baseline test.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. aosp-framework-zh-rcn-v1/string-a82a9893561bed3f
 
@@ -105,7 +105,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: A security-related UI string. '诱骗' (phishing/luring) is a relatively formal term.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. aosp-framework-zh-rcn-v1/string-d0b75c9e07213975
 
@@ -126,7 +126,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: A formal permission string from Android. The term '优化' (optimization) is common in IT contexts and should convert to '優化'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. aosp-framework-zh-rcn-v1/string-e0ddd1b2aecd1d59
 
@@ -147,7 +147,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: A standard UI status message from the Android fingerprint authentication system. Clear and context-specific.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. aosp-framework-zh-rcn-v1/string-ec7b57c9f7b40775
 
@@ -168,7 +168,7 @@ Codex reason: 完整且可獨立判讀的 Android 介面字串；用於檢驗臺
 
 Gemini reason: A technical error message containing the acronym 'IMPI' (IP Multimedia Private Identity). The acronym must be preserved, making it a good test for over-conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. census-newsroom-zh-hans-v1/page-01-sentence-027
 
@@ -189,7 +189,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Standard formal Simplified Chinese sentence from a government press release.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. census-newsroom-zh-hans-v1/page-02-sentence-006
 
@@ -210,7 +210,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Formal Simplified Chinese sentence with numbers and dates, which do not alter the script classification.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. census-newsroom-zh-hans-v1/page-02-sentence-007
 
@@ -231,7 +231,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Standard formal Simplified Chinese. The word '地图' is a common term and serves as a basic conversion check.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. census-newsroom-zh-hans-v1/page-02-sentence-019
 
@@ -252,7 +252,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Mixed script (Simplified Chinese + Latin). The English token 'Census ID' must be preserved, making it a high-stakes instructional text.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. census-newsroom-zh-hans-v1/page-02-sentence-025
 
@@ -273,7 +273,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Formal Simplified Chinese sentence. Contains '程序', testing if the converter correctly handles characters that are part of common IT and general terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. census-newsroom-zh-hans-v1/page-03-sentence-019
 
@@ -294,7 +294,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Standard formal Simplified Chinese sentence containing common terms like '单元' and '覆盖率'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. census-newsroom-zh-hans-v1/page-04-sentence-020
 
@@ -315,7 +315,7 @@ Codex reason: 句中「聯邦定立法人員」與「等關公共服務」有明
 
 Gemini reason: The input contains a minor grammatical error or typo: '等关公共服务' should likely be '等公共服务'. The sentence is otherwise a valid formal text.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. census-newsroom-zh-hans-v1/page-06-sentence-014
 
@@ -336,7 +336,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Mixed script due to the presence of the Latin abbreviation 'ACO', which must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 16. census-newsroom-zh-hans-v1/page-06-sentence-020
 
@@ -357,7 +357,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Mixed script due to the Latin proper noun 'Alaska'. The word '操作' is also a relevant keyword.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 17. census-newsroom-zh-hans-v1/page-06-sentence-023
 
@@ -378,7 +378,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Standard formal Simplified Chinese sentence. The character '算' is a common conversion case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 18. census-newsroom-zh-hans-v1/page-06-sentence-036
 
@@ -399,7 +399,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Formal Simplified Chinese. A good test for the context-dependent '后'/'後' conversion ('扩大后').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 19. census-newsroom-zh-hans-v1/page-08-sentence-003
 
@@ -420,7 +420,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Formal Simplified Chinese. Provides a test for context-sensitive characters, specifically '布' in '公布' which should convert to '佈'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 20. census-newsroom-zh-hans-v1/page-08-sentence-010
 
@@ -441,7 +441,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Mixed script due to the long Latin phrase 'American Community Survey', which must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 21. census-newsroom-zh-hans-v1/page-08-sentence-024
 
@@ -462,7 +462,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Long but valid formal Simplified Chinese sentence. Another test case for the '后'/'後' conversion via the word '后裔'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 22. census-newsroom-zh-hans-v1/page-09-sentence-002
 
@@ -483,7 +483,7 @@ Codex reason: 完整且可獨立判讀的政府新聞或人口統計敘述；用
 
 Gemini reason: Standard formal Simplified Chinese sentence. The word '明信片' provides a check for polyphone handling, although it's a common case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 23. chromium-strings-zh-cn-v1/translation-8862326446509486874
 
@@ -504,7 +504,7 @@ Codex reason: 完整且可獨立判讀的瀏覽器介面字串；用於檢驗臺
 
 Gemini reason: A clear, formal instruction in Simplified Chinese using common IT terms like '管理员' (administrator) and '安装程序' (installer), making it a solid baseline case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 24. kubernetes-docs-zh-cn-v1/page-02-sentence-0028
 
@@ -525,7 +525,7 @@ Codex reason: 完整且可獨立判讀的技術文件敘述；用於檢驗 Kuber
 
 Gemini reason: Standard technical documentation sentence. The term '对象' (object) is a key concept.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 25. kubernetes-docs-zh-cn-v1/page-03-sentence-0029
 
@@ -546,7 +546,7 @@ Codex reason: 完整且可獨立判讀的技術文件敘述；用於檢驗 Kuber
 
 Gemini reason: Contains an English technical term 'Phase' alongside its Chinese translation. The English term should be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 26. kubernetes-docs-zh-cn-v1/page-03-sentence-0260
 
@@ -567,7 +567,7 @@ Codex reason: 完整且可獨立判讀的技術文件敘述；用於檢驗 Kuber
 
 Gemini reason: A standard technical sentence describing process termination logic.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 27. kubernetes-docs-zh-cn-v1/page-04-sentence-0168
 
@@ -588,7 +588,7 @@ Codex reason: 完整且可獨立判讀的技術文件敘述；用於檢驗 Kuber
 
 Gemini reason: Contains the common English acronym 'API', which should be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 28. osha-disaster-cleanup-simplified-v1/sentence-003
 
@@ -609,7 +609,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: Formal text from an official government safety document. The presence of the proper noun 'OSHA' makes the script mixed.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 29. osha-disaster-cleanup-simplified-v1/sentence-006
 
@@ -630,7 +630,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: Standard formal sentence. Contains common but important terms like '评估' (pínggū - assessment).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 30. osha-disaster-cleanup-simplified-v1/sentence-012
 
@@ -651,7 +651,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: The phrase '配备' (pèibèi - to equip) is a good test case; the character '配' must be handled as part of a compound word to avoid incorrect conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 31. osha-disaster-cleanup-simplified-v1/sentence-013
 
@@ -672,7 +672,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: Medical context. The term '疫苗' (yìmiáo - vaccine) is standard across most Chinese-speaking regions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 32. osha-disaster-cleanup-simplified-v1/sentence-018
 
@@ -693,7 +693,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: Classic test case for the character '干'. In '干净' (gānjìng - clean), it must be converted to '乾' (gān), not '幹' (gàn).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 33. osha-disaster-cleanup-simplified-v1/sentence-021
 
@@ -714,7 +714,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: Straightforward sentence. The word '标记' (biāojì - mark/marker) converts directly to '標記'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 34. osha-disaster-cleanup-simplified-v1/sentence-035
 
@@ -735,7 +735,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: Good test for context-sensitive character mapping. The character '机' in '机械' (jīxiè - machinery) must be converted to '機'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 35. osha-disaster-cleanup-simplified-v1/sentence-046
 
@@ -756,7 +756,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: A critical safety warning. Contains several compound words that must be converted as units: '严禁' (yánjìn), '便携式' (biànxiéshì), '发电机' (fādiànjī).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 36. osha-disaster-cleanup-simplified-v1/sentence-058
 
@@ -777,7 +777,7 @@ Codex reason: 僅為「溝和基坑的挖掘事故（塌方）」表格項目，
 
 Gemini reason: Contains technical terms ('基坑' - foundation pit, '塌方' - collapse/landslide) for which standard terminology might differ in engineering contexts across regions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 37. osha-disaster-cleanup-simplified-v1/sentence-064
 
@@ -798,7 +798,7 @@ Codex reason: 完整且可獨立判讀的職業安全指引；涉及安全語意
 
 Gemini reason: A reference to a legal code (29 CFR 1926.651). The non-Chinese elements (letters, numbers, punctuation) must be preserved exactly.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 38. osha-disaster-cleanup-simplified-v1/sentence-073
 
@@ -819,7 +819,7 @@ Codex reason: 機關頁首「職業安全與健康管理局」與簡報正文直
 
 Gemini reason: A complex sentence containing the proper noun 'OSHA'. It also includes '计划' (jìhuà), which maps to '計畫' or '計劃' depending on nuance, and '合规' (héguī - compliance), which has direct but potentially stylistically different equivalents.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 39. ready-gov-home-fires-zh-hans-v1/sentence-003
 
@@ -840,7 +840,7 @@ Codex reason: 「濃煙充滿房屋或被火焰吞沒」的並列主體錯接，
 
 Gemini reason: Straightforward public safety sentence.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 40. ready-gov-home-fires-zh-hans-v1/sentence-011
 
@@ -861,7 +861,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Standard conversion test for a technical but common term ('锂电池').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 41. ready-gov-home-fires-zh-hans-v1/sentence-025
 
@@ -882,7 +882,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Standard safety instruction with accessibility terms like '轮椅' (wheelchair).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 42. ready-gov-home-fires-zh-hans-v1/sentence-031
 
@@ -903,7 +903,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Basic fire safety science sentence.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 43. ready-gov-home-fires-zh-hans-v1/sentence-041
 
@@ -924,7 +924,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Tests a critical, well-known safety instruction ('stop, drop, and roll').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 44. ready-gov-home-fires-zh-hans-v1/sentence-042
 
@@ -945,7 +945,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Simple and direct first-aid instruction where correctness is critical.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 45. ready-gov-home-fires-zh-hans-v1/sentence-043
 
@@ -966,7 +966,7 @@ Codex reason: 「用乾淨的乾布蓋住」缺少受詞，必須依賴上一句
 
 Gemini reason: Excellent test for the polysemous character '干'. In this context ('干布' - dry cloth), '干' (gān) should be converted to '乾', not '幹'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 46. ready-gov-home-fires-zh-hans-v1/sentence-052
 
@@ -987,7 +987,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: A post-disaster financial instruction. '房贷' (mortgage) is a common term.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 47. ready-gov-home-fires-zh-hans-v1/sentence-056
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Tests conversion of the common verb phrase '关掉' (guān diào), which should become '關掉' or a similar regional equivalent like '關上'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 48. ready-gov-home-fires-zh-hans-v1/sentence-064
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Holiday fire safety instruction.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 49. ready-gov-home-fires-zh-hans-v1/sentence-078
 
@@ -1050,4 +1050,4 @@ Codex reason: 完整且可獨立判讀的居家防火指引；涉及安全語意
 
 Gemini reason: Space heater safety instructions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`

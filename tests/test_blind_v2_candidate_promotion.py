@@ -76,8 +76,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-031-2026-07-27.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-032-2026-07-27.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-033-2026-07-27.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-032-2026-07-27.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-033-2026-07-27.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -99,49 +101,49 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     generated, report = build_pool(
         list(DECISIONS),
         output=POOL,
-        created_at="2026-07-27T18:06:51+08:00",
+        created_at="2026-07-27T22:28:30+08:00",
     )
 
     assert generated == committed
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 2749,
+        "total": 2840,
         "by_domain": {
-            "formal_news": 409,
-            "high_stakes": 653,
-            "it_api_cli": 524,
+            "formal_news": 424,
+            "high_stakes": 681,
+            "it_api_cli": 540,
             "llm_generated": 253,
             "social_daily": 358,
-            "ui_i18n": 552,
+            "ui_i18n": 584,
         },
         "by_risk": {
-            "baseline_guard": 769,
-            "candidate_gap": 1172,
-            "over_conversion_guard": 808,
+            "baseline_guard": 783,
+            "candidate_gap": 1213,
+            "over_conversion_guard": 844,
         },
         "by_source_class": {
-            "permissive_license": 938,
+            "permissive_license": 986,
             "project_original": 878,
-            "public_domain": 933,
+            "public_domain": 976,
         },
         "by_source": {
-            "aosp-framework-zh-rcn-v1": 229,
-            "chromium-strings-zh-cn-v1": 130,
+            "aosp-framework-zh-rcn-v1": 245,
+            "chromium-strings-zh-cn-v1": 146,
             "cisa-cyber-hygiene-zh-hans-v1": 21,
             "cisa-personal-security-zh-hans-v1": 112,
             "cdc-stacks-111808-v1": 18,
             "cdc-stacks-116683-v1": 21,
             "cdc-stacks-120024-v1": 22,
-            "census-newsroom-zh-hans-v1": 128,
+            "census-newsroom-zh-hans-v1": 143,
             "flores-200-zho-hans-v1": 98,
             "ftc-heads-up-simplified-v1": 111,
             "ftc-small-business-simplified-v1": 55,
-            "kubernetes-docs-zh-cn-v1": 199,
+            "kubernetes-docs-zh-cn-v1": 215,
             "massive-1-0-zh-cn-v1": 113,
             "nps-essential-acadia-simplified-v1": 30,
             "osha-chainsaw-safety-simplified-v1": 20,
-            "osha-disaster-cleanup-simplified-v1": 36,
+            "osha-disaster-cleanup-simplified-v1": 50,
             "osha-disaster-falls-simplified-v1": 12,
             "osha-electrical-safety-simplified-v1": 14,
             "osha-fallen-workers-family-simplified-v1": 20,
@@ -150,7 +152,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ready-gov-drought-zh-hans-v1": 33,
             "ready-gov-earthquakes-zh-hans-v1": 43,
             "ready-gov-floods-zh-hans-v1": 39,
-            "ready-gov-home-fires-zh-hans-v1": 50,
+            "ready-gov-home-fires-zh-hans-v1": 64,
             "ready-gov-hurricanes-zh-hans-v1": 36,
             "ready-gov-landslides-debris-flow-zh-hans-v1": 31,
             "ready-gov-radiation-zh-hans-v1": 46,
@@ -168,8 +170,8 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 2753
-    assert report["promoted"] == 2749
+    assert report["confirmed_eligible"] == 2844
+    assert report["promoted"] == 2840
     assert report["excluded_by_dedupe"] == 4
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
