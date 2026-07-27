@@ -10,8 +10,8 @@
   "policy": "input_only_no_converter_output",
   "stats": {
     "total": 100,
-    "eligible": 90,
-    "excluded": 10,
+    "eligible": 92,
+    "excluded": 8,
     "by_selection_basis": {
       "codex_synthesis": 100
     }
@@ -188,14 +188,12 @@
     },
     {
       "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0036",
-      "eligible": false,
+      "eligible": true,
       "script": "simplified",
-      "domain": null,
-      "risk": null,
-      "quality_flags": [
-        "fragment"
-      ],
-      "confidence": "high",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
       "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
       "selection_basis": "codex_synthesis"
     },
@@ -271,14 +269,12 @@
     },
     {
       "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0077",
-      "eligible": false,
+      "eligible": true,
       "script": "mixed",
-      "domain": null,
-      "risk": null,
-      "quality_flags": [
-        "fragment"
-      ],
-      "confidence": "high",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
       "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
       "selection_basis": "codex_synthesis"
     },

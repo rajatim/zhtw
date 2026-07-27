@@ -8,10 +8,10 @@
   "packet_sha256": "ca11a9bd4a724a5e36df6aef1bcddec240ab54fc4dcb012366efcdc8a5ad660c",
   "stats": {
     "total": 100,
-    "eligible": 90,
-    "excluded": 10,
-    "high": 10,
-    "medium": 90,
+    "eligible": 92,
+    "excluded": 8,
+    "high": 8,
+    "medium": 92,
     "low": 0
   },
   "cases": [
@@ -171,15 +171,13 @@
     },
     {
       "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0036",
-      "eligible": false,
+      "eligible": true,
       "script": "simplified",
-      "domain": null,
-      "risk": null,
-      "quality_flags": [
-        "fragment"
-      ],
-      "confidence": "high",
-      "notes": "Markdown 结构或链接文字移除后成为残句、列表片段或格式残留，离开上下文后不适合独立裁决。"
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "句子有明确主语与述语，离开表格上下文仍可独立理解，适合作为 Kubernetes 技术语境案例。"
     },
     {
       "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0046",
@@ -247,15 +245,13 @@
     },
     {
       "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0077",
-      "eligible": false,
+      "eligible": true,
       "script": "mixed",
-      "domain": null,
-      "risk": null,
-      "quality_flags": [
-        "fragment"
-      ],
-      "confidence": "high",
-      "notes": "Markdown 结构或链接文字移除后成为残句、列表片段或格式残留，离开上下文后不适合独立裁决。"
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "主题句结构完整，明确说明资源限制与容器启动的关系，可独立裁决。"
     },
     {
       "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0097",

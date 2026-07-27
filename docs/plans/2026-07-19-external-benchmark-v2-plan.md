@@ -671,7 +671,7 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
 - [x] 建立 source classification batches 026-027，完成 Codex first pass、Gemini
   CLI 0.52.0／`gemini-2.5-pro` 獨立審查與 Codex synthesis；兩次 Gemini 均完整
   覆蓋 IDs、零工具呼叫、零 API 錯誤。Batch 026 綜合建議 80/80 eligible；Batch
-  027 綜合建議 90/100 eligible，10 筆因 Markdown 結構移除後成為殘句、列表片段
+  027 綜合建議 92/100 eligible，8 筆因 Markdown 結構移除後成為殘句、列表片段
   或格式殘留而排除。兩批目前均為 advisory-only，等待 maintainer 確認後才建立
   human decision、執行去重與 promotion；collecting pool 仍維持 2,154 筆。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification

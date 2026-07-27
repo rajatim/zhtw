@@ -5,15 +5,15 @@ Status: advisory only; maintainer decisions pending
 
 Packet SHA-256: `ca11a9bd4a724a5e36df6aef1bcddec240ab54fc4dcb012366efcdc8a5ad660c`
 Cases: 100
-Exact Codex/Gemini classifications: 0
-Maintainer review queue: 100
+Exact Codex/Gemini classifications: 1
+Maintainer review queue: 99
 
 Field differences:
 
-- Eligibility: 9
+- Eligibility: 7
 - Script: 80
-- Domain: 9
-- Risk: 75
+- Domain: 7
+- Risk: 73
 
 ## Policy Finding
 
@@ -338,28 +338,7 @@ Gemini reason: 表格內容，測試「綁定」、「節點」、「容器」�
 
 Maintainer decision: `pending`
 
-### 16. kubernetes-docs-zh-cn-v1/page-03-sentence-0036
-
-Changed: `eligible, domain, risk`
-
-Input:
-
-```text
-至少有一个容器仍在运行，或者正处于启动或重启状态。
-```
-
-| Reviewer | Eligible | Domain | Risk | Confidence | Quality |
-|----------|----------|--------|------|------------|---------|
-| Codex | no | null | null | high | fragment |
-| Gemini | yes | it_api_cli | baseline_guard | high | - |
-
-Codex reason: Markdown 结构或链接文字移除后成为残句、列表片段或格式残留，离开上下文后不适合独立裁决。
-
-Gemini reason: 測試「容器」、「運行」、「啟動」、「重啟狀態」。
-
-Maintainer decision: `pending`
-
-### 17. kubernetes-docs-zh-cn-v1/page-03-sentence-0046
+### 16. kubernetes-docs-zh-cn-v1/page-03-sentence-0046
 
 Changed: `script, risk`
 
@@ -380,7 +359,7 @@ Gemini reason: 測試術語「體面終止」、「期限」，此為 Kubernetes
 
 Maintainer decision: `pending`
 
-### 18. kubernetes-docs-zh-cn-v1/page-03-sentence-0050
+### 17. kubernetes-docs-zh-cn-v1/page-03-sentence-0050
 
 Changed: `script, risk`
 
@@ -401,7 +380,7 @@ Gemini reason: 測試「跟蹤」、「容器」、「狀態」、「階段」�
 
 Maintainer decision: `pending`
 
-### 19. kubernetes-docs-zh-cn-v1/page-03-sentence-0057
+### 18. kubernetes-docs-zh-cn-v1/page-03-sentence-0057
 
 Changed: `script`
 
@@ -422,7 +401,7 @@ Gemini reason: 測試「容器鏡像倉庫」、「拉取」、「應用Secret�
 
 Maintainer decision: `pending`
 
-### 20. kubernetes-docs-zh-cn-v1/page-03-sentence-0069
+### 19. kubernetes-docs-zh-cn-v1/page-03-sentence-0069
 
 Changed: `script, risk`
 
@@ -443,7 +422,7 @@ Gemini reason: 包含特定狀態 `CrashLoopBackOff` 及其中文描述「崩潰
 
 Maintainer decision: `pending`
 
-### 21. kubernetes-docs-zh-cn-v1/page-03-sentence-0075
+### 20. kubernetes-docs-zh-cn-v1/page-03-sentence-0075
 
 Changed: `eligible, domain, risk`
 
@@ -464,7 +443,7 @@ Gemini reason: 測試「應用程式」、「錯誤」、「退出」。
 
 Maintainer decision: `pending`
 
-### 22. kubernetes-docs-zh-cn-v1/page-03-sentence-0076
+### 21. kubernetes-docs-zh-cn-v1/page-03-sentence-0076
 
 Changed: `eligible, domain, risk`
 
@@ -485,9 +464,9 @@ Gemini reason: 測試「配置錯誤」、「環境變數」、「配置文件�
 
 Maintainer decision: `pending`
 
-### 23. kubernetes-docs-zh-cn-v1/page-03-sentence-0077
+### 22. kubernetes-docs-zh-cn-v1/page-03-sentence-0077
 
-Changed: `eligible, script, domain, risk`
+Changed: `script`
 
 Input:
 
@@ -497,16 +476,16 @@ Input:
 
 | Reviewer | Eligible | Domain | Risk | Confidence | Quality |
 |----------|----------|--------|------|------------|---------|
-| Codex | no | null | null | high | fragment |
+| Codex | yes | it_api_cli | baseline_guard | medium | - |
 | Gemini | yes | it_api_cli | baseline_guard | high | - |
 
-Codex reason: Markdown 结构或链接文字移除后成为残句、列表片段或格式残留，离开上下文后不适合独立裁决。
+Codex reason: 主题句结构完整，明确说明资源限制与容器启动的关系，可独立裁决。
 
 Gemini reason: 測試「資源限制」、「內存」、「CPU」。
 
 Maintainer decision: `pending`
 
-### 24. kubernetes-docs-zh-cn-v1/page-03-sentence-0097
+### 23. kubernetes-docs-zh-cn-v1/page-03-sentence-0097
 
 Changed: `script, risk`
 
@@ -527,7 +506,7 @@ Gemini reason: 測試 Init 容器與 `restartPolicy` 的相關描述。
 
 Maintainer decision: `pending`
 
-### 25. kubernetes-docs-zh-cn-v1/page-03-sentence-0100
+### 24. kubernetes-docs-zh-cn-v1/page-03-sentence-0100
 
 Changed: `script, risk`
 
@@ -548,7 +527,7 @@ Gemini reason: 測試 `Never` 策略的描述轉換。
 
 Maintainer decision: `pending`
 
-### 26. kubernetes-docs-zh-cn-v1/page-03-sentence-0110
+### 25. kubernetes-docs-zh-cn-v1/page-03-sentence-0110
 
 Changed: `eligible, script, domain, risk`
 
@@ -569,7 +548,7 @@ Gemini reason: 測試「常規的」Init 容器的說法，避免過度或錯誤
 
 Maintainer decision: `pending`
 
-### 27. kubernetes-docs-zh-cn-v1/page-03-sentence-0137
+### 26. kubernetes-docs-zh-cn-v1/page-03-sentence-0137
 
 Changed: `script, risk`
 
@@ -590,7 +569,7 @@ Gemini reason: 包含 `terminationGracePeriodSeconds` 和 `preStop` 回調，測
 
 Maintainer decision: `pending`
 
-### 28. kubernetes-docs-zh-cn-v1/page-03-sentence-0151
+### 27. kubernetes-docs-zh-cn-v1/page-03-sentence-0151
 
 Changed: `script, risk`
 
@@ -611,7 +590,7 @@ Gemini reason: 包含 Alpha 特性開關 `ReduceDefaultCrashLoopBackOffDecay`，
 
 Maintainer decision: `pending`
 
-### 29. kubernetes-docs-zh-cn-v1/page-03-sentence-0158
+### 28. kubernetes-docs-zh-cn-v1/page-03-sentence-0158
 
 Changed: `script, risk`
 
@@ -632,7 +611,7 @@ Gemini reason: 再次提及 Alpha 特性，測試「初始退避」、「最大�
 
 Maintainer decision: `pending`
 
-### 30. kubernetes-docs-zh-cn-v1/page-03-sentence-0166
+### 29. kubernetes-docs-zh-cn-v1/page-03-sentence-0166
 
 Changed: `script, risk`
 
@@ -653,7 +632,7 @@ Gemini reason: `PodResizeInProgress` 是特定 Pod 狀況，測試新術語。
 
 Maintainer decision: `pending`
 
-### 31. kubernetes-docs-zh-cn-v1/page-03-sentence-0167
+### 30. kubernetes-docs-zh-cn-v1/page-03-sentence-0167
 
 Changed: `script, risk`
 
@@ -674,7 +653,7 @@ Gemini reason: 提及 `Pod Readiness` (Pod 就緒態)，是很好的術語轉換
 
 Maintainer decision: `pending`
 
-### 32. kubernetes-docs-zh-cn-v1/page-03-sentence-0179
+### 31. kubernetes-docs-zh-cn-v1/page-03-sentence-0179
 
 Changed: `eligible, script, domain, risk`
 
@@ -695,7 +674,7 @@ Gemini reason: 包含「容器運行時」、「沙箱」、「配置網路」�
 
 Maintainer decision: `pending`
 
-### 33. kubernetes-docs-zh-cn-v1/page-03-sentence-0186
+### 32. kubernetes-docs-zh-cn-v1/page-03-sentence-0186
 
 Changed: `script`
 
@@ -716,7 +695,7 @@ Gemini reason: 複雜長句，包含 Init 容器、`Initialized` 狀況、沙箱
 
 Maintainer decision: `pending`
 
-### 34. kubernetes-docs-zh-cn-v1/page-03-sentence-0190
+### 33. kubernetes-docs-zh-cn-v1/page-03-sentence-0190
 
 Changed: `script, risk`
 
@@ -737,7 +716,7 @@ Gemini reason: 「原地 Pod 垂直擴縮」是 Kubernetes 的特定術語，適
 
 Maintainer decision: `pending`
 
-### 35. kubernetes-docs-zh-cn-v1/page-03-sentence-0191
+### 34. kubernetes-docs-zh-cn-v1/page-03-sentence-0191
 
 Changed: `risk`
 
@@ -758,7 +737,7 @@ Gemini reason: 測試「應用程式中斷」、「調整」、「資源配置�
 
 Maintainer decision: `pending`
 
-### 36. kubernetes-docs-zh-cn-v1/page-03-sentence-0193
+### 35. kubernetes-docs-zh-cn-v1/page-03-sentence-0193
 
 Changed: `script, risk`
 
@@ -779,7 +758,7 @@ Gemini reason: 測試「應用」、「資源值」、「運行中容器」。
 
 Maintainer decision: `pending`
 
-### 37. kubernetes-docs-zh-cn-v1/page-03-sentence-0195
+### 36. kubernetes-docs-zh-cn-v1/page-03-sentence-0195
 
 Changed: `risk`
 
@@ -800,7 +779,7 @@ Gemini reason: 測試「調整大小狀態」的轉換。
 
 Maintainer decision: `pending`
 
-### 38. kubernetes-docs-zh-cn-v1/page-03-sentence-0198
+### 37. kubernetes-docs-zh-cn-v1/page-03-sentence-0198
 
 Changed: `script`
 
@@ -821,7 +800,7 @@ Gemini reason: 包含 API 欄位 `resizePolicy`，測試「容器規約」、「
 
 Maintainer decision: `pending`
 
-### 39. kubernetes-docs-zh-cn-v1/page-03-sentence-0208
+### 38. kubernetes-docs-zh-cn-v1/page-03-sentence-0208
 
 Changed: `script`
 
@@ -842,7 +821,7 @@ Gemini reason: 「probe」被翻譯為「探針」，是關鍵術語，測試「
 
 Maintainer decision: `pending`
 
-### 40. kubernetes-docs-zh-cn-v1/page-03-sentence-0212
+### 39. kubernetes-docs-zh-cn-v1/page-03-sentence-0212
 
 Changed: `risk`
 
@@ -863,7 +842,7 @@ Gemini reason: 測試「命令」、「退出」、「返回碼」的轉換。
 
 Maintainer decision: `pending`
 
-### 41. kubernetes-docs-zh-cn-v1/page-03-sentence-0216
+### 40. kubernetes-docs-zh-cn-v1/page-03-sentence-0216
 
 Changed: `script`
 
@@ -884,7 +863,7 @@ Gemini reason: 包含 `httpGet`，測試「IP 地址」、「端口」、「路�
 
 Maintainer decision: `pending`
 
-### 42. kubernetes-docs-zh-cn-v1/page-03-sentence-0228
+### 41. kubernetes-docs-zh-cn-v1/page-03-sentence-0228
 
 Changed: `script, risk`
 
@@ -905,7 +884,7 @@ Gemini reason: `livenessProbe` (存活態探針) 是 Kubernetes 的核心概念�
 
 Maintainer decision: `pending`
 
-### 43. kubernetes-docs-zh-cn-v1/page-03-sentence-0231
+### 42. kubernetes-docs-zh-cn-v1/page-03-sentence-0231
 
 Changed: `script, risk`
 
@@ -926,7 +905,7 @@ Gemini reason: `readinessProbe` (就緒態探針) 是 Kubernetes 的核心概念
 
 Maintainer decision: `pending`
 
-### 44. kubernetes-docs-zh-cn-v1/page-03-sentence-0239
+### 43. kubernetes-docs-zh-cn-v1/page-03-sentence-0239
 
 Changed: `risk`
 
@@ -947,7 +926,7 @@ Gemini reason: 測試「存活態」、「就緒態」、「啟動探針」等�
 
 Maintainer decision: `pending`
 
-### 45. kubernetes-docs-zh-cn-v1/page-03-sentence-0249
+### 44. kubernetes-docs-zh-cn-v1/page-03-sentence-0249
 
 Changed: `risk`
 
@@ -968,7 +947,7 @@ Gemini reason: 測試「區分」、「啟動數據」、「就緒探針」等�
 
 Maintainer decision: `pending`
 
-### 46. kubernetes-docs-zh-cn-v1/page-03-sentence-0250
+### 45. kubernetes-docs-zh-cn-v1/page-03-sentence-0250
 
 Changed: `script`
 
@@ -989,7 +968,7 @@ Gemini reason: 長句，包含 `EndpointSlice`、`ready` 狀況、負載均衡�
 
 Maintainer decision: `pending`
 
-### 47. kubernetes-docs-zh-cn-v1/page-03-sentence-0253
+### 46. kubernetes-docs-zh-cn-v1/page-03-sentence-0253
 
 Changed: `risk`
 
@@ -1010,7 +989,7 @@ Gemini reason: 測試「存活態探測時間間隔」、「配置」、「執�
 
 Maintainer decision: `pending`
 
-### 48. kubernetes-docs-zh-cn-v1/page-03-sentence-0254
+### 47. kubernetes-docs-zh-cn-v1/page-03-sentence-0254
 
 Changed: `script`
 
@@ -1031,7 +1010,7 @@ Gemini reason: 包含公式 `initialDelaySeconds + failureThreshold \times perio
 
 Maintainer decision: `pending`
 
-### 49. kubernetes-docs-zh-cn-v1/page-03-sentence-0264
+### 48. kubernetes-docs-zh-cn-v1/page-03-sentence-0264
 
 Changed: `risk`
 
@@ -1052,7 +1031,7 @@ Gemini reason: 測試「停止容器」、「請求」、「容器運行時」�
 
 Maintainer decision: `pending`
 
-### 50. kubernetes-docs-zh-cn-v1/page-03-sentence-0275
+### 49. kubernetes-docs-zh-cn-v1/page-03-sentence-0275
 
 Changed: `risk`
 
@@ -1073,7 +1052,7 @@ Gemini reason: 測試「生命週期」、「終止信號」、「覆蓋」、�
 
 Maintainer decision: `pending`
 
-### 51. kubernetes-docs-zh-cn-v1/page-03-sentence-0276
+### 50. kubernetes-docs-zh-cn-v1/page-03-sentence-0276
 
 Changed: `risk`
 
@@ -1094,7 +1073,7 @@ Gemini reason: 測試「容器規約」、「回退到」、「默認行為」�
 
 Maintainer decision: `pending`
 
-### 52. kubernetes-docs-zh-cn-v1/page-03-sentence-0277
+### 51. kubernetes-docs-zh-cn-v1/page-03-sentence-0277
 
 Changed: `script`
 
@@ -1115,7 +1094,7 @@ Gemini reason: 測試「體面終止限期」，確保其作為一個整體術�
 
 Maintainer decision: `pending`
 
-### 53. kubernetes-docs-zh-cn-v1/page-03-sentence-0279
+### 52. kubernetes-docs-zh-cn-v1/page-03-sentence-0279
 
 Changed: `script, risk`
 
@@ -1136,7 +1115,7 @@ Gemini reason: 測試 `kubectl describe` 和 Pod 狀態 `Terminating`（正在�
 
 Maintainer decision: `pending`
 
-### 54. kubernetes-docs-zh-cn-v1/page-03-sentence-0283
+### 53. kubernetes-docs-zh-cn-v1/page-03-sentence-0283
 
 Changed: `script`
 
@@ -1157,7 +1136,7 @@ Gemini reason: 包含 `preStop` 和 `terminationGracePeriodSeconds`，測試 API
 
 Maintainer decision: `pending`
 
-### 55. kubernetes-docs-zh-cn-v1/page-03-sentence-0286
+### 54. kubernetes-docs-zh-cn-v1/page-03-sentence-0286
 
 Changed: `script, risk`
 
@@ -1178,7 +1157,7 @@ Gemini reason: 測試「任意的順序」、「接收」、「TERM 信號」。
 
 Maintainer decision: `pending`
 
-### 56. kubernetes-docs-zh-cn-v1/page-03-sentence-0299
+### 55. kubernetes-docs-zh-cn-v1/page-03-sentence-0299
 
 Changed: `script, risk`
 
@@ -1199,7 +1178,7 @@ Gemini reason: 測試 Pod 終止階段 `Failed` 和 `Succeeded` 的描述。
 
 Maintainer decision: `pending`
 
-### 57. kubernetes-docs-zh-cn-v1/page-03-sentence-0308
+### 56. kubernetes-docs-zh-cn-v1/page-03-sentence-0308
 
 Changed: `script, risk`
 
@@ -1220,7 +1199,7 @@ Gemini reason: 測試「強制刪除」、「API 伺服器」、「確認消息�
 
 Maintainer decision: `pending`
 
-### 58. kubernetes-docs-zh-cn-v1/page-03-sentence-0319
+### 57. kubernetes-docs-zh-cn-v1/page-03-sentence-0319
 
 Changed: `script`
 
@@ -1241,7 +1220,7 @@ Gemini reason: 測試「寬限期」這一術語的轉換。
 
 Maintainer decision: `pending`
 
-### 59. kubernetes-docs-zh-cn-v1/page-03-sentence-0326
+### 58. kubernetes-docs-zh-cn-v1/page-03-sentence-0326
 
 Changed: `script, risk`
 
@@ -1262,7 +1241,7 @@ Gemini reason: PodGC 是 Kubernetes 中的一個控制器，測試對這種縮�
 
 Maintainer decision: `pending`
 
-### 60. kubernetes-docs-zh-cn-v1/page-03-sentence-0336
+### 59. kubernetes-docs-zh-cn-v1/page-03-sentence-0336
 
 Changed: `script`
 
@@ -1283,7 +1262,7 @@ Gemini reason: 測試 `ready: true` 狀態和「就緒」的表述。
 
 Maintainer decision: `pending`
 
-### 61. kubernetes-docs-zh-cn-v1/page-04-sentence-0001
+### 60. kubernetes-docs-zh-cn-v1/page-04-sentence-0001
 
 Changed: `script, risk`
 
@@ -1304,7 +1283,7 @@ Gemini reason: Kubernetes Service 的目標描述，測試「服務發現機制�
 
 Maintainer decision: `pending`
 
-### 62. kubernetes-docs-zh-cn-v1/page-04-sentence-0025
+### 61. kubernetes-docs-zh-cn-v1/page-04-sentence-0025
 
 Changed: `eligible, script, domain, risk`
 
@@ -1325,7 +1304,7 @@ Gemini reason: 包含 Kubernetes API 和 `EndpointSlice`，測試術語和 API �
 
 Maintainer decision: `pending`
 
-### 63. kubernetes-docs-zh-cn-v1/page-04-sentence-0027
+### 62. kubernetes-docs-zh-cn-v1/page-04-sentence-0027
 
 Changed: `script, risk`
 
@@ -1346,7 +1325,7 @@ Gemini reason: 測試「非本地應用」、「後端 Pod」、「網絡端口�
 
 Maintainer decision: `pending`
 
-### 64. kubernetes-docs-zh-cn-v1/page-04-sentence-0028
+### 63. kubernetes-docs-zh-cn-v1/page-04-sentence-0028
 
 Changed: `risk`
 
@@ -1367,7 +1346,7 @@ Gemini reason: 測試「負載」、「服務發現機制」、「連接」、�
 
 Maintainer decision: `pending`
 
-### 65. kubernetes-docs-zh-cn-v1/page-04-sentence-0032
+### 64. kubernetes-docs-zh-cn-v1/page-04-sentence-0032
 
 Changed: `script`
 
@@ -1388,7 +1367,7 @@ Gemini reason: 包含標籤 `app.kubernetes.io/name=MyApp`，測試包含標籤�
 
 Maintainer decision: `pending`
 
-### 66. kubernetes-docs-zh-cn-v1/page-04-sentence-0039
+### 65. kubernetes-docs-zh-cn-v1/page-04-sentence-0039
 
 Changed: `script, risk`
 
@@ -1409,7 +1388,7 @@ Gemini reason: 提及 RFC 1035，測試標準文檔引用。
 
 Maintainer decision: `pending`
 
-### 67. kubernetes-docs-zh-cn-v1/page-04-sentence-0040
+### 66. kubernetes-docs-zh-cn-v1/page-04-sentence-0040
 
 Changed: `script`
 
@@ -1430,7 +1409,7 @@ Gemini reason: `port` 和 `targetPort` 的映射關係，測試對 API 欄位名
 
 Maintainer decision: `pending`
 
-### 68. kubernetes-docs-zh-cn-v1/page-04-sentence-0041
+### 67. kubernetes-docs-zh-cn-v1/page-04-sentence-0041
 
 Changed: `script`
 
@@ -1451,7 +1430,7 @@ Gemini reason: 「出於方便考慮」的說法以及 `targetPort` 與 `port` �
 
 Maintainer decision: `pending`
 
-### 69. kubernetes-docs-zh-cn-v1/page-04-sentence-0047
+### 68. kubernetes-docs-zh-cn-v1/page-04-sentence-0047
 
 Changed: `script, risk`
 
@@ -1472,7 +1451,7 @@ Gemini reason: 測試「後端軟體」、「新版本」、「端口號」。
 
 Maintainer decision: `pending`
 
-### 70. kubernetes-docs-zh-cn-v1/page-04-sentence-0052
+### 69. kubernetes-docs-zh-cn-v1/page-04-sentence-0052
 
 Changed: `risk`
 
@@ -1493,7 +1472,7 @@ Gemini reason: 測試「生產環境」、「測試環境」、「數據庫集�
 
 Maintainer decision: `pending`
 
-### 71. kubernetes-docs-zh-cn-v1/page-04-sentence-0065
+### 70. kubernetes-docs-zh-cn-v1/page-04-sentence-0065
 
 Changed: `risk`
 
@@ -1514,7 +1493,7 @@ Gemini reason: 關於工具命名的約定，測試「全小寫」、「短劃�
 
 Maintainer decision: `pending`
 
-### 72. kubernetes-docs-zh-cn-v1/page-04-sentence-0079
+### 71. kubernetes-docs-zh-cn-v1/page-04-sentence-0079
 
 Changed: `script`
 
@@ -1535,7 +1514,7 @@ Gemini reason: `EndpointSlice` 和「額外端點」的關係，是很好的術�
 
 Maintainer decision: `pending`
 
-### 73. kubernetes-docs-zh-cn-v1/page-04-sentence-0081
+### 72. kubernetes-docs-zh-cn-v1/page-04-sentence-0081
 
 Changed: `script, risk`
 
@@ -1556,7 +1535,7 @@ Gemini reason: `EndpointSlice` API 和 `Endpoints` API 的演進關係。
 
 Maintainer decision: `pending`
 
-### 74. kubernetes-docs-zh-cn-v1/page-04-sentence-0088
+### 73. kubernetes-docs-zh-cn-v1/page-04-sentence-0088
 
 Changed: `script`
 
@@ -1577,7 +1556,7 @@ Gemini reason: 包含註解 `endpoints.kubernetes.io/over-capacity: truncated`�
 
 Maintainer decision: `pending`
 
-### 75. kubernetes-docs-zh-cn-v1/page-04-sentence-0090
+### 74. kubernetes-docs-zh-cn-v1/page-04-sentence-0090
 
 Changed: `script, risk`
 
@@ -1598,7 +1577,7 @@ Gemini reason: 測試「請求流量」、「後端」、「負載均衡機制�
 
 Maintainer decision: `pending`
 
-### 76. kubernetes-docs-zh-cn-v1/page-04-sentence-0094
+### 75. kubernetes-docs-zh-cn-v1/page-04-sentence-0094
 
 Changed: `script, risk`
 
@@ -1619,7 +1598,7 @@ Gemini reason: 測試「字段」、「取值」、「映射」、「對應」�
 
 Maintainer decision: `pending`
 
-### 77. kubernetes-docs-zh-cn-v1/page-04-sentence-0110
+### 76. kubernetes-docs-zh-cn-v1/page-04-sentence-0110
 
 Changed: `script`
 
@@ -1640,7 +1619,7 @@ Gemini reason: 包含 `type: ClusterIP`，測試「節點端口」、「集群 I
 
 Maintainer decision: `pending`
 
-### 78. kubernetes-docs-zh-cn-v1/page-04-sentence-0133
+### 77. kubernetes-docs-zh-cn-v1/page-04-sentence-0133
 
 Changed: `script, risk`
 
@@ -1661,7 +1640,7 @@ Gemini reason: 測試「集群」、「節點」、「監聽」、「轉發流�
 
 Maintainer decision: `pending`
 
-### 79. kubernetes-docs-zh-cn-v1/page-04-sentence-0138
+### 78. kubernetes-docs-zh-cn-v1/page-04-sentence-0138
 
 Changed: `script`
 
@@ -1682,7 +1661,7 @@ Gemini reason: 測試 NodePort 範圍和「有效端口號」的說法。
 
 Maintainer decision: `pending`
 
-### 80. kubernetes-docs-zh-cn-v1/page-04-sentence-0140
+### 79. kubernetes-docs-zh-cn-v1/page-04-sentence-0140
 
 Changed: `eligible, script, domain, risk`
 
@@ -1703,7 +1682,7 @@ Gemini reason: 測試 NodePort Service 端口衝突的描述。
 
 Maintainer decision: `pending`
 
-### 81. kubernetes-docs-zh-cn-v1/page-04-sentence-0163
+### 80. kubernetes-docs-zh-cn-v1/page-04-sentence-0163
 
 Changed: `script`
 
@@ -1724,7 +1703,7 @@ Gemini reason: `loadBalancerIP` 和「臨時 IP」的描述，測試 API 欄位�
 
 Maintainer decision: `pending`
 
-### 82. kubernetes-docs-zh-cn-v1/page-04-sentence-0173
+### 81. kubernetes-docs-zh-cn-v1/page-04-sentence-0173
 
 Changed: `script, risk`
 
@@ -1745,7 +1724,7 @@ Gemini reason: 測試「託管負載均衡器」、「實施」、「運行狀�
 
 Maintainer decision: `pending`
 
-### 83. kubernetes-docs-zh-cn-v1/page-04-sentence-0194
+### 82. kubernetes-docs-zh-cn-v1/page-04-sentence-0194
 
 Changed: `script`
 
@@ -1766,7 +1745,7 @@ Gemini reason: 測試 `VIP` 和「目的地」等網路術語。
 
 Maintainer decision: `pending`
 
-### 84. kubernetes-docs-zh-cn-v1/page-04-sentence-0195
+### 83. kubernetes-docs-zh-cn-v1/page-04-sentence-0195
 
 Changed: `script`
 
@@ -1787,7 +1766,7 @@ Gemini reason: 測試 DNAT、Pod IP、節點 IP 等網路轉發細節描述。
 
 Maintainer decision: `pending`
 
-### 85. kubernetes-docs-zh-cn-v1/page-04-sentence-0198
+### 84. kubernetes-docs-zh-cn-v1/page-04-sentence-0198
 
 Changed: `script, risk`
 
@@ -1808,7 +1787,7 @@ Gemini reason: 測試「水平分割 DNS」環境的描述。
 
 Maintainer decision: `pending`
 
-### 86. kubernetes-docs-zh-cn-v1/page-04-sentence-0200
+### 85. kubernetes-docs-zh-cn-v1/page-04-sentence-0200
 
 Changed: `script, risk`
 
@@ -1829,7 +1808,7 @@ Gemini reason: 包含 `spec.externalName`，測試 API 欄位。
 
 Maintainer decision: `pending`
 
-### 87. kubernetes-docs-zh-cn-v1/page-04-sentence-0202
+### 86. kubernetes-docs-zh-cn-v1/page-04-sentence-0202
 
 Changed: `script, risk`
 
@@ -1850,7 +1829,7 @@ Gemini reason: 測試「IPv4 地址」、「外部名稱」、「DNS 伺服器�
 
 Maintainer decision: `pending`
 
-### 88. kubernetes-docs-zh-cn-v1/page-04-sentence-0209
+### 87. kubernetes-docs-zh-cn-v1/page-04-sentence-0209
 
 Changed: `risk`
 
@@ -1871,7 +1850,7 @@ Gemini reason: 測試「主機名」、「協議」、「意外響應」。
 
 Maintainer decision: `pending`
 
-### 89. kubernetes-docs-zh-cn-v1/page-04-sentence-0216
+### 88. kubernetes-docs-zh-cn-v1/page-04-sentence-0216
 
 Changed: `script`
 
@@ -1892,7 +1871,7 @@ Gemini reason: 「無頭 Service」是關鍵術語，測試「虛擬 IP」、「
 
 Maintainer decision: `pending`
 
-### 90. kubernetes-docs-zh-cn-v1/page-04-sentence-0220
+### 89. kubernetes-docs-zh-cn-v1/page-04-sentence-0220
 
 Changed: `script, risk`
 
@@ -1913,7 +1892,7 @@ Gemini reason: 測試「選擇算符」、「無頭 Service」、「控制平面
 
 Maintainer decision: `pending`
 
-### 91. kubernetes-docs-zh-cn-v1/page-04-sentence-0221
+### 90. kubernetes-docs-zh-cn-v1/page-04-sentence-0221
 
 Changed: `script`
 
@@ -1934,7 +1913,7 @@ Gemini reason: `type: ExternalName`、CNAME、A / AAAA 記錄，網路和 DNS �
 
 Maintainer decision: `pending`
 
-### 92. kubernetes-docs-zh-cn-v1/page-04-sentence-0222
+### 91. kubernetes-docs-zh-cn-v1/page-04-sentence-0222
 
 Changed: `script, risk`
 
@@ -1955,7 +1934,7 @@ Gemini reason: IPv6 端點和 AAAA 記錄的簡單描述。
 
 Maintainer decision: `pending`
 
-### 93. kubernetes-docs-zh-cn-v1/page-04-sentence-0227
+### 92. kubernetes-docs-zh-cn-v1/page-04-sentence-0227
 
 Changed: `script, risk`
 
@@ -1976,7 +1955,7 @@ Gemini reason: Service 名稱在環境變數中的轉換規則。
 
 Maintainer decision: `pending`
 
-### 94. kubernetes-docs-zh-cn-v1/page-04-sentence-0237
+### 93. kubernetes-docs-zh-cn-v1/page-04-sentence-0237
 
 Changed: `script, risk`
 
@@ -1997,7 +1976,7 @@ Gemini reason: 測試命名空間內 Service 名稱解析的描述。
 
 Maintainer decision: `pending`
 
-### 95. kubernetes-docs-zh-cn-v1/page-04-sentence-0244
+### 94. kubernetes-docs-zh-cn-v1/page-04-sentence-0244
 
 Changed: `script, risk`
 
@@ -2018,7 +1997,7 @@ Gemini reason: 測試「虛擬 IP」、「Service 代理」等術語。
 
 Maintainer decision: `pending`
 
-### 96. kubernetes-docs-zh-cn-v1/page-04-sentence-0247
+### 95. kubernetes-docs-zh-cn-v1/page-04-sentence-0247
 
 Changed: `script, risk`
 
@@ -2039,7 +2018,7 @@ Gemini reason: `.spec.trafficDistribution` 欄位的介紹。
 
 Maintainer decision: `pending`
 
-### 97. kubernetes-docs-zh-cn-v1/page-04-sentence-0260
+### 96. kubernetes-docs-zh-cn-v1/page-04-sentence-0260
 
 Changed: `script, risk`
 
@@ -2060,7 +2039,7 @@ Gemini reason: `externalIPs` 分配職責的說明。
 
 Maintainer decision: `pending`
 
-### 98. kubernetes-docs-zh-cn-v1/page-04-sentence-0261
+### 97. kubernetes-docs-zh-cn-v1/page-04-sentence-0261
 
 Changed: `script, risk`
 
@@ -2081,7 +2060,7 @@ Gemini reason: Service 作為 REST API 頂級資源的描述。
 
 Maintainer decision: `pending`
 
-### 99. kubernetes-docs-zh-cn-v1/page-04-sentence-0262
+### 98. kubernetes-docs-zh-cn-v1/page-04-sentence-0262
 
 Changed: `script, risk`
 
@@ -2102,7 +2081,7 @@ Gemini reason: 簡單的引導性句子。
 
 Maintainer decision: `pending`
 
-### 100. kubernetes-docs-zh-cn-v1/page-04-sentence-0265
+### 99. kubernetes-docs-zh-cn-v1/page-04-sentence-0265
 
 Changed: `script, risk`
 
