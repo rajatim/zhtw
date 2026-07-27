@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 031 (2026-07-27)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `79d12a09e64acd2911d1e35e5afdbc8116398006307e6a78f48eeedff2c7d0d3`
 Cases: 100
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 57 advisory disagreements and batch-confirmed the 43 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 正式公文用語，要求業者補件。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. zhtw-project-llm-domain-balance-v1/formal-003
 
@@ -63,7 +63,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 財會審計用語。「审计」是中國大陸常用詞，台灣多用「查核」，存在地區詞彙差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. zhtw-project-llm-domain-balance-v1/formal-005
 
@@ -84,7 +84,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 政府報告用語，說明預算執行情況。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. zhtw-project-llm-domain-balance-v1/formal-007
 
@@ -105,7 +105,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 法律或規章的生效條文。用語非常正式，繁簡體意思一致。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. zhtw-project-llm-domain-balance-v1/formal-009
 
@@ -126,7 +126,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 新聞發布準則。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. zhtw-project-llm-domain-balance-v1/formal-010
 
@@ -147,7 +147,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 法律文件用語，包含一個必須保持原樣的案件編號「115年度诉字第42号」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. zhtw-project-llm-domain-balance-v1/formal-011
 
@@ -168,7 +168,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 合約規範用語。「契约」在台灣較少用，通用詞是「合約」，存在地區詞彙差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. zhtw-project-llm-domain-balance-v1/formal-012
 
@@ -189,7 +189,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 銀行服務說明。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. zhtw-project-llm-domain-balance-v1/formal-013
 
@@ -210,7 +210,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 保險合約說明。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. zhtw-project-llm-domain-balance-v1/formal-014
 
@@ -231,7 +231,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 醫療法規要求。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. zhtw-project-llm-domain-balance-v1/formal-017
 
@@ -252,7 +252,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 財務報告用語。包含財政年度縮寫「FY2027」，不得轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. zhtw-project-llm-domain-balance-v1/formal-020
 
@@ -273,7 +273,7 @@ Codex reason: 完整且可独立判读的正式书面情境；用于检验机构
 
 Gemini reason: 隱私權政策條款。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. zhtw-project-llm-domain-balance-v1/llm-003
 
@@ -294,7 +294,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 資訊檢索或 RAG 流程說明。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. zhtw-project-llm-domain-balance-v1/llm-004
 
@@ -315,7 +315,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: API 或程式指令。包含專有名詞「JSON」，不得轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. zhtw-project-llm-domain-balance-v1/llm-007
 
@@ -336,7 +336,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: LLM/ML 技術說明，關於向量嵌入。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 16. zhtw-project-llm-domain-balance-v1/llm-008
 
@@ -357,7 +357,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 資訊檢索/LLM 技術說明。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 17. zhtw-project-llm-domain-balance-v1/llm-009
 
@@ -378,7 +378,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: LLM 行為準則，關於避免幻覺。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 18. zhtw-project-llm-domain-balance-v1/llm-010
 
@@ -399,7 +399,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: LLM 輸出要求，關於引用。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 19. zhtw-project-llm-domain-balance-v1/llm-011
 
@@ -420,7 +420,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 模板語法說明。包含一個程式佔位符「{{user_query}}」，不得轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 20. zhtw-project-llm-domain-balance-v1/llm-012
 
@@ -441,7 +441,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 系統安全規定。包含一個變數名稱「API_TOKEN」，不得轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 21. zhtw-project-llm-domain-balance-v1/llm-013
 
@@ -462,7 +462,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 文件處理指令。包含專有名稱「Markdown」，不得轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 22. zhtw-project-llm-domain-balance-v1/llm-014
 
@@ -483,7 +483,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 文件格式規定。包含專有名稱「YAML」，不得轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 23. zhtw-project-llm-domain-balance-v1/llm-015
 
@@ -504,7 +504,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 程式安全規定。包含專有名詞「SQL」且「审计」是中國大陸常用詞，台灣多用「查核」，存在地區詞彙差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 24. zhtw-project-llm-domain-balance-v1/llm-016
 
@@ -525,7 +525,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 程式碼修改指令。明確指出函數名稱「fetch_user_profile」需保留原樣。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 25. zhtw-project-llm-domain-balance-v1/llm-017
 
@@ -546,7 +546,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 錯誤碼說明。包含一個錯誤碼「E_MODEL_TIMEOUT」，不得轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 26. zhtw-project-llm-domain-balance-v1/llm-022
 
@@ -567,7 +567,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: LLM 資料處理倫理規範。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 27. zhtw-project-llm-domain-balance-v1/llm-023
 
@@ -588,7 +588,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 機器學習術語「验证集」(驗證集)在兩岸用法基本一致，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 28. zhtw-project-llm-domain-balance-v1/llm-024
 
@@ -609,7 +609,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 資料處理或品管用語。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 29. zhtw-project-llm-domain-balance-v1/llm-025
 
@@ -630,7 +630,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 機器學習訓練流程說明。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 30. zhtw-project-llm-domain-balance-v1/llm-027
 
@@ -651,7 +651,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 系統架構技術說明。「缓存」是中國大陸常用詞，台灣多用「快取」，存在地區詞彙差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 31. zhtw-project-llm-domain-balance-v1/llm-028
 
@@ -672,7 +672,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 系統設計說明。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 32. zhtw-project-llm-domain-balance-v1/llm-029
 
@@ -693,7 +693,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: LLM 功能說明。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 33. zhtw-project-llm-domain-balance-v1/llm-030
 
@@ -714,7 +714,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: API 客戶端或系統韌性設計。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 34. zhtw-project-llm-domain-balance-v1/llm-031
 
@@ -735,7 +735,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: AI 系統工作流程說明。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 35. zhtw-project-llm-domain-balance-v1/llm-032
 
@@ -756,7 +756,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 機器學習模型設定說明。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 36. zhtw-project-llm-domain-balance-v1/llm-034
 
@@ -777,7 +777,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 隱私資料處理說明。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 37. zhtw-project-llm-domain-balance-v1/llm-036
 
@@ -798,7 +798,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: AI 安全機制說明。「过滤器」是中國大陸常用詞，台灣多用「篩選器」，存在地區詞彙差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 38. zhtw-project-llm-domain-balance-v1/llm-039
 
@@ -819,7 +819,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: AI 個人化功能說明。「用户」是中國大陸常用詞，台灣多用「使用者」，存在地區詞彙差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 39. zhtw-project-llm-domain-balance-v1/llm-044
 
@@ -840,7 +840,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 資料格式規定。明確指出時間戳「2026-07-27T16:45:00+08:00」不得改寫。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 40. zhtw-project-llm-domain-balance-v1/llm-045
 
@@ -861,7 +861,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 資料引用規定。包含一個 URL，不得轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 41. zhtw-project-llm-domain-balance-v1/llm-046
 
@@ -882,7 +882,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 文件命名規定。明確指出檔案名稱「quarterly_review_v2.pdf」不應轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 42. zhtw-project-llm-domain-balance-v1/llm-047
 
@@ -903,7 +903,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 程式碼處理指令。這是一條元規則，說明程式碼中的變數和字串必須保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 43. zhtw-project-llm-domain-balance-v1/llm-048
 
@@ -924,7 +924,7 @@ Codex reason: 完整且可独立判读的 LLM 产品或评测情境；用于检�
 
 Gemini reason: 程式碼註解或技術說明。包含一個正規表示式「^user_[0-9]+$」，不得轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 44. zhtw-project-llm-domain-balance-v1/social-001
 
@@ -945,7 +945,7 @@ Codex reason: 完整且可独立判读的日常情境；用于检验台湾生活
 
 Gemini reason: 日常生活指令。「超市」雖在台灣也用，但「视频」對「影片」的轉換更為必要，此處標為 candidate_gap 以表示地區用語差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 45. zhtw-project-llm-domain-balance-v1/social-004
 
@@ -966,7 +966,7 @@ Codex reason: 完整且可独立判读的日常情境；用于检验台湾生活
 
 Gemini reason: 日常社交指令。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 46. zhtw-project-llm-domain-balance-v1/social-006
 
@@ -987,7 +987,7 @@ Codex reason: 完整且可独立判读的日常情境；用于检验台湾生活
 
 Gemini reason: 日常生活對話。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 47. zhtw-project-llm-domain-balance-v1/social-007
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整且可独立判读的日常情境；用于检验台湾生活
 
 Gemini reason: 導航指令用語。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 48. zhtw-project-llm-domain-balance-v1/social-008
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整且可独立判读的日常情境；用于检验台湾生活
 
 Gemini reason: 外送情境用語。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 49. zhtw-project-llm-domain-balance-v1/social-010
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整且可独立判读的日常情境；用于检验台湾生活
 
 Gemini reason: 日常預約情境。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 50. zhtw-project-llm-domain-balance-v1/social-011
 
@@ -1071,7 +1071,7 @@ Codex reason: 完整且可独立判读的日常情境；用于检验台湾生活
 
 Gemini reason: 即時通訊用語。「消息」是中國大陸常用詞，台灣多用「訊息」，存在地區詞彙差異。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 51. zhtw-project-llm-domain-balance-v1/social-012
 
@@ -1092,7 +1092,7 @@ Codex reason: 完整且可独立判读的日常情境；用于检验台湾生活
 
 Gemini reason: 天氣預報用語。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 52. zhtw-project-llm-domain-balance-v1/social-013
 
@@ -1113,7 +1113,7 @@ Codex reason: 完整且可独立判读的日常情境；用于检验台湾生活
 
 Gemini reason: 食譜用語。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 53. zhtw-project-llm-domain-balance-v1/social-015
 
@@ -1134,7 +1134,7 @@ Codex reason: 完整且可独立判读的日常情境；用于检验台湾生活
 
 Gemini reason: 日常溝通。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 54. zhtw-project-llm-domain-balance-v1/ui-004
 
@@ -1155,7 +1155,7 @@ Codex reason: 完整且可独立判读的产品介面字串；用于检验台湾
 
 Gemini reason: UI 設定文字。「启用」是中國大陸常用詞，台灣多用「啟用」或「開啟」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 55. zhtw-project-llm-domain-balance-v1/ui-007
 
@@ -1176,7 +1176,7 @@ Codex reason: 完整且可独立判读的产品介面字串；用于检验台湾
 
 Gemini reason: UI 警告訊息。用詞在繁簡體中通用，屬於基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 56. zhtw-project-llm-domain-balance-v1/ui-008
 
@@ -1197,7 +1197,7 @@ Codex reason: 完整且可独立判读的产品介面字串；用于检验台湾
 
 Gemini reason: UI 狀態文字。「同步您的联系人」中的「联系人」是中國大陸常用詞，台灣多用「聯絡人」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 57. zhtw-project-llm-domain-balance-v1/ui-011
 
@@ -1218,4 +1218,4 @@ Codex reason: 完整且可独立判读的产品介面字串；用于检验台湾
 
 Gemini reason: UI 提示。「验证码」是中國大陸常用詞，台灣也用，但有時也用「認證碼」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
