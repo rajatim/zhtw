@@ -411,6 +411,30 @@ is missing.
 - Bias notice: Formal U.S. census communications and 2020 operational context are not
   representative of ordinary Taiwan product traffic.
 
+## zhtw-project-competitor-risk-taxonomy-v1
+
+- Source: zhtw project-original Simplified Chinese scenarios drafted from abstract
+  converter error categories observed in public discussions.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; input-only scenarios drafted by Codex from abstract converter error categories and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; public issue text, converter output, and expected text were not copied or used.
+- Output license: MIT.
+- Bias notice: These are synthetic risk-focused scenarios, not independently
+  observed market traffic.
+
+## kubernetes-docs-zh-cn-v1
+
+- Source: The Kubernetes Authors, four Simplified Chinese concept documentation
+  pages from `kubernetes/website` commit
+  `8668f30367fe6aeec80d515e364552b45c278f99`.
+- License: Creative Commons Attribution 4.0 International (CC BY 4.0).
+- Attribution: The Kubernetes Authors, Kubernetes website Simplified Chinese documentation, commit 8668f30367fe6aeec80d515e364552b45c278f99.
+- Modifications: Extracted complete visible Simplified Chinese prose sentences from four checksum-pinned Markdown pages; removed front matter, English translation comments, code blocks, headings, links, shortcodes, and markup; normalized Unicode and whitespace and added input-only provenance; no expected text or converter output was used.
+- Output license: CC BY 4.0.
+- Bias notice: Technical Kubernetes documentation is not representative of
+  ordinary consumer traffic, and translated prose can contain source-language
+  influence or context-dependent fragments.
+
 ## naer-terms-v1
 
 - Source: Government Data dataset 15275, `國家教育研究院-兩岸對照名詞-計算機學術名詞`;

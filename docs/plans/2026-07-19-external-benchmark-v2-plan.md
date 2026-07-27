@@ -661,6 +661,19 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
 - [x] 啟用 GitHub Discussions 並建立三語徵集公告 Discussion #49；公告只作導流與
   問答，明確禁止把 discussion 回覆當作 consent。Issue chooser、CONTRIBUTING 與
   三語邀請文均導向正式 issue form，只有表單投稿可進入 fail-closed intake review。
+- [x] 2026-07-27 建立不依賴投稿量的雙軌補充來源。第一軌只從 OpenCC 等公開討論
+  歸納過度轉換、詞組邊界、一簡對多繁、專名與 IT／一般語境碰撞等抽象 taxonomy，
+  未複製 issue 句子或建議輸出；依此起草 80 筆 MIT project-original input-only
+  cases。第二軌固定 `kubernetes/website` commit
+  `8668f30367fe6aeec80d515e364552b45c278f99` 的四份 CC BY 4.0 簡體中文技術文件，
+  專用 Markdown parser 排除英文註解、程式碼、front matter、連結、shortcode 與
+  markup，保留 679 筆候選並以 seed `20260719` 選出首批 100 筆。
+- [x] 建立 source classification batches 026-027，完成 Codex first pass、Gemini
+  CLI 0.52.0／`gemini-2.5-pro` 獨立審查與 Codex synthesis；兩次 Gemini 均完整
+  覆蓋 IDs、零工具呼叫、零 API 錯誤。Batch 026 綜合建議 80/80 eligible；Batch
+  027 綜合建議 90/100 eligible，10 筆因 Markdown 結構移除後成為殘句、列表片段
+  或格式殘留而排除。兩批目前均為 advisory-only，等待 maintainer 確認後才建立
+  human decision、執行去重與 promotion；collecting pool 仍維持 2,154 筆。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

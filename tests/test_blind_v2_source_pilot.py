@@ -25,6 +25,8 @@ from scripts.import_blind_v2_source_pilot import (
     parse_cisa_personal_security_pages,
     parse_ftc_heads_up_pages,
     parse_ftc_small_business_pages,
+    parse_kubernetes_markdown,
+    parse_kubernetes_markdown_archive,
     parse_massive,
     parse_nps_acadia_html,
     parse_osha_pdf,
@@ -184,6 +186,66 @@ def test_census_newsroom_archive_preserves_page_provenance() -> None:
             "https://www.census.gov/newsroom/press-releases/example.html",
         )
     ]
+
+
+def test_kubernetes_markdown_parser_excludes_translation_comments_and_code() -> None:
+    content = """---
+title: Example
+content_type: concept
+---
+<!-- This English sentence must not be collected. -->
+## Heading
+
+Kubernetes 使用对象来表示集群的状态。
+
+```yaml
+message: 这段代码不应被收集。
+```
+
+[用户可以通过标签筛选需要的资源。](https://example.test)
+""".encode()
+
+    assert parse_kubernetes_markdown(content) == [
+        (
+            "documentation",
+            "sentence-0001",
+            "Kubernetes 使用对象来表示集群的状态。",
+        ),
+        (
+            "documentation",
+            "sentence-0002",
+            "用户可以通过标签筛选需要的资源。",
+        ),
+    ]
+
+
+def test_kubernetes_markdown_archive_preserves_page_provenance() -> None:
+    page = (
+        "---\ntitle: Example\ncontent_type: concept\n---\n"
+        "用户可以查看集群中当前运行的所有工作负载。\n"
+    ).encode()
+    buffer = io.BytesIO()
+    with tarfile.open(fileobj=buffer, mode="w:gz") as archive:
+        for member_name in (
+            "01-names.md",
+            "02-object-management.md",
+            "03-pod-lifecycle.md",
+            "04-service.md",
+        ):
+            info = tarfile.TarInfo(member_name)
+            info.size = len(page)
+            archive.addfile(info, io.BytesIO(page))
+    urls = [f"https://raw.githubusercontent.test/content/zh-cn/{number}.md" for number in range(4)]
+
+    rows = parse_kubernetes_markdown_archive({"source_urls": urls}, buffer.getvalue())
+
+    assert len(rows) == 4
+    assert rows[0][0:3] == (
+        "documentation_01",
+        "page-01-sentence-0001",
+        "用户可以查看集群中当前运行的所有工作负载。",
+    )
+    assert rows[0][3] == urls[0]
 
 
 def test_cisa_cyber_hygiene_parser_is_anchored_and_excludes_page_furniture() -> None:
@@ -522,6 +584,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("zhtw-project-it-llm-ui-guard-v1", 100),
         ("zhtw-project-balanced-baseline-guard-v1", 100),
         ("zhtw-project-formal-llm-balance-v1", 100),
+        ("zhtw-project-competitor-risk-taxonomy-v1", 80),
         ("massive-1-0-zh-cn-v1", 15619),
         ("ftc-small-business-simplified-v1", 81),
         ("ftc-heads-up-simplified-v1", 117),
@@ -546,6 +609,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("cisa-cyber-hygiene-zh-hans-v1", 24),
         ("cisa-personal-security-zh-hans-v1", 134),
         ("census-newsroom-zh-hans-v1", 235),
+        ("kubernetes-docs-zh-cn-v1", 679),
     ),
 )
 def test_committed_source_pilots_are_pinned_and_input_only(

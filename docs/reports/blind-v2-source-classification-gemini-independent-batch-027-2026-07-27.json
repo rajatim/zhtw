@@ -1,0 +1,1029 @@
+{
+  "version": 1,
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": null,
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-027.json",
+  "packet_sha256": "ca11a9bd4a724a5e36df6aef1bcddec240ab54fc4dcb012366efcdc8a5ad660c",
+  "stats": {
+    "total": 100,
+    "eligible": 99,
+    "excluded": 1,
+    "high": 100,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準 Kubernetes 技術文件句子，測試「物理實體」、「主機」、「對象」等術語轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「資源」、「請求」、「伺服器」等常見術語。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單術語定義，測試「全局唯一標識符」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "基礎句，測試「技術」、「管理」、「對象」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「匹配」、「對象」與「行為」，防止過度轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「實時」、「內容」、「記錄源」等詞彙。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `LoadBalancer`、`externalIPs` 等程式碼，測試術語「類型」、「服務」、「集群」、「配置」且不轉換程式碼。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「指令式」、「對象配置」、「行為」的轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「對象配置文件」、「創建」、「更新」、「活躍對象」等動詞與名詞。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「更改」、「合併」等詞，確保語意正確。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 Pod 生命週期術語，測試「調度」、「節點」、「終止」、「重啟策略」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「調度」、「綁定」、「節點」等術語。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0022",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "句子以「稱作。」結尾，不完整，屬於片段。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「階段」、「數量」、「含義」的轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "表格內容，測試「綁定」、「節點」、「容器」等基本術語。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「容器」、「運行」、「啟動」、「重啟狀態」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試術語「體面終止」、「期限」，此為 Kubernetes 特定概念。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「跟蹤」、「容器」、「狀態」、「階段」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0057",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「容器鏡像倉庫」、「拉取」、「應用Secret」，確保術語轉換準確。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0069",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含特定狀態 `CrashLoopBackOff` 及其中文描述「崩潰循環」、「回退延遲」，可測試新術語覆蓋。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0075",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「應用程式」、「錯誤」、「退出」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0076",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「配置錯誤」、「環境變數」、「配置文件」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0077",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「資源限制」、「內存」、「CPU」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0097",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試 Init 容器與 `restartPolicy` 的相關描述。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0100",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試 `Never` 策略的描述轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0110",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「常規的」Init 容器的說法，避免過度或錯誤轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0137",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `terminationGracePeriodSeconds` 和 `preStop` 回調，測試 K8s API 欄位名的處理。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0151",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 Alpha 特性開關 `ReduceDefaultCrashLoopBackOffDecay`，測試對新功能術語的處理。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0158",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "再次提及 Alpha 特性，測試「初始退避」、「最大退避」等專有術語。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0166",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "`PodResizeInProgress` 是特定 Pod 狀況，測試新術語。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0167",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提及 `Pod Readiness` (Pod 就緒態)，是很好的術語轉換測試案例。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0179",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「容器運行時」、「沙箱」、「配置網路」等術語，測試組合詞的轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0186",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "複雜長句，包含 Init 容器、`Initialized` 狀況、沙箱、網路配置，測試複雜邏輯描述的準確性。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0190",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「原地 Pod 垂直擴縮」是 Kubernetes 的特定術語，適合測試詞庫覆蓋。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0191",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「應用程式中斷」、「調整」、「資源配置」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0193",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「應用」、「資源值」、「運行中容器」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0195",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「調整大小狀態」的轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0198",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 API 欄位 `resizePolicy`，測試「容器規約」、「重啟」等術語。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0208",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「probe」被翻譯為「探針」，是關鍵術語，測試「定期診斷」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0212",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「命令」、「退出」、「返回碼」的轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0216",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `httpGet`，測試「IP 地址」、「端口」、「路徑」、「HTTP GET 請求」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0228",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "`livenessProbe` (存活態探針) 是 Kubernetes 的核心概念，測試術語準確性。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0231",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "`readinessProbe` (就緒態探針) 是 Kubernetes 的核心概念，測試術語準確性。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0239",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「存活態」、「就緒態」、「啟動探針」等術語的組合。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0249",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「區分」、「啟動數據」、「就緒探針」等詞的準確性。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0250",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "長句，包含 `EndpointSlice`、`ready` 狀況、負載均衡器等，是很好的綜合性過度轉換防護案例。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0253",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「存活態探測時間間隔」、「配置」、「執行探測」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0254",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含公式 `initialDelaySeconds + failureThreshold \\times periodSeconds`，測試含 LaTeX 格式的文本處理。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0264",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「停止容器」、「請求」、「容器運行時」、「異步方式」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0275",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「生命週期」、「終止信號」、「覆蓋」、「容器鏡像」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0276",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「容器規約」、「回退到」、「默認行為」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0277",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「體面終止限期」，確保其作為一個整體術語被正確轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0279",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試 `kubectl describe` 和 Pod 狀態 `Terminating`（正在終止）的描述。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0283",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `preStop` 和 `terminationGracePeriodSeconds`，測試 API 欄位與中文術語的混合。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0286",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「任意的順序」、「接收」、「TERM 信號」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0299",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試 Pod 終止階段 `Failed` 和 `Succeeded` 的描述。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0308",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「強制刪除」、「API 伺服器」、「確認消息」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0319",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「寬限期」這一術語的轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0326",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "PodGC 是 Kubernetes 中的一個控制器，測試對這種縮寫組件名的處理。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0336",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試 `ready: true` 狀態和「就緒」的表述。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Kubernetes Service 的目標描述，測試「服務發現機制」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 Kubernetes API 和 `EndpointSlice`，測試術語和 API 對象的處理。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「非本地應用」、「後端 Pod」、「網絡端口」、「負載均衡器」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「負載」、「服務發現機制」、「連接」、「目標」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含標籤 `app.kubernetes.io/name=MyApp`，測試包含標籤的句子。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "提及 RFC 1035，測試標準文檔引用。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "`port` 和 `targetPort` 的映射關係，測試對 API 欄位名的處理。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「出於方便考慮」的說法以及 `targetPort` 與 `port` 的關係，防止過度轉換。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「後端軟體」、「新版本」、「端口號」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「生產環境」、「測試環境」、「數據庫集群」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0065",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於工具命名的約定，測試「全小寫」、「短劃線」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0079",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "`EndpointSlice` 和「額外端點」的關係，是很好的術語測試。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0081",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "`EndpointSlice` API 和 `Endpoints` API 的演進關係。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0088",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含註解 `endpoints.kubernetes.io/over-capacity: truncated`，測試含註解的文本。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0090",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「請求流量」、「後端」、「負載均衡機制」、「支撐端點」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0094",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「字段」、「取值」、「映射」、「對應」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0110",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `type: ClusterIP`，測試「節點端口」、「集群 IP 地址」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0133",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「集群」、「節點」、「監聽」、「轉發流量」、「就緒端點」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0138",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試 NodePort 範圍和「有效端口號」的說法。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0140",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試 NodePort Service 端口衝突的描述。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0163",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "`loadBalancerIP` 和「臨時 IP」的描述，測試 API 欄位處理。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0173",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「託管負載均衡器」、「實施」、「運行狀況檢查」、「雲提供商」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0194",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試 `VIP` 和「目的地」等網路術語。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0195",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試 DNAT、Pod IP、節點 IP 等網路轉發細節描述。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0198",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「水平分割 DNS」環境的描述。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0200",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含 `spec.externalName`，測試 API 欄位。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0202",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「IPv4 地址」、「外部名稱」、「DNS 伺服器」、「解析」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0209",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「主機名」、「協議」、「意外響應」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0216",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「無頭 Service」是關鍵術語，測試「虛擬 IP」、「代理配置」、「數據包轉發」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0220",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「選擇算符」、「無頭 Service」、「控制平面」、「EndpointSlice」。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0221",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "`type: ExternalName`、CNAME、A / AAAA 記錄，網路和 DNS 術語密集。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0222",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IPv6 端點和 AAAA 記錄的簡單描述。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0227",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Service 名稱在環境變數中的轉換規則。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0237",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試命名空間內 Service 名稱解析的描述。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0244",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "測試「虛擬 IP」、「Service 代理」等術語。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0247",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "`.spec.trafficDistribution` 欄位的介紹。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0260",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "`externalIPs` 分配職責的說明。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0261",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Service 作為 REST API 頂級資源的描述。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0262",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "簡單的引導性句子。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0265",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Gateway 和 Ingress 的比較。"
+    }
+  ],
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "6eb1628a-b2ed-4e55-be57-defe99224c69",
+    "tool_calls": 0,
+    "total_errors": 0
+  }
+}

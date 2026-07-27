@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "kubernetes-docs-zh-cn-v1",
+  "track": "blind",
+  "source_class": "permissive_license",
+  "source_urls": [
+    "https://raw.githubusercontent.com/kubernetes/website/8668f30367fe6aeec80d515e364552b45c278f99/content/zh-cn/docs/concepts/overview/working-with-objects/names.md",
+    "https://raw.githubusercontent.com/kubernetes/website/8668f30367fe6aeec80d515e364552b45c278f99/content/zh-cn/docs/concepts/overview/working-with-objects/object-management.md",
+    "https://raw.githubusercontent.com/kubernetes/website/8668f30367fe6aeec80d515e364552b45c278f99/content/zh-cn/docs/concepts/workloads/pods/pod-lifecycle.md",
+    "https://raw.githubusercontent.com/kubernetes/website/8668f30367fe6aeec80d515e364552b45c278f99/content/zh-cn/docs/concepts/services-networking/service.md",
+    "https://github.com/kubernetes/website/blob/8668f30367fe6aeec80d515e364552b45c278f99/LICENSE"
+  ],
+  "upstream_revision": "kubernetes/website commit 8668f30367fe6aeec80d515e364552b45c278f99; four checksum-pinned zh-cn concept pages retrieved 2026-07-27",
+  "retrieved_at": "2026-07-27T22:00:00+08:00",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "license_url": "https://github.com/kubernetes/website/blob/8668f30367fe6aeec80d515e364552b45c278f99/LICENSE",
+  "output_license": "CC BY 4.0",
+  "attribution": "The Kubernetes Authors, Kubernetes website Simplified Chinese documentation, commit 8668f30367fe6aeec80d515e364552b45c278f99.",
+  "modification_notice": "Extracted complete visible Simplified Chinese prose sentences from four checksum-pinned Markdown pages; removed front matter, English translation comments, code blocks, headings, links, shortcodes, and markup; normalized Unicode and whitespace and added input-only provenance; no expected text or converter output was used.",
+  "notice_id": "kubernetes-docs-zh-cn-v1",
+  "raw_sha256": {
+    "benchmarks/accuracy/sources/kubernetes-docs-zh-cn-v1.tar.gz": "48d74e01053cfc7536717a61fdf47cb06d0722bb4cfeb1d7a10f9534ec17e0b6"
+  },
+  "normalized_path": "benchmarks/accuracy/external/kubernetes-docs-zh-cn-v1.json",
+  "normalized_sha256": "38cdb8f73e5b62bc73beab653285060d8130b82db007997c0cd70127fea21555",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Kubernetes documentation is technical prose and is not representative of ordinary consumer traffic.",
+    "The selected pages concentrate object identity, declarative management, Pod lifecycle, and networking services.",
+    "Chinese translations can contain source-language influence or translation defects; input-only classification must reject malformed or context-dependent fragments.",
+    "Markdown sentence extraction can retain prose that depends on nearby diagrams, lists, or examples; classification must fail closed when context is insufficient.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

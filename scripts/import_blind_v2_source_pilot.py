@@ -46,6 +46,7 @@ SUPPORTED_SOURCES = {
     "zhtw-project-it-llm-ui-guard-v1": "project_original_json",
     "zhtw-project-balanced-baseline-guard-v1": "project_original_json",
     "zhtw-project-formal-llm-balance-v1": "project_original_json",
+    "zhtw-project-competitor-risk-taxonomy-v1": "project_original_json",
     "massive-1-0-zh-cn-v1": "massive",
     "ftc-small-business-simplified-v1": "ftc_pdf",
     "ftc-heads-up-simplified-v1": "ftc_heads_up_pdf",
@@ -70,6 +71,7 @@ SUPPORTED_SOURCES = {
     "cisa-cyber-hygiene-zh-hans-v1": "cisa_cyber_hygiene_pdf",
     "cisa-personal-security-zh-hans-v1": "cisa_personal_security_pdf",
     "census-newsroom-zh-hans-v1": "census_newsroom_archive",
+    "kubernetes-docs-zh-cn-v1": "kubernetes_markdown_archive",
 }
 READY_GOV_SOURCE_ANCHORS = {
     "ready-gov-drought-zh-hans-v1": ("干旱", "10/31/2025"),
@@ -1035,6 +1037,84 @@ def parse_census_newsroom_archive(
     return rows
 
 
+def parse_kubernetes_markdown(content: bytes) -> list[tuple[str, str, str]]:
+    """Extract visible Simplified Chinese prose from one Kubernetes Markdown page."""
+    text = content.decode("utf-8")
+    if not text.startswith("---\n") or "content_type:" not in text:
+        raise ValueError("Kubernetes Markdown page: expected front matter not found")
+    text = re.sub(r"\A---\n.*?\n---\n", "", text, count=1, flags=re.S)
+    text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
+    text = re.sub(r"```.*?```", "", text, flags=re.S)
+    text = re.sub(r"\{\{[<%].*?[>%]\}\}", "", text, flags=re.S)
+    text = re.sub(r"!\[[^]]*\]\([^)]*\)", "", text)
+    text = re.sub(r"\[([^]]+)\]\([^)]*\)", r"\1", text)
+    text = re.sub(r"<[^>]+>", "", text)
+
+    rows: list[tuple[str, str, str]] = []
+    seen: set[str] = set()
+    for block in re.split(r"\n\s*\n", text):
+        lines = []
+        for raw_line in block.splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith(("#", "|", "---")):
+                continue
+            line = re.sub(r"^(?:[-*+] |\d+\. )", "", line)
+            line = re.sub(r"[*_]{1,2}([^*_]+)[*_]{1,2}", r"\1", line)
+            lines.append(line)
+        for sentence in complete_chinese_sentences(" ".join(lines), minimum_length=12):
+            han_count = len(re.findall(r"[\u3400-\u9fff]", sentence))
+            if (
+                han_count < 6
+                or len(sentence) > 400
+                or re.search(r"(?:https?://|www\.|\{\{|\}\}|^[-|])", sentence, re.I)
+            ):
+                continue
+            if sentence not in seen:
+                seen.add(sentence)
+                rows.append(("documentation", f"sentence-{len(rows) + 1:04d}", sentence))
+    if not rows:
+        raise ValueError("Kubernetes Markdown page: no complete Simplified Chinese prose found")
+    return rows
+
+
+def parse_kubernetes_markdown_archive(
+    manifest: dict[str, Any], content: bytes
+) -> list[tuple[str, str, str, str]]:
+    """Extract prose from the checksum-pinned Kubernetes zh-cn snapshot archive."""
+    page_urls = [url for url in manifest["source_urls"] if "/content/zh-cn/" in url]
+    expected_members = [
+        "01-names.md",
+        "02-object-management.md",
+        "03-pod-lifecycle.md",
+        "04-service.md",
+    ]
+    if len(page_urls) != len(expected_members):
+        raise ValueError("Kubernetes archive manifest must declare four zh-cn source pages")
+    rows: list[tuple[str, str, str, str]] = []
+    with tarfile.open(fileobj=io.BytesIO(content), mode="r:gz") as archive:
+        member_names = [member.name for member in archive.getmembers() if member.isfile()]
+        if member_names != expected_members:
+            raise ValueError(
+                f"Kubernetes archive members do not match expected order: {member_names}"
+            )
+        for page_number, (member_name, page_url) in enumerate(
+            zip(expected_members, page_urls, strict=True), 1
+        ):
+            extracted = archive.extractfile(member_name)
+            if extracted is None:
+                raise ValueError(f"Kubernetes archive member is not a file: {member_name}")
+            for _, source_case_id, raw_text in parse_kubernetes_markdown(extracted.read()):
+                rows.append(
+                    (
+                        f"documentation_{page_number:02d}",
+                        f"page-{page_number:02d}-{source_case_id}",
+                        raw_text,
+                        page_url,
+                    )
+                )
+    return rows
+
+
 def parse_project_original(source_id: str, content: bytes) -> list[tuple[str, str, str]]:
     source = json.loads(content.decode("utf-8"))
     schema = load_json(PROJECT_SOURCE_SCHEMA)
@@ -1082,6 +1162,9 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
     if source_kind == "census_newsroom_archive":
         raw_rows_with_urls = parse_census_newsroom_archive(manifest, content)
         raw_rows = []
+    elif source_kind == "kubernetes_markdown_archive":
+        raw_rows_with_urls = parse_kubernetes_markdown_archive(manifest, content)
+        raw_rows = []
 
     if source_kind == "flores":
         raw_rows = parse_flores(content)
@@ -1114,6 +1197,8 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
     elif source_kind == "permissioned_user_report_json":
         raw_rows = parse_permissioned_user_reports(manifest["id"], content)
     elif source_kind == "census_newsroom_archive":
+        pass
+    elif source_kind == "kubernetes_markdown_archive":
         pass
     else:
         raw_rows = parse_cdc_pdf(manifest["id"], content)

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "id": "zhtw-project-competitor-risk-taxonomy-v1",
+  "track": "blind",
+  "source_class": "project_original",
+  "source_urls": [
+    "https://github.com/rajatim/zhtw/tree/main/benchmarks/accuracy/sources",
+    "https://github.com/BYVoid/OpenCC/issues"
+  ],
+  "upstream_revision": "zhtw project-original competitor-risk taxonomy snapshot drafted 2026-07-27 from abstract public issue categories; raw SHA-256: 7936a1206bc691e2bad728a6c9efdc0251efc386f6d179ffb175cc24f980795e",
+  "retrieved_at": "2026-07-27T22:00:00+08:00",
+  "license": "MIT",
+  "license_url": "https://github.com/rajatim/zhtw/blob/main/LICENSE",
+  "output_license": "MIT",
+  "attribution": "Copyright zhtw contributors; input-only scenarios drafted by Codex from abstract converter error categories and subject to independent Gemini and maintainer review.",
+  "modification_notice": "Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; public issue text, converter output, and expected text were not copied or used.",
+  "notice_id": "zhtw-project-competitor-risk-taxonomy-v1",
+  "raw_sha256": {
+    "benchmarks/accuracy/sources/zhtw-project-competitor-risk-taxonomy-v1.json": "7936a1206bc691e2bad728a6c9efdc0251efc386f6d179ffb175cc24f980795e"
+  },
+  "normalized_path": "benchmarks/accuracy/external/zhtw-project-competitor-risk-taxonomy-v1.json",
+  "normalized_sha256": "15da05b249a6900b8e64176cd712f2c7f1a3e10319bcd695d683d6545e7a29ac",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "These scenarios are synthetic project-original inputs, not independently observed market traffic.",
+    "Public converter discussions informed only abstract risk categories; issue sentences and proposed outputs were not copied.",
+    "The source intentionally concentrates semantic ambiguity, substring boundaries, one-to-many characters, entity preservation, IT/general-language collisions, UI, formal, and daily contexts.",
+    "The inputs were drafted without running zhtw, OpenCC, zhconv, or another converter.",
+    "Independent Gemini and maintainer source classification remain required before promotion.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}
