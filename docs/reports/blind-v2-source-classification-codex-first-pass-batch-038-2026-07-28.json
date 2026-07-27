@@ -1,0 +1,991 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-038.json",
+  "packet_sha256": "5bf0b75ae05fd8aae18c36096186134222776b3d8508df3ab8eeece4b7a4a76e",
+  "reviewer": "Codex",
+  "model": "GPT-5.4",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 96,
+    "eligible": 90,
+    "excluded": 6,
+    "high": 6,
+    "medium": 90,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-062",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-075",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-086",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-130",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-133",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10483",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句不完整、依賴前文或語意明顯錯置，無法作為可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10755",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10886",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11139",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11169",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "來源句不完整、依賴前文或語意明顯錯置，無法作為可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11496",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句不完整、依賴前文或語意明顯錯置，無法作為可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11738",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11838",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12423",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12556",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13073",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13176",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14857",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14860",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15781",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句不完整、依賴前文或語意明顯錯置，無法作為可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2405",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2866",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3151",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3328",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3334",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4197",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4784",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5487",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5554",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5807",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6740",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6792",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7451",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7458",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8525",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9173",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；可檢驗臺灣用語與實體保護。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-066",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-075",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-076",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-home-fires-zh-hans-v1/sentence-077",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-041",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "來源句不完整、依賴前文或語意明顯錯置，無法作為可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-043",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句不完整、依賴前文或語意明顯錯置，無法作為可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-059",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-062",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-004",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-006",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-026",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-032",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-033",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-035",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-039",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 IT 操作敘述；程式識別碼、命令或協定名稱必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣慣用表達。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣慣用表達。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣慣用表達。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣慣用表達。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣慣用表達。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣慣用表達。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣慣用表達。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣慣用表達。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣慣用表達。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的日常敘述；品牌、人名、書名或識別碼必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的日常敘述；品牌、人名、書名或識別碼必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-008",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的日常敘述；品牌、人名、書名或識別碼必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的日常敘述；品牌、人名、書名或識別碼必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的日常敘述；品牌、人名、書名或識別碼必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的日常敘述；品牌、人名、書名或識別碼必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的日常敘述；品牌、人名、書名或識別碼必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的日常敘述；品牌、人名、書名或識別碼必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的日常敘述；品牌、人名、書名或識別碼必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的日常敘述；品牌、人名、書名或識別碼必須保持不變。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-029",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的日常敘述；品牌、人名、書名或識別碼必須保持不變。"
+    }
+  ]
+}

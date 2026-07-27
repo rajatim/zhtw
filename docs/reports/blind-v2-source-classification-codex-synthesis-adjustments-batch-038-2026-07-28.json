@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex synthesis",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-28",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-038.json",
+  "packet_sha256": "5bf0b75ae05fd8aae18c36096186134222776b3d8508df3ab8eeece4b7a4a76e",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 1
+  },
+  "cases": [
+    {
+      "id": "massive-1-0-zh-cn-v1/11496",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    }
+  ]
+}
