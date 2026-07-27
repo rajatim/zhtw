@@ -536,6 +536,9 @@ TWENTY_FOURTH_SYNTHESIS_PATH = ROOT / (
 TWENTY_FOURTH_DIFF_PATH = ROOT / (
     "docs/reports/blind-v2-source-classification-diff-batch-024-2026-07-27.md"
 )
+TWENTY_FOURTH_DECISION_PATH = ROOT / (
+    "docs/reports/blind-v2-source-classification-maintainer-decision-batch-024-2026-07-27.json"
+)
 TWENTY_FOURTH_GEMINI_CASE_IDS = {
     f"zhtw-project-formal-llm-balance-v1/formal-{number:03d}"
     for number in (2, 3, 4, 6, 7, 9, 10, 11, 12, 13, 17, 27, 30, 31, 38, 39, 40, 42, 44, 46, 47, 49)
@@ -1950,12 +1953,13 @@ def test_twenty_third_maintainer_synthesis_decision_is_reproducible() -> None:
     )
 
 
-def test_twenty_fourth_pending_advisories_and_synthesis_are_reproducible() -> None:
+def test_twenty_fourth_advisories_synthesis_and_decision_are_reproducible() -> None:
     packet = load(TWENTY_FOURTH_PACKET_PATH)
     codex = load(TWENTY_FOURTH_CODEX_PATH)
     gemini = load(TWENTY_FOURTH_GEMINI_PATH)
     adjustments = load(TWENTY_FOURTH_ADJUSTMENTS_PATH)
     synthesis = load(TWENTY_FOURTH_SYNTHESIS_PATH)
+    decision = load(TWENTY_FOURTH_DECISION_PATH)
     packet_hash = hashlib.sha256(TWENTY_FOURTH_PACKET_PATH.read_bytes()).hexdigest()
 
     assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
@@ -1999,9 +2003,31 @@ def test_twenty_fourth_pending_advisories_and_synthesis_are_reproducible() -> No
         overrides=overrides,
         override_basis="codex_synthesis",
     )
+    assert validate_decision(decision) == []
+    assert decision["stats"] == {
+        "packet_cases": 100,
+        "confirmed_cases": 100,
+        "resolved_disagreements": 41,
+        "confirmed_exact_matches": 59,
+        "remaining_cases": 0,
+    }
+    assert all(case["selected_advisory"] == "synthesis" for case in decision["cases"])
     assert TWENTY_FOURTH_DIFF_PATH.read_text(encoding="utf-8") == render_markdown(
         packet,
         codex,
         gemini,
         generated_date="2026-07-27",
+        maintainer_decisions=decision,
+    )
+
+
+def test_twenty_fourth_maintainer_synthesis_decision_is_reproducible() -> None:
+    assert load(TWENTY_FOURTH_DECISION_PATH) == build_decision(
+        TWENTY_FOURTH_PACKET_PATH,
+        TWENTY_FOURTH_CODEX_PATH,
+        TWENTY_FOURTH_GEMINI_PATH,
+        maintainer="tim",
+        decision_date="2026-07-27",
+        selected_advisory="synthesis",
+        synthesis_path=TWENTY_FOURTH_SYNTHESIS_PATH,
     )

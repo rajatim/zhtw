@@ -619,8 +619,13 @@ one API request, zero tools, and reported zero API errors. They agree exactly
 on 59 cases and differ on 41, with no eligibility or script disagreement.
 Codex synthesis recommends all 100 as eligible, selecting 59 agreements, 22
 Gemini classifications, 8 Codex classifications, and 11 field-level synthesis
-adjustments. Maintainer confirmation remains pending, so the collecting pool
-stays at 1,966 cases.
+adjustments. Maintainer `tim` confirmed the full synthesis on 2026-07-27, and
+all 100 inputs passed promotion deduplication and entered the collecting pool.
+The pool is now 2,066 cases, leaving a 3,814-case minimum-pool gap. The source
+classes are now permissive-license 31.95%, project-original 33.88%, and
+public-domain 34.17%; AOSP is 9.54%. All current source-class and per-source
+ratios are below their final freeze limits, although the minimum pool size has
+not yet been reached.
 
 Rebuild and validate the current collecting pool:
 
