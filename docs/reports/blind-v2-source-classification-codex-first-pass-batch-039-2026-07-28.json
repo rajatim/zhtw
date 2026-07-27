@@ -1,0 +1,991 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-039.json",
+  "packet_sha256": "48ccd0b9dda2c1e457913156557e3e560f415116c95e2f3fb48601bbe38d2fb8",
+  "reviewer": "Codex",
+  "model": "GPT-5.4",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 96,
+    "eligible": 90,
+    "excluded": 6,
+    "high": 6,
+    "medium": 90,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "massive-1-0-zh-cn-v1/10879",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1088",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11593",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12306",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13259",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13275",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13388",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13459",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13968",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15531",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句含重複、語序錯置、缺少主詞或未指明代名詞，無法作為可靠且可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15997",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16462",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2516",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2564",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3606",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/411",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4316",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4852",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4878",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5359",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5473",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5749",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5875",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6621",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6802",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6908",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/747",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7589",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句含重複、語序錯置、缺少主詞或未指明代名詞，無法作為可靠且可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/771",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的日常語音助理輸入；短句仍具明確查詢或操作意圖。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-074",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-027",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句含重複、語序錯置、缺少主詞或未指明代名詞，無法作為可靠且可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-028",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句含重複、語序錯置、缺少主詞或未指明代名詞，無法作為可靠且可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-020",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "來源句含重複、語序錯置、缺少主詞或未指明代名詞，無法作為可靠且可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-021",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句含重複、語序錯置、缺少主詞或未指明代名詞，無法作為可靠且可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的公共安全敘述；適合高風險語境轉換檢驗。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original baseline 敘述；可檢驗 LLM、IT 或 UI 的基本臺灣用語轉換。"
+    }
+  ]
+}

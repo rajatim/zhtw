@@ -50,6 +50,7 @@ SUPPORTED_SOURCES = {
     "zhtw-project-llm-domain-balance-v1": "project_original_json",
     "zhtw-project-llm-social-baseline-v1": "project_original_json",
     "zhtw-project-it-llm-social-guard-v1": "project_original_json",
+    "zhtw-project-llm-it-ui-baseline-v1": "project_original_json",
     "massive-1-0-zh-cn-v1": "massive",
     "ftc-small-business-simplified-v1": "ftc_pdf",
     "ftc-heads-up-simplified-v1": "ftc_heads_up_pdf",

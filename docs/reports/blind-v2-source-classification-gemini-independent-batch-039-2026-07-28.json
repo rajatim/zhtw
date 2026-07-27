@@ -1,0 +1,1001 @@
+{
+  "version": 1,
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": null,
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-039.json",
+  "packet_sha256": "48ccd0b9dda2c1e457913156557e3e560f415116c95e2f3fb48601bbe38d2fb8",
+  "stats": {
+    "total": 96,
+    "eligible": 93,
+    "excluded": 3,
+    "high": 96,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "c98ddae8-db7f-4887-9c1d-c72115e636f0,2f3d2624-ce59-49e5-b499-44e0048c9407,750ecf14-db47-4297-80f5-292304986571,27f15d2d-0e01-4974-be39-49f73c4b926f,1dc2a2bd-955b-4088-8a6d-fb0cdae5b278,1596dc30-e04c-43dd-92cb-f8ef6b169c11,3d3761db-a599-4053-8e65-9ebb774e89f2",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "cases": [
+    {
+      "id": "massive-1-0-zh-cn-v1/10879",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常個人助理查詢，'清单'需轉換為'清單'。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1088",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "裝置控制指令。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11593",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "金融相關查詢，準確度要求高。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12306",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "旅遊預訂指令。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13259",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "數據查詢，包含國名與專業術語。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13275",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地點查詢。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13388",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "金融匯率查詢，準確度要求高。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13459",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "基礎數學運算。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13968",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "常識性歷史人物問題。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15531",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "社群媒體指令，包含品牌名稱與客戶服務等詞彙。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15997",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "電子郵件查詢。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16462",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "訊息查詢，'讯息'需轉換為'訊息'。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "智慧家庭裝置控制指令。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2516",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "天氣查詢。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2564",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "鬧鐘設定指令。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3606",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "時間查詢。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/411",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常閒聊互動。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4316",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "智慧家庭裝置控制指令。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4852",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "鬧鐘設定指令。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4878",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "修改鬧鐘設定指令。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5359",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "裝置系統設定指令。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5473",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日期與日曆查詢。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5749",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日期與日曆查詢。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5875",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常穿搭建議查詢。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6621",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "娛樂資訊查詢。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6802",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人行程查詢。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6908",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "重複性提醒設定。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/747",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "音樂播放指令，'歌单'需轉換為'歌單'。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7589",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用詞奇特（活动钟），考驗逐字轉換的邊界情況。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/771",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "新聞查詢，包含特定媒體名稱。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "個人行程管理指令。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "會議安排指令，包含特定職稱。"
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete and clear safety instruction. It's a good candidate for testing high-stakes domain conversion."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear, standalone safety instruction. Good for testing equipment-related terminology."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete negative imperative sentence. Good test for prohibitions."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Compound sentence with a strong warning. Excellent for testing conversion of formal prohibitions."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Two clear, related safety instructions. Good test for technical terms and formal prohibitions."
+    },
+    {
+      "id": "osha-disaster-cleanup-simplified-v1/sentence-074",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal sentence with proper nouns and titles. Tests handling of named entities and formal language. The domain is more formal/regulatory than direct safety."
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a complete, formal sentence from a public safety advisory. The language is standard and clear, making it a good candidate for a baseline guardrail test."
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, imperative sentence providing a water-saving tip. It's suitable as a baseline guardrail example."
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward instruction. The term '软水机' (water softener) is specific but common enough to be a baseline case."
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple, clear suggestion suitable for a baseline guardrail."
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A technical instruction related to agriculture/gardening. It tests the handling of specific compound nouns. It's a good baseline guardrail for a specialized domain."
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A factual statement with technical terms ('反冲洗') and units ('加仑'). It's a good baseline guardrail to check handling of technical vocabulary and loanwords."
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complete, factual sentence about insurance policies. It is a good baseline case."
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, complete imperative sentence giving a direct safety instruction."
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, complete imperative sentence giving a direct safety instruction."
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complete sentence describing a potential hazard. The phrase '毫无警告就' (without any warning then) presents a slightly more complex structure for conversion."
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complete conditional sentence providing a clear instruction for an emergency situation."
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A compound sentence that provides a sequence of instructions. It tests the ability to maintain logical flow ('...上去后...')."
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complete imperative phrase functioning as a standalone warning. Key term '电击' (electric shock) is important."
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, complete sentence about a historical fact. Serves as a good baseline guard for general conversion quality."
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complete instructional sentence. Contains a list of weather phenomena, which is good for testing."
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complex instructional sentence. Contains technical acronyms (EAS, WEA) and specific terms like '社区警报' (community alerts), which tests the dictionary's breadth."
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple, well-formed sentence about a potential future situation. Good baseline case."
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-027",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "awkward_phrasing",
+        "redundant"
+      ],
+      "confidence": "high",
+      "notes": "The phrase '帮助您的邻居与邻居...沟通' (Help your neighbors communicate with neighbors) is redundant and makes the sentence awkward and unnatural. The sentence structure is confusing and not suitable for a quality benchmark."
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-028",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "fragment",
+        "awkward_phrasing"
+      ],
+      "confidence": "high",
+      "notes": "This appears to be two sentence fragments ('及时了解事态' and '注意紧急信息和警报') concatenated without proper punctuation or conjunction. It is not a grammatically complete or well-formed sentence."
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, conditional instruction with technical electrical terms ('主断路器', '熔断器盒'). This is a valuable case for testing specialized, high-stakes vocabulary."
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-005",
+      "input": "如何保护您自己或您的财产取决于滑坡的类型。",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的句子，陳述因果關係。適合做為基礎轉換測試。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-020",
+      "input": "但是请注意，当流量足够大时，它会流向它喜欢的地方。",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的警告句子。其中「它喜欢的地方」帶有擬人化的口語色彩，但整體仍在公共安全指引的範疇內。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-021",
+      "input": "此外，如果您转移流量并流向邻居的财产，您可能需要承担损害赔偿责任。",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含法律和財務責任的完整句子，是典型的高風險領域文本。測試「损害赔偿责任」等專業術語的準確轉換。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-026",
+      "input": "不寻常的声音，如树木开裂或巨石撞击在一起，可能表明有移动的碎片。",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述 landslide 前兆的完整句子，適合測試描述性詞彙的轉換。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-031",
+      "input": "灰泥、瓷砖、砖块或地基出现新裂缝。",
+      "eligible": false,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "句子不完整，是一個名詞列表加上動詞片語，缺乏主語，很可能是原文中的一個清單項目。因其為句子片段，故不適合做為獨立的 benchmark sentence。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-038",
+      "input": "地面朝一个方向向下倾斜，并且可能会在您的脚下开始朝该方向移动。",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述親身體驗的警告信號，句子結構完整，包含方向與動作，是良好的測試案例。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準 IT 維運句子。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準應用程式行為描述。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準軟體操作描述。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準檔案處理流程。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準排程任務行為。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準應用程式 UI 提示。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "常見的下載功能描述。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "常見的身份驗證流程。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述 RAG/LLM 的檢索前處理。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 的核心能力要求。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 評估指標的描述。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 訓練與評估的生命週期管理。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "對話式 AI 的一致性要求。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "人工評估 LLM 的流程描述。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "對 LLM 助理的功能要求。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 的澄清式互動行為。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "RAG 系統的生成前處理。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM 的風格與語氣控制要求。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "人機協作與反饋循環的流程。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "對 LLM 輸出負責與謹慎的要求。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準 UI 指示訊息。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準 UI 狀態提示。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準 UI 操作成功回饋。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "常見的表單驗證訊息。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "常見的檔案上傳限制訊息。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "常見的表單互動提示。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準的破壞性操作警告。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準表單驗證訊息。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準網路錯誤訊息。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "常見的提交前確認訊息。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "常見的進度狀態訊息。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準設定操作回饋訊息。"
+    }
+  ]
+}

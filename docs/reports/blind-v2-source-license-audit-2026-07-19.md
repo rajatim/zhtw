@@ -227,6 +227,21 @@ input alone.
   synthesis for batches 037-038 on 2026-07-28. All 64 sampled eligible cases
   passed promotion deduplication.
 
+### zhtw project-original LLM / IT / UI baseline v1
+
+- Source: 100 Simplified Chinese scenarios drafted by Codex on 2026-07-28 and
+  committed as an immutable input-only source snapshot: 40 LLM baseline cases,
+  30 IT baseline cases, and 30 UI baseline cases.
+- Raw SHA-256:
+  `86d38e2d6e99b77142a026f82ad3ad85cb5fe72c37c5f033950d7d11c7290232`.
+- Normalized SHA-256:
+  `0009003c2b5c29c0f4e17de2ae607c4a97be755729aa1488f877b35ac73d2556`.
+- License: MIT; source class `project_original`.
+- Restrictions: synthetic quota coverage only, not organic market-frequency
+  evidence. Drafting used preregistered domain/risk gaps only; no converter
+  output or expected text influenced the source.
+- Decision: accepted as an input-only pilot; source classification is pending.
+
 ### MASSIVE 1.0 `zh-CN`
 
 - Repository: <https://github.com/alexa/massive>

@@ -168,6 +168,18 @@ is missing.
   Independent Gemini review and maintainer confirmation completed on 2026-07-28;
   64 sampled cases passed promotion deduplication across batches 037-038.
 
+## zhtw-project-llm-it-ui-baseline-v1
+
+- Source: zhtw project-original LLM, IT, and UI baseline input-only scenarios
+  drafted on 2026-07-28.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only LLM, IT, and UI baseline scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: Synthetic quota coverage is not independently observed market
+  traffic. It targets preregistered LLM, IT, and UI baseline-guard gaps; AI source
+  classification remains advisory until maintainer confirmation.
+
 ## zhtw-project-it-api-cli-v1
 
 - Source: zhtw project-original IT, API, and CLI input-only scenarios drafted
