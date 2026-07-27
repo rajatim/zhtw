@@ -68,8 +68,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-027-2026-07-27.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-028-2026-07-27.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-029-2026-07-27.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-028-2026-07-27.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-029-2026-07-27.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -91,41 +93,41 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     generated, report = build_pool(
         list(DECISIONS),
         output=POOL,
-        created_at="2026-07-27T15:40:00+08:00",
+        created_at="2026-07-27T16:02:00+08:00",
     )
 
     assert generated == committed
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 2406,
+        "total": 2471,
         "by_domain": {
-            "formal_news": 359,
-            "high_stakes": 555,
+            "formal_news": 368,
+            "high_stakes": 601,
             "it_api_cli": 488,
             "llm_generated": 212,
-            "social_daily": 318,
+            "social_daily": 328,
             "ui_i18n": 474,
         },
         "by_risk": {
-            "baseline_guard": 677,
-            "candidate_gap": 1028,
-            "over_conversion_guard": 701,
+            "baseline_guard": 702,
+            "candidate_gap": 1056,
+            "over_conversion_guard": 713,
         },
         "by_source_class": {
             "permissive_license": 832,
             "project_original": 780,
-            "public_domain": 794,
+            "public_domain": 859,
         },
         "by_source": {
             "aosp-framework-zh-rcn-v1": 197,
             "chromium-strings-zh-cn-v1": 98,
             "cisa-cyber-hygiene-zh-hans-v1": 21,
-            "cisa-personal-security-zh-hans-v1": 102,
+            "cisa-personal-security-zh-hans-v1": 112,
             "cdc-stacks-111808-v1": 18,
             "cdc-stacks-116683-v1": 21,
             "cdc-stacks-120024-v1": 22,
-            "census-newsroom-zh-hans-v1": 88,
+            "census-newsroom-zh-hans-v1": 97,
             "flores-200-zho-hans-v1": 98,
             "ftc-heads-up-simplified-v1": 111,
             "ftc-small-business-simplified-v1": 55,
@@ -133,19 +135,19 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "massive-1-0-zh-cn-v1": 98,
             "nps-essential-acadia-simplified-v1": 30,
             "osha-chainsaw-safety-simplified-v1": 20,
-            "osha-disaster-cleanup-simplified-v1": 14,
+            "osha-disaster-cleanup-simplified-v1": 22,
             "osha-disaster-falls-simplified-v1": 12,
             "osha-electrical-safety-simplified-v1": 14,
             "osha-fallen-workers-family-simplified-v1": 20,
             "osha-small-business-consultation-simplified-v1": 20,
             "osha-work-zone-traffic-simplified-v1": 15,
-            "ready-gov-drought-zh-hans-v1": 23,
+            "ready-gov-drought-zh-hans-v1": 33,
             "ready-gov-earthquakes-zh-hans-v1": 43,
             "ready-gov-floods-zh-hans-v1": 39,
-            "ready-gov-home-fires-zh-hans-v1": 24,
+            "ready-gov-home-fires-zh-hans-v1": 34,
             "ready-gov-hurricanes-zh-hans-v1": 36,
-            "ready-gov-landslides-debris-flow-zh-hans-v1": 22,
-            "ready-gov-radiation-zh-hans-v1": 24,
+            "ready-gov-landslides-debris-flow-zh-hans-v1": 31,
+            "ready-gov-radiation-zh-hans-v1": 33,
             "ud-chinese-cfl-v1": 69,
             "vscode-loc-zh-hans-v1": 100,
             "zhtw-project-balanced-baseline-guard-v1": 100,
@@ -159,8 +161,8 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 2408
-    assert report["promoted"] == 2406
+    assert report["confirmed_eligible"] == 2473
+    assert report["promoted"] == 2471
     assert report["excluded_by_dedupe"] == 2
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {

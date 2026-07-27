@@ -685,13 +685,16 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   80 筆 eligible 全數通過 promotion，pool `2,326 → 2,406`，距最低 5,880 筆
   尚差 3,474。`permissive_license` 832/2,406（34.58%）、`project_original`
   780/2,406（32.42%）、`public_domain` 794/2,406（33.00%），皆低於 35%。
-- [ ] 2026-07-27 建立 public-domain 平衡 batch 029：從 Census、CISA、OSHA 與
+- [x] 2026-07-27 建立 public-domain 平衡 batch 029：從 Census、CISA、OSHA 與
   四個 Ready.gov 主題各固定抽取 10 筆，明確排除使用相同來源的舊 packets，並
   驗證與 batches 001-028 的 ID 重疊為零。Codex first pass 建議 64/70 eligible；
   Gemini CLI 0.52.0 (`gemini-2.5-pro`) 以 70/70 IDs、零工具呼叫、零 API 錯誤
   完成獨立審查，建議 67/70 eligible。Codex 複核後採 Gemini 納入一筆語意完整的
-  短句，最終 synthesis 建議 65 筆納入、5 筆排除，尚待 maintainer 確認，pool
-  暫維持 2,406 筆。
+  短句，最終 synthesis 建議 65 筆納入、5 筆排除。Maintainer 已確認最終
+  synthesis 的 65 筆納入、5 筆排除。65 筆全數通過
+  promotion，pool `2,406 → 2,471`，距最低 5,880 筆尚差 3,409；
+  `public_domain` 859/2,471（34.76%）、`permissive_license` 832/2,471（33.67%）、
+  `project_original` 780/2,471（31.57%），皆低於 35%。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

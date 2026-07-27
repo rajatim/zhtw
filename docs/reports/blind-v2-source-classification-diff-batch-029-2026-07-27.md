@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 029 (2026-07-27)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `8b2548e28d733aaf6cdf04da9f1392f1a201cd72815050542c3e88863a4874ad`
 Cases: 70
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 52 advisory disagreements and batch-confirmed the 18 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整且可独立判读的美国人口普查官方简体句，适
 
 Gemini reason: 完整句子，內容關於數據分析流程，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 02. census-newsroom-zh-hans-v1/page-01-sentence-037
 
@@ -63,7 +63,7 @@ Codex reason: 完整且可独立判读的美国人口普查官方简体句，适
 
 Gemini reason: 完整句子，說明人口普查局的職責，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 03. census-newsroom-zh-hans-v1/page-02-sentence-013
 
@@ -84,7 +84,7 @@ Codex reason: 完整且可独立判读的美国人口普查官方简体句，适
 
 Gemini reason: 完整句子，為填寫普查的具體指令，屬高風險應用場景，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 04. census-newsroom-zh-hans-v1/page-04-sentence-016
 
@@ -105,7 +105,7 @@ Codex reason: 完整且可独立判读的美国人口普查官方简体句，适
 
 Gemini reason: 完整句子，描述工作人員的職責，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 05. census-newsroom-zh-hans-v1/page-06-sentence-019
 
@@ -126,7 +126,7 @@ Codex reason: 完整且可独立判读的美国人口普查官方简体句，适
 
 Gemini reason: 完整句子，關於個人防護裝備的規定，涉及安全，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 06. census-newsroom-zh-hans-v1/page-06-sentence-028
 
@@ -147,7 +147,7 @@ Codex reason: 完整且可独立判读的美国人口普查官方简体句，适
 
 Gemini reason: 完整句子，描述疫情期間的應對措施，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 07. census-newsroom-zh-hans-v1/page-07-sentence-002
 
@@ -168,7 +168,7 @@ Codex reason: 完整且可独立判读的美国人口普查官方简体句，适
 
 Gemini reason: 完整句子，提供具體時間資訊，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 08. census-newsroom-zh-hans-v1/page-07-sentence-005
 
@@ -189,7 +189,7 @@ Codex reason: 完整且可独立判读的美国人口普查官方简体句，适
 
 Gemini reason: 完整句子，包含統計數據，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 09. census-newsroom-zh-hans-v1/page-09-sentence-004
 
@@ -210,7 +210,7 @@ Codex reason: 完整且可独立判读的美国人口普查官方简体句，适
 
 Gemini reason: 完整句子，鼓勵民眾盡快回應普查，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 10. cisa-personal-security-zh-hans-v1/sentence-005
 
@@ -231,7 +231,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，概括安全指南內容，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 11. cisa-personal-security-zh-hans-v1/sentence-046
 
@@ -252,7 +252,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，指導如何協助警方調查，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 12. cisa-personal-security-zh-hans-v1/sentence-098
 
@@ -273,7 +273,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，關於行車安全的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 13. cisa-personal-security-zh-hans-v1/sentence-106
 
@@ -294,7 +294,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，關於網絡安全的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 14. cisa-personal-security-zh-hans-v1/sentence-115
 
@@ -315,7 +315,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，關於通訊安全的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 15. cisa-personal-security-zh-hans-v1/sentence-127
 
@@ -336,7 +336,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，提供關於「人肉搜索」的法律建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 16. osha-disaster-cleanup-simplified-v1/sentence-001
 
@@ -357,7 +357,7 @@ Codex reason: 标题、版面或清单结构移除后成为串接句、残句、
 
 Gemini reason: 完整句子，介紹災後重建的安全主題，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 17. osha-disaster-cleanup-simplified-v1/sentence-007
 
@@ -378,7 +378,7 @@ Codex reason: 标题、版面或清单结构移除后成为串接句、残句、
 
 Gemini reason: 完整句子，雖然簡短但語意完整，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 18. osha-disaster-cleanup-simplified-v1/sentence-022
 
@@ -399,7 +399,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，提供避免觸電的明確安全距離指令，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 19. osha-disaster-cleanup-simplified-v1/sentence-044
 
@@ -420,7 +420,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 不完整的句子，缺少動詞，描述一個危險來源但未構成完整陳述，排除。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 20. osha-disaster-cleanup-simplified-v1/sentence-051
 
@@ -441,7 +441,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，提供穿著高反光服裝的安全指令，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 21. osha-disaster-cleanup-simplified-v1/sentence-056
 
@@ -462,7 +462,7 @@ Codex reason: 标题、版面或清单结构移除后成为串接句、残句、
 
 Gemini reason: 完整句子，描述接觸石棉的風險，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 22. osha-disaster-cleanup-simplified-v1/sentence-071
 
@@ -483,7 +483,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，說明工人提出投訴的權利與程序，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 23. ready-gov-drought-zh-hans-v1/sentence-014
 
@@ -504,7 +504,7 @@ Codex reason: 完整且可独立判读的节水生活指引，适合检验日常
 
 Gemini reason: 完整句子，為節約用水的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 24. ready-gov-drought-zh-hans-v1/sentence-021
 
@@ -525,7 +525,7 @@ Codex reason: 完整且可独立判读的节水生活指引，适合检验日常
 
 Gemini reason: 完整句子，提供檢查漏水的方法，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 25. ready-gov-drought-zh-hans-v1/sentence-029
 
@@ -546,7 +546,7 @@ Codex reason: 完整且可独立判读的节水生活指引，适合检验日常
 
 Gemini reason: 完整句子，關於維護灑水系統的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 26. ready-gov-drought-zh-hans-v1/sentence-030
 
@@ -567,7 +567,7 @@ Codex reason: 完整且可独立判读的节水生活指引，适合检验日常
 
 Gemini reason: 完整句子，關於草坪維護以節水的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 27. ready-gov-drought-zh-hans-v1/sentence-032
 
@@ -588,7 +588,7 @@ Codex reason: 完整且可独立判读的节水生活指引，适合检验日常
 
 Gemini reason: 完整句子，關於選擇草種的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 28. ready-gov-drought-zh-hans-v1/sentence-050
 
@@ -609,7 +609,7 @@ Codex reason: 完整且可独立判读的节水生活指引，适合检验日常
 
 Gemini reason: 完整句子，關於日常節約用水的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 29. ready-gov-drought-zh-hans-v1/sentence-052
 
@@ -630,7 +630,7 @@ Codex reason: 完整且可独立判读的节水生活指引，适合检验日常
 
 Gemini reason: 完整句子，關於節約用水的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 30. ready-gov-drought-zh-hans-v1/sentence-054
 
@@ -651,7 +651,7 @@ Codex reason: 完整且可独立判读的节水生活指引，适合检验日常
 
 Gemini reason: 完整句子，提供手動洗碗節約用水的具體方法，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 31. ready-gov-drought-zh-hans-v1/sentence-064
 
@@ -672,7 +672,7 @@ Codex reason: 完整且可独立判读的节水生活指引，适合检验日常
 
 Gemini reason: 完整句子，提供判斷是否需要澆水的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 32. ready-gov-drought-zh-hans-v1/sentence-072
 
@@ -693,7 +693,7 @@ Codex reason: 完整且可独立判读的节水生活指引，适合检验日常
 
 Gemini reason: 完整句子，提供節約用水洗車的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 33. ready-gov-home-fires-zh-hans-v1/sentence-027
 
@@ -714,7 +714,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，關於放置滅火器的安全建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 34. ready-gov-home-fires-zh-hans-v1/sentence-035
 
@@ -735,7 +735,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，指導如何在火災後向急救人員提供信息，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 35. ready-gov-home-fires-zh-hans-v1/sentence-036
 
@@ -756,7 +756,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，指導如何救助寵物，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 36. ready-gov-home-fires-zh-hans-v1/sentence-051
 
@@ -777,7 +777,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，關於火災後處理財物損失的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 37. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-016
 
@@ -798,7 +798,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，提供防災的專業建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 38. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-017
 
@@ -819,7 +819,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，陳述關於泥石流的重要事實，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 39. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-024
 
@@ -840,7 +840,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，提供監測天氣預報以防災的指令，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 40. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-034
 
@@ -861,7 +861,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，描述山體滑坡的警示信號，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 41. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-040
 
@@ -882,7 +882,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，強調聽從官方指示的重要性，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 42. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-044
 
@@ -903,7 +903,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，關於泥石流逃生的重要警告，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 43. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-055
 
@@ -924,7 +924,7 @@ Codex reason: 标题、版面或清单结构移除后成为串接句、残句、
 
 Gemini reason: 完整句子，指導如何在災害後協助救援，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 44. ready-gov-radiation-zh-hans-v1/sentence-002
 
@@ -945,7 +945,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，定義並舉例說明輻射緊急情況，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 45. ready-gov-radiation-zh-hans-v1/sentence-009
 
@@ -966,7 +966,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，提供獲取緊急警報的建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 46. ready-gov-radiation-zh-hans-v1/sentence-022
 
@@ -987,7 +987,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，提供輻射緊急情況下的核心防護指令，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 47. ready-gov-radiation-zh-hans-v1/sentence-023
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，解釋防護原理，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 48. ready-gov-radiation-zh-hans-v1/sentence-031
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，提供核爆後的避難指令，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 49. ready-gov-radiation-zh-hans-v1/sentence-033
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，提供額外的庇護所建議，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 50. ready-gov-radiation-zh-hans-v1/sentence-038
 
@@ -1071,7 +1071,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，簡短但清晰的防護指令，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 51. ready-gov-radiation-zh-hans-v1/sentence-059
 
@@ -1092,7 +1092,7 @@ Codex reason: 完整且可独立判读的官方安全指引，适合检验高风
 
 Gemini reason: 完整句子，關於食品安全的警告，合格。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
 
 ### 52. ready-gov-radiation-zh-hans-v1/sentence-064
 
@@ -1113,4 +1113,4 @@ Codex reason: 标题、版面或清单结构移除后成为串接句、残句、
 
 Gemini reason: 引用標題，非完整敘述句，排除。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-27`
