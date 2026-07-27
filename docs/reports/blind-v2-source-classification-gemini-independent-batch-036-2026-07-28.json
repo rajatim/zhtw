@@ -1,0 +1,991 @@
+{
+  "version": 1,
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": null,
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-036.json",
+  "packet_sha256": "1c7c6f2ed9d05976b9c67ddf5844c05f1019aafb2ea6eeedbc9d1b267f096e53",
+  "stats": {
+    "total": 96,
+    "eligible": 94,
+    "excluded": 2,
+    "high": 95,
+    "medium": 1,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "f204a058-b67b-4f62-8105-21b0d8933681,8a70a65a-15b0-43bb-abd0-08f1d0ff116d,e34be403-1a07-4a5a-b284-63f8534a8c98",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "cases": [
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "正式新聞稿風格，標準轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "混合英文，括號中的「仅英语」需注意避免過度轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "正式新聞稿，標準轉換風險。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "正式新聞稿，標準轉換風險。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公眾宣導風格，標準轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "新聞稿風格，標準轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "社交口吻，「网络」是潛在的詞彙轉換點。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含術語「软启动」與英文原文，需避免過度轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "正式公告，標準轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-031",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含英文原文(state)與「数据」，有詞彙轉換與原文保護的雙重風險。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「在线」是典型的地區詞彙差異。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "正式公告，標準轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-001",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含網址與「在线」，需保護網址不被轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "混合英文，需保護括號中的原文，且包含地區詞「在线」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含多個專有名詞與英文，且有「互联网」一詞，需避免過度轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含網址與「在线」，需保護網址不被轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-001",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含代碼(COVID-19)與英文(state)，需保護其不被轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「在线」是典型的地區詞彙差異。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-005",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含多個潛在的詞彙轉換點，如「信息」、「回复」、「移动」、「计划」。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「在线」和「邮件」等地區慣用詞。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含縮寫(ACO)，需避免轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含術語「软发布」與縮寫「ACO」，需避免過度轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「房车」、「公园」等地區詞差異。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "正式新聞稿，用語標準。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「计划」和「开展」是潛在的詞彙轉換點。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「信息」、「数字」等詞，存在地區詞彙差異。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「计划」是潛在的詞彙轉換點。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "公眾宣導語氣，標準轉換。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-004",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "引文中的「质量」是關鍵的地區詞彙差異。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「记录」、「信息」等潛在轉換詞。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-036",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "混合英文，需保護括號中原文，且包含「数据」、「信息」等地區詞。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-09-sentence-006",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含英文(Census ID)，需避免轉換。同時包含「线上」、「邮包」等具地區性的詞語。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10324",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "專有名詞「王者榮耀」，需防過度轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1091",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「更亮點」應理解為「更亮一點」，詞意有歧義，屬慣用詞差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11605",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地名「武漢市」為專有名詞。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12303",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地名「布魯克林」、「皇后區」為專有名詞，需防過度轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12541",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地名「聖地牙哥」、「北好萊塢」為專有名詞，需防過度轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13714",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常詢問，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13874",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "地名「加州」為專有名詞。句子本身語意不完整，但可獨立判斷。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "人名「多莉帕頓」為專有名詞，需防過度轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14279",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準術語，穩定轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14294",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "財經領域，標準術語轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14674",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常詢問，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14717",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "品牌名稱「紅旗汽車」為專有名詞，需防過度轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1646",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1890",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "incomplete_fragment"
+      ],
+      "confidence": "high",
+      "notes": "句子殘缺，無法判斷完整語意。可能是「暖色調前房」或其它意思。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2720",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2755",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "地名「包頭」為專有名詞，需防過度轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常詢問，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3397",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3398",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3683",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含不應轉換的英文名稱 'olly'。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3820",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5096",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5926",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「手機」是兩岸慣用詞差異的典型案例。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7176",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含人名「李雷」，需防過度轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/724",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常詢問，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7446",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/826",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常詢問，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8385",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「發薪」屬兩岸慣用詞差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/840",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含品牌「必勝客」，且「點外賣」、「比薩」均為兩岸慣用詞差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9132",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日期用法「號」為中國大陸慣例，台灣用「日」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9191",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常用語，標準轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9981",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "incoherent"
+      ],
+      "confidence": "high",
+      "notes": "語意不連貫，「它」的指涉不明，無法構成有意義的句子。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於 AI 模型的行為描述，用詞直接，轉換風險低。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "給予 AI 的指令，用字簡單明確，屬於穩定轉換範圍。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及醫療建議，屬於高風險領域。用詞「助手」在臺灣可能需依情境調整為「助理」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述 API 客戶端行為，包含不應轉換的 HTTP 標頭 `Retry-After`。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT 技術描述，包含中國大陸慣用詞「线上」，在臺灣應轉換為「線上」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述系統權限，用詞「工单」在臺灣 IT 情境中可能用「工單」或「票證」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "關於引用法規的格式要求，詞彙轉換直接，風險較低。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述內容過濾系統，用詞「过滤器」在臺灣慣用「過濾器」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述 AI 助手行為，用詞「调用」在臺灣 IT 情境常對應「呼叫」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述評審流程，詞彙雖屬特定領域但對應關係穩定。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述 AI 模型輸出格式，詞彙轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-037",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "描述提示模板，包含不應轉換的變數佔位符 `{{customer_name}}`。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-044",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT 指令，包含不應轉換的檔案格式 `CSV` 與編碼 `UTF-8`。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "評估 AI 回答的指令，用詞直接，轉換風險低。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT 技術描述，包含中國大陸慣用詞「上线」，在臺灣應轉換為「上線」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，包含中國大陸慣用詞「链接」，在臺灣慣用「連結」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，用詞普遍，轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常購物對話，詞彙在兩岸通用，轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常事務對話，詞彙轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "評論文章內容，用詞普遍，轉換風險低。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，用詞「信号」在臺灣慣用「訊號」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "評論商品體驗，詞彙轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常辦公對話，用詞「发送」在臺灣情境下也常用「傳送」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "旅遊日常對話，詞彙兩岸通用，轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "網路購物情境，用詞在兩岸電商領域通用，轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常交通對話，包含中國大陸慣用詞「公交车」，在臺灣慣用「公車」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換直接。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換直接。"
+    }
+  ]
+}

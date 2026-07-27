@@ -3085,3 +3085,124 @@ def test_thirty_fifth_synthesis_decision_is_reproducible() -> None:
         generated_date="2026-07-27",
         maintainer_decisions=decision,
     )
+
+
+def test_thirty_sixth_synthesis_advisory_is_reproducible() -> None:
+    prefix = ROOT / "docs/reports"
+    packet_path = ACCURACY_ROOT / ("review-packets/blind-v2-source-classification-batch-036.json")
+    codex_path = prefix / (
+        "blind-v2-source-classification-codex-first-pass-batch-036-2026-07-28.json"
+    )
+    gemini_path = prefix / (
+        "blind-v2-source-classification-gemini-independent-batch-036-2026-07-28.json"
+    )
+    adjustments_path = prefix / (
+        "blind-v2-source-classification-codex-synthesis-adjustments-batch-036-2026-07-28.json"
+    )
+    synthesis_path = prefix / (
+        "blind-v2-source-classification-codex-synthesis-batch-036-2026-07-28.json"
+    )
+    diff_path = prefix / "blind-v2-source-classification-diff-batch-036-2026-07-28.md"
+    packet = load(packet_path)
+    codex = load(codex_path)
+    gemini = load(gemini_path)
+    adjustments = load(adjustments_path)
+    synthesis = load(synthesis_path)
+    packet_ids = [case["id"] for case in packet["cases"]]
+    prior_ids = {
+        case["id"]
+        for batch_number in range(1, 36)
+        for case in load(
+            ACCURACY_ROOT
+            / f"review-packets/blind-v2-source-classification-batch-{batch_number:03d}.json"
+        )["cases"]
+    }
+    packet_hash = hashlib.sha256(packet_path.read_bytes()).hexdigest()
+
+    assert packet["selection_policy"] == "balanced-remaining-deterministic-sha256-v1"
+    assert packet["stats"] == {
+        "total": 96,
+        "by_source": {
+            "census-newsroom-zh-hans-v1": 32,
+            "massive-1-0-zh-cn-v1": 32,
+            "zhtw-project-llm-social-baseline-v1": 32,
+        },
+    }
+    assert set(packet_ids).isdisjoint(prior_ids)
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert gemini["execution"] == {
+        "cli": "@google/gemini-cli",
+        "cli_version": "0.52.0",
+        "session_id": (
+            "f204a058-b67b-4f62-8105-21b0d8933681,"
+            "8a70a65a-15b0-43bb-abd0-08f1d0ff116d,"
+            "e34be403-1a07-4a5a-b284-63f8534a8c98"
+        ),
+        "tool_calls": 0,
+        "total_errors": 0,
+    }
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 96,
+        "exact": 45,
+        "review_queue": 51,
+        "by_field": {"eligible": 2, "script": 1, "domain": 20, "risk": 38},
+    }
+    assert len(differences) == 51
+    overrides = {case["id"]: case["classification"] for case in adjustments["cases"]}
+    assert set(overrides) == {
+        "census-newsroom-zh-hans-v1/page-07-sentence-013",
+        "massive-1-0-zh-cn-v1/14279",
+        "zhtw-project-llm-social-baseline-v1/llm-012",
+        "zhtw-project-llm-social-baseline-v1/llm-025",
+        "zhtw-project-llm-social-baseline-v1/llm-032",
+        "zhtw-project-llm-social-baseline-v1/llm-035",
+    }
+    gemini_case_ids = {
+        "census-newsroom-zh-hans-v1/page-01-sentence-011",
+        "census-newsroom-zh-hans-v1/page-02-sentence-011",
+        "census-newsroom-zh-hans-v1/page-06-sentence-003",
+        "census-newsroom-zh-hans-v1/page-06-sentence-035",
+        "census-newsroom-zh-hans-v1/page-08-sentence-028",
+        "massive-1-0-zh-cn-v1/11605",
+        "massive-1-0-zh-cn-v1/14294",
+        "massive-1-0-zh-cn-v1/14674",
+        "massive-1-0-zh-cn-v1/14717",
+        "massive-1-0-zh-cn-v1/3006",
+        "massive-1-0-zh-cn-v1/3820",
+        "zhtw-project-llm-social-baseline-v1/llm-011",
+        "zhtw-project-llm-social-baseline-v1/llm-015",
+        "zhtw-project-llm-social-baseline-v1/social-022",
+        "zhtw-project-llm-social-baseline-v1/social-023",
+        "zhtw-project-llm-social-baseline-v1/social-034",
+        "zhtw-project-llm-social-baseline-v1/social-040",
+        "zhtw-project-llm-social-baseline-v1/social-043",
+        "zhtw-project-llm-social-baseline-v1/social-047",
+    }
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=gemini_case_ids,
+        generated_date="2026-07-28",
+        overrides=overrides,
+        override_basis="codex_synthesis",
+    )
+    assert synthesis["stats"] == {
+        "total": 96,
+        "eligible": 92,
+        "excluded": 4,
+        "by_selection_basis": {
+            "agreement": 45,
+            "codex": 26,
+            "codex_synthesis": 6,
+            "gemini": 19,
+        },
+    }
+    assert diff_path.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-28",
+    )

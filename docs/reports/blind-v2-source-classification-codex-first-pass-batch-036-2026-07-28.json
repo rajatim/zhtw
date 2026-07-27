@@ -1,0 +1,987 @@
+{
+  "version": 1,
+  "reviewer": "Codex",
+  "model": null,
+  "review_date": null,
+  "policy": "input_only_no_converter_output",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-036.json",
+  "packet_sha256": "1c7c6f2ed9d05976b9c67ddf5844c05f1019aafb2ea6eeedbc9d1b267f096e53",
+  "stats": {
+    "total": 96,
+    "eligible": 92,
+    "excluded": 4,
+    "high": 4,
+    "medium": 92,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-02-sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-031",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-04-sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-001",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-05-sentence-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-001",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-005",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-06-sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-07-sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-004",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-08-sentence-036",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-09-sentence-006",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的人口普查新聞敘述；用於檢驗正式用語、統計術語及受保護英文名稱。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/10324",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1091",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11605",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12303",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12541",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13714",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13874",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句含明顯機器翻譯錯置、不可解片段或依賴未提供的指涉，無法作為可靠且可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14279",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14294",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14674",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14717",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1646",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1890",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句含明顯機器翻譯錯置、不可解片段或依賴未提供的指涉，無法作為可靠且可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2720",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2755",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3397",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3398",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3683",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3820",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5096",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5926",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7176",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/724",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7446",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "來源句含明顯機器翻譯錯置、不可解片段或依賴未提供的指涉，無法作為可靠且可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/826",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8385",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/840",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9132",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9191",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9981",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_translation"
+      ],
+      "confidence": "high",
+      "notes": "來源句含明顯機器翻譯錯置、不可解片段或依賴未提供的指涉，無法作為可靠且可獨立裁決的 benchmark 輸入。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-037",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-044",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的 LLM 使用情境；用於檢驗模型、工具、格式與受保護技術字串。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整且可獨立判讀的日常指令或敘述；用於檢驗臺灣慣用語與實體名稱保護。"
+    }
+  ]
+}
