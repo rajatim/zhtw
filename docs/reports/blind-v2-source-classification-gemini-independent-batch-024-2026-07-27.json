@@ -1,0 +1,1027 @@
+{
+  "cases": [
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-001",
+      "notes": "金融審計相關的正式文本，屬高風險領域。保留「原始憑證」等專有名詞至關重要，具過度轉換風險。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-002",
+      "notes": "涉及政府法規與消防安全，屬高風險領域。專有名詞「主管機關」、「消防安全檢查」需準確轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-003",
+      "notes": "涉及政府預算審查，屬財經、法律相關的高風險領域。保留「追加預算」等術語。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-004",
+      "notes": "法律判決文本，屬高風險領域。法律術語如「顯失公平」、「條款無效」需精確對應。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-005",
+      "notes": "消費者合約相關，涉及法律與金融，屬高風險領域。保留「解除契約」等法律用語。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-006",
+      "notes": "研究調查相關的正式寫作，術語「樣本資料檢核」需準確轉換，具過度轉換風險。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-007",
+      "notes": "政府公報與登記資料，屬法律性質的高風險領域。要求完全一致，避免過度轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-008",
+      "notes": "一般會議記錄的正式寫作，用詞直接，屬基準轉換案例。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-009",
+      "notes": "行政程序規定，屬高風險領域，但句子本身用語通用，可視為基準案例。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-010",
+      "notes": "銀行金融業務，屬高風險領域。術語如「客戶身份查核」、「跨境匯款」需準確保留。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-011",
+      "notes": "保險合約的法律規定，屬高風險領域。法律術語「定型化契約條款」、「法定責任」需保留。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-012",
+      "notes": "公司治理與資產處分，屬財經性質的高風險領域。術語「閒置資產」、「獨立機構估價」需準確。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-013",
+      "notes": "會計查核，屬財經高風險領域。「財務報告」、「收入認列」為專業術語，需避免過度轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-014",
+      "notes": "政府監管行為，屬高風險領域。「主管機關」等詞在兩岸語境可能不同，有潛在的在地化差異風險。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-015",
+      "notes": "都市規劃，屬正式新聞。詞彙「轉運站」在台灣有特定用法，可能與中國大陸用法不同。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-016",
+      "notes": "工程設計說明，屬正式寫作，用語直接，為基準轉換案例。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-017",
+      "notes": "氣象報告，屬正式新聞。用詞「鋒面」在兩岸通用，但「短時強降雨」在台灣可能更常用「短延時強降雨」。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-018",
+      "notes": "搜救行動的描述，屬正式新聞，用語普遍，為基準轉換案例。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-019",
+      "notes": "醫療應變，屬高風險領域。「大量傷患」、「急診」等術語在台灣有特定用法，需考慮在地化差異。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-020",
+      "notes": "藥品說明書，屬醫療高風險領域。術語「禁忌」、「不良反應」必須精確保留。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-021",
+      "notes": "科學實驗流程，屬正式寫作。術語「校准」、「系统性测量误差」需精確轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-022",
+      "notes": "學術研究方法，屬正式寫作。「预注册方案」、「主要指标」為專業術語，需保留。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-023",
+      "notes": "新聞編輯流程，屬正式新聞。「网络版报道」在台灣可能稱為「網路版報導」。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-024",
+      "notes": "新聞報導原則，屬正式新聞，用語通用，為基準案例。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-025",
+      "notes": "文物修復說明，屬正式寫作，用語直接，為基準案例。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-026",
+      "notes": "教育行政，屬正式寫作。「学习成果评量」在台灣有特定術語，如「學習成果評量」。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-027",
+      "notes": "法律及倫理規定，屬高風險領域。術語「利益衝突」、「迴避」需精確保留。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-028",
+      "notes": "勞資關係，屬高風險領域。「劳动条件」在台灣通常稱為「勞動條件」。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-029",
+      "notes": "勞資關係，屬高風險領域。「工会」在台灣稱為「工會」，「薪资」為「薪資」。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-030",
+      "notes": "合約交付標準，涉及安全，屬高風險領域。「压力测试」、「安全认证」為技術術語，需準確轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-031",
+      "notes": "政府採購文件，屬法律高風險領域。「验收标准」、「投标」為專業術語。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-032",
+      "notes": "港口管理，屬正式寫作。「货柜」在台灣稱為「貨櫃」。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-033",
+      "notes": "機場營運通知，屬正式新聞，用語通用。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-034",
+      "notes": "鐵路安全，屬高風險領域。「号志」在台灣稱為「號誌」。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-035",
+      "notes": "公用事業通知，屬正式新聞，用語通用。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-036",
+      "notes": "水資源管理，屬正式新聞。「水库」在台灣稱為「水庫」。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-037",
+      "notes": "環境監測，屬正式新聞。「重金属」、「悬浮固体」在台灣分別為「重金屬」、「懸浮固體」。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-038",
+      "notes": "報告結構說明，屬正式寫作。術語「事实认定」、「争点」需準確。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-039",
+      "notes": "法律公告，屬高風險領域。保護個資與法律用詞「案号」的準確性很重要。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-040",
+      "notes": "檔案管理規定，屬正式寫作。「电子公文」、「签核」為專業術語。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-041",
+      "notes": "檔案管理，屬正式寫作。「分类号」為專業術語。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-042",
+      "notes": "統計學報告，屬正式寫作。術語「中位数」、「平均值」、「极端值」需精確。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-043",
+      "notes": "學術倫理與個資保護，屬正式寫作，要求高度準確性。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-044",
+      "notes": "專利文件撰寫規則，屬法律高風險領域。「实施例」、「权利要求」為法律專業術語。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-045",
+      "notes": "外交聲明，屬正式新聞，用語通用。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-046",
+      "notes": "選舉程序，屬法律高風險領域。「选务机关」、「监察人员」需準確。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-047",
+      "notes": "體育賽事，屬正式新聞。「录像」在台灣多稱為「錄影」。",
+      "quality_flags": [],
+      "risk": "candidate_gap",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-048",
+      "notes": "出版業，屬正式寫作。「有声版本」需準確轉換。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "high_stakes",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-049",
+      "notes": "非營利組織財報，屬財經高風險領域。「捐款流向」、「第三方查核」需準確。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "formal_news",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/formal-050",
+      "notes": "社區營造，屬正式新聞，用語通用。",
+      "quality_flags": [],
+      "risk": "baseline_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-001",
+      "notes": "指令要求模型區分法律術語「撤销处分」與技術操作「删除文件」，是語義區分的過度轉換保護案例。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-002",
+      "notes": "指令要求保留「正式登记用语」，強調專有名詞的不可變動性，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-003",
+      "notes": "指令要求區分「查核」與「检核」的語義差異，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-004",
+      "notes": "指令要求區分多義詞「窗口」在不同領域（聯絡人、軟體、建築）的含義，屬語義 disambiguation 的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-005",
+      "notes": "指令要求區分財務術語「核销」與其他操作（注销、删除），屬專業領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-006",
+      "notes": "指令要求區分法律術語「标的」與 IT 術語「目标」，屬跨領域詞彙的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-007",
+      "notes": "指令要求區分統計術語「显著差异」與 UI 操作「突出显示」，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-008",
+      "notes": "指令要求區分新聞術語「消息来源」與 IT 術語「消息队列的来源端点」，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-009",
+      "notes": "指令要求區分法律術語「审理程序」與 IT 術語「执行程序」，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-010",
+      "notes": "指令要求區分「清算」、「清理」、「清除」等詞在不同領域的含義，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-011",
+      "notes": "指令要求區分醫學術語「筛查」與 IT 術語「筛选」，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-012",
+      "notes": "指令要求區分化學術語「产率」與財經術語「收益率」，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-013",
+      "notes": "指令要求區分「现场」在事故報導與軟體安裝中的不同語義，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-014",
+      "notes": "指令要求區分「用户」在研究（受試者）與系統（帳號）中的不同指代，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-015",
+      "notes": "指令要求辨識多義詞「流量」的不同含義（人流、車流、數據流），屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-016",
+      "notes": "指令要求區分貨運術語「承运人」與軟體術語「运行者」，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-017",
+      "notes": "指令要求區分 IT 術語「字段」與農業詞彙「字段」，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-018",
+      "notes": "指令要求區分統計術語「参数」與 IT 術語「命令行参数」，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-019",
+      "notes": "指令要求區分機器學習術語「训练样本」與日常用語「健身训练计划」，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-020",
+      "notes": "指令要求區分醫療術語「照护路径」與 IT 術語「文件系统路径」，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-021",
+      "notes": "指令要求保留 IT 專有名稱「Cloud Run」的大小寫，為典型的過度轉換保護案例。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-022",
+      "notes": "指令要求保留錯誤碼「E_ACCESS_DENIED」不被翻譯或拆分，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-023",
+      "notes": "指令要求保留 JSON Pointer 路径「/items/0/name」，屬 IT API 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-024",
+      "notes": "指令要求將「RFC 9110」視為標準編號而非一般文字處理，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-025",
+      "notes": "指令要求保留 API 狀態碼「HTTP 429」的原始樣貌，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-026",
+      "notes": "指令要求不翻譯環境變數「PATH」，是 IT/CLI 領域重要的過度轉換保護案例。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-027",
+      "notes": "指令要求保留 Git 命令「git fetch --prune」及其參數，屬 IT/CLI 的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-028",
+      "notes": "指令要求不改寫套件名稱「react-dom」，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-029",
+      "notes": "指令要求區分設定鍵「max_retries」與說明文字，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-030",
+      "notes": "指令要求保留資料庫表名稱「users_archive」的底線格式，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-031",
+      "notes": "指令要求保留占位符「{workspace_id}」的完整格式，屬 IT/API 的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-032",
+      "notes": "指令要求不移動模板字串「%1$s」的位置，屬 UI/i18n 的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-033",
+      "notes": "指令要求將版本範圍「>=2.4.0 <3.0.0」視為不可翻譯的程式碼，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-034",
+      "notes": "指令要求保留時區標識「Asia/Taipei」和日期格式「YYYY-MM-DD」，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-035",
+      "notes": "指令要求不翻譯日誌層級「WARN」與「ERROR」，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-036",
+      "notes": "指令要求保留異常名稱「NullPointerException」的完整拼寫，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-037",
+      "notes": "指令要求不修改正則表達式「^[a-z0-9-]+$」的內容，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-038",
+      "notes": "指令要求保留 MIME 類型「application/json」的原樣，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-039",
+      "notes": "指令要求不翻譯容器映像檔名稱「ghcr.io/acme/app:v2」，屬 IT/DevOps 的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-040",
+      "notes": "指令要求在生成 SQL 時保留「ORDER BY created_at DESC」子句，屬 IT 領域的過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "mixed"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-041",
+      "notes": "指令要求模型不改變文本的確定性（尚未证实 vs. 已经确认），是保護語義準確性的重要案例。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-042",
+      "notes": "指令要求模型保留原文的不確定性語氣（情態），屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-043",
+      "notes": "指令要求保留否定詞，避免產生與原文相反的意義，是關鍵的過度轉換保護案例。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-044",
+      "notes": "指令要求模型在摘要時不合併相反觀點，保護了內容的對抗性與中立性。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-045",
+      "notes": "指令要求模型區分不同狀態（建議、決定、執行），保護了文本的語義精確性。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-046",
+      "notes": "指令要求模型在引用時標明來源（轉述 vs. 事實），保護了內容的客觀性。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-047",
+      "notes": "指令要求模型不將「相關性」曲解為「因果關係」，是保護邏輯嚴謹性的重要案例。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-048",
+      "notes": "指令要求模型在資訊不足時不虛構內容，強調了回答的忠實性，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-049",
+      "notes": "指令要求模型保留版本資訊的準確性（生效日期），屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    },
+    {
+      "confidence": "high",
+      "domain": "llm_generated",
+      "eligible": true,
+      "id": "zhtw-project-formal-llm-balance-v1/llm-050",
+      "notes": "指令要求模型在輸出前進行事實核對（引用編號），強調了準確性，屬過度轉換保護。",
+      "quality_flags": [],
+      "risk": "over_conversion_guard",
+      "script": "simplified"
+    }
+  ],
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "7fe17c8a-9716-4454-8872-11cc28da98ee",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "model": "gemini-2.5-pro",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-024.json",
+  "packet_sha256": "a9b76a63b5d9150d75b02ac287fe24c75e2a88044d69d6558ce87d572aab585b",
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "review_date": null,
+  "reviewer": "Gemini CLI",
+  "stats": {
+    "eligible": 100,
+    "excluded": 0,
+    "high": 100,
+    "low": 0,
+    "medium": 0,
+    "policy_violations": 0,
+    "total": 100
+  },
+  "version": 1
+}

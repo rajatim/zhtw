@@ -608,6 +608,20 @@ leaving a 3,914-case minimum-pool gap. Public-domain material remains slightly
 above the final 35% source-class cap, and AOSP remains slightly above the final
 10% per-source cap while collection continues.
 
+Source-classification batch 024 uses 100 synthetic project-original inputs to
+balance the currently underrepresented `formal_news` and `llm_generated`
+domains without adding public-domain, permissive-license, or AOSP material.
+The source contains 50 formal-writing and 50 LLM semantic-preservation cases,
+has no exact or 5-gram near duplicate against the collecting pool, and remains
+explicitly labeled as synthetic rather than market traffic. Codex and Gemini
+CLI 0.52.0 (`gemini-2.5-pro`) independently reviewed all 100 inputs; Gemini used
+one API request, zero tools, and reported zero API errors. They agree exactly
+on 59 cases and differ on 41, with no eligibility or script disagreement.
+Codex synthesis recommends all 100 as eligible, selecting 59 agreements, 22
+Gemini classifications, 8 Codex classifications, and 11 field-level synthesis
+adjustments. Maintainer confirmation remains pending, so the collecting pool
+stays at 1,966 cases.
+
 Rebuild and validate the current collecting pool:
 
 ```bash

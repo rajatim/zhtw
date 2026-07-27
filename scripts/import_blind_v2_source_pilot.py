@@ -45,6 +45,7 @@ SUPPORTED_SOURCES = {
     "zhtw-project-formal-entity-guard-v1": "project_original_json",
     "zhtw-project-it-llm-ui-guard-v1": "project_original_json",
     "zhtw-project-balanced-baseline-guard-v1": "project_original_json",
+    "zhtw-project-formal-llm-balance-v1": "project_original_json",
     "massive-1-0-zh-cn-v1": "massive",
     "ftc-small-business-simplified-v1": "ftc_pdf",
     "ftc-heads-up-simplified-v1": "ftc_heads_up_pdf",

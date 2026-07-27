@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-27",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-024.json",
+  "packet_sha256": "a9b76a63b5d9150d75b02ac287fe24c75e2a88044d69d6558ce87d572aab585b",
+  "cases": [
+    {
+      "id": "zhtw-project-formal-llm-balance-v1/formal-001",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 審計與支出憑證屬財務高風險語境，但轉換本身是直接字形與既有術語。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-balance-v1/formal-014",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 商品標示與主管機關是正確臺灣監管用語，應保守保留，不是 candidate gap。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-balance-v1/formal-015",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 轉運站是正確臺灣交通用語，應保守保留，不需額外在地化。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-balance-v1/formal-019",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 大量傷患應變機制與急診是正確臺灣醫療用語，屬高風險保留案例。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-balance-v1/formal-021",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 中國用語「校准」在臺灣通常需依語境轉為「校正」或「校準」，有實質在地化缺口。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-balance-v1/formal-022",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 研究方法語境中的「预注册」在臺灣常用「預註冊」或「預先註冊」，需術語正規化。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-balance-v1/formal-026",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 學習成果評量是既有臺灣教育術語，應避免被機械改寫。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-balance-v1/formal-028",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 勞資、協商與勞動條件都是正確臺灣勞動法用語，應保守保留。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-balance-v1/formal-029",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 工會、雇主、工時與薪資明細都是正確臺灣勞動用語。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-balance-v1/formal-034",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 鐵路號誌是正確臺灣安全術語；句子涉及列車運行安全。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-balance-v1/formal-043",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "high"
+      },
+      "notes": "Codex synthesis: 研究語境中的「分析代码」在臺灣通常需轉為「分析程式碼」，超出純字形轉換。"
+    }
+  ]
+}

@@ -116,6 +116,18 @@ is missing.
   Google service terminology are overrepresented, and context-dependent labels
   still require input-only review.
 
+## zhtw-project-formal-llm-balance-v1
+
+- Source: zhtw project-original formal-writing and LLM semantic-preservation
+  balance scenarios drafted on 2026-07-27.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only formal-writing and LLM semantic-preservation balance scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: This is synthetic project-original coverage, not independently
+  observed market traffic. It intentionally overrepresents formal writing,
+  identifier preservation, and LLM semantic constraints.
+
 ## zhtw-project-it-api-cli-v1
 
 - Source: zhtw project-original IT, API, and CLI input-only scenarios drafted

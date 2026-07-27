@@ -648,6 +648,11 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
 - [ ] 從公開 permissioned-user-report issues 收滿 batch 001 的 100 筆原創簡體
   input；逐筆保留 issue URL 與 consent，人工確認自動敏感資料檢查沒有漏報後，才將
   狀態改為 `ready_for_import`。
+- [x] 2026-07-27 再查 issue #47，permissioned intake 仍為 0/100；未虛構授權
+  資料。建立 100 筆 synthetic project-original formal/LLM 平衡來源與 batch 024，
+  無 exact／near duplicate；完成 Codex first pass、Gemini CLI 0.52.0 獨立審查與
+  Codex synthesis。最終建議 100 筆 eligible，待 maintainer confirmation 後才
+  promotion。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent
