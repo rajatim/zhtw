@@ -177,8 +177,8 @@ is missing.
 - Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
 - Output license: MIT.
 - Bias notice: Synthetic quota coverage is not independently observed market
-  traffic. It targets preregistered LLM, IT, and UI baseline-guard gaps; AI source
-  classification remains advisory until maintainer confirmation.
+  traffic. It targets preregistered LLM, IT, and UI baseline-guard gaps; Codex and
+  Gemini advisories received maintainer confirmation on 2026-07-28.
 
 ## zhtw-project-it-api-cli-v1
 

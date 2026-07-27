@@ -811,8 +811,11 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   抽樣。Codex first pass 建議 90 筆納入、6 筆排除；Gemini CLI 0.52.0 以七個
   來源隔離 session 完成 96/96 input-only 獨立審查，零工具呼叫、零 API 錯誤，
   建議 93 筆納入、3 筆排除。兩者有 49 筆四欄完全一致、47 筆差異；Codex
-  synthesis 更正 1 筆 script 誤標後，建議 90 筆納入、6 筆排除。狀態仍為
-  advisory only，等待 maintainer confirmation；確認前不得 promotion。
+  synthesis 更正 1 筆 script 誤標後，建議 90 筆納入、6 筆排除；maintainer
+  已確認整批 synthesis。90 筆 eligible 全數通過 promotion，沒有新增 dedupe
+  exclusion；pool `3,294 → 3,384`，距最低 5,880 筆尚差 2,496；
+  `permissive_license` 1,161/3,384（34.31%）、`public_domain` 1,153/3,384
+  （34.07%）、`project_original` 1,070/3,384（31.62%），皆低於 35%。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

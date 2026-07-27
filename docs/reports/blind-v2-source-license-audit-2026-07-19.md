@@ -240,7 +240,10 @@ input alone.
 - Restrictions: synthetic quota coverage only, not organic market-frequency
   evidence. Drafting used preregistered domain/risk gaps only; no converter
   output or expected text influenced the source.
-- Decision: accepted as an input-only pilot; source classification is pending.
+- Decision: accepted as an input-only pilot. Codex and Gemini completed
+  independent input-only classification in batch 039; maintainer `tim` confirmed
+  the synthesis on 2026-07-28, and all 32 sampled eligible cases passed promotion
+  deduplication.
 
 ### MASSIVE 1.0 `zh-CN`
 
