@@ -2856,3 +2856,103 @@ def test_thirty_third_synthesis_decision_is_reproducible() -> None:
         generated_date="2026-07-27",
         maintainer_decisions=decision,
     )
+
+
+def test_thirty_fourth_synthesis_advisory_is_reproducible() -> None:
+    prefix = ROOT / "docs/reports"
+    packet_path = ACCURACY_ROOT / ("review-packets/blind-v2-source-classification-batch-034.json")
+    codex_path = prefix / (
+        "blind-v2-source-classification-codex-first-pass-batch-034-2026-07-27.json"
+    )
+    gemini_path = prefix / (
+        "blind-v2-source-classification-gemini-independent-batch-034-2026-07-27.json"
+    )
+    adjustments_path = prefix / (
+        "blind-v2-source-classification-codex-synthesis-adjustments-batch-034-2026-07-27.json"
+    )
+    synthesis_path = prefix / (
+        "blind-v2-source-classification-codex-synthesis-batch-034-2026-07-27.json"
+    )
+    diff_path = prefix / "blind-v2-source-classification-diff-batch-034-2026-07-27.md"
+    packet = load(packet_path)
+    codex = load(codex_path)
+    gemini = load(gemini_path)
+    adjustments = load(adjustments_path)
+    synthesis = load(synthesis_path)
+    packet_ids = [case["id"] for case in packet["cases"]]
+    prior_ids = {
+        case["id"]
+        for batch_number in range(1, 34)
+        for case in load(
+            ACCURACY_ROOT
+            / f"review-packets/blind-v2-source-classification-batch-{batch_number:03d}.json"
+        )["cases"]
+    }
+    packet_hash = hashlib.sha256(packet_path.read_bytes()).hexdigest()
+
+    assert packet["selection_policy"] == "balanced-remaining-deterministic-sha256-v1"
+    assert packet["stats"] == {
+        "total": 96,
+        "by_source": {
+            "massive-1-0-zh-cn-v1": 32,
+            "ready-gov-drought-zh-hans-v1": 32,
+            "zhtw-project-llm-social-baseline-v1": 32,
+        },
+    }
+    assert set(packet_ids).isdisjoint(prior_ids)
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert gemini["execution"] == {
+        "cli": "@google/gemini-cli",
+        "cli_version": "0.52.0",
+        "session_id": (
+            "44090521-6f26-4960-9fa0-43f4cb968102,"
+            "1103f74f-ca15-4f67-b86d-c715b2fd200e,"
+            "ede77efb-1128-4891-a7d0-54d297ac2825"
+        ),
+        "tool_calls": 3,
+        "total_errors": 0,
+    }
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 96,
+        "exact": 39,
+        "review_queue": 57,
+        "by_field": {"eligible": 2, "script": 0, "domain": 45, "risk": 31},
+    }
+    assert len(differences) == 57
+    overrides = {case["id"]: case["classification"] for case in adjustments["cases"]}
+    assert set(overrides) == {
+        "ready-gov-drought-zh-hans-v1/sentence-008",
+        "ready-gov-drought-zh-hans-v1/sentence-023",
+        "ready-gov-drought-zh-hans-v1/sentence-026",
+        "ready-gov-drought-zh-hans-v1/sentence-048",
+        "ready-gov-drought-zh-hans-v1/sentence-063",
+        "zhtw-project-llm-social-baseline-v1/llm-028",
+    }
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids={"zhtw-project-llm-social-baseline-v1/llm-046"},
+        generated_date="2026-07-27",
+        overrides=overrides,
+        override_basis="codex_synthesis",
+    )
+    assert synthesis["stats"] == {
+        "total": 96,
+        "eligible": 92,
+        "excluded": 4,
+        "by_selection_basis": {
+            "agreement": 39,
+            "codex": 50,
+            "codex_synthesis": 6,
+            "gemini": 1,
+        },
+    }
+    assert diff_path.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-27",
+    )

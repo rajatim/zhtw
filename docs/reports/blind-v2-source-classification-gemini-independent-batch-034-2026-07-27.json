@@ -1,0 +1,991 @@
+{
+  "version": 1,
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": null,
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-034.json",
+  "packet_sha256": "2404d887831fc173f37f530c566ec66a89df27930cee1484b2b09a0d3a4f611b",
+  "stats": {
+    "total": 96,
+    "eligible": 95,
+    "excluded": 1,
+    "high": 93,
+    "medium": 3,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "44090521-6f26-4960-9fa0-43f4cb968102,1103f74f-ca15-4f67-b86d-c715b2fd200e,ede77efb-1128-4891-a7d0-54d297ac2825",
+    "tool_calls": 3,
+    "total_errors": 0
+  },
+  "cases": [
+    {
+      "id": "massive-1-0-zh-cn-v1/10751",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「谷歌」是中國大陸用法，台灣稱「Google」。術語「翻譯」需要轉換。屬於專有名詞保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11318",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「播客」是中國大陸用語，台灣普遍使用「Podcast」。涉及詞彙轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12480",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「滴滴順風車」是中國大陸的特定服務名稱，在台灣並不存在。屬於專有名詞，應予以保護，不應轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12581",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁句。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1284",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「中國標準時間」是專有名稱，應保留其指涉的特定時區，僅做字元轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13525",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "技術術語。台灣多用「程式碼除錯」或「debug」，而非「代碼調試」。涉及領域詞彙轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14072",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "人名「卡門聖地牙哥」的翻譯在台灣可能不同（例如「卡門·聖地牙哥」）。屬於音譯專有名詞，需謹慎處理。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/14244",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁句。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15170",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「人民日報」和「微博」是專有名詞，應予以保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15975",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「小米商城」是品牌名稱，應予以保護。另，「通訊錄」在台灣通用，但「聯絡人」更常用於手機情境。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16510",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "語法和用詞帶有翻譯腔。「回覆到收到的電子郵件」不自然，台灣 UI 會說「回覆此郵件」。涉及語氣和習慣用語差異。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1789",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁句。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2229",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含「中國標準時間」、「東部標準時間」等時區專有名稱，應予以保護。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2525",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「外賣」是中國大陸用語，台灣稱「外送」(delivery) 或「外帶」(takeout)。涉及詞彙轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3054",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁句。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3447",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「會來雨嗎」語法不自然，台灣說「會下雨嗎」。涉及動詞搭配和習慣用法。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3488",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「歌曲列表」在台灣通常稱為「播放清單」。涉及術語轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4129",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「鬧鈴」是中國大陸用語，台灣稱「鬧鐘」。涉及詞彙轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4464",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「播放列表」在台灣通常稱為「播放清單」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6429",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "unintelligible"
+      ],
+      "confidence": "high",
+      "notes": "輸入內容「四小時正文」語意不明，無法理解。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6749",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁句。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6784",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁句。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/705",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "「告訴我些」的用法較偏口語，台灣書面或較正式語氣會用「告訴我一些」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7197",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁句，語法結構清晰。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7772",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「這周」是中國大陸用法，台灣慣用「這週」或「這個星期」。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8168",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁句。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8229",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「項目」是中國大陸用語，台灣稱「專案」。涉及商業術語轉換。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8808",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「週一」在台灣雖可用，但「星期一」更普遍。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9058",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁句。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9192",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "用語稍嫌書面，「設定為重複提醒」或「設定為定期提醒」在台灣 UI 中更常見。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9728",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁句。"
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9939",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "unusual_phrasing"
+      ],
+      "confidence": "medium",
+      "notes": "「麥薯條」不是標準詞彙，可能是「炸薯條」的誤植或特殊菜餚。「油煎炸」說法冗贅，通常只用「油炸」。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「節水」在台灣更常用「省水」。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁，「加侖」為通用單位詞。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「管道工」在台灣多稱「水管工人」或「水電工」。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「起泡器」、「限流器」為技術名詞，應可直接轉換，但需確認台灣是否有更常用術語。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「即時熱水器」在台灣多稱「瞬熱式」或「即熱式」電熱水器。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「小容量馬桶」在台灣通常以功能性稱呼為「省水馬桶」。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「淋浴噴頭」在台灣的通用詞是「蓮蓬頭」。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「聯繫」在台灣多用「聯絡」；「供水商」多為「自來水公司」。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「節水」在台灣更常用「省水」。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「護根物」為園藝術語，可直接轉換。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "句子含科學術語，可標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「水務機構」非台灣常用詞，通常指「自來水公司」或「水利署」。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「節水」在台灣更常用「省水」。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「州府」一詞適用於特定國家政體，非用語轉換問題。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「聯繫」在台灣多用「聯絡」。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「淋浴」雖可使用，但在台灣日常用語中「沖澡」更為普遍。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI標籤「輕洗」為特定功能名稱，可能對應台灣洗衣機的「柔洗」或「快洗」，不宜直接字面轉換。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "語氣可理解，但「讓水流掉」的說法在台灣可能較少用。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-058",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-059",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-060",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-062",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-063",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：「鐵鍬」在台灣多稱「鏟子」或「圓鍬」；「螺絲刀」稱「螺絲起子」。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-066",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準簡轉繁。"
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-073",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "用語差異：洗車用的「水槍」在台灣多稱「高壓噴槍」或描述其可調式噴頭，單稱「水槍」易誤解為玩具。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「用戶」、「文件」等潛在詞彙轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準的簡轉繁指令。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準的簡轉繁說明。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及 LLM 技術術語「溫度」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-008",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "指令本身要求保留不應轉換的內容 (API 名稱、程式碼)，屬於過度轉換防護用例。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準的簡轉繁說明。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "指令包含「用戶」一詞，但「用戶」在台灣並非完全不使用，風險不高。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及多個潛在詞彙轉換，如「本地文件」、「用戶」、「上傳」、「讀取」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及關鍵 IT 術語「緩存」(快取) 的詞彙轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「單元格」在台灣多稱「儲存格」，但前者也能理解。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準的測試說明，無特殊詞彙轉換風險。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-034",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含應受保護不轉換的 token `request_id`。同時「訪問令牌」有詞彙轉換需求（存取權杖）。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「測試用例」、「配置」等 IT 詞彙轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準的簡轉繁描述。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "標準的簡轉繁描述。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及「發送郵件」、「用戶」等詞彙轉換。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話。「車站」在台灣語境下可能更具體化，「剛」通常會說「剛剛」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換風險低。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含關鍵詞彙差異：「外賣」在台灣稱「外送」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「晚點再打給你」的用法和「手機剩...电」的說法在台灣較不普遍，存在語氣和慣用法差異。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換風險低。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含常用詞彙差異：「裡面」在台灣慣用「裡面」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換風險低。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換風險低。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "涉及詞彙轉換：「群聊」在台多稱「群組」，「回覆」慣用「回覆」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「實體店」在台灣雖可理解，但「實體店面」或直接說「店面」更常用。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含多個關鍵詞彙差異：「視頻」>「影片」，「加載」>「載入」，「移動網絡」>「行動網路」。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換風險低。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換風險低。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "日常對話，詞彙轉換風險低。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「課程錄影」雖可理解，但「課程影片」或「上課錄影」在台灣更自然。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "「購物車」為通用詞，風險低。"
+    }
+  ]
+}

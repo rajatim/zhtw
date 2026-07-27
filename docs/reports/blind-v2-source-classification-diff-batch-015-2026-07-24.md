@@ -17,7 +17,7 @@ Field differences:
 
 ## Policy Finding
 
-Gemini reported no eligibility/quality-policy conflicts; its validation also recorded zero tool calls and zero API errors.
+Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
 The maintainer resolved all 27 advisory disagreements and batch-confirmed the 73 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 

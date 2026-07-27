@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex synthesis",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-27",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-034.json",
+  "packet_sha256": "2404d887831fc173f37f530c566ec66a89df27930cee1484b2b09a0d3a4f611b",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 6
+  },
+  "cases": [
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-008",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-023",
+      "classification": {
+        "eligible": false,
+        "script": "simplified",
+        "domain": null,
+        "risk": null,
+        "quality_flags": ["context_dependent_fragment"],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-026",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-048",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-drought-zh-hans-v1/sentence-063",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-028",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    }
+  ]
+}

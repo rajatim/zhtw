@@ -92,6 +92,20 @@ def render_markdown(
     maintainer_decisions: dict[str, Any] | None = None,
 ) -> str:
     stats, differences = build_comparison(packet, codex, gemini)
+    execution = gemini.get("execution", {})
+    tool_calls = execution.get("tool_calls")
+    total_errors = execution.get("total_errors")
+    validation = gemini.get("validation", {})
+    if not isinstance(tool_calls, int):
+        tool_calls = validation.get("tool_calls")
+    if not isinstance(total_errors, int):
+        total_errors = validation.get("api_errors")
+    if isinstance(tool_calls, int) and isinstance(total_errors, int):
+        execution_finding = (
+            f"its execution recorded {tool_calls} tool calls and {total_errors} API errors."
+        )
+    else:
+        execution_finding = "execution telemetry was not recorded for this advisory."
     decision_cases = (
         case_map(maintainer_decisions, label="maintainer decisions")
         if maintainer_decisions is not None
@@ -130,8 +144,7 @@ def render_markdown(
             "its own quality flags identified malformed or fragmentary input. These suggestions "
             "fail the declared source-quality rule and are not auto-adopted."
             if gemini["stats"]["policy_violations"]
-            else "Gemini reported no eligibility/quality-policy conflicts; its validation also "
-            "recorded zero tool calls and zero API errors."
+            else "Gemini reported no eligibility/quality-policy conflicts; " + execution_finding
         ),
         "",
         (
