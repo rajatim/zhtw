@@ -224,8 +224,8 @@ input alone.
   output or expected text influenced the source.
 - Decision: accepted as an input-only pilot. Codex and Gemini completed
   independent input-only classification, and the maintainer confirmed the Codex
-  synthesis on 2026-07-28. All 32 sampled eligible cases passed promotion
-  deduplication.
+  synthesis for batches 037-038 on 2026-07-28. All 64 sampled eligible cases
+  passed promotion deduplication.
 
 ### MASSIVE 1.0 `zh-CN`
 

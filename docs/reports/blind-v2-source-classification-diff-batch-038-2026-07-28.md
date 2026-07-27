@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 038 (2026-07-28)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `5bf0b75ae05fd8aae18c36096186134222776b3d8508df3ab8eeece4b7a4a76e`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 51 advisory disagreements and batch-confirmed the 45 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 個人安全相關，用詞直接，屬於基準測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 02. cisa-personal-security-zh-hans-v1/sentence-014
 
@@ -63,7 +63,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 涉及關鍵基礎設施安全，多個詞彙需正確轉換，可當基準。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 03. cisa-personal-security-zh-hans-v1/sentence-026
 
@@ -84,7 +84,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 居家安全建議，標準轉換詞彙多，適合做基準。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 04. cisa-personal-security-zh-hans-v1/sentence-075
 
@@ -105,7 +105,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 公共安全情境，包含地點、物品等名詞，是好的基準案例。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 05. cisa-personal-security-zh-hans-v1/sentence-086
 
@@ -126,7 +126,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 解釋術語「緩和」，測試引號及概念詞轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 06. massive-1-0-zh-cn-v1/10483
 
@@ -147,7 +147,7 @@ Codex reason: 來源句不完整、依賴前文或語意明顯錯置，無法作
 
 Gemini reason: 完整的日常對話句子，涉及人名與音樂。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 07. massive-1-0-zh-cn-v1/10755
 
@@ -168,7 +168,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 明確的 UI 指令，適合測試基礎詞彙「待辦清單」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 08. massive-1-0-zh-cn-v1/10886
 
@@ -189,7 +189,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 日常詢問，語意完整。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 09. massive-1-0-zh-cn-v1/11139
 
@@ -210,7 +210,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 常見的 UI 操作指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 10. massive-1-0-zh-cn-v1/11496
 
@@ -231,7 +231,7 @@ Codex reason: 來源句不完整、依賴前文或語意明顯錯置，無法作
 
 Gemini reason: 指令包含專有名詞「一席」，適合測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 11. massive-1-0-zh-cn-v1/13176
 
@@ -252,7 +252,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 查詢活動資訊，語意完整。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 12. massive-1-0-zh-cn-v1/14857
 
@@ -273,7 +273,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 解釋詞義的請求，語意完整。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 13. massive-1-0-zh-cn-v1/14860
 
@@ -294,7 +294,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 常見的貨幣換算指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 14. massive-1-0-zh-cn-v1/2405
 
@@ -315,7 +315,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 明確的智慧家庭控制指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 15. massive-1-0-zh-cn-v1/3151
 
@@ -336,7 +336,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 移除鬧鐘的指令，語意清晰。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 16. massive-1-0-zh-cn-v1/3328
 
@@ -357,7 +357,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 常見的新聞查詢指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 17. massive-1-0-zh-cn-v1/3334
 
@@ -378,7 +378,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 智慧家庭指令，包含「扫地机器人」，需注意是否過度轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 18. massive-1-0-zh-cn-v1/4197
 
@@ -399,7 +399,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 音樂播放控制指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 19. massive-1-0-zh-cn-v1/5807
 
@@ -420,7 +420,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 描述智慧家庭設備功能，句子結構完整。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 20. massive-1-0-zh-cn-v1/6792
 
@@ -441,7 +441,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 查詢個人事項，語意完整。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 21. massive-1-0-zh-cn-v1/7451
 
@@ -462,7 +462,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 新增日曆活動的指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 22. massive-1-0-zh-cn-v1/7458
 
@@ -483,7 +483,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 複合指令，包含時間、地點和事件，適合做為高要求測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 23. massive-1-0-zh-cn-v1/8525
 
@@ -504,7 +504,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 設定提醒事項的指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 24. massive-1-0-zh-cn-v1/9173
 
@@ -525,7 +525,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；可檢驗臺灣用語
 
 Gemini reason: 包含日期和事件的提醒指令，屬於高準確度要求場景。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 25. ready-gov-home-fires-zh-hans-v1/sentence-005
 
@@ -546,7 +546,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 消防安全資訊，度量衡與單位轉換詞「度」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 26. ready-gov-home-fires-zh-hans-v1/sentence-010
 
@@ -567,7 +567,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 消防安全資訊，常用詞「煙霧」、「顯著」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 27. ready-gov-home-fires-zh-hans-v1/sentence-047
 
@@ -588,7 +588,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 官方程序說明，涉及術語「公用設施」、「斷開連接」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 28. ready-gov-home-fires-zh-hans-v1/sentence-066
 
@@ -609,7 +609,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 消防安全建議，常用詞「蠟燭」、「考慮」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 29. ready-gov-home-fires-zh-hans-v1/sentence-075
 
@@ -630,7 +630,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 消費安全建議，含組織名稱「保險商實驗室」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 30. ready-gov-home-fires-zh-hans-v1/sentence-076
 
@@ -651,7 +651,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 產品安全說明，涉及技術詞彙「便攜式」、「恆溫器」、「機制」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 31. ready-gov-home-fires-zh-hans-v1/sentence-077
 
@@ -672,7 +672,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 特定產品使用說明，含專有型號 K-1。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 32. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-003
 
@@ -693,7 +693,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 定義「山體滑坡」，屬防災主題，為重要術語轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 33. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-018
 
@@ -714,7 +714,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 包含專有名詞「擋土牆」與「澤西護欄」（紐澤西護欄）。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 34. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-022
 
@@ -735,7 +735,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 簡短句子，包含「面臨」、「風險」、「保險」等基本詞彙。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 35. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-027
 
@@ -756,7 +756,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 描述山崩前兆，包含「隨著」、「鄰近」、「隆隆聲」等基本轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 36. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-041
 
@@ -777,7 +777,7 @@ Codex reason: 來源句不完整、依賴前文或語意明顯錯置，無法作
 
 Gemini reason: 句子雖短，但測試「根據」、「社區」、「威脅」等高頻詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 37. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-043
 
@@ -798,7 +798,7 @@ Codex reason: 來源句不完整、依賴前文或語意明顯錯置，無法作
 
 Gemini reason: 描述事實，包含「許多」、「人們」、「睡覺」等常用詞。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 38. ready-gov-radiation-zh-hans-v1/sentence-026
 
@@ -819,7 +819,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 包含「粒子」、「沉降物」等術語，可作為基準轉換測試。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 39. ready-gov-radiation-zh-hans-v1/sentence-056
 
@@ -840,7 +840,7 @@ Codex reason: 完整且可獨立判讀的公共安全敘述；適合高風險語
 
 Gemini reason: 標準陳述句，測試基本詞彙「飲水」、「進食」、「食物」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 40. zhtw-project-it-llm-social-guard-v1/llm-001
 
@@ -861,7 +861,7 @@ Codex reason: 完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣�
 
 Gemini reason: LLM 相關用語，測試一般轉換的準確性。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 41. zhtw-project-it-llm-social-guard-v1/llm-003
 
@@ -882,7 +882,7 @@ Codex reason: 完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣�
 
 Gemini reason: LLM 相關用語，測試一般轉換的準確性。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 42. zhtw-project-it-llm-social-guard-v1/llm-005
 
@@ -903,7 +903,7 @@ Codex reason: 完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣�
 
 Gemini reason: LLM 相關用語，測試一般轉換的準確性。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 43. zhtw-project-it-llm-social-guard-v1/llm-006
 
@@ -924,7 +924,7 @@ Codex reason: 完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣�
 
 Gemini reason: LLM 相關用語，測試「工作流」、「知识库」等詞彙轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 44. zhtw-project-it-llm-social-guard-v1/llm-008
 
@@ -945,7 +945,7 @@ Codex reason: 完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣�
 
 Gemini reason: LLM 核心術語「上下文窗口」，測試準確轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 45. zhtw-project-it-llm-social-guard-v1/llm-012
 
@@ -966,7 +966,7 @@ Codex reason: 完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣�
 
 Gemini reason: LLM 核心術語「提示模板」，測試準確轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 46. zhtw-project-it-llm-social-guard-v1/llm-014
 
@@ -987,7 +987,7 @@ Codex reason: 完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣�
 
 Gemini reason: LLM 相關用語，測試一般轉換的準確性。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 47. zhtw-project-it-llm-social-guard-v1/llm-015
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣�
 
 Gemini reason: LLM 相關用語，測試「稳定性」等詞彙轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 48. zhtw-project-it-llm-social-guard-v1/llm-019
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整的 LLM 工作流程敘述；可檢驗技術詞彙的臺灣�
 
 Gemini reason: LLM 代理（Agent）相關用語，測試準確轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 49. zhtw-project-it-llm-social-guard-v1/social-001
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整的日常敘述；品牌、人名、書名或識別碼必須
 
 Gemini reason: 日常用語，測試「车站」到「車站」的轉換，同時保留人名與高鐵班次。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 50. zhtw-project-it-llm-social-guard-v1/social-005
 
@@ -1071,7 +1071,7 @@ Codex reason: 完整的日常敘述；品牌、人名、書名或識別碼必須
 
 Gemini reason: 專有名稱「诚品生活松烟店」，需正確轉換為「誠品生活松菸店」。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 51. zhtw-project-it-llm-social-guard-v1/social-015
 
@@ -1092,4 +1092,4 @@ Codex reason: 完整的日常敘述；品牌、人名、書名或識別碼必須
 
 Gemini reason: 混合情境，包含臺灣特有詞彙「悠游卡」與簡體字「设」、「码」，測試準確轉換。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`

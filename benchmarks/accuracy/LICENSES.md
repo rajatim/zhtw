@@ -166,7 +166,7 @@ is missing.
   observed market traffic. It intentionally targets preregistered IT
   over-conversion, LLM candidate/baseline, and social entity-guard quota gaps.
   Independent Gemini review and maintainer confirmation completed on 2026-07-28;
-  32 sampled cases passed promotion deduplication.
+  64 sampled cases passed promotion deduplication across batches 037-038.
 
 ## zhtw-project-it-api-cli-v1
 
