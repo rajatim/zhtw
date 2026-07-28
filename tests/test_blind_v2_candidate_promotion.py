@@ -100,8 +100,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-043-2026-07-28.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-044-2026-07-28.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-045-2026-07-28.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-044-2026-07-28.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-045-2026-07-28.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -130,24 +132,24 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 3832,
+        "total": 3917,
         "by_domain": {
-            "formal_news": 518,
-            "high_stakes": 939,
-            "it_api_cli": 641,
-            "llm_generated": 382,
-            "social_daily": 660,
-            "ui_i18n": 692,
+            "formal_news": 523,
+            "high_stakes": 976,
+            "it_api_cli": 655,
+            "llm_generated": 396,
+            "social_daily": 667,
+            "ui_i18n": 700,
         },
         "by_risk": {
-            "baseline_guard": 1138,
-            "candidate_gap": 1612,
-            "over_conversion_guard": 1082,
+            "baseline_guard": 1157,
+            "candidate_gap": 1645,
+            "over_conversion_guard": 1115,
         },
         "by_source_class": {
             "permissive_license": 1308,
-            "project_original": 1230,
-            "public_domain": 1294,
+            "project_original": 1278,
+            "public_domain": 1331,
         },
         "by_source": {
             "aosp-framework-zh-rcn-v1": 275,
@@ -178,10 +180,12 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ready-gov-floods-zh-hans-v1": 47,
             "ready-gov-home-fires-zh-hans-v1": 81,
             "ready-gov-hurricanes-zh-hans-v1": 42,
+            "ready-gov-campus-zh-hans-v1": 4,
+            "ready-gov-kids-tornadoes-zh-hans-v1": 31,
             "ready-gov-landslides-debris-flow-zh-hans-v1": 53,
             "ready-gov-radiation-zh-hans-v1": 59,
             "ready-gov-tornadoes-zh-hans-v1": 32,
-            "ready-gov-winter-weather-zh-hans-v1": 39,
+            "ready-gov-winter-weather-zh-hans-v1": 41,
             "ud-chinese-cfl-v1": 69,
             "vscode-loc-zh-hans-v1": 115,
             "zhtw-project-balanced-baseline-guard-v1": 100,
@@ -190,18 +194,18 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-formal-llm-balance-v1": 100,
             "zhtw-project-formal-llm-semantic-v1": 100,
             "zhtw-project-it-api-cli-v1": 100,
-            "zhtw-project-it-llm-social-guard-v1": 80,
+            "zhtw-project-it-llm-social-guard-v1": 100,
             "zhtw-project-it-llm-ui-guard-v1": 100,
-            "zhtw-project-it-ui-llm-formal-guard-v1": 80,
+            "zhtw-project-it-ui-llm-formal-guard-v1": 100,
             "zhtw-project-llm-domain-balance-v1": 98,
-            "zhtw-project-llm-it-ui-baseline-v1": 96,
+            "zhtw-project-llm-it-ui-baseline-v1": 100,
             "zhtw-project-llm-product-v1": 50,
-            "zhtw-project-llm-social-baseline-v1": 96,
+            "zhtw-project-llm-social-baseline-v1": 100,
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 3838
-    assert report["promoted"] == 3832
+    assert report["confirmed_eligible"] == 3923
+    assert report["promoted"] == 3917
     assert report["excluded_by_dedupe"] == 6
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
