@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 043 (2026-07-28)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `c23bcf6ad53f9d5932303ef24c21e9ec17750d4f9f713a4b5b60e96c41785bbf`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 70 advisory disagreements and batch-confirmed the 26 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: Technical error message. The identifier 'HTTP 403 Forbidden' must be preserved and not converted.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 02. chromium-strings-zh-cn-v1/translation-3975724895399328945
 
@@ -63,7 +63,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: Proper name 'Google Chrome for Testing' and the UI mnemonic '(&G)' should be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 03. chromium-strings-zh-cn-v1/translation-4987820182225656817
 
@@ -84,7 +84,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: The proper name 'Chromium' must be preserved and not converted.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 04. chromium-strings-zh-cn-v1/translation-5123973130450702873
 
@@ -105,7 +105,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: Permission request string. '跟踪' (track) is a key term that may have regional variants (e.g., 追蹤).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 05. chromium-strings-zh-cn-v1/translation-5473971139929175403
 
@@ -126,7 +126,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: Technical warning. The proper names 'Chromium' and 'Linux' must be preserved. The term '发行版' (distribution) might also require normalization.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 06. chromium-strings-zh-cn-v1/translation-5596627076506792578
 
@@ -147,7 +147,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: A common UI label where direct character-for-character conversion is generally sufficient.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 07. chromium-strings-zh-cn-v1/translation-5800158606660203929
 
@@ -168,7 +168,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: Contains classic mainland Chinese terms like '自定义' (customize) and '默认' (default) that require normalization for a Taiwanese locale (e.g., to '自訂' and '預設').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 08. chromium-strings-zh-cn-v1/translation-615103374448673771
 
@@ -189,7 +189,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: UI string for cookie settings. Contains proper nouns 'Chromium' and 'Cookie' that should not be converted.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 09. chromium-strings-zh-cn-v1/translation-6248988683584659830
 
@@ -210,7 +210,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: Standard UI label. Straightforward character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 10. chromium-strings-zh-cn-v1/translation-6388799252195623474
 
@@ -231,7 +231,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: Common phrase for a help or action button.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 11. chromium-strings-zh-cn-v1/translation-67706546131546258
 
@@ -252,7 +252,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: Security warning message. Contains proper noun 'Chromium'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 12. chromium-strings-zh-cn-v1/translation-751935028865900641
 
@@ -273,7 +273,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: Explanatory text for login/session behavior. Contains proper names 'Chromium' and 'Google'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 13. chromium-strings-zh-cn-v1/translation-8372327902843331129
 
@@ -294,7 +294,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: UI text for account/password sync. Contains proper nouns 'Chromium' and 'Google'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 14. chromium-strings-zh-cn-v1/translation-904366664621834601
 
@@ -315,7 +315,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: Download security warning. Regional terms for 'archive file' (归档文件) and 'malware' (恶意软件) may need normalization.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 15. chromium-strings-zh-cn-v1/translation-965162752251293939
 
@@ -336,7 +336,7 @@ Codex reason: 可獨立判讀的 Chromium UI 字串；依臺灣介面詞彙與�
 
 Gemini reason: User profile selection prompt. Contains the proper name 'Chromium'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 16. ftc-how-to-avoid-scam-simplified-v1/sentence-001
 
@@ -357,7 +357,7 @@ Codex reason: 可獨立判讀的 FTC 防詐句；依臺灣用語差異與安全�
 
 Gemini reason: Standard formal sentence. '来自于' is a minor regional phrasing difference.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 17. ftc-how-to-avoid-scam-simplified-v1/sentence-004
 
@@ -378,7 +378,7 @@ Codex reason: 可獨立判讀的 FTC 防詐句；依臺灣用語差異與安全�
 
 Gemini reason: Sentence contains a list of business types requiring standard conversion and checking for regional term preferences.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 18. ftc-how-to-avoid-scam-simplified-v1/sentence-005
 
@@ -399,7 +399,7 @@ Codex reason: 可獨立判讀的 FTC 防詐句；依臺灣用語差異與安全�
 
 Gemini reason: Technical term '来电显示' (caller ID) requires correct regional mapping.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 19. ftc-how-to-avoid-scam-simplified-v1/sentence-006
 
@@ -420,7 +420,7 @@ Codex reason: 可獨立判讀的 FTC 防詐句；依臺灣用語差異與安全�
 
 Gemini reason: Straightforward sentence with common character conversions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 20. ftc-how-to-avoid-scam-simplified-v1/sentence-007
 
@@ -441,7 +441,7 @@ Codex reason: 可獨立判讀的 FTC 防詐句；依臺灣用語差異與安全�
 
 Gemini reason: Simple, direct sentence with standard character mappings (e.g., 采取 -> 採取).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 21. ftc-how-to-avoid-scam-simplified-v1/sentence-012
 
@@ -462,7 +462,7 @@ Codex reason: 可獨立判讀的 FTC 防詐句；依臺灣用語差異與安全�
 
 Gemini reason: Instruction about payment, a high-stakes topic. '付款' is common but context matters.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 22. ftc-how-to-avoid-scam-simplified-v1/sentence-021
 
@@ -483,7 +483,7 @@ Codex reason: 可獨立判讀的 FTC 防詐句；依臺灣用語差異與安全�
 
 Gemini reason: Classic candidate_gap: '短信' (text message) should be converted to '簡訊' for Taiwan locale.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 23. ftc-how-to-avoid-scam-simplified-v1/sentence-031
 
@@ -504,7 +504,7 @@ Codex reason: 可獨立判讀的 FTC 防詐句；依臺灣用語差異與安全�
 
 Gemini reason: Contains proper nouns 'MoneyGram' and 'Western Union' which must not be converted. Also contains terms like '支付应用程序' (payment apps) which are candidates for localization ('支付APP').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 24. ftc-how-to-avoid-scam-simplified-v1/sentence-032
 
@@ -525,7 +525,7 @@ Codex reason: 可獨立判讀的 FTC 防詐句；依臺灣用語差異與安全�
 
 Gemini reason: Simple, common-language sentence where direct character conversion is sufficient.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 25. kubernetes-docs-zh-cn-v1/page-01-sentence-0021
 
@@ -546,7 +546,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術句；命令、欄位與資源
 
 Gemini reason: Standard technical sentence from Kubernetes documentation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 26. kubernetes-docs-zh-cn-v1/page-02-sentence-0033
 
@@ -567,7 +567,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術句；命令、欄位與資源
 
 Gemini reason: Standard technical sentence about declarative configuration.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 27. kubernetes-docs-zh-cn-v1/page-02-sentence-0038
 
@@ -588,7 +588,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術句；命令、欄位與資源
 
 Gemini reason: Standard sentence about debugging technical configurations.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 28. kubernetes-docs-zh-cn-v1/page-03-sentence-0089
 
@@ -609,7 +609,7 @@ Codex reason: 例句省略執行一次的主體並依賴前文，無法離開上
 
 Gemini reason: Contains identifier `Pod` and the example is slightly fragmented but understandable.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 29. kubernetes-docs-zh-cn-v1/page-03-sentence-0288
 
@@ -630,7 +630,7 @@ Codex reason: 句尾「Pod 被對應的以某選定」明顯殘缺錯接，來�
 
 Gemini reason: Sentence is incomplete and ends with an ungrammatical, nonsensical phrase '以某选定'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 30. kubernetes-docs-zh-cn-v1/page-03-sentence-0307
 
@@ -651,7 +651,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術句；命令、欄位與資源
 
 Gemini reason: IT/CLI documentation. Contains command-line flags (`--grace-period=0`, `--force`) that must not be converted.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 31. kubernetes-docs-zh-cn-v1/page-04-sentence-0044
 
@@ -672,7 +672,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術句；命令、欄位與資源
 
 Gemini reason: IT/API documentation. Contains technical identifiers (Pod, Service, `targetPort`) that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 32. kubernetes-docs-zh-cn-v1/page-04-sentence-0111
 
@@ -693,7 +693,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術句；命令、欄位與資源
 
 Gemini reason: IT/API documentation. Contains technical identifiers (`LoadBalancer`, Service) that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 33. kubernetes-docs-zh-cn-v1/page-04-sentence-0131
 
@@ -714,7 +714,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術句；命令、欄位與資源
 
 Gemini reason: IT/API documentation. Contains mainland China IT terms like '负载均衡解决方案' (load balancing solution) that may need localization in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 34. kubernetes-docs-zh-cn-v1/page-04-sentence-0201
 
@@ -735,7 +735,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術句；命令、欄位與資源
 
 Gemini reason: IT/API documentation. High density of technical identifiers (`type: ExternalName`, Service, IPv4, DNS, IP).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 35. kubernetes-docs-zh-cn-v1/page-04-sentence-0204
 
@@ -756,7 +756,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術句；命令、欄位與資源
 
 Gemini reason: IT/API documentation. Contains FQDNs and technical terms (`CNAME`) that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 36. kubernetes-docs-zh-cn-v1/page-04-sentence-0242
 
@@ -777,7 +777,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術句；命令、欄位與資源
 
 Gemini reason: IT/API documentation. Contains technical identifiers (Kubernetes DNS, `ExternalName`, Service) that must not be converted.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 37. kubernetes-docs-zh-cn-v1/page-04-sentence-0245
 
@@ -798,7 +798,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術句；命令、欄位與資源
 
 Gemini reason: IT/API documentation. Contains spec paths (`.spec.internalTrafficPolicy`, `.spec.externalTrafficPolicy`) that are code and must not be converted.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 38. ready-gov-tornadoes-zh-hans-v1/sentence-008
 
@@ -819,7 +819,7 @@ Codex reason: 可獨立判讀的龍捲風安全指示；依臺灣用語與機構
 
 Gemini reason: Simple, direct safety advice.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 39. ready-gov-tornadoes-zh-hans-v1/sentence-013
 
@@ -840,7 +840,7 @@ Codex reason: 可獨立判讀的龍捲風安全指示；依臺灣用語與機構
 
 Gemini reason: Factual statement involving geographical locations with standard character conversions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 40. ready-gov-tornadoes-zh-hans-v1/sentence-015
 
@@ -861,7 +861,7 @@ Codex reason: 可獨立判讀的龍捲風安全指示；依臺灣用語與機構
 
 Gemini reason: The word '注册' (register) is a common mainland term; Taiwan usage often prefers '登記' for signing up for services, though '註冊' is also used.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 41. ready-gov-tornadoes-zh-hans-v1/sentence-017
 
@@ -882,7 +882,7 @@ Codex reason: 可獨立判讀的龍捲風安全指示；依臺灣用語與機構
 
 Gemini reason: Standard safety instruction. '社区' (community) and '警报器' (alarm/siren) are key terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 42. ready-gov-tornadoes-zh-hans-v1/sentence-019
 
@@ -903,7 +903,7 @@ Codex reason: 可獨立判讀的龍捲風安全指示；依臺灣用語與機構
 
 Gemini reason: Contains proper nouns (FEMA, ICC 500) that must not be converted. Key terms are '避难所' (shelter) and '风暴' (storm).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 43. ready-gov-tornadoes-zh-hans-v1/sentence-020
 
@@ -924,7 +924,7 @@ Codex reason: 可獨立判讀的龍捲風安全指示；依臺灣用語與機構
 
 Gemini reason: Straightforward descriptive sentence. Focus on correct glyph conversion for common terms like '建筑' (building) and '室内' (indoor).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 44. ready-gov-tornadoes-zh-hans-v1/sentence-021
 
@@ -945,7 +945,7 @@ Codex reason: 可獨立判讀的龍捲風安全指示；依臺灣用語與機構
 
 Gemini reason: Short imperative sentence. '宠物' (pet) and '计划' (plan) are key terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 45. ready-gov-tornadoes-zh-hans-v1/sentence-028
 
@@ -966,7 +966,7 @@ Codex reason: 可獨立判讀的龍捲風安全指示；依臺灣用語與機構
 
 Gemini reason: Conditional safety instruction. Involves common objects like '车' (vehicle) and body parts.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 46. ready-gov-tornadoes-zh-hans-v1/sentence-030
 
@@ -987,7 +987,7 @@ Codex reason: 可獨立判讀的龍捲風安全指示；依臺灣用語與機構
 
 Gemini reason: Contains acronyms (EAS, NOAA) and a long proper name of an agency. Acronyms must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 47. zhtw-project-it-ui-llm-formal-guard-v1/formal-005
 
@@ -1008,7 +1008,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The sentence is eligible. The main risk is to incorrectly convert the English proper noun 'World Values Survey Wave 7'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 48. zhtw-project-it-ui-llm-formal-guard-v1/formal-006
 
@@ -1029,7 +1029,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The sentence is eligible. The main risk is to incorrectly convert the case number identifier '2:26-cv-00417'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 49. zhtw-project-it-ui-llm-formal-guard-v1/formal-012
 
@@ -1050,7 +1050,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The sentence is eligible. The main risk is to incorrectly convert the foreign name 'José Álvarez' or remove its diacritics.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 50. zhtw-project-it-ui-llm-formal-guard-v1/formal-015
 
@@ -1071,7 +1071,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The sentence is eligible. The main risk is to incorrectly convert the form identifier 'Form QA-17B'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 51. zhtw-project-it-ui-llm-formal-guard-v1/it-002
 
@@ -1092,7 +1092,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The sentence is eligible. The main risk is to incorrectly convert the URI path '/v2/userProfiles/{profileId}'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 52. zhtw-project-it-ui-llm-formal-guard-v1/it-003
 
@@ -1113,7 +1113,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The sentence is eligible. The main risk is to incorrectly convert the service account name 'ci-release@acme-prod.iam.gserviceaccount.com'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 53. zhtw-project-it-ui-llm-formal-guard-v1/it-004
 
@@ -1134,7 +1134,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The sentence is eligible. The main risk is to incorrectly convert the database constraint name 'fk_orders_customer_id'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 54. zhtw-project-it-ui-llm-formal-guard-v1/it-013
 
@@ -1155,7 +1155,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The sentence is eligible. The main risk is to incorrectly convert platform identifiers like 'linux-arm64'. '构建产物' is also a potential localization gap for Taiwan ('建置產出').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 55. zhtw-project-it-ui-llm-formal-guard-v1/llm-005
 
@@ -1176,7 +1176,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The English technical term 'abstain' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 56. zhtw-project-it-ui-llm-formal-guard-v1/llm-006
 
@@ -1197,7 +1197,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The technical identifier 'embedding_v2' must be preserved. '字段' is a mainland term; Taiwan equivalent is '欄位'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 57. zhtw-project-it-ui-llm-formal-guard-v1/llm-009
 
@@ -1218,7 +1218,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: Technical identifiers 'hybrid_search' and 'k' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 58. zhtw-project-it-ui-llm-formal-guard-v1/llm-010
 
@@ -1239,7 +1239,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The reference string '[source:manual#section-4]' is a literal and must not be altered.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 59. zhtw-project-it-ui-llm-formal-guard-v1/llm-012
 
@@ -1260,7 +1260,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The snake_case identifiers 'policy_violation' and 'prompt_injection' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 60. zhtw-project-it-ui-llm-formal-guard-v1/llm-015
 
@@ -1281,7 +1281,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The English phrase 'stop sequence' and code-like tag '</answer>' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 61. zhtw-project-it-ui-llm-formal-guard-v1/llm-024
 
@@ -1302,7 +1302,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The SQL code 'DROP TABLE users;' is a literal and must be preserved exactly.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 62. zhtw-project-it-ui-llm-formal-guard-v1/ui-001
 
@@ -1323,7 +1323,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The sentence itself requires preserving the English UI label 'Open in New Window'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 63. zhtw-project-it-ui-llm-formal-guard-v1/ui-002
 
@@ -1344,7 +1344,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: Identifier ERR_NETWORK_CHANGED should be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 64. zhtw-project-it-ui-llm-formal-guard-v1/ui-005
 
@@ -1365,7 +1365,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: MIME type 'text/csv' is a technical identifier that should not be altered.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 65. zhtw-project-it-ui-llm-formal-guard-v1/ui-006
 
@@ -1386,7 +1386,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: Standard UI string requiring basic character conversion (e.g., 页 to 頁).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 66. zhtw-project-it-ui-llm-formal-guard-v1/ui-007
 
@@ -1407,7 +1407,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: The product label 'Beta' should be preserved and not translated.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 67. zhtw-project-it-ui-llm-formal-guard-v1/ui-008
 
@@ -1428,7 +1428,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: Focuses on preserving the specific 'Save As…' string including the single ellipsis character (U+2026).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 68. zhtw-project-it-ui-llm-formal-guard-v1/ui-012
 
@@ -1449,7 +1449,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: Proper noun 'Acme Studio' must be preserved without modification.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 69. zhtw-project-it-ui-llm-formal-guard-v1/ui-018
 
@@ -1470,7 +1470,7 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: State keywords 'on' and 'off' must be preserved as they are likely fixed values in code.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 70. zhtw-project-it-ui-llm-formal-guard-v1/ui-023
 
@@ -1491,4 +1491,4 @@ Codex reason: Project-original 保留情境可獨立判讀；識別碼、專名�
 
 Gemini reason: Describes a display convention; requires standard character conversion without complex localization risks.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
