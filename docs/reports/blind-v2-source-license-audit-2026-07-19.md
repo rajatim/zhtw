@@ -513,3 +513,10 @@ The source is preferred for the next public-domain batch because 54 of its 56
 extracted cases are distinct from existing external source snapshots. Its
 normalized SHA-256 is
 `4f399a7fe7b5ab55ed382d5bbfc2fd01c1fac2b83ca62d05b428cd252e8f7135`.
+
+Batch 040 completed input-only classification for 32 Winter Weather cases.
+The maintainer confirmed the Codex synthesis: 22 cases were eligible and 10
+were excluded by source-quality policy. One eligible case was then removed as
+an exact duplicate of an existing Ready.gov Floods candidate; the remaining 21
+were promoted without using converter output or expected text. Tornadoes
+classification remains pending.

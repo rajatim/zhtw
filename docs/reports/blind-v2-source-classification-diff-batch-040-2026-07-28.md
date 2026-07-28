@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 040 (2026-07-28)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `21be9eb5c5a839c761b3cee48a7a431e7840e5f4280ff281e3d5dc23b6f4ee7e`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 53 advisory disagreements and batch-confirmed the 43 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, complete command. '清单' is a standard term.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 02. massive-1-0-zh-cn-v1/109
 
@@ -63,7 +63,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, complete command to play a song.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 03. massive-1-0-zh-cn-v1/11070
 
@@ -84,7 +84,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, complete question. '杂货清单' is standard.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 04. massive-1-0-zh-cn-v1/11939
 
@@ -105,7 +105,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, complete local search query.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 05. massive-1-0-zh-cn-v1/12588
 
@@ -126,7 +126,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: A complete statement. '时刻表' is a standard term.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 06. massive-1-0-zh-cn-v1/12861
 
@@ -147,7 +147,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, complete question about transportation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 07. massive-1-0-zh-cn-v1/13582
 
@@ -168,7 +168,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, complete question about financial data.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 08. massive-1-0-zh-cn-v1/14070
 
@@ -189,7 +189,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, complete question. '奈飞' for Netflix is a good test case for brand names.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 09. massive-1-0-zh-cn-v1/14080
 
@@ -210,7 +210,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear search phrase for general knowledge.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 10. massive-1-0-zh-cn-v1/14302
 
@@ -231,7 +231,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, complete question about financial data.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 11. massive-1-0-zh-cn-v1/14766
 
@@ -252,7 +252,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: A complete, if slightly philosophical, question. Contains the wake word 'alexa'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 12. massive-1-0-zh-cn-v1/15000
 
@@ -273,7 +273,7 @@ Codex reason: 來源句為殘句、錯譯病句、單位不明或依賴前文，
 
 Gemini reason: Grammatically valid, but the use of '定义' (definition) for a washing machine is unusual. Likely means 'specs' or 'info'. Contains brand name 'lg'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 13. massive-1-0-zh-cn-v1/15203
 
@@ -294,7 +294,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: A common and clear command phrase.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 14. massive-1-0-zh-cn-v1/15351
 
@@ -315,7 +315,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear command. '张三' is a common placeholder name.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 15. massive-1-0-zh-cn-v1/1544
 
@@ -336,7 +336,7 @@ Codex reason: 來源句為殘句、錯譯病句、單位不明或依賴前文，
 
 Gemini reason: Grammatically valid, but '上拍音乐' is an unnatural or literal translation for 'upbeat music'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 16. massive-1-0-zh-cn-v1/1690
 
@@ -357,7 +357,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, complete question with a wake word 'olly'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 17. massive-1-0-zh-cn-v1/3143
 
@@ -378,7 +378,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear statement, likely a rating command.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 18. massive-1-0-zh-cn-v1/3189
 
@@ -399,7 +399,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, complete question on a geopolitical news topic.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 19. massive-1-0-zh-cn-v1/3344
 
@@ -420,7 +420,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, colloquial question about setting an alarm.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 20. massive-1-0-zh-cn-v1/3505
 
@@ -441,7 +441,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, colloquial question about weather.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 21. massive-1-0-zh-cn-v1/445
 
@@ -462,7 +462,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, concise music command.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 22. massive-1-0-zh-cn-v1/454
 
@@ -483,7 +483,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear smart home command.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 23. massive-1-0-zh-cn-v1/5026
 
@@ -504,7 +504,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear smart home command for lighting.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 24. massive-1-0-zh-cn-v1/5551
 
@@ -525,7 +525,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, complete local search question.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 25. massive-1-0-zh-cn-v1/7945
 
@@ -546,7 +546,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear calendar-related query.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 26. massive-1-0-zh-cn-v1/9093
 
@@ -567,7 +567,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear calendar management command.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 27. massive-1-0-zh-cn-v1/9255
 
@@ -588,7 +588,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, classic command to turn on a device.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 28. massive-1-0-zh-cn-v1/9462
 
@@ -609,7 +609,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；短句仍具有明確
 
 Gemini reason: Clear, concise command to change a channel.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 29. ready-gov-winter-weather-zh-hans-v1/sentence-001
 
@@ -630,7 +630,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整句子，公共安全指引，属于高风险领域。包含多个专业术语，是良好的基线测试案例。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 30. ready-gov-winter-weather-zh-hans-v1/sentence-002
 
@@ -651,7 +651,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整句子，公共安全指引。包含多个天气术语。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 31. ready-gov-winter-weather-zh-hans-v1/sentence-013
 
@@ -672,7 +672,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 祈使句，但更像是清单或标题，结构过于简单，可视为片段。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 32. ready-gov-winter-weather-zh-hans-v1/sentence-017
 
@@ -693,7 +693,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 指令性片段，清单项目，非完整叙述性句子。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 33. ready-gov-winter-weather-zh-hans-v1/sentence-018
 
@@ -714,7 +714,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整的祈使句，包含目的状语从句，可以独立理解。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 34. ready-gov-winter-weather-zh-hans-v1/sentence-019
 
@@ -735,7 +735,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整的祈使句，可以独立理解。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 35. ready-gov-winter-weather-zh-hans-v1/sentence-022
 
@@ -756,7 +756,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 清单式祈使句，结构更接近标题或列表项，非完整叙述句。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 36. ready-gov-winter-weather-zh-hans-v1/sentence-023
 
@@ -777,7 +777,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整的祈使句，可以独立理解。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 37. ready-gov-winter-weather-zh-hans-v1/sentence-026
 
@@ -798,7 +798,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 指令性片段，更像是小标题，非完整句子。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 38. ready-gov-winter-weather-zh-hans-v1/sentence-027
 
@@ -819,7 +819,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整祈使句。‘发电机’中的‘发’ (fā) vs ‘髮’ (fà) 和 ‘机’ (jī) vs ‘幾’ (jǐ) 是常见的转换测试点。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 39. ready-gov-winter-weather-zh-hans-v1/sentence-028
 
@@ -840,7 +840,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整的否定祈使句，安全警告。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 40. ready-gov-winter-weather-zh-hans-v1/sentence-029
 
@@ -861,7 +861,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 与上一句意思几乎完全相同，只是措辞略有不同。可作为一致性测试。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 41. ready-gov-winter-weather-zh-hans-v1/sentence-031
 
@@ -882,7 +882,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整祈使句，安全建议。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 42. ready-gov-winter-weather-zh-hans-v1/sentence-032
 
@@ -903,7 +903,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整的条件句。‘车’是简繁转换的经典案例。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 43. ready-gov-winter-weather-zh-hans-v1/sentence-033
 
@@ -924,7 +924,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 指令性片段，清单体，非完整叙述句。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 44. ready-gov-winter-weather-zh-hans-v1/sentence-034
 
@@ -945,7 +945,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整的条件句。‘几’ vs ‘幾’ 是简繁转换测试点。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 45. ready-gov-winter-weather-zh-hans-v1/sentence-035
 
@@ -966,7 +966,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整祈使句，包含医学术语。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 46. ready-gov-winter-weather-zh-hans-v1/sentence-037
 
@@ -987,7 +987,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整句子，描述医疗症状。‘面’(脸/面条) 和 ‘颜色’ vs ‘颜料’ 是潜在的过度转换风险点。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 47. ready-gov-winter-weather-zh-hans-v1/sentence-040
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整祈使句，医疗建议。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 48. ready-gov-winter-weather-zh-hans-v1/sentence-045
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整祈使句。‘干燥’ 中的 ‘干’ (gān) vs ‘幹’ (gàn) 是一个典型的过度转换保护案例。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 49. ready-gov-winter-weather-zh-hans-v1/sentence-046
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整句子。‘发电机’ 是一个好的简繁转换测试词。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 50. ready-gov-winter-weather-zh-hans-v1/sentence-047
 
@@ -1071,7 +1071,7 @@ Codex reason: 來源句為殘句、錯譯病句、單位不明或依賴前文，
 
 Gemini reason: 完整句子，包含英文缩写，属于混合脚本。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 51. ready-gov-winter-weather-zh-hans-v1/sentence-049
 
@@ -1092,7 +1092,7 @@ Codex reason: 來源句為殘句、錯譯病句、單位不明或依賴前文，
 
 Gemini reason: 句子语法完整但“安装工作的一氧化碳探测器”的表述稍显生硬，‘工作’在此处意为‘正常运作的’，可能构成转换挑战。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 52. ready-gov-winter-weather-zh-hans-v1/sentence-052
 
@@ -1113,7 +1113,7 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整句子，安全警告。包含‘发电机’、‘设备’等多个简繁转换测试点。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 53. ready-gov-winter-weather-zh-hans-v1/sentence-054
 
@@ -1134,4 +1134,4 @@ Codex reason: 完整且可獨立判讀的公共安全指引；依輸入本身分
 
 Gemini reason: 完整祈使句。包含‘发电机’。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`

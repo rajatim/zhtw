@@ -825,8 +825,12 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   後固定抽樣。Codex first pass 建議 84 筆納入、12 筆排除；Gemini CLI 0.52.0
   以三個來源隔離 session 完成 96/96 input-only 獨立審查，零工具呼叫、零 API
   錯誤，建議 83 筆納入、13 筆排除。兩者有 43 筆四欄完全一致、53 筆差異；
-  Codex synthesis 逐筆複核後建議 84 筆納入、12 筆排除。狀態仍為 advisory
-  only，等待 maintainer confirmation；確認前不得 promotion。
+  Codex synthesis 逐筆複核後建議 84 筆納入、12 筆排除；maintainer 已確認整批
+  synthesis。84 筆 eligible 中，83 筆通過 promotion；Winter Weather
+  `sentence-013` 與既有 Floods `sentence-015` 完全重複，依固定規則去重排除。
+  Pool `3,384 → 3,467`，距最低 5,880 筆尚差 2,413；`permissive_license`
+  1,190/3,467（34.32%）、`public_domain` 1,175/3,467（33.89%）、
+  `project_original` 1,102/3,467（31.79%），皆低於 35%。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent
