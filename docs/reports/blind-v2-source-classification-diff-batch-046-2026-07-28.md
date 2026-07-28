@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 046 (2026-07-28)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `6de41a228a52b18a7eadefb8dc96408cc646b94c565ca9770c9a3fb6b1584e5c`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 77 advisory disagreements and batch-confirmed the 19 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Standard technical sentence. Terms like '服务器' (server), '概率' (probability), and '响应' (response) are common and this is a baseline conversion case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 02. kubernetes-docs-zh-cn-v1/page-03-sentence-0032
 
@@ -63,7 +63,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: The identifiers 'Pod' and 'phase' are code literals that must not be converted or translated.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 03. kubernetes-docs-zh-cn-v1/page-03-sentence-0049
 
@@ -84,7 +84,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: The identifiers 'Pod', 'phase', and 'Failed' must be preserved. Also contains regional term candidates like '失联' (lost contact).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 04. kubernetes-docs-zh-cn-v1/page-03-sentence-0056
 
@@ -105,7 +105,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: The state names 'Running', 'Terminated', and 'Waiting' are identifiers and must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 05. kubernetes-docs-zh-cn-v1/page-03-sentence-0060
 
@@ -126,7 +126,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: The term '回调' (callback) is a classic Mainland preference; Taiwan technical context often uses '回呼'. The identifier 'postStart' must also be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 06. kubernetes-docs-zh-cn-v1/page-03-sentence-0063
 
@@ -147,7 +147,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Contains the identifiers 'kubectl', 'Terminated', and 'Pod', which must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 07. kubernetes-docs-zh-cn-v1/page-03-sentence-0064
 
@@ -168,7 +168,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Contains the term '回调' (callback), a candidate for localization to '回呼' in Taiwan, and identifiers 'preStop' and 'Terminated' which must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 08. kubernetes-docs-zh-cn-v1/page-03-sentence-0081
 
@@ -189,7 +189,7 @@ Codex reason: 以「這通常是」承接前文方法，單句缺少明確指涉
 
 Gemini reason: '崩溃' (crash) is a Mainland-preferred term. Taiwan often uses '當機' for system/application crashes, although '崩潰' is also understood.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 09. kubernetes-docs-zh-cn-v1/page-03-sentence-0082
 
@@ -210,7 +210,7 @@ Codex reason: 抽取後的 `kubectl describe pod ` 命令缺少必要 Pod 名稱
 
 Gemini reason: The code snippet '`kubectl describe pod `' is a command and must not be altered. The term '配置' (configuration) is also a minor candidate_gap, as Taiwan often prefers '組態'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 10. kubernetes-docs-zh-cn-v1/page-03-sentence-0174
 
@@ -231,7 +231,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: This sentence contains multiple Mainland-specific IT terms requiring localization: '客户端库' (client library -> 用戶端函式庫), '就绪态' (readiness state -> 就緒狀態), '定制' (custom -> 自訂), '状况' (condition -> 狀況/狀態).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 11. kubernetes-docs-zh-cn-v1/page-03-sentence-0180
 
@@ -252,7 +252,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Multiple Mainland-specific IT terms need localization: '特性门控' (feature gate), '默认' (default), '状况' (condition), and '字段' (field). The identifiers are over-conversion guards.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 12. kubernetes-docs-zh-cn-v1/page-03-sentence-0184
 
@@ -273,7 +273,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Mainland-specific IT terms requiring localization: '运行时插件' (runtime plugin), '网络' (network), and '状况' (condition).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 13. kubernetes-docs-zh-cn-v1/page-03-sentence-0202
 
@@ -294,7 +294,7 @@ Codex reason: 「這種方法」缺少前文所指方法，且冒號後僅接適
 
 Gemini reason: A simple, standard sentence that mainly requires character-level conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 14. kubernetes-docs-zh-cn-v1/page-03-sentence-0220
 
@@ -315,7 +315,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: A straightforward sentence with common terms ('端口', '诊断') requiring standard character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 15. kubernetes-docs-zh-cn-v1/page-03-sentence-0224
 
@@ -336,7 +336,7 @@ Codex reason: 「這種場景」依賴前文診斷情境，無法由單句確認
 
 Gemini reason: The term '开销' (overhead) is a Mainland-specific IT term that needs to be localized for Taiwan (e.g., to '額外負擔').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 16. kubernetes-docs-zh-cn-v1/page-03-sentence-0258
 
@@ -357,7 +357,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: The phrase '体面地终止' (graceful termination) requires careful localization to standard Taiwan IT terminology, e.g., '正常終止' or '優雅地終止'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 17. kubernetes-docs-zh-cn-v1/page-03-sentence-0289
 
@@ -378,7 +378,7 @@ Codex reason: 句子以「和其他工作負載資源」起首但缺少並列主
 
 Gemini reason: Mainland-specific IT terms like '工作负载' (workload) and '副本' (replica) require localization for a Taiwan audience. `Pod` should be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 18. kubernetes-docs-zh-cn-v1/page-03-sentence-0301
 
@@ -399,7 +399,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Mainland term '服务器' (server) should be localized to '伺服器' for Taiwan. '客户端' (client) is often '用戶端'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 19. kubernetes-docs-zh-cn-v1/page-03-sentence-0306
 
@@ -420,7 +420,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: The identifier 'kubelet' must not be converted. '节点' (node) and '清理' (cleanup) are standard terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 20. kubernetes-docs-zh-cn-v1/page-04-sentence-0016
 
@@ -441,7 +441,7 @@ Codex reason: 「這種解耦」依賴前文所述元件關係，單句缺少可
 
 Gemini reason: The proper noun 'Service' is an identifier within the Kubernetes context and must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 21. kubernetes-docs-zh-cn-v1/page-04-sentence-0017
 
@@ -462,7 +462,7 @@ Codex reason: 「由你定義的來確定」缺少被定義的 selector 等名�
 
 Gemini reason: A straightforward case for character conversion. The identifiers 'Service' and 'Pod' should be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 22. kubernetes-docs-zh-cn-v1/page-04-sentence-0033
 
@@ -483,7 +483,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Mainland term '侦听器' (listener) should be localized to '接聽器' for Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 23. kubernetes-docs-zh-cn-v1/page-04-sentence-0055
 
@@ -504,7 +504,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Mainland term '后端' (backend) is typically '後端' in Taiwan. This tests a common localization need.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 24. kubernetes-docs-zh-cn-v1/page-04-sentence-0068
 
@@ -525,7 +525,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: The technical term '选择算符' (selector operator) is more commonly and idiomatically rendered as '選擇器' (selector) in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 25. kubernetes-docs-zh-cn-v1/page-04-sentence-0101
 
@@ -546,7 +546,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: A classic IT terminology gap: '端口' (port) in Mainland Chinese is '埠' or '連接埠' in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 26. kubernetes-docs-zh-cn-v1/page-04-sentence-0125
 
@@ -567,7 +567,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Protects the code identifier `service-cluster-ip-range` and standard technical terms. '服务器' (server) is a potential candidate for localization but is widely understood.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 27. kubernetes-docs-zh-cn-v1/page-04-sentence-0130
 
@@ -588,7 +588,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Protects the code identifier `.spec.ports[*].nodePort`. The term '报告' (report) is standard.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 28. kubernetes-docs-zh-cn-v1/page-04-sentence-0142
 
@@ -609,7 +609,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: A straightforward sentence with standard technical terms like '动态' (dynamic), '端口' (port), '默认' (default), and '耗尽' (exhausted) that require only character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 29. kubernetes-docs-zh-cn-v1/page-04-sentence-0145
 
@@ -630,7 +630,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Protects the proper name `NodePort Service`. Terms like '集群' (cluster) and '节点' (node) are common but worth noting for consistency checks.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 30. kubernetes-docs-zh-cn-v1/page-04-sentence-0151
 
@@ -651,7 +651,7 @@ Codex reason: 可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技
 
 Gemini reason: Protects the CLI flag identifier `--nodeport-addresses`.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 31. kubernetes-docs-zh-cn-v1/page-04-sentence-0153
 
@@ -672,7 +672,7 @@ Codex reason: 可見形式以冒號開頭且欄位組合缺少主機部分，抽
 
 Gemini reason: Contains English identifiers `:spec.ports[].nodePort` and `.spec.clusterIP:spec.ports[].port` which must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 32. zhtw-project-formal-llm-overconversion-guard-v1/formal-002
 
@@ -693,7 +693,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The input requires preserving the alphanumeric document identifier 'COM(2026) 318 final'. This is a clear guard against damaging codes or proper names during conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 33. zhtw-project-formal-llm-overconversion-guard-v1/formal-005
 
@@ -714,7 +714,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The input explicitly states to preserve the original title 'Annex IV', including the Roman numeral. This is a guard against incorrect modification of non-Chinese text.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 34. zhtw-project-formal-llm-overconversion-guard-v1/formal-006
 
@@ -735,7 +735,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The instruction is to not translate the quoted English phrase 'without prejudice'. This is a direct guard against unintended semantic alteration of a quoted foreign term of art.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 35. zhtw-project-formal-llm-overconversion-guard-v1/formal-011
 
@@ -756,7 +756,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The input specifies using the alphanumeric identifier 'FY2028-Q1' for a fiscal period. This code must be preserved, making it an over-conversion guard case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 36. zhtw-project-formal-llm-overconversion-guard-v1/formal-015
 
@@ -777,7 +777,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The input involves a clinical trial identifier 'NCT01234567'. Preserving such specific codes in a medical context is critical, making it a high-stakes over-conversion guard.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 37. zhtw-project-formal-llm-overconversion-guard-v1/formal-017
 
@@ -798,7 +798,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The input requires preserving the technical standard identifier 'ISO 8601-1:2019'. This is an over-conversion guard to protect formal specifications.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 38. zhtw-project-formal-llm-overconversion-guard-v1/formal-019
 
@@ -819,7 +819,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The input explicitly instructs to preserve the proper name 'Paris Agreement' in English. This is a direct over-conversion guard instruction to protect an official name.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 39. zhtw-project-formal-llm-overconversion-guard-v1/formal-020
 
@@ -840,7 +840,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: Input requires preserving the official spelling of the proper name 'Côte d’Ivoire', which contains non-ASCII characters and punctuation. This is a strong over-conversion guard case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 40. zhtw-project-formal-llm-overconversion-guard-v1/formal-022
 
@@ -861,7 +861,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: Protects a foreign-language identifier (English) in a formal legal context. The characters are simplified.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 41. zhtw-project-formal-llm-overconversion-guard-v1/formal-023
 
@@ -882,7 +882,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: Protects a foreign-language term of art (Latin) within a formal academic context. The characters are simplified.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 42. zhtw-project-formal-llm-overconversion-guard-v1/formal-025
 
@@ -903,7 +903,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: Protects a variable name identifier from conversion. The characters are simplified.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 43. zhtw-project-formal-llm-overconversion-guard-v1/formal-026
 
@@ -924,7 +924,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: Protects a standard identifier (EPSG code) from conversion. The characters are simplified.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 44. zhtw-project-formal-llm-overconversion-guard-v1/formal-029
 
@@ -945,7 +945,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: Protects a numeric result's specific hyphenated formatting from conversion. The characters are simplified.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 45. zhtw-project-formal-llm-overconversion-guard-v1/formal-031
 
@@ -966,7 +966,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: Protects a standard medical scale identifier (PHQ-9). The characters are simplified.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 46. zhtw-project-formal-llm-overconversion-guard-v1/formal-034
 
@@ -987,7 +987,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The file path '/records/2026/final.pdf' is an identifier and must not be altered. The surrounding text is standard simplified Chinese.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 47. zhtw-project-formal-llm-overconversion-guard-v1/formal-035
 
@@ -1008,7 +1008,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The Latin phrase 'status quo ante' is a direct quotation enclosed in quotes and must be preserved without alteration.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 48. zhtw-project-formal-llm-overconversion-guard-v1/formal-036
 
@@ -1029,7 +1029,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The serial number '04:7A:9C:11' is a technical identifier and must be preserved exactly. The context is formal certification.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 49. zhtw-project-formal-llm-overconversion-guard-v1/formal-038
 
@@ -1050,7 +1050,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The abbreviation 'N/A' is a standard token for 'not applicable' or 'not available' in a data context and must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 50. zhtw-project-formal-llm-overconversion-guard-v1/formal-039
 
@@ -1071,7 +1071,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The version string 'v2026.07.1' is a specific identifier for a dataset and must not be converted or altered.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 51. zhtw-project-formal-llm-overconversion-guard-v1/formal-040
 
@@ -1092,7 +1092,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The signature identifier 'SIG-8F21C0' must be preserved exactly as it is a technical code within a legal document context.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 52. zhtw-project-formal-llm-overconversion-guard-v1/llm-004
 
@@ -1113,7 +1113,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The schema name 'invoice_summary_v2' is a technical identifier, likely for code or API responses, and must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 53. zhtw-project-formal-llm-overconversion-guard-v1/llm-006
 
@@ -1134,7 +1134,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The parameter 'top_k=12' is a code artifact or log entry (common in ML/LLM contexts) and must be preserved exactly.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 54. zhtw-project-formal-llm-overconversion-guard-v1/llm-007
 
@@ -1155,7 +1155,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The identifier 'text_embedding_3_large' must be preserved. The term '向量字段' (vector field) is technical and the conversion should handle it correctly, but the main risk is damaging the identifier.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 55. zhtw-project-formal-llm-overconversion-guard-v1/llm-008
 
@@ -1176,7 +1176,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The documentation reference tag '[doc:security#auth-3]' must be preserved in its entirety.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 56. zhtw-project-formal-llm-overconversion-guard-v1/llm-009
 
@@ -1197,7 +1197,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The placeholder '{{customer_name}}' must be preserved. The term '占位符' is standard and should convert correctly, but the key is the placeholder itself.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 57. zhtw-project-formal-llm-overconversion-guard-v1/llm-012
 
@@ -1218,7 +1218,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The API response path 'response.reasoning_summary.delta' must be preserved. The term '响应' (response) is a potential candidate_gap (Taiwan often uses 回應), but the primary risk here is damaging the code-like token.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 58. zhtw-project-formal-llm-overconversion-guard-v1/llm-014
 
@@ -1239,7 +1239,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The tool name 'lookup_customer_v3' is an identifier and must not be altered.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 59. zhtw-project-formal-llm-overconversion-guard-v1/llm-015
 
@@ -1260,7 +1260,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The classification label 'self_harm_intent' is a technical identifier that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 60. zhtw-project-formal-llm-overconversion-guard-v1/llm-016
 
@@ -1281,7 +1281,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The parameter 'region=asia-east1' must be preserved. The term '后端' (backend) is a candidate_gap (Taiwan uses 後端), but the main risk is damaging the parameter.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 61. zhtw-project-formal-llm-overconversion-guard-v1/llm-017
 
@@ -1302,7 +1302,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The event names 'prompt_cache.miss' and 'prompt_cache.hit' are identifiers that must be preserved. The word '缓存' (cache) is also a candidate_gap (Taiwan often prefers 快取), but the identifiers are the key risk.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 62. zhtw-project-formal-llm-overconversion-guard-v1/llm-018
 
@@ -1323,7 +1323,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The identifiers 'additionalProperties' and 'false' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 63. zhtw-project-formal-llm-overconversion-guard-v1/llm-019
 
@@ -1344,7 +1344,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The literal value 'null' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 64. zhtw-project-formal-llm-overconversion-guard-v1/llm-021
 
@@ -1365,7 +1365,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The identifier 'needs_human_review' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 65. zhtw-project-formal-llm-overconversion-guard-v1/llm-023
 
@@ -1386,7 +1386,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The metric names 'macro_f1' and 'exact_match' are identifiers and must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 66. zhtw-project-formal-llm-overconversion-guard-v1/llm-024
 
@@ -1407,7 +1407,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The string literal 'IGNORE_PREVIOUS_INSTRUCTIONS' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 67. zhtw-project-formal-llm-overconversion-guard-v1/llm-026
 
@@ -1428,7 +1428,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The SQL code snippet 'DROP TABLE audit_log;' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 68. zhtw-project-formal-llm-overconversion-guard-v1/llm-027
 
@@ -1449,7 +1449,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The filename 'evaluation-run-2026-07-28.json' must be preserved. Input contains both simplified (应, 写) and traditional (档) characters.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 69. zhtw-project-formal-llm-overconversion-guard-v1/llm-028
 
@@ -1470,7 +1470,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The identifier 'handoff_target=human_support' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 70. zhtw-project-formal-llm-overconversion-guard-v1/llm-031
 
@@ -1491,7 +1491,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The input contains a model snapshot name 'assistant-prod@2026-07-28' which is a technical identifier. This identifier must be preserved exactly as it is, making it a clear case for an over-conversion guard. The surrounding text is in Simplified Chinese.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 71. zhtw-project-formal-llm-overconversion-guard-v1/llm-032
 
@@ -1512,7 +1512,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The input specifies an error code 'TOOL_TIMEOUT_30S' and explicitly states it should not be translated. This is a classic over-conversion guard to protect technical constants. The language is Simplified Chinese.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 72. zhtw-project-formal-llm-overconversion-guard-v1/llm-033
 
@@ -1533,7 +1533,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: This sentence describes a JSON structure, containing the field name 'finish_reason' and its value 'tool_calls'. Both are technical terms that must not be altered, serving as an over-conversion guard. The descriptive text is Simplified Chinese.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 73. zhtw-project-formal-llm-overconversion-guard-v1/llm-034
 
@@ -1554,7 +1554,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The input includes a filter query string "tenant_id eq 'tw-001'". This is a piece of code that must be preserved verbatim, including the 'tw' identifier, which is critical in a Taiwan context. This is a strong over-conversion guard case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 74. zhtw-project-formal-llm-overconversion-guard-v1/llm-035
 
@@ -1575,7 +1575,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The input contains a technical metric name 'win_rate_paired'. This identifier, used in a benchmark context, must not be converted. The surrounding Simplified Chinese text explains its purpose.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 75. zhtw-project-formal-llm-overconversion-guard-v1/llm-036
 
@@ -1596,7 +1596,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: This input describes a tracking attribute, where both the key 'gen_ai.operation.name' and the value 'chat' are technical identifiers. They must be preserved, making this an over-conversion guard case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 76. zhtw-project-formal-llm-overconversion-guard-v1/llm-037
 
@@ -1617,7 +1617,7 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: The input specifies a status code 'safety_refusal' returned by a model. As a technical constant, it must be kept as-is, which is the definition of an over-conversion guard. The context is Simplified Chinese.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 77. zhtw-project-formal-llm-overconversion-guard-v1/llm-040
 
@@ -1638,4 +1638,4 @@ Codex reason: 可獨立判讀的 project-original 完整句；專名、引文、
 
 Gemini reason: This input describes a parameter 'seed=20260719' used for evaluation. This code-like element must not be altered, making it a clear over-conversion guard. The descriptive text is in Simplified Chinese.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
