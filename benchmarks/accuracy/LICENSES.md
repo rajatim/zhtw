@@ -505,6 +505,44 @@ is missing.
   ordinary consumer traffic, and translated prose can contain source-language
   influence or context-dependent fragments.
 
+## ftc-how-to-avoid-scam-simplified-v1
+
+- Source: Federal Trade Commission, *How to Avoid a Scam*, Simplified Chinese,
+  July 2023; PDF Last-Modified 2023-11-29T22:20:42Z and raw SHA-256
+  `78720bc248bced72d951e2d72902c6957fc33bb3eefedb2b8df1e31babef8804`.
+- License: U.S. Public Domain for FTC-authored text under 17 U.S.C. 105 and
+  the FTC website copyright policy; third-party graphics and linked material excluded.
+- Attribution: Federal Trade Commission, How to Avoid a Scam, Simplified Chinese, July 2023; no FTC endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese prose sentences from the checksum-pinned FTC-authored PDF, joined PDF layout wraps, removed headings, page furniture, contact instructions, URLs, bullet glyphs, and incomplete list fragments, and added input-only provenance; no images, seals, expected text, or converter output were used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. fraud, payment, account-security and government-impersonation
+  guidance is not representative of ordinary Taiwan traffic.
+
+## ftc-identity-theft-simplified-v1
+
+- Source: Federal Trade Commission, *How To Spot, Avoid, and Report Identity
+  Theft*, Simplified Chinese, November 2023; PDF Last-Modified
+  2024-01-22T14:27:03Z and raw SHA-256
+  `d1ec4c4942e12eda9e35a4b50860f43b150bb23d9f6891ba1a59951f8b8e2885`.
+- License: U.S. Public Domain for FTC-authored text under 17 U.S.C. 105 and
+  the FTC website copyright policy; third-party graphics and linked material excluded.
+- Attribution: Federal Trade Commission, How To Spot, Avoid, and Report Identity Theft, Simplified Chinese, November 2023; no FTC endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese prose sentences from the checksum-pinned FTC-authored PDF, joined PDF layout wraps, removed headings, page furniture, contact instructions, URLs, bullet glyphs, incomplete list fragments, and added input-only provenance; no images, seals, expected text, or converter output were used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. identity, financial-account, document-security and
+  authentication guidance is not representative of ordinary Taiwan traffic.
+
+## zhtw-project-it-ui-llm-formal-guard-v1
+
+- Source: zhtw project-original Simplified Chinese IT, UI, LLM and
+  formal-document guard scenarios drafted from declared Blind-v2 coverage gaps.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only IT, UI, LLM, and formal-document guard scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: These are synthetic preservation-focused scenarios, not
+  independently observed market traffic.
+
 ## naer-terms-v1
 
 - Source: Government Data dataset 15275, `國家教育研究院-兩岸對照名詞-計算機學術名詞`;

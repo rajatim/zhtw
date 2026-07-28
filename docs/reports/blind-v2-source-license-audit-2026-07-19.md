@@ -536,3 +536,34 @@ were eligible; all Tornadoes cases passed promotion deduplication, while one
 of the fourteen eligible Winter Weather cases was removed as an exact duplicate
 of an existing Ready.gov Floods candidate. No converter output or expected text
 influenced the review.
+
+## 2026-07-28 FTC and project-original expansion
+
+Two additional FTC-authored Simplified Chinese handouts passed the public-domain
+source gate. The FTC website policy identifies most FTC-authored material as
+United States Government work under 17 U.S.C. 105, requests attribution, and
+prohibits implied endorsement. The manifests exclude graphics, seals, linked
+content and any material not established as FTC-authored.
+
+| Source ID | Raw SHA-256 | Input-only cases |
+|-----------|--------------|-----------------:|
+| `ftc-how-to-avoid-scam-simplified-v1` | `78720bc248bced72d951e2d72902c6957fc33bb3eefedb2b8df1e31babef8804` | 34 |
+| `ftc-identity-theft-simplified-v1` | `d1ec4c4942e12eda9e35a4b50860f43b150bb23d9f6891ba1a59951f8b8e2885` | 20 |
+
+The dedicated parsers verify two-page layout, Simplified Chinese title anchors
+and FTC PDF author metadata. They retain only complete prose, remove contact
+instructions, URLs, page furniture, bullet glyphs and incomplete list
+fragments, and produce normalized SHA-256 values
+`d59a740bec8f635fa993c132998a90c2fe2d57f2d73e5542b203261dc6a26dd2`
+and `203fe4edebb89187a4d2ea88443e7a4e1d4d2bb120b8b73863e1e3e653e80558`.
+
+The project-original source `zhtw-project-it-ui-llm-formal-guard-v1` adds 100
+input-only identifier, proper-name, quote, placeholder and formatting scenarios.
+Its raw SHA-256 is
+`50034857794f2481131028bf8df099a1cc8406449346ada1838591d3f2a33ad3`
+and normalized SHA-256 is
+`875c5354bb033ac21358a46597975e6a1c493ce0e2bb765de80db590030cffba`.
+It is synthetic coverage under the project MIT license, not observed market
+traffic. Neither source construction nor extraction used converter output or
+expected text. All 154 new candidates are distinct from the current pool and
+tracked dedupe references at the fixed 0.85 character 5-gram threshold.

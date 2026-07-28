@@ -46,6 +46,8 @@ BLIND_V2_BATCH_040_PRIOR_PACKETS := $(BLIND_V2_BATCH_039_PRIOR_PACKETS) \
 	benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-039.json
 BLIND_V2_BATCH_041_PRIOR_PACKETS := $(BLIND_V2_BATCH_040_PRIOR_PACKETS) \
 	benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-040.json
+BLIND_V2_BATCH_042_PRIOR_PACKETS := $(BLIND_V2_BATCH_041_PRIOR_PACKETS) \
+	benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-041.json
 BLIND_V2_CONFIRMED_DECISIONS := $(wildcard \
 	docs/reports/blind-v2-source-classification-maintainer-decision-batch-*.json)
 
@@ -134,6 +136,8 @@ benchmark-blind-v2-source-import-check: ## Download pinned Blind-v2 source pilot
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/massive-1-0-zh-cn-v1.json --check
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/ftc-small-business-simplified-v1.json --check
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/ftc-heads-up-simplified-v1.json --check
+	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/ftc-how-to-avoid-scam-simplified-v1.json --check
+	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/ftc-identity-theft-simplified-v1.json --check
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/nps-essential-acadia-simplified-v1.json --check
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/ready-gov-floods-zh-hans-v1.json --check
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/ready-gov-hurricanes-zh-hans-v1.json --check
@@ -160,6 +164,7 @@ benchmark-blind-v2-source-import-check: ## Download pinned Blind-v2 source pilot
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/zhtw-project-llm-social-baseline-v1.json --check
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/zhtw-project-it-llm-social-guard-v1.json --check
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/zhtw-project-llm-it-ui-baseline-v1.json --check
+	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/zhtw-project-it-ui-llm-formal-guard-v1.json --check
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/ready-gov-tornadoes-zh-hans-v1.json --check
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/ready-gov-winter-weather-zh-hans-v1.json --check
 	$(PYTHON) scripts/import_blind_v2_source_pilot.py --manifest benchmarks/accuracy/manifests/cisa-cyber-hygiene-zh-hans-v1.json --check
@@ -336,6 +341,9 @@ benchmark-blind-v2-source-classification-check: ## Verify deterministic input-on
 	$(PYTHON) scripts/build_blind_v2_codex_synthesis.py --codex docs/reports/blind-v2-source-classification-codex-first-pass-batch-041-2026-07-28.json --gemini docs/reports/blind-v2-source-classification-gemini-independent-batch-041-2026-07-28.json --generated-date 2026-07-28 --output docs/reports/blind-v2-source-classification-codex-synthesis-batch-041-2026-07-28.json --check
 	$(PYTHON) scripts/record_blind_v2_source_classification_decision.py --packet benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-041.json --codex docs/reports/blind-v2-source-classification-codex-first-pass-batch-041-2026-07-28.json --gemini docs/reports/blind-v2-source-classification-gemini-independent-batch-041-2026-07-28.json --synthesis docs/reports/blind-v2-source-classification-codex-synthesis-batch-041-2026-07-28.json --maintainer tim --decision-date 2026-07-28 --selected-advisory synthesis --output docs/reports/blind-v2-source-classification-maintainer-decision-batch-041-2026-07-28.json --check
 	$(PYTHON) scripts/compare_blind_v2_source_classifications.py --packet benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-041.json --codex docs/reports/blind-v2-source-classification-codex-first-pass-batch-041-2026-07-28.json --gemini docs/reports/blind-v2-source-classification-gemini-independent-batch-041-2026-07-28.json --maintainer-decisions docs/reports/blind-v2-source-classification-maintainer-decision-batch-041-2026-07-28.json --generated-date 2026-07-28 --output docs/reports/blind-v2-source-classification-diff-batch-041-2026-07-28.md --check
+	$(PYTHON) scripts/create_blind_v2_source_classification_packet.py --source benchmarks/accuracy/external/aosp-framework-zh-rcn-v1.json --source benchmarks/accuracy/external/zhtw-project-it-ui-llm-formal-guard-v1.json --source benchmarks/accuracy/external/ftc-how-to-avoid-scam-simplified-v1.json --source benchmarks/accuracy/external/ftc-identity-theft-simplified-v1.json $(foreach packet,$(BLIND_V2_BATCH_042_PRIOR_PACKETS),--exclude-packet $(packet)) --balanced-source-class-remaining --batch-size 96 --batch-number 42 --generated-date 2026-07-28 --output benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-042.json --markdown-output benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-042.md --check
+	$(PYTHON) scripts/build_blind_v2_codex_synthesis.py --codex docs/reports/blind-v2-source-classification-codex-first-pass-batch-042-2026-07-28.json --gemini docs/reports/blind-v2-source-classification-gemini-independent-batch-042-2026-07-28.json --gemini-case-id ftc-how-to-avoid-scam-simplified-v1/sentence-010 --gemini-case-id ftc-how-to-avoid-scam-simplified-v1/sentence-014 --gemini-case-id ftc-identity-theft-simplified-v1/sentence-002 --gemini-case-id ftc-identity-theft-simplified-v1/sentence-004 --gemini-case-id ftc-identity-theft-simplified-v1/sentence-005 --gemini-case-id ftc-identity-theft-simplified-v1/sentence-006 --gemini-case-id ftc-identity-theft-simplified-v1/sentence-007 --gemini-case-id ftc-identity-theft-simplified-v1/sentence-012 --synthesis-overrides docs/reports/blind-v2-source-classification-codex-synthesis-adjustments-batch-042-2026-07-28.json --generated-date 2026-07-28 --output docs/reports/blind-v2-source-classification-codex-synthesis-batch-042-2026-07-28.json --check
+	$(PYTHON) scripts/compare_blind_v2_source_classifications.py --packet benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-042.json --codex docs/reports/blind-v2-source-classification-codex-first-pass-batch-042-2026-07-28.json --gemini docs/reports/blind-v2-source-classification-gemini-independent-batch-042-2026-07-28.json --generated-date 2026-07-28 --output docs/reports/blind-v2-source-classification-diff-batch-042-2026-07-28.md --check
 
 benchmark-blind-v2-pool-validate: ## Validate Blind-v2 source, dedupe, quota, and size policy
 	$(PYTHON) scripts/blind_v2_governance.py validate-pool $(BLIND_V2_POOL) --require-ready

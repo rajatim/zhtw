@@ -843,6 +843,17 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   距最低 5,880 筆尚差 2,327；`permissive_license` 1,217/3,553（34.25%）、
   `public_domain` 1,202/3,553（33.83%）、`project_original` 1,134/3,553
   （31.92%），皆低於 35%。
+- [x] 2026-07-28 新增兩份 FTC public-domain 簡體中文出版物與一份 100 筆
+  project-original IT／UI／LLM／正式文件 guard source。三份來源合計 154 筆
+  input-only 候選，固定 raw／normalized SHA-256，對既有 pool、tracked references
+  與彼此皆無 exact 或 `>=0.85` near duplicate；未使用 converter output 或 expected。
+- [ ] 2026-07-28 建立 source-class-balanced batch 042：AOSP、FTC 新來源、
+  project-original 各 32 筆。Codex first pass 建議 88 筆納入、8 筆排除；Gemini
+  CLI 0.52.0（`gemini-2.5-pro`）以 25 個來源隔離或 schema-retry session 完成
+  96/96 input-only 獨立審查，零工具呼叫、零 API 錯誤，建議 96 筆全數納入。
+  兩者有 50 筆四欄完全一致、46 筆差異；Codex synthesis 逐筆複核後建議
+  91 筆納入、5 筆排除（50 agreement、35 Codex、8 Gemini、3 hybrid）。狀態為
+  advisory only，等待 maintainer confirmation；確認前不得 promotion。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

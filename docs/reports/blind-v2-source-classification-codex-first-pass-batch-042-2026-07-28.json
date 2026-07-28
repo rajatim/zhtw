@@ -1,0 +1,995 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-042.json",
+  "packet_sha256": "0aa60011d65c9aad108a0913a888fb343f7112a34e1b6306ee704fd4feeaf672",
+  "reviewer": "Codex",
+  "model": "GPT-5.4",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 96,
+    "eligible": 88,
+    "excluded": 8,
+    "high": 8,
+    "medium": 88,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0c64ed8615b23654",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0e913c6d9e2c6787",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-106e8502165a04ad",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1b8ba37c7a7bd3a9",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-32701d2fb7c7b262",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-38adbe65fe6f0b2b",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-41815b952e92e976",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4dd0ecca554e6519",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4e379ec67338da50",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-56c9f45ce25bed64",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-575f478f0d895466",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-57959917a021a405",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-606213dfa8567745",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-61233b9964793233",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-637341020b687ffa",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6bbacbb88f37019c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-72e099f0f032808f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7a715329165ae00b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-856c465bca352597",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9b65b437a4a7022d",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b04b1b2033c0401a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bf873102debf36bf",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c4829060fc6ab9a5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d1ffddbd15d0058c",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "輸入是來源殘片或格式受損字串，無法在缺少上下文時穩定裁決。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e07a3d16303d9e31",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e7facb69f398fe81",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-edec7f5107e5da36",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ef3f7f1bef524b07",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f4978e1c96cd2b94",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f614ebb1e12f2b9e",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "輸入是來源殘片或格式受損字串，無法在缺少上下文時穩定裁決。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fb609cb9bbd1f923",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ff5b9ae343d65228",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Android UI 字串；依臺灣介面用語與占位符或專名保留風險分類。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-017",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "輸入是來源殘片或格式受損字串，無法在缺少上下文時穩定裁決。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-002",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "輸入是來源殘片或格式受損字串，無法在缺少上下文時穩定裁決。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-004",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "輸入是來源殘片或格式受損字串，無法在缺少上下文時穩定裁決。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-005",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "輸入是來源殘片或格式受損字串，無法在缺少上下文時穩定裁決。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-009",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "輸入是來源殘片或格式受損字串，無法在缺少上下文時穩定裁決。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的官方消費者保護句子；詐騙、身分與金融語境具高風險評測價值。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-020",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "輸入是來源殘片或格式受損字串，無法在缺少上下文時穩定裁決。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-004",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-007",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-008",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-001",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-005",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-007",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-008",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-024",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-027",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-028",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-029",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-004",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-013",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "完整的 project-original guard 句；識別碼、專名、引文或格式標記必須保留。"
+    }
+  ]
+}

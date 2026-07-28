@@ -51,9 +51,12 @@ SUPPORTED_SOURCES = {
     "zhtw-project-llm-social-baseline-v1": "project_original_json",
     "zhtw-project-it-llm-social-guard-v1": "project_original_json",
     "zhtw-project-llm-it-ui-baseline-v1": "project_original_json",
+    "zhtw-project-it-ui-llm-formal-guard-v1": "project_original_json",
     "massive-1-0-zh-cn-v1": "massive",
     "ftc-small-business-simplified-v1": "ftc_pdf",
     "ftc-heads-up-simplified-v1": "ftc_heads_up_pdf",
+    "ftc-how-to-avoid-scam-simplified-v1": "ftc_how_to_avoid_scam_pdf",
+    "ftc-identity-theft-simplified-v1": "ftc_identity_theft_pdf",
     "nps-essential-acadia-simplified-v1": "nps_acadia_html",
     "ready-gov-floods-zh-hans-v1": "ready_gov_html",
     "ready-gov-hurricanes-zh-hans-v1": "ready_gov_html",
@@ -643,6 +646,72 @@ def parse_ftc_heads_up_pdf(content: bytes) -> list[tuple[str, str, str]]:
     return parse_ftc_heads_up_pages(pages)
 
 
+def parse_ftc_how_to_avoid_scam_pages(pages: list[str]) -> list[tuple[str, str, str]]:
+    """Extract complete prose from the pinned FTC scam-awareness handout."""
+    if len(pages) != 2:
+        raise ValueError(f"FTC How to Avoid a Scam: expected 2 PDF pages, found {len(pages)}")
+    if "骗局的四大迹象" not in pages[0] or "如何避免骗局" not in pages[1]:
+        raise ValueError("FTC How to Avoid a Scam: Simplified Chinese anchors not found")
+
+    page_one = anchored_region(
+        pages[0].replace("。사", "。"),
+        "诈骗者假装来自于您知道",
+        "Simplified Chinese",
+    )
+    page_two = anchored_region(pages[1], "屏蔽骚扰电话和短信。", "向美国联邦贸易委员会")
+    sentences = complete_chinese_sentences(f"{page_one} {page_two}", minimum_length=8)
+    rows: list[tuple[str, str, str]] = []
+    for sentence in sentences:
+        sentence = sentence.lstrip("\uf07d ")
+        if "\uf07d" in sentence:
+            continue
+        if re.search(r"(?:https?://|www\.|\b[\w.-]+\.(?:gov|org)\b)", sentence, re.I):
+            continue
+        rows.append(("handout", f"sentence-{len(rows) + 1:03d}", sentence))
+    return rows
+
+
+def parse_ftc_how_to_avoid_scam_pdf(content: bytes) -> list[tuple[str, str, str]]:
+    reader = PdfReader(io.BytesIO(content))
+    metadata = reader.metadata
+    if metadata is None or metadata.author != "FTC":
+        raise ValueError("FTC How to Avoid a Scam: unexpected PDF author metadata")
+    pages = [page.extract_text() or "" for page in reader.pages]
+    return parse_ftc_how_to_avoid_scam_pages(pages)
+
+
+def parse_ftc_identity_theft_pages(pages: list[str]) -> list[tuple[str, str, str]]:
+    """Extract complete prose from the pinned FTC identity-theft handout."""
+    if len(pages) != 2:
+        raise ValueError(f"FTC Identity Theft: expected 2 PDF pages, found {len(pages)}")
+    if "什么是身份盗窃？" not in pages[0] or "如何保护自己免遭身份盗窃？" not in pages[1]:
+        raise ValueError("FTC Identity Theft: Simplified Chinese anchors not found")
+
+    page_one = anchored_region(pages[0], "身份盗窃是指", "获取您的信用报告")
+    page_two = anchored_region(pages[1], "身份盗窃可能发生在任何人身上。", "如何以我的首选语言")
+    sentences = complete_chinese_sentences(f"{page_one} {page_two}", minimum_length=8)
+    rows: list[tuple[str, str, str]] = []
+    for sentence in sentences:
+        sentence = sentence.lstrip("⊲ ")
+        if "⊲" in sentence:
+            continue
+        if re.search(r"(?:https?://|www\.|\b[\w.-]+\.(?:gov|org|com)\b)", sentence, re.I):
+            continue
+        if re.search(r"\d{3}-\d{3}-\d{4}", sentence):
+            continue
+        rows.append(("handout", f"sentence-{len(rows) + 1:03d}", sentence))
+    return rows
+
+
+def parse_ftc_identity_theft_pdf(content: bytes) -> list[tuple[str, str, str]]:
+    reader = PdfReader(io.BytesIO(content))
+    metadata = reader.metadata
+    if metadata is None or metadata.author != "Federal Trade Commission (FTC)":
+        raise ValueError("FTC Identity Theft: unexpected PDF author metadata")
+    pages = [page.extract_text() or "" for page in reader.pages]
+    return parse_ftc_identity_theft_pages(pages)
+
+
 def parse_cisa_cyber_hygiene_pages(pages: list[str]) -> list[tuple[str, str, str]]:
     """Extract complete CISA-authored prose from the one-page cyber hygiene guide."""
     if len(pages) != 1:
@@ -1192,6 +1261,10 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
         raw_rows = parse_ftc_small_business_pdf(content)
     elif source_kind == "ftc_heads_up_pdf":
         raw_rows = parse_ftc_heads_up_pdf(content)
+    elif source_kind == "ftc_how_to_avoid_scam_pdf":
+        raw_rows = parse_ftc_how_to_avoid_scam_pdf(content)
+    elif source_kind == "ftc_identity_theft_pdf":
+        raw_rows = parse_ftc_identity_theft_pdf(content)
     elif source_kind == "cisa_cyber_hygiene_pdf":
         raw_rows = parse_cisa_cyber_hygiene_pdf(content)
     elif source_kind == "cisa_personal_security_pdf":

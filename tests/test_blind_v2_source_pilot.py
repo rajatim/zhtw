@@ -24,6 +24,8 @@ from scripts.import_blind_v2_source_pilot import (
     parse_cisa_cyber_hygiene_pages,
     parse_cisa_personal_security_pages,
     parse_ftc_heads_up_pages,
+    parse_ftc_how_to_avoid_scam_pages,
+    parse_ftc_identity_theft_pages,
     parse_ftc_small_business_pages,
     parse_kubernetes_markdown,
     parse_kubernetes_markdown_archive,
@@ -464,6 +466,49 @@ def test_ftc_heads_up_parser_excludes_english_and_preserves_quoted_questions() -
     ]
 
 
+def test_ftc_scam_parser_removes_pdf_bullets_and_contact_instructions() -> None:
+    pages = [
+        (
+            "骗局的四大迹象 诈骗者假装来自于您知道 的组织。사 "
+            "他们使用技术来更改来电显示上的电话号码。 Simplified Chinese"
+        ),
+        (
+            "如何避免骗局 \uf07d 屏蔽骚扰电话和短信。 \uf07d 顶住立即采取行动的压力。 "
+            "向美国联邦贸易委员会（FTC）举报骗局 请致电 877-382-4357。"
+        ),
+    ]
+
+    rows = parse_ftc_how_to_avoid_scam_pages(pages)
+
+    assert [row[2] for row in rows] == [
+        "诈骗者假装来自于您知道的组织。",
+        "他们使用技术来更改来电显示上的电话号码。",
+        "屏蔽骚扰电话和短信。",
+        "顶住立即采取行动的压力。",
+    ]
+
+
+def test_ftc_identity_theft_parser_removes_embedded_list_fragments() -> None:
+    pages = [
+        (
+            "什么是身份盗窃？ 身份盗窃是指有人未经许可使用您的个人信息。 "
+            "用途： ⊲ 用您的信用卡购物 ⊲ 找工作。 获取您的信用报告"
+        ),
+        (
+            "如何保护自己免遭身份盗窃？ 身份盗窃可能发生在任何人身上。 "
+            "⊲ 使用难以猜到的密码。 如何以我的首选语言举报身份盗窃"
+        ),
+    ]
+
+    rows = parse_ftc_identity_theft_pages(pages)
+
+    assert [row[2] for row in rows] == [
+        "身份盗窃是指有人未经许可使用您的个人信息。",
+        "身份盗窃可能发生在任何人身上。",
+        "使用难以猜到的密码。",
+    ]
+
+
 def test_nps_parser_keeps_only_complete_article_paragraph_sentences() -> None:
     content = """<!doctype html><html><body>
     <nav><p>导航噪音。</p></nav>
@@ -589,9 +634,12 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("zhtw-project-llm-social-baseline-v1", 100),
         ("zhtw-project-it-llm-social-guard-v1", 100),
         ("zhtw-project-llm-it-ui-baseline-v1", 100),
+        ("zhtw-project-it-ui-llm-formal-guard-v1", 100),
         ("massive-1-0-zh-cn-v1", 15619),
         ("ftc-small-business-simplified-v1", 81),
         ("ftc-heads-up-simplified-v1", 117),
+        ("ftc-how-to-avoid-scam-simplified-v1", 34),
+        ("ftc-identity-theft-simplified-v1", 20),
         ("nps-essential-acadia-simplified-v1", 32),
         ("ready-gov-floods-zh-hans-v1", 53),
         ("ready-gov-hurricanes-zh-hans-v1", 53),

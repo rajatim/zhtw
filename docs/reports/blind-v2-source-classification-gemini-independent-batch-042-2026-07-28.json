@@ -1,0 +1,987 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-042.json",
+  "packet_sha256": "0aa60011d65c9aad108a0913a888fb343f7112a34e1b6306ee704fd4feeaf672",
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "5cee31a4-2471-4b72-ae06-cab84d17b6e0,031720bb-4b05-46d0-a04c-e75b76c95c27,b9dc6a68-23b9-41e7-b2f1-8743ad44dff2,c356c8f8-3029-4baf-a382-7c2e97a8451a,f9252feb-8803-4a88-857f-c926ce97fede,4fdcd5a4-0a37-4f66-8f4b-7c6b09cc4839,5926bea9-156b-4182-bec9-5ecae1fd576c,28c2f882-ea7f-4756-9ed9-83f7d154f270,a2463ae2-c9d6-487f-bac6-6a34a345bcd5,bdd0e3b3-d0be-433c-a94b-306de2f3e5a8,2ad4d9c8-d843-4876-8698-0f8dd31311ff,afdabbc5-adf6-4b00-ac97-5626f3ec9946,1f67b89d-68c1-4bec-a9bc-7eb1eb2b8336,36ffe76b-5f34-4348-a8e6-0f764c266537,971120a5-8bbb-4497-bedf-2e7c915ac94e,7b69875d-8943-42df-9adb-c39409547075,84b5260a-3828-456b-bfb1-f21a6ca40537,d773994d-098a-412e-ac61-86084974c653,fa09439a-c21b-4d8f-9ca0-6b32f4f207e9,fe205a1e-1f8e-4805-80b4-08a9d31f9388,87ea3ae2-44b9-4b3c-88da-588bda314975,5c5cefdb-b141-40a6-8102-8144c4d5cf4f,4229aca4-3941-45b1-822b-797d5aa29854,9fb90b3e-6868-4b2a-8612-7330d8cf8f96,1c9ce4b3-1e7b-4595-b98b-99790ea8f4eb",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 96,
+    "excluded": 0,
+    "high": 96,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0c64ed8615b23654",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0e913c6d9e2c6787",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-106e8502165a04ad",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1b8ba37c7a7bd3a9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-32701d2fb7c7b262",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-38adbe65fe6f0b2b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-41815b952e92e976",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4dd0ecca554e6519",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4e379ec67338da50",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-56c9f45ce25bed64",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-575f478f0d895466",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-57959917a021a405",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-606213dfa8567745",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-61233b9964793233",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-637341020b687ffa",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6bbacbb88f37019c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-72e099f0f032808f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7a715329165ae00b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-856c465bca352597",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9b65b437a4a7022d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b04b1b2033c0401a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bf873102debf36bf",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c4829060fc6ab9a5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d1ffddbd15d0058c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e07a3d16303d9e31",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e7facb69f398fe81",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-edec7f5107e5da36",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ef3f7f1bef524b07",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f4978e1c96cd2b94",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f614ebb1e12f2b9e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fb609cb9bbd1f923",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ff5b9ae343d65228",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-004",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-007",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-008",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-001",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-005",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-007",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-008",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-024",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-027",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-028",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-029",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-004",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-013",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": ""
+    }
+  ]
+}

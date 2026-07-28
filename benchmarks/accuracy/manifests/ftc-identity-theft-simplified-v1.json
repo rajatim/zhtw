@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "id": "ftc-identity-theft-simplified-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://consumer.ftc.gov/resources-simplified-chinese",
+    "https://consumer.ftc.gov/system/files/consumer_ftc_gov/pdf/1038A-HowToSpotAvoidIDT-ChineseSimp-508.pdf",
+    "https://www.ftc.gov/policy-notices/website-policy"
+  ],
+  "upstream_revision": "FTC How To Spot, Avoid, and Report Identity Theft, Simplified Chinese, November 2023; PDF Last-Modified 2024-01-22T14:27:03Z; raw SHA-256: d1ec4c4942e12eda9e35a4b50860f43b150bb23d9f6891ba1a59951f8b8e2885",
+  "retrieved_at": "2026-07-28T12:01:45+08:00",
+  "license": "U.S. Public Domain",
+  "license_url": "https://www.ftc.gov/policy-notices/website-policy",
+  "output_license": "U.S. Public Domain",
+  "attribution": "Federal Trade Commission, How To Spot, Avoid, and Report Identity Theft, Simplified Chinese, November 2023; no FTC endorsement or affiliation is implied.",
+  "modification_notice": "Extracted only complete Simplified Chinese prose sentences from the checksum-pinned FTC-authored PDF, joined PDF layout wraps, removed headings, page furniture, contact instructions, URLs, bullet glyphs, incomplete list fragments, and added input-only provenance; no images, seals, expected text, or converter output were used.",
+  "notice_id": "ftc-identity-theft-simplified-v1",
+  "raw_sha256": {
+    "https://consumer.ftc.gov/system/files/consumer_ftc_gov/pdf/1038A-HowToSpotAvoidIDT-ChineseSimp-508.pdf": "d1ec4c4942e12eda9e35a4b50860f43b150bb23d9f6891ba1a59951f8b8e2885"
+  },
+  "normalized_path": "benchmarks/accuracy/external/ftc-identity-theft-simplified-v1.json",
+  "normalized_sha256": "203fe4edebb89187a4d2ea88443e7a4e1d4d2bb120b8b73863e1e3e653e80558",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "The handout is an official U.S.-focused identity-theft translation and is not representative of ordinary Taiwan traffic.",
+    "Identity, financial-account, government, document-security, and authentication language is intentionally concentrated.",
+    "Questions and pronoun-dependent sentences require input-only eligibility review.",
+    "Only PDF text authored by the FTC is extracted; graphics, seals, and linked or third-party materials are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

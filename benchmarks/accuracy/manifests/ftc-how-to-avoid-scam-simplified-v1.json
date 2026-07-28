@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "id": "ftc-how-to-avoid-scam-simplified-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://consumer.ftc.gov/resources-simplified-chinese",
+    "https://consumer.ftc.gov/system/files/consumer_ftc_gov/pdf/How-to-avoid-a-scam_Chinese-Simplified_August2023.pdf",
+    "https://www.ftc.gov/policy-notices/website-policy"
+  ],
+  "upstream_revision": "FTC How to Avoid a Scam, Simplified Chinese, July 2023; PDF Last-Modified 2023-11-29T22:20:42Z; raw SHA-256: 78720bc248bced72d951e2d72902c6957fc33bb3eefedb2b8df1e31babef8804",
+  "retrieved_at": "2026-07-28T12:01:45+08:00",
+  "license": "U.S. Public Domain",
+  "license_url": "https://www.ftc.gov/policy-notices/website-policy",
+  "output_license": "U.S. Public Domain",
+  "attribution": "Federal Trade Commission, How to Avoid a Scam, Simplified Chinese, July 2023; no FTC endorsement or affiliation is implied.",
+  "modification_notice": "Extracted only complete Simplified Chinese prose sentences from the checksum-pinned FTC-authored PDF, joined PDF layout wraps, removed headings, page furniture, contact instructions, URLs, bullet glyphs, and incomplete list fragments, and added input-only provenance; no images, seals, expected text, or converter output were used.",
+  "notice_id": "ftc-how-to-avoid-scam-simplified-v1",
+  "raw_sha256": {
+    "https://consumer.ftc.gov/system/files/consumer_ftc_gov/pdf/How-to-avoid-a-scam_Chinese-Simplified_August2023.pdf": "78720bc248bced72d951e2d72902c6957fc33bb3eefedb2b8df1e31babef8804"
+  },
+  "normalized_path": "benchmarks/accuracy/external/ftc-how-to-avoid-scam-simplified-v1.json",
+  "normalized_sha256": "d59a740bec8f635fa993c132998a90c2fe2d57f2d73e5542b203261dc6a26dd2",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "The handout is an official U.S.-focused consumer-protection translation and is not representative of ordinary Taiwan traffic.",
+    "Fraud, payments, account-security, and government-impersonation language is intentionally concentrated.",
+    "Pronoun-dependent or context-poor sentences may be excluded during input-only quality review.",
+    "Only PDF text authored by the FTC is extracted; graphics, seals, and linked or third-party materials are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}
