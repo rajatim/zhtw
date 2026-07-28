@@ -1,0 +1,987 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-047.json",
+  "packet_sha256": "eb6b92f9a541be69ab7ec6c22cb922aadf224b7be29fe3d07acfbbc436f97853",
+  "reviewer": "Gemini CLI independent review (12 isolated sessions)",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "1460b5f0-44d0-4f2d-b7cf-224b5996345a,0e976270-3984-4dea-9592-1fb35d13f254,665573d6-678b-4892-b9d3-a2f1e2d24e3f,af5c9fe2-7cd6-4f49-9240-3f352aa21115,2a678df8-5f50-4285-a4c6-a64c24079341,51108de9-1b95-4995-a595-bba01410f3a8,b8384b7c-3a62-4777-a8e7-7e5cae6113a9,210eb757-c659-43c9-9bc5-22451b488f45,9e3e03ad-df34-439d-b4f4-e6bfdc16a07e,0f4d0a76-5856-4584-a620-51bba5d5db7f,b517bc25-b86d-43ec-bda6-9a329fdf8534,ed156f3f-0cbc-4bf6-9385-55ddade53ddb",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 96,
+    "excluded": 0,
+    "high": 96,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains identifiers 'Pod' and 'Conditions'. Also contains mainland-specific term '状况' (status), which should be '狀態' in Taiwan context, representing a candidate_gap."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0062",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains identifier 'Terminated' which is a specific status value and must not be translated."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0067",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains identifiers 'Kubernetes' and 'restartPolicy' that must be preserved. Mainland term '回退' (fallback) could be a candidate_gap."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0117",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains identifiers 'restartPolicyRules' and 'restartPolicy'. Also contains mainland term '字段' (field), which is '欄位' in Taiwan, a candidate_gap."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0138",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard sentence requiring basic character conversion (e.g., 这样 -> 這樣, 关闭 -> 關閉)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0142",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains identifiers 'RestartAllContainers', 'Pod', and 'restartPolicy'. '重载' (reload/overload) could also be a candidate_gap."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0187",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Key risk is the mainland term '内存' (memory), which should be '記憶體' in Taiwan. Also contains identifiers 'Kubernetes', 'Pod', 'CPU' which need an over_conversion_guard."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0196",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Key risk is the mainland term '内存' (memory), which should be '記憶體' in Taiwan. '资源' (resources) is also a term that can differ in usage between mainland and Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0200",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The terms '云原生' (cloud-native) and '工作负载' (workload) are common Mainland IT terms. Identifiers 'Deployment' and 'StatefulSet' must be preserved, which also adds an over_conversion_guard risk."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0238",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The keyword 'Success' is an API status and must be preserved. The term '启动探测' (startup probe) is a technical term that could be a candidate_gap."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0246",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical terms '存活态探针' (liveness probe) and '就绪态探针' (readiness probe) are direct translations that may have different idiomatic expressions in Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0295",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical terms like '端点' (endpoint) and '连接排空' (connection draining) may require localization. The identifier 'Pod' must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0304",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The CLI command 'kubectl delete' and the flag '--grace-period=' must be preserved and not converted. The term '重载' (overload/override) could also be a candidate_gap."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0314",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple English identifiers ('Pod', 'Sidecar', 'Always', 'Init', 'kubelet', 'TERM') that must be preserved. Terms like '重启策略' (restart policy) and '主容器' (main container) are also candidate_gaps."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0315",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '规约' for 'specification' is a common Mainlandism that needs localization. The identifiers 'Sidecar' and 'Pod' must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0318",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The terms '宽限期' (grace period) and '强制终止' (force termination) are technical concepts that may require localization. The identifier 'Pod' must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0331",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input contains a command `kubectl drain` which must be preserved without character conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0338",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input contains proper nouns (Pod, Kubernetes) and a code snippet (`ready: false`) that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '销毁' (destroy) is Mainland terminology that may require localization to a more appropriate term like '移除' (remove) or '刪除' (delete) for a Taiwan context."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '网络插件' (network plugin) is Mainland terminology. Taiwan context would likely use '網路外掛' (network plugin) or a similar variant."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '工作负载' (workload) is common in Mainland technical documents and may require localization review. '通信' (communication) is also a candidate for localization to '通訊'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0084",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains API names 'EndpointSlice' and 'Endpoints' that must be preserved. The term '客户端' (client) is also a potential localization candidate ('用戶端')."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0106",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical identifiers 'ClusterIP' and 'Service' that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0139",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical identifiers 'NodePort' and 'Service' that must be preserved. The term '场景' (scenario) is also a potential candidate for localization."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0152",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple English proper nouns (kube-proxy, NodePort, Service) that must be preserved. Also contains Mainland technical term '网络接口' (network interface)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0161",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a code identifier 'loadBalancerIP' that must be preserved. '云平台' (cloud platform) is a potential candidate gap."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0164",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a code identifier 'loadBalancerIP' that must be preserved. '云平台' (cloud platform) and '特性' (feature) are potential candidate gaps."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0169",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple Mainland technical terms requiring localization ('集成', '云平台', '注解', '负载均衡器'). Also contains an English proper noun 'Service' to preserve."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0196",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an English proper noun 'Service' that must be preserved. '实现' (implementation) and '信息' (information) are candidate gaps."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0223",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple English terms/identifiers ('Service', 'port', 'targetPort') that must be preserved. '选择算符' (selector) and '无头' (headless) are candidate gaps."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0225",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple English proper nouns (Pod, Node, kubelet, Service) that must be preserved. '活跃' (active) is a candidate gap."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0249",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple common Mainland technical terms ('机制', '优化', '性能') that have different idiomatic equivalents in Taiwan ('機制', '優化', '效能')."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard simplified Chinese sentence from official guidance."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard simplified Chinese sentence, formal tone."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard simplified Chinese sentence, formal tone."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '冠状病毒' (Coronavirus) might require localization to '新冠肺炎' (COVID-19) for Taiwan public health context, representing a potential terminology gap."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard simplified Chinese sentence."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard simplified Chinese sentence."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard simplified Chinese sentence."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard simplified Chinese sentence."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence is a complete instruction for emergency preparedness. Terms like '计划' (plan) and '联系' (contact) are common in Mainland Chinese and would likely be localized to '計畫' and '聯絡' respectively for a Taiwan audience."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple, direct instruction. The term '物资' (supplies/materials) is standard and neutral, requiring straightforward character conversion."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is evacuation advice. The phrasing '保持满箱汽油' (keep a full tank of gas) is understandable but slightly unnatural; a more idiomatic expression in Taiwan might be '把油箱加滿' (fill up the gas tank). This represents a gap in natural phrasing."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard advice using common, neutral terms like '始终' (always) and '意外' (unexpected). The risk is low, mainly involving correct character conversion."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence describes a situation during an emergency. The term '抽油' (pump oil) to describe gas station pumps being inoperable is a technical or literal phrasing that might not be used in public-facing aivdce in Taiwan, where '無法加油' (unable to refuel) would be more common."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The use of '计划' (plan) as a verb here is characteristic of Mainland Chinese usage. While understood, advisory instructions in Taiwan might prefer '規劃' (to plan/design) or phrase it as a direct suggestion."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Similar to the previous sentence, the use of '计划好' (plan well) points to a potential localization gap. A more formal or common phrasing in Taiwan for official guidance might be '預先規劃' (plan in advance)."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The phrase '应急管理办公室' (Office of Emergency Management) is a specific government entity name. This is a significant localization point, as the equivalent authority in Taiwan would have a different name. Direct conversion would be incorrect."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard emergency instruction."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Candidate gap: '服务性动物' (service animal) and '庇护所' (shelter) are Mainland-style terms. Taiwan alternatives are often '工作犬' (working dog) and '避難所' (refuge/shelter)."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instruction."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instruction."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Candidate gap: '冰柜' (freezer) is more common in Mainland China. Taiwan tends to use '冷凍櫃' for a standalone freezer."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Candidate gap: '煤气' (gas) is a Mainland term. The standard term in Taiwan is '瓦斯'."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instruction."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instruction."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety instruction, straightforward conversion."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety instruction, straightforward conversion. No regional terms."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety instruction. The terms are common enough for direct conversion."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety instruction. '洪水区' is a standard term."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard personal safety instruction, no regional terms."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instruction, no regional terms."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety warning. '公用事业' is a formal term but not a regionalism gap."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety instruction referring to a power or utility company."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a product name 'Microsoft Entra ID' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a proper name 'Brown v. Board of Education' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an identifier 'Finding No. 2026-04' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an identifier 'Case No. 24-CV-0187' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an identifier 'Item 3(c)(ii)' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an identifier 'SLO-99.95' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an identifier 'DOI 10.5281/zenodo.1234567' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an identifier 'ISIN US5949181045' that must be preserved, as explicitly stated in the source."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-013",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a standard UN transportation number that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a standard international patent application number that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a formal international document identifier that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a financial account code that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-024",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an email address which must be preserved exactly."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-027",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a product part number that must be preserved. The sentence itself is a meta-instruction."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-028",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a legal article reference that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-030",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a proper brand name that must be preserved. The sentence itself is a meta-instruction."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input contains a product lot number 'LOT 26A07' which must be preserved and not converted."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input contains a proper name 'Project Lighthouse' which must be preserved and not converted."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input contains a technical model identifier 'gemini-example-pro-002' which must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input contains a technical parameter 'policy_version=2026-07' which must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input contains a technical identifier 'call_id=call_01JQ8M7Y' which must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input contains English keywords 'pass', 'fail', 'abstain' used as technical labels that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input contains a system marker 'BEGIN_EXTERNAL_CONTEXT' which must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input contains a technical identifier 'batch_01JQ9A2Z7H' which must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a technical parameter 'image_url.high_detail' that must be preserved and not converted."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a speaker label identifier 'SPEAKER_02' which must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical identifiers 'message_id', 'parent_id', and 'thread_id' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a code sequence '</final_answer>' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a URI 'kb://legal/policy-17' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a technical parameter 'locale=zh-TW' whose case and content must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a technical identifier 'chunk_000184' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a proper product name 'Vertex AI Search' that must be preserved."
+    }
+  ]
+}

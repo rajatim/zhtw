@@ -653,6 +653,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("ready-gov-winter-weather-zh-hans-v1", 56),
         ("ready-gov-kids-tornadoes-zh-hans-v1", 43),
         ("ready-gov-campus-zh-hans-v1", 6),
+        ("ready-gov-evacuation-zh-hans-v1", 49),
         ("osha-electrical-safety-simplified-v1", 14),
         ("osha-chainsaw-safety-simplified-v1", 20),
         ("osha-work-zone-traffic-simplified-v1", 16),

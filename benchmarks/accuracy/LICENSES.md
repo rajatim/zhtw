@@ -381,6 +381,15 @@ is missing.
 - Output license: MIT.
 - Bias notice: Synthetic project-original inputs intentionally concentrate on formal documents, LLM systems, identifiers, proper names, quotations, codes, and formatting-preservation contexts; they are not independently observed market traffic.
 
+## ready-gov-evacuation-zh-hans-v1
+
+- Source: Ready.gov, *Evacuation*, Simplified Chinese, page last updated 2022-05-19.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded.
+- Attribution: Federal Emergency Management Agency, Ready.gov, Evacuation, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: Official U.S. evacuation and emergency guidance is not representative of ordinary Taiwan traffic; list-derived fragments and inline link joins require input-only review.
+
 ## osha-electrical-safety-simplified-v1
 
 - Source: OSHA 4281-08 2023, *Electrical Safety*, Chinese Simplified.
