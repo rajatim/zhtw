@@ -1,0 +1,987 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-046.json",
+  "packet_sha256": "6de41a228a52b18a7eadefb8dc96408cc646b94c565ca9770c9a3fb6b1584e5c",
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "f4168d95-5af2-4fbd-af0d-37cd40fcbc3c,fc74ee67-bfcb-4dc9-b27b-2a24784f856c,c1cceb47-7a44-45f3-84b0-12d159ddac77,ca75dd52-827e-46ae-bd46-3bd84e0deeb6,426c3c93-950a-4905-bac2-d3423eb0ad27,fff99627-ca88-41f8-888e-9298c835fa60,b6d470d6-c27a-44fd-8d5f-f6b9632816aa,5974cb01-0e2c-4b84-9b77-16f6830d0f8b,9d4e57e2-b83d-4bef-aac7-2934e08be7ee,d770c384-9108-4fcb-9b59-74f30066f227,190e5a11-5dbf-451b-9bb6-42db6560ebfc,1bf0428a-e6cc-4a9c-b8a1-f1127bc1c4d4",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 96,
+    "excluded": 0,
+    "high": 96,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard technical sentence. Terms like '服务器' (server), '概率' (probability), and '响应' (response) are common and this is a baseline conversion case."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '集成' (integration) is more common in Mainland China; Taiwan often prefers '整合'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifiers 'Pod' and 'phase' are code literals that must not be converted or translated."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifiers 'Pod', 'phase', and 'Failed' must be preserved. Also contains regional term candidates like '失联' (lost contact)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The state names 'Running', 'Terminated', and 'Waiting' are identifiers and must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0060",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '回调' (callback) is a classic Mainland preference; Taiwan technical context often uses '回呼'. The identifier 'postStart' must also be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0063",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains the identifiers 'kubectl', 'Terminated', and 'Pod', which must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0064",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains the term '回调' (callback), a candidate for localization to '回呼' in Taiwan, and identifiers 'preStop' and 'Terminated' which must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0078",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The terms '应用程序' (application), '服务' (service), and '健康检查' (health check) are common Mainland IT terms that have different preferred forms in Taiwan ('應用程式', '服務', '健康狀態檢查')."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0081",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'崩溃' (crash) is a Mainland-preferred term. Taiwan often uses '當機' for system/application crashes, although '崩潰' is also understood."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0082",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The code snippet '`kubectl describe pod `' is a command and must not be altered. The term '配置' (configuration) is also a minor candidate_gap, as Taiwan often prefers '組態'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0098",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '`Always`' is a parameter value and must be preserved exactly, without translation or character conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0106",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The component name '`kubelet`' is a proper identifier and must not be converted. The term '回退延迟机制' (backoff delay mechanism) is also a potential candidate_gap."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0120",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The parameter name '`exitCodes`' is an identifier from code and must be preserved without alteration."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0149",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The container names '`setup-environment`' and '`main-application`' are identifiers and must not be converted. The term '就地重启' (in-place restart) is also a minor candidate_gap."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0174",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence contains multiple Mainland-specific IT terms requiring localization: '客户端库' (client library -> 用戶端函式庫), '就绪态' (readiness state -> 就緒狀態), '定制' (custom -> 自訂), '状况' (condition -> 狀況/狀態)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0180",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Multiple Mainland-specific IT terms need localization: '特性门控' (feature gate), '默认' (default), '状况' (condition), and '字段' (field). The identifiers are over-conversion guards."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0184",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Mainland-specific IT terms requiring localization: '运行时插件' (runtime plugin), '网络' (network), and '状况' (condition)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0202",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple, standard sentence that mainly requires character-level conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0213",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifiers 'grpc' and 'gRPC' must be preserved and not converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0214",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifier 'gRPC' must be preserved and not converted. '健康检查' (health check) is a standard term."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0220",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward sentence with common terms ('端口', '诊断') requiring standard character conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0224",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '开销' (overhead) is a Mainland-specific IT term that needs to be localized for Taiwan (e.g., to '額外負擔')."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0225",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The English keyword 'Success' must be preserved and not converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0233",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The code literal `Failure` is an identifier that must not be converted. The term '就绪态' (readiness state) is a potential localization candidate."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0258",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The phrase '体面地终止' (graceful termination) requires careful localization to standard Taiwan IT terminology, e.g., '正常終止' or '優雅地終止'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0263",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple identifiers (kubelet, TERM, SIGTERM) that must be preserved. Also contains terms like '体面终止' (graceful termination) and '容器运行时' (container runtime) that are localization candidates."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0272",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifier `spec.os.name` must be preserved. '字段' (field) is a potential localization point."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0280",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifiers `kubelet` and `Pod` must be preserved. Contains localization candidates like '体面终止限期' (graceful termination period)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0287",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifiers `preStop` and `Sidecar` should be preserved. The term '钩子' (hook) is a localization candidate."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0289",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Mainland-specific IT terms like '工作负载' (workload) and '副本' (replica) require localization for a Taiwan audience. `Pod` should be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0292",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The proper nouns/identifiers `Pod`, `EndpointSlice`, and `EndpointSlice API` must be preserved. The term '端点' (endpoint) is a localization candidate."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0301",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Mainland term '服务器' (server) should be localized to '伺服器' for Taiwan. '客户端' (client) is often '用戶端'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0306",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifier 'kubelet' must not be converted. '节点' (node) and '清理' (cleanup) are standard terms."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The proper noun 'Service' is an identifier within the Kubernetes context and must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward case for character conversion. The identifiers 'Service' and 'Pod' should be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Mainland term '侦听器' (listener) should be localized to '接聽器' for Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Mainland term '后端' (backend) is typically '後端' in Taiwan. This tests a common localization need."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0068",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical term '选择算符' (selector operator) is more commonly and idiomatically rendered as '選擇器' (selector) in Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0101",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A classic IT terminology gap: '端口' (port) in Mainland Chinese is '埠' or '連接埠' in Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0125",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects the code identifier `service-cluster-ip-range` and standard technical terms. '服务器' (server) is a potential candidate for localization but is widely understood."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0130",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects the code identifier `.spec.ports[*].nodePort`. The term '报告' (report) is standard."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0142",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward sentence with standard technical terms like '动态' (dynamic), '端口' (port), '默认' (default), and '耗尽' (exhausted) that require only character conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0145",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects the proper name `NodePort Service`. Terms like '集群' (cluster) and '节点' (node) are common but worth noting for consistency checks."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0151",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects the CLI flag identifier `--nodeport-addresses`."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0153",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains English identifiers `:spec.ports[].nodePort` and `.spec.clusterIP:spec.ports[].port` which must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0165",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects identifiers `.spec.loadBalancerIP` and `Kubernetes v1.24`. The term '弃用' (deprecated) is standard."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0178",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects multiple identifiers: `spec.allocateLoadBalancerNodePorts`, `false`, and `LoadBalancer`."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input requires preserving the alphanumeric document identifier 'COM(2026) 318 final'. This is a clear guard against damaging codes or proper names during conversion."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input explicitly states to preserve the original title 'Annex IV', including the Roman numeral. This is a guard against incorrect modification of non-Chinese text."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The instruction is to not translate the quoted English phrase 'without prejudice'. This is a direct guard against unintended semantic alteration of a quoted foreign term of art."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input specifies using the alphanumeric identifier 'FY2028-Q1' for a fiscal period. This code must be preserved, making it an over-conversion guard case."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input involves a clinical trial identifier 'NCT01234567'. Preserving such specific codes in a medical context is critical, making it a high-stakes over-conversion guard."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input requires preserving the technical standard identifier 'ISO 8601-1:2019'. This is an over-conversion guard to protect formal specifications."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input explicitly instructs to preserve the proper name 'Paris Agreement' in English. This is a direct over-conversion guard instruction to protect an official name."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input requires preserving the official spelling of the proper name 'Côte d’Ivoire', which contains non-ASCII characters and punctuation. This is a strong over-conversion guard case."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects a proper name in roman script (Pinyin) from conversion. The characters are simplified."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects a foreign-language identifier (English) in a formal legal context. The characters are simplified."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects a foreign-language term of art (Latin) within a formal academic context. The characters are simplified."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects a variable name identifier from conversion. The characters are simplified."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-026",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects a standard identifier (EPSG code) from conversion. The characters are simplified."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-029",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects a numeric result's specific hyphenated formatting from conversion. The characters are simplified."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-031",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects a standard medical scale identifier (PHQ-9). The characters are simplified."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-032",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Protects a foreign-language identifier (English drawing number). The characters are simplified."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The file path '/records/2026/final.pdf' is an identifier and must not be altered. The surrounding text is standard simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The Latin phrase 'status quo ante' is a direct quotation enclosed in quotes and must be preserved without alteration."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The serial number '04:7A:9C:11' is a technical identifier and must be preserved exactly. The context is formal certification."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The abbreviation 'N/A' is a standard token for 'not applicable' or 'not available' in a data context and must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The version string 'v2026.07.1' is a specific identifier for a dataset and must not be converted or altered."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The signature identifier 'SIG-8F21C0' must be preserved exactly as it is a technical code within a legal document context."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The schema name 'invoice_summary_v2' is a technical identifier, likely for code or API responses, and must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The parameter 'top_k=12' is a code artifact or log entry (common in ML/LLM contexts) and must be preserved exactly."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifier 'text_embedding_3_large' must be preserved. The term '向量字段' (vector field) is technical and the conversion should handle it correctly, but the main risk is damaging the identifier."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The documentation reference tag '[doc:security#auth-3]' must be preserved in its entirety."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The placeholder '{{customer_name}}' must be preserved. The term '占位符' is standard and should convert correctly, but the key is the placeholder itself."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The API response path 'response.reasoning_summary.delta' must be preserved. The term '响应' (response) is a potential candidate_gap (Taiwan often uses 回應), but the primary risk here is damaging the code-like token."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The tool name 'lookup_customer_v3' is an identifier and must not be altered."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The classification label 'self_harm_intent' is a technical identifier that must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The parameter 'region=asia-east1' must be preserved. The term '后端' (backend) is a candidate_gap (Taiwan uses 後端), but the main risk is damaging the parameter."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The event names 'prompt_cache.miss' and 'prompt_cache.hit' are identifiers that must be preserved. The word '缓存' (cache) is also a candidate_gap (Taiwan often prefers 快取), but the identifiers are the key risk."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifiers 'additionalProperties' and 'false' must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The literal value 'null' must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifier 'needs_human_review' must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The metric names 'macro_f1' and 'exact_match' are identifiers and must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The string literal 'IGNORE_PREVIOUS_INSTRUCTIONS' must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The SQL code snippet 'DROP TABLE audit_log;' must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-027",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The filename 'evaluation-run-2026-07-28.json' must be preserved. Input contains both simplified (应, 写) and traditional (档) characters."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifier 'handoff_target=human_support' must be preserved."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input contains a model snapshot name 'assistant-prod@2026-07-28' which is a technical identifier. This identifier must be preserved exactly as it is, making it a clear case for an over-conversion guard. The surrounding text is in Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input specifies an error code 'TOOL_TIMEOUT_30S' and explicitly states it should not be translated. This is a classic over-conversion guard to protect technical constants. The language is Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence describes a JSON structure, containing the field name 'finish_reason' and its value 'tool_calls'. Both are technical terms that must not be altered, serving as an over-conversion guard. The descriptive text is Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input includes a filter query string \"tenant_id eq 'tw-001'\". This is a piece of code that must be preserved verbatim, including the 'tw' identifier, which is critical in a Taiwan context. This is a strong over-conversion guard case."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input contains a technical metric name 'win_rate_paired'. This identifier, used in a benchmark context, must not be converted. The surrounding Simplified Chinese text explains its purpose."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This input describes a tracking attribute, where both the key 'gen_ai.operation.name' and the value 'chat' are technical identifiers. They must be preserved, making this an over-conversion guard case."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input specifies a status code 'safety_refusal' returned by a model. As a technical constant, it must be kept as-is, which is the definition of an over-conversion guard. The context is Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This input describes a parameter 'seed=20260719' used for evaluation. This code-like element must not be altered, making it a clear over-conversion guard. The descriptive text is in Simplified Chinese."
+    }
+  ]
+}

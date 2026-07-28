@@ -1,0 +1,995 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-046.json",
+  "packet_sha256": "6de41a228a52b18a7eadefb8dc96408cc646b94c565ca9770c9a3fb6b1584e5c",
+  "reviewer": "Codex",
+  "model": "GPT-5.4",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 96,
+    "eligible": 88,
+    "excluded": 8,
+    "high": 8,
+    "medium": 88,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0032",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0049",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0056",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0060",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0063",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0064",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0078",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0081",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "以「這通常是」承接前文方法，單句缺少明確指涉對象。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0082",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "抽取後的 `kubectl describe pod ` 命令缺少必要 Pod 名稱或占位參數。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0098",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0106",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0120",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0149",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0174",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0180",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0184",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0202",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "「這種方法」缺少前文所指方法，且冒號後僅接適用範圍。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0213",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0214",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0220",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0224",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "「這種場景」依賴前文診斷情境，無法由單句確認條件。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0225",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0233",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0258",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0263",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0272",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0280",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0287",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0289",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "句子以「和其他工作負載資源」起首但缺少並列主體，抽取後語法不完整。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0292",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0301",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0306",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0016",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "「這種解耦」依賴前文所述元件關係，單句缺少可裁決內容。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0017",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "「由你定義的來確定」缺少被定義的 selector 等名詞，來源抽取後語意殘缺。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0033",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0055",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0068",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0101",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0125",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0130",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0142",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0145",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0151",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0153",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "可見形式以冒號開頭且欄位組合缺少主機部分，抽取後格式無法穩定判讀。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0165",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0178",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 Kubernetes 技術文件完整句；依臺灣技術用語與識別碼保留風險分類。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-002",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-005",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-006",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-026",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-031",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-032",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-034",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-035",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-036",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-038",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-039",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/formal-040",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-004",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-006",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-007",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-008",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-024",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-026",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-027",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-028",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-031",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-032",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-033",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-034",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-035",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-036",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-037",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-overconversion-guard-v1/llm-040",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；專名、引文、代碼或識別碼必須避免過度轉換。"
+    }
+  ]
+}

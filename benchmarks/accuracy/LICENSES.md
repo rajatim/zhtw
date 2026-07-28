@@ -372,6 +372,15 @@ is missing.
 - Output license: U.S. Public Domain.
 - Bias notice: U.S. campus emergency-planning, weather-alert, evacuation, and training guidance is not representative of ordinary Taiwan traffic.
 
+## zhtw-project-formal-llm-overconversion-guard-v1
+
+- Source: zhtw project-original formal-document and LLM over-conversion guard scenarios drafted from declared Blind-v2 coverage gaps.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only formal-document and LLM over-conversion guard scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: Synthetic project-original inputs intentionally concentrate on formal documents, LLM systems, identifiers, proper names, quotations, codes, and formatting-preservation contexts; they are not independently observed market traffic.
+
 ## osha-electrical-safety-simplified-v1
 
 - Source: OSHA 4281-08 2023, *Electrical Safety*, Chinese Simplified.

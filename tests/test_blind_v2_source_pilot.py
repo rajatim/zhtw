@@ -635,6 +635,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("zhtw-project-it-llm-social-guard-v1", 100),
         ("zhtw-project-llm-it-ui-baseline-v1", 100),
         ("zhtw-project-it-ui-llm-formal-guard-v1", 100),
+        ("zhtw-project-formal-llm-overconversion-guard-v1", 80),
         ("massive-1-0-zh-cn-v1", 15619),
         ("ftc-small-business-simplified-v1", 81),
         ("ftc-heads-up-simplified-v1", 117),
