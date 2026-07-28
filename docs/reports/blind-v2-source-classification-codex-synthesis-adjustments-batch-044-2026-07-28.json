@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex synthesis",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-28",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-044.json",
+  "packet_sha256": "ff3cdad5a9056ad0eefffd1ba04a6fc90239a9003a9de45fc71c2e2926a439a1",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 4
+  },
+  "cases": [
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-005",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-002",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-018",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-010",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    }
+  ]
+}

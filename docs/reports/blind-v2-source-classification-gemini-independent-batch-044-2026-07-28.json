@@ -1,0 +1,990 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-044.json",
+  "packet_sha256": "ff3cdad5a9056ad0eefffd1ba04a6fc90239a9003a9de45fc71c2e2926a439a1",
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "f87b58ab-0810-492a-a19c-77bd14b566f6,1b6be4e0-ba8b-44fe-b33c-8549bddd258b,7966b83e-01d0-442b-8c06-4432d4c7cd08,0d24d096-921a-4caf-89f0-1886415034b0,e9f4dec9-4467-471b-a6bf-2ff4e098ce81,33ee3aa1-4bac-48c0-9723-c7bc34ad6fd5,705fa071-996b-45dc-8db6-29f81787905b,1d2f9bb3-b0cf-4ceb-866c-2444b3878d7d,bcf26dc8-71cd-4fb3-b9b1-919a14c05281,20e77441-a171-4b60-958e-020d22219907,36de0f5d-007b-4efd-aea3-14f2f7bb45ba,9d39c5a8-de50-4597-88b0-fb357dfe70d1",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 95,
+    "excluded": 1,
+    "high": 93,
+    "medium": 3,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an English acronym (NRFU). The term '随访' may require normalization to a more common Taiwanese equivalent like '追蹤訪視'."
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Key mainland-specific terms '信息' and '户主' require normalization for Taiwan (to '資訊' and '戶長' respectively)."
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward sentence with common characters, primarily testing basic glyph conversion (e.g., '车', '系统')."
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard sentence. '手机' is common in both regions, so this serves as a baseline test for simple character conversion."
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-092",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '信息' is a primary candidate for normalization to the Taiwanese '資訊'."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0123",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple geographic names (Kenya, Nairobi, Ethiopia) that require translation normalization for Taiwan ('肯亞', '奈洛比', '衣索比亞')."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0139",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence consists of common words that should convert directly, serving as a good baseline test."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0290",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a proper institutional name ('美国地质调查局') that needs correct character-by-character conversion without semantic alteration."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0294",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard sentence, straightforward character-to-character mapping."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0350",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '打造' is a potential candidate gap; '建造' or '研發' might be more idiomatic in Taiwan for a scientific context."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0404",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence with technical terms ('雷达', '潜艇') common to both locales."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0583",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Descriptive sentence with standard vocabulary. Straightforward conversion."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0648",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Slight potential candidate gap with '应用', where '運用' might be more idiomatic for applying knowledge in Taiwan."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0179",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Proper noun '跳羚队' and sports jargon '收官' are key points, but both are used similarly across locales."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0196",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Contains multiple proper nouns (university, medical center, person's name) whose translations might have official or conventional variants in Taiwan."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0478",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal political sentence with standard terminology. Conversion should be straightforward."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0487",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal sentence with proper nouns (German writers)."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0524",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Sentence from a paper, includes an English name, making it mixed script."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0580",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Medical diagnostic sentence, classified as high-stakes."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0590",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Daily life topic, potential for regional term normalization (e.g., plan, adoption)."
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-1002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Description of a religious event with specific terms."
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "General advice, potential for minor regional term differences."
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Online communication advice with terms that have common regional variants (e.g., online, post)."
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Instructional sentence from a guide."
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-083",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The terms '网上' (online) and '信息' (information) are common in Mainland China but '網路上' and '資訊' are preferred in Taiwan."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a straightforward sentence requiring standard character conversion."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '计算机' (computer) is primarily used in Mainland China, while Taiwan uses '電腦'."
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The phrasing is standard and mainly requires character-level conversion."
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "'社会保障卡' (Social Security card) is a specific US entity. Its translation should be handled carefully to avoid misinterpretation, making it an over-conversion risk."
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains Mainland China terms such as '短信' (SMS/text message), for which Taiwan commonly uses '簡訊'."
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard sentence with common vocabulary that requires basic character conversion."
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence contains a list of proper nouns (place names) that should be preserved during character conversion, posing an over-conversion risk."
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instruction."
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard geographical/weather statement."
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'山体滑坡' is a mainland term; Taiwan often uses '山崩'."
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard warning phraseology."
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'保持关注' is a formal mainland phrase that might be localized to '保持留意' or '注意收聽' in Taiwan."
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instruction with cross-regionally understood terms."
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard health advice."
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard warning."
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard simplified Chinese sentence, appears to be public safety guidance."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard meteorological description in simplified Chinese."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '气象员' may require regional adaptation in Taiwan (e.g., '氣象預報員')."
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard weather alert terminology in simplified Chinese."
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains numerals which should be preserved. '冬季风暴观察' might be a specific term."
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The word '信息' (xìnxī) is common in mainland China, while '資訊' (zīxùn) is standard in Taiwan for 'information'."
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instructional sentence."
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety instruction for equipment."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-1bc2d120c0821a7f",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI menu item with a keyboard mnemonic that should be preserved."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-252ac876ba500bc7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '存档' (archive) is functional but '封存' could be a better regional term in Taiwan."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-2c85090743bfc31a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "For voice context, '录制' (recording) might be better localized as '錄音' in Taiwan."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-374e2ac3e2f1c83c",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical error message. Code paths and placeholders like 'contributes.{0}.path' must be preserved."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-482ab0292c54829a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tooltip-like text. '提供反馈' (provide feedback) might be localized as '提供意見回饋' in Taiwan."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-5115572476a38b26",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '痕迹导航栏' (breadcrumb bar) is a literal translation; '麵包屑' is the standard term in Taiwan."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-633aa45197b3dce7",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical description where keywords like 'tree' and 'webview' are identifiers and must not be translated."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-7273bc36a8168b75",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Multiple Mainland Chinese IT terms are present: '智能体' (agent), '会话' (session), and '边栏' (sidebar) all have different standard equivalents in Taiwan."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-8c957017a839953e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI security prompt. The term '代码' (code) is a key candidate for regional normalization, e.g., to '程式碼' in Taiwan."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-af83496e04575bf7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard file sorting UI text. Terms like '文件' (file) and '文件夹' (folder) are common and should convert straightforwardly."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-c19d884c9e5923ca",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical command label. Terms like '单元格' (cell) and '容器' (container) are established technical jargon that should be preserved, converting only the characters."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-d8563114f52568ca",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard property-setting message with placeholders. No significant regional variance expected."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-e5adeb3575e96524",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_placeholder",
+        "unclear_context"
+      ],
+      "confidence": "high",
+      "notes": "The placeholder construct [[['''{0}''']] appears malformed or unrendered, making the sentence ineligible for a quality review."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-ec63ec66cb3a69b7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Accessibility text. '屏幕阅读器' (screen reader) is a Mainland China term; Taiwan uses '螢幕閱讀器'. This requires regional adaptation."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-f8e6646a386ac002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Configuration text. '工作区' (workspace) and '自变量' (argument) are technical terms that may have different preferred translations in Taiwan (e.g., '工作空間', '引數')."
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-ff6d9986f54d171a",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple, standard search result notification with a placeholder. Universal phrasing."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-005",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Identifiers 'Content-Type' and 'application/json' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-008",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Identifiers 'Kubernetes' and 'metadata.name' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Identifiers 'trace_id' and 'span_id' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-013",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Proper noun 'Prometheus' and metric name 'http_request_duration_seconds' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Identifiers 'OAuth 2.0' and 'redirect_uri' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The version range string '>=3.2.0,<4.0.0' must be preserved exactly."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Identifiers 'API' and 'next_page_token' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-024",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Command name 'curl' and option '--fail-with-body' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical instruction where the CVE identifier must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM context. '事实核查' should be localized to '事實查核'."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard LLM-related sentence requiring basic character conversion and term localization (e.g., 用户->使用者)."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Instruction for an LLM. '提示内容' is a mainland-specific term that needs localization."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a Taiwanese brand name (五十岚) and product name in traditional characters that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Requires regional term localization ('台风' -> '颱風') while preserving the proper name '青鸟'."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an e-commerce brand name 'momo' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "High-stakes context where preserving the exact Romanized name 'Wu, Mei-Ling' is critical."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-001",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal sentence with an alphanumeric identifier SEC(2026) 118 final that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Financial statement context with an account code 1100-03 that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Patent document context with a filename SequenceListing.xml that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-006",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/Git context with identifiers HEAD~2 and origin/release that must not be localized."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/DNS context with a domain name _acme-challenge.example.com and record type TXT that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/Java context with a case-sensitive file path META-INF/MANIFEST.MF that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-007",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Sentence with a unique identifier req_01JAZ8M4Q2 that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-008",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "LLM/IT context with a schema name identifier customer_summary_v1 that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Mainland term '缓存' requires normalization. Identifier 'prompt_cache.hit' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Mainland IT term '测试夹具'. Keyword 'null' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Identifier 'needs_human_review' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Identifier 'tool_call_id' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Identifier 'win_rate_paired' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Identifiers 'ISO 4217' and 'TWD' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "HTML attribute 'aria-current=page' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "English string literal 'Created by me' must be preserved per product spec."
+    }
+  ]
+}

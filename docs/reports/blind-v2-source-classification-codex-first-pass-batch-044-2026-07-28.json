@@ -1,0 +1,983 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-044.json",
+  "packet_sha256": "ff3cdad5a9056ad0eefffd1ba04a6fc90239a9003a9de45fc71c2e2926a439a1",
+  "reviewer": "Codex",
+  "model": "GPT-5.4",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 96,
+    "eligible": 94,
+    "excluded": 2,
+    "high": 2,
+    "medium": 94,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "census-newsroom-zh-hans-v1/page-01-sentence-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "census-newsroom-zh-hans-v1/page-03-sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-061",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "cisa-personal-security-zh-hans-v1/sentence-092",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0123",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0139",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0290",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0294",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0350",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0404",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0583",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/dev-0648",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0179",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0196",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0478",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0487",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0524",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0580",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-0590",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "flores-200-zho-hans-v1/devtest-1002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 FLORES 句子；依新聞、社會或高風險語境與專名保留風險分類。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ftc-heads-up-simplified-v1/sentence-083",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ftc-identity-theft-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-earthquakes-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-floods-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-hurricanes-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-landslides-debris-flow-zh-hans-v1/sentence-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-radiation-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-008",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "句子僅說明「提醒公眾」但缺少發出提醒的主體，離開前文後無法穩定裁決。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-051",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公共領域句子；依臺灣用語、正式語境與安全語意風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-1bc2d120c0821a7f",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-252ac876ba500bc7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-2c85090743bfc31a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-374e2ac3e2f1c83c",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-482ab0292c54829a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-5115572476a38b26",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-633aa45197b3dce7",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-7273bc36a8168b75",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-8c957017a839953e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-af83496e04575bf7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-c19d884c9e5923ca",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-d8563114f52568ca",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-e5adeb3575e96524",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "字串含多層括號與引號殘留，無法確認原始 UI 文字和占位符邊界。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-ec63ec66cb3a69b7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-f8e6646a386ac002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "vscode-loc-zh-hans-v1/entry-ff6d9986f54d171a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占位符保留風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-005",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-008",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-013",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-024",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-034",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-010",
+      "eligible": true,
+      "script": "traditional",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-001",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-006",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-007",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-008",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-017",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-011",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Project-original 情境可獨立判讀；識別碼、專名、引文或語意限制不得改寫。"
+    }
+  ]
+}
