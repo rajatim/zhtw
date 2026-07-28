@@ -857,6 +857,15 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   5,880 筆尚差 2,236。`permissive_license` 1,247/3,644（34.22%）、
   `public_domain` 1,231/3,644（33.78%）、`project_original` 1,166/3,644
   （32.00%），皆低於 35%，且沒有來源超過 10%。
+- [ ] 2026-07-28 建立 source-class-balanced batch 043：Chromium、Kubernetes、
+  FTC 防詐、Ready.gov 龍捲風與 project-original guard 共 96 筆，三個 source
+  class 各 32 筆，與 batches 001-042 無 ID 重疊。Codex first pass 建議 94 筆
+  納入、2 筆排除；Gemini CLI 0.52.0（`gemini-2.5-pro`）以 12 個獨立 session
+  加 1 個 schema-retry session 完成 96/96 input-only 審查，零工具呼叫、零 API
+  錯誤，建議 95 筆納入、1 筆排除。兩者有 26 筆四欄完全一致、70 筆差異；
+  Codex synthesis 逐筆複核後建議 94 筆納入、2 筆排除（26 agreement、63 Codex、
+  6 Gemini、1 hybrid）。狀態為 advisory only，等待 maintainer confirmation；
+  確認前不得 promotion。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

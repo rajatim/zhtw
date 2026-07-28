@@ -3939,3 +3939,115 @@ def test_forty_second_decision_is_reproducible() -> None:
         generated_date="2026-07-28",
         maintainer_decisions=decision,
     )
+
+
+def test_forty_third_advisory_is_reproducible() -> None:
+    prefix = ROOT / "docs/reports"
+    packet_path = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-batch-043.json"
+    codex_path = prefix / (
+        "blind-v2-source-classification-codex-first-pass-batch-043-2026-07-28.json"
+    )
+    gemini_path = prefix / (
+        "blind-v2-source-classification-gemini-independent-batch-043-2026-07-28.json"
+    )
+    adjustments_path = prefix / (
+        "blind-v2-source-classification-codex-synthesis-adjustments-batch-043-2026-07-28.json"
+    )
+    synthesis_path = prefix / (
+        "blind-v2-source-classification-codex-synthesis-batch-043-2026-07-28.json"
+    )
+    diff_path = prefix / "blind-v2-source-classification-diff-batch-043-2026-07-28.md"
+    packet = load(packet_path)
+    codex = load(codex_path)
+    gemini = load(gemini_path)
+    adjustments = load(adjustments_path)
+    synthesis = load(synthesis_path)
+    packet_ids = [case["id"] for case in packet["cases"]]
+    prior_ids = {
+        case["id"]
+        for batch_number in range(1, 43)
+        for case in load(
+            ACCURACY_ROOT
+            / f"review-packets/blind-v2-source-classification-batch-{batch_number:03d}.json"
+        )["cases"]
+    }
+    packet_hash = hashlib.sha256(packet_path.read_bytes()).hexdigest()
+
+    assert packet["selection_policy"] == "balanced-source-class-remaining-deterministic-sha256-v1"
+    assert packet["stats"] == {
+        "total": 96,
+        "by_source": {
+            "chromium-strings-zh-cn-v1": 16,
+            "ftc-how-to-avoid-scam-simplified-v1": 16,
+            "kubernetes-docs-zh-cn-v1": 16,
+            "ready-gov-tornadoes-zh-hans-v1": 16,
+            "zhtw-project-it-ui-llm-formal-guard-v1": 32,
+        },
+    }
+    assert set(packet_ids).isdisjoint(prior_ids)
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert codex["stats"] == {
+        "total": 96,
+        "eligible": 94,
+        "excluded": 2,
+        "high": 2,
+        "medium": 94,
+        "low": 0,
+    }
+    assert gemini["stats"] == {
+        "total": 96,
+        "eligible": 95,
+        "excluded": 1,
+        "high": 96,
+        "medium": 0,
+        "low": 0,
+        "policy_violations": 0,
+    }
+    session_ids = gemini["execution"]["session_id"].split(",")
+    assert len(session_ids) == len(set(session_ids)) == 13
+    assert gemini["execution"]["tool_calls"] == 0
+    assert gemini["execution"]["total_errors"] == 0
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 96,
+        "exact": 26,
+        "review_queue": 70,
+        "by_field": {"eligible": 1, "script": 47, "domain": 20, "risk": 26},
+    }
+    assert len(differences) == 70
+    gemini_ids = {
+        "chromium-strings-zh-cn-v1/translation-5596627076506792578",
+        "chromium-strings-zh-cn-v1/translation-6248988683584659830",
+        "chromium-strings-zh-cn-v1/translation-6388799252195623474",
+        "kubernetes-docs-zh-cn-v1/page-01-sentence-0021",
+        "kubernetes-docs-zh-cn-v1/page-02-sentence-0033",
+        "zhtw-project-it-ui-llm-formal-guard-v1/ui-006",
+    }
+    overrides = {case["id"]: case["classification"] for case in adjustments["cases"]}
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=gemini_ids,
+        generated_date="2026-07-28",
+        overrides=overrides,
+        override_basis="codex_synthesis",
+    )
+    assert synthesis["stats"] == {
+        "total": 96,
+        "eligible": 94,
+        "excluded": 2,
+        "by_selection_basis": {
+            "agreement": 26,
+            "codex": 63,
+            "codex_synthesis": 1,
+            "gemini": 6,
+        },
+    }
+    assert diff_path.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-28",
+    )

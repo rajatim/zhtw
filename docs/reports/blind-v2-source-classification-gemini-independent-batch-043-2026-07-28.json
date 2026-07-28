@@ -1,0 +1,990 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-043.json",
+  "packet_sha256": "c23bcf6ad53f9d5932303ef24c21e9ec17750d4f9f713a4b5b60e96c41785bbf",
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "9cc6a9de-02fd-4a0e-87fa-1053a992334e,a1ce4786-2b22-48a5-b299-b4d3369d32d2,95ec3f5e-54a5-43e5-beba-6b79d25a655f,eca11813-6e9a-47a8-b0c4-113ab83c6c41,369409fa-db60-4148-ada5-2f7687886612,49e1ecb0-f488-49dd-9c53-4c854f6ad693,b9849d5e-9ed0-495f-9bae-e0514125ccd8,c20fc767-c97a-4bc0-9557-82de4dd4826d,c9ac4897-e261-4066-92a8-4112d205f420,7d04b725-f045-4503-b854-08b8b615f80e,6389874d-f78b-4e08-92c8-08aaf4d30fcf,a08c9fdd-d2d6-4963-9980-bd684ee83ea2,1acbe2f6-0eb5-4cf7-a2e7-4f990a8a9b47",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 95,
+    "excluded": 1,
+    "high": 96,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2542968102051442371",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI string. The term '图片搜索' (image search) and its phrasing may require regional normalization."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2738871930057338499",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical error message. The identifier 'HTTP 403 Forbidden' must be preserved and not converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-3975724895399328945",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Proper name 'Google Chrome for Testing' and the UI mnemonic '(&G)' should be preserved."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-4987820182225656817",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The proper name 'Chromium' must be preserved and not converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-5123973130450702873",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Permission request string. '跟踪' (track) is a key term that may have regional variants (e.g., 追蹤)."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-5473971139929175403",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical warning. The proper names 'Chromium' and 'Linux' must be preserved. The term '发行版' (distribution) might also require normalization."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-5596627076506792578",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common UI label where direct character-for-character conversion is generally sufficient."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-5800158606660203929",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains classic mainland Chinese terms like '自定义' (customize) and '默认' (default) that require normalization for a Taiwanese locale (e.g., to '自訂' and '預設')."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-615103374448673771",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI string for cookie settings. Contains proper nouns 'Chromium' and 'Cookie' that should not be converted."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-6248988683584659830",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI label. Straightforward character conversion."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-6388799252195623474",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Common phrase for a help or action button."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-67706546131546258",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Security warning message. Contains proper noun 'Chromium'."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-751935028865900641",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Explanatory text for login/session behavior. Contains proper names 'Chromium' and 'Google'."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-8372327902843331129",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI text for account/password sync. Contains proper nouns 'Chromium' and 'Google'."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-904366664621834601",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Download security warning. Regional terms for 'archive file' (归档文件) and 'malware' (恶意软件) may need normalization."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-965162752251293939",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "User profile selection prompt. Contains the proper name 'Chromium'."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence. '来自于' is a minor regional phrasing difference."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Sentence contains a list of business types requiring standard conversion and checking for regional term preferences."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical term '来电显示' (caller ID) requires correct regional mapping."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward sentence with common character conversions."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple, direct sentence with standard character mappings (e.g., 采取 -> 採取)."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Instruction about payment, a high-stakes topic. '付款' is common but context matters."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Classic candidate_gap: '信息' (information) should be converted to '資訊' for Taiwan locale. Also deals with accounts."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Classic candidate_gap: '短信' (text message) should be converted to '簡訊' for Taiwan locale."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '信息' (information) might have a more common equivalent in a formal Taiwanese context, like '資訊'."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains Mainland-specific terms: '短信' (text message) should be '簡訊' in Taiwan, and '链接' (link) should be '連結'."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward sentence where direct character conversion is likely sufficient."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "'来电显示' (caller ID) is used in both regions, though colloquial alternatives exist. Baseline conversion should be acceptable."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "General statement; direct character conversion is expected to be correct."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '诈骗者' (scammer) is clear, and the sentence structure is simple."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains proper nouns 'MoneyGram' and 'Western Union' which must not be converted. Also contains terms like '支付应用程序' (payment apps) which are candidates for localization ('支付APP')."
+    },
+    {
+      "id": "ftc-how-to-avoid-scam-simplified-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple, common-language sentence where direct character conversion is sufficient."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard technical sentence from Kubernetes documentation."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard technical sentence about declarative configuration."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard sentence about debugging technical configurations."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0043",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains identifiers (`Pod`, `kubectl`, `Status`, `Terminating`) that must not be translated."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0071",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains identifiers (`CrashLoopBackOff`, `kubectl`, `Pod`) that must not be translated."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0089",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains identifier `Pod` and the example is slightly fragmented but understandable."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0134",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains identifier `Pod` and technical term '就地' (in-place)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0288",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "incomplete_sentence",
+        "ungrammatical_ending"
+      ],
+      "confidence": "high",
+      "notes": "Sentence is incomplete and ends with an ungrammatical, nonsensical phrase '以某选定'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0307",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/CLI documentation. Contains command-line flags (`--grace-period=0`, `--force`) that must not be converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/API documentation. Contains technical identifiers (Pod, Service, `targetPort`) that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0111",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/API documentation. Contains technical identifiers (`LoadBalancer`, Service) that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0131",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/API documentation. Contains mainland China IT terms like '负载均衡解决方案' (load balancing solution) that may need localization in Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0201",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/API documentation. High density of technical identifiers (`type: ExternalName`, Service, IPv4, DNS, IP)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0204",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/API documentation. Contains FQDNs and technical terms (`CNAME`) that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0242",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/API documentation. Contains technical identifiers (Kubernetes DNS, `ExternalName`, Service) that must not be converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0245",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT/API documentation. Contains spec paths (`.spec.internalTrafficPolicy`, `.spec.externalTrafficPolicy`) that are code and must not be converted."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety instruction."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '立交桥' (overpass/interchange) requires regional normalization for Taiwan, likely to '高架橋' or '交流道'."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple, direct safety advice."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard protective action instruction."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard emergency preparedness instruction. '计划' and '家里' are common words with standard traditional conversions."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Terms like '龙卷风' (tornado) and '风险' (risk) have direct traditional equivalents."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Factual statement involving geographical locations with standard character conversions."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The word '注册' (register) is a common mainland term; Taiwan usage often prefers '登記' for signing up for services, though '註冊' is also used."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety instruction. '社区' (community) and '警报器' (alarm/siren) are key terms."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains proper nouns (FEMA, ICC 500) that must not be converted. Key terms are '避难所' (shelter) and '风暴' (storm)."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward descriptive sentence. Focus on correct glyph conversion for common terms like '建筑' (building) and '室内' (indoor)."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Short imperative sentence. '宠物' (pet) and '计划' (plan) are key terms."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Instructional sentence with multiple clauses. Focus is on correct character mapping for words like '头' (head) and '颈' (neck)."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Conditional safety instruction. Involves common objects like '车' (vehicle) and body parts."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains terms with regional differences. '短信' (text message) should be localized to '簡訊' for Taiwan, and '社交媒体' (social media) to '社群媒體'."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains acronyms (EAS, NOAA) and a long proper name of an agency. Acronyms must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence is eligible. The main risk is to incorrectly convert the English proper noun 'World Values Survey Wave 7'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence is eligible. The main risk is to incorrectly convert the case number identifier '2:26-cv-00417'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence is eligible. The main risk is to incorrectly convert the foreign name 'José Álvarez' or remove its diacritics."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence is eligible. The main risk is to incorrectly convert the form identifier 'Form QA-17B'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence is eligible. The main risk is to incorrectly convert the URI path '/v2/userProfiles/{profileId}'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence is eligible. The main risk is to incorrectly convert the service account name 'ci-release@acme-prod.iam.gserviceaccount.com'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence is eligible. The main risk is to incorrectly convert the database constraint name 'fk_orders_customer_id'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence is eligible. The main risk is to incorrectly convert platform identifiers like 'linux-arm64'. '构建产物' is also a potential localization gap for Taiwan ('建置產出')."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical identifiers `actor.type` and `service_account` that must be preserved. '审计' is a mainland term for '稽核'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a monitoring query string `sum(rate(http_requests_total[5m]))` that must be preserved. '监控', '查询', '服务', '分组' are simplified characters."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a code identifier `feature.previewMode` that must not be translated. '配置项', '测试', '环境', '启用' are simplified characters and mainland terms."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical identifiers `Webhook` and `v1=` that must be preserved. '签名', '采用', '后', '进制' are simplified characters."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-030",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a configuration value `Restart=on-failure` that must be preserved. '系统', '服务', '处理', '异常' are simplified characters."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-001",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a model identifier `gpt-example-2026-07-15` that must be preserved. '标识', '样', '写入', '请求' are simplified characters."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-002",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a JSON path `response.output_text.delta` that must be preserved. '响', '带' are simplified characters."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a JSON schema keyword `additionalProperties` and boolean `false` that must be preserved. '定义' is a simplified character."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The English technical term 'abstain' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical identifier 'embedding_v2' must be preserved. '字段' is a mainland term; Taiwan equivalent is '欄位'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical identifiers 'hybrid_search' and 'k' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The reference string '[source:manual#section-4]' is a literal and must not be altered."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The snake_case identifiers 'policy_violation' and 'prompt_injection' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The English phrase 'stop sequence' and code-like tag '</answer>' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The SQL code 'DROP TABLE users;' is a literal and must be preserved exactly."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence itself requires preserving the English UI label 'Open in New Window'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Identifier ERR_NETWORK_CHANGED should be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "MIME type 'text/csv' is a technical identifier that should not be altered."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI string requiring basic character conversion (e.g., 页 to 頁)."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The product label 'Beta' should be preserved and not translated."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Focuses on preserving the specific 'Save As…' string including the single ellipsis character (U+2026)."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Proper noun 'Acme Studio' must be preserved without modification."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "State keywords 'on' and 'off' must be preserved as they are likely fixed values in code."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes a display convention; requires standard character conversion without complex localization risks."
+    }
+  ]
+}

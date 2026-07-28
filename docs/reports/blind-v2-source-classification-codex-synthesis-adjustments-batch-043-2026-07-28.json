@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex synthesis",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-28",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-043.json",
+  "packet_sha256": "c23bcf6ad53f9d5932303ef24c21e9ec17750d4f9f713a4b5b60e96c41785bbf",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 1
+  },
+  "cases": [
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-4987820182225656817",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    }
+  ]
+}
