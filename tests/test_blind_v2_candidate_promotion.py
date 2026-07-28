@@ -92,8 +92,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-039-2026-07-28.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-040-2026-07-28.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-041-2026-07-28.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-040-2026-07-28.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-041-2026-07-28.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -122,24 +124,24 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 3467,
+        "total": 3553,
         "by_domain": {
             "formal_news": 493,
-            "high_stakes": 816,
-            "it_api_cli": 586,
-            "llm_generated": 339,
-            "social_daily": 627,
-            "ui_i18n": 606,
+            "high_stakes": 843,
+            "it_api_cli": 593,
+            "llm_generated": 356,
+            "social_daily": 654,
+            "ui_i18n": 614,
         },
         "by_risk": {
-            "baseline_guard": 1024,
-            "candidate_gap": 1495,
-            "over_conversion_guard": 948,
+            "baseline_guard": 1068,
+            "candidate_gap": 1534,
+            "over_conversion_guard": 951,
         },
         "by_source_class": {
-            "permissive_license": 1190,
-            "project_original": 1102,
-            "public_domain": 1175,
+            "permissive_license": 1217,
+            "project_original": 1134,
+            "public_domain": 1202,
         },
         "by_source": {
             "aosp-framework-zh-rcn-v1": 245,
@@ -154,7 +156,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ftc-heads-up-simplified-v1": 111,
             "ftc-small-business-simplified-v1": 55,
             "kubernetes-docs-zh-cn-v1": 215,
-            "massive-1-0-zh-cn-v1": 317,
+            "massive-1-0-zh-cn-v1": 344,
             "nps-essential-acadia-simplified-v1": 30,
             "osha-chainsaw-safety-simplified-v1": 20,
             "osha-disaster-cleanup-simplified-v1": 56,
@@ -170,7 +172,8 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ready-gov-hurricanes-zh-hans-v1": 41,
             "ready-gov-landslides-debris-flow-zh-hans-v1": 51,
             "ready-gov-radiation-zh-hans-v1": 54,
-            "ready-gov-winter-weather-zh-hans-v1": 22,
+            "ready-gov-tornadoes-zh-hans-v1": 14,
+            "ready-gov-winter-weather-zh-hans-v1": 35,
             "ud-chinese-cfl-v1": 69,
             "vscode-loc-zh-hans-v1": 100,
             "zhtw-project-balanced-baseline-guard-v1": 100,
@@ -182,15 +185,15 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-it-llm-social-guard-v1": 64,
             "zhtw-project-it-llm-ui-guard-v1": 100,
             "zhtw-project-llm-domain-balance-v1": 98,
-            "zhtw-project-llm-it-ui-baseline-v1": 64,
+            "zhtw-project-llm-it-ui-baseline-v1": 96,
             "zhtw-project-llm-product-v1": 50,
             "zhtw-project-llm-social-baseline-v1": 96,
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 3472
-    assert report["promoted"] == 3467
-    assert report["excluded_by_dedupe"] == 5
+    assert report["confirmed_eligible"] == 3559
+    assert report["promoted"] == 3553
+    assert report["excluded_by_dedupe"] == 6
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
         "permissive_license",

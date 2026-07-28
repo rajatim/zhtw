@@ -528,3 +528,11 @@ differed from the pinned retrieval hash. The anchored parser still produced
 the exact same 34 normalized inputs in the same order.
 The manifest was deliberately not repinned: raw checksum verification remains
 fail-closed, while batch 041 uses the already committed normalized snapshot.
+
+Batch 041 completed input-only classification for 16 Tornadoes and 16
+additional Winter Weather cases. Maintainer `tim` confirmed the Codex
+synthesis on 2026-07-28. Fourteen Tornadoes and fourteen Winter Weather cases
+were eligible; all Tornadoes cases passed promotion deduplication, while one
+of the fourteen eligible Winter Weather cases was removed as an exact duplicate
+of an existing Ready.gov Floods candidate. No converter output or expected text
+influenced the review.

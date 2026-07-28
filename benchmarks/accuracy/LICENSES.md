@@ -343,7 +343,7 @@ is missing.
 - Attribution: Federal Emergency Management Agency, Ready.gov, Tornadoes, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
 - Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
 - Output license: U.S. Public Domain.
-- Bias notice: U.S. tornado, sheltering, evacuation, weather-alert, and public-safety guidance is not representative of ordinary Taiwan traffic.
+- Bias notice: U.S. tornado, sheltering, evacuation, weather-alert, and public-safety guidance is not representative of ordinary Taiwan traffic. Codex and Gemini independently classified 16 sampled cases; maintainer `tim` confirmed the synthesis on 2026-07-28.
 
 ## ready-gov-winter-weather-zh-hans-v1
 
@@ -352,7 +352,7 @@ is missing.
 - Attribution: Federal Emergency Management Agency, Ready.gov, Winter Weather, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
 - Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
 - Output license: U.S. Public Domain.
-- Bias notice: U.S. winter-storm, cold-exposure, heating, travel, and public-safety guidance is not representative of ordinary Taiwan traffic. Codex and Gemini independently classified 32 sampled cases; maintainer `tim` confirmed the synthesis on 2026-07-28.
+- Bias notice: U.S. winter-storm, cold-exposure, heating, travel, and public-safety guidance is not representative of ordinary Taiwan traffic. Codex and Gemini independently classified 48 sampled cases across batches 040-041; maintainer `tim` confirmed both syntheses on 2026-07-28.
 
 ## osha-electrical-safety-simplified-v1
 

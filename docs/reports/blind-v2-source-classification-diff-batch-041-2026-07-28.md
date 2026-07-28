@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 041 (2026-07-28)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `8466172bf781262313a93c4ba8e651f6eeb23b870b7de16631c2c859d7396f4e`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 75 advisory disagreements and batch-confirmed the 21 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A clear and complete question.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 02. massive-1-0-zh-cn-v1/11367
 
@@ -63,7 +63,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A clear media control command ('rewind this podcast').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 03. massive-1-0-zh-cn-v1/12594
 
@@ -84,7 +84,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A clear and complete question asking to book a train ticket.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 04. massive-1-0-zh-cn-v1/15217
 
@@ -105,7 +105,7 @@ Codex reason: 僅有「照片」一詞，無法由輸入判定查詢或操作意
 
 Gemini reason: A single-word phrase with clear intent in a voice-assistant context (e.g., 'show photos').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 05. massive-1-0-zh-cn-v1/16885
 
@@ -126,7 +126,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A complex but complete command to send an email, containing proper names ('韩女士', '迪恩').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 06. massive-1-0-zh-cn-v1/17114
 
@@ -147,7 +147,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A complete and valid question, although it relies on context ('that email').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 07. massive-1-0-zh-cn-v1/1808
 
@@ -168,7 +168,7 @@ Codex reason: 僅有「標題」一詞，缺少可獨立裁決的語境。
 
 Gemini reason: A single-word phrase with clear intent (e.g., 'what is the title').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 08. massive-1-0-zh-cn-v1/1965
 
@@ -189,7 +189,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A clear command to play music, containing a proper name ('周杰伦').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 09. massive-1-0-zh-cn-v1/2009
 
@@ -210,7 +210,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A colloquial but clear and complete question about the weather.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 10. massive-1-0-zh-cn-v1/229
 
@@ -231,7 +231,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A clear question asking for the time in a specific location ('拉斯维加斯').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 11. massive-1-0-zh-cn-v1/3420
 
@@ -252,7 +252,7 @@ Codex reason: 名詞片段未表明查詢或操作意圖，無法獨立裁決。
 
 Gemini reason: A noun phrase used as a command, likely referring to a feature ('music beat tracking').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 12. massive-1-0-zh-cn-v1/380
 
@@ -273,7 +273,7 @@ Codex reason: 句首多出「清」且「樂團的遊戲」語意不明，屬明
 
 Gemini reason: The command has a typo ('清' instead of '请') but the intent is clear. It contains proper nouns for a band and song ('骚动乐团', '游戏').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 13. massive-1-0-zh-cn-v1/4760
 
@@ -294,7 +294,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A clear and complete question about a weather forecast.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 14. massive-1-0-zh-cn-v1/5657
 
@@ -315,7 +315,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A command to play music, containing a proper name ('蔡依林').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 15. massive-1-0-zh-cn-v1/6347
 
@@ -336,7 +336,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A conversational phrase addressed to a named AI assistant ('小度').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 16. massive-1-0-zh-cn-v1/679
 
@@ -357,7 +357,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A clear command for an IoT device (smart plug).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 17. massive-1-0-zh-cn-v1/7090
 
@@ -378,7 +378,7 @@ Codex reason: 僅有產品名稱，未表明要開啟、查詢或操作的意圖
 
 Gemini reason: An app name ('谷歌日历') used as a command.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 18. massive-1-0-zh-cn-v1/8609
 
@@ -399,7 +399,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A clear calendar management command that includes a proper name ('丽莎').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 19. massive-1-0-zh-cn-v1/9071
 
@@ -420,7 +420,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A clear command to configure a setting.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 20. massive-1-0-zh-cn-v1/950
 
@@ -441,7 +441,7 @@ Codex reason: 可獨立判讀的日常語音助理輸入；專名、操作或口
 
 Gemini reason: A colloquial but clear question about the weather, containing a proper name ('上海').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 21. ready-gov-tornadoes-zh-hans-v1/sentence-002
 
@@ -462,7 +462,7 @@ Codex reason: 缺少主詞或前文指涉，無法單獨判定「帶來」的對
 
 Gemini reason: The sentence is a complete descriptive statement. The term '英里' for miles is common, but Taiwan sometimes uses '哩', making it a minor regional difference candidate.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 22. ready-gov-tornadoes-zh-hans-v1/sentence-004
 
@@ -483,7 +483,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: The instruction is clear and uses standard terminology like '州府' and '部落官员' that translates well.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 23. ready-gov-tornadoes-zh-hans-v1/sentence-005
 
@@ -504,7 +504,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: This is a clear, actionable instruction. The terms for shelters ('安全室', '地下室', '风暴地窖') are specific and understandable, even if '风暴地窖' is less common in some regions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 24. ready-gov-tornadoes-zh-hans-v1/sentence-009
 
@@ -525,7 +525,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: This is a standard warning phrase with no significant regional variations.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 25. ready-gov-tornadoes-zh-hans-v1/sentence-022
 
@@ -546,7 +546,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: The sentence is a complete thought and uses common, shared terminology.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 26. ready-gov-tornadoes-zh-hans-v1/sentence-023
 
@@ -567,7 +567,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: This is a standard preparedness instruction with widely understood terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 27. ready-gov-tornadoes-zh-hans-v1/sentence-024
 
@@ -588,7 +588,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: A clear, concise, and standard emergency instruction.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 28. ready-gov-tornadoes-zh-hans-v1/sentence-027
 
@@ -609,7 +609,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: A clear and direct prohibition that is easily understood.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 29. ready-gov-tornadoes-zh-hans-v1/sentence-031
 
@@ -630,7 +630,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: The terminology for 'electric wires' and 'utility lines' is standard and clear.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 30. ready-gov-tornadoes-zh-hans-v1/sentence-032
 
@@ -651,7 +651,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: This medical instruction uses standard, universally understood terms like '就医' (seek medical care) and '医务人员' (medical personnel).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 31. ready-gov-tornadoes-zh-hans-v1/sentence-033
 
@@ -672,7 +672,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: This is a clear, standard instruction for a post-disaster or emergency scenario.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 32. ready-gov-tornadoes-zh-hans-v1/sentence-034
 
@@ -693,7 +693,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: The instruction about personal protective equipment ('厚底鞋', '长裤', '工作手套', '面罩', '口罩') uses clear, standard terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 33. ready-gov-winter-weather-zh-hans-v1/sentence-007
 
@@ -714,7 +714,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: 完整的句子，提供官方指南，表述清晰。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 34. ready-gov-winter-weather-zh-hans-v1/sentence-011
 
@@ -735,7 +735,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: 完整的指令性句子。连续使用'和'字在语法上可接受，但稍嫌冗余。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 35. ready-gov-winter-weather-zh-hans-v1/sentence-014
 
@@ -756,7 +756,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: 包含大写英文缩写（EAS, NOAA），有被错误转换的风险，应作为专名保留。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 36. ready-gov-winter-weather-zh-hans-v1/sentence-020
 
@@ -777,7 +777,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: 简洁但完整的指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 37. ready-gov-winter-weather-zh-hans-v1/sentence-021
 
@@ -798,7 +798,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: 完整的指令性句子。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 38. ready-gov-winter-weather-zh-hans-v1/sentence-025
 
@@ -819,7 +819,7 @@ Codex reason: 「留一箱滿的汽油」不是完整自然的中文表達，且
 
 Gemini reason: 完整的指令。'一箱满的汽油' 表述虽不精炼但可独立理解。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 39. ready-gov-winter-weather-zh-hans-v1/sentence-038
 
@@ -840,7 +840,7 @@ Codex reason: 僅列「跡象」而未指出所描述的病症，離開前文後
 
 Gemini reason: 清晰的症状列表短语，属于半结构化文本。医疗术语可能存在地域转换差异。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 40. ready-gov-winter-weather-zh-hans-v1/sentence-039
 
@@ -861,7 +861,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: 清晰直接的指令短语，属于半结构化文本。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 41. ready-gov-winter-weather-zh-hans-v1/sentence-041
 
@@ -882,7 +882,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: 定义性句子，清晰完整。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 42. ready-gov-winter-weather-zh-hans-v1/sentence-050
 
@@ -903,7 +903,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: 完整的警告句子，表述清晰。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 43. ready-gov-winter-weather-zh-hans-v1/sentence-056
 
@@ -924,7 +924,7 @@ Codex reason: 可獨立判讀的官方防災或健康安全指示；屬高風險
 
 Gemini reason: 清晰完整的指令。
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 44. zhtw-project-llm-it-ui-baseline-v1/it-003
 
@@ -945,7 +945,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about caching.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 45. zhtw-project-llm-it-ui-baseline-v1/it-004
 
@@ -966,7 +966,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about deployment.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 46. zhtw-project-llm-it-ui-baseline-v1/it-015
 
@@ -987,7 +987,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about web cache invalidation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 47. zhtw-project-llm-it-ui-baseline-v1/it-021
 
@@ -1008,7 +1008,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about user confirmation before deletion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 48. zhtw-project-llm-it-ui-baseline-v1/it-023
 
@@ -1029,7 +1029,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about logging.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 49. zhtw-project-llm-it-ui-baseline-v1/it-026
 
@@ -1050,7 +1050,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about system maintenance.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 50. zhtw-project-llm-it-ui-baseline-v1/it-028
 
@@ -1071,7 +1071,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about saving unsaved changes.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 51. zhtw-project-llm-it-ui-baseline-v1/llm-001
 
@@ -1092,7 +1092,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about LLM pre-condition checking.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 52. zhtw-project-llm-it-ui-baseline-v1/llm-002
 
@@ -1113,7 +1113,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about summarization rules.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 53. zhtw-project-llm-it-ui-baseline-v1/llm-005
 
@@ -1134,7 +1134,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about human evaluation of LLM output.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 54. zhtw-project-llm-it-ui-baseline-v1/llm-007
 
@@ -1155,7 +1155,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about versioning in evaluations.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 55. zhtw-project-llm-it-ui-baseline-v1/llm-008
 
@@ -1176,7 +1176,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about content truncation rules for LLMs.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 56. zhtw-project-llm-it-ui-baseline-v1/llm-009
 
@@ -1197,7 +1197,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about avoiding hallucination/fabrication.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 57. zhtw-project-llm-it-ui-baseline-v1/llm-010
 
@@ -1218,7 +1218,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about a workflow step (human review).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 58. zhtw-project-llm-it-ui-baseline-v1/llm-011
 
@@ -1239,7 +1239,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about model adaptation based on feedback.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 59. zhtw-project-llm-it-ui-baseline-v1/llm-015
 
@@ -1260,7 +1260,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about checking for constraints in generated content.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 60. zhtw-project-llm-it-ui-baseline-v1/llm-017
 
@@ -1281,7 +1281,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about showing work in calculations.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 61. zhtw-project-llm-it-ui-baseline-v1/llm-019
 
@@ -1302,7 +1302,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about filtering in retrieval systems.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 62. zhtw-project-llm-it-ui-baseline-v1/llm-020
 
@@ -1323,7 +1323,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about a human review process.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 63. zhtw-project-llm-it-ui-baseline-v1/llm-021
 
@@ -1344,7 +1344,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about a pre-display processing step.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 64. zhtw-project-llm-it-ui-baseline-v1/llm-022
 
@@ -1365,7 +1365,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about evaluating response stability.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 65. zhtw-project-llm-it-ui-baseline-v1/llm-026
 
@@ -1386,7 +1386,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about maintaining structure in list generation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 66. zhtw-project-llm-it-ui-baseline-v1/llm-027
 
@@ -1407,7 +1407,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about data retention policy.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 67. zhtw-project-llm-it-ui-baseline-v1/llm-029
 
@@ -1428,7 +1428,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a complete and clear sentence about the assistant's reasoning process.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 68. zhtw-project-llm-it-ui-baseline-v1/ui-001
 
@@ -1449,7 +1449,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a common UI status message.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 69. zhtw-project-llm-it-ui-baseline-v1/ui-005
 
@@ -1470,7 +1470,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a common UI confirmation prompt.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 70. zhtw-project-llm-it-ui-baseline-v1/ui-010
 
@@ -1491,7 +1491,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a common UI feedback message.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 71. zhtw-project-llm-it-ui-baseline-v1/ui-015
 
@@ -1512,7 +1512,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a common UI status message for updates.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 72. zhtw-project-llm-it-ui-baseline-v1/ui-019
 
@@ -1533,7 +1533,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a common UI error message.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 73. zhtw-project-llm-it-ui-baseline-v1/ui-022
 
@@ -1554,7 +1554,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a common UI permission error message.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 74. zhtw-project-llm-it-ui-baseline-v1/ui-027
 
@@ -1575,7 +1575,7 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a common UI error message.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 75. zhtw-project-llm-it-ui-baseline-v1/ui-029
 
@@ -1596,4 +1596,4 @@ Codex reason: 完整且可獨立判讀的 project-original 基線案例；依既
 
 Gemini reason: Input is Simplified Chinese. It is a common UI status message.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
