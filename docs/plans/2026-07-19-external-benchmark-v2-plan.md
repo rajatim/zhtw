@@ -869,15 +869,17 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   `permissive_license` 1,277/3,738（34.16%）、`public_domain` 1,263/3,738
   （33.79%）、`project_original` 1,198/3,738（32.05%），皆低於 35%，且沒有
   來源超過 10%。
-- [ ] 2026-07-28 建立 source-class-balanced batch 044：VS Code、FLORES、兩份
+- [x] 2026-07-28 建立 source-class-balanced batch 044：VS Code、FLORES、兩份
   project-original guard 與 12 份 public-domain 剩餘候選共 96 筆，三個 source
   class 各 32 筆，與 batches 001-043 無 ID 重疊。Codex first pass 建議 94 筆
   納入、2 筆排除；Gemini CLI 0.52.0（`gemini-2.5-pro`）以 12 個獨立 session
   完成 96/96 input-only 審查，全部一次成功、零工具呼叫、零 API 錯誤，建議
   95 筆納入、1 筆排除。兩者有 41 筆四欄完全一致、55 筆差異；Codex synthesis
   逐筆複核後建議 94 筆納入、2 筆排除（41 agreement、40 Codex、11 Gemini、
-  4 hybrid）。狀態為 advisory only，等待 maintainer confirmation；確認前不得
-  promotion。
+  4 hybrid）。Maintainer 已確認整批 synthesis，94 筆全數通過 promotion；Pool
+  `3,738 → 3,832`，距最低 5,880 筆尚差 2,048。`permissive_license`
+  1,308/3,832（34.13%）、`public_domain` 1,294/3,832（33.77%）、
+  `project_original` 1,230/3,832（32.10%），皆低於 35%，且沒有來源超過 10%。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

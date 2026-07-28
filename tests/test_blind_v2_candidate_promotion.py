@@ -98,8 +98,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-042-2026-07-28.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-043-2026-07-28.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-044-2026-07-28.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-043-2026-07-28.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-044-2026-07-28.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -128,38 +130,38 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 3738,
+        "total": 3832,
         "by_domain": {
-            "formal_news": 503,
-            "high_stakes": 906,
-            "it_api_cli": 629,
-            "llm_generated": 372,
-            "social_daily": 654,
-            "ui_i18n": 674,
+            "formal_news": 518,
+            "high_stakes": 939,
+            "it_api_cli": 641,
+            "llm_generated": 382,
+            "social_daily": 660,
+            "ui_i18n": 692,
         },
         "by_risk": {
-            "baseline_guard": 1113,
-            "candidate_gap": 1584,
-            "over_conversion_guard": 1041,
+            "baseline_guard": 1138,
+            "candidate_gap": 1612,
+            "over_conversion_guard": 1082,
         },
         "by_source_class": {
-            "permissive_license": 1277,
-            "project_original": 1198,
-            "public_domain": 1263,
+            "permissive_license": 1308,
+            "project_original": 1230,
+            "public_domain": 1294,
         },
         "by_source": {
             "aosp-framework-zh-rcn-v1": 275,
             "chromium-strings-zh-cn-v1": 162,
             "cisa-cyber-hygiene-zh-hans-v1": 21,
-            "cisa-personal-security-zh-hans-v1": 120,
+            "cisa-personal-security-zh-hans-v1": 123,
             "cdc-stacks-111808-v1": 18,
             "cdc-stacks-116683-v1": 21,
             "cdc-stacks-120024-v1": 22,
-            "census-newsroom-zh-hans-v1": 212,
-            "flores-200-zho-hans-v1": 98,
-            "ftc-heads-up-simplified-v1": 111,
-            "ftc-how-to-avoid-scam-simplified-v1": 31,
-            "ftc-identity-theft-simplified-v1": 14,
+            "census-newsroom-zh-hans-v1": 214,
+            "flores-200-zho-hans-v1": 114,
+            "ftc-heads-up-simplified-v1": 115,
+            "ftc-how-to-avoid-scam-simplified-v1": 33,
+            "ftc-identity-theft-simplified-v1": 18,
             "ftc-small-business-simplified-v1": 55,
             "kubernetes-docs-zh-cn-v1": 229,
             "massive-1-0-zh-cn-v1": 344,
@@ -172,25 +174,25 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "osha-small-business-consultation-simplified-v1": 20,
             "osha-work-zone-traffic-simplified-v1": 15,
             "ready-gov-drought-zh-hans-v1": 70,
-            "ready-gov-earthquakes-zh-hans-v1": 43,
-            "ready-gov-floods-zh-hans-v1": 46,
+            "ready-gov-earthquakes-zh-hans-v1": 44,
+            "ready-gov-floods-zh-hans-v1": 47,
             "ready-gov-home-fires-zh-hans-v1": 81,
-            "ready-gov-hurricanes-zh-hans-v1": 41,
-            "ready-gov-landslides-debris-flow-zh-hans-v1": 51,
-            "ready-gov-radiation-zh-hans-v1": 54,
-            "ready-gov-tornadoes-zh-hans-v1": 30,
-            "ready-gov-winter-weather-zh-hans-v1": 35,
+            "ready-gov-hurricanes-zh-hans-v1": 42,
+            "ready-gov-landslides-debris-flow-zh-hans-v1": 53,
+            "ready-gov-radiation-zh-hans-v1": 59,
+            "ready-gov-tornadoes-zh-hans-v1": 32,
+            "ready-gov-winter-weather-zh-hans-v1": 39,
             "ud-chinese-cfl-v1": 69,
-            "vscode-loc-zh-hans-v1": 100,
+            "vscode-loc-zh-hans-v1": 115,
             "zhtw-project-balanced-baseline-guard-v1": 100,
             "zhtw-project-competitor-risk-taxonomy-v1": 80,
             "zhtw-project-formal-entity-guard-v1": 100,
             "zhtw-project-formal-llm-balance-v1": 100,
             "zhtw-project-formal-llm-semantic-v1": 100,
             "zhtw-project-it-api-cli-v1": 100,
-            "zhtw-project-it-llm-social-guard-v1": 64,
+            "zhtw-project-it-llm-social-guard-v1": 80,
             "zhtw-project-it-llm-ui-guard-v1": 100,
-            "zhtw-project-it-ui-llm-formal-guard-v1": 64,
+            "zhtw-project-it-ui-llm-formal-guard-v1": 80,
             "zhtw-project-llm-domain-balance-v1": 98,
             "zhtw-project-llm-it-ui-baseline-v1": 96,
             "zhtw-project-llm-product-v1": 50,
@@ -198,8 +200,8 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 3744
-    assert report["promoted"] == 3738
+    assert report["confirmed_eligible"] == 3838
+    assert report["promoted"] == 3832
     assert report["excluded_by_dedupe"] == 6
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {

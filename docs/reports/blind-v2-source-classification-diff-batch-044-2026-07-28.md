@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 044 (2026-07-28)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `ff3cdad5a9056ad0eefffd1ba04a6fc90239a9003a9de45fc71c2e2926a439a1`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 55 advisory disagreements and batch-confirmed the 41 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 可獨立判讀的 FLORES 句子；依新聞、社會或高風險�
 
 Gemini reason: Contains multiple geographic names (Kenya, Nairobi, Ethiopia) that require translation normalization for Taiwan ('肯亞', '奈洛比', '衣索比亞').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 02. flores-200-zho-hans-v1/dev-0139
 
@@ -63,7 +63,7 @@ Codex reason: 可獨立判讀的 FLORES 句子；依新聞、社會或高風險�
 
 Gemini reason: This sentence consists of common words that should convert directly, serving as a good baseline test.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 03. flores-200-zho-hans-v1/dev-0350
 
@@ -84,7 +84,7 @@ Codex reason: 可獨立判讀的 FLORES 句子；依新聞、社會或高風險�
 
 Gemini reason: The term '打造' is a potential candidate gap; '建造' or '研發' might be more idiomatic in Taiwan for a scientific context.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 04. flores-200-zho-hans-v1/dev-0583
 
@@ -105,7 +105,7 @@ Codex reason: 可獨立判讀的 FLORES 句子；依新聞、社會或高風險�
 
 Gemini reason: Descriptive sentence with standard vocabulary. Straightforward conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 05. flores-200-zho-hans-v1/dev-0648
 
@@ -126,7 +126,7 @@ Codex reason: 可獨立判讀的 FLORES 句子；依新聞、社會或高風險�
 
 Gemini reason: Slight potential candidate gap with '应用', where '運用' might be more idiomatic for applying knowledge in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 06. flores-200-zho-hans-v1/devtest-0179
 
@@ -147,7 +147,7 @@ Codex reason: 可獨立判讀的 FLORES 句子；依新聞、社會或高風險�
 
 Gemini reason: Proper noun '跳羚队' and sports jargon '收官' are key points, but both are used similarly across locales.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 07. flores-200-zho-hans-v1/devtest-0196
 
@@ -168,7 +168,7 @@ Codex reason: 可獨立判讀的 FLORES 句子；依新聞、社會或高風險�
 
 Gemini reason: Contains multiple proper nouns (university, medical center, person's name) whose translations might have official or conventional variants in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 08. flores-200-zho-hans-v1/devtest-0590
 
@@ -189,7 +189,7 @@ Codex reason: 可獨立判讀的 FLORES 句子；依新聞、社會或高風險�
 
 Gemini reason: Daily life topic, potential for regional term normalization (e.g., plan, adoption).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 09. flores-200-zho-hans-v1/devtest-1002
 
@@ -210,7 +210,7 @@ Codex reason: 可獨立判讀的 FLORES 句子；依新聞、社會或高風險�
 
 Gemini reason: Description of a religious event with specific terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 10. ftc-heads-up-simplified-v1/sentence-005
 
@@ -231,7 +231,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: General advice, potential for minor regional term differences.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 11. ftc-heads-up-simplified-v1/sentence-031
 
@@ -252,7 +252,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: Online communication advice with terms that have common regional variants (e.g., online, post).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 12. ftc-heads-up-simplified-v1/sentence-052
 
@@ -273,7 +273,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: Instructional sentence from a guide.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 13. ftc-heads-up-simplified-v1/sentence-083
 
@@ -294,7 +294,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: The terms '网上' (online) and '信息' (information) are common in Mainland China but '網路上' and '資訊' are preferred in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 14. ftc-how-to-avoid-scam-simplified-v1/sentence-008
 
@@ -315,7 +315,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: This is a straightforward sentence requiring standard character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 15. ftc-how-to-avoid-scam-simplified-v1/sentence-011
 
@@ -336,7 +336,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: The term '计算机' (computer) is primarily used in Mainland China, while Taiwan uses '電腦'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 16. ftc-identity-theft-simplified-v1/sentence-008
 
@@ -357,7 +357,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: The phrasing is standard and mainly requires character-level conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 17. ftc-identity-theft-simplified-v1/sentence-011
 
@@ -378,7 +378,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: '社会保障卡' (Social Security card) is a specific US entity. Its translation should be handled carefully to avoid misinterpretation, making it an over-conversion risk.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 18. ftc-identity-theft-simplified-v1/sentence-017
 
@@ -399,7 +399,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: Contains Mainland China terms such as '短信' (SMS/text message), for which Taiwan commonly uses '簡訊'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 19. ftc-identity-theft-simplified-v1/sentence-019
 
@@ -420,7 +420,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: Standard sentence with common vocabulary that requires basic character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 20. ready-gov-earthquakes-zh-hans-v1/sentence-002
 
@@ -441,7 +441,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: This sentence contains a list of proper nouns (place names) that should be preserved during character conversion, posing an over-conversion risk.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 21. ready-gov-floods-zh-hans-v1/sentence-027
 
@@ -462,7 +462,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: Standard instruction.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 22. ready-gov-landslides-debris-flow-zh-hans-v1/sentence-007
 
@@ -483,7 +483,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: '山体滑坡' is a mainland term; Taiwan often uses '山崩'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 23. ready-gov-radiation-zh-hans-v1/sentence-005
 
@@ -504,7 +504,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: '保持关注' is a formal mainland phrase that might be localized to '保持留意' or '注意收聽' in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 24. ready-gov-radiation-zh-hans-v1/sentence-053
 
@@ -525,7 +525,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: Standard simplified Chinese sentence, appears to be public safety guidance.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 25. ready-gov-tornadoes-zh-hans-v1/sentence-001
 
@@ -546,7 +546,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: Standard meteorological description in simplified Chinese.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 26. ready-gov-tornadoes-zh-hans-v1/sentence-018
 
@@ -567,7 +567,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: The term '气象员' may require regional adaptation in Taiwan (e.g., '氣象預報員').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 27. ready-gov-winter-weather-zh-hans-v1/sentence-008
 
@@ -588,7 +588,7 @@ Codex reason: 句子僅說明「提醒公眾」但缺少發出提醒的主體，
 
 Gemini reason: Standard weather alert terminology in simplified Chinese.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 28. ready-gov-winter-weather-zh-hans-v1/sentence-009
 
@@ -609,7 +609,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: Contains numerals which should be preserved. '冬季风暴观察' might be a specific term.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 29. ready-gov-winter-weather-zh-hans-v1/sentence-012
 
@@ -630,7 +630,7 @@ Codex reason: 可獨立判讀的公共領域句子；依臺灣用語、正式語
 
 Gemini reason: The word '信息' (xìnxī) is common in mainland China, while '資訊' (zīxùn) is standard in Taiwan for 'information'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 30. vscode-loc-zh-hans-v1/entry-1bc2d120c0821a7f
 
@@ -651,7 +651,7 @@ Codex reason: 可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占
 
 Gemini reason: UI menu item with a keyboard mnemonic that should be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 31. vscode-loc-zh-hans-v1/entry-2c85090743bfc31a
 
@@ -672,7 +672,7 @@ Codex reason: 可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占
 
 Gemini reason: For voice context, '录制' (recording) might be better localized as '錄音' in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 32. vscode-loc-zh-hans-v1/entry-374e2ac3e2f1c83c
 
@@ -693,7 +693,7 @@ Codex reason: 可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占
 
 Gemini reason: Technical error message. Code paths and placeholders like 'contributes.{0}.path' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 33. vscode-loc-zh-hans-v1/entry-633aa45197b3dce7
 
@@ -714,7 +714,7 @@ Codex reason: 可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占
 
 Gemini reason: Technical description where keywords like 'tree' and 'webview' are identifiers and must not be translated.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 34. vscode-loc-zh-hans-v1/entry-8c957017a839953e
 
@@ -735,7 +735,7 @@ Codex reason: 可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占
 
 Gemini reason: Standard UI security prompt. The term '代码' (code) is a key candidate for regional normalization, e.g., to '程式碼' in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 35. vscode-loc-zh-hans-v1/entry-af83496e04575bf7
 
@@ -756,7 +756,7 @@ Codex reason: 可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占
 
 Gemini reason: Standard file sorting UI text. Terms like '文件' (file) and '文件夹' (folder) are common and should convert straightforwardly.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 36. vscode-loc-zh-hans-v1/entry-c19d884c9e5923ca
 
@@ -777,7 +777,7 @@ Codex reason: 可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占
 
 Gemini reason: Technical command label. Terms like '单元格' (cell) and '容器' (container) are established technical jargon that should be preserved, converting only the characters.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 37. vscode-loc-zh-hans-v1/entry-d8563114f52568ca
 
@@ -798,7 +798,7 @@ Codex reason: 可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占
 
 Gemini reason: Standard property-setting message with placeholders. No significant regional variance expected.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 38. vscode-loc-zh-hans-v1/entry-e5adeb3575e96524
 
@@ -819,7 +819,7 @@ Codex reason: 字串含多層括號與引號殘留，無法確認原始 UI 文�
 
 Gemini reason: The placeholder construct [[['''{0}''']] appears malformed or unrendered, making the sentence ineligible for a quality review.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 39. vscode-loc-zh-hans-v1/entry-ec63ec66cb3a69b7
 
@@ -840,7 +840,7 @@ Codex reason: 可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占
 
 Gemini reason: Accessibility text. '屏幕阅读器' (screen reader) is a Mainland China term; Taiwan uses '螢幕閱讀器'. This requires regional adaptation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 40. vscode-loc-zh-hans-v1/entry-ff6d9986f54d171a
 
@@ -861,7 +861,7 @@ Codex reason: 可獨立判讀的 VS Code UI 字串；依臺灣介面用語與占
 
 Gemini reason: Simple, standard search result notification with a placeholder. Universal phrasing.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 41. zhtw-project-it-llm-social-guard-v1/it-021
 
@@ -882,7 +882,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: The version range string '>=3.2.0,<4.0.0' must be preserved exactly.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 42. zhtw-project-it-llm-social-guard-v1/it-034
 
@@ -903,7 +903,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: Technical instruction where the CVE identifier must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 43. zhtw-project-it-llm-social-guard-v1/llm-017
 
@@ -924,7 +924,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: LLM context. '事实核查' should be localized to '事實查核'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 44. zhtw-project-it-llm-social-guard-v1/llm-025
 
@@ -945,7 +945,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: A standard LLM-related sentence requiring basic character conversion and term localization (e.g., 用户->使用者).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 45. zhtw-project-it-llm-social-guard-v1/llm-030
 
@@ -966,7 +966,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: Instruction for an LLM. '提示内容' is a mainland-specific term that needs localization.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 46. zhtw-project-it-llm-social-guard-v1/social-010
 
@@ -987,7 +987,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: Contains a Taiwanese brand name (五十岚) and product name in traditional characters that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 47. zhtw-project-it-llm-social-guard-v1/social-020
 
@@ -1008,7 +1008,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: Requires regional term localization ('台风' -> '颱風') while preserving the proper name '青鸟'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 48. zhtw-project-it-llm-social-guard-v1/social-022
 
@@ -1029,7 +1029,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: High-stakes context where preserving the exact Romanized name 'Wu, Mei-Ling' is critical.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 49. zhtw-project-it-ui-llm-formal-guard-v1/formal-010
 
@@ -1050,7 +1050,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: Financial statement context with an account code 1100-03 that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 50. zhtw-project-it-ui-llm-formal-guard-v1/formal-011
 
@@ -1071,7 +1071,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: Patent document context with a filename SequenceListing.xml that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 51. zhtw-project-it-ui-llm-formal-guard-v1/llm-016
 
@@ -1092,7 +1092,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: Mainland term '缓存' requires normalization. Identifier 'prompt_cache.hit' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 52. zhtw-project-it-ui-llm-formal-guard-v1/llm-017
 
@@ -1113,7 +1113,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: Mainland IT term '测试夹具'. Keyword 'null' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 53. zhtw-project-it-ui-llm-formal-guard-v1/llm-018
 
@@ -1134,7 +1134,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: Identifier 'needs_human_review' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 54. zhtw-project-it-ui-llm-formal-guard-v1/llm-020
 
@@ -1155,7 +1155,7 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: Identifier 'tool_call_id' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 55. zhtw-project-it-ui-llm-formal-guard-v1/llm-025
 
@@ -1176,4 +1176,4 @@ Codex reason: Project-original 情境可獨立判讀；識別碼、專名、引�
 
 Gemini reason: Identifier 'win_rate_paired' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
