@@ -1,0 +1,989 @@
+{
+  "version": 1,
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": null,
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-041.json",
+  "packet_sha256": "8466172bf781262313a93c4ba8e651f6eeb23b870b7de16631c2c859d7396f4e",
+  "stats": {
+    "total": 96,
+    "eligible": 95,
+    "excluded": 1,
+    "high": 96,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "452a8991-6132-4963-a371-02c61c3132bb,952e395d-e551-4171-9b18-c411b99cbbe7,2fbe8c09-bded-4689-95cd-941a38819534,10631792-ea0c-43cf-acb7-8c276b99aee5",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "cases": [
+    {
+      "id": "massive-1-0-zh-cn-v1/10778",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear and complete question."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11361",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a command to play a podcast. '姐妹悄悄話' is a proper noun (podcast title) and '話' is a traditional character, while the source is predominantly simplified."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/11367",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear media control command ('rewind this podcast')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/12594",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear and complete question asking to book a train ticket."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/13455",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complete and understandable, though slightly redundant, question."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/15217",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A single-word phrase with clear intent in a voice-assistant context (e.g., 'show photos')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16869",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear and complete question asking for location."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/16885",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complex but complete command to send an email, containing proper names ('韩女士', '迪恩')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/17114",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complete and valid question, although it relies on context ('that email')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1808",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A single-word phrase with clear intent (e.g., 'what is the title')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/1965",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear command to play music, containing a proper name ('周杰伦')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A colloquial but clear and complete question about the weather."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/229",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear question asking for the time in a specific location ('拉斯维加斯')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/2605",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard command to play music."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3117",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A command to play music, containing proper names of an artist ('基恩') and album ('希望和恐惧')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/3420",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A noun phrase used as a command, likely referring to a feature ('music beat tracking')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/380",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The command has a typo ('清' instead of '请') but the intent is clear. It contains proper nouns for a band and song ('骚动乐团', '游戏')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/4760",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear and complete question about a weather forecast."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/483",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear and complete question asking for a song name."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/5657",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A command to play music, containing a proper name ('蔡依林')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/6347",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A conversational phrase addressed to a named AI assistant ('小度')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/679",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear command for an IoT device (smart plug)."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7090",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "An app name ('谷歌日历') used as a command."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7169",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A statement intended to create a recurring calendar event. The term '治疗师' (therapist) could have regional variations like '心理師'."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/7529",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear command to add personal information."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8118",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear command to set a reminder."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8593",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, colloquial command to set an alarm."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/8609",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear calendar management command that includes a proper name ('丽莎')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear command to cancel an appointment. The term '门诊预约' could have regional variations (e.g., '掛號')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9071",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear command to configure a setting."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/950",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A colloquial but clear question about the weather, containing a proper name ('上海')."
+    },
+    {
+      "id": "massive-1-0-zh-cn-v1/9886",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear media command that includes a proper noun ('飞狐外传')."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence is a complete descriptive statement. The term '英里' for miles is common, but Taiwan sometimes uses '哩', making it a minor regional difference candidate."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence contains multiple terms with clear regional differences between Mainland China and Taiwan, such as '国家海洋和大气管理局' (vs. 國家海洋暨大氣總署), '社交媒体' (vs. 社群媒體), and '信息' (vs. 資訊)."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The instruction is clear and uses standard terminology like '州府' and '部落官员' that translates well."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a clear, actionable instruction. The terms for shelters ('安全室', '地下室', '风暴地窖') are specific and understandable, even if '风暴地窖' is less common in some regions."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a standard warning phrase with no significant regional variations."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '货运列车' (freight train) is more common in Mainland China; Taiwan might use '貨運列車' or simply '火車' in this descriptive context."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-016",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "repetition"
+      ],
+      "confidence": "high",
+      "notes": "The sentence is ineligible due to the erroneous repetition of '国家海洋和' (National Oceanic and), which makes it nonsensical."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence is a complete thought and uses common, shared terminology."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a standard preparedness instruction with widely understood terms."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, concise, and standard emergency instruction."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Similar to another sentence, this one contains terms with regional variations: '国家海洋和大气管理局' and '信息'."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear and direct prohibition that is easily understood."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The terminology for 'electric wires' and 'utility lines' is standard and clear."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This medical instruction uses standard, universally understood terms like '就医' (seek medical care) and '医务人员' (medical personnel)."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a clear, standard instruction for a post-disaster or emergency scenario."
+    },
+    {
+      "id": "ready-gov-tornadoes-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The instruction about personal protective equipment ('厚底鞋', '长裤', '工作手套', '面罩', '口罩') uses clear, standard terms."
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的句子，提供官方指南，表述清晰。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的指令性句子。连续使用'和'字在语法上可接受，但稍嫌冗余。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "包含大写英文缩写（EAS, NOAA），有被错误转换的风险，应作为专名保留。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的指令，但包含技术术语（绝缘、填缝），可能存在地域用词差异。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "简洁但完整的指令。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的指令性句子。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的指令。'一箱满的汽油' 表述虽不精炼但可独立理解。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的警告句子。'燃气炉'、'电器' 等词可能存在地域用词差异。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的建议句子，包含健康相关的术语（心脏发作），需注意地域转换的准确性。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "清晰的症状列表短语，属于半结构化文本。医疗术语可能存在地域转换差异。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "清晰直接的指令短语，属于半结构化文本。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "定义性句子，清晰完整。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的指令，包含身体部位名称（腹股沟），可能需评估地域用词的精确性。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的警告句子，表述清晰。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "完整的句子，'发动机部件' 等技术用语可能有地域用词差异。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "清晰完整的指令。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about caching."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about deployment."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about web cache invalidation."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about user confirmation before deletion."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about logging."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about system maintenance."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about saving unsaved changes."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about LLM pre-condition checking."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about summarization rules."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about human evaluation of LLM output."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about versioning in evaluations."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about content truncation rules for LLMs."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about avoiding hallucination/fabrication."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about a workflow step (human review)."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about model adaptation based on feedback."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about checking for constraints in generated content."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about showing work in calculations."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about filtering in retrieval systems."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about a human review process."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about a pre-display processing step."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about evaluating response stability."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about maintaining structure in list generation."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about data retention policy."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a complete and clear sentence about the assistant's reasoning process."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a common UI status message."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a common UI confirmation prompt."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a common UI feedback message."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a common UI status message for updates."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a common UI error message."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a common UI permission error message."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a common UI error message."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/ui-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Input is Simplified Chinese. It is a common UI status message."
+    }
+  ]
+}

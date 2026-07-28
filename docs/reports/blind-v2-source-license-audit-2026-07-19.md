@@ -520,3 +520,11 @@ were excluded by source-quality policy. One eligible case was then removed as
 an exact duplicate of an existing Ready.gov Floods candidate; the remaining 21
 were promoted without using converter output or expected text. Tornadoes
 classification remains pending.
+
+On 2026-07-28, two consecutive Tornadoes downloads produced the same current
+raw HTML SHA-256
+`2b985d40006c50b633dbcdb06542300fb58f1c1d27cddb4cc25aed8cb5dd7881`, but it
+differed from the pinned retrieval hash. The anchored parser still produced
+the exact same 34 normalized inputs in the same order.
+The manifest was deliberately not repinned: raw checksum verification remains
+fail-closed, while batch 041 uses the already committed normalized snapshot.
