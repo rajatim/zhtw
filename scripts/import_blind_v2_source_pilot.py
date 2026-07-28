@@ -53,6 +53,7 @@ SUPPORTED_SOURCES = {
     "zhtw-project-llm-it-ui-baseline-v1": "project_original_json",
     "zhtw-project-it-ui-llm-formal-guard-v1": "project_original_json",
     "zhtw-project-formal-llm-overconversion-guard-v1": "project_original_json",
+    "zhtw-project-formal-llm-context-guard-v1": "project_original_json",
     "massive-1-0-zh-cn-v1": "massive",
     "ftc-small-business-simplified-v1": "ftc_pdf",
     "ftc-heads-up-simplified-v1": "ftc_heads_up_pdf",
@@ -71,6 +72,7 @@ SUPPORTED_SOURCES = {
     "ready-gov-kids-tornadoes-zh-hans-v1": "ready_gov_html",
     "ready-gov-campus-zh-hans-v1": "ready_gov_html",
     "ready-gov-evacuation-zh-hans-v1": "ready_gov_html",
+    "ready-gov-cybersecurity-zh-hans-v1": "ready_gov_html",
     "osha-electrical-safety-simplified-v1": "osha_pdf",
     "osha-chainsaw-safety-simplified-v1": "osha_pdf",
     "osha-work-zone-traffic-simplified-v1": "osha_pdf",
@@ -99,6 +101,7 @@ READY_GOV_SOURCE_ANCHORS = {
     "ready-gov-kids-tornadoes-zh-hans-v1": ("龙卷风", "10/29/2025"),
     "ready-gov-campus-zh-hans-v1": ("校园准备", "10/29/2025"),
     "ready-gov-evacuation-zh-hans-v1": ("疏散", "05/19/2022"),
+    "ready-gov-cybersecurity-zh-hans-v1": ("网络安全", "11/12/2025"),
 }
 OSHA_SOURCE_CONFIG = {
     "osha-electrical-safety-simplified-v1": (2, (2,), "用电安全指南"),

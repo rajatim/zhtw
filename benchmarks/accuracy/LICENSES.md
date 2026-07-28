@@ -390,6 +390,24 @@ is missing.
 - Output license: U.S. Public Domain.
 - Bias notice: Official U.S. evacuation and emergency guidance is not representative of ordinary Taiwan traffic; list-derived fragments and inline link joins require input-only review.
 
+## ready-gov-cybersecurity-zh-hans-v1
+
+- Source: Ready.gov, *Cybersecurity*, Simplified Chinese, page last updated 2025-11-12.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded.
+- Attribution: Federal Emergency Management Agency, Ready.gov, Cybersecurity, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: Official U.S. cybersecurity guidance is not representative of ordinary Taiwan traffic; list-derived fragments and third-party resource descriptions require input-only review.
+
+## zhtw-project-formal-llm-context-guard-v1
+
+- Source: zhtw project-original formal-news and LLM context-guard scenarios drafted from declared Blind-v2 domain and risk gaps.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only formal-news and LLM context-guard scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: Synthetic project-original inputs intentionally concentrate on formal-news and LLM semantic contexts; they are not independently observed market traffic.
+
 ## osha-electrical-safety-simplified-v1
 
 - Source: OSHA 4281-08 2023, *Electrical Safety*, Chinese Simplified.
