@@ -567,3 +567,9 @@ It is synthetic coverage under the project MIT license, not observed market
 traffic. Neither source construction nor extraction used converter output or
 expected text. All 154 new candidates are distinct from the current pool and
 tracked dedupe references at the fixed 0.85 character 5-gram threshold.
+
+Batch 042 sampled 96 cases from these sources and AOSP. After source-isolated
+Codex and Gemini advisory review, the maintainer confirmed the Codex synthesis:
+91 cases were eligible and 5 were excluded. All 91 eligible cases passed the
+deterministic promotion dedupe gate, bringing the collecting pool to 3,644.
+No converter output or expected text influenced classification or promotion.

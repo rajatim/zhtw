@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 042 (2026-07-28)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `0aa60011d65c9aad108a0913a888fb343f7112a34e1b6306ee704fd4feeaf672`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 46 advisory disagreements and batch-confirmed the 50 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 02. aosp-framework-zh-rcn-v1/string-1b8ba37c7a7bd3a9
 
@@ -63,7 +63,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 03. aosp-framework-zh-rcn-v1/string-32701d2fb7c7b262
 
@@ -84,7 +84,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 04. aosp-framework-zh-rcn-v1/string-38adbe65fe6f0b2b
 
@@ -105,7 +105,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 05. aosp-framework-zh-rcn-v1/string-4dd0ecca554e6519
 
@@ -126,7 +126,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 06. aosp-framework-zh-rcn-v1/string-4e379ec67338da50
 
@@ -147,7 +147,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 07. aosp-framework-zh-rcn-v1/string-61233b9964793233
 
@@ -168,7 +168,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 08. aosp-framework-zh-rcn-v1/string-637341020b687ffa
 
@@ -189,7 +189,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 09. aosp-framework-zh-rcn-v1/string-6bbacbb88f37019c
 
@@ -210,7 +210,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 10. aosp-framework-zh-rcn-v1/string-72e099f0f032808f
 
@@ -231,7 +231,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 11. aosp-framework-zh-rcn-v1/string-9b65b437a4a7022d
 
@@ -252,7 +252,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 12. aosp-framework-zh-rcn-v1/string-d1ffddbd15d0058c
 
@@ -273,7 +273,7 @@ Codex reason: 輸入是來源殘片或格式受損字串，無法在缺少上下
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 13. aosp-framework-zh-rcn-v1/string-e07a3d16303d9e31
 
@@ -294,7 +294,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 14. aosp-framework-zh-rcn-v1/string-e7facb69f398fe81
 
@@ -315,7 +315,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 15. aosp-framework-zh-rcn-v1/string-ef3f7f1bef524b07
 
@@ -336,7 +336,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 16. aosp-framework-zh-rcn-v1/string-f614ebb1e12f2b9e
 
@@ -357,7 +357,7 @@ Codex reason: 輸入是來源殘片或格式受損字串，無法在缺少上下
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 17. aosp-framework-zh-rcn-v1/string-fb609cb9bbd1f923
 
@@ -378,7 +378,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 18. aosp-framework-zh-rcn-v1/string-ff5b9ae343d65228
 
@@ -399,7 +399,7 @@ Codex reason: 可獨立判讀的 Android UI 字串；依臺灣介面用語與占
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 19. ftc-how-to-avoid-scam-simplified-v1/sentence-002
 
@@ -420,7 +420,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 20. ftc-how-to-avoid-scam-simplified-v1/sentence-010
 
@@ -441,7 +441,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 21. ftc-how-to-avoid-scam-simplified-v1/sentence-013
 
@@ -462,7 +462,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 22. ftc-how-to-avoid-scam-simplified-v1/sentence-014
 
@@ -483,7 +483,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 23. ftc-how-to-avoid-scam-simplified-v1/sentence-016
 
@@ -504,7 +504,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 24. ftc-how-to-avoid-scam-simplified-v1/sentence-017
 
@@ -525,7 +525,7 @@ Codex reason: 輸入是來源殘片或格式受損字串，無法在缺少上下
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 25. ftc-how-to-avoid-scam-simplified-v1/sentence-019
 
@@ -546,7 +546,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 26. ftc-how-to-avoid-scam-simplified-v1/sentence-027
 
@@ -567,7 +567,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 27. ftc-identity-theft-simplified-v1/sentence-001
 
@@ -588,7 +588,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 28. ftc-identity-theft-simplified-v1/sentence-002
 
@@ -609,7 +609,7 @@ Codex reason: 輸入是來源殘片或格式受損字串，無法在缺少上下
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 29. ftc-identity-theft-simplified-v1/sentence-003
 
@@ -630,7 +630,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 30. ftc-identity-theft-simplified-v1/sentence-004
 
@@ -651,7 +651,7 @@ Codex reason: 輸入是來源殘片或格式受損字串，無法在缺少上下
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 31. ftc-identity-theft-simplified-v1/sentence-005
 
@@ -672,7 +672,7 @@ Codex reason: 輸入是來源殘片或格式受損字串，無法在缺少上下
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 32. ftc-identity-theft-simplified-v1/sentence-006
 
@@ -693,7 +693,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 33. ftc-identity-theft-simplified-v1/sentence-007
 
@@ -714,7 +714,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 34. ftc-identity-theft-simplified-v1/sentence-009
 
@@ -735,7 +735,7 @@ Codex reason: 輸入是來源殘片或格式受損字串，無法在缺少上下
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 35. ftc-identity-theft-simplified-v1/sentence-010
 
@@ -756,7 +756,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 36. ftc-identity-theft-simplified-v1/sentence-012
 
@@ -777,7 +777,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 37. ftc-identity-theft-simplified-v1/sentence-013
 
@@ -798,7 +798,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 38. ftc-identity-theft-simplified-v1/sentence-015
 
@@ -819,7 +819,7 @@ Codex reason: 可獨立判讀的官方消費者保護句子；詐騙、身分與
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 39. ftc-identity-theft-simplified-v1/sentence-020
 
@@ -840,7 +840,7 @@ Codex reason: 輸入是來源殘片或格式受損字串，無法在缺少上下
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 40. zhtw-project-it-ui-llm-formal-guard-v1/formal-004
 
@@ -861,7 +861,7 @@ Codex reason: 完整的 project-original guard 句；識別碼、專名、引文
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 41. zhtw-project-it-ui-llm-formal-guard-v1/formal-007
 
@@ -882,7 +882,7 @@ Codex reason: 完整的 project-original guard 句；識別碼、專名、引文
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 42. zhtw-project-it-ui-llm-formal-guard-v1/formal-014
 
@@ -903,7 +903,7 @@ Codex reason: 完整的 project-original guard 句；識別碼、專名、引文
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 43. zhtw-project-it-ui-llm-formal-guard-v1/formal-020
 
@@ -924,7 +924,7 @@ Codex reason: 完整的 project-original guard 句；識別碼、專名、引文
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 44. zhtw-project-it-ui-llm-formal-guard-v1/llm-013
 
@@ -945,7 +945,7 @@ Codex reason: 完整的 project-original guard 句；識別碼、專名、引文
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 45. zhtw-project-it-ui-llm-formal-guard-v1/llm-019
 
@@ -966,7 +966,7 @@ Codex reason: 完整的 project-original guard 句；識別碼、專名、引文
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
 
 ### 46. zhtw-project-it-ui-llm-formal-guard-v1/llm-022
 
@@ -987,4 +987,4 @@ Codex reason: 完整的 project-original guard 句；識別碼、專名、引文
 
 Gemini reason: -
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-28`
