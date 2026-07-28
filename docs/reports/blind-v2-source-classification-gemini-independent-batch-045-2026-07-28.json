@@ -1,0 +1,992 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-045.json",
+  "packet_sha256": "1a39e7c32843eae3d5a130cb1d3d58c2fa9b9dc84b0f0346d1b6a98ab3873b46",
+  "reviewer": "Gemini via Gemini CLI",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output_codex_hidden",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "a91adfbf-718a-4169-8fcd-d7d52b29cc8f,c2d95e90-cc8b-4e94-93df-28465004e9c4,45d79eb7-da22-4319-9cc1-7e6da3c4f758,178fa03a-76a5-4ddb-a89e-914c206a521e,5b5f7dad-efd0-4e0c-bf7b-fdf094669d87,8fe05196-ec86-4a89-9478-8eaee1abacac,edc93b3e-3e7a-4059-a8c4-686430a5c2a2,89a57298-4510-4792-b55c-4158ebcdd529,903bdde7-0ba6-4fe1-8fc7-5f7690641d5d,6c0f4167-0779-42d6-8612-586e9215c658,2afea0d8-143c-4acc-82b4-964e3bb38c88,8a241482-a29c-42b1-becf-de59d72084c8,d3f83c16-ff5d-4dbf-9ae1-cbbf0317ccd8",
+    "tool_calls": 0,
+    "total_errors": 0,
+    "transport_retries": 2
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 94,
+    "excluded": 2,
+    "high": 96,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard public safety guidance. A good baseline case for common vocabulary like 'disaster', 'area', and 'evacuate'."
+    },
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains specific terminology ('NOAA', 'mobile alerts') which tests for correct localization beyond simple character conversion. The phrasing '移动警报和移动警告' also tests handling of repeated terms."
+    },
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Classic Mainland vs. Taiwan vocabulary test: '应用程序' (application) is common in Mainland China, whereas Taiwan typically uses 'App' or '應用程式'."
+    },
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests the conversion of a list of formal governmental terms. A naive converter might just swap characters, but correct conversion requires using the appropriate formal terms in Taiwan for entities like '部落' (tribe) and '领地' (territory)."
+    },
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward baseline case with common formal verbs like 'review', 'update', 'practice', and nouns like 'institution' and 'plan'."
+    },
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-006",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "This is an incomplete sentence, likely a title or heading. It lacks a subject and main verb."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple, factual statement for an educational context. Good for baseline character mapping of common words."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests handling of units. '英里' (miles) is used, but a high-quality localization might also provide a conversion to kilometers, which are standard in Taiwan. It's a test of whether to simply transliterate or to adapt."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence defines '龙卷风警示' (tornado watch). The key challenge is the distinction and correct translation of '警示' (watch) and '警告' (warning), which are distinct concepts in emergency notifications. Taiwan typically uses '警報' for warnings."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard informational sentence. Good baseline case. Contains common simplified characters like '关', '电视', '广播'."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instruction. '无线紧急警报' (Wireless Emergency Alerts) is a technical term that should convert straightforwardly."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence uses '警告' (warning), contrasting with '警示' (watch) used earlier. It also contains regional terms like '城镇' (town) which might be '鄉鎮' in Taiwan. This tests both specific term conversion and regional vocabulary."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple, declarative sentence. Good baseline case."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Geographical fact. Contains common simplified characters ('国', '脉', '东', '数') and proper nouns."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple, common sentence structure. Good baseline."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains transliterated proper nouns. Tests the conversion of characters within names like '亚' (亞) and '湾' (灣)."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard geographical and directional terms from a government public service source for children."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Transliteration of US state names (Texas, Mississippi) may have different standard forms."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term for 'Gulf of Mexico' and 'Gulf Coast states' may differ."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests common term '应急包' (emergency kit)."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple, common vocabulary in a conditional sentence."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests common term '沟通计划' (communication plan)."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Instructional headline format. Tests common emergency-related terms."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains descriptive and metaphorical language (funnel-shaped cloud, roar like a freight train) where usage may differ."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard sentence about safety, suitable for baseline conversion."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a list of locations, good for checking consistency. The term '洪水区' (flood zone) is slightly formal but correct."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The word '壁橱' (closet) is a good test for regional vocabulary differences, as Taiwan may use '衣櫃' or '儲藏室'."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This complex sentence contains several specific terms like '移动房屋' (mobile home) and '龙卷风警报' (tornado warning) that test terminology conversion."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, instructional sentence with common verbs and nouns like '沟渠' (ditch) and '护' (protect)."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests the adjective '结实' (sturdy), which may have different preferred synonyms in Taiwan like '堅固' or '牢固'."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Classic regionalism test case. '自行车' (bicycle) is primarily used in Mainland China, while Taiwan prefers '腳踏車' or also uses '自行車'."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward sentence with common words that have direct character-to-character conversions, serving as a good baseline check."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '看护人' (kānhùrén) is less common in Taiwan than '監護人' (jiānhùrén, guardian), making this a good baseline test for regional vocabulary."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward sentence with standard character conversions like '头' -> '頭' and '颈' -> '頸'."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains common simplified characters ('车', '坚', '进') and phrasing ('车里') that have standard equivalents in Traditional Chinese."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": null
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '龙卷风' (lóngjuǎnfēng) requires direct character conversion to '龍捲風'. The rest of the sentence uses common vocabulary."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests standard character conversions for terms like '将头' (jiāng tóu) and '垫子' (diànzi)."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a standard instructional sentence. Key conversions include '桥' -> '橋' and '避难所' -> '避難所'."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input '电线等裸露的电线' is slightly redundant but clear. It tests basic character conversion ('电', '线', '触摸')."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear, complete sentence. Tests common vocabulary conversion (e.g., 闻, 气, 您的)."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Good sentence with multiple standard conversion points like 'help' (帮助), 'contact' (联系), and 'know' (知道)."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple statement. Tests conversion for 'anxiety' (焦虑) and 'pressure' (压力)."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear statement testing conversion for 'everyone' (每个人), 'pressure' (压力), and 'reaction' (反应)."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A good compound sentence testing multiple common character conversions (e.g., 照顾, 身体, 与, 谈)."
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-003",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "This is a sentence fragment that lacks context on its own."
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complex but complete sentence describing a safety instruction. Good test for technical terms like 'generator' (发电机) and specific nouns."
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear safety instruction. Tests conversion of technical-adjacent terms like 'heavy-duty extension cord' (重型延长线) and 'appliances' (电器)."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical terms 'Docker', '镜像', '标签' and a version string that must not be converted. '镜像' (mirror/image) is a key term with regional variants."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a command 'npm ci --ignore-scripts' that must be preserved. Technical terms '锁定文件' (lock file) and '依赖' (dependencies) are key."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a tool name 'Terraform', a variable 'var.region', and a value 'ap-northeast-1' that must not be converted."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard technical sentence about WebSocket protocol codes. '关闭代码' (close code) and '违反策略' (policy violation) are key phrases."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The key format string 'user:{tenant_id}:{user_id}' must be preserved. The term '缓存' (cache) has a common regional variant '快取' in Taiwan."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The systemd service name 'worker@queue-a.service' is a literal that must not be altered. The term '后缀' (suffix) is also key."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The secret name 'PROD_DEPLOY_TOKEN' must be preserved. The term '日志' (log) has a common regional variant '日誌' in Taiwan."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Instruction likely for LLM raters. The term '评测人员' (evaluation personnel) might have different standard translations in Taiwan (e.g., using '評估')."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear, complete sentence about LLM evaluation. Tests common terms like 'candidate' and 'keyword'."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes a content filter's behavior. Tests conversion of IT terms like 'filter', 'intercept', and 'risk'."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard ML concept. Good baseline for technical terms like 'training', 'samples', and 'validation'."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes API/tool call logging. Tests common IT terms with potential regional differences like 'call' (调用 vs 呼叫)."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Legal/regulatory instruction. High-stakes domain where precision of terms like 'regulations' and 'clauses' is key."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes AI assistant behavior. Good baseline for LLM-related terms like 'knowledge base' and 'assistant'."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Daily life scenario involving a proper noun (brand name). Tests if the converter correctly handles the brand name as a unit and preserves numbers."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests conversion of a real Taiwanese address written in Simplified Chinese. High-value test for geographic proper noun handling."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an English proper name (Rakuten Monkeys) that should be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a brand name with alphanumeric characters (YouBike 2.0E) that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a non-Chinese proper name (O'Connor) that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an English phrase ('Terms of Service') that the text explicitly requests to preserve."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a formal alphanumeric identifier for a regulation that must not be altered."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a standard item identifier (Item 7(b)) that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a United Nations identifier (UN 1950) that must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a Digital Object Identifier (DOI) which is a standard that must never be altered."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence. Contains a common simplified character '间' that needs conversion to '間'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '对象存储' (object storage) is specific to mainland China usage. The idiomatic term in Taiwan is '物件儲存'. '返回' should also be converted to '傳回' or '回傳'. The header 'x-amz-version-id' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains mainland China technical terms. '运行' (run) should be '執行', and '并发' (concurrency) should be '並行'. The Go command must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests standard character conversions in a technical context ('连接' -> '連接', '后' -> '後'). '串流' (stream) is a shared term and should not be altered. 'GOAWAY' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This tests basic conversions ('请' -> '請', '时' -> '時') while ensuring the technical term 'Idempotency-Key' is not altered. It acts as a guard against incorrect transliteration or modification of technical identifiers."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-026",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '任务队列' (task queue) uses '队列', common in mainland China. The idiomatic Taiwan term is '任務佇列'. Technical strings 'dead-letter topic' and 'orders.failed' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '枚举值' (enum value) is mainland China terminology. The standard term in Taiwan is '列舉值'. '评分器' (scorer) is also less common in Taiwan than '評分程式' or '評估器'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Sentence from the LLM domain that tests standard character conversions: '追踪' -> '追蹤', '记录' -> '記錄', '隐藏' -> '隱藏'. The term 'trace_summary' must be preserved."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests if the converter correctly ignores the technical attributes 'autocomplete' and 'current-password'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests terminology conversion ('快速键' to '快捷鍵', '命令菜单' to '命令選單') and guards technical terms ('Meta+K', 'macOS')."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests if the converter correctly ignores the date string '2026-01-01'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests if the converter correctly ignores the technical identifier 'request_id'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests terminology conversion ('字段键' to '欄位鍵') and guards the technical string 'billing_address.postal_code'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests if the converter correctly ignores the technical metric names 'p50', 'p95', and 'p99'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A baseline case for common character conversions, while guarding against converting '100%'."
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests terminology conversion ('对话框' to '對話方塊') and guards the technical attribute 'data-autofocus'."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard IT sentence. Key conversion test is SC '文件' (wénjiàn) to TW '檔案' (dǎng'àn) for 'file'. '还原' (huányuán - restore) is used in both, but TW also uses '還原' or '回復'."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Classic SC vs TW terminology gap. SC '队列' (duìliè - queue) should be converted to TW '佇列' (zhùliè). '任务' (rènwù - task) is a standard character conversion to '任務'."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Key IT terminology difference. SC '字段' (zìduàn - field) is a high-frequency term that should be converted to the standard TW equivalent '欄位' (lánwèi)."
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard LLM/RAG sentence. It tests common character conversions for technical terms like '检索' (retrieval) -> '檢索', '相关' (relevance) -> '相關', and '问题' (question) -> '問題'."
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests the preservation of English terms ('system prompt') within a Chinese sentence. A robust converter must not alter the English part while correctly converting SC characters like '开发者' -> '開發者'."
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward formal instruction. Serves as a good baseline test for a wide range of common character conversions in a single sentence, such as '说明' -> '說明', '选择' -> '選擇', '依据' -> '依據', and '疑点' -> '疑點'."
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard instruction that is a good baseline test for common character conversions, particularly '请' -> '請' and '长' -> '長'."
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests a common daily-life lexical gap. The SC term '网上' (wǎngshang - online) should be correctly converted to the standard TW equivalent '網路上' (wǎnglùshang)."
+    }
+  ]
+}

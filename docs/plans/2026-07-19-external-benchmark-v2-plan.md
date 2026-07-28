@@ -880,6 +880,17 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   `3,738 → 3,832`，距最低 5,880 筆尚差 2,048。`permissive_license`
   1,308/3,832（34.13%）、`public_domain` 1,294/3,832（33.77%）、
   `project_original` 1,230/3,832（32.10%），皆低於 35%，且沒有來源超過 10%。
+- [ ] 2026-07-28 建立 batch 045 advisory：為降低已達 34.13% 的
+  `permissive_license`，本批改由 public-domain 與 project-original 各 48 筆
+  組成。新增 checksum-pinned Ready.gov 校園準備與兒童龍捲風簡體頁，連同
+  既有剩餘候選建立 96 筆 input-only packet，與 batches 001-044 無 ID 重疊。
+  Codex first pass 建議 86 筆納入、10 筆排除；Gemini CLI 0.52.0
+  (`gemini-2.5-pro`) 以 13 個有效隔離 session 完成 96/96 獨立審查，零工具
+  呼叫、零 API 錯誤，另有 2 次無輸出 transport retry，建議 94 筆納入、2 筆
+  排除。兩者 10 筆四欄完全一致、86 筆差異；Codex synthesis 依 risk 定義
+  重新複核並補排除 1 筆 malformed localization，最終建議 85 筆納入、11 筆
+  排除（8 agreement、66 Codex、4 Gemini、18 hybrid）。尚待 maintainer 確認，
+  未建立 human decision，亦未 promotion。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

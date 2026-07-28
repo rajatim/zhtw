@@ -1,0 +1,999 @@
+{
+  "version": "1.0",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-045.json",
+  "packet_sha256": "1a39e7c32843eae3d5a130cb1d3d58c2fa9b9dc84b0f0346d1b6a98ab3873b46",
+  "reviewer": "Codex",
+  "model": "GPT-5.4",
+  "review_date": "2026-07-28",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 96,
+    "eligible": 86,
+    "excluded": 10,
+    "high": 10,
+    "medium": 86,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-001",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "句內「這可能需要疏散以及何時就地避難」並列關係殘缺，無法穩定判讀原意。"
+    },
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-campus-zh-hans-v1/sentence-006",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "僅是「為校園社區建議的應急管理課程」名詞片段，缺少完整陳述。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-002",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "以「它們」指涉前句的龍捲風，離開前文後主體不明。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-004",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "以「這意味著」承接前句定義，單獨取樣時缺少指涉內容。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-011",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "以「但是」承接前文的地區分布，單句缺少完整對比對象。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-014",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "「到夏季」承接前句季節序列，且「風險區域」缺少明確事件主體。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-016",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "以「最後」承接前文季節序列，單句缺少完整上下文。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-023",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "以「這可能是」承接前句所稱安全地點，單句指涉不完整。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-031",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "「在身上或身上」出現重複且關係不明的來源翻譯，無法穩定裁決。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-003",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "僅描述持續時間，缺少會持續數小時或數天的事件主體。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "ready-gov-winter-weather-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的公有領域完整句；依臺灣用語與公共安全語意風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-007",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-027",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-031",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/it-037",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-024",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-027",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-llm-social-guard-v1/social-030",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-002",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-013",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/formal-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-019",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/it-026",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/llm-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-004",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-009",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-013",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-020",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-it-ui-llm-formal-guard-v1/ui-024",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/it-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-llm-it-ui-baseline-v1/llm-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/llm-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    },
+    {
+      "id": "zhtw-project-llm-social-baseline-v1/social-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "可獨立判讀的 project-original 完整句；依領域、識別碼保留與臺灣用語風險分類。"
+    }
+  ]
+}

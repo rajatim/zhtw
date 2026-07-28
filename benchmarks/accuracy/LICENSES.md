@@ -354,6 +354,24 @@ is missing.
 - Output license: U.S. Public Domain.
 - Bias notice: U.S. winter-storm, cold-exposure, heating, travel, and public-safety guidance is not representative of ordinary Taiwan traffic. Codex and Gemini independently classified 48 sampled cases across batches 040-041; maintainer `tim` confirmed both syntheses on 2026-07-28.
 
+## ready-gov-kids-tornadoes-zh-hans-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Tornadoes for Kids*, Simplified Chinese, page last updated October 29, 2025.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded.
+- Attribution: Federal Emergency Management Agency, Ready.gov, Tornadoes for Kids, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. child-focused tornado, sheltering, weather-alert, and public-safety guidance is not representative of ordinary Taiwan traffic.
+
+## ready-gov-campus-zh-hans-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Campus Preparedness*, Simplified Chinese, page last updated October 29, 2025.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party linked content excluded.
+- Attribution: Federal Emergency Management Agency, Ready.gov, Campus Preparedness, Simplified Chinese; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted only complete Simplified Chinese paragraph and list-item sentences from the checksum-pinned Ready.gov main element, removed navigation, images, external resources, phone/URL instructions, page furniture, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: U.S. campus emergency-planning, weather-alert, evacuation, and training guidance is not representative of ordinary Taiwan traffic.
+
 ## osha-electrical-safety-simplified-v1
 
 - Source: OSHA 4281-08 2023, *Electrical Safety*, Chinese Simplified.
