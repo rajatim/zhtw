@@ -1,0 +1,1100 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex synthesis after independent Gemini review",
+  "stage": "codex_synthesis_advisory",
+  "status": "advisory_only",
+  "generated_date": "2026-07-30",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-055.json",
+  "packet_sha256": "fc81603d369ea0859b6dbe872452be88128d0ff2a30b39a248182ac2d4847762",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 96,
+    "eligible": 90,
+    "excluded": 6,
+    "by_selection_basis": {
+      "agreement": 61,
+      "codex_synthesis": 35
+    }
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-01087053cd1a1587",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-01c0efaaf9438832",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-03c9d1e37c73f0db",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0f1549afc930f9c9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0f5de09eb7d78ef4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1d37943515c4db14",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1d91e549a4d7d527",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-28a1db800ec9f522",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-33d18ee144ef0895",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-384773bf44287cd5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-3ee3586643f4295f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4809b73ce51e5a8b",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-59c62392a086adf1",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-75c8db25a984a273",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7f69792685e4a222",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-82fa41f1d5373433",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8a794613f8f9070f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8e0e8eed25f4cc61",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b34e727661743c0f",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b3d8fbcff04553f7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b61bfcc25cf226bd",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c079ea22c59ee135",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c58f1fe0cae5b67f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c91d02d1c37ae3c5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-cbb4eeb877604903",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d2c71079faa2a4df",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d37853a20ad70674",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-df4e98ab8f2b2f2c",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e1df3aa42173ccca",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-eb95d20389a4f40d",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ee7cac52d96c69c7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f423b2eb0240f370",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "awkward_source_translation"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-047",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "unsafe_source_translation"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-075",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-076",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-101",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-114",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-126",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-128",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "unsafe_source_translation"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-160",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-179",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-195",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-218",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-234",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-257",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-258",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-265",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "unsafe_source_translation"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-318",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-370",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-371",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_fragment"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-392",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "awkward_source_translation"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-395",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "duplicated_extraction"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-418",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-424",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-436",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-453",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "awkward_source_translation"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-462",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "awkward_source_translation"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-468",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "awkward_source_translation"
+      ],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-504",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-523",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "unsafe_source_translation"
+      ],
+      "confidence": "high",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-561",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-041",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-043",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-044",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-045",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-047",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-048",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-041",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-044",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "agreement"
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-045",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性、來源品質、臺灣領域語境與 Gemini 獨立意見完成第二輪綜合判斷。",
+      "selection_basis": "codex_synthesis"
+    }
+  ]
+}
