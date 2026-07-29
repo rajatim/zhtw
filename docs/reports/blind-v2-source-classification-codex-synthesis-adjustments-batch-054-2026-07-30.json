@@ -1,0 +1,639 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-30",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-054.json",
+  "packet_sha256": "84e73beacddbe8d8fa030b4a7989f8222a643b223ac9bb04ccead41ab5e694fe",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 55
+  },
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0005",
+      "classification": {
+        "eligible": false,
+        "script": "mixed",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "malformed_markdown_fragment"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0023",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "it_api_cli",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0034",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0039",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0156",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0247",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0252",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0261",
+      "classification": {
+        "eligible": false,
+        "script": "mixed",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "unsafe_source_translation"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0265",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "it_api_cli",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0290",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "it_api_cli",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0057",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0115",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0116",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0157",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0197",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0219",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0233",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-036",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [
+          "awkward_source_translation"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-115",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-130",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-140",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [
+          "awkward_source_translation"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-178",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "high_stakes",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-187",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-191",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-192",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-204",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [
+          "awkward_source_translation"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-246",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-253",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-260",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-263",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-286",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-332",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-373",
+      "classification": {
+        "eligible": false,
+        "script": "simplified",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "context_dependent_fragment"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-391",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-423",
+      "classification": {
+        "eligible": false,
+        "script": "simplified",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "unsafe_source_translation"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-441",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-442",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-478",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-487",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "high_stakes",
+        "risk": "over_conversion_guard",
+        "quality_flags": [
+          "awkward_source_translation"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-501",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-552",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-554",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-574",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-576",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [
+          "awkward_source_translation"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-017",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-029",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-031",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-032",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-036",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-037",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-038",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-046",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-009",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-018",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "it_api_cli",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-034",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    }
+  ]
+}

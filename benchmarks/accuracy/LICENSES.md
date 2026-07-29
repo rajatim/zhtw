@@ -426,6 +426,15 @@ is missing.
 - Output license: MIT.
 - Bias notice: Synthetic project-original inputs intentionally concentrate on formal reporting and LLM evidence-preservation contexts; they are not independently observed market traffic.
 
+## zhtw-project-ui-social-baseline-guard-v1
+
+- Source: zhtw project-original UI localization and everyday social-language scenarios drafted from declared Blind-v2 domain and risk gaps.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only UI and everyday-social baseline and preservation scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: Synthetic project-original inputs intentionally concentrate on UI localization, ordinary messages, and preservation guards; they are not independently observed market traffic.
+
 ## osha-electrical-safety-simplified-v1
 
 - Source: OSHA 4281-08 2023, *Electrical Safety*, Chinese Simplified.

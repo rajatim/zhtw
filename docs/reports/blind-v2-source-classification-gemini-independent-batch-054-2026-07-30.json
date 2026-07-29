@@ -1,0 +1,1008 @@
+{
+  "version": 1,
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-054.json",
+  "packet_sha256": "84e73beacddbe8d8fa030b4a7989f8222a643b223ac9bb04ccead41ab5e694fe",
+  "reviewer": "Gemini CLI independent review (6 isolated sessions)",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-30",
+  "policy": "input_only_no_converter_output",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "09153d08-aa4a-471a-b014-2692aae78934,0e4ed09b-c206-4ae8-8d73-bcf91810a6bf,7d8be470-1cd4-466f-9e78-c1b11343f209,5cd0e1d1-865d-4ac1-813d-e422f61e7aeb,a55ab592-7a1c-4d36-ba23-59d7f18f337b,a54905aa-d98d-485e-908d-98bb00f9e167",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 95,
+    "excluded": 1,
+    "high": 94,
+    "medium": 2,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0005",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard technical documentation sentence requiring basic character conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0018",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical sentence where identifiers like 'RFC 1035' must be protected from over-conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward technical sentence requiring only standard character conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '活跃对象' (active object) might require a domain-specific phrase translation for Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '活动对象' (live object) is a key technical concept that may require a specific phrase translation."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0026",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complex sentence with technical identifiers 'Pod' and 'UID' that need to be protected."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0034",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains key technical terms like '调度' and '镜像' which require specific phrase-level translation for Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0039",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A technical sentence where the digit '0' in '非 0 状态' must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0047",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A command-line related sentence where the '--force' flag and 'Pod' entity must be protected."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0088",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard sentence with technical entities 'Pod' and 'Kubernetes' that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0155",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_code"
+      ],
+      "confidence": "high",
+      "notes": "This sentence contains multiple code identifiers that are critical to preserve."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0156",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence contains numbers that must be preserved as digits."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0185",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_code"
+      ],
+      "confidence": "high",
+      "notes": "Contains multiple API identifiers that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0241",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_code"
+      ],
+      "confidence": "high",
+      "notes": "Contains code identifiers for a policy and its values that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0247",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The terms '流量' and '导向' may require specific idiomatic translations in a networking context for Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0252",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical concepts '启动就绪' and '启动探针' require correct terminological mapping for Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0261",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical Kubernetes terminology like 'graceful termination period' and 'kill' requires phrase-level conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0265",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a straightforward technical statement where basic character conversion should be sufficient."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0284",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical identifiers `kubelet` and `TERM` must be protected from conversion, while terms like 'container runtime' may need review."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0290",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence involves technical concepts like service requests and connections, with phrasing that may differ in Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0333",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Multiple technical identifiers and boolean values must be protected from over-conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0346",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical phrase 'container lifecycle callbacks' requires a precise, standard translation for the Taiwan context."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0057",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term 'selector' ('选择算符') needs a standard Taiwan IT translation, while 'Service' and 'EndpointSlice' must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0093",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "The phrasing around 'implementation' is slightly verbose and could benefit from a more idiomatic technical translation."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0113",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Case-sensitive identifiers and a hostname must be protected from conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0115",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward technical sentence where character conversion is sufficient."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0116",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The descriptive phrase 'progressive layers' may require idiomatic rephrasing for technical documentation in Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0157",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence contains multiple standard IT terms like 'load balancer' and 'cloud platform' that require correct idiomatic conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0197",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical terms like 'hybrid environment' and 'network address segment' may require specific Taiwan IT phrasing."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0210",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical tokens like `HTTP`, `Host:`, and `TLS` must be preserved, and the term for 'header' requires verification."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0219",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This dense sentence contains multiple technical phrases like 'selector' and 'control plane' that need accurate Taiwan-specific translation, alongside many identifiers to preserve."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0233",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term 'plugin' ('插件') and its English equivalent 'add-on' require a standard idiomatic translation for the Taiwan context."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard formal sentence about public preparedness."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-055",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "repetition",
+        "extraction_error"
+      ],
+      "confidence": "high",
+      "notes": "The sentence is ineligible due to significant ungrammatical repetition, likely an extraction error."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-115",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear instruction, a good candidate for evaluating subtle vocabulary choices."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-123",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward first-aid instruction with common vocabulary."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-125",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A very simple and clear high-stakes instruction."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-130",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A good candidate for financial and emergency-related vocabulary, including a mixed-script element."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-140",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "slightly_awkward_phrasing"
+      ],
+      "confidence": "high",
+      "notes": "The sentence is a warning about floodwater hazards; the phrasing for 'debris' is a potential conversion point."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-164",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear and simple instruction regarding medication needs."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-178",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Excellent candidate testing IT vocabulary ('app'), and requires protecting a Latin acronym (FEMA) from conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-187",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A formal sentence using a common idiom to describe recurring floods."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-191",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear directive involving a number and a key vocabulary term for 'authorities'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-192",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "High-stakes instruction where the specific term for 'fallout' is a key conversion point."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-204",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "formal_structure"
+      ],
+      "confidence": "high",
+      "notes": "A formal, high-stakes sentence about novel diseases and vaccines."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-246",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Instruction for a tornado watch, testing weather alert terminology."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-251",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A critical instruction that requires protecting multiple technical standard identifiers from conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-253",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A concise directive testing vocabulary for 'watch period' and 'shelter'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-260",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instructional text about tsunami risk suitable for baseline conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-263",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A descriptive list of tsunami signs suitable for baseline character conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-286",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '装修' (renovate) may require a specific vocabulary mapping for Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-332",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard question about emergency preparedness suitable for baseline conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-373",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '免洗洗手液' (hand sanitizer) may require a specific vocabulary mapping for Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-391",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard instruction for preparing an inventory of valuables."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-423",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The use of '危险' for an insurance peril might require specific terminology mapping for a high-stakes domain."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-441",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Insurance-specific terminology like '洪水保障' may require mapping."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-442",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The professional title '保险经纪人' could require a locale-specific vocabulary mapping."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-478",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The proper noun 'CERT' must be preserved, and terms like '项目' and '作业' might need mapping."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-487",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "odd_spacing"
+      ],
+      "confidence": "high",
+      "notes": "The spaced acronym 'S T E M' must be preserved, and '民航巡逻队' (Civil Air Patrol) is a proper noun translation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-501",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '杂物碎片' for debris may require a specific vocabulary mapping for Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-552",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard sentence about post-event recovery, likely suitable for baseline conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-554",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '援助计划' (assistance program) is likely to have a different common phrasing in Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-574",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple, common phrase about helping neighbors that serves as a good baseline case."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-576",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Multiple terms for vulnerable groups, like '残障人士', are likely to require specific vocabulary mapping."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common daily reminder, good for baseline character conversion."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard restaurant booking phrase, suitable for baseline."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A typical school-related notification."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard sentence about a home repair appointment."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Involves UI terminology like '应用程序' (application) which requires correct regional mapping."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A typical public notice about road work."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common workplace social phrase."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A high-stakes medical instruction, although the vocabulary is simple."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Financial transaction terms require careful mapping to Taiwanese usage."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term for highway tolls might differ in Taiwan."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard e-commerce customer service interaction."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "The term for 'locker' can vary, making this a good test for regional vocabulary."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "taiwan_specific_term_in_sc"
+      ],
+      "confidence": "high",
+      "notes": "Uses the Taiwan-specific term '捷运' (MRT) in simplified characters, a good test case."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains '视频' (video), which should ideally be converted to the more common Taiwanese term '影片'."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard notice for a public event."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-046",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Includes a number that must be preserved, testing over-conversion."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-050",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard request with a Latin acronym (RSVP) that must be preserved."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI text testing a common vocabulary difference for 'search box' ('搜索框' vs. '搜尋框')."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A typical UI notification text that tests for idiomatic phrasings like 'open' ('打开' vs. '開啟')."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard account security message with common terms suitable for a baseline test."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests a key vocabulary difference: 'print' ('打印') and 'printer' ('打印机') vs. the Taiwan terms '列印' and '印表機'."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A technical IT phrase ('message consumer') that tests for correct vocabulary in a software context."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI text that tests the common technical term 'reload' ('加载' vs. '載入')."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests key UI vocabulary choices like 'user' ('用户' vs. '使用者') and 'settings' ('设置' vs. '設定')."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests the crucial vocabulary distinction for 'file' ('文件' vs. '檔案')."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests a critical UI term difference for 'field' ('字段' vs. '欄位')."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "source_uses_target_term"
+      ],
+      "confidence": "high",
+      "notes": "Source text uses '栏位', a Taiwan-preferred term, and also tests '滚动' ('scroll') vs. '捲動'."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward UI string suitable for testing baseline character conversion."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-042",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests preservation of the brand name 'GitHub' and also involves the common vocabulary for 'login'."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-046",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "source_uses_target_term"
+      ],
+      "confidence": "high",
+      "notes": "Tests preservation of an alphanumeric identifier (A-1047) and uses the Taiwan-preferred term '档案' ('file') in the source."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard administrative text with shared vocabulary, suitable for a baseline test."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward UI instruction whose terms mostly have direct character equivalents, serving as a good baseline test."
+    }
+  ]
+}
