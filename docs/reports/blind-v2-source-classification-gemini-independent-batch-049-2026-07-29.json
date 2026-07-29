@@ -1,0 +1,1053 @@
+{
+  "version": 1,
+  "reviewer": "Gemini CLI independent review (12 isolated sessions)",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-29",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-049.json",
+  "packet_sha256": "0de619f0e0b60bc47651ee26855f4219b557e1eea11e2b4692a73753c755aaa5",
+  "policy": "input_only_no_converter_output",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "9ee0dfee-c80b-48d2-bfe9-f937b1ea2b4f,5cf4fa1d-9e74-48db-a7fa-7dbfc9118e01,2e1ec721-de2c-401f-9b20-8e061b79cc3d,44080fc9-4b57-44d4-8bdb-24fa1e45e7c0,a4d7dc7f-75a2-438e-850d-42303268dcd8,1f4196a5-b6b1-4f00-85fc-f0920a2b6f66,5f22b01d-d1aa-48be-94b1-d0e03ec35e77,22b58f7b-3282-4cc1-aa99-cbee1ad99781,b51114eb-38c2-416d-a622-c4979ed309d6,05e50408-5c15-4ec0-8b48-065ecd53e49f,c95cf299-6ef6-43ae-be24-2cc42ab1da14,5bcf07d0-9e79-40b6-928a-19a5527ed6a1",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_code_identifier"
+      ],
+      "confidence": "high",
+      "notes": "Technical documentation. Contains a code identifier `generateName` that must be preserved. '服务器' (server) is a lexical gap (TW: 伺服器)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_code_identifier",
+        "has_brand_name"
+      ],
+      "confidence": "high",
+      "notes": "Technical documentation. Contains the tool name `kubectl` and product name `Kubernetes` which should be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_tech_acronym"
+      ],
+      "confidence": "high",
+      "notes": "Technical documentation. Contains format names YAML and JSON which must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_tech_term"
+      ],
+      "confidence": "high",
+      "notes": "Technical documentation. Contains the Kubernetes-specific term 'Pod', which must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_tech_term",
+        "has_quoted_english"
+      ],
+      "confidence": "high",
+      "notes": "Technical documentation. Contains technical terms 'Pod', 'UID', and a quoted English word 'rescheduled' that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_tech_term"
+      ],
+      "confidence": "high",
+      "notes": "Technical documentation. Contains the Kubernetes-specific term 'Pod'. Also contains '卷' (volume), which can have regional differences (TW: 磁碟區)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0038",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_code_identifier",
+        "has_tech_term",
+        "is_definition"
+      ],
+      "confidence": "high",
+      "notes": "Technical documentation, likely from a table. Defines the `Failed` state. Contains terms `Failed` and `Pod` that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0052",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_tech_term",
+        "has_code_identifier"
+      ],
+      "confidence": "high",
+      "notes": "Technical documentation. Contains technical terms `Pod` and `kubelet` that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0103",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical documentation. Contains code identifiers (`Pod`, `restartPolicy`) that should not be converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0105",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical sentence with identifiers (`kubelet`, `Pod`) that require preservation."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0128",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical sentence with code identifiers (`Never`, `Pod`)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0163",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical definition with code identifiers (`DisruptionTarget`, `Pod`). Also contains technical terms like '抢占' (preemption) and '驱逐' (eviction) which may have lexical differences in Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0176",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical sentence with multiple code/API identifiers (`Pod`, `False`, `kubelet`, `ContainersReady`) that must be preserved. Also '定制状况' may have a different lexical choice in TW."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0188",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "unclosed_parenthesis",
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Ineligible due to being a fragment (starts with an unclosed full-width parenthesis) that is context-dependent."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0210",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Technical term '探针' (probe) might have a different idiomatic equivalent in Taiwan (e.g., '探測'), representing a lexical gap."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0256",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a code identifier `failureThreshold` that must be preserved. Also contains technical terms like '存活态探针' (liveness probe)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0294",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "contains_english",
+        "code_snippet"
+      ],
+      "confidence": "high",
+      "notes": "K8s docs. Contains code-formatted term 'serving' and entity 'Pod' that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0316",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "contains_english"
+      ],
+      "confidence": "high",
+      "notes": "K8s docs. Contains entities 'Sidecar' and 'Pod' that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "contains_english"
+      ],
+      "confidence": "high",
+      "notes": "K8s docs. Contains entities 'Service' and 'Pod' that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0066",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "contains_english",
+        "code_snippet"
+      ],
+      "confidence": "high",
+      "notes": "K8s docs. Contains code-formatted CLI tool, object, and string examples to preserve."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0087",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "contains_english"
+      ],
+      "confidence": "high",
+      "notes": "K8s docs. Contains entities 'Service', 'EndpointSlice', 'Endpoints API' to preserve."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0092",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "contains_english",
+        "code_snippet"
+      ],
+      "confidence": "high",
+      "notes": "K8s docs. Contains code-formatted field 'appProtocol' and entity 'Service' to preserve."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0100",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "contains_english"
+      ],
+      "confidence": "high",
+      "notes": "K8s docs. Contains entity 'Service' that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0117",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Generic sentence from K8s docs. Standard conversion, baseline case."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0120",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical documentation sentence containing English identifiers `Service` and `ClusterIP` which should be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0121",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical sentence with multiple code/API identifiers (`Service`, `.spec.clusterIP`, `Kubernetes`, `IP`) and a string literal (`\"None\"`) that require careful handling to prevent over-conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0134",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical sentence with networking/API terms (`TCP`, `Service`, `type: NodePort`) that should be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0136",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical sentence. Key terms like '控制平面' (control plane) and '事务' (transaction) might have specific lexical equivalents in Taiwan that a simple character conversion would miss."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0149",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "awkward_phrasing"
+      ],
+      "confidence": "high",
+      "notes": "Technical sentence with a specific component name `kube-proxy` that must be preserved. Phrasing '应视将其视为' is slightly awkward but clear."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0181",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "redundant_clause"
+      ],
+      "confidence": "high",
+      "notes": "Technical sentence with API identifiers (`Service`, `spec.allocateLoadBalancerNodePorts`) and a boolean literal (`false`) that must be preserved. The repetition of '如果' (if) is slightly redundant."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0217",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "missing_punctuation"
+      ],
+      "confidence": "high",
+      "notes": "Dense technical sentence with many identifiers (`DNS`, `Service`, `ClusterIP`, etc.) that must be preserved. The term '无头 Service' (headless Service) is a key concept. Lacks a comma after '提供的', creating a run-on sentence."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0253",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical sentence with several common IT terms that may have different lexical choices in Taiwan (e.g., '实现' for implementation, '路由' for routing, '流量分发' for traffic distribution)."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal cybersecurity advice. The term for 'identity theft' (身份盗用) may have a different lexical choice in Taiwan (e.g., 身分盜竊)."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Classic IT terminology with known lexical gaps. '软件' (software) is '軟體' and '操作系统' (operating system) is '作業系統' in Taiwan."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT security context. While '密码' (password) and '验证' (verification) are common, Taiwan may prefer specific phrasings like '雙重驗證' for 'two verification methods'."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Refers to PIN. '个人识别号码' is a formal, descriptive PRC term; Taiwan may use a different convention, acronym, or loanword."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "IT term with a known lexical gap. '证书' (certificate), especially for digital certificates, is often '憑證' in Taiwan."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Common lexical gap: '信息' (information) is typically '資訊' or '訊息' in Taiwan. '电子邮件' (email) is also a more formal mainland term."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Significant lexical gaps. '互联网' (Internet) is mainland-specific ('網際網路' in TW). '帐户' (account) is '帳戶'."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "General advice. '工作单位' (work unit) is a common mainland term, but the sentence is largely standard Mandarin with low conversion risk."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal instruction regarding financial services."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear, formal instruction about closing unauthorized accounts."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-046",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains official agency names and acronyms (FBI, IC3) which are sensitive to over-conversion."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '信息' is a common lexical difference ('資訊' in TW)."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-052",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple official agency names and acronyms that should be preserved carefully."
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-053",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains '网络' and '互联', primary lexical gap candidates ('網路', '互連' in TW)."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard informational sentence on emergency preparedness."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Lexical choices '官员' and '名额' could be candidate gaps; different terms may be preferred in TW."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '庇护所' (shelter) is a potential lexical gap; '避難所' is more common in Taiwan for human evacuation shelters."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instructional sentence. No major lexical gaps or over-conversion risks identified."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear instruction, straightforward conversion. The term '收音机' is used, while '廣播' is also common in Taiwan."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Significant lexical gap: '应急用品包' vs. the common Taiwan term '緊急避難包' (emergency evacuation kit)."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard sentence, primarily involves character-level conversion."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a US-specific term '州外' (out-of-state) and a minor lexical choice ('发' vs. '寄' for email) that presents a conversion challenge."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward instruction with common technical terms that are shared between regions."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "awkward_phrasing"
+      ],
+      "confidence": "high",
+      "notes": "The use of '查询' (query/look up) is awkward for asking a neighbor; '询问' (ask) would be more natural. This represents a subtle lexical choice gap."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal instructional sentence. Good baseline case."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard instructional sentence with common vocabulary."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains '应用程序', a likely lexical gap ('應用程式' in Taiwan)."
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear, standard safety instruction. Good baseline case."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a technical term '多普勒雷达' (Doppler radar) that should be preserved carefully during conversion."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Educational definition. '冰淇淋' is a potential lexical gap, as other terms are common in Taiwan."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains transliterated place names ('德克萨斯州', '俄克拉荷马州') which have specific standard forms that must be preserved."
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Simple, standard safety instruction for children. Good baseline case."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence in Simplified Chinese about a committee meeting."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal announcement about a government budget, written in Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard procedural statement about an investigation, written in Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal legal sentence. Terminology like '处分' and '机关' may have specific regional equivalents in a legal context."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard press release statement about a deadline extension, in Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal procedural announcement about selection results, in Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '部门' (department) is a general Mainland China term; Taiwan might use a more specific official name."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '部门' (department) is a general Mainland China term; Taiwan might use a more specific official name for the agricultural authority."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal business sentence. The main challenge is converting simplified characters like '厂' to '廠' in '投标厂商' (bidding vendors)."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence. Involves common character conversions like '调'->'調', '结'->'結', and '显'->'顯'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal project update. Primarily requires standard character conversions like '机'->'機' and '构'->'構'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "jargon"
+      ],
+      "confidence": "high",
+      "notes": "Formal review feedback. The term '计算口径' (calculation caliber) is significant Mainland business jargon, posing a lexical challenge. A direct character conversion might be unnatural in a Taiwan context."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard government announcement. Tests common character conversions like '听'->'聽', '会'->'會', and '网'->'網'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal report language. Tests common character mappings such as '与'->'與' and '认'->'認'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "legal_jargon"
+      ],
+      "confidence": "high",
+      "notes": "Formal administrative/legal instruction. The phrase '限期补正' (correct within a deadline) is specific administrative jargon that requires careful conversion to sound natural in a Taiwan legal context."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal agency process description. The verb '检核' (check/verify) is a subtle but valid lexical test, as alternative terms like '查核' or '檢視' are often preferred in Taiwan."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes a system checking sources. Straightforward character conversion."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-003",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "mixed_script"
+      ],
+      "confidence": "high",
+      "notes": "Mixed script sentence describing a feature. The term '生成' (generate) might be a lexical gap, with '產生' being more common in Taiwan."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes a behavioral rule for an LLM. Standard character conversion."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes an ML classifier workflow. '复核' (review) is a key term with potential lexical differences in Taiwan (e.g., '覆核')."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "mixed_script"
+      ],
+      "confidence": "high",
+      "notes": "Mixed script sentence about localization. The term '回应' (response) is a potential lexical gap, as '回覆' is very common in Taiwan."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes an evaluation process. Vocabulary ('评测', '产品', '输出') has direct character conversions."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes chat history management. '消息' (message) is a significant lexical gap, as '訊息' is standard in Taiwan for digital messages."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard sentence about data format validation. '结构化输出' (structured output) is a standard technical term."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard sentence about LLM/system behavior. Tests conversion of '过滤器' (filter)."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Basic sentence about an AI assistant's action. Standard character conversion."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Sentence on LLM evaluation methodology. Good test for domain-specific terms like '标注' (annotation) and '品质' (quality)."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Sentence about LLM evaluation logic. Tests technical terms '评测' (evaluation) and '语意' (semantics)."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A rule for an AI assistant. Good test for the common technical term '优先级' (priority)."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "mixed_vocabulary"
+      ],
+      "confidence": "high",
+      "notes": "About data processing. Notable for using '栏位' (field/column), a term more common in Taiwan, in a simplified-script context."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard sentence about evaluation process. Basic character conversion."
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A system process description. Good test for software development terms like '发布' (release) and '审查' (review)."
+    }
+  ],
+  "stats": {
+    "total": 96,
+    "eligible": 95,
+    "excluded": 1,
+    "high": 94,
+    "medium": 2,
+    "low": 0,
+    "policy_violations": 0
+  }
+}

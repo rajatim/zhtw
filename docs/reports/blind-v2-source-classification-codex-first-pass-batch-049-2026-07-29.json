@@ -1,0 +1,995 @@
+{
+  "version": 1,
+  "reviewer": "Codex",
+  "model": "GPT-5",
+  "review_date": "2026-07-29",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-049.json",
+  "packet_sha256": "0de619f0e0b60bc47651ee26855f4219b557e1eea11e2b4692a73753c755aaa5",
+  "policy": "input_only_no_converter_output",
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0010",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0001",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0016",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0027",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0038",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "來源句有表格殘片、括號截斷、詞序重複、句界缺失或明顯錯譯，無法可靠裁決。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0052",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0103",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0105",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0128",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0163",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0176",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0188",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "來源句有表格殘片、括號截斷、詞序重複、句界缺失或明顯錯譯，無法可靠裁決。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0210",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0256",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0294",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0316",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0012",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0066",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0087",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0092",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0100",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0117",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0120",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0121",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0134",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0136",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0149",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "來源句有表格殘片、括號截斷、詞序重複、句界缺失或明顯錯譯，無法可靠裁決。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0181",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0217",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "來源句有表格殘片、括號截斷、詞序重複、句界缺失或明顯錯譯，無法可靠裁決。"
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0253",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-005",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "sentence_fragment"
+      ],
+      "confidence": "high",
+      "notes": "清單抽取後只剩述語片段，缺少可獨立辨識的主詞。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-046",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-052",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-cybersecurity-zh-hans-v1/sentence-053",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "third_party_resource_blurb"
+      ],
+      "confidence": "high",
+      "notes": "第三方資源介紹不屬於本來源宣告納入的 FEMA 本文範圍。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-036",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_localization"
+      ],
+      "confidence": "high",
+      "notes": "來源句有表格殘片、括號截斷、詞序重複、句界缺失或明顯錯譯，無法可靠裁決。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-evacuation-zh-hans-v1/sentence-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "ready-gov-kids-tornadoes-zh-hans-v1/sentence-037",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "context_dependent_reference"
+      ],
+      "confidence": "high",
+      "notes": "條件子句缺少可辨識的指涉對象，需依賴前文。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex 依 input-only 獨立可裁決性與臺灣領域語境分類；未接觸 converter output 或 expected。"
+    }
+  ],
+  "stats": {
+    "total": 96,
+    "eligible": 88,
+    "excluded": 8,
+    "high": 8,
+    "medium": 88,
+    "low": 0
+  }
+}
