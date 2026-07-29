@@ -1038,6 +1038,22 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   `public_domain` 1,555/4,787（32.48%），皆低於 35%。Kubernetes 目前
   507/4,787（10.59%），仍超過最終單一來源 10% freeze gate；後續批次繼續
   暫停抽取 Kubernetes。
+- [x] 2026-07-30 完成 batch 056：延續 AOSP permissive-license、FEMA
+  《Are You Ready?》公有領域簡體指南，以及 project-original UI/social
+  baseline guard 各固定抽取 32 筆，共 96 筆，與 batches 001-055 無 ID 重疊。
+  Codex first pass 建議 90 筆納入、6 筆排除；Gemini CLI 0.52.0
+  （`gemini-2.5-pro`）以 6 個隔離 session 完成 96/96 input-only 獨立審查，
+  零工具呼叫、零 API 錯誤，建議 94 筆納入、2 筆排除。兩者有 63 筆四欄完全
+  一致、33 筆差異；Codex synthesis 恢復 1 筆可獨立判定的避難所術語案例，
+  最終建議 91 筆納入、5 筆因符號切斷、清單殘片、標題混接、嚴重抽取損壞或
+  重複抽取而排除（63 agreement、33 codex_synthesis）。Maintainer 於
+  2026-07-30 確認整批 synthesis，建立 96/96 human decision；91 筆 eligible
+  中 90 筆通過 promotion，AOSP 的「重新启动」因與既有 Chromium 案例完全
+  重複而排除。Pool `4,787 → 4,877`，距最低 5,880 筆尚差 1,003。
+  `permissive_license` 1,649/4,877（33.81%）、`project_original`
+  1,646/4,877（33.75%）、`public_domain` 1,582/4,877（32.44%），皆低於 35%。
+  Kubernetes 目前 507/4,877（10.40%），仍超過最終單一來源 10% freeze gate；
+  後續批次繼續暫停抽取 Kubernetes，且需新增 project-original 來源。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent
