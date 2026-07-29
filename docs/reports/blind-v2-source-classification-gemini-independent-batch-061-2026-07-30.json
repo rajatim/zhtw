@@ -1,0 +1,1021 @@
+{
+  "version": 1,
+  "model": "gemini-3.1-pro-high",
+  "reviewer": "Agy CLI independent review (Gemini 3.1 Pro High; 6 isolated one-turn sessions)",
+  "review_date": "2026-07-30",
+  "policy": "input_only_no_converter_output",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-061.json",
+  "packet_sha256": "33c96d4476314ce9e2e9f2c0cc217f6520a6575d388c6ccd44896d9440b14a37",
+  "execution": {
+    "cli": "agy",
+    "cli_version": "1.1.8",
+    "mode": "plan",
+    "conversation_id": "1d783a5c-3377-4245-b0cf-f2e09bf21ecc,019a6ecc-eaa5-49a5-8684-5a97d961f073,b02ca234-381f-4a73-8741-358ed894495c,e981a2c2-ee49-4262-a00c-e1a69de0fc51,9cbab1eb-1ede-4ab7-b607-36352d0c8cc8,5afbfad7-5b98-41dd-b8b3-8f6597722e38",
+    "accepted_conversations": 6,
+    "attempted_review_conversations": 8,
+    "discarded_conversations": [
+      {
+        "conversation_id": "a0a3a8ad-8d8a-4c2b-b6d8-6e7a986aad34",
+        "reason": "structured_output_schema_error_before_token_submission"
+      },
+      {
+        "conversation_id": "50b49118-8b5f-4322-a49a-e640a845ab7e",
+        "reason": "incomplete_case_coverage_15_of_16"
+      }
+    ],
+    "turns_per_conversation": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "tool_calls": 0,
+    "total_errors": 1,
+    "tool_call_evidence": "Each accepted Agy envelope completed in one turn with no tool-result turn; discarded attempts were not used."
+  },
+  "validation": {
+    "case_count": 96,
+    "unique_case_ids": 96,
+    "packet_order_preserved": true,
+    "policy_violations": 0
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 93,
+    "excluded": 3,
+    "high": 96,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-056ab632f4583f95",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains string format placeholder %s."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0a7128b4f0380488",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese permission text."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-114935d20a221480",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI setting label."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-22b3623b30fe7b4f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese permission description."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-390b7a7c327598d7",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese menu action label."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-45fdfbbded464c89",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese system status string."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4784b9ca6e7e41ea",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains protected technical acronym WLAN."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5276d92ce65381fb",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains positional placeholder %1$s."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-610a45d8427e0848",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI search result label."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-67605713155f4b12",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese permission description."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-67f2a452560a2f31",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains protected technical acronym SPN."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-69c4582a17b1df08",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese call status message."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6ca18e8f64fc71c1",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI prompt label."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-72a319c29c0571ad",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI item label."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7843a0fa01fc3dfd",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese security dialog message."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-89faeb7619d674f8",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese accessibility action hint."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8efaa3e22036b6a8",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains Latin identifier SS and UI string."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-920127b2e9c008e4",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains format placeholder %1$s."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-93553cb522161679",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI message."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a13dbb257cce4ee4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI text."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b4e6de91c8612d64",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains WLAN protected Latin token."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bfcfb937bff8e8a0",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains SIM protected Latin token."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c6d9fbe2e932483b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI label."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d1b427a51e855bfa",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI string."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d3dffd013d9885ab",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI description text."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-de86e9042b8aa372",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI notification."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e015847dc9642614",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI string."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e21723814fe614cb",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI status."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e2eed0d14f4e5948",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI string."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ef123972f2849c46",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI notification."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f555d9ad659767c4",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains RUIM protected Latin token and digit."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f70ade0a4d9d2130",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Plain Simplified Chinese UI prompt."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete emergency preparedness instruction in pure simplified Chinese script."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-070",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear emergency planning directive."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-105",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear post-earthquake evacuation instruction."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-118",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear heat illness awareness advice."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-120",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Detailed heat stroke symptom warning."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-133",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear cash preparation guidance for emergencies."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-147",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Immediate evacuation directive."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-158",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Electrical hazard safety warning."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-166",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Home flood and wind protection advice."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-190",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Explanatory text on protective benefits against radiation and explosion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-223",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Surge protection and electrical disconnect instruction."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-224",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Outdoor equipment placement distance safety warning containing digits."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-239",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Directive to secure loose outdoor objects."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-267",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Instruction to monitor emergency alerts from safe high ground."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-270",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Notification system description containing Latin acronyms."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-305",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Sheltering guidance during extended power outages or extreme heat."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-311",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete and clear sentence."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-322",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete safety preparedness text."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-329",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete sentence on evacuation guidance."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-353",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete emergency utility shutdown instruction."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-363",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete item description for emergency kit supplies."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-388",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "damaged_extraction"
+      ],
+      "confidence": "high",
+      "notes": "Extraction artifact: bullet symbol breaks the word 行李袋."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-390",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fused_heading_and_body_text"
+      ],
+      "confidence": "high",
+      "notes": "Heading '准备好重要文件' fused into body text without punctuation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-411",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete sentence regarding emergency communications."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-435",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete sentence regarding insurance coverage details."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-448",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete sentence on property valuation recommendation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-457",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete sentence on building code compliance."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-475",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete sentence listing community organizations."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-491",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete sentence on project planning."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-548",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete sentence addressing discrimination."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-566",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete warning sentence against fraud."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-573",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fused_heading_and_body_text"
+      ],
+      "confidence": "high",
+      "notes": "Heading '提供支持' fused into body sentence without punctuation."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete sentence regarding official administrative procedure in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete official announcement statement in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete administrative review statement in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete formal investigation report statement in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete administrative budget calculation statement in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete committee decision statement in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete official document delivery notice in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete press release guideline statement in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete open data policy statement in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-027",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains financial account code '5102-B' with protected digits and Latin characters."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-028",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains protected international location identifier 'UN/LOCODE TWTPE'."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-029",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains patent application identifier 'US 18/765,432' with protected Latin text and numbers."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete inter-agency data exchange policy statement in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete document submission requirement statement in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete committee meeting review statement in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Model assistant instruction sentence regarding log review in plain Simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete model instruction in Simplified Chinese asking to list active accounts."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete model instruction in Simplified Chinese requesting preservation of line breaks and bullet points."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete prompt instruction in Simplified Chinese regarding execution logs and backup timestamps."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete assistant rule in Simplified Chinese prohibiting description of disabled accounts as deleted."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete model instruction in Simplified Chinese asking for version details on validation rules."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete instruction in Simplified Chinese restricting output to approved category names."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete prompt instruction in Simplified Chinese to inspect dependency lockfile for duplicates."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete system prompt instruction in Simplified Chinese about UI screen content and filter condition checks."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete model prompt instruction in Simplified Chinese regarding deployment scope verification."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains protected Latin identifier 'wf_8f12' and technical term 'ID', requiring over-conversion protection."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete prompt instruction in Simplified Chinese advising against speculating on missing data."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete instruction in Simplified Chinese regarding source conflict resolution."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-034",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete assistant instruction in Simplified Chinese asking to mark unverified suggestions."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete model instruction in Simplified Chinese about noting impacts on existing data."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete instruction in Simplified Chinese to group low-confidence judgements at the end."
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete prompt instruction in Simplified Chinese requesting next actionable steps based on current state."
+    }
+  ]
+}
