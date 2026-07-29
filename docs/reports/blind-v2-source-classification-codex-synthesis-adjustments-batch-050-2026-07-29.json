@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "reviewer": "Codex",
+  "generated_date": "2026-07-29",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-050.json",
+  "packet_sha256": "48c64ccc948fa24ed7387f086186dd88f7b14e972fd7208b090fb880bd11d342",
+  "policy": "input_only_no_converter_output",
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0055",
+      "classification": {
+        "eligible": false,
+        "script": "mixed",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "context_dependent_reference"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-008",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-011",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-026",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-027",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/formal-036",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-032",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-038",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-formal-llm-context-guard-v1/llm-044",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    }
+  ],
+  "stats": {
+    "total": 9
+  }
+}
