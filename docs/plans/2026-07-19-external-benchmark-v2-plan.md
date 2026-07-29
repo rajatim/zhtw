@@ -1170,6 +1170,17 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   （33.89%）、`public_domain` 1,778/5,518（32.22%），皆低於 35%。AOSP 目前
   559/5,518（10.13%），暫時超過最終單一來源 10% freeze gate；batch 064 必須
   暫停抽取 AOSP，改用 Chromium 等其他 permissive-license 來源稀釋占比。
+- [ ] 2026-07-30 完成 batch 064 advisory：依前批比例風險暫停 AOSP，改由
+  Chromium permissive-license UI 字串、FEMA《Are You Ready?》公有領域簡體
+  指南，以及 project-original social/formal context guard 各固定抽取 32 筆，共
+  96 筆，與 batches 001-063 無 ID 重疊。Codex first pass 建議 90 筆納入、6 筆
+  排除；Agy CLI 1.1.8 `gemini-3.1-pro-high` 以 6 個隔離單輪 conversation 完成
+  96/96 input-only 獨立審查，零工具結果回合、零錯誤，建議 88 筆納入、8 筆
+  排除。前 4 個 Agy 回應因使用 Markdown code fence、不符合 raw JSON 契約而完整
+  捨棄並重跑，所有重試均保留 audit 記錄。兩者有 94 筆四欄完全一致、2 筆差異；
+  Codex synthesis 複核後採 Agy 對 2 筆 Ready.gov 損壞抽取／不完整句的排除判斷，
+  最終建議 88 筆納入、8 筆排除（94 agreement、2 codex_synthesis）。目前等待
+  maintainer confirmation；尚未寫入 pool，pool 維持 5,518 筆。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

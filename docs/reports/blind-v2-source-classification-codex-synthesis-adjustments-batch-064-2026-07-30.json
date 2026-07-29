@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "source_classification_codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-30",
+  "reviewer": "Codex",
+  "policy": "input_only_no_converter_output",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-064.json",
+  "packet_sha256": "a089a7102f29f0f12f9d6cb6d1da34bcad6d604871b0796a38afb96f3d398f3a",
+  "stats": {
+    "total": 2
+  },
+  "cases": [
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-102",
+      "classification": {
+        "eligible": false,
+        "script": "simplified",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "missing_punctuation",
+          "extraction_artifact"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-186",
+      "classification": {
+        "eligible": false,
+        "script": "simplified",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "sentence_fragment"
+        ],
+        "confidence": "high"
+      }
+    }
+  ]
+}
