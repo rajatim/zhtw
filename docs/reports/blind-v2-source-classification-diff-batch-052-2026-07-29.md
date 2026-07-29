@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 052 (2026-07-29)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `e7f94c66809755cec12b6f3f84de79253dd9839e4ff4d5143c5d68bc1e25d2e1`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 45 advisory disagreements and batch-confirmed the 51 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: Contains the technical term "集群" (cluster) which has a different preferred translation in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 02. kubernetes-docs-zh-cn-v1/page-02-sentence-0014
 
@@ -63,7 +63,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: A straightforward sentence about technical concepts.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 03. kubernetes-docs-zh-cn-v1/page-02-sentence-0019
 
@@ -84,7 +84,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: The terms "规约" (spec) and "配置文件" (config file) require idiomatic translation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 04. kubernetes-docs-zh-cn-v1/page-03-sentence-0074
 
@@ -105,7 +105,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: A standard technical sentence where basic conversion should suffice.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 05. kubernetes-docs-zh-cn-v1/page-03-sentence-0090
 
@@ -126,7 +126,7 @@ Codex reason: Codex excluded this input-only case because its source text is mal
 
 Gemini reason: The parenthetical phrase seems redundant or poorly translated ("在你定义或定义...").
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 06. kubernetes-docs-zh-cn-v1/page-03-sentence-0244
 
@@ -147,7 +147,7 @@ Codex reason: Codex excluded this input-only case because its source text is mal
 
 Gemini reason: A complex sentence describing technical probes with somewhat awkward phrasing.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 07. kubernetes-docs-zh-cn-v1/page-04-sentence-0014
 
@@ -168,7 +168,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: Common IT terms like '副本' (replicas), '前端' (front-end) and '后端' (back-end) may require locale-specific wording.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 08. kubernetes-docs-zh-cn-v1/page-04-sentence-0166
 
@@ -189,7 +189,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: Technical terms '字段' (field) and '实现' (implementation) require locale-specific vocabulary ('欄位', '實作').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 09. kubernetes-docs-zh-cn-v1/page-04-sentence-0184
 
@@ -210,7 +210,7 @@ Codex reason: Codex excluded this input-only case because its source text is mal
 
 Gemini reason: Contains a likely source error ('件标志'), but is otherwise a good test case for preserving multiple code identifiers.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 10. ready-gov-are-you-ready-guide-simplified-v1/sentence-015
 
@@ -231,7 +231,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: A standard informational sentence about community risks.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 11. ready-gov-are-you-ready-guide-simplified-v1/sentence-016
 
@@ -252,7 +252,7 @@ Codex reason: Codex excluded this input-only case because its source text is mal
 
 Gemini reason: Sentence structure and vocabulary like '住房' (housing) may require adaptation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 12. ready-gov-are-you-ready-guide-simplified-v1/sentence-069
 
@@ -273,7 +273,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: Medical term 'C P R' must be protected from over-conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 13. ready-gov-are-you-ready-guide-simplified-v1/sentence-078
 
@@ -294,7 +294,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: A standard instructional sentence about safety training.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 14. ready-gov-are-you-ready-guide-simplified-v1/sentence-081
 
@@ -315,7 +315,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: The numerical value '30' is a technical token requiring protection.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 15. ready-gov-are-you-ready-guide-simplified-v1/sentence-151
 
@@ -336,7 +336,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: Standard safety warning with common vocabulary.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 16. ready-gov-are-you-ready-guide-simplified-v1/sentence-215
 
@@ -357,7 +357,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: Slightly repetitive phrasing but still a valid candidate.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 17. ready-gov-are-you-ready-guide-simplified-v1/sentence-229
 
@@ -378,7 +378,7 @@ Codex reason: Codex excluded this input-only case because its source text is mal
 
 Gemini reason: Food safety instruction where the number '40' must be protected.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 18. ready-gov-are-you-ready-guide-simplified-v1/sentence-254
 
@@ -399,7 +399,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: The URL 'Weather.gov' must be protected from conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 19. ready-gov-are-you-ready-guide-simplified-v1/sentence-256
 
@@ -420,7 +420,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: Standard sentence using official meteorological terminology.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 20. ready-gov-are-you-ready-guide-simplified-v1/sentence-296
 
@@ -441,7 +441,7 @@ Codex reason: Codex excluded this input-only case because its source text is mal
 
 Gemini reason: Home winterization advice using several technical terms that may require specific regional equivalents.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 21. ready-gov-are-you-ready-guide-simplified-v1/sentence-343
 
@@ -462,7 +462,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: A warning about common road hazards post-disaster, using standard vocabulary.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 22. ready-gov-are-you-ready-guide-simplified-v1/sentence-377
 
@@ -483,7 +483,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: Recommends preparing separate 24-hour emergency kits for vehicles and workplaces.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 23. ready-gov-are-you-ready-guide-simplified-v1/sentence-404
 
@@ -504,7 +504,7 @@ Codex reason: Codex excluded this input-only case because its source text is mal
 
 Gemini reason: Suggests using mobile apps to receive information during a disaster.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 24. ready-gov-are-you-ready-guide-simplified-v1/sentence-432
 
@@ -525,7 +525,7 @@ Codex reason: Codex excluded this input-only case because its source text is mal
 
 Gemini reason: A statement on the importance of flood insurance for preventing financial and emotional damage.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 25. ready-gov-are-you-ready-guide-simplified-v1/sentence-472
 
@@ -546,7 +546,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: A simple, direct recommendation to purchase flood insurance or other related policies.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 26. ready-gov-are-you-ready-guide-simplified-v1/sentence-562
 
@@ -567,7 +567,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: Fraud warning specifying that FEMA/SBA apparel is not absolute proof of identity.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 27. ready-gov-are-you-ready-guide-simplified-v1/sentence-570
 
@@ -588,7 +588,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: States clearly that official FEMA and SBA staff do not charge fees for help.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 28. zhtw-project-formal-llm-evidence-guard-v1/formal-003
 
@@ -609,7 +609,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This is a standard formal sentence from an audit or financial context.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 29. zhtw-project-formal-llm-evidence-guard-v1/formal-005
 
@@ -630,7 +630,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This sentence contains formal legal terminology specific to a jurisdiction.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 30. zhtw-project-formal-llm-evidence-guard-v1/formal-006
 
@@ -651,7 +651,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This is a formal sentence from a research or academic context.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 31. zhtw-project-formal-llm-evidence-guard-v1/formal-008
 
@@ -672,7 +672,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This is a formal procedural sentence regarding conflict of interest.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 32. zhtw-project-formal-llm-evidence-guard-v1/formal-010
 
@@ -693,7 +693,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This sentence describes a requirement in a formal application process.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 33. zhtw-project-formal-llm-evidence-guard-v1/formal-012
 
@@ -714,7 +714,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This sentence is from a formal investigative or legal context.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 34. zhtw-project-formal-llm-evidence-guard-v1/formal-014
 
@@ -735,7 +735,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This sentence describes a procedural requirement for official hearing records.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 35. zhtw-project-formal-llm-evidence-guard-v1/formal-016
 
@@ -756,7 +756,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This is a formal sentence from a business or procurement context.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 36. zhtw-project-formal-llm-evidence-guard-v1/formal-023
 
@@ -777,7 +777,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This is a standard sentence from a formal administrative or corporate document.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 37. zhtw-project-formal-llm-evidence-guard-v1/formal-028
 
@@ -798,7 +798,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This sentence describes the contents of a formal legal or administrative announcement.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 38. zhtw-project-formal-llm-evidence-guard-v1/formal-029
 
@@ -819,7 +819,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This sentence contains specific financial reporting terminology.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 39. zhtw-project-formal-llm-evidence-guard-v1/formal-038
 
@@ -840,7 +840,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This sentence specifies a rule for names in official application materials.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 40. zhtw-project-formal-llm-evidence-guard-v1/formal-040
 
@@ -861,7 +861,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This is a formal sentence concerning legal requirements for handling personal data.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 41. zhtw-project-formal-llm-evidence-guard-v1/llm-008
 
@@ -882,7 +882,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: The instruction to preserve product names and version numbers makes this a guard against over-conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 42. zhtw-project-formal-llm-evidence-guard-v1/llm-015
 
@@ -903,7 +903,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This is a straightforward instruction where a conservative character conversion should be sufficient.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 43. zhtw-project-formal-llm-evidence-guard-v1/llm-030
 
@@ -924,7 +924,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This describes a general system function with common vocabulary, suitable for a baseline conversion check.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 44. zhtw-project-formal-llm-evidence-guard-v1/llm-036
 
@@ -945,7 +945,7 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This is a simple rule with standard vocabulary where basic conversion should be effective.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 45. zhtw-project-formal-llm-evidence-guard-v1/llm-040
 
@@ -966,4 +966,4 @@ Codex reason: Codex reviewed this as an input-only case for completeness, source
 
 Gemini reason: This is a rule about preserving syntax, making it a test for preventing unwanted conversion of code-related elements.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`

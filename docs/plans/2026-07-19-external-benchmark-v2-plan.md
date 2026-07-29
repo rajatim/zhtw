@@ -979,6 +979,20 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   1,440。`permissive_license` 1,499/4,440（33.76%）、`project_original`
   1,487/4,440（33.49%）、`public_domain` 1,454/4,440（32.75%），皆低於 35%，
   且沒有來源超過 10%。
+- [x] 2026-07-29 建立 batch 052：由 Kubernetes permissive-license、FEMA
+  《Are You Ready?》公有領域簡體指南，以及 project-original formal/LLM
+  evidence guard 各固定抽取 32 筆，共 96 筆，與 batches 001-051 無 ID 重疊。
+  Codex first pass 建議 81 筆納入、15 筆排除；Gemini CLI 0.52.0
+  （`gemini-2.5-pro`）以 6 個隔離 session 完成 96/96 input-only 獨立審查，
+  零工具呼叫、零 API 錯誤，建議 89 筆納入、7 筆排除。兩者有 51 筆四欄完全
+  一致、45 筆差異；Codex synthesis 建議 81 筆納入、15 筆因句子殘缺、重複
+  抽取、標題混接、指涉缺失、單位遺失或來源語意不安全而排除（51 agreement、
+  45 codex_synthesis）。Maintainer 於 2026-07-29 確認整批 synthesis，建立
+  96/96 human decision；81 筆 eligible 全數通過 promotion，沒有新增 dedupe
+  exclusion。Pool `4,440 → 4,521`，距最低 5,880 筆尚差 1,359。
+  `permissive_license` 1,526/4,521（33.75%）、`project_original`
+  1,519/4,521（33.60%）、`public_domain` 1,476/4,521（32.65%），皆低於 35%，
+  且沒有來源超過 10%。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent
