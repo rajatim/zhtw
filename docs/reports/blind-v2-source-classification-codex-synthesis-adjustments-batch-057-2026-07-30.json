@@ -1,0 +1,735 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-30",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-057.json",
+  "packet_sha256": "83dd2efc0282a265405539e17b5eb17aae66ee12333acb3f9584ce99c76b6c76",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 65
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-089947c163bb825b",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2d7bc10e6505533a",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-3e21526c95e0cfb8",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-46b593523dd1b6da",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-49cd270bfc87446f",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-58aa48860c4b51d9",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6bc65c54768ca77e",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-80b3688924d60d00",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-dad950876ef1ff5e",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e1e9c921697dedef",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-eb538719c81de20d",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-edb6c5ccfe2fcbdb",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-018",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-023",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-074",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-080",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-086",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-094",
+      "classification": {
+        "eligible": false,
+        "script": "mixed",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "unsafe_source_translation"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-109",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [
+          "elliptical_source_wording"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-110",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-156",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-167",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-176",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-177",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-201",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-220",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-262",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-278",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-288",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-297",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-348",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-361",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-375",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-376",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-403",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-439",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-460",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-543",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-001",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-006",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-007",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-009",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-017",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-020",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-023",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "formal_news",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-024",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "formal_news",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-025",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "formal_news",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-030",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "formal_news",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-037",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-040",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-043",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-049",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-004",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-005",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-013",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-014",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-017",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-020",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-021",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "llm_generated",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-022",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "llm_generated",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-028",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "llm_generated",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-029",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "llm_generated",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-032",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-033",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-035",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    }
+  ]
+}

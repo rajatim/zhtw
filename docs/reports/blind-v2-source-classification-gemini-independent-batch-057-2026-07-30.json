@@ -1,0 +1,1009 @@
+{
+  "version": 1,
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-057.json",
+  "packet_sha256": "83dd2efc0282a265405539e17b5eb17aae66ee12333acb3f9584ce99c76b6c76",
+  "reviewer": "Gemini CLI independent review (6 isolated sessions; one invalid tool-attempt session discarded and replaced)",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-30",
+  "policy": "input_only_no_converter_output",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "84c3652a-e2e5-4711-b8c1-d5baa4de3bab,e1195c7a-ec25-4471-a347-12472a89c9d1,ede1dddc-e352-40f2-a291-c46b2b59831c,c8edc3cd-d188-4e4e-b7f6-7eb181f9d63b,ab1a6b37-1f8d-4ec9-9f89-d6b462c3c182,7cff7e4e-5408-4a4f-8765-39444cfeec5b",
+    "tool_calls": 0,
+    "total_errors": 0,
+    "discarded_session_id": "71eed009-3903-4982-a430-e78056f82943",
+    "discard_reason": "attempted unavailable run_code tool; output discarded before advisory assembly"
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 94,
+    "excluded": 2,
+    "high": 93,
+    "medium": 3,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-089947c163bb825b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard UI phrase requiring basic character conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0f06fbb6ef8e7cfc",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A UI permission string where '应用' and '状态栏' may require term-level conversion for Taiwan locales."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0f28c8c55f7b0c27",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A permission description where '应用' (app) is a candidate for locale-specific terminology."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1b295874546520e6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A system message where '传感器' (sensor) is likely '感應器' in Taiwan."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2d7bc10e6505533a",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common UI string with a format placeholder; conversion is primarily character-based."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-3e21526c95e0cfb8",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard UI status message with a format placeholder, requiring simple character conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4197d10209eb6f5e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI setting description with key terms '屏幕' (screen) and '级别' (level) that require idiomatic conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-43bf139a9b9f35aa",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complex security policy description with multiple terms like '屏幕', '输错密码', and '用户' needing idiomatic phrase-level conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-46b593523dd1b6da",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard UI option that should be a straightforward character conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-47621de5bc40db5d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A network status message where '网络' (network) needs to be converted to '網路'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-49cd270bfc87446f",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A UI action with a placeholder; the term '置顶' (pin) is common and requires direct character conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4e5cb4dda9f8fb2e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "The verb '替换' (replace) is often '取代' in Taiwanese UI, making this a term-level conversion candidate."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5101f86cb6eec94d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A network setting description where '连接到' and '网络' require idiomatic conversion for a natural result."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-58aa48860c4b51d9",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A process status message where the verb '运行' (running) should be converted to '執行中' for Taiwan."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6131237626fa3a4a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "ambiguous_term_translation"
+      ],
+      "confidence": "high",
+      "notes": "Permission string where '应用' (app) and the ambiguous term '文件包' (packages) require locale-specific and clearer terminology."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6bc65c54768ca77e",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "System instruction where '移动网络' (mobile network) and '重新启动' (restart) should be converted to '行動網路' and '重新開機'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7bfdec3f27410015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical acronym 'RUIM' must be preserved during conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7d43588a443956ec",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical acronym 'ICCID' must be preserved during conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-80b3688924d60d00",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Conversion requires mapping common IT terms like '应用' (app) and '设备' (device) to Taiwan equivalents, while preserving 'USB'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-985e2f07db99018b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '小区广播' (cell broadcast) requires a specific phrase-level conversion for Taiwan."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a07c2f95412c82e6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '车载模式' (car mode) likely needs to be converted to the Taiwan equivalent '車用模式'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a314067325166dfd",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical acronyms 'RUIM' and 'hrpd' must be preserved during conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bf57ce6bfa8a905b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '视频' (video) must be converted to the Taiwan equivalent '影片'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-cd54762c010b9e41",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical acronym 'SIM' must be preserved during conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d451809334fda58a",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical acronym 'SIM' must be preserved during conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d52197ec283892f7",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical acronym 'RUIM' must be preserved during conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-dad950876ef1ff5e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The technical term '提供程序' (provider) requires a specific phrase-level conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e1e9c921697dedef",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Requires converting multiple terms ('设备', '数据', '恢复出厂设置') while preserving the 'Android TV' entity and format specifiers."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-eb538719c81de20d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a straightforward UI message with direct character-level conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-edb6c5ccfe2fcbdb",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The type identifier 'location' must be preserved, while other terms like '应用' and '前台服务' need conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fa438455acd75ccb",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '图标' (icon) needs to be converted to the Taiwan equivalent '圖示'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-fa514d485bbacb58",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The format specifier '%d' must be preserved during conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence requires checking the standard Taiwanese term for 'communication plan'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This tests insurance-related terminology which can differ between regions."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-051",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "extraction_error",
+        "garbled"
+      ],
+      "confidence": "high",
+      "notes": "The sentence is garbled due to duplicated text, making it unsuitable for evaluation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-074",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests terminology for law enforcement, which is a key phrase-level conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-080",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A good baseline case for simple character conversion of common warning terms."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-086",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence tests common IT terminology like 'cyber attack' and 'operating system'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-094",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "awkward_phrasing"
+      ],
+      "confidence": "high",
+      "notes": "Tests protection of the 'Wi-Fi' token and requires careful handling of the slightly ambiguous 'management password' phrase."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-109",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple, everyday sentence that serves as a good baseline conversion test."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-110",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests disaster-related terminology and common phrases for location and direction."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-156",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "An extremely simple sentence for a baseline check of common nouns."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-167",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This tests specialized technical terminology for plumbing ('check valve', 'backflow')."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-173",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard disaster advice; a good test of common but serious vocabulary."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-176",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests specific terminology for natural disasters ('landslide') which often varies."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-177",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Good test for a specific disaster term ('mudflow') that has a common regional variant."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-201",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Excellent case for multiple common technology terms that differ in Taiwan ('mobile phone', 'text message', 'internet')."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-220",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward case testing common terms for a household emergency."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-221",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard safety warning suitable for baseline conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-262",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This emergency instruction may require phrase-level adaptation for Taiwan, e.g., 'guidance' and 'system'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-278",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Phrase choices for protective gear and clothing might differ in Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-288",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The terms for 'hose' and the phrasing for 'connect anywhere' may require idiomatic changes."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-292",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a straightforward instruction using common terms."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-297",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term for 'emergency supply kit' likely differs and requires a candidate lookup."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-348",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Terms like 'shelter' and 'service animal' may have different standard translations in Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-361",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "potential_source_mistranslation"
+      ],
+      "confidence": "high",
+      "notes": "The term 'toolkit' is likely a source mistranslation for 'emergency kit', and 'tight seal' may be phrased differently."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-375",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term for 'mobility' might differ, requiring a vocabulary check."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-376",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term for 'supplies' is a bit verbose and may be simplified in Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-403",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains '短信' which should be '簡訊' for Taiwan, a classic vocabulary difference."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-415",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence uses standard insurance terminology suitable for baseline conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-439",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "The phrasing '以防万一' and '好主意' might be expressed differently in idiomatic Taiwan Mandarin."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-460",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical terms like 'wind-borne debris' which require specialized vocabulary lookup for Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-465",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_input",
+        "garbled"
+      ],
+      "confidence": "high",
+      "notes": "The sentence is grammatically garbled and unsuitable for conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-543",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence uses insurance-specific jargon like 'claims event' which may have a different standard term in Taiwan."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence where basic character conversion should be sufficient."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal sentence where '人员' might require a locale-specific equivalent in Taiwan."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard governmental sentence with vocabulary common to both regions."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Legal terminology like '补正' and '送达' requires careful validation for Taiwan's legal context."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard press release sentence where direct character conversion should be adequate."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains terms like '承办人员' and '检核' which may have more natural Taiwanese equivalents."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard formal sentence with vocabulary common across both regions."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal procedural sentence with vocabulary that should convert directly."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a legal identifier 'Law No. 108-17' that must be protected from conversion."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-024",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Includes a technical identifier 'CASE-7B-204' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-025",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains an accounting code '4010-A' which is an identifier to be preserved."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-030",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Includes the international standard identifier 'UN 3481' which must be protected."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-033",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Proper noun 'Côte d’Ivoire' must be preserved and not altered."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A formal instruction with standard vocabulary suitable for direct conversion."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Legal sentence containing the term '定型化契约' which has a direct and correct equivalent in Taiwan law."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard financial/administrative sentence with vocabulary common to both locales."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard formal sentence, conversion of '远程' (remote) and '现场' (on-site) needs care for Taiwan terminology."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward formal sentence with common financial/mathematical terms."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard IT instruction, requires mapping technical terms like '文件名' (filename) and '扩展名' (extension) to Taiwan equivalents."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common instruction for summarizing and sharing information in a chat '群组' (group)."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear instruction in a software context, using standard terms like '使用者' (user) and '删除记录' (delete record)."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal instruction to extract specific business information; '联络窗口' (contact window) is common."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A meta-instruction on how to handle mixed scripts and '专有名称' (proper nouns), a good test case for converter logic."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Instruction for formatting an error report, testing UI term '资料检核' (data validation)."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear instruction for an LLM to check for missing context before answering."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_code"
+      ],
+      "confidence": "high",
+      "notes": "Tests the ability to preserve technical identifiers like 'request_id' and acronyms like 'API'."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_code"
+      ],
+      "confidence": "high",
+      "notes": "Tests preserving technical identifiers ('user_profile_id'), acronyms ('JSON'), and mapping terms ('字段' to '欄位')."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-028",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_code"
+      ],
+      "confidence": "high",
+      "notes": "Tests preservation of a code snippet's case and keywords ('WHERE active = true')."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-029",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_code"
+      ],
+      "confidence": "high",
+      "notes": "Tests the preservation of a standardized ISO 8601 timestamp format."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests common networking terms ('远程地址', '本机地址') that have different idiomatic translations (e.g., '位址')."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical sentence about '相依性锁定文件' (dependency lock file), testing specific developer vocabulary."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Good case for testing nuanced UI/UX terminology ('预留位置', '占位符', '空白状态') with potential ambiguity."
+    }
+  ]
+}

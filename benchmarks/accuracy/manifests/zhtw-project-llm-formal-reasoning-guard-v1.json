@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "zhtw-project-llm-formal-reasoning-guard-v1",
+  "track": "blind",
+  "source_class": "project_original",
+  "source_urls": [
+    "https://github.com/rajatim/zhtw/tree/main/benchmarks/accuracy/sources"
+  ],
+  "upstream_revision": "zhtw project-original LLM reasoning and formal-reporting input-only source snapshot drafted 2026-07-30; raw SHA-256: 07343101b31d3ab921400762c4e19dc692c62ca1abf17f93a54745a5e57a88f3",
+  "retrieved_at": "2026-07-30T01:50:23+08:00",
+  "license": "MIT",
+  "license_url": "https://github.com/rajatim/zhtw/blob/main/LICENSE",
+  "output_license": "MIT",
+  "attribution": "Copyright zhtw contributors; initial input-only LLM reasoning and formal-reporting scenarios drafted by Codex and subject to independent Gemini and maintainer review.",
+  "modification_notice": "Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.",
+  "notice_id": "zhtw-project-llm-formal-reasoning-guard-v1",
+  "raw_sha256": {
+    "benchmarks/accuracy/sources/zhtw-project-llm-formal-reasoning-guard-v1.json": "07343101b31d3ab921400762c4e19dc692c62ca1abf17f93a54745a5e57a88f3"
+  },
+  "normalized_path": "benchmarks/accuracy/external/zhtw-project-llm-formal-reasoning-guard-v1.json",
+  "normalized_sha256": "4d0ca36ba7f6f3f3ba54f76e24190dd5cf183176b0c923f7dfc197045f7343bf",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "These scenarios were drafted by Codex and are synthetic project-original inputs, not independently observed market traffic.",
+    "The source intentionally concentrates on LLM reasoning and formal-reporting contexts where Blind-v2 domain coverage remains lower.",
+    "The inputs were drafted from declared domain and risk coverage gaps without running any converter.",
+    "Independent Gemini review and maintainer source classification are required before promotion.",
+    "The normalized source remains input-only; confirmed labels belong only in separately hashed decision and candidate-pool artifacts.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}
