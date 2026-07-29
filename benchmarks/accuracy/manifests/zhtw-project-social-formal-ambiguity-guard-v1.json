@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "zhtw-project-social-formal-ambiguity-guard-v1",
+  "track": "blind",
+  "source_class": "project_original",
+  "source_urls": [
+    "https://github.com/rajatim/zhtw/tree/main/benchmarks/accuracy/sources"
+  ],
+  "upstream_revision": "zhtw project-original social/daily and formal-document ambiguity source snapshot drafted 2026-07-30; raw SHA-256: a59df3b45d9586609e8d25ef4c60114990e7e0086df88adb2ec47046a94c30d5",
+  "retrieved_at": "2026-07-30T07:51:14+08:00",
+  "license": "MIT",
+  "license_url": "https://github.com/rajatim/zhtw/blob/main/LICENSE",
+  "output_license": "MIT",
+  "attribution": "Copyright zhtw contributors; initial input-only social/daily and formal-document ambiguity scenarios drafted by Codex and subject to independent Agy/Gemini and maintainer review.",
+  "modification_notice": "Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.",
+  "notice_id": "zhtw-project-social-formal-ambiguity-guard-v1",
+  "raw_sha256": {
+    "benchmarks/accuracy/sources/zhtw-project-social-formal-ambiguity-guard-v1.json": "a59df3b45d9586609e8d25ef4c60114990e7e0086df88adb2ec47046a94c30d5"
+  },
+  "normalized_path": "benchmarks/accuracy/external/zhtw-project-social-formal-ambiguity-guard-v1.json",
+  "normalized_sha256": "83f3e4965b6cfb8e1f9754e82f854635282b5b307941b8d5fc5918529ff63277",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "These scenarios were drafted by Codex and are synthetic project-original inputs, not independently observed market traffic.",
+    "The source intentionally concentrates on social/daily and formal-document contexts with context-sensitive Taiwan wording and protected technical tokens.",
+    "The inputs were drafted from declared domain and risk coverage gaps without running any converter.",
+    "Independent Agy/Gemini review and maintainer source classification are required before promotion.",
+    "The normalized source remains input-only; confirmed labels belong only in separately hashed decision and candidate-pool artifacts.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "sealed_no_tuning"
+}

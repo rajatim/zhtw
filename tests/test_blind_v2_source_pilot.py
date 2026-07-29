@@ -666,6 +666,7 @@ def test_project_original_source_rejects_expected_text() -> None:
         ("zhtw-project-llm-formal-reasoning-guard-v1", 100),
         ("zhtw-project-llm-formal-operations-guard-v1", 100),
         ("zhtw-project-social-formal-context-guard-v1", 100),
+        ("zhtw-project-social-formal-ambiguity-guard-v1", 100),
         ("massive-1-0-zh-cn-v1", 15619),
         ("ftc-small-business-simplified-v1", 81),
         ("ftc-heads-up-simplified-v1", 117),

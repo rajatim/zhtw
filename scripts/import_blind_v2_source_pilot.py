@@ -59,6 +59,7 @@ SUPPORTED_SOURCES = {
     "zhtw-project-llm-formal-reasoning-guard-v1": "project_original_json",
     "zhtw-project-llm-formal-operations-guard-v1": "project_original_json",
     "zhtw-project-social-formal-context-guard-v1": "project_original_json",
+    "zhtw-project-social-formal-ambiguity-guard-v1": "project_original_json",
     "massive-1-0-zh-cn-v1": "massive",
     "ftc-small-business-simplified-v1": "ftc_pdf",
     "ftc-heads-up-simplified-v1": "ftc_heads_up_pdf",
