@@ -1,0 +1,991 @@
+{
+  "version": 1,
+  "model": "GPT-5.3-Codex",
+  "reviewer": "Codex",
+  "review_date": "2026-07-30",
+  "policy": "input_only_no_converter_output",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-059.json",
+  "packet_sha256": "baaff86856252f5729b76eaa3e832bf347603bbd0dc95c818c35c94e8e1d245c",
+  "stats": {
+    "total": 96,
+    "eligible": 90,
+    "excluded": 6,
+    "high": 6,
+    "medium": 90,
+    "low": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-095b1a9558f5a29a",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "malformed_formatting"
+      ],
+      "confidence": "high",
+      "notes": "Codex excluded this input-only case because the source text is not reliable enough for an independently judgeable conversion benchmark."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0a81c079e142f72c",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0bd6441dd9eb69c0",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1051aff928b0de5b",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1455052d53ace296",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-3de3b9b4f0021141",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-42a2c1fbb6bb7299",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-451bc6e12518d336",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4538792b79ddc644",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-49ea2994de356ef0",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-68b6ba8b4db24860",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-6adcfcdd14784a8d",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-73dd6da99f4de148",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7fc45bbd4a14dc5f",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8000a6454087a523",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8420de8477d2d00a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-896dca5c1be49579",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8ec39df0a7d3f09e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-93c53079e2757c84",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a127f1ce093ef149",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-aa287514aacd9f4a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-af9b5c10c2b23085",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b0d9b88578c64d2b",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b706df11d0c80205",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-c8b823a227665b7a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-ca82c423e26b6841",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-caebbcfc8ac41aa9",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e009ca03ab8d36a2",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e35d449a382ceb38",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-edec94ae99da83e5",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f55f1da12348ad4e",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f7a5708bfb37ea59",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-048",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "duplicated_extraction"
+      ],
+      "confidence": "high",
+      "notes": "Codex excluded this input-only case because the source text is not reliable enough for an independently judgeable conversion benchmark."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-082",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-092",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-097",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-099",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-122",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-159",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-181",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-196",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-198",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-208",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-210",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-225",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-228",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-240",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-252",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "unsafe_source_translation"
+      ],
+      "confidence": "high",
+      "notes": "Codex excluded this input-only case because the source text is not reliable enough for an independently judgeable conversion benchmark."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-269",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fused_heading"
+      ],
+      "confidence": "high",
+      "notes": "Codex excluded this input-only case because the source text is not reliable enough for an independently judgeable conversion benchmark."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-283",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-293",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-369",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-386",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-419",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "unsafe_source_translation"
+      ],
+      "confidence": "high",
+      "notes": "Codex excluded this input-only case because the source text is not reliable enough for an independently judgeable conversion benchmark."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-438",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-443",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-461",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-473",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fused_heading"
+      ],
+      "confidence": "high",
+      "notes": "Codex excluded this input-only case because the source text is not reliable enough for an independently judgeable conversion benchmark."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-568",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-571",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-021",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-022",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-026",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-027",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-028",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/formal-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-023",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-026",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-027",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-030",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-044",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-046",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-047",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-048",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    },
+    {
+      "id": "zhtw-project-llm-formal-reasoning-guard-v1/llm-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "medium",
+      "notes": "Codex reviewed this input-only case for completeness, source quality, and Taiwan conversion relevance; no converter output or expected text was used."
+    }
+  ]
+}
