@@ -1086,6 +1086,22 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   `public_domain` 1,640/5,062（32.40%），皆低於 35%。Kubernetes 目前
   507/5,062（10.02%），仍略高於最終單一來源 10% freeze gate；後續批次繼續
   暫停抽取 Kubernetes。
+- [x] 2026-07-30 完成 batch 059：延續 AOSP permissive-license、FEMA
+  《Are You Ready?》公有領域簡體指南，以及 project-original LLM/formal
+  reasoning guard 各固定抽取 32 筆，共 96 筆，與 batches 001-058 無 ID 重疊。
+  Codex first pass 建議 90 筆納入、6 筆排除；Agy CLI 1.1.8 以
+  `gemini-3.1-pro-high` 和 6 個隔離單輪 conversation 完成 96/96 input-only
+  獨立審查，零工具結果回合、零錯誤，建議 92 筆納入、4 筆排除。兩者有
+  30 筆四欄完全一致、66 筆差異；Codex synthesis 經 pinned AOSP XML 複核後
+  保留 flattened markup 案例排除，另恢復 1 筆完整 checklist item，最終建議
+  90 筆納入、6 筆因格式損壞、重複抽取、來源誤譯或標題混接而排除
+  （30 agreement、66 codex_synthesis）。Maintainer 於 2026-07-30 確認整批
+  synthesis，建立 96/96 human decision；90 筆 eligible 全數通過 promotion，
+  沒有新增 dedupe exclusion。Pool `5,062 → 5,152`，距最低 5,880 筆尚差 728。
+  `permissive_license` 1,743/5,152（33.83%）、`project_original`
+  1,742/5,152（33.81%）、`public_domain` 1,667/5,152（32.36%），皆低於 35%。
+  Kubernetes 目前 507/5,152（9.84%），已低於最終單一來源 10% freeze gate；
+  目前所有來源與來源類別皆符合比例限制。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent
