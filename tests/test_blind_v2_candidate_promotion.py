@@ -118,8 +118,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-052-2026-07-29.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-053-2026-07-30.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-054-2026-07-30.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-053-2026-07-30.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-054-2026-07-30.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -141,31 +143,31 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     generated, report = build_pool(
         list(DECISIONS),
         output=POOL,
-        created_at="2026-07-30T00:08:40+08:00",
+        created_at="2026-07-30T00:56:34+08:00",
     )
 
     assert generated == committed
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 4607,
+        "total": 4698,
         "by_domain": {
             "formal_news": 629,
-            "high_stakes": 1175,
-            "it_api_cli": 904,
+            "high_stakes": 1206,
+            "it_api_cli": 935,
             "llm_generated": 532,
-            "social_daily": 667,
-            "ui_i18n": 700,
+            "social_daily": 682,
+            "ui_i18n": 714,
         },
         "by_risk": {
-            "baseline_guard": 1329,
-            "candidate_gap": 1878,
-            "over_conversion_guard": 1400,
+            "baseline_guard": 1359,
+            "candidate_gap": 1921,
+            "over_conversion_guard": 1418,
         },
         "by_source_class": {
-            "permissive_license": 1556,
-            "project_original": 1551,
-            "public_domain": 1500,
+            "permissive_license": 1586,
+            "project_original": 1583,
+            "public_domain": 1529,
         },
         "by_source": {
             "aosp-framework-zh-rcn-v1": 275,
@@ -181,7 +183,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ftc-how-to-avoid-scam-simplified-v1": 33,
             "ftc-identity-theft-simplified-v1": 18,
             "ftc-small-business-simplified-v1": 55,
-            "kubernetes-docs-zh-cn-v1": 477,
+            "kubernetes-docs-zh-cn-v1": 507,
             "massive-1-0-zh-cn-v1": 344,
             "nps-essential-acadia-simplified-v1": 30,
             "osha-chainsaw-safety-simplified-v1": 20,
@@ -202,7 +204,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ready-gov-kids-tornadoes-zh-hans-v1": 34,
             "ready-gov-landslides-debris-flow-zh-hans-v1": 53,
             "ready-gov-radiation-zh-hans-v1": 59,
-            "ready-gov-are-you-ready-guide-simplified-v1": 74,
+            "ready-gov-are-you-ready-guide-simplified-v1": 103,
             "ready-gov-tornadoes-zh-hans-v1": 32,
             "ready-gov-winter-weather-zh-hans-v1": 41,
             "ud-chinese-cfl-v1": 69,
@@ -224,10 +226,11 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-llm-product-v1": 50,
             "zhtw-project-llm-social-baseline-v1": 100,
             "zhtw-project-ui-i18n-v1": 50,
+            "zhtw-project-ui-social-baseline-guard-v1": 32,
         },
     }
-    assert report["confirmed_eligible"] == 4614
-    assert report["promoted"] == 4607
+    assert report["confirmed_eligible"] == 4705
+    assert report["promoted"] == 4698
     assert report["excluded_by_dedupe"] == 7
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
@@ -248,6 +251,7 @@ def test_collecting_pool_is_not_ready_for_formal_sampling() -> None:
     assert not any("source aosp-framework-zh-rcn-v1 exceeds 10%" in error for error in errors)
     assert not any("source flores-200-zho-hans-v1 exceeds 10%" in error for error in errors)
     assert not any("source ftc-heads-up-simplified-v1 exceeds 10%" in error for error in errors)
+    assert any("source kubernetes-docs-zh-cn-v1 exceeds 10%" in error for error in errors)
     assert not any("source massive-1-0-zh-cn-v1 exceeds 10%" in error for error in errors)
     assert not any("source vscode-loc-zh-hans-v1 exceeds 10%" in error for error in errors)
     assert not any("source zhtw-project-it-api-cli-v1 exceeds 10%" in error for error in errors)

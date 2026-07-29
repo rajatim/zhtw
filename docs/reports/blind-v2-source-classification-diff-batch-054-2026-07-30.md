@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 054 (2026-07-30)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `84e73beacddbe8d8fa030b4a7989f8222a643b223ac9bb04ccead41ab5e694fe`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 55 advisory disagreements and batch-confirmed the 41 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: The input starts with an unmatched Markdown marker, so the extract
 
 Gemini reason: A standard technical documentation sentence requiring basic character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 02. kubernetes-docs-zh-cn-v1/page-01-sentence-0023
 
@@ -63,7 +63,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A straightforward technical sentence requiring only standard character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 03. kubernetes-docs-zh-cn-v1/page-03-sentence-0034
 
@@ -84,7 +84,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains key technical terms like '调度' and '镜像' which require specific phrase-level translation for Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 04. kubernetes-docs-zh-cn-v1/page-03-sentence-0039
 
@@ -105,7 +105,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A technical sentence where the digit '0' in '非 0 状态' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 05. kubernetes-docs-zh-cn-v1/page-03-sentence-0156
 
@@ -126,7 +126,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The sentence contains numbers that must be preserved as digits.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 06. kubernetes-docs-zh-cn-v1/page-03-sentence-0247
 
@@ -147,7 +147,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The terms '流量' and '导向' may require specific idiomatic translations in a networking context for Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 07. kubernetes-docs-zh-cn-v1/page-03-sentence-0252
 
@@ -168,7 +168,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The technical concepts '启动就绪' and '启动探针' require correct terminological mapping for Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 08. kubernetes-docs-zh-cn-v1/page-03-sentence-0261
 
@@ -189,7 +189,7 @@ Codex reason: The phrase 体面终止周期 is an unsafe mistranslation of the K
 
 Gemini reason: Technical Kubernetes terminology like 'graceful termination period' and 'kill' requires phrase-level conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 09. kubernetes-docs-zh-cn-v1/page-03-sentence-0265
 
@@ -210,7 +210,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: This is a straightforward technical statement where basic character conversion should be sufficient.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 10. kubernetes-docs-zh-cn-v1/page-03-sentence-0290
 
@@ -231,7 +231,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: This sentence involves technical concepts like service requests and connections, with phrasing that may differ in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 11. kubernetes-docs-zh-cn-v1/page-04-sentence-0057
 
@@ -252,7 +252,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The term 'selector' ('选择算符') needs a standard Taiwan IT translation, while 'Service' and 'EndpointSlice' must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 12. kubernetes-docs-zh-cn-v1/page-04-sentence-0115
 
@@ -273,7 +273,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A straightforward technical sentence where character conversion is sufficient.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 13. kubernetes-docs-zh-cn-v1/page-04-sentence-0116
 
@@ -294,7 +294,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The descriptive phrase 'progressive layers' may require idiomatic rephrasing for technical documentation in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 14. kubernetes-docs-zh-cn-v1/page-04-sentence-0157
 
@@ -315,7 +315,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: This sentence contains multiple standard IT terms like 'load balancer' and 'cloud platform' that require correct idiomatic conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 15. kubernetes-docs-zh-cn-v1/page-04-sentence-0197
 
@@ -336,7 +336,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Technical terms like 'hybrid environment' and 'network address segment' may require specific Taiwan IT phrasing.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 16. kubernetes-docs-zh-cn-v1/page-04-sentence-0219
 
@@ -357,7 +357,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: This dense sentence contains multiple technical phrases like 'selector' and 'control plane' that need accurate Taiwan-specific translation, alongside many identifiers to preserve.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 17. kubernetes-docs-zh-cn-v1/page-04-sentence-0233
 
@@ -378,7 +378,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The term 'plugin' ('插件') and its English equivalent 'add-on' require a standard idiomatic translation for the Taiwan context.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 18. ready-gov-are-you-ready-guide-simplified-v1/sentence-036
 
@@ -399,7 +399,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A standard formal sentence about public preparedness.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 19. ready-gov-are-you-ready-guide-simplified-v1/sentence-115
 
@@ -420,7 +420,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A clear instruction, a good candidate for evaluating subtle vocabulary choices.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 20. ready-gov-are-you-ready-guide-simplified-v1/sentence-130
 
@@ -441,7 +441,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A good candidate for financial and emergency-related vocabulary, including a mixed-script element.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 21. ready-gov-are-you-ready-guide-simplified-v1/sentence-140
 
@@ -462,7 +462,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The sentence is a warning about floodwater hazards; the phrasing for 'debris' is a potential conversion point.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 22. ready-gov-are-you-ready-guide-simplified-v1/sentence-178
 
@@ -483,7 +483,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Excellent candidate testing IT vocabulary ('app'), and requires protecting a Latin acronym (FEMA) from conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 23. ready-gov-are-you-ready-guide-simplified-v1/sentence-187
 
@@ -504,7 +504,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A formal sentence using a common idiom to describe recurring floods.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 24. ready-gov-are-you-ready-guide-simplified-v1/sentence-191
 
@@ -525,7 +525,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A clear directive involving a number and a key vocabulary term for 'authorities'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 25. ready-gov-are-you-ready-guide-simplified-v1/sentence-192
 
@@ -546,7 +546,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: High-stakes instruction where the specific term for 'fallout' is a key conversion point.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 26. ready-gov-are-you-ready-guide-simplified-v1/sentence-204
 
@@ -567,7 +567,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A formal, high-stakes sentence about novel diseases and vaccines.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 27. ready-gov-are-you-ready-guide-simplified-v1/sentence-246
 
@@ -588,7 +588,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Instruction for a tornado watch, testing weather alert terminology.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 28. ready-gov-are-you-ready-guide-simplified-v1/sentence-253
 
@@ -609,7 +609,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A concise directive testing vocabulary for 'watch period' and 'shelter'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 29. ready-gov-are-you-ready-guide-simplified-v1/sentence-260
 
@@ -630,7 +630,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Standard instructional text about tsunami risk suitable for baseline conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 30. ready-gov-are-you-ready-guide-simplified-v1/sentence-263
 
@@ -651,7 +651,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A descriptive list of tsunami signs suitable for baseline character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 31. ready-gov-are-you-ready-guide-simplified-v1/sentence-286
 
@@ -672,7 +672,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The term '装修' (renovate) may require a specific vocabulary mapping for Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 32. ready-gov-are-you-ready-guide-simplified-v1/sentence-332
 
@@ -693,7 +693,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A standard question about emergency preparedness suitable for baseline conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 33. ready-gov-are-you-ready-guide-simplified-v1/sentence-373
 
@@ -714,7 +714,7 @@ Codex reason: This is a noun-list fragment without enough standalone context for
 
 Gemini reason: The term '免洗洗手液' (hand sanitizer) may require a specific vocabulary mapping for Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 34. ready-gov-are-you-ready-guide-simplified-v1/sentence-391
 
@@ -735,7 +735,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A standard instruction for preparing an inventory of valuables.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 35. ready-gov-are-you-ready-guide-simplified-v1/sentence-423
 
@@ -756,7 +756,7 @@ Codex reason: The insurance sentence has broken source semantics and is unsafe a
 
 Gemini reason: The use of '危险' for an insurance peril might require specific terminology mapping for a high-stakes domain.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 36. ready-gov-are-you-ready-guide-simplified-v1/sentence-441
 
@@ -777,7 +777,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Insurance-specific terminology like '洪水保障' may require mapping.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 37. ready-gov-are-you-ready-guide-simplified-v1/sentence-442
 
@@ -798,7 +798,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The professional title '保险经纪人' could require a locale-specific vocabulary mapping.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 38. ready-gov-are-you-ready-guide-simplified-v1/sentence-478
 
@@ -819,7 +819,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The proper noun 'CERT' must be preserved, and terms like '项目' and '作业' might need mapping.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 39. ready-gov-are-you-ready-guide-simplified-v1/sentence-487
 
@@ -840,7 +840,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The spaced acronym 'S T E M' must be preserved, and '民航巡逻队' (Civil Air Patrol) is a proper noun translation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 40. ready-gov-are-you-ready-guide-simplified-v1/sentence-501
 
@@ -861,7 +861,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The term '杂物碎片' for debris may require a specific vocabulary mapping for Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 41. ready-gov-are-you-ready-guide-simplified-v1/sentence-552
 
@@ -882,7 +882,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A standard sentence about post-event recovery, likely suitable for baseline conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 42. ready-gov-are-you-ready-guide-simplified-v1/sentence-554
 
@@ -903,7 +903,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The term '援助计划' (assistance program) is likely to have a different common phrasing in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 43. ready-gov-are-you-ready-guide-simplified-v1/sentence-574
 
@@ -924,7 +924,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A simple, common phrase about helping neighbors that serves as a good baseline case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 44. ready-gov-are-you-ready-guide-simplified-v1/sentence-576
 
@@ -945,7 +945,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Multiple terms for vulnerable groups, like '残障人士', are likely to require specific vocabulary mapping.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 45. zhtw-project-ui-social-baseline-guard-v1/social-017
 
@@ -966,7 +966,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Involves UI terminology like '应用程序' (application) which requires correct regional mapping.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 46. zhtw-project-ui-social-baseline-guard-v1/social-029
 
@@ -987,7 +987,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A high-stakes medical instruction, although the vocabulary is simple.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 47. zhtw-project-ui-social-baseline-guard-v1/social-031
 
@@ -1008,7 +1008,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Financial transaction terms require careful mapping to Taiwanese usage.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 48. zhtw-project-ui-social-baseline-guard-v1/social-032
 
@@ -1029,7 +1029,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The term for highway tolls might differ in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 49. zhtw-project-ui-social-baseline-guard-v1/social-036
 
@@ -1050,7 +1050,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The term for 'locker' can vary, making this a good test for regional vocabulary.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 50. zhtw-project-ui-social-baseline-guard-v1/social-037
 
@@ -1071,7 +1071,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Uses the Taiwan-specific term '捷运' (MRT) in simplified characters, a good test case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 51. zhtw-project-ui-social-baseline-guard-v1/social-038
 
@@ -1092,7 +1092,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains '视频' (video), which should ideally be converted to the more common Taiwanese term '影片'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 52. zhtw-project-ui-social-baseline-guard-v1/social-046
 
@@ -1113,7 +1113,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Includes a number that must be preserved, testing over-conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 53. zhtw-project-ui-social-baseline-guard-v1/ui-009
 
@@ -1134,7 +1134,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A standard account security message with common terms suitable for a baseline test.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 54. zhtw-project-ui-social-baseline-guard-v1/ui-018
 
@@ -1155,7 +1155,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: A technical IT phrase ('message consumer') that tests for correct vocabulary in a software context.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 55. zhtw-project-ui-social-baseline-guard-v1/ui-034
 
@@ -1176,4 +1176,4 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Source text uses '栏位', a Taiwan-preferred term, and also tests '滚动' ('scroll') vs. '捲動'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
