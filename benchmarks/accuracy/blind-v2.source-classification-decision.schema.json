@@ -32,7 +32,7 @@
       "properties": {
         "packet_cases": { "type": "integer", "minimum": 1 },
         "confirmed_cases": { "type": "integer", "minimum": 1 },
-        "resolved_disagreements": { "type": "integer", "minimum": 1 },
+        "resolved_disagreements": { "type": "integer", "minimum": 0 },
         "confirmed_exact_matches": { "type": "integer", "minimum": 0 },
         "remaining_cases": { "type": "integer", "const": 0 }
       }

@@ -6169,7 +6169,7 @@ def test_sixtieth_decision_is_reproducible() -> None:
     )
 
 
-def test_sixty_first_advisory_is_reproducible() -> None:
+def test_sixty_first_decision_is_reproducible() -> None:
     prefix = ROOT / "docs/reports"
     packet_path = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-batch-061.json"
     codex_path = (
@@ -6181,11 +6181,15 @@ def test_sixty_first_advisory_is_reproducible() -> None:
     synthesis_path = (
         prefix / "blind-v2-source-classification-codex-synthesis-batch-061-2026-07-30.json"
     )
+    decision_path = (
+        prefix / "blind-v2-source-classification-maintainer-decision-batch-061-2026-07-30.json"
+    )
     diff_path = prefix / "blind-v2-source-classification-diff-batch-061-2026-07-30.md"
     packet = load(packet_path)
     codex = load(codex_path)
     gemini = load(gemini_path)
     synthesis = load(synthesis_path)
+    decision = load(decision_path)
     packet_ids = [case["id"] for case in packet["cases"]]
     prior_ids = {
         case["id"]
@@ -6267,9 +6271,27 @@ def test_sixty_first_advisory_is_reproducible() -> None:
         "excluded": 3,
         "by_selection_basis": {"agreement": 96},
     }
+    assert decision == build_decision(
+        packet_path,
+        codex_path,
+        gemini_path,
+        maintainer="tim",
+        decision_date="2026-07-30",
+        selected_advisory="synthesis",
+        synthesis_path=synthesis_path,
+    )
+    assert validate_decision(decision) == []
+    assert decision["stats"] == {
+        "packet_cases": 96,
+        "confirmed_cases": 96,
+        "resolved_disagreements": 0,
+        "confirmed_exact_matches": 96,
+        "remaining_cases": 0,
+    }
     assert diff_path.read_text(encoding="utf-8") == render_markdown(
         packet,
         codex,
         gemini,
         generated_date="2026-07-30",
+        maintainer_decisions=decision,
     )
