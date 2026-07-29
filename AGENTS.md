@@ -58,6 +58,8 @@ make version-check   # 任一檔案不一致就 exit 1
 
 1. **Codex 先做第一輪建議**：先產出 expected 建議、風險判斷與理由。
 2. **再交給 Gemini 獨立看**：Gemini 只看 input 與規則，不先看 Codex 結論。
+   macOS 上一律透過 `agy` 呼叫指定 Gemini model；禁止直接執行 `gemini` 或
+   `npx @google/gemini-cli`。若誤用，該次輸出必須全數捨棄並重新審查。
 3. **Codex 彙整差異**：比對 Codex/Gemini 結果，整理一致、差異、低信心案例。
 4. **只把需要確認的列給 maintainer**：一致且低風險的案例可列為建議採用；差異、
    高風險、語境不明的案例必須列出讓使用者確認。
