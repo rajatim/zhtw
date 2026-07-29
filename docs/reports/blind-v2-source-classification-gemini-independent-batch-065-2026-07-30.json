@@ -1,0 +1,1021 @@
+{
+  "version": 1,
+  "reviewer": "Agy CLI independent review (Gemini 3.1 Pro High; 6 isolated one-turn sessions)",
+  "model": "gemini-3.1-pro-high",
+  "review_date": "2026-07-30",
+  "policy": "input_only_no_converter_output",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-065.json",
+  "packet_sha256": "5ffb068b7ce5e2e35d613a04b3cbc7354c3102d59d3806f4c0351d5fd5cf8f48",
+  "execution": {
+    "cli": "agy",
+    "cli_version": "1.1.8",
+    "mode": "plan",
+    "conversation_id": "72e655d1-cb08-446a-9506-97a6d4c5811d,ba37c36a-bb81-4756-aae8-f584e331cea7,16a9a6c4-6db6-431b-b714-7b02fb6b14a6,6da6dc5a-6808-4db5-99f7-72df00dbb17a,9a69d44d-4975-4c1d-9ff0-00fa058f51b2,8c904e50-a33c-4206-b371-97b4937028b4",
+    "accepted_conversations": 6,
+    "attempted_review_conversations": 6,
+    "discarded_conversations": [],
+    "turns_per_conversation": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "tool_calls": 0,
+    "total_errors": 0,
+    "tool_call_evidence": "Each accepted Agy envelope completed in one turn with no tool-result turn."
+  },
+  "validation": {
+    "case_count": 96,
+    "unique_case_ids": 96,
+    "packet_order_preserved": true,
+    "policy_violations": 0
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 90,
+    "excluded": 6,
+    "high": 96,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1083934481477628225",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a complete and unambiguous browser UI notification string."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1524282610922162960",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a clear browser UI action label."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1736662517232558588",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a valid browser UI status notification."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-1880677175115548835",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a standard UI context menu command."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2478295928299953161",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a standard UI prompt string."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2711502716910134313",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a valid browser UI label."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2847479871509788944",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a standard browser context menu action."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2885378588091291677",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a clear and complete system feature name."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2933336679234709858",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a clear browser dialog instructional text."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-2948852018303413228",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a complete browser feature tip."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-3103660991484857065",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a clear installer error message."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-4022972681110646219",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a valid UI command label."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-4251772536351901305",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a complete setting description string."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-4400772909124543403",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a complete browser update status message."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-4447409407328223819",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a standard menu item title."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-4570813286784708942",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a complete download security warning."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-5618818588972826921",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean UI instruction string containing an English key name requiring mixed script classification."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-5643865575100044307",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid browser setting option text containing proper product name Chromium."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-5824893331272123205",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI error prompt written in plain Simplified Chinese."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-5867606647614813312",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear browser security feature description string with proper product name."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-5977420883993828287",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid UI notification toast written in pure Simplified Chinese."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-6862030660799253820",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete context menu action text in plain Simplified Chinese."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7045244423563602563",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Short UI heading string featuring the product brand name Chromium."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7147227333672430807",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Informational UI string describing browser default application handling."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-7716950018788545737",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Concise status notification message in Simplified Chinese."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-8482493977473846331",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Setting option label text including the product name Chromium."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-8522801943730206384",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI prerequisite notification string containing proper brand name."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-8619360774459241877",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Application launch status string with brand name and ellipsis."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-8624541899164515475",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Accessible UI link description string in plain Simplified Chinese."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-9078733879136747090",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Browser shutdown notification string containing product name."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-983803489796659991",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete update error message in plain Simplified Chinese."
+    },
+    {
+      "id": "chromium-strings-zh-cn-v1/translation-989970834842471429",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standalone UI instruction string in plain Simplified Chinese."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a well-formed complete sentence regarding disaster preparation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a clear standalone instruction for emergency preparedness."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-030",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "duplicated_text",
+        "damaged_extraction"
+      ],
+      "confidence": "high",
+      "notes": "The input contains duplicated characters and text extraction artifacts."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-052",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "damaged_syntax"
+      ],
+      "confidence": "high",
+      "notes": "The sentence has broken syntax and missing context words making it ungrammatical."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-093",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a complete standalone instruction to update privacy and location settings."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-095",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "duplicated_text",
+        "damaged_extraction"
+      ],
+      "confidence": "high",
+      "notes": "The text contains severe duplications and corrupted phrases from bad extraction."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-111",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is an eligible standalone safety guideline item for extreme heat."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-135",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a well-formed instructional sentence regarding insurance policies."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-143",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a complete and valid action step for flood preparedness."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-193",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "damaged_syntax"
+      ],
+      "confidence": "high",
+      "notes": "The input has damaged syntax and confusing clause structure as a source translation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-232",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a well-formed complete safety recommendation for severe weather."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-249",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a clear standalone action item for safe room installation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-302",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a concise and complete medical vigilance instruction."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-308",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a well-formed complete statement about safety benefits."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-324",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a detailed standalone inquiry instruction for school emergency preparedness."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-331",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "duplicated_text",
+        "damaged_extraction"
+      ],
+      "confidence": "high",
+      "notes": "The sentence contains severe duplication artifacts from text extraction."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-334",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a complete and unambiguous sentence suitable for benchmark evaluation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-350",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear emergency preparation instruction with complete semantic context."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-360",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains Latin acronym NOAA, making it mixed script while retaining complete context."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-374",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "duplicated_text"
+      ],
+      "confidence": "high",
+      "notes": "The input contains duplicated text caused by extraction errors."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-383",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear and complete disaster preparation instruction."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-398",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear guidance on document protection with complete meaning."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-409",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete and clear sentence regarding emergency communication planning."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-410",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid standalone instruction regarding notification systems."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-413",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear informative sentence on insurance coverage during disasters."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-427",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete and concise instruction regarding insurance policy details."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-471",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete advisory sentence addressing compound disaster hazards."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-480",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete informational instruction for reaching local emergency contacts."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-506",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear post-disaster action sentence."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-522",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear safety instruction before restoring power."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-549",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete advice sentence on community awareness."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-569",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear fraud prevention warning sentence."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a clear, complete formal sentence suitable for standard translation."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a well-formed formal statement regarding audit procedures."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-013",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a clean formal statement detailing statistical reporting guidelines."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a well-structured formal announcement regarding procurement bidding."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a clear formal legal directive regarding court notice delivery."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a standard formal financial governance directive."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a complete formal accounting requirement statement."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a complete formal legal compliance statement."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a standard formal data privacy declaration."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-033",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is an eligible formal sentence containing a technical item code requiring over-conversion protection."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-040",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a formal legal statement featuring a case reference code."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-047",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a formal technical status message containing a batch exchange identifier."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/formal-049",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "formal_news",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a formal regulatory instruction with a legal entity identifier code."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a natural social daily update sentence."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a concise everyday sentence about store reservation policies."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input is a clear conversational request regarding software subscription cancellation."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid standalone social daily text without mixed script tokens."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid standalone social daily sentence in simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid standalone social daily text requiring standard translation."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid standalone social daily sentence with clear semantic context."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-026",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid standalone social daily sentence without alphanumeric tokens."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid standalone social daily sentence in simplified Chinese."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-034",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid social daily sentence with technical path identifier token."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-037",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid social daily sentence containing seat code tokens."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-038",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid social daily text featuring proper brand name token."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-039",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid social daily sentence containing promotional code token."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-040",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid social daily sentence containing filename token."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-041",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid social daily sentence containing extension number digit token."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-044",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid social daily sentence containing English term App."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-048",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid social daily sentence containing room code token."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-049",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid social daily sentence containing email address token."
+    },
+    {
+      "id": "zhtw-project-social-formal-context-guard-v1/social-050",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "social_daily",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Valid social daily sentence containing OS name and version number tokens."
+    }
+  ]
+}
