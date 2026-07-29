@@ -642,6 +642,17 @@ is missing.
 - Bias notice: These are synthetic preservation-focused scenarios, not
   independently observed market traffic.
 
+## zhtw-project-social-formal-context-guard-v1
+
+- Source: zhtw project-original Simplified Chinese social/daily and
+  formal-document context scenarios drafted from declared Blind-v2 coverage gaps.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only social/daily and formal-document scenarios drafted by Codex and subject to independent Agy/Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: These are synthetic context and preservation scenarios, not
+  independently observed market traffic.
+
 ## naer-terms-v1
 
 - Source: Government Data dataset 15275, `國家教育研究院-兩岸對照名詞-計算機學術名詞`;
