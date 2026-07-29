@@ -1,0 +1,395 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "reviewer": "Codex",
+  "stage": "codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-30",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-056.json",
+  "packet_sha256": "1b162b7c3feb4e65d94d8191bc35941ff987291229fe71911de9efdb3ed39a1c",
+  "policy": "input_only_no_converter_output",
+  "stats": {
+    "total": 33
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-20608a27fbf8d63a",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-21b184866f2a2a39",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2fc2e324dcc2854b",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8d7036f1bd59d407",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bcafcdb814610714",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d7eb0b671e580367",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e4191448243a7e37",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-031",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-235",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [
+          "awkward_source_translation"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-264",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-287",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-345",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [
+          "awkward_source_translation"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-347",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-351",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [
+          "awkward_source_translation"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-355",
+      "classification": {
+        "eligible": false,
+        "script": "simplified",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "malformed_extraction"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-393",
+      "classification": {
+        "eligible": false,
+        "script": "simplified",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "context_dependent_fragment"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-425",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-440",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-474",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [
+          "awkward_source_translation"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-498",
+      "classification": {
+        "eligible": false,
+        "script": "simplified",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "fused_heading"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-508",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-511",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-529",
+      "classification": {
+        "eligible": false,
+        "script": "simplified",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "corrupted_extraction"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-005",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-007",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-015",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "social_daily",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-042",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "social_daily",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-006",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-019",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-024",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-031",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-040",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-049",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    }
+  ]
+}

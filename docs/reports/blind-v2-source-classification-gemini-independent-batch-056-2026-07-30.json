@@ -1,0 +1,1012 @@
+{
+  "version": 1,
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-056.json",
+  "packet_sha256": "1b162b7c3feb4e65d94d8191bc35941ff987291229fe71911de9efdb3ed39a1c",
+  "reviewer": "Gemini CLI independent review (6 isolated sessions)",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-30",
+  "policy": "input_only_no_converter_output",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "b5994597-0181-4123-bd0b-f79ab6d734f2,d7d22d29-5f26-462a-b066-aa6074991b84,8b03e647-8f19-4fd1-8435-d0ac9788a160,10b33082-631e-47cd-9b6c-22fae2a3141c,cd0a209c-b6b1-4e00-bc97-446c76e5a3ad,322923ce-8f3b-4c24-89b4-fbd082b61e47",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 94,
+    "excluded": 2,
+    "high": 95,
+    "medium": 1,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-0243cf629c32fb25",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI message for device ejection; conversion is primarily character-based."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-08d5752d5b32f3e2",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This UI string requires vocabulary conversion for 'mobile network' and the preposition 'via'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1007810646f275e0",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "placeholder_present"
+      ],
+      "confidence": "high",
+      "notes": "A common UI navigation string with a placeholder that must be preserved during conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-161606e2e4b01055",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI permission string where 'screen' requires vocabulary conversion from '屏幕' to '螢幕'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-1df59d6849e51064",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A settings option that requires the common vocabulary conversion of '设置' to '設定'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-20608a27fbf8d63a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard error message where basic character conversion is likely sufficient."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-21b184866f2a2a39",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "placeholder_present"
+      ],
+      "confidence": "high",
+      "notes": "Error message combining a required vocabulary change ('设置' to '設定') and a placeholder."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-2fc2e324dcc2854b",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Permission description with multiple technical nouns that require vocabulary conversion for Taiwan (app, tag, reader)."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4f552260a75d60f4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Security notification requiring several vocabulary conversions for terms like 'screen', 'share', and 'app'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-59a80babd2890f18",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common UI term where 'window' requires vocabulary conversion from '窗口' to '視窗'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5b8c91be50a66702",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Permission string with several terms ('app', 'Bluetooth', 'device') that require vocabulary conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5cfda0d97c69623f",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A detailed permission description requiring multiple vocabulary conversions for terms like 'app', 'booting', and 'running'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5e8c95022552d511",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common error message where the phrasing 'Something went wrong' needs to be adapted for idiomatic usage in Taiwan."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-5ea6b9d06c3c5fad",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A technical status message where the 'RUIM' identifier must be preserved, in addition to vocabulary conversion for 'network'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-789f801ce49e00a6",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A network-related error message requiring vocabulary changes for 'via' and 'proxy server'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-7c2a6c0037e8ae2a",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Accessibility feature description requiring vocabulary conversion for 'screen' and 'app'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-83db7bbcb7560970",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term for 'device' is often localized differently in Taiwan."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-88bff66060919637",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains several common Mainland Chinese terms for 'app', 'phone', 'storage', and 'SMS' that require conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8b4be19e23b15372",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI message requiring conversion for 'send' and 'picture'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8b512ce8d8098953",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "ui_i18n",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_placeholder"
+      ],
+      "confidence": "high",
+      "notes": "Permission string with format specifiers that must be preserved during conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-8d7036f1bd59d407",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_acronym"
+      ],
+      "confidence": "high",
+      "notes": "Technical error message with acronyms 'RUIM' and 'Hrpd' that must not be converted."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9072b1bad035f5c3",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term for 'video' is a key lexical difference between Mainland and Taiwan Mandarin."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-92b81ea40b4d550e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Permission description with multiple terms (calendar, event, owner, send) needing localization."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-b46781bf2307a8ed",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The verb for 'add' is often a different word in Taiwan UI contexts."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bb61d46381d39b67",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term for 'screen' is a key lexical difference between Mainland and Taiwan Mandarin."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-bcafcdb814610714",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple status message where direct character conversion is likely sufficient."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d2a3bc5599e4cb41",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical label for storage that requires standard term conversion for 'internal' and 'storage'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d2d7077e9fbfd8d4",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "UI setting description with multiple standard terms needing conversion, such as 'default' and 'call'."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d7eb0b671e580367",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward permission string where 'photo' and 'collection' have high overlap."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e193f5b9c4b4b65d",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Detailed explanation with multiple technical terms (app, memory, component, phone) that need conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-e4191448243a7e37",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "has_acronym"
+      ],
+      "confidence": "high",
+      "notes": "Technical status message with an acronym and several terms ('service provider', 'unlock') needing conversion."
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f8fb61b124c8e51e",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term 'Restart' for a device often uses a different phrasing in Taiwan ('重新開機')."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear, standard sentence suitable for baseline conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '定制' (customize) may require a specific vocabulary mapping to '客製化' for Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence contains common disaster preparedness terminology suitable for baseline testing."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-063",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple, direct instruction for an active shooter scenario."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-104",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '洒水系统' (sprinkler system) and '启动' (activate) may have preferred equivalents in Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-148",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard sentence describing emergency response actions."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-222",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "awkward_phrasing"
+      ],
+      "confidence": "medium",
+      "notes": "Tests common emergency supply terms; the phrasing '准备好供应' sounds slightly unnatural."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-235",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The phrase '接地避难所' (grounded shelter) is specific and tests vocabulary for severe weather."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-236",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '雷电风暴' (thunderstorm) is less common in Taiwan and provides a good test for vocabulary mapping."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-264",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard instruction for evacuation planning, suitable for baseline conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-274",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The phrase '原地暂避' (shelter in place) is a key emergency term that may have a specific regional equivalent."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-275",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '发动机' (engine) is a common mainland word that requires mapping to '引擎' for Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-287",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a standard sentence regarding regulations that should convert directly."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-339",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '交通量' (traffic volume) might be better converted to '車流量' for Taiwanese usage."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-345",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward sentence about planning suitable for baseline conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-347",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests common device names ('智能手机', '平板电脑') and handling of punctuation like the slash separator."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-351",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard instructional sentence with common appliance names."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-355",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "formatting_artifact"
+      ],
+      "confidence": "high",
+      "notes": "A simple instructional sentence, but it contains a formatting artifact (bullet point)."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-393",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This case involves financial terms where Taiwan-specific vocabulary might be preferred."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-425",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal insurance sentence where direct character conversion is likely sufficient."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-426",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains the key insurance term 'deductible', testing for correct domain-specific vocabulary."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-440",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple sentence about insurance costs with common, directly convertible terms."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-474",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence tests the localization of an official government title."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-498",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "awkward_phrasing"
+      ],
+      "confidence": "high",
+      "notes": "The sentence structure is slightly awkward, combining a title and an instruction."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-508",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward instruction with common objects."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-511",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "repetitive_phrasing"
+      ],
+      "confidence": "high",
+      "notes": "Standard sentence structure, though the word '了解' is used repetitively."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-515",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A critical safety warning where direct term conversion is expected to be accurate."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-529",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "extraction_error",
+        "duplicate_text",
+        "missing_punctuation"
+      ],
+      "confidence": "high",
+      "notes": "The sentence is malformed due to repetitive text artifacts and missing punctuation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-538",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A high-stakes insurance sentence testing the specific term 'loss of use'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-539",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This insurance context sentence tests a formal government order and conjunction usage."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-565",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a proper noun acronym (FEMA) that must be protected from conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-567",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "duplicate_text",
+        "extraction_error"
+      ],
+      "confidence": "high",
+      "notes": "The sentence contains a significant portion of duplicated text, making it malformed."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common social messaging sentence suitable for baseline character conversion."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard conditional sentence for social planning, testing common vocabulary."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple request sentence for exchanging contact information."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a key phrase '实体门市' which has a common regional equivalent in Taiwan."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A typical sentence about sharing photos online, testing common digital life vocabulary."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains technical terms '网络信号' where regional phrasing in Taiwan may differ."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A formal sentence about transferring phone number ownership with regional-specific terminology."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward sentence about scheduling suitable for baseline conversion."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-021",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common daily life sentence with no expected conversion issues."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple request involving postal services, using standard vocabulary."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A common sentence about laundry with standard vocabulary."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-025",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard informational sentence about store hours."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/social-042",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a technical identifier 'USB-C' that must be preserved."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-002",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A UI instruction using terms that may have more natural-sounding regional equivalents."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains several common UI terms ('用户', '下拉菜单', '默认') that have different standard translations in Taiwan."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests UI terms like '复选框' and '提交表单' which have common regional equivalents."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI string that requires basic character conversion."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Requires term conversion for '视频' (video) and '加载' (load), which are different in Taiwan Mandarin."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Requires idiomatic term conversion for '文件' (file) to '檔案'."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Requires term conversion for '文件夹' (folder), which is '資料夾' in Taiwan."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI text that should convert correctly with character-level mapping."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Requires term conversion for '默认' (default), which is '預設' in Taiwan."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Basic UI instruction where direct character conversion is likely sufficient."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '弹出窗口' (pop-up window) is not the most idiomatic phrasing in Taiwan."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward UI sentence with shared terminology suitable for baseline conversion."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Requires idiomatic conversion of '启用' (enable) to '開啟' in a UI context."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Requires term conversion for '加载' (load) and potentially '占位图' (placeholder image)."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Requires conversion of '字段' (field) to the idiomatic '欄位' for UI contexts in Taiwan."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard UI notification using shared terms that should convert correctly."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-043",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a technical code 'HTTP 403' that must be protected from conversion."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term '刷新' (refresh) is used, while '重新整理' is more idiomatic in Taiwan UI."
+    },
+    {
+      "id": "zhtw-project-ui-social-baseline-guard-v1/ui-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Formal language with shared terminology that should convert correctly."
+    }
+  ]
+}
