@@ -106,8 +106,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-046-2026-07-28.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-047-2026-07-28.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-048-2026-07-29.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-047-2026-07-28.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-048-2026-07-29.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -129,31 +131,31 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     generated, report = build_pool(
         list(DECISIONS),
         output=POOL,
-        created_at="2026-07-28T22:20:17+08:00",
+        created_at="2026-07-29T08:38:24+08:00",
     )
 
     assert generated == committed
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 4100,
+        "total": 4186,
         "by_domain": {
-            "formal_news": 546,
-            "high_stakes": 1021,
-            "it_api_cli": 730,
-            "llm_generated": 436,
+            "formal_news": 560,
+            "high_stakes": 1046,
+            "it_api_cli": 759,
+            "llm_generated": 454,
             "social_daily": 667,
             "ui_i18n": 700,
         },
         "by_risk": {
-            "baseline_guard": 1183,
-            "candidate_gap": 1676,
-            "over_conversion_guard": 1241,
+            "baseline_guard": 1206,
+            "candidate_gap": 1707,
+            "over_conversion_guard": 1273,
         },
         "by_source_class": {
-            "permissive_license": 1382,
-            "project_original": 1357,
-            "public_domain": 1361,
+            "permissive_license": 1411,
+            "project_original": 1389,
+            "public_domain": 1386,
         },
         "by_source": {
             "aosp-framework-zh-rcn-v1": 275,
@@ -169,7 +171,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ftc-how-to-avoid-scam-simplified-v1": 33,
             "ftc-identity-theft-simplified-v1": 18,
             "ftc-small-business-simplified-v1": 55,
-            "kubernetes-docs-zh-cn-v1": 303,
+            "kubernetes-docs-zh-cn-v1": 332,
             "massive-1-0-zh-cn-v1": 344,
             "nps-essential-acadia-simplified-v1": 30,
             "osha-chainsaw-safety-simplified-v1": 20,
@@ -186,6 +188,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ready-gov-home-fires-zh-hans-v1": 81,
             "ready-gov-hurricanes-zh-hans-v1": 42,
             "ready-gov-campus-zh-hans-v1": 4,
+            "ready-gov-cybersecurity-zh-hans-v1": 25,
             "ready-gov-kids-tornadoes-zh-hans-v1": 31,
             "ready-gov-landslides-debris-flow-zh-hans-v1": 53,
             "ready-gov-radiation-zh-hans-v1": 59,
@@ -197,6 +200,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-competitor-risk-taxonomy-v1": 80,
             "zhtw-project-formal-entity-guard-v1": 100,
             "zhtw-project-formal-llm-balance-v1": 100,
+            "zhtw-project-formal-llm-context-guard-v1": 32,
             "zhtw-project-formal-llm-overconversion-guard-v1": 79,
             "zhtw-project-formal-llm-semantic-v1": 100,
             "zhtw-project-it-api-cli-v1": 100,
@@ -210,8 +214,8 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 4107
-    assert report["promoted"] == 4100
+    assert report["confirmed_eligible"] == 4193
+    assert report["promoted"] == 4186
     assert report["excluded_by_dedupe"] == 7
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
