@@ -935,7 +935,7 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   5,880 筆尚差 1,694。`permissive_license` 1,411/4,186（33.71%）、
   `project_original` 1,389/4,186（33.18%）、`public_domain` 1,386/4,186
   （33.11%），皆低於 35%，且沒有來源超過 10%。
-- [ ] 2026-07-29 建立 batch 049 advisory：由 Kubernetes permissive-license、
+- [x] 2026-07-29 建立 batch 049：由 Kubernetes permissive-license、
   Ready.gov 網路安全／疏散／兒童龍捲風公有領域剩餘候選，以及 project-original
   formal/LLM context guard 各固定抽取 32 筆，與 batches 001-048 無 ID 重疊。
   Codex first pass 建議 88 筆納入、8 筆排除；Gemini CLI 0.52.0
@@ -944,7 +944,11 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   四欄完全一致、62 筆差異；Codex 第二輪依 Gemini 意見修正 15 筆 risk，
   synthesis 建議 88 筆納入、8 筆因表格殘片、括號截斷、詞序重複、句界缺失、
   清單殘片、錯譯、指涉不明或第三方資源文案而排除（34 agreement、47 Codex、
-  15 hybrid）。等待 maintainer 確認；尚未建立 human decision、尚未 promotion。
+  15 hybrid）。Maintainer 於 2026-07-29 確認整批 synthesis，建立 96/96 human
+  decision；88 筆 eligible 全數通過 promotion，沒有新增 dedupe exclusion。Pool
+  `4,186 → 4,274`，距最低 5,880 筆尚差 1,606。`permissive_license`
+  1,439/4,274（33.67%）、`project_original` 1,421/4,274（33.25%）、
+  `public_domain` 1,414/4,274（33.08%），皆低於 35%，且沒有來源超過 10%。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

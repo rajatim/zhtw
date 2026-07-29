@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 049 (2026-07-29)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `0de619f0e0b60bc47651ee26855f4219b557e1eea11e2b4692a73753c755aaa5`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 62 advisory disagreements and batch-confirmed the 34 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical documentation. Contains a code identifier `generateName` that must be preserved. '服务器' (server) is a lexical gap (TW: 伺服器).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 02. kubernetes-docs-zh-cn-v1/page-02-sentence-0001
 
@@ -63,7 +63,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical documentation. Contains the tool name `kubectl` and product name `Kubernetes` which should be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 03. kubernetes-docs-zh-cn-v1/page-02-sentence-0016
 
@@ -84,7 +84,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical documentation. Contains format names YAML and JSON which must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 04. kubernetes-docs-zh-cn-v1/page-03-sentence-0016
 
@@ -105,7 +105,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical documentation. Contains the Kubernetes-specific term 'Pod', which must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 05. kubernetes-docs-zh-cn-v1/page-03-sentence-0027
 
@@ -126,7 +126,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical documentation. Contains the Kubernetes-specific term 'Pod'. Also contains '卷' (volume), which can have regional differences (TW: 磁碟區).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 06. kubernetes-docs-zh-cn-v1/page-03-sentence-0038
 
@@ -147,7 +147,7 @@ Codex reason: 來源句有表格殘片、括號截斷、詞序重複、句界缺
 
 Gemini reason: Technical documentation, likely from a table. Defines the `Failed` state. Contains terms `Failed` and `Pod` that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 07. kubernetes-docs-zh-cn-v1/page-03-sentence-0052
 
@@ -168,7 +168,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical documentation. Contains technical terms `Pod` and `kubelet` that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 08. kubernetes-docs-zh-cn-v1/page-03-sentence-0294
 
@@ -189,7 +189,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: K8s docs. Contains code-formatted term 'serving' and entity 'Pod' that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 09. kubernetes-docs-zh-cn-v1/page-03-sentence-0316
 
@@ -210,7 +210,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: K8s docs. Contains entities 'Sidecar' and 'Pod' that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 10. kubernetes-docs-zh-cn-v1/page-04-sentence-0012
 
@@ -231,7 +231,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: K8s docs. Contains entities 'Service' and 'Pod' that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 11. kubernetes-docs-zh-cn-v1/page-04-sentence-0066
 
@@ -252,7 +252,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: K8s docs. Contains code-formatted CLI tool, object, and string examples to preserve.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 12. kubernetes-docs-zh-cn-v1/page-04-sentence-0087
 
@@ -273,7 +273,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: K8s docs. Contains entities 'Service', 'EndpointSlice', 'Endpoints API' to preserve.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 13. kubernetes-docs-zh-cn-v1/page-04-sentence-0092
 
@@ -294,7 +294,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: K8s docs. Contains code-formatted field 'appProtocol' and entity 'Service' to preserve.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 14. kubernetes-docs-zh-cn-v1/page-04-sentence-0100
 
@@ -315,7 +315,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: K8s docs. Contains entity 'Service' that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 15. kubernetes-docs-zh-cn-v1/page-04-sentence-0117
 
@@ -336,7 +336,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Generic sentence from K8s docs. Standard conversion, baseline case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 16. kubernetes-docs-zh-cn-v1/page-04-sentence-0136
 
@@ -357,7 +357,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical sentence. Key terms like '控制平面' (control plane) and '事务' (transaction) might have specific lexical equivalents in Taiwan that a simple character conversion would miss.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 17. kubernetes-docs-zh-cn-v1/page-04-sentence-0149
 
@@ -378,7 +378,7 @@ Codex reason: 來源句有表格殘片、括號截斷、詞序重複、句界缺
 
 Gemini reason: Technical sentence with a specific component name `kube-proxy` that must be preserved. Phrasing '应视将其视为' is slightly awkward but clear.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 18. kubernetes-docs-zh-cn-v1/page-04-sentence-0217
 
@@ -399,7 +399,7 @@ Codex reason: 來源句有表格殘片、括號截斷、詞序重複、句界缺
 
 Gemini reason: Dense technical sentence with many identifiers (`DNS`, `Service`, `ClusterIP`, etc.) that must be preserved. The term '无头 Service' (headless Service) is a key concept. Lacks a comma after '提供的', creating a run-on sentence.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 19. ready-gov-cybersecurity-zh-hans-v1/sentence-005
 
@@ -420,7 +420,7 @@ Codex reason: 清單抽取後只剩述語片段，缺少可獨立辨識的主詞
 
 Gemini reason: Formal cybersecurity advice. The term for 'identity theft' (身份盗用) may have a different lexical choice in Taiwan (e.g., 身分盜竊).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 20. ready-gov-cybersecurity-zh-hans-v1/sentence-011
 
@@ -441,7 +441,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Classic IT terminology with known lexical gaps. '软件' (software) is '軟體' and '操作系统' (operating system) is '作業系統' in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 21. ready-gov-cybersecurity-zh-hans-v1/sentence-013
 
@@ -462,7 +462,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: IT security context. While '密码' (password) and '验证' (verification) are common, Taiwan may prefer specific phrasings like '雙重驗證' for 'two verification methods'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 22. ready-gov-cybersecurity-zh-hans-v1/sentence-022
 
@@ -483,7 +483,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: IT term with a known lexical gap. '证书' (certificate), especially for digital certificates, is often '憑證' in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 23. ready-gov-cybersecurity-zh-hans-v1/sentence-032
 
@@ -504,7 +504,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Common lexical gap: '信息' (information) is typically '資訊' or '訊息' in Taiwan. '电子邮件' (email) is also a more formal mainland term.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 24. ready-gov-cybersecurity-zh-hans-v1/sentence-037
 
@@ -525,7 +525,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: General advice. '工作单位' (work unit) is a common mainland term, but the sentence is largely standard Mandarin with low conversion risk.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 25. ready-gov-cybersecurity-zh-hans-v1/sentence-041
 
@@ -546,7 +546,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard formal instruction regarding financial services.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 26. ready-gov-cybersecurity-zh-hans-v1/sentence-043
 
@@ -567,7 +567,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Clear, formal instruction about closing unauthorized accounts.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 27. ready-gov-cybersecurity-zh-hans-v1/sentence-046
 
@@ -588,7 +588,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Contains official agency names and acronyms (FBI, IC3) which are sensitive to over-conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 28. ready-gov-cybersecurity-zh-hans-v1/sentence-050
 
@@ -609,7 +609,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: The term '信息' is a common lexical difference ('資訊' in TW).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 29. ready-gov-cybersecurity-zh-hans-v1/sentence-052
 
@@ -630,7 +630,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Contains multiple official agency names and acronyms that should be preserved carefully.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 30. ready-gov-cybersecurity-zh-hans-v1/sentence-053
 
@@ -651,7 +651,7 @@ Codex reason: 第三方資源介紹不屬於本來源宣告納入的 FEMA 本文
 
 Gemini reason: Contains '网络' and '互联', primary lexical gap candidates ('網路', '互連' in TW).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 31. ready-gov-evacuation-zh-hans-v1/sentence-002
 
@@ -672,7 +672,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard informational sentence on emergency preparedness.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 32. ready-gov-evacuation-zh-hans-v1/sentence-006
 
@@ -693,7 +693,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Lexical choices '官员' and '名额' could be candidate gaps; different terms may be preferred in TW.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 33. ready-gov-evacuation-zh-hans-v1/sentence-010
 
@@ -714,7 +714,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: The term '庇护所' (shelter) is a potential lexical gap; '避難所' is more common in Taiwan for human evacuation shelters.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 34. ready-gov-evacuation-zh-hans-v1/sentence-015
 
@@ -735,7 +735,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard instructional sentence. No major lexical gaps or over-conversion risks identified.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 35. ready-gov-evacuation-zh-hans-v1/sentence-023
 
@@ -756,7 +756,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Clear instruction, straightforward conversion. The term '收音机' is used, while '廣播' is also common in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 36. ready-gov-evacuation-zh-hans-v1/sentence-024
 
@@ -777,7 +777,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Significant lexical gap: '应急用品包' vs. the common Taiwan term '緊急避難包' (emergency evacuation kit).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 37. ready-gov-evacuation-zh-hans-v1/sentence-027
 
@@ -798,7 +798,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard sentence, primarily involves character-level conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 38. ready-gov-evacuation-zh-hans-v1/sentence-028
 
@@ -819,7 +819,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Contains a US-specific term '州外' (out-of-state) and a minor lexical choice ('发' vs. '寄' for email) that presents a conversion challenge.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 39. ready-gov-evacuation-zh-hans-v1/sentence-031
 
@@ -840,7 +840,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Straightforward instruction with common technical terms that are shared between regions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 40. ready-gov-evacuation-zh-hans-v1/sentence-036
 
@@ -861,7 +861,7 @@ Codex reason: 來源句有表格殘片、括號截斷、詞序重複、句界缺
 
 Gemini reason: The use of '查询' (query/look up) is awkward for asking a neighbor; '询问' (ask) would be more natural. This represents a subtle lexical choice gap.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 41. ready-gov-evacuation-zh-hans-v1/sentence-042
 
@@ -882,7 +882,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard formal instructional sentence. Good baseline case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 42. ready-gov-evacuation-zh-hans-v1/sentence-044
 
@@ -903,7 +903,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard instructional sentence with common vocabulary.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 43. ready-gov-evacuation-zh-hans-v1/sentence-049
 
@@ -924,7 +924,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Clear, standard safety instruction. Good baseline case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 44. ready-gov-kids-tornadoes-zh-hans-v1/sentence-006
 
@@ -945,7 +945,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Contains a technical term '多普勒雷达' (Doppler radar) that should be preserved carefully during conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 45. ready-gov-kids-tornadoes-zh-hans-v1/sentence-008
 
@@ -966,7 +966,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Educational definition. '冰淇淋' is a potential lexical gap, as other terms are common in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 46. ready-gov-kids-tornadoes-zh-hans-v1/sentence-013
 
@@ -987,7 +987,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Contains transliterated place names ('德克萨斯州', '俄克拉荷马州') which have specific standard forms that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 47. ready-gov-kids-tornadoes-zh-hans-v1/sentence-037
 
@@ -1008,7 +1008,7 @@ Codex reason: 條件子句缺少可辨識的指涉對象，需依賴前文。
 
 Gemini reason: Simple, standard safety instruction for children. Good baseline case.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 48. zhtw-project-formal-llm-context-guard-v1/formal-005
 
@@ -1029,7 +1029,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Formal legal sentence. Terminology like '处分' and '机关' may have specific regional equivalents in a legal context.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 49. zhtw-project-formal-llm-context-guard-v1/formal-015
 
@@ -1050,7 +1050,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Formal procedural announcement about selection results, in Simplified Chinese.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 50. zhtw-project-formal-llm-context-guard-v1/formal-018
 
@@ -1071,7 +1071,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: The term '部门' (department) is a general Mainland China term; Taiwan might use a more specific official name.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 51. zhtw-project-formal-llm-context-guard-v1/formal-021
 
@@ -1092,7 +1092,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: The term '部门' (department) is a general Mainland China term; Taiwan might use a more specific official name for the agricultural authority.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 52. zhtw-project-formal-llm-context-guard-v1/formal-039
 
@@ -1113,7 +1113,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard government announcement. Tests common character conversions like '听'->'聽', '会'->'會', and '网'->'網'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 53. zhtw-project-formal-llm-context-guard-v1/formal-045
 
@@ -1134,7 +1134,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Formal administrative/legal instruction. The phrase '限期补正' (correct within a deadline) is specific administrative jargon that requires careful conversion to sound natural in a Taiwan legal context.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 54. zhtw-project-formal-llm-context-guard-v1/llm-003
 
@@ -1155,7 +1155,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Mixed script sentence describing a feature. The term '生成' (generate) might be a lexical gap, with '產生' being more common in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 55. zhtw-project-formal-llm-context-guard-v1/llm-012
 
@@ -1176,7 +1176,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Describes an ML classifier workflow. '复核' (review) is a key term with potential lexical differences in Taiwan (e.g., '覆核').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 56. zhtw-project-formal-llm-context-guard-v1/llm-014
 
@@ -1197,7 +1197,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Mixed script sentence about localization. The term '回应' (response) is a potential lexical gap, as '回覆' is very common in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 57. zhtw-project-formal-llm-context-guard-v1/llm-017
 
@@ -1218,7 +1218,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Describes an evaluation process. Vocabulary ('评测', '产品', '输出') has direct character conversions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 58. zhtw-project-formal-llm-context-guard-v1/llm-019
 
@@ -1239,7 +1239,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Describes chat history management. '消息' (message) is a significant lexical gap, as '訊息' is standard in Taiwan for digital messages.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 59. zhtw-project-formal-llm-context-guard-v1/llm-023
 
@@ -1260,7 +1260,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard sentence about data format validation. '结构化输出' (structured output) is a standard technical term.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 60. zhtw-project-formal-llm-context-guard-v1/llm-026
 
@@ -1281,7 +1281,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard sentence about LLM/system behavior. Tests conversion of '过滤器' (filter).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 61. zhtw-project-formal-llm-context-guard-v1/llm-027
 
@@ -1302,7 +1302,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Basic sentence about an AI assistant's action. Standard character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 62. zhtw-project-formal-llm-context-guard-v1/llm-049
 
@@ -1323,4 +1323,4 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: A system process description. Good test for software development terms like '发布' (release) and '审查' (review).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
