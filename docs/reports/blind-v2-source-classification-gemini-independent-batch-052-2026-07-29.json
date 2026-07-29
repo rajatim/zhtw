@@ -1,0 +1,1013 @@
+{
+  "version": 1,
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-052.json",
+  "packet_sha256": "e7f94c66809755cec12b6f3f84de79253dd9839e4ff4d5143c5d68bc1e25d2e1",
+  "reviewer": "Gemini CLI independent review (6 isolated sessions)",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-29",
+  "policy": "input_only_no_converter_output",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "84849212-3420-4700-9fc0-3c54f9a7bfa4,3350ef6e-2f63-425f-8772-b260dd7947c5,9f5ad7a5-8820-4b27-80b1-eddaaceb9e38,287b73a4-dd02-4470-9126-b7ce2da4bef1,1d6db78a-17ba-4803-b40a-0e43105d70f9,9475aeeb-8fee-4546-abae-a64602e19448",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 89,
+    "excluded": 7,
+    "high": 95,
+    "medium": 1,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0006",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical sentence with code tokens that must be protected."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains the technical term \"集群\" (cluster) which has a different preferred translation in Taiwan."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A straightforward sentence about technical concepts."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The terms \"规约\" (spec) and \"配置文件\" (config file) require idiomatic translation."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0028",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical sentence with multiple code identifiers that must not be converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0041",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Includes a code token and technical terms like \"主机\" (host)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0074",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard technical sentence where basic conversion should suffice."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0090",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "source_translation_error"
+      ],
+      "confidence": "high",
+      "notes": "The parenthetical phrase seems redundant or poorly translated (\"在你定义或定义...\")."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0094",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains multiple code identifiers that must be protected from conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0111",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains code tokens and the term \"边车容器\" (sidecar container)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0170",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a code path and a boolean value that must not be converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0189",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains code tokens and the term \"内存\" (memory), which has a Taiwan-specific equivalent."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0203",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a code token and the term \"规约\" (spec) which may need idiomatic translation."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0218",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Contains a code token `kubelet` that must be protected."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0240",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complex sentence with multiple code identifiers requiring protection."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0244",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A complex sentence describing technical probes with somewhat awkward phrasing."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0268",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This technical sentence contains identifiers like 'kubelet' and 'Pod' which must be protected from conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0005",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence includes the Kubernetes identifier 'Pod' which must be protected from character conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Common IT terms like '副本' (replicas), '前端' (front-end) and '后端' (back-end) may require locale-specific wording."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0015",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence contains the identifier 'Pod' and other technical terms which must be protected from conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0023",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "awkward_translation"
+      ],
+      "confidence": "high",
+      "notes": "The sentence is grammatically awkward ('是使用实现') and the meaning is unclear, likely due to a translation error."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0029",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "incomplete_sentence"
+      ],
+      "confidence": "high",
+      "notes": "The input is an incomplete sentence fragment and thus unsuitable for evaluation."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0030",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input contains technical identifiers 'Kubernetes API' and 'Service' that must be protected."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0054",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence contains the product name 'Kubernetes' which must be preserved, and the term '工作负载' (workload) may need a specific equivalent."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0061",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence is rich with technical tokens, IP addresses, and CIDR notations that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0166",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Technical terms '字段' (field) and '实现' (implementation) require locale-specific vocabulary ('欄位', '實作')."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0175",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input contains technical identifiers 'LoadBalancer' and 'Service' that must be protected."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0184",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "source_error"
+      ],
+      "confidence": "high",
+      "notes": "Contains a likely source error ('件标志'), but is otherwise a good test case for preserving multiple code identifiers."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0199",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence contains multiple identifiers ('ExternalName', 'Service', 'DNS', 'my-service', 'cassandra') that must not be converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0208",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The input contains technical identifiers 'ExternalName Service' and 'ExternalName' that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0224",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The identifiers 'Kubernetes' and 'DNS' must be preserved, and terms like '服务发现' (service discovery) may require specific vocabulary."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0259",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A strong test case packed with various identifiers, an IP address, and literals that must be preserved."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard informational sentence about community risks."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Sentence structure and vocabulary like '住房' (housing) may require adaptation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-035",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "stutter"
+      ],
+      "confidence": "high",
+      "notes": "The sentence is ineligible due to multiple duplicated phrases."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-040",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "stutter"
+      ],
+      "confidence": "high",
+      "notes": "The sentence is ineligible due to a duplicated phrase."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-069",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "odd_spacing"
+      ],
+      "confidence": "high",
+      "notes": "Medical term 'C P R' must be protected from over-conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-078",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard instructional sentence about safety training."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-081",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The numerical value '30' is a technical token requiring protection."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-083",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Specialized equipment terms may need regional adaptation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-108",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The term for 'text message' ('短信') often differs between regions."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-151",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety warning with common vocabulary."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-183",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "awkward",
+        "low_quality_translation"
+      ],
+      "confidence": "high",
+      "notes": "Sentence is grammatically awkward, likely a poor source translation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-215",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "social_daily",
+      "risk": "baseline_guard",
+      "quality_flags": [
+        "repetitive"
+      ],
+      "confidence": "medium",
+      "notes": "Slightly repetitive phrasing but still a valid candidate."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-229",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Food safety instruction where the number '40' must be protected."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-230",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "High-stakes instruction regarding medication safety."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-254",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The URL 'Weather.gov' must be protected from conversion."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-256",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard sentence using official meteorological terminology."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-280",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard safety instruction about ensuring a tight fit for face masks."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-296",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Home winterization advice using several technical terms that may require specific regional equivalents."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-313",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Emergency planning advice to set up an out-of-state contact for communication."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-343",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A warning about common road hazards post-disaster, using standard vocabulary."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-346",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple instruction to carry an emergency supply kit during an evacuation."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-377",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Recommends preparing separate 24-hour emergency kits for vehicles and workplaces."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-404",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "ui_i18n",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Suggests using mobile apps to receive information during a disaster."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-432",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A statement on the importance of flood insurance for preventing financial and emotional damage."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-467",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "An instruction to refresh emergency supplies at least every six months."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-470",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "duplication"
+      ],
+      "confidence": "high",
+      "notes": "The input contains significant duplication from the source text, making it malformed."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-472",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple, direct recommendation to purchase flood insurance or other related policies."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-496",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Advises on the process of filing an insurance claim promptly to reduce uncertainty."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-505",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Safety instruction advising people to wait for official clearance before returning home."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-545",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "duplication",
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "The input is malformed due to a stuttered word ('灾难灾难') at the beginning."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-562",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Fraud warning specifying that FEMA/SBA apparel is not absolute proof of identity."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-570",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "States clearly that official FEMA and SBA staff do not charge fees for help."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a standard formal sentence from an audit or financial context."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a formal statement, likely from a government or administrative body."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence contains formal legal terminology specific to a jurisdiction."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a formal sentence from a research or academic context."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a formal procedural sentence regarding conflict of interest."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-010",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence describes a requirement in a formal application process."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence is from a formal investigative or legal context."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence describes a procedural requirement for official hearing records."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-016",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a formal sentence from a business or procurement context."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-023",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a standard sentence from a formal administrative or corporate document."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a formal sentence describing a committee's procedural decision."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-028",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence describes the contents of a formal legal or administrative announcement."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence contains specific financial reporting terminology."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence specifies a rule for names in official application materials."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a formal sentence concerning legal requirements for handling personal data."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-005",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence is from a technical or LLM evaluation context."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-006",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The sentence describes system behavior related to LLMs, requiring careful phrasing for technical terms."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-007",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a standard LLM-related disclaimer where key terms may differ in regional usage."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-008",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The instruction to preserve product names and version numbers makes this a guard against over-conversion."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-012",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The vocabulary used for instructing an AI assistant may have regional variations."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-014",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This instruction for model behavior involves terminology that could require phrase-level adaptation."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a straightforward instruction where a conservative character conversion should be sufficient."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-024",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "regional_word_choice"
+      ],
+      "confidence": "high",
+      "notes": "The use of '档名' (filename) is more typical of Taiwan/HK usage, making this an interesting conversion case."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-027",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence uses specialized terminology for LLM evaluation that may require regional adaptation."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This describes a general system function with common vocabulary, suitable for a baseline conversion check."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-032",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The instruction involves technical terms like 'truncated output' which may have specific regional phrasing."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-036",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a simple rule with standard vocabulary where basic conversion should be effective."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "The phrase 'retrieval summary' is specific to information retrieval and may require careful localization."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-038",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence involves fact-checking terminology which can be culturally and regionally specific."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-040",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This is a rule about preserving syntax, making it a test for preventing unwanted conversion of code-related elements."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-044",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This instruction requires careful handling of nuanced concepts like 'hypothetical scenario' versus 'event'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-046",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "This sentence uses specialized terms from information retrieval like 'retriever' and 'traceable source'."
+    }
+  ]
+}
