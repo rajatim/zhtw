@@ -949,7 +949,7 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   `4,186 → 4,274`，距最低 5,880 筆尚差 1,606。`permissive_license`
   1,439/4,274（33.67%）、`project_original` 1,421/4,274（33.25%）、
   `public_domain` 1,414/4,274（33.08%），皆低於 35%，且沒有來源超過 10%。
-- [ ] 2026-07-29 建立 batch 050 advisory：納入 Kubernetes 34 筆、Ready.gov
+- [x] 2026-07-29 建立 batch 050：納入 Kubernetes 34 筆、Ready.gov
   網路安全 9 筆、疏散 3 筆，以及 project-original formal/LLM context guard
   34 筆，共 80 筆，與 batches 001-049 無 ID 重疊。此批用盡既有 Ready.gov
   公有領域與 project-original context guard 的未審候選。Codex first pass 建議
@@ -958,9 +958,13 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   零工具呼叫、零 API 錯誤，建議 76 筆納入、4 筆排除。兩者有 28 筆四欄完全
   一致、52 筆差異；Codex 第二輪依 Gemini 意見修正 9 筆，synthesis 建議
   76 筆納入、4 筆因指涉缺失、條件句殘缺、句界混亂或抽取缺漏而排除
-  （28 agreement、43 Codex、9 hybrid）。等待 maintainer 確認；尚未建立 human
-  decision、尚未 promotion。下一批需要新增 public-domain 與 project-original
-  來源，才能繼續維持 pool 的 source-class freeze gate。
+  （28 agreement、43 Codex、9 hybrid）。Maintainer 於 2026-07-29 確認整批
+  synthesis，建立 80/80 human decision；76 筆 eligible 全數通過 promotion，
+  沒有新增 dedupe exclusion。Pool `4,274 → 4,350`，距最低 5,880 筆尚差 1,530。
+  `permissive_license` 1,469/4,350（33.77%）、`project_original`
+  1,455/4,350（33.45%）、`public_domain` 1,426/4,350（32.78%），皆低於 35%，
+  且沒有來源超過 10%。下一批需要新增 public-domain 與 project-original 來源，
+  才能繼續維持 pool 的 source-class freeze gate。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

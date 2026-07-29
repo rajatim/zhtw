@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 050 (2026-07-29)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `48c64ccc948fa24ed7387f086186dd88f7b14e972fd7208b090fb880bd11d342`
 Cases: 80
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 52 advisory disagreements and batch-confirmed the 28 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical sentence with code identifiers. '特性门控' (feature gate) and 'Service' are key terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 02. kubernetes-docs-zh-cn-v1/page-01-sentence-0020
 
@@ -63,7 +63,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical sentence. Contains code identifiers that must not be translated.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 03. kubernetes-docs-zh-cn-v1/page-02-sentence-0015
 
@@ -84,7 +84,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical sentence about kubectl. '指令式' (imperative) and '标志' (flags) are key terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 04. kubernetes-docs-zh-cn-v1/page-02-sentence-0025
 
@@ -105,7 +105,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Simple technical sentence. The term 'YAML' must not be altered.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 05. kubernetes-docs-zh-cn-v1/page-03-sentence-0019
 
@@ -126,7 +126,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Describes system behavior. Contains proper names 'Pod' and 'Kubernetes' that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 06. kubernetes-docs-zh-cn-v1/page-03-sentence-0055
 
@@ -147,7 +147,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Ineligible due to the pronoun '其' (its) which requires external context to be understood.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 07. kubernetes-docs-zh-cn-v1/page-03-sentence-0072
 
@@ -168,7 +168,7 @@ Codex reason: 條件句缺少所指狀態，單句無法判斷「出現」的對
 
 Gemini reason: Ineligible sentence fragment. It describes a 'when' clause but is missing the 'what happens' part.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 08. kubernetes-docs-zh-cn-v1/page-03-sentence-0181
 
@@ -189,7 +189,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical sentence with multiple code identifiers. '运行时沙箱' (runtime sandbox) is also a key technical term.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 09. kubernetes-docs-zh-cn-v1/page-03-sentence-0183
 
@@ -210,7 +210,7 @@ Codex reason: 來源句將多個清單項目連接成單句，句界與條件關
 
 Gemini reason: Ineligible: Grammatically broken sentence, appears to be a list of conditions mashed together without clear separation or conjunctions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 10. kubernetes-docs-zh-cn-v1/page-03-sentence-0227
 
@@ -231,7 +231,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Clear definition for a status code in software documentation. The keyword `Unknown` must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 11. kubernetes-docs-zh-cn-v1/page-03-sentence-0234
 
@@ -252,7 +252,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical sentence from documentation. `Success` is a fixed keyword that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 12. kubernetes-docs-zh-cn-v1/page-03-sentence-0251
 
@@ -273,7 +273,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Documentation cross-reference. Contains proper names/identifiers (`kubelet`, `Pod`) that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 13. kubernetes-docs-zh-cn-v1/page-03-sentence-0266
 
@@ -294,7 +294,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical explanation with code identifiers (`STOPSIGNAL`, `TERM`) that must not be converted.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 14. kubernetes-docs-zh-cn-v1/page-03-sentence-0281
 
@@ -315,7 +315,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Complex technical sentence full of code identifiers (`preStop`, `terminationGracePeriodSeconds`, `kubelet`) that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 15. kubernetes-docs-zh-cn-v1/page-03-sentence-0282
 
@@ -336,7 +336,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: The translation of 'grace period' as '体面期' is literal and a likely candidate for a different lexical choice in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 16. kubernetes-docs-zh-cn-v1/page-03-sentence-0341
 
@@ -357,7 +357,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard IT documentation. Contains common lexical conversion candidates like '默认', '用户', '大规模', '场景'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 17. kubernetes-docs-zh-cn-v1/page-04-sentence-0002
 
@@ -378,7 +378,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard IT documentation. The term '云原生' (cloud-native) is a key concept with potential regional variations.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 18. kubernetes-docs-zh-cn-v1/page-04-sentence-0004
 
@@ -399,7 +399,7 @@ Codex reason: 「如果你使用來運行」缺少使用對象，來源句抽取
 
 Gemini reason: Ineligible. The phrase '如果你使用来运行' is incomplete, likely missing a variable or token after '使用', making it a malformed fragment.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 19. kubernetes-docs-zh-cn-v1/page-04-sentence-0129
 
@@ -420,7 +420,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Contains multiple key technical terms with common lexical differences ('节点', '端口'). 'Service' is a fixed term but the other items present a stronger conversion risk.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 20. kubernetes-docs-zh-cn-v1/page-04-sentence-0150
 
@@ -441,7 +441,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical sentence with a command-line flag and specific networking terms that should not be altered. '本地回路接口' (local loopback interface) needs careful handling.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 21. kubernetes-docs-zh-cn-v1/page-04-sentence-0176
 
@@ -462,7 +462,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Technical sentence with a code identifier ('MixedProtocolLBService') and version number. Terms like '特性门控' (feature gate) are specific jargon.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 22. kubernetes-docs-zh-cn-v1/page-04-sentence-0193
 
@@ -483,7 +483,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Defines specific string literal values for a code path. These must not be translated.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 23. kubernetes-docs-zh-cn-v1/page-04-sentence-0206
 
@@ -504,7 +504,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Potential lexical gaps for '集群' (cluster vs 叢集) and '选择算符' (selector). 'Pod' is a proper name to be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 24. kubernetes-docs-zh-cn-v1/page-04-sentence-0229
 
@@ -525,7 +525,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard IT sentence about environment variables. 'Pod' is a proper name. '客户端' (client) vs '客戶端'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 25. kubernetes-docs-zh-cn-v1/page-04-sentence-0231
 
@@ -546,7 +546,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Contains a quoted English technical term ('legacy container links') that must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 26. kubernetes-docs-zh-cn-v1/page-04-sentence-0250
 
@@ -567,7 +567,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Defines a code identifier which must not be translated. The description contains several IT terms with potential lexical gaps ('流量', '路由', '区域', '端点').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 27. kubernetes-docs-zh-cn-v1/page-04-sentence-0251
 
@@ -588,7 +588,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: IT documentation. `PreferSameNode` is a code identifier and must not be converted.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 28. ready-gov-cybersecurity-zh-hans-v1/sentence-014
 
@@ -609,7 +609,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: High-stakes government cybersecurity advice. The vocabulary is general and widely understood.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 29. ready-gov-cybersecurity-zh-hans-v1/sentence-021
 
@@ -630,7 +630,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: High-stakes security advice. 'Social Security Number' is a US-specific concept with a non-equivalent regional counterpart in Taiwan ('身分證字號'); a direct conversion would be incorrect.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 30. ready-gov-cybersecurity-zh-hans-v1/sentence-028
 
@@ -651,7 +651,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: High-stakes government advice about scams. A solid baseline case, as vocabulary like '发短信' (send SMS) vs. '傳簡訊' is a common, but low-impact, regional difference.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 31. ready-gov-cybersecurity-zh-hans-v1/sentence-040
 
@@ -672,7 +672,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard instruction to report a cyberattack.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 32. ready-gov-evacuation-zh-hans-v1/sentence-005
 
@@ -693,7 +693,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard emergency evacuation instruction.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 33. zhtw-project-formal-llm-context-guard-v1/formal-006
 
@@ -714,7 +714,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Formal sentence about an audit; standard terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 34. zhtw-project-formal-llm-context-guard-v1/formal-008
 
@@ -735,7 +735,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Formal sentence about research; standard terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 35. zhtw-project-formal-llm-context-guard-v1/formal-011
 
@@ -756,7 +756,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Formal requirement sentence. '执行单位' (executing unit) and '季度' (quarter) are common Mainland terms that may differ in Taiwan usage.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 36. zhtw-project-formal-llm-context-guard-v1/formal-019
 
@@ -777,7 +777,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Formal directive. The term '业者' (operators/businesses) is a potential lexical gap, as '廠商' might be preferred in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 37. zhtw-project-formal-llm-context-guard-v1/formal-026
 
@@ -798,7 +798,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard sentence from a formal report. Serves as a good baseline case with technical but common vocabulary.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 38. zhtw-project-formal-llm-context-guard-v1/formal-027
 
@@ -819,7 +819,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: High-stakes legal/regulatory context. '监管机关' (regulatory authority) is a key Mainland term likely requiring localization for Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 39. zhtw-project-formal-llm-context-guard-v1/formal-036
 
@@ -840,7 +840,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Formal administrative process. Terms like '机关', '核定', and '标牌' may have regional differences.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 40. zhtw-project-formal-llm-context-guard-v1/formal-038
 
@@ -861,7 +861,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Formal auditing/investigative language. '查核', '凭证', '纪录' are potential lexical gaps.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 41. zhtw-project-formal-llm-context-guard-v1/formal-042
 
@@ -882,7 +882,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Government budget review process. '预算审查' and '法定支出' are high-stakes terms with potential regional differences.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 42. zhtw-project-formal-llm-context-guard-v1/formal-043
 
@@ -903,7 +903,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Formal inter-agency communication. '主管单位' and '联络窗口' are key terms to test for regional variants (e.g., vs. '联系人').
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 43. zhtw-project-formal-llm-context-guard-v1/llm-015
 
@@ -924,7 +924,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: IT/API context. '工具调用' (tool call) is a technical term with potential lexical variation in Taiwan.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 44. zhtw-project-formal-llm-context-guard-v1/llm-016
 
@@ -945,7 +945,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Core LLM behavior description. Vocabulary is standard across regions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 45. zhtw-project-formal-llm-context-guard-v1/llm-018
 
@@ -966,7 +966,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: IT/retrieval system context. '检索器' and '失效' are potential lexical gap candidates.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 46. zhtw-project-formal-llm-context-guard-v1/llm-020
 
@@ -987,7 +987,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Explicitly mentions 'high-risk', placing it in the high_stakes domain. The vocabulary is fairly standard.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 47. zhtw-project-formal-llm-context-guard-v1/llm-028
 
@@ -1008,7 +1008,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: IT system behavior. '检索' is a likely lexical gap candidate.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 48. zhtw-project-formal-llm-context-guard-v1/llm-031
 
@@ -1029,7 +1029,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Formal rule for system evaluation. '评测集' is a strong lexical gap candidate vs. TW '評估'.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 49. zhtw-project-formal-llm-context-guard-v1/llm-032
 
@@ -1050,7 +1050,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Standard instruction for LLM behavior regarding the scope of its statements.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 50. zhtw-project-formal-llm-context-guard-v1/llm-038
 
@@ -1071,7 +1071,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Contains '讯息', the traditional form for 'message', while other characters are simplified. '讯息' is common in Taiwan and should be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 51. zhtw-project-formal-llm-context-guard-v1/llm-044
 
@@ -1092,7 +1092,7 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: A typical system limitation notice about processing attachments.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
 
 ### 52. zhtw-project-formal-llm-context-guard-v1/llm-046
 
@@ -1113,4 +1113,4 @@ Codex reason: Codex 依 input-only 獨立可裁決性與臺灣領域語境分類
 
 Gemini reason: Mixed script: uses traditional '纪录' (record) with simplified characters. '纪录' is the standard term in Taiwan and should be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-29`
