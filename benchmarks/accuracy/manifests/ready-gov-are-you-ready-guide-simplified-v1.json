@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "id": "ready-gov-are-you-ready-guide-simplified-v1",
+  "track": "blind",
+  "source_class": "public_domain",
+  "source_urls": [
+    "https://www.ready.gov/sites/default/files/2022-06/ready_are-you-ready-guide_simplified-chinese.pdf",
+    "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title17-section105"
+  ],
+  "upstream_revision": "FEMA P-2157, Are You Ready? An In-Depth Guide to Citizen Preparedness, Simplified Chinese, September 2020; PDF metadata modified 2022-06-09; raw SHA-256: 82ee7dfe6882ecd2e639816e81c88e6f201511d29c1e182f9d89cc0e81c01f8d",
+  "retrieved_at": "2026-07-29T21:15:52+08:00",
+  "license": "U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party material excluded",
+  "license_url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title17-section105",
+  "output_license": "U.S. Public Domain",
+  "attribution": "Federal Emergency Management Agency, Ready.gov, Are You Ready? An In-Depth Guide to Citizen Preparedness, Simplified Chinese, FEMA P-2157; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.",
+  "modification_notice": "Extracted complete Simplified Chinese prose sentences from checksum-pinned body pages, removed contents pages, page furniture, URLs, phone instructions, images, insignia, third-party material, and exact duplicates, and added input-only provenance; no expected text or converter output was used.",
+  "notice_id": "ready-gov-are-you-ready-guide-simplified-v1",
+  "raw_sha256": {
+    "https://www.ready.gov/sites/default/files/2022-06/ready_are-you-ready-guide_simplified-chinese.pdf": "82ee7dfe6882ecd2e639816e81c88e6f201511d29c1e182f9d89cc0e81c01f8d"
+  },
+  "normalized_path": "benchmarks/accuracy/external/ready-gov-are-you-ready-guide-simplified-v1.json",
+  "normalized_sha256": "ae14c512b4c53b1726cd36f966b2165bc3961127a82cc534e5367b55da64d4a8",
+  "importer": "scripts/import_blind_v2_source_pilot.py",
+  "known_biases": [
+    "Official U.S. emergency guidance is not representative of ordinary Taiwan traffic.",
+    "Disaster preparation, insurance, medical, safety, and federal-assistance language is intentionally concentrated.",
+    "The PDF text layer repeats some visual headings and emphasis, so every candidate requires input-only eligibility review.",
+    "Only FEMA-authored body text is extracted; contents pages, images, insignia, contact instructions, and third-party material are excluded.",
+    "A maximum of 10% of the final candidate pool may come from this source."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

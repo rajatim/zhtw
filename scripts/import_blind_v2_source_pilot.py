@@ -54,6 +54,7 @@ SUPPORTED_SOURCES = {
     "zhtw-project-it-ui-llm-formal-guard-v1": "project_original_json",
     "zhtw-project-formal-llm-overconversion-guard-v1": "project_original_json",
     "zhtw-project-formal-llm-context-guard-v1": "project_original_json",
+    "zhtw-project-formal-llm-evidence-guard-v1": "project_original_json",
     "massive-1-0-zh-cn-v1": "massive",
     "ftc-small-business-simplified-v1": "ftc_pdf",
     "ftc-heads-up-simplified-v1": "ftc_heads_up_pdf",
@@ -73,6 +74,7 @@ SUPPORTED_SOURCES = {
     "ready-gov-campus-zh-hans-v1": "ready_gov_html",
     "ready-gov-evacuation-zh-hans-v1": "ready_gov_html",
     "ready-gov-cybersecurity-zh-hans-v1": "ready_gov_html",
+    "ready-gov-are-you-ready-guide-simplified-v1": "ready_gov_guide_pdf",
     "osha-electrical-safety-simplified-v1": "osha_pdf",
     "osha-chainsaw-safety-simplified-v1": "osha_pdf",
     "osha-work-zone-traffic-simplified-v1": "osha_pdf",
@@ -1015,6 +1017,58 @@ def parse_ready_gov_html(source_id: str, content: bytes) -> list[tuple[str, str,
     ]
 
 
+def parse_ready_gov_guide_pages(pages: list[str]) -> list[tuple[str, str, str]]:
+    """Extract complete prose from the pinned FEMA preparedness guide."""
+    normalized_pages = [normalize_pdf_text(page) for page in pages]
+    if (
+        len(pages) != 28
+        or "P-2157" not in normalized_pages[0]
+        or "防灾准备" not in normalized_pages[4]
+        or "保护自己不受与灾害有关的欺诈和诈骗" not in normalized_pages[26]
+    ):
+        raise ValueError("Ready.gov guide: expected page count or body anchors not found")
+
+    sentences: list[str] = []
+    seen: set[str] = set()
+    for page in pages[4:27]:
+        text = re.sub(r"^\s*\d+\s+Ready\s*\.gov\s*", "", page)
+        for sentence in complete_chinese_sentences(text, minimum_length=12):
+            sentence = re.sub(r"^[•–-]\s*", "", sentence)
+            han_count = len(re.findall(r"[\u3400-\u9fff]", sentence))
+            if (
+                han_count < 8
+                or len(sentence) > 320
+                or "目录" in sentence
+                or re.match(r"^(?:\d+\.\s*)?(.{2,24})\1", sentence)
+                or re.search(
+                    r"(?:https?://|\b[\w.-]+\.(?:gov|org|com)\b|"
+                    r"\b\d{3}[- ]\d{3}[- ]\d{4}\b|1-866-720-5721)",
+                    sentence,
+                    re.I,
+                )
+            ):
+                continue
+            if sentence not in seen:
+                seen.add(sentence)
+                sentences.append(sentence)
+    return [
+        ("guide", f"sentence-{index:03d}", sentence) for index, sentence in enumerate(sentences, 1)
+    ]
+
+
+def parse_ready_gov_guide_pdf(content: bytes) -> list[tuple[str, str, str]]:
+    """Validate PDF metadata before extracting the pinned FEMA guide."""
+    reader = PdfReader(io.BytesIO(content))
+    metadata = reader.metadata
+    if (
+        metadata is None
+        or metadata.author != "FEMA ICPD"
+        or metadata.title != "您做好了准备吗? 公民备灾的深入指南"
+    ):
+        raise ValueError("Ready.gov guide: expected PDF metadata not found")
+    return parse_ready_gov_guide_pages([page.extract_text() or "" for page in reader.pages])
+
+
 class CensusNewsroomTextParser(HTMLParser):
     """Collect body paragraphs and list items from Census newsroom text components."""
 
@@ -1283,6 +1337,8 @@ def build_dataset(manifest: dict[str, Any], *, source_file: Path | None = None) 
         raw_rows = parse_nps_acadia_html(content)
     elif source_kind == "ready_gov_html":
         raw_rows = parse_ready_gov_html(manifest["id"], content)
+    elif source_kind == "ready_gov_guide_pdf":
+        raw_rows = parse_ready_gov_guide_pdf(content)
     elif source_kind == "osha_pdf":
         raw_rows = parse_osha_pdf(manifest["id"], content)
     elif source_kind == "permissioned_user_report_json":

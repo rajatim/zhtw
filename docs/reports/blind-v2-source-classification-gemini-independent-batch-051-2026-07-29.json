@@ -1,0 +1,1069 @@
+{
+  "version": 1,
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-051.json",
+  "packet_sha256": "cb1057be72b2ded934108d76d8c4518f132845e41c3f99a3d991863e2019d2b4",
+  "reviewer": "Gemini CLI independent review (6 isolated sessions)",
+  "model": "gemini-2.5-pro",
+  "review_date": "2026-07-29",
+  "policy": "input_only_no_converter_output",
+  "execution": {
+    "cli": "@google/gemini-cli",
+    "cli_version": "0.52.0",
+    "session_id": "27c09c54-683e-42da-be16-823084c127e4,18cfccf6-abf5-4702-8b35-24a8f2601571,42ab4449-2215-4224-ba0d-03c96f34cb00,73263431-22fe-48a4-a0c4-9c5bac45cde9,8f0c836d-8e7b-4f9e-845d-a578afa3853f,bf50a370-f6b6-47ad-a58a-46484715581b",
+    "tool_calls": 0,
+    "total_errors": 0
+  },
+  "stats": {
+    "total": 96,
+    "eligible": 91,
+    "excluded": 5,
+    "high": 96,
+    "medium": 0,
+    "low": 0,
+    "policy_violations": 0
+  },
+  "cases": [
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-01-sentence-0011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, complete sentence from technical documentation. Contains a technical token (HTTP 409) that needs to be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-02-sentence-0037",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete technical sentence. Key terms like 'declarative object configuration' and 'patch' are good candidates for checking Taiwan-specific terminology."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0014",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Well-formed technical sentence. Contains English tokens (Pod, Kubernetes) that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0040",
+      "eligible": false,
+      "script": "mixed",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "joined_layout_text"
+      ],
+      "confidence": "high",
+      "notes": "Ineligible. Appears to be two distinct pieces of content (a term definition and a descriptive sentence) joined by a layout character ('|'), likely from a table."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0042",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean technical sentence. Contains multiple code/CLI identifiers (Pod, kubectl, Status, CrashLoopBackOff) that act as guards against over-conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0048",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complex but well-formed technical sentence. Rich with English tokens and version numbers (Kubernetes 1.27, Pod, Finalizer, kubelet, Failed, Succeeded, API) that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0053",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean definition sentence. The English state names (Waiting, Running, Terminated) must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0113",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clean definition for a policy value. The keyword 'Always' must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0125",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean technical sentence with multiple keywords/identifiers (OnFailure, Pod, try-once) that must not be converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0133",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Complete technical sentence. Contains terms like 'in-place restart' that could have specific TW translations, and a token 'Pod' to preserve."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0159",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean technical sentence. Contains a long CamelCase feature flag or configuration name (ReduceDefaultCrashLoopBackOffDecay) that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0173",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Short, complete sentence. The HTTP verb 'PATCH' must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0178",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Good technical sentence for testing terminology gaps (schedule, node, mount, storage volume). Also contains English tokens (Pod, kubelet) to preserve."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0219",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean definition for a configuration key. Contains multiple technical tokens (tcpSocket, IP, TCP) to preserve."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0305",
+      "eligible": true,
+      "script": "mixed",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Good test case for a specific technical concept ('grace period') and preservation of English tokens (API, Pod)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0311",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A standard technical sentence with common terms (resource, terminate), good for baseline conversion quality check."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0334",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Complete sentence from Kubernetes documentation. Contains technical terms like 'kubelet' and 'Kubernetes' that need protection from over-conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0340",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "code_like",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Technical sentence with code-like terms ('ready', 'false') and proper nouns ('Kubernetes', 'kubelet') that should not be converted."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-03-sentence-0342",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Good test for terminology conversion (e.g., '特性门控') and preserving the English word 'Bug'."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Tests preservation of technical English terms ('Deployment', 'Pod') alongside standard conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Contains multiple technical terms ('Service API', 'Kubernetes', 'Pod') that should remain unchanged."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0056",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Excellent case for terminology. '选择算符' (selector) is a key term needing correct localization, not just character conversion."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0059",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Tests both terminology ('名字空间' -> '命名空間') and preservation of a technical term ('EndpointSlice')."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0077",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Good mix of standard conversion, terminology ('阈值'), and protected terms ('Service', 'EndpointSlice')."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0123",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "code_like",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Contains code-like strings ('Service', 'spec.clusterIP') that must be preserved."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0127",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Standard technical sentence with proper nouns ('Kubernetes', 'Service') to protect."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0155",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "code_like",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Excellent test case with code values ('type', '\"LoadBalancer\"') and important technical terms ('负载均衡器') needing correct localization."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0234",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Prime example for candidate gap with '服务器' (-> '伺服器'). Also contains several proper nouns to protect."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0248",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Sentence rich with networking terms ('流量策略', '拓扑', '路由') that require correct idiomatic translation beyond simple character mapping."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0254",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Key terminology test for '客户端' (client) and '会话亲和性' (session affinity)."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0257",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [
+        "technical_terms",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Good test for common networking terms ('集群', '端口') and protecting proper nouns ('Kubernetes', 'Service')."
+    },
+    {
+      "id": "kubernetes-docs-zh-cn-v1/page-04-sentence-0258",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "technical_terms",
+        "code_like",
+        "complete_sentence",
+        "documentation"
+      ],
+      "confidence": "high",
+      "notes": "Simple sentence testing the preservation of a code-like property name 'externalIPs'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-001",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, complete sentence. Good baseline for high-stakes official guidance."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-058",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "joined_layout"
+      ],
+      "confidence": "high",
+      "notes": "Input joins a heading ('枪手行凶') with a sentence using a bullet point, making it joined layout text and not a standalone sentence."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-071",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear, standalone emergency instruction. Good baseline case."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-088",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Good test case for phishing/scam warnings. The term '信息' has multiple potential translations in Taiwan (資訊, 訊息), testing a common candidate gap."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-103",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Disaster warning sentence. Tests conversion of '山体滑坡' (landslide), which may have different common usage in Taiwan (e.g., 土石流, 山崩)."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-116",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear and universal safety warning. Serves as a good baseline test for high-stakes content."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-129",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Financial advice sentence, good baseline for the high-stakes category."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-134",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Insurance-related sentence. Tests a candidate gap with the term '企业' (enterprise/business), which is often '公司' (company) in Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-141",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear disaster-risk sentence. Good baseline test."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-150",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Straightforward emergency instruction, good baseline test."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-155",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Safety instruction listing equipment. Tests for candidate gaps in terminology for specific items (goggles, gloves, etc.)."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-189",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Sentence about shelter construction. Good baseline test for architectural/material terms."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-217",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A sentence about electronic safety equipment. Good baseline test."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-244",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Weather warning sentence. The term '雷电风暴' (thunderstorm) is a great candidate gap test, as Taiwan commonly uses '雷陣雨'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-247",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tornado warning description. '货运火车' (freight train) is a good test for a compound noun that may have different common phrasing."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-273",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A simple, scientific sentence about volcanic effects. Good baseline test."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-298",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, complete sentence on emergency preparedness. Words like '跳线' (jumper cables) and '点心' (snacks) may have different common terms in Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-307",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear safety-related sentence, suitable as a baseline test."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-309",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Emergency planning sentence. '通信计划' (communication plan) is a potential terminology gap for Taiwan localization ('通訊計畫')."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-314",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Good baseline test for common character conversion (e.g., '联系' to '聯繫')."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-315",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests a potential terminology gap: '社交媒体' (social media) vs. the common Taiwan term '社群媒體'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-319",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear, complete sentence for a baseline conversion test, using common words like '计划' and '演练'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-342",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Good high-stakes baseline test for common verbs and nouns like '遵循' and '建议'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-358",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests common character conversions like '存储' (儲存) and '办公室' (辦公室)."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-359",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "repetition",
+        "list_formatting"
+      ],
+      "confidence": "high",
+      "notes": "Ineligible due to strange repetition ('水：水：') and list formatting, which suggests a malformed extraction or unclean source."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-367",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "fragment"
+      ],
+      "confidence": "high",
+      "notes": "Ineligible because it is an incomplete sentence fragment, not a standalone test case."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-405",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Tests a technical term ('选择加入通知系统' for opt-in system) which may have a specific localization in Taiwan."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-408",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "over_conversion_guard",
+      "quality_flags": [
+        "acronym"
+      ],
+      "confidence": "high",
+      "notes": "Good test case for over-conversion risk, as the English acronym 'WEA' must be preserved. Also includes a terminology gap ('移动设备')."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-414",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "High-stakes sentence about financial/insurance matters. Good baseline case for converting '保单' and '财务'."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-451",
+      "eligible": false,
+      "script": "simplified",
+      "domain": null,
+      "risk": null,
+      "quality_flags": [
+        "concatenation",
+        "malformed"
+      ],
+      "confidence": "high",
+      "notes": "Ineligible. Appears to be a title or header ('保护财产') concatenated with the following sentence, making it a malformed extraction."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-510",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear, high-stakes instruction, good for baseline conversion ('损坏', '检查员')."
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-527",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "High-stakes safety warning, suitable as a baseline test case for words like '灾难' and '威胁'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence about legal regulations coming into effect. Tests formal vocabulary like '公报' and '法规'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-015",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence from a statistical reporting context. Tests vocabulary like '揭露' and '误差范围'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-017",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence regarding committee approval of a draft. Tests procedural terms like '核定'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence about administrative record verification. Tests office/procedural terms like '承办单位' and '签核纪录'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence about distinguishing facts in press materials. Tests terms like '研判'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence from a document review context. The term '路径' is a good candidate for terminology gap."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence regarding official inspection evidence. '时间戳记' has common variants in Taiwan ('時間戳', '時戳')."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-030",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence about the process of releasing investigation results. Tests standard conversion of '资料检核'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-031",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence about explaining changes in indicator definitions. Tests standard conversion."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence about meeting procedures. Tests correct conversion of '程序规定'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-039",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence about placing a correction notice. Provides a standard test case for '讯息' to '訊息'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence from a budget document. Tests character mapping like '基准' to '基準'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-042",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence about verifying technical terms. Tests '用语' to '用語'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence from a policy document. Tests standard terms like '措施' and '对象'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-045",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence stating a rule for press releases. Standard baseline conversion case."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-047",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, formal sentence about the process of formalizing a decision. Tests formal terms like '审议' and '签署'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/formal-048",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "formal_news",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clean, complete, formal sentence suitable for baseline conversion testing (e.g., '验证', '资料')."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-003",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A clear instruction for an AI assistant, good for baseline conversion."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-004",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A rule for text summarization, suitable for baseline conversion testing."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-009",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Good test case for terminology choices (e.g., 检索 vs 搜尋, 文件 vs 檔案) in an IT/LLM context."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-011",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes system behavior, good for baseline IT term conversion (e.g., '系统', '显示')."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-018",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Excellent test case for a major terminology gap: '数据' (CN) vs '資料' (TW)."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-019",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Standard sentence with multiple technical terms, good for baseline character conversion."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-020",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A rule for handling low-confidence outputs in an AI system. Good baseline case."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-022",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "An instruction for AI response generation. Good baseline case."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-029",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "High-stakes instruction for an AI assistant dealing with legal regulations. Good for baseline conversion in a critical domain."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-033",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "high_stakes",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "High-stakes instruction regarding user data privacy. Good baseline conversion test for common IT terms like '账号'."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-035",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Clear instruction about model execution state. Good baseline conversion test."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-041",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes an evaluation process. Good test case for terminology choices (e.g., '评测' vs '評估')."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-043",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Describes system logging of user actions. Good baseline test for common IT/UI terms."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-049",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "llm_generated",
+      "risk": "baseline_guard",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "Rule for data handling in a model. Good baseline conversion test."
+    },
+    {
+      "id": "zhtw-project-formal-llm-evidence-guard-v1/llm-050",
+      "eligible": true,
+      "script": "simplified",
+      "domain": "it_api_cli",
+      "risk": "candidate_gap",
+      "quality_flags": [],
+      "confidence": "high",
+      "notes": "A requirement for reproducible evaluations. Good test for IT terminology ('评测', '版本', '输入')."
+    }
+  ]
+}

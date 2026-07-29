@@ -408,6 +408,24 @@ is missing.
 - Output license: MIT.
 - Bias notice: Synthetic project-original inputs intentionally concentrate on formal-news and LLM semantic contexts; they are not independently observed market traffic.
 
+## ready-gov-are-you-ready-guide-simplified-v1
+
+- Source: Federal Emergency Management Agency, Ready.gov, *Are You Ready? An In-Depth Guide to Citizen Preparedness*, Simplified Chinese, FEMA P-2157, September 2020.
+- License: U.S. Public Domain under 17 U.S.C. 105 for FEMA-authored text; third-party material excluded
+- Attribution: Federal Emergency Management Agency, Ready.gov, Are You Ready? An In-Depth Guide to Citizen Preparedness, Simplified Chinese, FEMA P-2157; no FEMA, DHS, or U.S. Government endorsement or affiliation is implied.
+- Modifications: Extracted complete Simplified Chinese prose sentences from checksum-pinned body pages, removed contents pages, page furniture, URLs, phone instructions, images, insignia, third-party material, and exact duplicates, and added input-only provenance; no expected text or converter output was used.
+- Output license: U.S. Public Domain.
+- Bias notice: Official U.S. disaster-preparation guidance is not representative of ordinary Taiwan traffic; the PDF text layer also repeats some visual headings and emphasis.
+
+## zhtw-project-formal-llm-evidence-guard-v1
+
+- Source: zhtw project-original formal-reporting and LLM evidence-preservation scenarios drafted from declared Blind-v2 domain and risk gaps.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only formal-reporting and LLM evidence-preservation scenarios drafted by Codex and subject to independent Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: Synthetic project-original inputs intentionally concentrate on formal reporting and LLM evidence-preservation contexts; they are not independently observed market traffic.
+
 ## osha-electrical-safety-simplified-v1
 
 - Source: OSHA 4281-08 2023, *Electrical Safety*, Chinese Simplified.
