@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 064 (2026-07-30)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `a089a7102f29f0f12f9d6cb6d1da34bcad6d604871b0796a38afb96f3d398f3a`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 2 advisory disagreements and batch-confirmed the 94 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The input is damaged due to missing enumeration punctuation between concatenated words.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 02. ready-gov-are-you-ready-guide-simplified-v1/sentence-186
 
@@ -63,4 +63,4 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: The input is an incomplete sentence fragment lacking a main predicate.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
