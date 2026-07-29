@@ -3,6 +3,9 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import pytest
 
 from zhtw import convert
@@ -43,6 +46,12 @@ class TestCharmapData:
         charmap = load_charmap()
         # 應在 2000-8000 之間（包含擴展區）
         assert 2000 <= len(charmap) <= 8000
+
+    def test_declared_stats_match_data(self):
+        path = Path(__file__).parents[1] / "src/zhtw/data/charmap/safe_chars.json"
+        data = json.loads(path.read_text(encoding="utf-8"))
+        assert data["stats"]["safe_chars"] == len(data["chars"])
+        assert data["stats"]["ambiguous_excluded"] == len(data["ambiguous_excluded"])
 
     def test_keys_are_single_chars(self):
         charmap = load_charmap()
@@ -95,7 +104,21 @@ class TestCharmapData:
     def test_well_known_ambiguous_excluded(self):
         """已知歧義字不應在安全映射中。"""
         charmap = load_charmap()
-        ambiguous_chars = ["后", "里", "干", "只", "台", "复", "系", "面", "折", "采"]
+        ambiguous_chars = [
+            "后",
+            "里",
+            "干",
+            "只",
+            "台",
+            "复",
+            "系",
+            "面",
+            "折",
+            "采",
+            "吁",
+            "旋",
+            "蔑",
+        ]
         for char in ambiguous_chars:
             assert char not in charmap, f"歧義字 '{char}' 不應在 safe charmap"
 

@@ -121,9 +121,9 @@ class TestGetBalancedDefaults:
         defaults = get_balanced_defaults()
         assert isinstance(defaults, dict)
 
-    def test_contains_ten_entries(self):
+    def test_contains_thirteen_entries(self):
         defaults = get_balanced_defaults()
-        assert len(defaults) == 10
+        assert len(defaults) == 13
 
     def test_keys_and_values(self):
         defaults = get_balanced_defaults()
@@ -137,6 +137,9 @@ class TestGetBalancedDefaults:
         assert defaults.get("杰") == "傑"
         assert defaults.get("后") == "後"
         assert defaults.get("里") == "裡"
+        assert defaults.get("吁") == "籲"
+        assert defaults.get("旋") == "旋"
+        assert defaults.get("蔑") == "蔑"
 
     def test_values_are_strings(self):
         defaults = get_balanced_defaults()

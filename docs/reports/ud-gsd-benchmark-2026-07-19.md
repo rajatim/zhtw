@@ -8,19 +8,19 @@ GSDSimp was initially converted with OpenCC and later manually corrected, so the
 track is not independent evidence against OpenCC-family converters.
 
 - Cases: 4997
-- Exact: 3517 / 4997
-- Exact accuracy: 0.703822
-- Idempotency rate: 0.978987
-- Changed-span precision: 0.942558
-- Changed-span recall: 0.941817
-- Changed-span F1: 0.942188
+- Exact: 3522 / 4997
+- Exact accuracy: 0.704823
+- Idempotency rate: 0.979388
+- Changed-span precision: 0.942825
+- Changed-span recall: 0.942007
+- Changed-span F1: 0.942416
 
 ## Split Results
 
-- `dev`: 341 / 500 (0.682000)
-- `test`: 342 / 500 (0.684000)
-- `train`: 2834 / 3997 (0.709032)
+- `dev`: 342 / 500 (0.684000)
+- `test`: 343 / 500 (0.686000)
+- `train`: 2837 / 3997 (0.709782)
 
 ## Genre Results
 
-- `wiki`: 3517 / 4997 (0.703822)
+- `wiki`: 3522 / 4997 (0.704823)

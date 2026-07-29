@@ -7,7 +7,7 @@ Status: collecting; not ready to freeze or sample
 - Promoted after exact/near dedupe: 4350
 - Excluded by dedupe: 7
 - Candidate pool total: 4350
-- Reference snapshot SHA-256: 52bbc565869f0b09062e17bb55b7e907130f1e29652d27709203e4b5821d18e0
+- Reference snapshot SHA-256: 3bfc4b1e614d67aeccacca01f90f20412b367cf9ac3d7c22654cf27980e74f2b
 - Converter output and expected text used: no
 
 ## Decisions

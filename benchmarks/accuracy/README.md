@@ -61,13 +61,13 @@ make benchmark-ud-import-check
 make benchmark-ud-report DATE=2026-07-19
 ```
 
-The first aggregate report is
-`docs/reports/ud-gsd-benchmark-2026-07-19.json`, generated from clean commit
-`6a302f5` with 4,997 cases:
+The aggregate report is
+`docs/reports/ud-gsd-benchmark-2026-07-19.json`, regenerated against the current
+converter data with 4,997 cases:
 
-- exact: 3,517 / 4,997 (70.3822%)
-- changed-span F1: 94.2188%
-- idempotency: 97.8987%
+- exact: 3,522 / 4,997 (70.4823%)
+- changed-span F1: 94.2416%
+- idempotency: 97.9388%
 
 The lower sentence-exact result must not be read as Taiwan-localization accuracy:
 the single target is generic UD Traditional Chinese, while zhtw intentionally

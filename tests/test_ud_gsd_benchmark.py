@@ -141,9 +141,9 @@ def test_ud_report_contains_required_secondary_metrics() -> None:
     assert report["primary_market_endpoint"] is False
     assert report["source_bias"] == "opencc_derived_source_bias"
     assert scores["total_cases"] == 4997
-    assert scores["exact"] == 3517
-    assert scores["misses"] == 1480
+    assert scores["exact"] == 3522
+    assert scores["misses"] == 1475
     assert scores["errors_by_category"] == {}
-    assert scores["changed_span"]["f1"] == pytest.approx(0.9421875211798354)
-    assert scores["idempotency_rate"] == pytest.approx(0.9789873924354613)
+    assert scores["changed_span"]["f1"] == pytest.approx(0.9424156161041072)
+    assert scores["idempotency_rate"] == pytest.approx(0.9793876325795478)
     assert scores["by_genre"]["wiki"]["total"] == 4997
