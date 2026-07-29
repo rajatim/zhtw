@@ -1152,7 +1152,7 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   507/5,426（9.34%）；所有來源與來源類別皆符合比例限制。此批後 operations
   guard 僅餘 4 筆未抽取，不足以支援下一個 32 筆 project-original 配額；
   batch 063 前須新增 project-original 來源。
-- [ ] 2026-07-30 batch 063 等待 maintainer confirmation：新增 project-original
+- [x] 2026-07-30 完成 batch 063：新增 project-original
   social/formal context guard 100 筆 input-only 語料，固定 raw SHA-256
   `bb0d9fc68cfd626f333ff605333d8ea692d4140d417b2213ddbe5550c561b556` 與
   normalized SHA-256
@@ -1163,8 +1163,13 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   96/96 input-only 獨立審查，零工具結果回合、零錯誤，建議 93 筆納入、3 筆
   排除。兩者有 94 筆四欄完全一致、2 筆差異；Codex synthesis 對 1 筆採 Agy
   的 eligible 判斷，另保留 1 筆 unsafe insurance source translation 排除，最終
-  建議 92 筆納入、4 筆排除（94 agreement、2 codex_synthesis）。尚未建立 human
-  decision，也尚未寫入 candidate pool。
+  建議 92 筆納入、4 筆排除（94 agreement、2 codex_synthesis）。Maintainer 於
+  2026-07-30 確認整批 synthesis；92 筆 eligible 全數通過 promotion，沒有新增
+  dedupe exclusion。Pool `5,426 → 5,518`，距最低 5,880 筆尚差 362。
+  `permissive_license` 1,870/5,518（33.89%）、`project_original` 1,870/5,518
+  （33.89%）、`public_domain` 1,778/5,518（32.22%），皆低於 35%。AOSP 目前
+  559/5,518（10.13%），暫時超過最終單一來源 10% freeze gate；batch 064 必須
+  暫停抽取 AOSP，改用 Chromium 等其他 permissive-license 來源稀釋占比。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

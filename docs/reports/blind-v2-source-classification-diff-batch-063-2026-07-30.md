@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 063 (2026-07-30)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `b77ac2a0dbfc0e88baa9b786ed0311cbc1d46f3756ab789996d655c0d594c319`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 2 advisory disagreements and batch-confirmed the 94 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: Codex excluded this input-only case because the source text is not
 
 Gemini reason: Complete instructional sentence regarding emergency contact information.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 02. ready-gov-are-you-ready-guide-simplified-v1/sentence-430
 
@@ -63,4 +63,4 @@ Codex reason: Codex excluded this input-only case because the source text is not
 
 Gemini reason: Complete sentence from Ready.gov containing protected URL FloodSmart.gov.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
