@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 058 (2026-07-30)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `cb01fd80fb833009a1b9b5c458feede19b7de575881e5e4d135e0a6deebe9034`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 51 advisory disagreements and batch-confirmed the 45 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete Android UI string for SIM/SPN unlock request failure.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 02. aosp-framework-zh-rcn-v1/string-1a6e0556ca10b275
 
@@ -63,7 +63,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete network connection notification template with format specifiers.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 03. aosp-framework-zh-rcn-v1/string-1e9182ec0b1382dc
 
@@ -84,7 +84,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete multi-sentence security prompt string with positional format specifiers.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 04. aosp-framework-zh-rcn-v1/string-623c388c1e95e498
 
@@ -105,7 +105,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete Quick Settings UI tile prompt string with dynamic placeholders.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 05. aosp-framework-zh-rcn-v1/string-800d22264189155e
 
@@ -126,7 +126,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: UI string with format specifier.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 06. aosp-framework-zh-rcn-v1/string-83543ce4538d9d1d
 
@@ -147,7 +147,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: UI label for PIN code.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 07. aosp-framework-zh-rcn-v1/string-aad3ea7dce47e9bf
 
@@ -168,7 +168,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Standard emergency prompt string.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 08. aosp-framework-zh-rcn-v1/string-ad8a1a6d85619913
 
@@ -189,7 +189,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: UI string with network terminology.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 09. aosp-framework-zh-rcn-v1/string-b9900485757db599
 
@@ -210,7 +210,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: UI label with status and priority wording.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 10. aosp-framework-zh-rcn-v1/string-c4c3978186018f25
 
@@ -231,7 +231,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Short UI title string.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 11. aosp-framework-zh-rcn-v1/string-d6179f98ac22da8b
 
@@ -252,7 +252,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Short UI string with placeholder.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 12. aosp-framework-zh-rcn-v1/string-e27eaa3bbfb5ee15
 
@@ -273,7 +273,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: UI attribution string with quotes and placeholder.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 13. ready-gov-are-you-ready-guide-simplified-v1/sentence-004
 
@@ -294,7 +294,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete statement regarding emergency responder availability.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 14. ready-gov-are-you-ready-guide-simplified-v1/sentence-061
 
@@ -315,7 +315,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete active shooter situational response instruction.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 15. ready-gov-are-you-ready-guide-simplified-v1/sentence-091
 
@@ -336,7 +336,7 @@ Codex reason: Codex excluded this input-only case because the source text is not
 
 Gemini reason: Complete data backup instruction containing IT terms (文件/存储/设备).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 16. ready-gov-are-you-ready-guide-simplified-v1/sentence-121
 
@@ -357,7 +357,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete medical emergency instruction.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 17. ready-gov-are-you-ready-guide-simplified-v1/sentence-146
 
@@ -378,7 +378,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete flood preparation instruction.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 18. ready-gov-are-you-ready-guide-simplified-v1/sentence-182
 
@@ -399,7 +399,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete landslide/mudslide evacuation guidance.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 19. ready-gov-are-you-ready-guide-simplified-v1/sentence-245
 
@@ -420,7 +420,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete surge protection equipment advice.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 20. ready-gov-are-you-ready-guide-simplified-v1/sentence-279
 
@@ -441,7 +441,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete respirator/mask preparation sentence with standard mixed Latin identifier N95.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 21. ready-gov-are-you-ready-guide-simplified-v1/sentence-291
 
@@ -462,7 +462,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete emergency preparedness instruction regarding N95 mask usage.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 22. ready-gov-are-you-ready-guide-simplified-v1/sentence-317
 
@@ -483,7 +483,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete sentence regarding family emergency communication plan and documentation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 23. ready-gov-are-you-ready-guide-simplified-v1/sentence-354
 
@@ -504,7 +504,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete sentence offering advisory guidance for disaster preparation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 24. ready-gov-are-you-ready-guide-simplified-v1/sentence-406
 
@@ -525,7 +525,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete guidance sentence on using mobile app alerts for local hazards.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 25. ready-gov-are-you-ready-guide-simplified-v1/sentence-452
 
@@ -546,7 +546,7 @@ Codex reason: Codex excluded this input-only case because the source text is not
 
 Gemini reason: Complete sentence giving actionable disaster impact mitigation examples.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 26. ready-gov-are-you-ready-guide-simplified-v1/sentence-489
 
@@ -567,7 +567,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete descriptive sentence explaining the Until Help Arrives program.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 27. ready-gov-are-you-ready-guide-simplified-v1/sentence-534
 
@@ -588,7 +588,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete sentence regarding insurance claim adjuster documentation requirements.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 28. zhtw-project-llm-formal-reasoning-guard-v1/formal-002
 
@@ -609,7 +609,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete formal administrative statement requiring standard Simplified-to-Traditional conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 29. zhtw-project-llm-formal-reasoning-guard-v1/formal-008
 
@@ -630,7 +630,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete formal statement requiring standard Simplified-to-Traditional conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 30. zhtw-project-llm-formal-reasoning-guard-v1/formal-012
 
@@ -651,7 +651,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete formal administrative sentence requiring standard character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 31. zhtw-project-llm-formal-reasoning-guard-v1/formal-014
 
@@ -672,7 +672,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete formal sentence covering scope and execution period.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 32. zhtw-project-llm-formal-reasoning-guard-v1/formal-015
 
@@ -693,7 +693,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete formal committee statement requiring standard character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 33. zhtw-project-llm-formal-reasoning-guard-v1/formal-018
 
@@ -714,7 +714,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete formal report statement regarding evidence and conclusions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 34. zhtw-project-llm-formal-reasoning-guard-v1/formal-031
 
@@ -735,7 +735,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Formal statement containing Latin phrase 'status quo ante' which must be preserved without over-conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 35. zhtw-project-llm-formal-reasoning-guard-v1/formal-032
 
@@ -756,7 +756,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Court document statement containing proper name 'Chen Yu-Han' requiring exact preservation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 36. zhtw-project-llm-formal-reasoning-guard-v1/formal-034
 
@@ -777,7 +777,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Patent announcement containing international application code 'WO 2026/098765' requiring exact preservation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 37. zhtw-project-llm-formal-reasoning-guard-v1/formal-035
 
@@ -798,7 +798,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Financial data statement containing fiscal year code 'FY2028' requiring exact preservation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 38. zhtw-project-llm-formal-reasoning-guard-v1/formal-042
 
@@ -819,7 +819,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete formal statement regarding authority auditing rights.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 39. zhtw-project-llm-formal-reasoning-guard-v1/formal-044
 
@@ -840,7 +840,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete committee requirement statement specifying point-of-contact designation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 40. zhtw-project-llm-formal-reasoning-guard-v1/formal-047
 
@@ -861,7 +861,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete press release statement regarding existing rights.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 41. zhtw-project-llm-formal-reasoning-guard-v1/formal-050
 
@@ -882,7 +882,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete official announcement sentence regarding final approved list publication.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 42. zhtw-project-llm-formal-reasoning-guard-v1/llm-002
 
@@ -903,7 +903,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete LLM instruction prompt sentence requiring standard character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 43. zhtw-project-llm-formal-reasoning-guard-v1/llm-006
 
@@ -924,7 +924,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete LLM guidance sentence regarding page number referencing.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 44. zhtw-project-llm-formal-reasoning-guard-v1/llm-008
 
@@ -945,7 +945,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Valid Simplified input testing preservation of common terms like 方案.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 45. zhtw-project-llm-formal-reasoning-guard-v1/llm-015
 
@@ -966,7 +966,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Valid Simplified input testing over-conversion guard for 事項 vs 專案.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 46. zhtw-project-llm-formal-reasoning-guard-v1/llm-018
 
@@ -987,7 +987,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Valid Simplified input testing baseline character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 47. zhtw-project-llm-formal-reasoning-guard-v1/llm-019
 
@@ -1008,7 +1008,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Valid Simplified input testing standard character conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 48. zhtw-project-llm-formal-reasoning-guard-v1/llm-024
 
@@ -1029,7 +1029,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Valid Simplified input testing error code term and preservation of Latin identifier.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 49. zhtw-project-llm-formal-reasoning-guard-v1/llm-025
 
@@ -1050,7 +1050,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Valid Simplified input testing tag term conversion while preserving version number.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 50. zhtw-project-llm-formal-reasoning-guard-v1/llm-039
 
@@ -1071,7 +1071,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Valid Simplified input testing coupon and number terms with invariant code identifier.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 51. zhtw-project-llm-formal-reasoning-guard-v1/llm-045
 
@@ -1092,4 +1092,4 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Valid Simplified input testing contextual over-conversion guard for 項目 vs 專案.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
