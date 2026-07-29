@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 062 (2026-07-30)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `e5fd5063fb14f5466f7f15f70fec2fab1f7e9b06eb00710ae8f194abab9b497b`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 2 advisory disagreements and batch-confirmed the 94 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Noun phrase checklist item lacking a main verb or sentence context.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 02. ready-gov-are-you-ready-guide-simplified-v1/sentence-368
 
@@ -63,4 +63,4 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: List item fragment containing protected Latin domain name Ready.gov.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
