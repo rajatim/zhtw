@@ -1,0 +1,557 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "stage": "source_classification_codex_synthesis_adjustments",
+  "status": "advisory_only",
+  "generated_date": "2026-07-30",
+  "reviewer": "Codex",
+  "policy": "input_only_no_converter_output",
+  "packet_path": "benchmarks/accuracy/review-packets/blind-v2-source-classification-batch-060.json",
+  "packet_sha256": "03c46a873a5548bfacb3dd9400155f697a34cc4335b4acfa6035ef7032e1a284",
+  "stats": {
+    "total": 49
+  },
+  "cases": [
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-199a1d51e698a9a0",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-20d987272ce62f00",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-4c1a4c022c7f24aa",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-62e4f1bd0e6620f3",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-79ada3ba8e6f9435",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-92669ea213e118d9",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-9901024cc0a8149b",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-a4ba01c4b7aea276",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "ui_i18n",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-d7683137df575bf2",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "aosp-framework-zh-rcn-v1/string-f51f5fe3a3626b34",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "ui_i18n",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-087",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-090",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-161",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-282",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-304",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-434",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-446",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-479",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-482",
+      "classification": {
+        "eligible": false,
+        "script": "simplified",
+        "domain": null,
+        "risk": null,
+        "quality_flags": [
+          "insufficient_context"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-507",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "ready-gov-are-you-ready-guide-simplified-v1/sentence-563",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "high_stakes",
+        "risk": "baseline_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-002",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-007",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-011",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-012",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-020",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-021",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "formal_news",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-022",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "formal_news",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-023",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "formal_news",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-024",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "formal_news",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-025",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "formal_news",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-034",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-044",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-047",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-048",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/formal-049",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "formal_news",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-003",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-010",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-013",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-016",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-021",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "llm_generated",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-023",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "llm_generated",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-026",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "llm_generated",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-027",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "llm_generated",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-028",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "llm_generated",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-039",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-041",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-048",
+      "classification": {
+        "eligible": true,
+        "script": "mixed",
+        "domain": "llm_generated",
+        "risk": "over_conversion_guard",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "zhtw-project-llm-formal-operations-guard-v1/llm-050",
+      "classification": {
+        "eligible": true,
+        "script": "simplified",
+        "domain": "llm_generated",
+        "risk": "candidate_gap",
+        "quality_flags": [],
+        "confidence": "medium"
+      }
+    }
+  ]
+}

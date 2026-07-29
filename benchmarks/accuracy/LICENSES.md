@@ -444,6 +444,15 @@ is missing.
 - Output license: MIT.
 - Bias notice: Synthetic project-original inputs intentionally concentrate on LLM reasoning, formal reporting, identifiers, and evidence-preservation contexts; they are not independently observed market traffic.
 
+## zhtw-project-llm-formal-operations-guard-v1
+
+- Source: zhtw project-original LLM operations and formal-administration scenarios drafted from declared Blind-v2 domain and risk gaps.
+- License: MIT.
+- Attribution: Copyright zhtw contributors; initial input-only LLM operations and formal-administration scenarios drafted by Codex and subject to independent Agy/Gemini and maintainer review.
+- Modifications: Applied Unicode NFC and whitespace normalization, removed exact within-source duplicates, and added input-only candidate metadata; no converter output or expected text was used.
+- Output license: MIT.
+- Bias notice: Synthetic project-original inputs intentionally concentrate on LLM operations, formal administration, identifiers, and evidence-preservation contexts; they are not independently observed market traffic.
+
 ## osha-electrical-safety-simplified-v1
 
 - Source: OSHA 4281-08 2023, *Electrical Safety*, Chinese Simplified.
