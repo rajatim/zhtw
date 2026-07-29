@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 060 (2026-07-30)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `03c46a873a5548bfacb3dd9400155f697a34cc4335b4acfa6035ef7032e1a284`
 Cases: 96
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 49 advisory disagreements and batch-confirmed the 47 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete status message containing Latin abbreviation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 02. aosp-framework-zh-rcn-v1/string-20d987272ce62f00
 
@@ -63,7 +63,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete ICU message format string with plural placeholder.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 03. aosp-framework-zh-rcn-v1/string-4c1a4c022c7f24aa
 
@@ -84,7 +84,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete UI error message with Latin acronym PIN.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 04. aosp-framework-zh-rcn-v1/string-62e4f1bd0e6620f3
 
@@ -105,7 +105,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete UI status label with string placeholder.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 05. aosp-framework-zh-rcn-v1/string-79ada3ba8e6f9435
 
@@ -126,7 +126,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete Android UI string containing technical terms like 前台服务 and 运行.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 06. aosp-framework-zh-rcn-v1/string-92669ea213e118d9
 
@@ -147,7 +147,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete user prompt dialog message with multiple string format placeholders.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 07. aosp-framework-zh-rcn-v1/string-9901024cc0a8149b
 
@@ -168,7 +168,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete permission string including mixed Latin service type identifiers.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 08. aosp-framework-zh-rcn-v1/string-a4ba01c4b7aea276
 
@@ -189,7 +189,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Standard short UI menu option label.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 09. aosp-framework-zh-rcn-v1/string-d7683137df575bf2
 
@@ -210,7 +210,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Short workspace profile identifier containing shared Hanzi and ASCII digit.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 10. aosp-framework-zh-rcn-v1/string-f51f5fe3a3626b34
 
@@ -231,7 +231,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete UI feature title string starting with a placeholder.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 11. ready-gov-are-you-ready-guide-simplified-v1/sentence-087
 
@@ -252,7 +252,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete IT security instruction containing standard terminology (strong passwords, 2FA).
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 12. ready-gov-are-you-ready-guide-simplified-v1/sentence-090
 
@@ -273,7 +273,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete IT cybersecurity advice covering antivirus, firewall, and malware solutions.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 13. ready-gov-are-you-ready-guide-simplified-v1/sentence-161
 
@@ -294,7 +294,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete emergency guidance sentence with location terms.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 14. ready-gov-are-you-ready-guide-simplified-v1/sentence-282
 
@@ -315,7 +315,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete fire safety instruction sentence.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 15. ready-gov-are-you-ready-guide-simplified-v1/sentence-304
 
@@ -336,7 +336,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete generator safety sentence containing vocabulary terms like 窗户.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 16. ready-gov-are-you-ready-guide-simplified-v1/sentence-434
 
@@ -357,7 +357,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete advisory sentence containing terms like 泥石流 and 联系.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 17. ready-gov-are-you-ready-guide-simplified-v1/sentence-446
 
@@ -378,7 +378,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete guidance sentence containing vocabulary like 录像 and 型号.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 18. ready-gov-are-you-ready-guide-simplified-v1/sentence-479
 
@@ -399,7 +399,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete sentence on community emergency committees containing terms like 应急 and 计划.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 19. ready-gov-are-you-ready-guide-simplified-v1/sentence-482
 
@@ -420,7 +420,7 @@ Codex reason: Codex excluded this input-only case because the source text is not
 
 Gemini reason: Complete descriptive sentence containing terms like 项目 and 通过.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 20. ready-gov-are-you-ready-guide-simplified-v1/sentence-507
 
@@ -441,7 +441,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete instruction sentence containing terms like 视频 and 记录.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 21. ready-gov-are-you-ready-guide-simplified-v1/sentence-563
 
@@ -462,7 +462,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete privacy warning sentence containing terms like 个人信息, 确定, and 帐号.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 22. zhtw-project-llm-formal-operations-guard-v1/formal-002
 
@@ -483,7 +483,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete administrative notification sentence testing standard baseline conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 23. zhtw-project-llm-formal-operations-guard-v1/formal-007
 
@@ -504,7 +504,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete regulatory compliance statement testing formal business terminology.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 24. zhtw-project-llm-formal-operations-guard-v1/formal-011
 
@@ -525,7 +525,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete government authority requirement statement.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 25. zhtw-project-llm-formal-operations-guard-v1/formal-012
 
@@ -546,7 +546,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete formal public presentation notice sentence.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 26. zhtw-project-llm-formal-operations-guard-v1/formal-020
 
@@ -567,7 +567,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete official announcement sentence.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 27. zhtw-project-llm-formal-operations-guard-v1/formal-021
 
@@ -588,7 +588,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains alphanumeric procurement identifier PROC-2026-118 requiring non-alteration.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 28. zhtw-project-llm-formal-operations-guard-v1/formal-022
 
@@ -609,7 +609,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains Latin audit invoice code INV-TW-0842 requiring non-alteration.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 29. zhtw-project-llm-formal-operations-guard-v1/formal-023
 
@@ -630,7 +630,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains legal case identifier Case No. 26-CV-104 requiring non-alteration.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 30. zhtw-project-llm-formal-operations-guard-v1/formal-024
 
@@ -651,7 +651,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains English appendix designation Appendix IV requiring non-alteration.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 31. zhtw-project-llm-formal-operations-guard-v1/formal-025
 
@@ -672,7 +672,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains standard DOI string DOI 10.1000/xyz123 requiring non-alteration.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 32. zhtw-project-llm-formal-operations-guard-v1/formal-034
 
@@ -693,7 +693,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete formal legal/regulatory provision sentence.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 33. zhtw-project-llm-formal-operations-guard-v1/formal-044
 
@@ -714,7 +714,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete administrative workflow and payment process sentence.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 34. zhtw-project-llm-formal-operations-guard-v1/formal-047
 
@@ -735,7 +735,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Privacy data protection rule sentence testing exact terminology handling.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 35. zhtw-project-llm-formal-operations-guard-v1/formal-048
 
@@ -756,7 +756,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Administrative review and benefits policy sentence testing disambiguation for 复/給付.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 36. zhtw-project-llm-formal-operations-guard-v1/formal-049
 
@@ -777,7 +777,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Formal investigation report disclaimer sentence.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 37. zhtw-project-llm-formal-operations-guard-v1/llm-003
 
@@ -798,7 +798,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Instruction spec clause targeting model error states.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 38. zhtw-project-llm-formal-operations-guard-v1/llm-010
 
@@ -819,7 +819,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete Simplified Chinese sentence specifying model output requirements with TW terminology.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 39. zhtw-project-llm-formal-operations-guard-v1/llm-013
 
@@ -840,7 +840,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete Simplified Chinese input for AI behavior guard.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 40. zhtw-project-llm-formal-operations-guard-v1/llm-016
 
@@ -861,7 +861,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete Simplified Chinese prompt containing TW domain terms in Simplified script.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 41. zhtw-project-llm-formal-operations-guard-v1/llm-021
 
@@ -882,7 +882,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains Latin identifier TRACE-2026-0730-A requiring exact preservation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 42. zhtw-project-llm-formal-operations-guard-v1/llm-023
 
@@ -903,7 +903,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains CLI command kubectl rollout status which must be preserved.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 43. zhtw-project-llm-formal-operations-guard-v1/llm-026
 
@@ -924,7 +924,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains HTTP status code and error string identifier.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 44. zhtw-project-llm-formal-operations-guard-v1/llm-027
 
@@ -945,7 +945,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains Git branch name release/2026.07 requiring strict preservation.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 45. zhtw-project-llm-formal-operations-guard-v1/llm-028
 
@@ -966,7 +966,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains technical algorithm name SHA-256 requiring non-alteration.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 46. zhtw-project-llm-formal-operations-guard-v1/llm-039
 
@@ -987,7 +987,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete Simplified Chinese requirement for LLM output.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 47. zhtw-project-llm-formal-operations-guard-v1/llm-041
 
@@ -1008,7 +1008,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains TW terminology in Simplified script requiring faithful conversion.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 48. zhtw-project-llm-formal-operations-guard-v1/llm-048
 
@@ -1029,7 +1029,7 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Contains RFC specification identifier RFC 9110.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 49. zhtw-project-llm-formal-operations-guard-v1/llm-050
 
@@ -1050,4 +1050,4 @@ Codex reason: Codex reviewed this input-only case for completeness, source quali
 
 Gemini reason: Complete Simplified Chinese validation requirement.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
