@@ -112,8 +112,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-049-2026-07-29.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-050-2026-07-29.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-051-2026-07-29.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-050-2026-07-29.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-051-2026-07-29.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -135,31 +137,31 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     generated, report = build_pool(
         list(DECISIONS),
         output=POOL,
-        created_at="2026-07-29T12:43:06+08:00",
+        created_at="2026-07-29T22:35:38+08:00",
     )
 
     assert generated == committed
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 4350,
+        "total": 4440,
         "by_domain": {
-            "formal_news": 594,
-            "high_stakes": 1086,
-            "it_api_cli": 817,
-            "llm_generated": 486,
+            "formal_news": 609,
+            "high_stakes": 1118,
+            "it_api_cli": 847,
+            "llm_generated": 499,
             "social_daily": 667,
             "ui_i18n": 700,
         },
         "by_risk": {
-            "baseline_guard": 1244,
-            "candidate_gap": 1778,
-            "over_conversion_guard": 1328,
+            "baseline_guard": 1284,
+            "candidate_gap": 1809,
+            "over_conversion_guard": 1347,
         },
         "by_source_class": {
-            "permissive_license": 1469,
-            "project_original": 1455,
-            "public_domain": 1426,
+            "permissive_license": 1499,
+            "project_original": 1487,
+            "public_domain": 1454,
         },
         "by_source": {
             "aosp-framework-zh-rcn-v1": 275,
@@ -175,7 +177,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ftc-how-to-avoid-scam-simplified-v1": 33,
             "ftc-identity-theft-simplified-v1": 18,
             "ftc-small-business-simplified-v1": 55,
-            "kubernetes-docs-zh-cn-v1": 390,
+            "kubernetes-docs-zh-cn-v1": 420,
             "massive-1-0-zh-cn-v1": 344,
             "nps-essential-acadia-simplified-v1": 30,
             "osha-chainsaw-safety-simplified-v1": 20,
@@ -196,6 +198,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ready-gov-kids-tornadoes-zh-hans-v1": 34,
             "ready-gov-landslides-debris-flow-zh-hans-v1": 53,
             "ready-gov-radiation-zh-hans-v1": 59,
+            "ready-gov-are-you-ready-guide-simplified-v1": 28,
             "ready-gov-tornadoes-zh-hans-v1": 32,
             "ready-gov-winter-weather-zh-hans-v1": 41,
             "ud-chinese-cfl-v1": 69,
@@ -205,6 +208,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-formal-entity-guard-v1": 100,
             "zhtw-project-formal-llm-balance-v1": 100,
             "zhtw-project-formal-llm-context-guard-v1": 98,
+            "zhtw-project-formal-llm-evidence-guard-v1": 32,
             "zhtw-project-formal-llm-overconversion-guard-v1": 79,
             "zhtw-project-formal-llm-semantic-v1": 100,
             "zhtw-project-it-api-cli-v1": 100,
@@ -218,8 +222,8 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-ui-i18n-v1": 50,
         },
     }
-    assert report["confirmed_eligible"] == 4357
-    assert report["promoted"] == 4350
+    assert report["confirmed_eligible"] == 4447
+    assert report["promoted"] == 4440
     assert report["excluded_by_dedupe"] == 7
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
