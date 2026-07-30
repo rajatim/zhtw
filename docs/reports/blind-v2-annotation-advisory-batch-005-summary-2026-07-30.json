@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "batch_id": "blind-v2-annotation-batch-005",
+  "status": "needs_maintainer_confirmation",
+  "case_count": 100,
+  "selection": {
+    "offset": 400,
+    "limit": 100
+  },
+  "policy": {
+    "approval_policy": "single_human_with_ai_advisory",
+    "converter_output_used": false,
+    "expected_text_public": false,
+    "expected_written_to_private_ground_truth": false
+  },
+  "hashes": {
+    "packet_sha256": "d6e191eb50305d7e18062287050df551bf31425180f2e11c47023eaf3c3341ab",
+    "codex_advisory_sha256": "3d664c9d8e43f63d9ce239cc384da83db94dbd9bb875886fcc23fece20db60e3",
+    "agy_advisory_sha256": "5cb4c4bca62299c0485b8ad6df5a9ee68626c884250e9bb9d5d5364db5f0e7cf",
+    "synthesis_sha256": "285ce7b989bbbb3a9ea8e1343fd915e73cb9321e249db51b9b7206b0611e957f"
+  },
+  "independent_review": {
+    "cli": "agy",
+    "cli_version": "1.1.8",
+    "model": "gemini-3.1-pro-high",
+    "accepted_conversations": 5,
+    "turns_per_conversation": [1, 1, 1, 1, 1],
+    "primary_output_agreement": 51,
+    "primary_output_differences": 49,
+    "acceptable_only_differences": 26
+  },
+  "synthesis": {
+    "agreement": 51,
+    "codex": 43,
+    "agy": 1,
+    "hybrid": 5,
+    "needs_maintainer_review": 5
+  }
+}
