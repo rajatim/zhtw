@@ -1199,7 +1199,7 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   （33.98%）、`public_domain` 1,827/5,692（32.10%），皆低於 35%。AOSP 維持
   559 筆，占比降至 9.82%。此批後 social/formal context guard 僅餘 4 筆未抽取，
   不足以支援下一個 32 筆 project-original 配額；batch 066 前須新增來源。
-- [ ] 2026-07-30 完成 batch 066 advisory：新增 project-original
+- [x] 2026-07-30 完成 batch 066：新增 project-original
   social/formal ambiguity guard 100 筆 input-only 語料，固定 raw SHA-256
   `a59df3b45d9586609e8d25ef4c60114990e7e0086df88adb2ec47046a94c30d5` 與
   normalized SHA-256
@@ -1210,7 +1210,11 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   排除。兩者有 95 筆四欄完全一致、1 筆差異；Codex synthesis 保留完整且可獨立
   裁決的 labeled checklist，最終建議 90 筆納入、6 筆排除（95 agreement、1
   codex_synthesis）。Agy 採用 6 個隔離單輪 conversation，零工具結果回合、零
-  錯誤。目前等待 maintainer confirmation；尚未寫入 pool，pool 維持 5,692 筆。
+  錯誤。Maintainer 於 2026-07-30 確認整批 synthesis；90 筆 eligible 全數通過
+  promotion，沒有新增 dedupe exclusion。Pool `5,692 → 5,782`，距最低 5,880 筆
+  尚差 98。`permissive_license` 1,963/5,782（33.95%）、`project_original`
+  1,966/5,782（34.00%）、`public_domain` 1,853/5,782（32.05%），皆低於 35%。
+  AOSP 維持 559 筆，占比降至 9.67%。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent
