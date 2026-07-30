@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Blind-v2 Source Classification Diff 067 (2026-07-30)
 
-Status: advisory only; maintainer decisions pending
+Status: all advisory disagreements resolved by maintainer
 
 Packet SHA-256: `7de987c3d4236d290424f0b522e86679c465121ec6ae2901883dddb77b45231a`
 Cases: 120
@@ -19,7 +19,7 @@ Field differences:
 
 Gemini reported no eligibility/quality-policy conflicts; its execution recorded 0 tool calls and 0 API errors.
 
-Neither advisory is auto-preferred. Codex must synthesize the differences before maintainer confirmation; no classification in this report has been written into the candidate pool.
+The maintainer resolved all 2 advisory disagreements and batch-confirmed the 118 exact AI matches after reviewing the Codex synthesis. No classification in this report has been written into the candidate pool.
 
 ## Review Queue
 
@@ -42,7 +42,7 @@ Codex reason: Codex excluded this input-only case because the source text is not
 
 Gemini reason: This is a complete recommendation sentence regarding safety registration.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`
 
 ### 02. ready-gov-are-you-ready-guide-simplified-v1/sentence-349
 
@@ -63,4 +63,4 @@ Codex reason: Codex excluded this input-only case because the source text is not
 
 Gemini reason: This is a complete preparedness instruction for pet owners.
 
-Maintainer decision: `pending`
+Maintainer decision: `synthesis` accepted by `tim` on `2026-07-30`

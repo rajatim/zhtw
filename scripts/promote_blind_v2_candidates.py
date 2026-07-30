@@ -277,11 +277,23 @@ def render_report(report: dict[str, Any], pool: dict[str, Any]) -> str:
         for source_class, count in pool["stats"]["by_source_class"].items()
         if count / total > class_limit
     )
+    minimum = 3 * pool["formal_n"]
+    freeze_ready = (
+        total >= minimum
+        and not missing_domains
+        and not over_limit_sources
+        and not over_limit_classes
+    )
+    status_line = (
+        "Status: collecting; freeze-readiness gates passed"
+        if freeze_ready
+        else "Status: collecting; not ready to freeze or sample"
+    )
     lines = [
         "<!-- zhtw:disable -->",
         f"# Blind-v2 Candidate Promotion ({pool['created_at'][:10]})",
         "",
-        "Status: collecting; not ready to freeze or sample",
+        status_line,
         "",
         f"- Maintainer-confirmed eligible inputs: {report['confirmed_eligible']}",
         f"- Promoted after exact/near dedupe: {report['promoted']}",
@@ -316,11 +328,11 @@ def render_report(report: dict[str, Any], pool: dict[str, Any]) -> str:
             "",
             "## Collection Gaps",
             "",
-            "Final 10% per-source and 35% per-source-class caps are evaluated only when",
-            "the pool is frozen or validated with --require-ready. This partial pool is",
-            "expected to exceed those final ratios while additional source classes are collected.",
+            "Final 10% per-source and 35% per-source-class caps are evaluated when",
+            "the pool is frozen or validated with --require-ready. Passing these collection",
+            "gates does not freeze the pool; immutable freeze metadata must be recorded next.",
             "It must not be sampled or annotated for expected output yet.",
-            f"Minimum-pool gap: {max(0, 3 * pool['formal_n'] - total)}.",
+            f"Minimum-pool gap: {max(0, minimum - total)}.",
             f"Missing domains: {', '.join(missing_domains) if missing_domains else 'none'}.",
             (
                 "Sources currently over the final 10% cap: "

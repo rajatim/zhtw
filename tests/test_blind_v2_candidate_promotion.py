@@ -144,8 +144,10 @@ DECISIONS = (
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-065-2026-07-30.json",
     ROOT
     / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-066-2026-07-30.json",
+    ROOT
+    / "docs/reports/blind-v2-source-classification-maintainer-decision-batch-067-2026-07-30.json",
 )
-REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-066-2026-07-30.md"
+REPORT = ROOT / "docs/reports/blind-v2-candidate-promotion-batches-001-067-2026-07-30.md"
 FORBIDDEN_KEYS = {"expected", "acceptable", "annotation", "output", "normalized_output"}
 
 
@@ -167,35 +169,35 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     generated, report = build_pool(
         list(DECISIONS),
         output=POOL,
-        created_at="2026-07-30T08:01:45+08:00",
+        created_at="2026-07-30T08:23:33+08:00",
     )
 
     assert generated == committed
     assert validate_pool(POOL) == []
     assert committed["status"] == "collecting"
     assert committed["stats"] == {
-        "total": 5782,
+        "total": 5896,
         "by_domain": {
-            "formal_news": 786,
-            "high_stakes": 1530,
+            "formal_news": 806,
+            "high_stakes": 1564,
             "it_api_cli": 939,
             "llm_generated": 632,
-            "social_daily": 776,
-            "ui_i18n": 1119,
+            "social_daily": 796,
+            "ui_i18n": 1159,
         },
         "by_risk": {
-            "baseline_guard": 1682,
-            "candidate_gap": 2422,
-            "over_conversion_guard": 1678,
+            "baseline_guard": 1716,
+            "candidate_gap": 2452,
+            "over_conversion_guard": 1728,
         },
         "by_source_class": {
-            "permissive_license": 1963,
-            "project_original": 1966,
-            "public_domain": 1853,
+            "permissive_license": 2003,
+            "project_original": 2006,
+            "public_domain": 1887,
         },
         "by_source": {
             "aosp-framework-zh-rcn-v1": 559,
-            "chromium-strings-zh-cn-v1": 255,
+            "chromium-strings-zh-cn-v1": 295,
             "cisa-cyber-hygiene-zh-hans-v1": 21,
             "cisa-personal-security-zh-hans-v1": 123,
             "cdc-stacks-111808-v1": 18,
@@ -228,7 +230,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "ready-gov-kids-tornadoes-zh-hans-v1": 34,
             "ready-gov-landslides-debris-flow-zh-hans-v1": 53,
             "ready-gov-radiation-zh-hans-v1": 59,
-            "ready-gov-are-you-ready-guide-simplified-v1": 427,
+            "ready-gov-are-you-ready-guide-simplified-v1": 461,
             "ready-gov-tornadoes-zh-hans-v1": 32,
             "ready-gov-winter-weather-zh-hans-v1": 41,
             "ud-chinese-cfl-v1": 69,
@@ -252,13 +254,13 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-llm-product-v1": 50,
             "zhtw-project-llm-social-baseline-v1": 100,
             "zhtw-project-social-formal-context-guard-v1": 96,
-            "zhtw-project-social-formal-ambiguity-guard-v1": 32,
+            "zhtw-project-social-formal-ambiguity-guard-v1": 72,
             "zhtw-project-ui-i18n-v1": 50,
             "zhtw-project-ui-social-baseline-guard-v1": 95,
         },
     }
-    assert report["confirmed_eligible"] == 5798
-    assert report["promoted"] == 5782
+    assert report["confirmed_eligible"] == 5912
+    assert report["promoted"] == 5896
     assert report["excluded_by_dedupe"] == 16
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
@@ -267,20 +269,10 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
         "public_domain",
     }
     assert REPORT.read_text(encoding="utf-8") == render_report(report, generated)
+    assert "Status: collecting; freeze-readiness gates passed" in REPORT.read_text(encoding="utf-8")
 
 
-def test_collecting_pool_is_not_ready_for_formal_sampling() -> None:
+def test_collecting_pool_meets_formal_sampling_gates() -> None:
     errors = validate_pool(POOL, require_ready=True)
 
-    assert any("requires at least 5880 cases" in error for error in errors)
-    assert not any("source class permissive_license exceeds 35%" in error for error in errors)
-    assert not any("source class public_domain exceeds 35%" in error for error in errors)
-    assert not any("source class project_original exceeds 35%" in error for error in errors)
-    assert not any("source aosp-framework-zh-rcn-v1 exceeds 10%" in error for error in errors)
-    assert not any("source flores-200-zho-hans-v1 exceeds 10%" in error for error in errors)
-    assert not any("source ftc-heads-up-simplified-v1 exceeds 10%" in error for error in errors)
-    assert not any("source kubernetes-docs-zh-cn-v1 exceeds 10%" in error for error in errors)
-    assert not any("source massive-1-0-zh-cn-v1 exceeds 10%" in error for error in errors)
-    assert not any("source vscode-loc-zh-hans-v1 exceeds 10%" in error for error in errors)
-    assert not any("source zhtw-project-it-api-cli-v1 exceeds 10%" in error for error in errors)
-    assert not any("source ud-chinese-cfl-v1 exceeds 10%" in error for error in errors)
+    assert errors == []
