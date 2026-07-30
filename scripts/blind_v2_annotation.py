@@ -19,6 +19,9 @@ ACCURACY_ROOT = PROJECT_ROOT / "benchmarks" / "accuracy"
 PACKET_SCHEMA = ACCURACY_ROOT / "blind-v2.annotation-packet.schema.json"
 ADVISORY_SCHEMA = ACCURACY_ROOT / "blind-v2.annotation-advisory.schema.json"
 SYNTHESIS_SCHEMA = ACCURACY_ROOT / "blind-v2.annotation-synthesis.schema.json"
+BATCH_DECISION_SCHEMA = ACCURACY_ROOT / "blind-v2.annotation-batch-decision.schema.json"
+ANNOTATION_DECISIONS_SCHEMA = ACCURACY_ROOT / "blind-v2.annotation-decisions.schema.json"
+EXPECTED_SCHEMA = ACCURACY_ROOT / "blind-v2.expected.schema.json"
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -31,6 +34,17 @@ def json_text(value: dict[str, Any]) -> str:
 
 def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def sha256_value(value: dict[str, Any]) -> str:
+    return hashlib.sha256(json_text(value).encode()).hexdigest()
+
+
+def relative_path(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(PROJECT_ROOT))
+    except ValueError:
+        return str(path.resolve())
 
 
 def validate_schema(value: dict[str, Any], schema_path: Path) -> list[str]:
@@ -399,6 +413,197 @@ def build_synthesis(
     return synthesis
 
 
+def build_confirmation_artifacts(
+    inputs_path: Path,
+    packet_path: Path,
+    synthesis_path: Path,
+    *,
+    progress_path: Path,
+    expected_path: Path,
+    batch_decision_path: Path,
+    maintainer: str,
+    decision_date: str,
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    inputs = load_json(inputs_path)
+    packet = load_json(packet_path)
+    synthesis = load_json(synthesis_path)
+    synthesis_errors = validate_schema(synthesis, SYNTHESIS_SCHEMA)
+    if synthesis_errors:
+        raise ValueError("; ".join(synthesis_errors))
+    if packet["inputs_sha256"] != sha256_file(inputs_path):
+        raise ValueError("packet inputs_sha256 does not match inputs")
+    if synthesis["packet_sha256"] != sha256_file(packet_path):
+        raise ValueError("synthesis packet_sha256 does not match packet")
+    packet_ids = [case["id"] for case in packet["cases"]]
+    synthesis_ids = [case["id"] for case in synthesis["cases"]]
+    if synthesis_ids != packet_ids:
+        raise ValueError("synthesis IDs or ordering do not match packet")
+
+    batch_decision = {
+        "version": 1,
+        "dataset": "blind-v2",
+        "batch_id": packet["batch_id"],
+        "status": "human_confirmed",
+        "inputs_sha256": sha256_file(inputs_path),
+        "packet_sha256": sha256_file(packet_path),
+        "synthesis_sha256": sha256_file(synthesis_path),
+        "approval_policy": "single_human_with_ai_advisory",
+        "decision_method": "batch_human_confirmation",
+        "maintainer": maintainer,
+        "decision_date": decision_date,
+        "case_ids": packet_ids,
+        "summary": (
+            f"Maintainer confirmed the complete {len(packet_ids)}-case Codex synthesis "
+            "after independent Agy advisory review."
+        ),
+    }
+    errors = validate_schema(batch_decision, BATCH_DECISION_SCHEMA)
+    if errors:
+        raise ValueError("; ".join(errors))
+    batch_decision_sha256 = sha256_value(batch_decision)
+
+    if progress_path.is_file():
+        progress = load_json(progress_path)
+        errors = validate_schema(progress, ANNOTATION_DECISIONS_SCHEMA)
+        if errors:
+            raise ValueError("; ".join(errors))
+        if progress["inputs_sha256"] != sha256_file(inputs_path):
+            raise ValueError("annotation progress inputs_sha256 does not match inputs")
+    else:
+        progress = {
+            "version": 1,
+            "dataset": "blind-v2",
+            "inputs_sha256": sha256_file(inputs_path),
+            "approval_policy": "single_human_with_ai_advisory",
+            "total_reviewed": 0,
+            "batches": [],
+        }
+    reviewed_ids = {case_id for batch in progress["batches"] for case_id in batch["case_ids"]}
+    if any(batch["id"] == packet["batch_id"] for batch in progress["batches"]):
+        raise ValueError(f"annotation batch already confirmed: {packet['batch_id']}")
+    overlap = reviewed_ids.intersection(packet_ids)
+    if overlap:
+        raise ValueError(f"annotation cases already confirmed: {sorted(overlap)}")
+    progress["batches"].append(
+        {
+            "id": packet["batch_id"],
+            "decision_artifact": relative_path(batch_decision_path),
+            "decision_artifact_sha256": batch_decision_sha256,
+            "case_count": len(packet_ids),
+            "case_ids": packet_ids,
+        }
+    )
+    progress["total_reviewed"] = sum(batch["case_count"] for batch in progress["batches"])
+    errors = validate_schema(progress, ANNOTATION_DECISIONS_SCHEMA)
+    if errors:
+        raise ValueError("; ".join(errors))
+    progress_sha256 = sha256_value(progress)
+
+    if expected_path.is_file():
+        expected = load_json(expected_path)
+        errors = validate_schema(expected, EXPECTED_SCHEMA)
+        if errors:
+            raise ValueError("; ".join(errors))
+        if expected["source_inputs_sha256"] != sha256_file(inputs_path):
+            raise ValueError("private expected source_inputs_sha256 does not match inputs")
+    else:
+        expected = {
+            "version": 1,
+            "name": "blind-v2.expected",
+            "dataset": "blind-v2",
+            "status": "annotating",
+            "source_inputs_sha256": sha256_file(inputs_path),
+            "decision_summary_sha256": progress_sha256,
+            "approval_policy": "single_human_with_ai_advisory",
+            "cases": [],
+        }
+    expected_ids = {case["id"] for case in expected["cases"]}
+    overlap = expected_ids.intersection(packet_ids)
+    if overlap:
+        raise ValueError(f"private expected cases already exist: {sorted(overlap)}")
+    expected["cases"].extend(
+        {
+            "id": case["id"],
+            "expected": case["expected"],
+            "acceptable": case["acceptable"],
+            "decision_method": "batch_human_confirmation",
+            "decision_artifact_sha256": batch_decision_sha256,
+        }
+        for case in synthesis["cases"]
+    )
+    input_order = {case["id"]: index for index, case in enumerate(inputs["cases"])}
+    expected["cases"].sort(key=lambda case: input_order[case["id"]])
+    expected["decision_summary_sha256"] = progress_sha256
+    expected["status"] = (
+        "sealed_private" if len(expected["cases"]) == len(inputs["cases"]) else "annotating"
+    )
+    errors = validate_schema(expected, EXPECTED_SCHEMA)
+    if errors:
+        raise ValueError("; ".join(errors))
+    return batch_decision, progress, expected
+
+
+def validate_confirmation(
+    inputs_path: Path,
+    progress_path: Path,
+    expected_path: Path,
+) -> list[str]:
+    inputs = load_json(inputs_path)
+    progress = load_json(progress_path)
+    expected = load_json(expected_path)
+    errors = validate_schema(progress, ANNOTATION_DECISIONS_SCHEMA)
+    errors.extend(validate_schema(expected, EXPECTED_SCHEMA))
+    if errors:
+        return errors
+    inputs_sha256 = sha256_file(inputs_path)
+    if progress["inputs_sha256"] != inputs_sha256:
+        errors.append("annotation progress inputs_sha256 does not match inputs")
+    if expected["source_inputs_sha256"] != inputs_sha256:
+        errors.append("private expected source_inputs_sha256 does not match inputs")
+    if expected["decision_summary_sha256"] != sha256_file(progress_path):
+        errors.append("private expected decision_summary_sha256 does not match progress")
+
+    input_ids = [case["id"] for case in inputs["cases"]]
+    input_id_set = set(input_ids)
+    reviewed_ids: list[str] = []
+    artifact_by_id: dict[str, str] = {}
+    for batch in progress["batches"]:
+        artifact_path = PROJECT_ROOT / batch["decision_artifact"]
+        if not artifact_path.is_file():
+            errors.append(f"missing annotation decision artifact: {batch['decision_artifact']}")
+            continue
+        if sha256_file(artifact_path) != batch["decision_artifact_sha256"]:
+            errors.append(f"annotation decision artifact hash mismatch: {batch['id']}")
+            continue
+        decision = load_json(artifact_path)
+        errors.extend(
+            f"{batch['id']}: {error}" for error in validate_schema(decision, BATCH_DECISION_SCHEMA)
+        )
+        if decision.get("case_ids") != batch["case_ids"]:
+            errors.append(f"annotation decision case IDs do not match progress: {batch['id']}")
+        if decision.get("batch_id") != batch["id"]:
+            errors.append(f"annotation decision batch ID does not match progress: {batch['id']}")
+        reviewed_ids.extend(batch["case_ids"])
+        artifact_by_id.update(dict.fromkeys(batch["case_ids"], batch["decision_artifact_sha256"]))
+    if len(reviewed_ids) != len(set(reviewed_ids)):
+        errors.append("annotation progress contains duplicate case IDs")
+    if not set(reviewed_ids).issubset(input_id_set):
+        errors.append("annotation progress contains IDs outside frozen inputs")
+    if progress["total_reviewed"] != len(reviewed_ids):
+        errors.append("annotation progress total_reviewed does not match case coverage")
+
+    expected_ids = [case["id"] for case in expected["cases"]]
+    if expected_ids != [case_id for case_id in input_ids if case_id in set(reviewed_ids)]:
+        errors.append("private expected IDs do not match reviewed inputs in frozen order")
+    for case in expected["cases"]:
+        if case["decision_artifact_sha256"] != artifact_by_id.get(case["id"]):
+            errors.append(f"private expected decision link mismatch: {case['id']}")
+    required_status = "sealed_private" if len(expected_ids) == len(input_ids) else "annotating"
+    if expected["status"] != required_status:
+        errors.append(f"private expected status must be {required_status}")
+    return errors
+
+
 def write_or_check(path: Path, value: dict[str, Any], *, check: bool) -> list[str]:
     content = json_text(value)
     if check:
@@ -448,6 +653,21 @@ def main() -> int:
     synthesis_parser.add_argument("--output", type=Path, required=True)
     synthesis_parser.add_argument("--check", action="store_true")
 
+    confirm_parser = subparsers.add_parser("confirm-batch")
+    confirm_parser.add_argument("--inputs", type=Path, required=True)
+    confirm_parser.add_argument("--packet", type=Path, required=True)
+    confirm_parser.add_argument("--synthesis", type=Path, required=True)
+    confirm_parser.add_argument("--progress", type=Path, required=True)
+    confirm_parser.add_argument("--expected", type=Path, required=True)
+    confirm_parser.add_argument("--batch-decision", type=Path, required=True)
+    confirm_parser.add_argument("--maintainer", required=True)
+    confirm_parser.add_argument("--decision-date", required=True)
+
+    confirmation_parser = subparsers.add_parser("validate-confirmation")
+    confirmation_parser.add_argument("--inputs", type=Path, required=True)
+    confirmation_parser.add_argument("--progress", type=Path, required=True)
+    confirmation_parser.add_argument("--expected", type=Path, required=True)
+
     args = parser.parse_args()
     errors: list[str] = []
     try:
@@ -474,7 +694,7 @@ def main() -> int:
                 model=args.model,
                 chunk_size=args.chunk_size,
             )
-        else:
+        elif args.command == "synthesize":
             value = build_synthesis(
                 args.packet.resolve(),
                 args.codex.resolve(),
@@ -482,6 +702,29 @@ def main() -> int:
                 args.choices.resolve(),
             )
             errors = write_or_check(args.output, value, check=args.check)
+        elif args.command == "confirm-batch":
+            batch_decision, progress, expected = build_confirmation_artifacts(
+                args.inputs.resolve(),
+                args.packet.resolve(),
+                args.synthesis.resolve(),
+                progress_path=args.progress.resolve(),
+                expected_path=args.expected.resolve(),
+                batch_decision_path=args.batch_decision.resolve(),
+                maintainer=args.maintainer,
+                decision_date=args.decision_date,
+            )
+            args.batch_decision.parent.mkdir(parents=True, exist_ok=True)
+            args.batch_decision.write_text(json_text(batch_decision), encoding="utf-8")
+            args.progress.parent.mkdir(parents=True, exist_ok=True)
+            args.progress.write_text(json_text(progress), encoding="utf-8")
+            args.expected.parent.mkdir(parents=True, exist_ok=True)
+            args.expected.write_text(json_text(expected), encoding="utf-8")
+        else:
+            errors = validate_confirmation(
+                args.inputs.resolve(),
+                args.progress.resolve(),
+                args.expected.resolve(),
+            )
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         errors = [str(exc)]
 

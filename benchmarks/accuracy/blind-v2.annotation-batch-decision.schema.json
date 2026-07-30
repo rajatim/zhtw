@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.annotation-batch-decision.schema.json",
+  "title": "zhtw Blind-v2 public annotation batch decision",
+  "type": "object",
+  "required": [
+    "version", "dataset", "batch_id", "status", "inputs_sha256", "packet_sha256",
+    "synthesis_sha256", "approval_policy", "decision_method", "maintainer",
+    "decision_date", "case_ids", "summary"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "dataset": { "type": "string", "const": "blind-v2" },
+    "batch_id": { "type": "string", "pattern": "^blind-v2-annotation-batch-[0-9]{3}$" },
+    "status": { "type": "string", "const": "human_confirmed" },
+    "inputs_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "packet_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "synthesis_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "approval_policy": { "type": "string", "const": "single_human_with_ai_advisory" },
+    "decision_method": { "type": "string", "const": "batch_human_confirmation" },
+    "maintainer": { "type": "string", "minLength": 1 },
+    "decision_date": { "type": "string", "format": "date" },
+    "case_ids": {
+      "type": "array", "minItems": 1, "maxItems": 100, "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^blind-v2-candidate-[0-9]{6}$" }
+    },
+    "summary": { "type": "string", "minLength": 1 }
+  }
+}
