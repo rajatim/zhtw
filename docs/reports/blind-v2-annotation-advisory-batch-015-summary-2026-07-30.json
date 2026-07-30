@@ -1,7 +1,7 @@
 {
-  "version":1,"dataset":"blind-v2","batch_id":"blind-v2-annotation-batch-015","status":"needs_maintainer_confirmation","case_count":100,
+  "version":1,"dataset":"blind-v2","batch_id":"blind-v2-annotation-batch-015","status":"human_confirmed","case_count":100,
   "selection":{"offset":1400,"limit":100},
-  "policy":{"approval_policy":"single_human_with_ai_advisory","converter_output_used":false,"expected_text_public":false,"expected_written_to_private_ground_truth":false},
+  "policy":{"approval_policy":"single_human_with_ai_advisory","converter_output_used":false,"expected_text_public":false,"expected_written_to_private_ground_truth":true},
   "hashes":{
     "packet_sha256":"da25289c58dd9aa8cb6221f42ede9cd24d470f7d47e6be4b1250ff3278d7c092",
     "codex_advisory_sha256":"15147a8e53f6275c9bf968f0f1d41a6a4c78ff1f81c58ffdef266118265f30ec",
@@ -10,5 +10,6 @@
   },
   "independent_review":{"cli":"agy","cli_version":"1.1.8","model":"gemini-3.1-pro-high","accepted_conversations":5,"turns_per_conversation":[1,1,1,1,1],"primary_output_agreement":48,"primary_output_differences":52,"acceptable_only_differences":29},
   "synthesis":{"agreement":48,"codex":41,"agy":4,"hybrid":7,"needs_maintainer_review":12},
-  "maintainer_review_case_ids":["blind-v2-candidate-004041","blind-v2-candidate-004068","blind-v2-candidate-004077","blind-v2-candidate-004151","blind-v2-candidate-004152","blind-v2-candidate-004154","blind-v2-candidate-004196","blind-v2-candidate-004197","blind-v2-candidate-004212","blind-v2-candidate-004224","blind-v2-candidate-004230","blind-v2-candidate-004240"]
+  "maintainer_review_case_ids":["blind-v2-candidate-004041","blind-v2-candidate-004068","blind-v2-candidate-004077","blind-v2-candidate-004151","blind-v2-candidate-004152","blind-v2-candidate-004154","blind-v2-candidate-004196","blind-v2-candidate-004197","blind-v2-candidate-004212","blind-v2-candidate-004224","blind-v2-candidate-004230","blind-v2-candidate-004240"],
+  "maintainer_confirmation":{"maintainer":"tim","decision_date":"2026-07-30","decision_method":"batch_human_confirmation","confirmed_cases":100,"private_expected_sha256":"f61a5b8b27c87ae60d90a54d851901b75482b9606c33a97a080c66d0b2b7def6","annotation_progress_sha256":"6b9001cd7378540f0fafec224db6925fa1ee2075e999026f6872c8905a228e77"}
 }
