@@ -1,7 +1,7 @@
 {
-  "version":1,"dataset":"blind-v2","batch_id":"blind-v2-annotation-batch-013","status":"needs_maintainer_confirmation","case_count":100,
+  "version":1,"dataset":"blind-v2","batch_id":"blind-v2-annotation-batch-013","status":"human_confirmed","case_count":100,
   "selection":{"offset":1200,"limit":100},
-  "policy":{"approval_policy":"single_human_with_ai_advisory","converter_output_used":false,"expected_text_public":false,"expected_written_to_private_ground_truth":false},
+  "policy":{"approval_policy":"single_human_with_ai_advisory","converter_output_used":false,"expected_text_public":false,"expected_written_to_private_ground_truth":true},
   "hashes":{
     "packet_sha256":"46c32e24b8c6c54d4b29949620c9b3ff35869a68150e9b2732759d934779f21c",
     "codex_advisory_sha256":"8b9f74bab3f999fd7e284a554adae93d88c4423a9d582ed46a094034994c71e9",
@@ -9,5 +9,6 @@
     "synthesis_sha256":"5837cfc31c5ed8f75904c8ce73395e6c07ec9a7d865ffd533a1c0b96919e8a14"
   },
   "independent_review":{"cli":"agy","cli_version":"1.1.8","model":"gemini-3.1-pro-high","accepted_conversations":5,"turns_per_conversation":[1,1,1,1,1],"primary_output_agreement":31,"primary_output_differences":69,"acceptable_only_differences":17},
-  "synthesis":{"agreement":31,"codex":67,"agy":1,"hybrid":1,"needs_maintainer_review":13}
+  "synthesis":{"agreement":31,"codex":67,"agy":1,"hybrid":1,"needs_maintainer_review":13},
+  "maintainer_confirmation":{"maintainer":"tim","decision_date":"2026-07-30","decision_method":"batch_human_confirmation","confirmed_cases":100,"private_expected_sha256":"dbcca71dd2697ce219ae97756042c4baac741b0ab0d077e773534ef1dbd88b1a","annotation_progress_sha256":"ed1fe240427b8fd0c649f98bf99fec06e78ab808422b3349712af0debdc37dbc"}
 }
