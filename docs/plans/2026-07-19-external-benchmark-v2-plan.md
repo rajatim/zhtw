@@ -1329,6 +1329,14 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   annotation progress 為 700/1,960，SHA-256 為
   `696ae152e90cf7493005e5b02ed21943ac2c048fbc47f3f7985c69343404ad36`；全程未執行
   zhtw 或競品 converter。
+- [ ] 2026-07-30 完成正式 expected annotation batch 008 advisory：從 frozen inputs
+  的固定 offset 700 取 100 筆，Codex first pass 與 Agy CLI 1.1.8
+  `gemini-3.1-pro-high` independent advisory 均完成。Agy 使用 5 個隔離、sandboxed、
+  單輪 conversation，每組 20 筆，100/100 IDs 與順序驗證通過。雙方 primary expected
+  16 筆一致、84 筆不同，另有 10 筆僅 acceptable variants 不同；Codex synthesis 為
+  16 agreement、78 Codex、3 Agy、3 hybrid，其中 10 筆因 Census 作業名稱、來源語意
+  缺漏或 Kubernetes lifecycle 語意交由 maintainer 確認。Private expected 尚未寫入，
+  public annotation progress 維持 700/1,960；全程未執行 zhtw 或競品 converter。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent
