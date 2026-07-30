@@ -2,7 +2,7 @@
   "version": 1,
   "dataset": "blind-v2",
   "batch_id": "blind-v2-annotation-batch-005",
-  "status": "needs_maintainer_confirmation",
+  "status": "human_confirmed",
   "case_count": 100,
   "selection": {
     "offset": 400,
@@ -12,7 +12,7 @@
     "approval_policy": "single_human_with_ai_advisory",
     "converter_output_used": false,
     "expected_text_public": false,
-    "expected_written_to_private_ground_truth": false
+    "expected_written_to_private_ground_truth": true
   },
   "hashes": {
     "packet_sha256": "d6e191eb50305d7e18062287050df551bf31425180f2e11c47023eaf3c3341ab",
@@ -36,5 +36,13 @@
     "agy": 1,
     "hybrid": 5,
     "needs_maintainer_review": 5
+  },
+  "maintainer_confirmation": {
+    "maintainer": "tim",
+    "decision_date": "2026-07-30",
+    "decision_method": "batch_human_confirmation",
+    "confirmed_cases": 100,
+    "private_expected_sha256": "4ebc97865074c8cbdbcc5888f957550ccd7f9deb79385d27d409af030c060870",
+    "annotation_progress_sha256": "f7f4dc8b2299513e1130394a33e62e2e28849c85a5d65f3da36cacf7ac5c9817"
   }
 }
