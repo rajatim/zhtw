@@ -1523,11 +1523,13 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
 - [x] 產生差異與 maintainer review packet。
 - [x] Maintainer confirmation 後寫入 private expected。
 - [x] 驗證 final decisions 明確涵蓋 N/N cases。
-- [x] 封存 inputs、expected、protocol 與 preregistration hash：正式候選 commit 為
-  `8ec32ef14ad41276cbfce6a74f87738ac9270f7b`；preregistration SHA-256 為
-  `124686923cfb12fde499882eeeec29752348a9b8ad5decdbdb9cdc9ce530238c`。
-- [ ] 在具備 locked competitor image 的受控環境執行 one-shot benchmark；目前本機未安裝
-  Docker，因此尚未建立 `run_started` 或讀取任何分數。
+- [x] 封存 inputs、expected、protocol 與 preregistration hash：最終正式候選 commit 為
+  `19626cf119e0ef7c8c04faa81960ee735eb9ac5a`；preregistration SHA-256 為
+  `f9931673a781acd9b3c68d5805b801161dbeb982fb66d07c336c1b68731a5f5c`。
+- [x] 在 locked competitor image 的受控本機環境執行 aggregate-only one-shot benchmark；
+  zhtw 661/1,960（33.72%）、OpenCC 604/1,960（30.82%）、zhconv 560/1,960
+  （28.57%）。zhtw 對兩個 ranking representatives 的 paired delta 95% CI 均高於 0，
+  符合 preregistered winner rule；全程未讀取 detailed rows。
 
 完成條件：最終抽樣 N/N human decisions 完成，N 滿足預先登記的 power analysis，來源
 標示誠實，第一次執行前無 converter output 接觸 expected。
@@ -1535,9 +1537,9 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
 ### Phase 5：正式比較與發布（P1）
 
 - [ ] 在不可變 zhtw tag/commit 上執行所有 tracks。
-- [ ] Blind-v2 只在受控本機／self-hosted 環境執行並寫入 evaluation ledger。
+- [x] Blind-v2 只在受控本機／self-hosted 環境執行並寫入 evaluation ledger。
 - [ ] 產生 aggregate-only public report 與 private detailed audit。
-- [ ] 驗證所有競品可用、版本相符、case count 相同。
+- [x] 驗證所有競品可用、版本相符、case count 相同。
 - [ ] 完成統計顯著性與 error taxonomy review。
 - [ ] Maintainer review 報告措辭與宣稱範圍。
 - [ ] 第三方依公開 manifest 重跑 external tracks。
@@ -1593,12 +1595,12 @@ CI 分層：
 - [x] runner 記錄 zhtw commit/dirty/version，且版本矛盾時中止。
 - [x] 至少 UD 與國教院兩個外部 tracks 可離線重現評分。
 - [x] 正式競品版本與 config 全部鎖定，不允許 unavailable 被忽略。
-- [ ] 報告包含 macro/micro、risk strata、idempotency、CI 與 paired delta。
-- [ ] Blind-v2 candidate pool、去重、固定抽樣與 power analysis 可重現。
-- [ ] blind-v2 的正式 N 滿足 power analysis，且 N/N 完成 maintainer human decision。
-- [ ] preregistration 與 evaluation ledger 證明正式比較是 one-shot frozen evaluation。
+- [x] 報告包含 macro/micro、risk strata、idempotency、CI 與 paired delta。
+- [x] Blind-v2 candidate pool、去重、固定抽樣與 power analysis 可重現。
+- [x] blind-v2 的正式 N 滿足 power analysis，且 N/N 完成 maintainer human decision。
+- [x] preregistration 與 evaluation ledger 證明正式比較是 one-shot frozen evaluation。
 - [ ] GitHub-hosted Actions 無法存取 private expected。
-- [ ] 公開報告未洩漏 blind-v2 expected、output、miss IDs 或詳細 rows。
+- [x] 公開報告未洩漏 blind-v2 expected、output、miss IDs 或詳細 rows。
 - [ ] 宣稱文字經 maintainer 確認且不超出 benchmark 證據。
 
 ## 11. 建議交付拆分

@@ -1,0 +1,744 @@
+{
+  "generated_date": "2026-07-31",
+  "report_mode": "aggregate",
+  "dataset": "blind-v2",
+  "dataset_classification": "",
+  "provenance": {
+    "zhtw_version": "4.4.2",
+    "git_sha": "19626cf119e0ef7c8c04faa81960ee735eb9ac5a",
+    "git_dirty": false,
+    "python_version": "3.11.14",
+    "node_version": "v26.5.0",
+    "rust_version": "rustc 1.80.0 (051478957 2024-07-21)",
+    "os": "macOS-26.5.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "runner_sha256": "2798414ab5dfa2cbf3752a7ab4e688bc00569a7d04d99e05f59c0c5621daa3ef"
+  },
+  "inputs": {
+    "path": "benchmarks/accuracy/blind-v2.inputs.json",
+    "sha256": "ddef836456ee29decf019dae981c1017b9728524c42808ae2d7c2c894299820a",
+    "name": "blind-v2.inputs",
+    "status": "selected",
+    "publish_state": ""
+  },
+  "expected_sha256": "511b2845969a60c6c5b53e7de17b85fbe00b11521648dac10e77fe6ec6ace9c5",
+  "competitors_lock": {
+    "path": "benchmarks/accuracy/competitors.lock.json",
+    "sha256": "f72ed6d38c1fe1336a61c267baab518b48cd4d3046d4ca3bd525f94eb7ca8765",
+    "status": "locked",
+    "environment_sha256": "0ea3a0082456cca66973cf7bf6f04e608a1d78ca507c541569b391635de471ae",
+    "ranking_families": [
+      {
+        "id": "zhtw",
+        "engine_ids": [
+          "zhtw"
+        ],
+        "ranking_representative": "zhtw"
+      },
+      {
+        "id": "opencc",
+        "engine_ids": [
+          "opencc-s2twp",
+          "opencc-js-cn-twp"
+        ],
+        "ranking_representative": "opencc-s2twp"
+      },
+      {
+        "id": "mediawiki-zhconv",
+        "engine_ids": [
+          "zhconv-zh-tw",
+          "zhconv-rs-zh-tw"
+        ],
+        "ranking_representative": "zhconv-zh-tw"
+      }
+    ],
+    "competitors": [
+      {
+        "id": "zhtw",
+        "display_name": "zhtw",
+        "included_in_formal_runner": true,
+        "adapter": "local_python",
+        "family": "zhtw",
+        "package": "zhtw",
+        "version": "4.4.2",
+        "license": "MIT",
+        "artifact_sha256": {
+          "sdk/data/zhtw-data.json": "f010ebe390dbf3fd21e5cdf41ade9db4057fc66146662610f36ebb46997cbc2e"
+        },
+        "source_url": "https://github.com/rajatim/zhtw",
+        "command": "from zhtw import convert; convert(text)",
+        "locale_or_config": "default Simplified/HK Traditional to Taiwan Traditional rules",
+        "config_sha256": "f010ebe390dbf3fd21e5cdf41ade9db4057fc66146662610f36ebb46997cbc2e",
+        "version_probe": "zhtw.__version__",
+        "notes": "Primary candidate engine; preregistration additionally pins the immutable Git commit."
+      },
+      {
+        "id": "opencc-s2twp",
+        "display_name": "OpenCC s2twp",
+        "included_in_formal_runner": true,
+        "adapter": "container_jsonl",
+        "family": "opencc",
+        "package": "OpenCC",
+        "version": "1.4.1",
+        "license": "Apache-2.0",
+        "artifact_sha256": {
+          "linux/amd64 wheel": "dd35957fcdb633b1c262a5c36e57306be8db25de972bf5d700cc17cbef3d98b4",
+          "linux/arm64 wheel": "3f64c90aa026d5d69ced1f4b5375e0480408597b785075c3c34ab2ae37f66cd0"
+        },
+        "source_url": "https://github.com/BYVoid/OpenCC/releases/tag/ver.1.4.1",
+        "command": "opencc.OpenCC('s2twp').convert(text)",
+        "locale_or_config": "s2twp.json",
+        "config_sha256": "681dd1ff5f3a1efe93a6f56006ee7f58f767fa0366fd3a2ec6165c983e39415d",
+        "version_probe": "importlib.metadata.version('OpenCC') plus installed s2twp.json SHA-256",
+        "notes": "Ranking representative for the OpenCC family; outputs are comparison signals only and never expected-output or dictionary sources."
+      },
+      {
+        "id": "opencc-js-cn-twp",
+        "display_name": "opencc-js cn -> twp",
+        "included_in_formal_runner": true,
+        "adapter": "container_jsonl",
+        "family": "opencc",
+        "package": "opencc-js",
+        "version": "1.4.1",
+        "license": "MIT AND Apache-2.0",
+        "artifact_sha256": {
+          "npm tarball": "8fbee9c4d4b5576bab64d28aecf047cdcc9ad6874c24edf7de2bb23f821e7c5b"
+        },
+        "source_url": "https://github.com/nk2028/opencc-js/releases/tag/v1.4.1",
+        "command": "OpenCC.Converter({ from: 'cn', to: 'twp' })(text)",
+        "locale_or_config": "cn -> twp",
+        "config_sha256": "3e6093597509a9afc3fe36ec33325ac2d485f8fd3148c4f7ac8a5232cb5df767",
+        "version_probe": "opencc-js package.json version plus canonical locale options SHA-256",
+        "notes": "OpenCC-family conformance implementation; not counted as an independent ranking competitor and never used as an expected-output source."
+      },
+      {
+        "id": "zhconv-zh-tw",
+        "display_name": "zhconv zh-tw",
+        "included_in_formal_runner": true,
+        "adapter": "container_jsonl",
+        "family": "mediawiki-zhconv",
+        "package": "zhconv",
+        "version": "1.4.3",
+        "license": "GPL-2.0-or-later",
+        "artifact_sha256": {
+          "source distribution": "ad42d9057ca0605f8e41d62b67ca797f879f58193ee6840562c51459b2698c45"
+        },
+        "source_url": "https://github.com/gumblex/zhconv/tree/v1.4.3",
+        "command": "zhconv.convert(text, 'zh-tw')",
+        "locale_or_config": "zh-tw",
+        "config_sha256": "5ed77140c1a379ed193b1f2a75c6c14e2e87df01a3f1fdbe00cff2f0ddf97cfb",
+        "version_probe": "importlib.metadata.version('zhconv') plus locale SHA-256",
+        "notes": "Ranking representative for the MediaWiki-derived zhconv family; outputs never define expected values."
+      },
+      {
+        "id": "zhconv-rs-zh-tw",
+        "display_name": "zhconv-rs zh-TW",
+        "included_in_formal_runner": true,
+        "adapter": "container_jsonl",
+        "family": "mediawiki-zhconv",
+        "package": "zhconv-rs",
+        "version": "0.4.1",
+        "license": "GPL-2.0-or-later (default MediaWiki-derived rules)",
+        "artifact_sha256": {
+          "linux/amd64 wheel": "599f82500c928ba9e3be8bbeb246391fe249c90d92a8d1f66d1f98bb37fba06f",
+          "linux/arm64 wheel": "f94e561d2dab0ae021e56f409705cace269d4a512fbec78e40eb5a09c1f8e6a8"
+        },
+        "source_url": "https://github.com/Gowee/zhconv-rs/releases/tag/v0.4.1",
+        "command": "zhconv_rs.zhconv(text, 'zh-tw')",
+        "locale_or_config": "zh-TW with default MediaWiki-derived rules",
+        "config_sha256": "5ed77140c1a379ed193b1f2a75c6c14e2e87df01a3f1fdbe00cff2f0ddf97cfb",
+        "version_probe": "importlib.metadata.version('zhconv-rs') plus locale SHA-256",
+        "notes": "MediaWiki-derived family conformance implementation; not counted as independent ranking evidence and never used as an expected-output source."
+      }
+    ]
+  },
+  "normalization": [
+    "Unicode NFC",
+    "CRLF and CR become LF",
+    "remove one CLI trailing newline only",
+    "do not normalize punctuation, internal spaces, or regional synonyms"
+  ],
+  "dataset_manifest_sha256": "67a7bf913d70a12773d6a4ca550b2426e2078b266e0247f7e2e101006073eb71",
+  "preregistration_sha256": "f9931673a781acd9b3c68d5805b801161dbeb982fb66d07c336c1b68731a5f5c",
+  "summary": {
+    "case_count": 1960,
+    "by_domain": {
+      "formal_news": 294,
+      "high_stakes": 196,
+      "it_api_cli": 490,
+      "llm_generated": 294,
+      "social_daily": 294,
+      "ui_i18n": 392
+    },
+    "by_risk": {
+      "baseline_guard": 392,
+      "candidate_gap": 786,
+      "over_conversion_guard": 782
+    }
+  },
+  "engines": {
+    "zhtw": {
+      "available": true,
+      "version": "4.4.2",
+      "error": null,
+      "family": "zhtw",
+      "adapter": "local_python",
+      "environment_sha256": null,
+      "image_id": null,
+      "config_sha256": "f010ebe390dbf3fd21e5cdf41ade9db4057fc66146662610f36ebb46997cbc2e",
+      "scores": {
+        "total_cases": 1960,
+        "available_cases": 1960,
+        "unavailable_cases": 0,
+        "accepted": 661,
+        "misses": 1299,
+        "primary_exact": 620,
+        "acceptable_exact": 41,
+        "idempotent": 1915,
+        "accepted_accuracy": 0.33724489795918366,
+        "micro_accuracy": 0.33724489795918366,
+        "macro_domain_accuracy": 0.3485544217687075,
+        "primary_exact_accuracy": 0.3163265306122449,
+        "idempotency_rate": 0.9770408163265306,
+        "accepted_accuracy_ci_95": {
+          "low": 0.3173469387755102,
+          "high": 0.35867346938775513
+        },
+        "by_domain": {
+          "formal_news": {
+            "total": 294,
+            "accepted": 137,
+            "accepted_accuracy": 0.46598639455782315
+          },
+          "high_stakes": {
+            "total": 196,
+            "accepted": 44,
+            "accepted_accuracy": 0.22448979591836735
+          },
+          "it_api_cli": {
+            "total": 490,
+            "accepted": 71,
+            "accepted_accuracy": 0.14489795918367346
+          },
+          "llm_generated": {
+            "total": 294,
+            "accepted": 138,
+            "accepted_accuracy": 0.46938775510204084
+          },
+          "social_daily": {
+            "total": 294,
+            "accepted": 112,
+            "accepted_accuracy": 0.38095238095238093
+          },
+          "ui_i18n": {
+            "total": 392,
+            "accepted": 159,
+            "accepted_accuracy": 0.40561224489795916
+          }
+        },
+        "by_risk": {
+          "baseline_guard": {
+            "total": 392,
+            "accepted": 162,
+            "accuracy": 0.413265306122449
+          },
+          "candidate_gap": {
+            "total": 786,
+            "accepted": 197,
+            "accuracy": 0.2506361323155216
+          },
+          "over_conversion_guard": {
+            "total": 782,
+            "accepted": 302,
+            "accuracy": 0.38618925831202044
+          }
+        },
+        "conversion_recall": 0.2506361323155216,
+        "over_conversion_guard_accuracy": 0.38618925831202044,
+        "baseline_guard_accuracy": 0.413265306122449,
+        "p0_error_count": 0,
+        "p1_error_count": 0,
+        "severe_error_rate": 0.0,
+        "errors_by_category": {},
+        "changed_span": {
+          "required_edits": 10783,
+          "produced_edits": 9191,
+          "correct_edits": 6056,
+          "precision": 0.6589054509846589,
+          "recall": 0.5616247797458963,
+          "f1": 0.6063883047962351
+        },
+        "misses_by_risk": {
+          "baseline_guard": 230,
+          "candidate_gap": 589,
+          "over_conversion_guard": 480
+        },
+        "misses_by_issue_tag": {
+          "other": 1299
+        }
+      }
+    },
+    "opencc-s2twp": {
+      "available": true,
+      "version": "1.4.1",
+      "error": null,
+      "family": "opencc",
+      "adapter": "container_jsonl",
+      "environment_sha256": "0ea3a0082456cca66973cf7bf6f04e608a1d78ca507c541569b391635de471ae",
+      "image_id": "sha256:c7d4c157e36b9ad84901ab7a189d0cb0d1ad5e43df8dc7685746aed3a0e2721c",
+      "config_sha256": "681dd1ff5f3a1efe93a6f56006ee7f58f767fa0366fd3a2ec6165c983e39415d",
+      "scores": {
+        "total_cases": 1960,
+        "available_cases": 1960,
+        "unavailable_cases": 0,
+        "accepted": 604,
+        "misses": 1356,
+        "primary_exact": 567,
+        "acceptable_exact": 37,
+        "idempotent": 1929,
+        "accepted_accuracy": 0.3081632653061224,
+        "micro_accuracy": 0.3081632653061224,
+        "macro_domain_accuracy": 0.3151643990929705,
+        "primary_exact_accuracy": 0.2892857142857143,
+        "idempotency_rate": 0.9841836734693877,
+        "accepted_accuracy_ci_95": {
+          "low": 0.28877551020408165,
+          "high": 0.32908163265306123
+        },
+        "by_domain": {
+          "formal_news": {
+            "total": 294,
+            "accepted": 106,
+            "accepted_accuracy": 0.36054421768707484
+          },
+          "high_stakes": {
+            "total": 196,
+            "accepted": 32,
+            "accepted_accuracy": 0.16326530612244897
+          },
+          "it_api_cli": {
+            "total": 490,
+            "accepted": 57,
+            "accepted_accuracy": 0.11632653061224489
+          },
+          "llm_generated": {
+            "total": 294,
+            "accepted": 130,
+            "accepted_accuracy": 0.4421768707482993
+          },
+          "social_daily": {
+            "total": 294,
+            "accepted": 114,
+            "accepted_accuracy": 0.3877551020408163
+          },
+          "ui_i18n": {
+            "total": 392,
+            "accepted": 165,
+            "accepted_accuracy": 0.42091836734693877
+          }
+        },
+        "by_risk": {
+          "baseline_guard": {
+            "total": 392,
+            "accepted": 148,
+            "accuracy": 0.37755102040816324
+          },
+          "candidate_gap": {
+            "total": 786,
+            "accepted": 184,
+            "accuracy": 0.2340966921119593
+          },
+          "over_conversion_guard": {
+            "total": 782,
+            "accepted": 272,
+            "accuracy": 0.34782608695652173
+          }
+        },
+        "conversion_recall": 0.2340966921119593,
+        "over_conversion_guard_accuracy": 0.34782608695652173,
+        "baseline_guard_accuracy": 0.37755102040816324,
+        "p0_error_count": 0,
+        "p1_error_count": 0,
+        "severe_error_rate": 0.0,
+        "errors_by_category": {},
+        "changed_span": {
+          "required_edits": 10783,
+          "produced_edits": 9169,
+          "correct_edits": 5872,
+          "precision": 0.6404188024866397,
+          "recall": 0.5445608828711861,
+          "f1": 0.5886126704089816
+        },
+        "misses_by_risk": {
+          "baseline_guard": 244,
+          "candidate_gap": 602,
+          "over_conversion_guard": 510
+        },
+        "misses_by_issue_tag": {
+          "other": 1356
+        }
+      }
+    },
+    "opencc-js-cn-twp": {
+      "available": true,
+      "version": "1.4.1",
+      "error": null,
+      "family": "opencc",
+      "adapter": "container_jsonl",
+      "environment_sha256": "0ea3a0082456cca66973cf7bf6f04e608a1d78ca507c541569b391635de471ae",
+      "image_id": "sha256:c7d4c157e36b9ad84901ab7a189d0cb0d1ad5e43df8dc7685746aed3a0e2721c",
+      "config_sha256": "3e6093597509a9afc3fe36ec33325ac2d485f8fd3148c4f7ac8a5232cb5df767",
+      "scores": {
+        "total_cases": 1960,
+        "available_cases": 1960,
+        "unavailable_cases": 0,
+        "accepted": 604,
+        "misses": 1356,
+        "primary_exact": 567,
+        "acceptable_exact": 37,
+        "idempotent": 1929,
+        "accepted_accuracy": 0.3081632653061224,
+        "micro_accuracy": 0.3081632653061224,
+        "macro_domain_accuracy": 0.3151643990929705,
+        "primary_exact_accuracy": 0.2892857142857143,
+        "idempotency_rate": 0.9841836734693877,
+        "accepted_accuracy_ci_95": {
+          "low": 0.28877551020408165,
+          "high": 0.32908163265306123
+        },
+        "by_domain": {
+          "formal_news": {
+            "total": 294,
+            "accepted": 106,
+            "accepted_accuracy": 0.36054421768707484
+          },
+          "high_stakes": {
+            "total": 196,
+            "accepted": 32,
+            "accepted_accuracy": 0.16326530612244897
+          },
+          "it_api_cli": {
+            "total": 490,
+            "accepted": 57,
+            "accepted_accuracy": 0.11632653061224489
+          },
+          "llm_generated": {
+            "total": 294,
+            "accepted": 130,
+            "accepted_accuracy": 0.4421768707482993
+          },
+          "social_daily": {
+            "total": 294,
+            "accepted": 114,
+            "accepted_accuracy": 0.3877551020408163
+          },
+          "ui_i18n": {
+            "total": 392,
+            "accepted": 165,
+            "accepted_accuracy": 0.42091836734693877
+          }
+        },
+        "by_risk": {
+          "baseline_guard": {
+            "total": 392,
+            "accepted": 148,
+            "accuracy": 0.37755102040816324
+          },
+          "candidate_gap": {
+            "total": 786,
+            "accepted": 184,
+            "accuracy": 0.2340966921119593
+          },
+          "over_conversion_guard": {
+            "total": 782,
+            "accepted": 272,
+            "accuracy": 0.34782608695652173
+          }
+        },
+        "conversion_recall": 0.2340966921119593,
+        "over_conversion_guard_accuracy": 0.34782608695652173,
+        "baseline_guard_accuracy": 0.37755102040816324,
+        "p0_error_count": 0,
+        "p1_error_count": 0,
+        "severe_error_rate": 0.0,
+        "errors_by_category": {},
+        "changed_span": {
+          "required_edits": 10783,
+          "produced_edits": 9169,
+          "correct_edits": 5872,
+          "precision": 0.6404188024866397,
+          "recall": 0.5445608828711861,
+          "f1": 0.5886126704089816
+        },
+        "misses_by_risk": {
+          "baseline_guard": 244,
+          "candidate_gap": 602,
+          "over_conversion_guard": 510
+        },
+        "misses_by_issue_tag": {
+          "other": 1356
+        }
+      }
+    },
+    "zhconv-zh-tw": {
+      "available": true,
+      "version": "1.4.3",
+      "error": null,
+      "family": "mediawiki-zhconv",
+      "adapter": "container_jsonl",
+      "environment_sha256": "0ea3a0082456cca66973cf7bf6f04e608a1d78ca507c541569b391635de471ae",
+      "image_id": "sha256:c7d4c157e36b9ad84901ab7a189d0cb0d1ad5e43df8dc7685746aed3a0e2721c",
+      "config_sha256": "5ed77140c1a379ed193b1f2a75c6c14e2e87df01a3f1fdbe00cff2f0ddf97cfb",
+      "scores": {
+        "total_cases": 1960,
+        "available_cases": 1960,
+        "unavailable_cases": 0,
+        "accepted": 560,
+        "misses": 1400,
+        "primary_exact": 528,
+        "acceptable_exact": 32,
+        "idempotent": 1959,
+        "accepted_accuracy": 0.2857142857142857,
+        "micro_accuracy": 0.2857142857142857,
+        "macro_domain_accuracy": 0.30677437641723354,
+        "primary_exact_accuracy": 0.2693877551020408,
+        "idempotency_rate": 0.9994897959183674,
+        "accepted_accuracy_ci_95": {
+          "low": 0.26632653061224487,
+          "high": 0.30459183673469387
+        },
+        "by_domain": {
+          "formal_news": {
+            "total": 294,
+            "accepted": 140,
+            "accepted_accuracy": 0.47619047619047616
+          },
+          "high_stakes": {
+            "total": 196,
+            "accepted": 46,
+            "accepted_accuracy": 0.23469387755102042
+          },
+          "it_api_cli": {
+            "total": 490,
+            "accepted": 34,
+            "accepted_accuracy": 0.06938775510204082
+          },
+          "llm_generated": {
+            "total": 294,
+            "accepted": 127,
+            "accepted_accuracy": 0.43197278911564624
+          },
+          "social_daily": {
+            "total": 294,
+            "accepted": 100,
+            "accepted_accuracy": 0.3401360544217687
+          },
+          "ui_i18n": {
+            "total": 392,
+            "accepted": 113,
+            "accepted_accuracy": 0.288265306122449
+          }
+        },
+        "by_risk": {
+          "baseline_guard": {
+            "total": 392,
+            "accepted": 149,
+            "accuracy": 0.38010204081632654
+          },
+          "candidate_gap": {
+            "total": 786,
+            "accepted": 134,
+            "accuracy": 0.17048346055979643
+          },
+          "over_conversion_guard": {
+            "total": 782,
+            "accepted": 277,
+            "accuracy": 0.35421994884910485
+          }
+        },
+        "conversion_recall": 0.17048346055979643,
+        "over_conversion_guard_accuracy": 0.35421994884910485,
+        "baseline_guard_accuracy": 0.38010204081632654,
+        "p0_error_count": 0,
+        "p1_error_count": 0,
+        "severe_error_rate": 0.0,
+        "errors_by_category": {},
+        "changed_span": {
+          "required_edits": 10783,
+          "produced_edits": 8949,
+          "correct_edits": 5446,
+          "precision": 0.6085596155995083,
+          "recall": 0.5050542520634331,
+          "f1": 0.5519967565376039
+        },
+        "misses_by_risk": {
+          "baseline_guard": 243,
+          "candidate_gap": 652,
+          "over_conversion_guard": 505
+        },
+        "misses_by_issue_tag": {
+          "other": 1400
+        }
+      }
+    },
+    "zhconv-rs-zh-tw": {
+      "available": true,
+      "version": "0.4.1",
+      "error": null,
+      "family": "mediawiki-zhconv",
+      "adapter": "container_jsonl",
+      "environment_sha256": "0ea3a0082456cca66973cf7bf6f04e608a1d78ca507c541569b391635de471ae",
+      "image_id": "sha256:c7d4c157e36b9ad84901ab7a189d0cb0d1ad5e43df8dc7685746aed3a0e2721c",
+      "config_sha256": "5ed77140c1a379ed193b1f2a75c6c14e2e87df01a3f1fdbe00cff2f0ddf97cfb",
+      "scores": {
+        "total_cases": 1960,
+        "available_cases": 1960,
+        "unavailable_cases": 0,
+        "accepted": 560,
+        "misses": 1400,
+        "primary_exact": 529,
+        "acceptable_exact": 31,
+        "idempotent": 1960,
+        "accepted_accuracy": 0.2857142857142857,
+        "micro_accuracy": 0.2857142857142857,
+        "macro_domain_accuracy": 0.3074829931972789,
+        "primary_exact_accuracy": 0.2698979591836735,
+        "idempotency_rate": 1.0,
+        "accepted_accuracy_ci_95": {
+          "low": 0.26632653061224487,
+          "high": 0.30612244897959184
+        },
+        "by_domain": {
+          "formal_news": {
+            "total": 294,
+            "accepted": 142,
+            "accepted_accuracy": 0.48299319727891155
+          },
+          "high_stakes": {
+            "total": 196,
+            "accepted": 48,
+            "accepted_accuracy": 0.24489795918367346
+          },
+          "it_api_cli": {
+            "total": 490,
+            "accepted": 34,
+            "accepted_accuracy": 0.06938775510204082
+          },
+          "llm_generated": {
+            "total": 294,
+            "accepted": 126,
+            "accepted_accuracy": 0.42857142857142855
+          },
+          "social_daily": {
+            "total": 294,
+            "accepted": 98,
+            "accepted_accuracy": 0.3333333333333333
+          },
+          "ui_i18n": {
+            "total": 392,
+            "accepted": 112,
+            "accepted_accuracy": 0.2857142857142857
+          }
+        },
+        "by_risk": {
+          "baseline_guard": {
+            "total": 392,
+            "accepted": 151,
+            "accuracy": 0.3852040816326531
+          },
+          "candidate_gap": {
+            "total": 786,
+            "accepted": 132,
+            "accuracy": 0.16793893129770993
+          },
+          "over_conversion_guard": {
+            "total": 782,
+            "accepted": 277,
+            "accuracy": 0.35421994884910485
+          }
+        },
+        "conversion_recall": 0.16793893129770993,
+        "over_conversion_guard_accuracy": 0.35421994884910485,
+        "baseline_guard_accuracy": 0.3852040816326531,
+        "p0_error_count": 0,
+        "p1_error_count": 0,
+        "severe_error_rate": 0.0,
+        "errors_by_category": {},
+        "changed_span": {
+          "required_edits": 10783,
+          "produced_edits": 8920,
+          "correct_edits": 5449,
+          "precision": 0.6108744394618834,
+          "recall": 0.505332467773347,
+          "f1": 0.553113739024514
+        },
+        "misses_by_risk": {
+          "baseline_guard": 241,
+          "candidate_gap": 654,
+          "over_conversion_guard": 505
+        },
+        "misses_by_issue_tag": {
+          "other": 1400
+        }
+      }
+    }
+  },
+  "paired_comparisons": {
+    "opencc-s2twp": {
+      "case_count": 1960,
+      "absolute_delta": 0.029081632653061223,
+      "delta_ci_95": {
+        "low": 0.01479591836734694,
+        "high": 0.04336734693877551
+      },
+      "candidate_only_correct": 132,
+      "competitor_only_correct": 75,
+      "mcnemar_exact_p": 9.038603372205995e-05,
+      "result": "winner",
+      "bootstrap_rounds": 10000,
+      "seed": 20260719
+    },
+    "opencc-js-cn-twp": {
+      "case_count": 1960,
+      "absolute_delta": 0.029081632653061223,
+      "delta_ci_95": {
+        "low": 0.01479591836734694,
+        "high": 0.04336734693877551
+      },
+      "candidate_only_correct": 132,
+      "competitor_only_correct": 75,
+      "mcnemar_exact_p": 9.038603372205995e-05,
+      "result": "winner",
+      "bootstrap_rounds": 10000,
+      "seed": 20260719
+    },
+    "zhconv-zh-tw": {
+      "case_count": 1960,
+      "absolute_delta": 0.05153061224489796,
+      "delta_ci_95": {
+        "low": 0.036734693877551024,
+        "high": 0.0663265306122449
+      },
+      "candidate_only_correct": 163,
+      "competitor_only_correct": 62,
+      "mcnemar_exact_p": 1.181476615731716e-11,
+      "result": "winner",
+      "bootstrap_rounds": 10000,
+      "seed": 20260719
+    },
+    "zhconv-rs-zh-tw": {
+      "case_count": 1960,
+      "absolute_delta": 0.05153061224489796,
+      "delta_ci_95": {
+        "low": 0.036224489795918365,
+        "high": 0.06683673469387755
+      },
+      "candidate_only_correct": 165,
+      "competitor_only_correct": 64,
+      "mcnemar_exact_p": 1.834429987317175e-11,
+      "result": "winner",
+      "bootstrap_rounds": 10000,
+      "seed": 20260719
+    }
+  }
+}
