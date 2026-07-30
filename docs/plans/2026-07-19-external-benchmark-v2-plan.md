@@ -1347,7 +1347,7 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   `gemini-3.1-pro-high` independent advisory 均完成。Agy 使用 5 個隔離、sandboxed、
   單輪 conversation，每組 20 筆，100/100 IDs 與順序驗證通過。雙方 primary expected
   4 筆一致、96 筆不同，另有 4 筆僅 acceptable variants 不同；Codex synthesis 為
-  4 agreement、94 Codex、1 Agy、1 hybrid，其中 12 筆因 Kubernetes lifecycle、來源
+  4 agreement、93 Codex、1 Agy、2 hybrid，其中 12 筆因 Kubernetes lifecycle、來源
   指令格式、安全警示或 Census 語意交由 maintainer 確認。Private expected 尚未寫入，
   public annotation progress 維持 800/1,960；全程未執行 zhtw 或競品 converter。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
