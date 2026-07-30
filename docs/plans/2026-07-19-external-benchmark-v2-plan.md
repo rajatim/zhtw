@@ -1480,8 +1480,8 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   丟棄；100/100 IDs 與順序通過 canonical validation。Agy CLI 1.1.8
   `gemini-3.1-pro-high` 使用 5 個隔離、sandboxed、單輪 conversation，每組 20 筆。
   雙方 primary expected 69 筆一致、31 筆不同，另有 26 筆僅 acceptable variants
-  不同；Codex 以 2 個 input-only 群組（16/15）完成 synthesis，逐筆複核後修正 3 筆，
-  結果為 69 agreement、21 Codex、7 Agy、3 hybrid。9 筆差異案例與 1 筆
+  不同；Codex 以 2 個 input-only 群組（16/15）完成 synthesis，逐筆複核後修正 4 筆，
+  結果為 69 agreement、22 Codex、6 Agy、3 hybrid。9 筆差異案例與 1 筆
   high-stakes agreement 因緊急應變、Chromium UI 或語意範圍交由 maintainer 確認。
   Private expected 尚未寫入，annotation progress 維持 1,800/1,960；全程未執行
   zhtw 或競品 converter。
