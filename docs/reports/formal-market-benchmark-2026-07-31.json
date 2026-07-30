@@ -1,0 +1,142 @@
+{
+  "generated_date": "2026-07-31",
+  "report_mode": "aggregate",
+  "name": "formal-market-benchmark-v2",
+  "decision": "scoped_winner",
+  "primary_endpoint": {
+    "dataset": "blind-v2",
+    "direction": "Simplified Chinese to Taiwan Traditional Chinese",
+    "case_count": 1960,
+    "metric": "accepted_accuracy",
+    "engines": [
+      {
+        "id": "zhtw",
+        "version": "4.4.2",
+        "family": "zhtw",
+        "accepted": 661,
+        "total_cases": 1960,
+        "accepted_accuracy": 0.33724489795918366,
+        "accepted_accuracy_ci_95": {
+          "low": 0.3173469387755102,
+          "high": 0.35867346938775513
+        },
+        "idempotency_rate": 0.9770408163265306,
+        "p0_error_count": 0
+      },
+      {
+        "id": "opencc-s2twp",
+        "version": "1.4.1",
+        "family": "opencc",
+        "accepted": 604,
+        "total_cases": 1960,
+        "accepted_accuracy": 0.3081632653061224,
+        "accepted_accuracy_ci_95": {
+          "low": 0.28877551020408165,
+          "high": 0.32908163265306123
+        },
+        "idempotency_rate": 0.9841836734693877,
+        "p0_error_count": 0
+      },
+      {
+        "id": "zhconv-zh-tw",
+        "version": "1.4.3",
+        "family": "mediawiki-zhconv",
+        "accepted": 560,
+        "total_cases": 1960,
+        "accepted_accuracy": 0.2857142857142857,
+        "accepted_accuracy_ci_95": {
+          "low": 0.26632653061224487,
+          "high": 0.30459183673469387
+        },
+        "idempotency_rate": 0.9994897959183674,
+        "p0_error_count": 0
+      }
+    ],
+    "paired_comparisons": {
+      "opencc-s2twp": {
+        "case_count": 1960,
+        "absolute_delta": 0.029081632653061223,
+        "delta_ci_95": {
+          "low": 0.01479591836734694,
+          "high": 0.04336734693877551
+        },
+        "candidate_only_correct": 132,
+        "competitor_only_correct": 75,
+        "mcnemar_exact_p": 9.038603372205995e-05,
+        "result": "winner",
+        "bootstrap_rounds": 10000,
+        "seed": 20260719
+      },
+      "zhconv-zh-tw": {
+        "case_count": 1960,
+        "absolute_delta": 0.05153061224489796,
+        "delta_ci_95": {
+          "low": 0.036734693877551024,
+          "high": 0.0663265306122449
+        },
+        "candidate_only_correct": 163,
+        "competitor_only_correct": 62,
+        "mcnemar_exact_p": 1.181476615731716e-11,
+        "result": "winner",
+        "bootstrap_rounds": 10000,
+        "seed": 20260719
+      }
+    }
+  },
+  "secondary_tracks": [
+    {
+      "dataset": "ud-gsd-v1",
+      "role": "secondary_evidence",
+      "cases": 4997,
+      "accuracy": 0.7048228937362417,
+      "idempotency_rate": 0.9793876325795478,
+      "source_bias": "opencc_derived_source_bias",
+      "git_sha": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "naer-terms-v1",
+      "role": "secondary_evidence",
+      "cases": 775,
+      "accuracy": 0.4012903225806452,
+      "idempotency_rate": 0.9664516129032258,
+      "excluded_context_candidates": 754,
+      "git_sha": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
+      "license": "政府資料開放授權條款-第1版 (Open Government Data License, version 1.0)"
+    }
+  ],
+  "cross_track_assessment": {
+    "status": "no_primary_conflict",
+    "notes": [
+      "Public tracks are secondary zhtw-only diagnostics and cannot change the Blind-v2 ranking.",
+      "UD GSD has OpenCC-derived source bias and is not independent competitor evidence.",
+      "NAER tests a conservative terminology subset, not sentence-level general accuracy.",
+      "Blind-v2 domain results are mixed; zhtw did not lead every domain.",
+      "zhtw idempotency was lower than both independent ranking representatives on Blind-v2."
+    ]
+  },
+  "governance": {
+    "blind_v2_git_sha": "19626cf119e0ef7c8c04faa81960ee735eb9ac5a",
+    "public_tracks_git_sha": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
+    "preregistration_sha256": "f9931673a781acd9b3c68d5805b801161dbeb982fb66d07c336c1b68731a5f5c",
+    "inputs_sha256": "ddef836456ee29decf019dae981c1017b9728524c42808ae2d7c2c894299820a",
+    "expected_sha256": "511b2845969a60c6c5b53e7de17b85fbe00b11521648dac10e77fe6ec6ace9c5",
+    "competitor_lock_sha256": "f72ed6d38c1fe1336a61c267baab518b48cd4d3046d4ca3bd525f94eb7ca8765",
+    "annotation_model": "single_human_with_ai_advisory",
+    "publication_scope": "aggregate_only",
+    "detailed_rows_read": false,
+    "private_detailed_audit": "pending_controlled_post_result_audit",
+    "external_hosted_public_reproduction": "configured_in_github_actions",
+    "independent_third_party_reproduction": "pending",
+    "maintainer_claim_confirmation": "pending"
+  },
+  "claim": {
+    "status": "pending_maintainer_confirmation",
+    "english": "On the frozen 1,960-case Blind-v2 benchmark for Simplified Chinese to Taiwan Traditional Chinese, zhtw 4.4.2 achieved 33.72% accepted accuracy, above OpenCC 1.4.1 at 30.82% and zhconv 1.4.3 at 28.57%. Both paired 95% confidence intervals were above zero. This result applies only to this dataset, direction, metric, and the listed versions; it does not prove that zhtw is best for every domain or real-world workload.",
+    "prohibited": [
+      "zhtw is the most accurate converter in every market or domain.",
+      "33.72% is zhtw's expected accuracy on normal user traffic.",
+      "The result covers untested converters, directions, versions, or datasets."
+    ]
+  }
+}

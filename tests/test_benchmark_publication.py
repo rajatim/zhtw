@@ -170,3 +170,13 @@ def test_tracked_benchmark_reports_pass_publication_audit() -> None:
     )
 
     assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_github_workflows_cannot_request_private_blind_v2_expected() -> None:
+    workflows = ROOT / ".github" / "workflows"
+    content = "\n".join(
+        path.read_text(encoding="utf-8") for path in sorted(workflows.glob("*.yml"))
+    )
+
+    assert "blind-v2.expected" not in content
+    assert "private/blind-v2" not in content

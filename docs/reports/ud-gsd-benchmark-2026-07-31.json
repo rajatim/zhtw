@@ -1,0 +1,70 @@
+{
+  "generated_date": "2026-07-31",
+  "report_mode": "aggregate",
+  "dataset": "ud-gsd-v1",
+  "track": "external_context",
+  "evidence_role": "secondary_evidence",
+  "primary_market_endpoint": false,
+  "source_bias": "opencc_derived_source_bias",
+  "manifest_sha256": "6e350197a3b34c1e75d38938f3c7a5ff35039adef4f546a7068d6ea0bf60f681",
+  "normalized_sha256": "87609cb557fa47213b21a87846ad2b8cb1a2c3cfec612ea524a1b296eda22022",
+  "upstream_revision": "UD_Chinese-GSD@e0d85a020182e264d6384be2a59c0f4879a1cc35; UD_Chinese-GSDSimp@7b61ed473f963e911788efdf1f478154bc1053e4; tag r2.18",
+  "license": "CC BY-SA 4.0",
+  "provenance": {
+    "zhtw_version": "4.4.2",
+    "git_sha": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
+    "git_dirty": false,
+    "python_version": "3.11.14",
+    "node_version": "v26.5.0",
+    "rust_version": "rustc 1.80.0 (051478957 2024-07-21)",
+    "os": "macOS-26.5.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "runner_sha256": "2798414ab5dfa2cbf3752a7ab4e688bc00569a7d04d99e05f59c0c5621daa3ef",
+    "scorer_sha256": "ab809eaf8dcc131c584a59387872161e0875f810dca04e67ef25edefa7836752"
+  },
+  "scores": {
+    "total_cases": 4997,
+    "exact": 3522,
+    "misses": 1475,
+    "exact_accuracy": 0.7048228937362417,
+    "exact_accuracy_ci_95": {
+      "low": 0.6924154492695618,
+      "high": 0.717430458274965
+    },
+    "idempotent": 4894,
+    "idempotency_rate": 0.9793876325795478,
+    "changed_span": {
+      "required_edits": 36901,
+      "produced_edits": 36869,
+      "correct_edits": 34761,
+      "precision": 0.9428245951883696,
+      "recall": 0.9420069916804422,
+      "f1": 0.9424156161041072
+    },
+    "by_split": {
+      "dev": {
+        "total": 500,
+        "exact": 342,
+        "exact_accuracy": 0.684
+      },
+      "test": {
+        "total": 500,
+        "exact": 343,
+        "exact_accuracy": 0.686
+      },
+      "train": {
+        "total": 3997,
+        "exact": 2837,
+        "exact_accuracy": 0.7097823367525644
+      }
+    },
+    "by_genre": {
+      "wiki": {
+        "total": 4997,
+        "exact": 3522,
+        "exact_accuracy": 0.7048228937362417
+      }
+    },
+    "errors_by_category": {}
+  }
+}
