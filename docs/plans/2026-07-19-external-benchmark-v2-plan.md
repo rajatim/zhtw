@@ -1215,6 +1215,17 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   尚差 98。`permissive_license` 1,963/5,782（33.95%）、`project_original`
   1,966/5,782（34.00%）、`public_domain` 1,853/5,782（32.05%），皆低於 35%。
   AOSP 維持 559 筆，占比降至 9.67%。
+- [ ] 2026-07-30 完成 batch 067 advisory：因 pool 距最低門檻尚差 98 筆，改用
+  Chromium、FEMA《Are You Ready?》與 project-original social/formal ambiguity
+  guard 各固定抽取 40 筆，共 120 筆，與 batches 001-066 無 ID 重疊。Codex
+  first pass 建議 113 筆納入、7 筆排除；Agy CLI 1.1.8
+  `gemini-3.1-pro-high` 建議 115 筆納入、5 筆排除。兩者有 118 筆四欄完全一致、
+  2 筆差異；Codex synthesis 對 1 筆採 Agy 的 eligible 判斷，另保留 1 筆不安全
+  的寵物避難來源翻譯排除，最終建議 114 筆納入、6 筆排除（118 agreement、2
+  codex_synthesis）。Agy 採用 6 個隔離單輪 conversation，每組 20 筆，零工具
+  結果回合、零錯誤。目前等待 maintainer confirmation；尚未寫入 pool，pool
+  維持 5,782 筆。此 synthesis 可容許最多 16 筆 promotion dedupe，仍能達到
+  5,880 筆最低門檻。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

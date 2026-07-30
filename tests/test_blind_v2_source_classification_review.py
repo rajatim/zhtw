@@ -6932,3 +6932,111 @@ def test_sixty_sixth_decision_is_reproducible() -> None:
         generated_date="2026-07-30",
         maintainer_decisions=decision,
     )
+
+
+def test_sixty_seventh_advisory_is_reproducible() -> None:
+    prefix = ROOT / "docs/reports"
+    packet_path = ACCURACY_ROOT / "review-packets/blind-v2-source-classification-batch-067.json"
+    codex_path = (
+        prefix / "blind-v2-source-classification-codex-first-pass-batch-067-2026-07-30.json"
+    )
+    gemini_path = (
+        prefix / "blind-v2-source-classification-gemini-independent-batch-067-2026-07-30.json"
+    )
+    adjustments_path = (
+        prefix
+        / "blind-v2-source-classification-codex-synthesis-adjustments-batch-067-2026-07-30.json"
+    )
+    synthesis_path = (
+        prefix / "blind-v2-source-classification-codex-synthesis-batch-067-2026-07-30.json"
+    )
+    diff_path = prefix / "blind-v2-source-classification-diff-batch-067-2026-07-30.md"
+    packet = load(packet_path)
+    codex = load(codex_path)
+    gemini = load(gemini_path)
+    adjustments = load(adjustments_path)
+    synthesis = load(synthesis_path)
+    packet_ids = [case["id"] for case in packet["cases"]]
+    prior_ids = {
+        case["id"]
+        for batch_number in range(1, 67)
+        for case in load(
+            ACCURACY_ROOT
+            / f"review-packets/blind-v2-source-classification-batch-{batch_number:03d}.json"
+        )["cases"]
+    }
+    packet_hash = hashlib.sha256(packet_path.read_bytes()).hexdigest()
+
+    assert packet["selection_policy"] == ("balanced-source-class-remaining-deterministic-sha256-v1")
+    assert packet["stats"] == {
+        "total": 120,
+        "by_source": {
+            "chromium-strings-zh-cn-v1": 40,
+            "ready-gov-are-you-ready-guide-simplified-v1": 40,
+            "zhtw-project-social-formal-ambiguity-guard-v1": 40,
+        },
+    }
+    assert set(packet_ids).isdisjoint(prior_ids)
+    assert codex["packet_sha256"] == gemini["packet_sha256"] == packet_hash
+    assert [case["id"] for case in codex["cases"]] == packet_ids
+    assert [case["id"] for case in gemini["cases"]] == packet_ids
+    assert codex["stats"] == {
+        "total": 120,
+        "eligible": 113,
+        "excluded": 7,
+        "high": 7,
+        "medium": 113,
+        "low": 0,
+    }
+    assert gemini["stats"] == {
+        "total": 120,
+        "eligible": 115,
+        "excluded": 5,
+        "high": 120,
+        "medium": 0,
+        "low": 0,
+        "policy_violations": 0,
+    }
+    execution = gemini["execution"]
+    conversation_ids = execution["conversation_id"].split(",")
+    assert execution["cli"] == "agy"
+    assert execution["cli_version"] == "1.1.8"
+    assert execution["mode"] == "plan"
+    assert len(conversation_ids) == len(set(conversation_ids)) == 6
+    assert execution["accepted_conversations"] == 6
+    assert execution["attempted_review_conversations"] == 6
+    assert execution["discarded_conversations"] == []
+    assert execution["turns_per_conversation"] == [1] * 6
+    assert execution["tool_calls"] == 0
+    assert execution["total_errors"] == 0
+    stats, differences = build_comparison(packet, codex, gemini)
+    assert stats == {
+        "total": 120,
+        "exact": 118,
+        "review_queue": 2,
+        "by_field": {"eligible": 2, "script": 0, "domain": 2, "risk": 2},
+    }
+    assert len(differences) == 2
+    overrides = {case["id"]: case["classification"] for case in adjustments["cases"]}
+    assert adjustments["stats"] == {"total": 2}
+    assert synthesis == build_synthesis(
+        codex,
+        gemini,
+        gemini_case_ids=set(),
+        generated_date="2026-07-30",
+        overrides=overrides,
+        override_basis="codex_synthesis",
+    )
+    assert synthesis["stats"] == {
+        "total": 120,
+        "eligible": 114,
+        "excluded": 6,
+        "by_selection_basis": {"agreement": 118, "codex_synthesis": 2},
+    }
+    assert diff_path.read_text(encoding="utf-8") == render_markdown(
+        packet,
+        codex,
+        gemini,
+        generated_date="2026-07-30",
+        maintainer_decisions=None,
+    )
