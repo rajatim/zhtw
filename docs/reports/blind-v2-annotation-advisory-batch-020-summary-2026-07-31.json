@@ -2,7 +2,7 @@
   "version": 1,
   "dataset": "blind-v2",
   "batch_id": "blind-v2-annotation-batch-020",
-  "status": "needs_maintainer_confirmation",
+  "status": "human_confirmed",
   "case_count": 60,
   "selection": {
     "offset": 1900,
@@ -12,7 +12,7 @@
     "approval_policy": "single_human_with_ai_advisory",
     "converter_output_used": false,
     "expected_text_public": false,
-    "expected_written_to_private_ground_truth": false
+    "expected_written_to_private_ground_truth": true
   },
   "hashes": {
     "packet_sha256": "c5512b733dc4d51fdcab1154b4dc1ef339fe3b37c457d30453427671269e0df9",
@@ -67,5 +67,13 @@
     "blind-v2-candidate-005792",
     "blind-v2-candidate-005805",
     "blind-v2-candidate-005885"
-  ]
+  ],
+  "maintainer_confirmation": {
+    "maintainer": "tim",
+    "decision_date": "2026-07-31",
+    "decision_method": "batch_human_confirmation",
+    "confirmed_cases": 60,
+    "private_expected_sha256": "511b2845969a60c6c5b53e7de17b85fbe00b11521648dac10e77fe6ec6ace9c5",
+    "annotation_progress_sha256": "43d90f84f6d29792e7cf2a477f87725d6639dffd29bb304b951f3341037929ff"
+  }
 }

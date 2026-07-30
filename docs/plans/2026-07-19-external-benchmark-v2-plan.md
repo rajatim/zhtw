@@ -1489,8 +1489,8 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   annotation progress 為 1,900/1,960，SHA-256 為
   `897461093f6bfd63b221e0be451769ef7a9a830024f71b2e44cf45eae1bfff2f`；全程未執行
   zhtw 或競品 converter。
-- [ ] 2026-07-31 完成最終 expected annotation batch 020 advisory，待 maintainer
-  確認：從 frozen inputs 的固定 offset 1,900 取剩餘 60 筆。Codex first pass 由
+- [x] 2026-07-31 完成最終 expected annotation batch 020：從 frozen inputs 的
+  固定 offset 1,900 取剩餘 60 筆。Codex first pass 由
   6 個 input-only 群組（每組 10 筆）完成，無丟棄任務；60/60 IDs 與順序通過
   canonical validation。Agy CLI 1.1.8 `gemini-3.1-pro-high` 使用 3 個隔離、
   sandboxed、單輪 conversation，每組 20 筆。雙方 primary expected 44 筆一致、
@@ -1498,8 +1498,12 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   群組完成 synthesis，逐筆複核後修正 2 筆，其中 1 筆使用受測試約束的 explicit
   hybrid agreement audit override，且未改寫任一獨立 advisory。結果為 43 agreement、
   14 Codex、1 Agy、2 hybrid，其中 3 筆因 Chromium 產品術語、身分驗證語意或門禁卡
-  用詞交由 maintainer 確認。Private expected 尚未寫入，annotation progress 維持
-  1,900/1,960；全程未執行 zhtw 或競品 converter。
+  用詞交由 maintainer 確認。Maintainer 於 2026-07-31 確認完整 60 筆 synthesis；
+  private expected 已完成 1,960/1,960 並轉為 `sealed_private`，SHA-256 為
+  `511b2845969a60c6c5b53e7de17b85fbe00b11521648dac10e77fe6ec6ace9c5`。Public
+  annotation progress 為 1,960/1,960，SHA-256 為
+  `43d90f84f6d29792e7cf2a477f87725d6639dffd29bb304b951f3341037929ff`；全程未執行
+  zhtw 或競品 converter。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent
@@ -1514,11 +1518,11 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   exact/near dedupe audit。
 - [x] 凍結 pool hash，以 seed `20260719` 依固定 domain/risk quotas 抽樣。
 - [x] 完成 power analysis；正式 N 取 `max(600, required_cases)`，不得以 1,200 為硬上限。
-- [ ] 執行 Codex first pass。
-- [ ] 執行 Gemini independent advisory。
-- [ ] 產生差異與 maintainer review packet。
-- [ ] Maintainer confirmation 後寫入 private expected。
-- [ ] 驗證 final decisions 明確涵蓋 N/N cases。
+- [x] 執行 Codex first pass。
+- [x] 執行 Agy independent advisory。
+- [x] 產生差異與 maintainer review packet。
+- [x] Maintainer confirmation 後寫入 private expected。
+- [x] 驗證 final decisions 明確涵蓋 N/N cases。
 - [ ] 封存 inputs、expected、protocol 與 preregistration hash，再執行 one-shot benchmark。
 
 完成條件：最終抽樣 N/N human decisions 完成，N 滿足預先登記的 power analysis，來源
