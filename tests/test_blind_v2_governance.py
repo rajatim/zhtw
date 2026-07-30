@@ -484,7 +484,10 @@ def test_blind_v2_private_artifacts_are_gitignored() -> None:
     private_paths = (
         "benchmarks/accuracy/blind-v2.expected.json",
         "benchmarks/accuracy/private/blind-v2.evaluation-ledger.jsonl",
+        "docs/reports/blind-v2-private-annotation-batch-001-packet.json",
         "docs/reports/blind-v2-private-codex-advisory.json",
+        "docs/reports/blind-v2-private-agy-independent-batch-001.json",
+        "docs/reports/blind-v2-private-codex-synthesis-batch-001.json",
     )
     for path in private_paths:
         result = subprocess.run(
