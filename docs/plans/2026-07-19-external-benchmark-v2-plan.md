@@ -1435,8 +1435,8 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   `gemini-3.1-pro-high` independent advisory 均完成。Agy 使用 5 個隔離、sandboxed、
   單輪 conversation，每組 20 筆；Codex synthesis 的單一長任務因無輸出而取消，改用
   4 個 input-only 群組（20/20/20/5）完成後再由 Codex 逐筆複核。雙方 primary expected
-  35 筆一致、65 筆不同，另有 23 筆僅 acceptable variants 不同；複核並修正 7 筆
-  synthesis 初稿後，結果為 35 agreement、49 Codex、4 Agy、12 hybrid，其中 22 筆
+  35 筆一致、65 筆不同，另有 23 筆僅 acceptable variants 不同；複核並修正 9 筆
+  synthesis 初稿後，結果為 35 agreement、48 Codex、4 Agy、13 hybrid，其中 22 筆
   差異案例與 2 筆 high-stakes agreement 因 Kubernetes 語意、緊急應變、政府稽核或
   數值用語交由 maintainer 確認。Private expected 尚未寫入，annotation progress
   維持 1,500/1,960；全程未執行 zhtw 或競品 converter。
