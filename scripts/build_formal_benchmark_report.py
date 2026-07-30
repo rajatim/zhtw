@@ -145,7 +145,12 @@ def build_report(blind: dict[str, Any], ud: dict[str, Any], naer: dict[str, Any]
             "publication_scope": "aggregate_only",
             "detailed_rows_read": False,
             "private_detailed_audit": "pending_controlled_post_result_audit",
-            "external_hosted_public_reproduction": "configured_in_github_actions",
+            "external_hosted_public_reproduction": {
+                "status": "passed",
+                "provider": "GitHub Actions",
+                "run_id": 30591590536,
+                "url": "https://github.com/rajatim/zhtw/actions/runs/30591590536",
+            },
             "independent_third_party_reproduction": "pending",
             "maintainer_claim_confirmation": "pending",
         },
@@ -262,6 +267,7 @@ def render_markdown(report: dict[str, Any]) -> str:
             f"- Inputs SHA-256: `{report['governance']['inputs_sha256']}`",
             f"- Expected SHA-256: `{report['governance']['expected_sha256']}`",
             f"- Competitor lock SHA-256: `{report['governance']['competitor_lock_sha256']}`",
+            "- Public-track score reproduction: GitHub Actions run `30591590536` passed.",
             "",
         ]
     )
