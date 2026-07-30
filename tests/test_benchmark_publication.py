@@ -21,6 +21,7 @@ from scripts.run_accuracy_benchmark import (
 
 ROOT = Path(__file__).resolve().parents[1]
 AUDITOR = ROOT / "scripts" / "audit_benchmark_publication.py"
+BLIND_V2_INPUTS = ROOT / "benchmarks" / "accuracy" / "blind-v2.inputs.json"
 
 
 def test_publication_audit_allows_top_level_expected_hash() -> None:
@@ -134,6 +135,30 @@ def test_formal_ledger_event_contains_hashes_only(tmp_path: Path) -> None:
     assert event["expected_sha256"] == hashlib.sha256(artifacts[2].read_bytes()).hexdigest()
     assert "expected" not in event
     assert event["detailed_rows_read"] is False
+
+
+def test_runner_loads_blind_v2_source_id_as_batch(tmp_path: Path) -> None:
+    data, cases = benchmark_runner.load_input_cases(BLIND_V2_INPUTS)
+    expected_path = tmp_path / "blind-v2.expected.json"
+    expected_path.write_text(
+        json.dumps(
+            {
+                "dataset": "blind-v2",
+                "cases": [{"id": cases[0].id, "expected": "預期", "acceptable": []}],
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+    expected_data, expected = benchmark_runner.load_expected_cases(expected_path)
+
+    assert data["dataset"] == "blind-v2"
+    assert len(cases) == 1960
+    assert cases[0].batch == data["cases"][0]["source"]["id"]
+    assert expected_data["dataset"] == "blind-v2"
+    assert len(expected) == 1
+    assert expected[0].issue_tags == []
+    assert expected[0].annotation == {}
 
 
 def test_tracked_benchmark_reports_pass_publication_audit() -> None:

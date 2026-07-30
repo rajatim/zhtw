@@ -23,7 +23,7 @@ ACCURACY_ROOT = PROJECT_ROOT / "benchmarks" / "accuracy"
 MANIFEST_SCHEMA = ACCURACY_ROOT / "manifest.schema.json"
 PREREGISTRATION_SCHEMA = ACCURACY_ROOT / "preregistration.schema.json"
 FORMAL_PROTOCOL_SCHEMA = ACCURACY_ROOT / "formal-protocol.schema.json"
-FORMAL_PROTOCOL = ACCURACY_ROOT / "formal-blind-v2-protocol-v1.json"
+ACTIVE_FORMAL_PROTOCOL = ACCURACY_ROOT / "formal-blind-v2-protocol-v2.json"
 FINAL_DECISIONS = ACCURACY_ROOT / "blind-v2.final-decisions.json"
 LICENSES = ACCURACY_ROOT / "LICENSES.md"
 RANKING_POLICY = ACCURACY_ROOT / "ranking-policy-v1.json"
@@ -145,19 +145,21 @@ def validate_preregistration(
     inputs_path: Path | None = None,
     expected_path: Path | None = None,
     lock_path: Path | None = None,
+    protocol_path: Path | None = None,
 ) -> list[str]:
     preregistration = load_json(path)
     errors = validate_schema(preregistration, PREREGISTRATION_SCHEMA)
     if errors:
         return [f"{path}: {error}" for error in errors]
 
+    bound_protocol = protocol_path or ACCURACY_ROOT / f"{preregistration['protocol_id']}.json"
     hash_checks = (
         ("dataset_manifest_sha256", manifest_path),
         ("inputs_sha256", inputs_path),
         ("expected_sha256", expected_path),
         ("competitor_lock_sha256", lock_path),
         ("decision_summary_sha256", FINAL_DECISIONS),
-        ("protocol_sha256", FORMAL_PROTOCOL),
+        ("protocol_sha256", bound_protocol),
         ("ranking_policy_sha256", RANKING_POLICY),
     )
     for field, artifact in hash_checks:
@@ -173,7 +175,7 @@ def validate_preregistration(
     if preregistration["ranking_policy_id"] != ranking_policy.get("id"):
         errors.append(f"{path}: ranking_policy_id does not match ranking policy")
 
-    protocol = load_json(FORMAL_PROTOCOL)
+    protocol = load_json(bound_protocol)
     if preregistration["protocol_id"] != protocol.get("id"):
         errors.append(f"{path}: protocol_id does not match formal protocol")
 
@@ -195,7 +197,7 @@ def validate_preregistration(
     return errors
 
 
-def validate_formal_protocol(path: Path = FORMAL_PROTOCOL) -> list[str]:
+def validate_formal_protocol(path: Path = ACTIVE_FORMAL_PROTOCOL) -> list[str]:
     protocol = load_json(path)
     errors = validate_schema(protocol, FORMAL_PROTOCOL_SCHEMA)
     if errors:
@@ -236,13 +238,13 @@ def main() -> int:
             Draft202012Validator.check_schema(load_json(schema_path))
         except Exception as exc:
             errors.append(f"{schema_path}: invalid schema: {exc}")
-    for required_path in (LICENSES, RANKING_POLICY, COMPETITORS_LOCK, FORMAL_PROTOCOL):
+    for required_path in (LICENSES, RANKING_POLICY, COMPETITORS_LOCK, ACTIVE_FORMAL_PROTOCOL):
         if not required_path.is_file():
             errors.append(f"required benchmark governance file missing: {required_path}")
 
     if COMPETITORS_LOCK.is_file():
         errors.extend(f"{COMPETITORS_LOCK}: {error}" for error in validate_lock(COMPETITORS_LOCK))
-    if FORMAL_PROTOCOL.is_file():
+    if ACTIVE_FORMAL_PROTOCOL.is_file():
         errors.extend(validate_formal_protocol())
     if PERMISSIONED_COLLECTION.is_file():
         errors.extend(

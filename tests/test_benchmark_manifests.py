@@ -160,7 +160,6 @@ def test_preregistration_locks_ranking_and_artifact_hashes(
     preregistration_path = tmp_path / "preregistration.json"
     write_json(preregistration_path, preregistration)
     monkeypatch.setattr(validator, "RANKING_POLICY", ranking)
-    monkeypatch.setattr(validator, "FORMAL_PROTOCOL", protocol)
     monkeypatch.setattr(validator, "FINAL_DECISIONS", decisions)
 
     assert (
@@ -170,6 +169,7 @@ def test_preregistration_locks_ranking_and_artifact_hashes(
             inputs_path=inputs,
             expected_path=expected,
             lock_path=lock,
+            protocol_path=protocol,
         )
         == []
     )

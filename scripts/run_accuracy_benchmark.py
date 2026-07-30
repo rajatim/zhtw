@@ -229,13 +229,19 @@ def load_input_cases(path: Path) -> tuple[dict[str, Any], list[InputCase]]:
         leaked = sorted(forbidden & set(raw))
         if leaked:
             raise ValueError(f"input case #{index} leaks expected fields: {', '.join(leaked)}")
-        missing = sorted({"id", "batch", "domain", "input", "risk", "tags", "notes"} - set(raw))
+        missing = sorted({"id", "domain", "input", "risk", "tags", "notes"} - set(raw))
         if missing:
             raise ValueError(f"input case #{index} missing required fields: {', '.join(missing)}")
+        source = raw.get("source", {})
+        batch = raw.get("batch")
+        if batch is None and isinstance(source, dict):
+            batch = source.get("id")
+        if not isinstance(batch, str) or not batch:
+            raise ValueError(f"input case #{index} requires batch or source.id")
         cases.append(
             InputCase(
                 id=str(raw["id"]),
-                batch=str(raw["batch"]),
+                batch=batch,
                 domain=str(raw["domain"]),
                 input=str(raw["input"]),
                 risk=str(raw["risk"]),
@@ -253,7 +259,7 @@ def load_expected_cases(path: Path) -> tuple[dict[str, Any], list[ExpectedCase]]
     data = load_json(path)
     cases: list[ExpectedCase] = []
     for index, raw in enumerate(data.get("cases", []), start=1):
-        missing = sorted({"id", "expected", "acceptable", "annotation", "issue_tags"} - set(raw))
+        missing = sorted({"id", "expected", "acceptable"} - set(raw))
         if missing:
             missing_fields = ", ".join(missing)
             raise ValueError(f"expected case #{index} missing required fields: {missing_fields}")

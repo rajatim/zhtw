@@ -183,8 +183,10 @@ The governance contracts are:
 - `blind-v2.replacements.schema.json`: exclusions limited to the four declared
   reasons and the next deterministic reserve in the same stratum.
 - `blind-v2.evaluation-ledger-event.schema.json`: private one-shot run events.
-- `formal-blind-v2-protocol-v1.json`: frozen runner, metric, adapter, and schema
-  hashes for the formal one-shot run.
+- `formal-blind-v2-protocol-v1.json`: archived first preflight protocol; no run
+  started and no score was exposed because static Blind-v2 compatibility checks failed.
+- `formal-blind-v2-protocol-v2.json`: active frozen runner, metric, adapter, and
+  schema hashes for the formal one-shot run.
 
 The frozen design uses a 10% discordant rate, 2 percentage-point MDE, 80% power,
 and two-sided alpha 0.05. It requires N=1,960. The final pool has 5,896

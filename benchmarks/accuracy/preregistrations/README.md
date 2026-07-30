@@ -19,9 +19,14 @@ Before creating that preregistration:
 6. Confirm the private evaluation ledger has no prior `score_exposed` event for
    this preregistration.
 
-The preregistration also binds `formal-blind-v2-protocol-v1.json` and the public
-N/N final-decision summary. The protocol locks the runner, metrics, competitor
+The preregistration also binds a versioned formal protocol and the public N/N
+final-decision summary. The protocol locks the runner, metrics, competitor
 adapters, governance checks, normalization, report mode, and relevant schemas.
+
+`blind-v2-run-1.json` is retained as preflight audit history. Its candidate
+never entered `run_started`, and no score was exposed: the runner rejected the
+Blind-v2 input shape during static loading. Protocol v2 adds the covered source
+metadata path before a new preregistration is created.
 
 The formal runner must eventually append `run_started` before invoking any
 engine and either `run_interrupted` or `score_exposed` afterward. Once a score is

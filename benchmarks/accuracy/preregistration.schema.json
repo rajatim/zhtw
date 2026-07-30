@@ -37,7 +37,10 @@
     "competitor_lock_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
     "decision_summary_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
     "normalization_id": { "type": "string", "const": "zhtw-exact-v1" },
-    "protocol_id": { "type": "string", "const": "formal-blind-v2-protocol-v1" },
+    "protocol_id": {
+      "type": "string",
+      "enum": ["formal-blind-v2-protocol-v1", "formal-blind-v2-protocol-v2"]
+    },
     "protocol_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
     "primary_endpoint": { "type": "string", "const": "blind-v2.accepted_accuracy" },
     "ranking_policy_id": { "type": "string", "const": "market-ranking-v1" },

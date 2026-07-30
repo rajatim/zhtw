@@ -16,7 +16,10 @@
   "additionalProperties": false,
   "properties": {
     "version": { "type": "integer", "const": 1 },
-    "id": { "type": "string", "const": "formal-blind-v2-protocol-v1" },
+    "id": {
+      "type": "string",
+      "enum": ["formal-blind-v2-protocol-v1", "formal-blind-v2-protocol-v2"]
+    },
     "status": { "type": "string", "const": "frozen" },
     "report_mode": { "type": "string", "const": "aggregate" },
     "normalization_id": { "type": "string", "const": "zhtw-exact-v1" },
