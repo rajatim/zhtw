@@ -39,7 +39,11 @@
     "normalization_id": { "type": "string", "const": "zhtw-exact-v1" },
     "protocol_id": {
       "type": "string",
-      "enum": ["formal-blind-v2-protocol-v1", "formal-blind-v2-protocol-v2"]
+      "enum": [
+        "formal-blind-v2-protocol-v1",
+        "formal-blind-v2-protocol-v2",
+        "formal-blind-v2-protocol-v3"
+      ]
     },
     "protocol_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
     "primary_endpoint": { "type": "string", "const": "blind-v2.accepted_accuracy" },

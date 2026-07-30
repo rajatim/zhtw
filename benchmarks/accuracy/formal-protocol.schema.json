@@ -18,7 +18,11 @@
     "version": { "type": "integer", "const": 1 },
     "id": {
       "type": "string",
-      "enum": ["formal-blind-v2-protocol-v1", "formal-blind-v2-protocol-v2"]
+      "enum": [
+        "formal-blind-v2-protocol-v1",
+        "formal-blind-v2-protocol-v2",
+        "formal-blind-v2-protocol-v3"
+      ]
     },
     "status": { "type": "string", "const": "frozen" },
     "report_mode": { "type": "string", "const": "aggregate" },

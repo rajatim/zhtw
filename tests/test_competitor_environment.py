@@ -35,6 +35,16 @@ def test_committed_competitor_lock_is_reproducible() -> None:
     }
 
 
+def test_competitor_lock_rejects_stale_local_zhtw_data(tmp_path: Path) -> None:
+    lock = load_json(LOCK_PATH)
+    zhtw = next(item for item in lock["competitors"] if item["id"] == "zhtw")
+    zhtw["artifact_sha256"]["sdk/data/zhtw-data.json"] = "0" * 64
+    path = tmp_path / "competitors.lock.json"
+    path.write_text(json.dumps(lock), encoding="utf-8")
+
+    assert any("local engine artifact hash mismatch" in error for error in validate_lock(path))
+
+
 def test_jsonl_client_enforces_ids_and_unicode(tmp_path: Path) -> None:
     script = tmp_path / "fixture_adapter.py"
     script.write_text(

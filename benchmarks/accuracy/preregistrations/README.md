@@ -28,6 +28,12 @@ never entered `run_started`, and no score was exposed: the runner rejected the
 Blind-v2 input shape during static loading. Protocol v2 adds the covered source
 metadata path before a new preregistration is created.
 
+`blind-v2-run-2.json` is also retained. Its ledger has one completed
+`run_interrupted` attempt and no `score_exposed` event. The locked zhtw artifact
+hash was stale, so formal engine identity checks stopped the run before case
+conversion. Protocol v3 adds a static local-artifact hash check and uses the
+current exported zhtw data hash.
+
 The formal runner must eventually append `run_started` before invoking any
 engine and either `run_interrupted` or `score_exposed` afterward. Once a score is
 exposed, the same preregistration cannot be used for another fresh claim.

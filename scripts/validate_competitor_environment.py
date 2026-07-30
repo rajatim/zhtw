@@ -100,6 +100,23 @@ def validate_lock(path: Path) -> list[str]:
     if formal_ids != {item["id"] for item in competitors if item["included_in_formal_runner"]}:
         errors.append("formal_engine_ids do not match included_in_formal_runner competitors")
 
+    for competitor in competitors:
+        if competitor["adapter"] != "local_python":
+            continue
+        artifact_hashes = competitor["artifact_sha256"]
+        for raw_path, expected_hash in artifact_hashes.items():
+            try:
+                artifact = project_path(raw_path)
+            except ValueError as exc:
+                errors.append(str(exc))
+                continue
+            if not artifact.is_file():
+                errors.append(f"local engine artifact does not exist: {raw_path}")
+            elif sha256_file(artifact) != expected_hash:
+                errors.append(f"local engine artifact hash mismatch: {raw_path}")
+        if competitor["config_sha256"] not in artifact_hashes.values():
+            errors.append(f"local engine config hash is not an artifact hash: {competitor['id']}")
+
     python_artifacts = load_json(
         project_path("benchmarks/accuracy/competitor-env/python-artifacts.lock.json")
     )
