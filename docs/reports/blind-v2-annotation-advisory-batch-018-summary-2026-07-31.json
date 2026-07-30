@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "batch_id": "blind-v2-annotation-batch-018",
+  "status": "needs_maintainer_confirmation",
+  "case_count": 100,
+  "selection": {
+    "offset": 1700,
+    "limit": 100
+  },
+  "policy": {
+    "approval_policy": "single_human_with_ai_advisory",
+    "converter_output_used": false,
+    "expected_text_public": false,
+    "expected_written_to_private_ground_truth": false
+  },
+  "hashes": {
+    "packet_sha256": "251e5f2668c7586a6e628c0fc9e86dce3a354b8263fa7696a114d5472b2574b6",
+    "codex_advisory_sha256": "b89b68225805918fce42024627b51eebd03171c0077f9c875cb8519fd5de626c",
+    "agy_advisory_sha256": "54fa414edb9d754c4ad43e987a573b1b8cc0cdb4002aa5edd272776a7c098287",
+    "synthesis_sha256": "a6209d73a13ba3f003fd31d200e28bf6027278715e328d009b1e36949b109479"
+  },
+  "codex_first_pass_execution": {
+    "model": "gpt-5.6-sol",
+    "accepted_groups": 12,
+    "group_sizes": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      25,
+      5,
+      5,
+      5,
+      5,
+      5,
+      25
+    ],
+    "discarded_stalled_runs": 5
+  },
+  "independent_review": {
+    "cli": "agy",
+    "cli_version": "1.1.8",
+    "model": "gemini-3.1-pro-high",
+    "accepted_conversations": 5,
+    "turns_per_conversation": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "primary_output_agreement": 74,
+    "primary_output_differences": 26,
+    "acceptable_only_differences": 56
+  },
+  "synthesis_execution": {
+    "model": "gpt-5.6-sol",
+    "accepted_groups": 2,
+    "group_sizes": [
+      20,
+      6
+    ]
+  },
+  "synthesis": {
+    "agreement": 74,
+    "codex": 19,
+    "agy": 7,
+    "hybrid": 0,
+    "needs_maintainer_review": 10
+  },
+  "additional_high_stakes_agreement_review_case_ids": [
+    "blind-v2-candidate-005012",
+    "blind-v2-candidate-005197"
+  ],
+  "maintainer_review_case_ids": [
+    "blind-v2-candidate-005004",
+    "blind-v2-candidate-005012",
+    "blind-v2-candidate-005067",
+    "blind-v2-candidate-005099",
+    "blind-v2-candidate-005132",
+    "blind-v2-candidate-005166",
+    "blind-v2-candidate-005187",
+    "blind-v2-candidate-005197",
+    "blind-v2-candidate-005203",
+    "blind-v2-candidate-005204",
+    "blind-v2-candidate-005249",
+    "blind-v2-candidate-005280"
+  ]
+}
