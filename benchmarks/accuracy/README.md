@@ -35,7 +35,15 @@ uv run python scripts/run_accuracy_benchmark.py \
   --manifest benchmarks/accuracy/manifests/blind-v2.json \
   --preregistration benchmarks/accuracy/preregistrations/blind-v2-run-1.json \
   --inputs benchmarks/accuracy/blind-v2.inputs.json \
-  --expected /private/path/blind-v2.expected.json
+  --expected /private/path/blind-v2.expected.json \
+  --competitors-lock benchmarks/accuracy/competitors.lock.json \
+  --competitor-image zhtw-benchmark-competitors:0ea3a0082456 \
+  --competitors zhtw,opencc-s2twp,opencc-js-cn-twp,zhconv-zh-tw,zhconv-rs-zh-tw \
+  --report-mode aggregate \
+  --evaluation-ledger benchmarks/accuracy/private/blind-v2.evaluation-ledger.jsonl \
+  --run-id blind-v2-run-1-attempt-1 \
+  --operator tim \
+  --run-reason "Formal one-shot market comparison"
 ```
 
 An unavailable engine invalidates a formal run. A per-case exception or empty
@@ -175,11 +183,13 @@ The governance contracts are:
 - `blind-v2.replacements.schema.json`: exclusions limited to the four declared
   reasons and the next deterministic reserve in the same stratum.
 - `blind-v2.evaluation-ledger-event.schema.json`: private one-shot run events.
+- `formal-blind-v2-protocol-v1.json`: frozen runner, metric, adapter, and schema
+  hashes for the formal one-shot run.
 
-The current planning assumption is a 10% discordant rate, 2 percentage-point
-MDE, 80% power, and two-sided alpha 0.05. It requires N=1,960 and therefore at
-least 5,880 candidates. This value is not frozen until the candidate source and
-power audits are complete.
+The frozen design uses a 10% discordant rate, 2 percentage-point MDE, 80% power,
+and two-sided alpha 0.05. It requires N=1,960. The final pool has 5,896
+candidates, and all 1,960 selected cases have maintainer-confirmed expected
+values plus a public N/N decision summary.
 
 Validate and sample only after the pool is frozen:
 

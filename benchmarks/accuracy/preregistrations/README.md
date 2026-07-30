@@ -13,11 +13,15 @@ Before creating that preregistration:
 
 1. Freeze and validate the candidate pool.
 2. Rebuild the input-only sample from the frozen pool, seed, and formal N.
-3. Complete Codex and Gemini advisory packets without converter output.
+3. Complete Codex and Agy advisory packets without converter output.
 4. Record maintainer decisions covering N/N case IDs.
 5. Seal the gitignored expected file and bind only its SHA-256 here.
 6. Confirm the private evaluation ledger has no prior `score_exposed` event for
    this preregistration.
+
+The preregistration also binds `formal-blind-v2-protocol-v1.json` and the public
+N/N final-decision summary. The protocol locks the runner, metrics, competitor
+adapters, governance checks, normalization, report mode, and relevant schemas.
 
 The formal runner must eventually append `run_started` before invoking any
 engine and either `run_interrupted` or `score_exposed` afterward. Once a score is

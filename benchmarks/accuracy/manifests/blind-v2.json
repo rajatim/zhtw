@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "id": "blind-v2",
+  "track": "blind",
+  "source_urls": [
+    "https://github.com/rajatim/zhtw/tree/main/benchmarks/accuracy/manifests",
+    "https://github.com/rajatim/zhtw/tree/main/benchmarks/accuracy/sources"
+  ],
+  "upstream_revision": "Frozen 5,896-case candidate pool SHA-256 79ab3c476c7e254e7c7a166a3fb595caf03dd4b50d86b91aa5de6c0df9375a4b with deterministic seed 20260719 and 1,960 selected cases.",
+  "retrieved_at": "2026-07-30T08:37:49+08:00",
+  "license": "Mixed source terms; see per-case source metadata and benchmarks/accuracy/LICENSES.md.",
+  "license_url": "https://github.com/rajatim/zhtw/blob/main/benchmarks/accuracy/LICENSES.md",
+  "output_license": "Source-dependent; aggregate benchmark statistics are published without relicensing source text.",
+  "attribution": "Each input retains its source ID, citation, license, and source class in the frozen candidate pool; aggregate reports do not replace those notices.",
+  "modification_notice": "Applied input-only classification, Unicode NFC and whitespace normalization, exact and near deduplication, fixed stratified sampling, and maintainer-confirmed expected annotation without converter output.",
+  "notice_id": "blind-v2",
+  "raw_sha256": {
+    "benchmarks/accuracy/blind-v2.candidate-pool.json": "79ab3c476c7e254e7c7a166a3fb595caf03dd4b50d86b91aa5de6c0df9375a4b",
+    "benchmarks/accuracy/blind-v2.replacements.json": "e0393540e7b7385252bd6c1b7019065b66c939ca26f54dedb5f73003bf501069"
+  },
+  "normalized_path": "benchmarks/accuracy/blind-v2.inputs.json",
+  "normalized_sha256": "ddef836456ee29decf019dae981c1017b9728524c42808ae2d7c2c894299820a",
+  "importer": "scripts/blind_v2_governance.py",
+  "known_biases": [
+    "The sample follows fixed domain and risk quotas and is not an estimate of real market traffic share.",
+    "Project-original cases are synthetic and were capped by source-class policy.",
+    "Public-domain and permissive-license sources include U.S. government, software UI, technical documentation, and public corpora that may not match Taiwan production traffic.",
+    "Expected values use one maintainer with independent AI advice, not two independent human reviewers.",
+    "The benchmark compares only the locked converter families and versions in competitors.lock.json.",
+    "Only aggregate results may be published while expected values remain sealed."
+  ],
+  "allowed_uses": ["evaluation", "public_reporting"],
+  "tuning_policy": "sealed_no_tuning"
+}

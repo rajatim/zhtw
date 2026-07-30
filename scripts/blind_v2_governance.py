@@ -25,6 +25,7 @@ ACCURACY_ROOT = PROJECT_ROOT / "benchmarks" / "accuracy"
 POOL_SCHEMA = ACCURACY_ROOT / "blind-v2.candidate-pool.schema.json"
 INPUTS_SCHEMA = ACCURACY_ROOT / "blind-v2.inputs.schema.json"
 DECISIONS_SCHEMA = ACCURACY_ROOT / "blind-v2.final-decisions.schema.json"
+ANNOTATION_DECISIONS_SCHEMA = ACCURACY_ROOT / "blind-v2.annotation-decisions.schema.json"
 REPLACEMENTS_SCHEMA = ACCURACY_ROOT / "blind-v2.replacements.schema.json"
 LEDGER_EVENT_SCHEMA = ACCURACY_ROOT / "blind-v2.evaluation-ledger-event.schema.json"
 SEED = 20260719
@@ -533,6 +534,66 @@ def validate_decisions(inputs_path: Path, decisions_path: Path) -> list[str]:
     return errors
 
 
+def build_final_decisions(
+    inputs_path: Path,
+    annotation_decisions_path: Path,
+) -> dict[str, Any]:
+    inputs = load_json(inputs_path)
+    progress = load_json(annotation_decisions_path)
+    schema_errors = validate_schema(progress, ANNOTATION_DECISIONS_SCHEMA)
+    if schema_errors:
+        raise ValueError("; ".join(schema_errors))
+    inputs_hash = sha256_file(inputs_path)
+    if progress["inputs_sha256"] != inputs_hash:
+        raise ValueError("annotation decisions inputs_sha256 does not match inputs")
+
+    batches: list[dict[str, Any]] = []
+    for batch in progress["batches"]:
+        artifact = (PROJECT_ROOT / batch["decision_artifact"]).resolve()
+        try:
+            artifact.relative_to(PROJECT_ROOT)
+        except ValueError as exc:
+            raise ValueError("annotation decision artifact escapes project root") from exc
+        if not artifact.is_file():
+            raise ValueError(f"annotation decision artifact is missing: {artifact}")
+        if sha256_file(artifact) != batch["decision_artifact_sha256"]:
+            raise ValueError(f"annotation decision artifact hash mismatch: {artifact}")
+        decision = load_json(artifact)
+        expected_values = {
+            "batch_id": batch["id"],
+            "inputs_sha256": inputs_hash,
+            "approval_policy": progress["approval_policy"],
+            "case_ids": batch["case_ids"],
+        }
+        for field, expected in expected_values.items():
+            if decision.get(field) != expected:
+                raise ValueError(f"annotation decision artifact {field} mismatch: {artifact}")
+        batches.append(
+            {
+                "id": decision["batch_id"],
+                "packet_sha256": decision["packet_sha256"],
+                "decision_method": decision["decision_method"],
+                "maintainer": decision["maintainer"],
+                "decision_date": decision["decision_date"],
+                "case_ids": decision["case_ids"],
+                "summary": decision["summary"],
+            }
+        )
+
+    final = {
+        "version": 1,
+        "dataset": "blind-v2",
+        "inputs_sha256": inputs_hash,
+        "approval_policy": progress["approval_policy"],
+        "total_cases": len(inputs["cases"]),
+        "batches": batches,
+    }
+    errors = validate_schema(final, DECISIONS_SCHEMA)
+    if errors:
+        raise ValueError("; ".join(errors))
+    return final
+
+
 def validate_replacements(pool_path: Path, ledger_path: Path) -> tuple[list[str], set[str]]:
     pool = load_json(pool_path)
     ledger = load_json(ledger_path)
@@ -606,10 +667,11 @@ def load_ledger(path: Path) -> tuple[list[dict[str, Any]], list[str]]:
     return events, errors
 
 
-def validate_ledger(path: Path) -> list[str]:
-    events, errors = load_ledger(path)
+def validate_ledger_events(events: list[dict[str, Any]]) -> list[str]:
+    errors: list[str] = []
     exposed: set[str] = set()
     active_runs: dict[str, dict[str, Any]] = {}
+    seen_run_ids: set[str] = set()
     immutable_fields = (
         "preregistration_sha256",
         "inputs_sha256",
@@ -628,12 +690,21 @@ def validate_ledger(path: Path) -> list[str]:
             errors.append("one-shot evaluation already exposed a score")
         run_id = event["run_id"]
         if event["event"] == "run_started":
-            if run_id in active_runs:
+            if run_id in seen_run_ids:
                 errors.append(f"run {run_id} starts more than once")
+            seen_run_ids.add(run_id)
+            if any(
+                active["preregistration_sha256"] == preregistration
+                for active in active_runs.values()
+            ):
+                errors.append("one preregistration has overlapping active runs")
             active_runs[run_id] = event
         elif run_id not in active_runs:
             errors.append(f"run {run_id} ends without run_started")
         else:
+            started = active_runs[run_id]
+            if any(event[field] != started[field] for field in immutable_fields):
+                errors.append(f"run {run_id} changes immutable hashes before ending")
             active_runs.pop(run_id)
             if event["event"] == "score_exposed":
                 if preregistration in exposed:
@@ -642,6 +713,42 @@ def validate_ledger(path: Path) -> list[str]:
     if active_runs:
         errors.append(f"ledger has unfinished runs: {', '.join(sorted(active_runs))}")
     return errors
+
+
+def validate_ledger(path: Path) -> list[str]:
+    events, errors = load_ledger(path)
+    return errors + validate_ledger_events(events)
+
+
+def append_ledger_event(path: Path, event: dict[str, Any]) -> None:
+    schema_errors = validate_schema(event, LEDGER_EVENT_SCHEMA)
+    if schema_errors:
+        raise ValueError("invalid evaluation ledger event: " + "; ".join(schema_errors))
+    events, errors = load_ledger(path)
+    if errors:
+        raise ValueError("invalid evaluation ledger: " + "; ".join(errors))
+    transition_errors = validate_ledger_events(events)
+    if event["event"] != "run_started":
+        transition_errors = [
+            error
+            for error in transition_errors
+            if not error.startswith("ledger has unfinished runs:")
+        ]
+    if transition_errors:
+        raise ValueError("invalid evaluation ledger: " + "; ".join(transition_errors))
+    candidate_events = [*events, event]
+    candidate_errors = validate_ledger_events(candidate_events)
+    if event["event"] == "run_started":
+        candidate_errors = [
+            error
+            for error in candidate_errors
+            if not error.startswith("ledger has unfinished runs:")
+        ]
+    if candidate_errors:
+        raise ValueError("invalid evaluation ledger transition: " + "; ".join(candidate_errors))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(event, ensure_ascii=False, sort_keys=True) + "\n")
 
 
 def main() -> int:
@@ -679,6 +786,12 @@ def main() -> int:
     decisions_parser = subparsers.add_parser("validate-decisions")
     decisions_parser.add_argument("inputs", type=Path)
     decisions_parser.add_argument("decisions", type=Path)
+
+    finalize_decisions_parser = subparsers.add_parser("finalize-decisions")
+    finalize_decisions_parser.add_argument("inputs", type=Path)
+    finalize_decisions_parser.add_argument("annotation_decisions", type=Path)
+    finalize_decisions_parser.add_argument("--output", type=Path, required=True)
+    finalize_decisions_parser.add_argument("--check", action="store_true")
 
     ledger_parser = subparsers.add_parser("validate-ledger")
     ledger_parser.add_argument("ledger", type=Path)
@@ -769,6 +882,24 @@ def main() -> int:
         errors, _ = validate_replacements(args.pool.resolve(), args.replacements.resolve())
     elif args.command == "validate-decisions":
         errors = validate_decisions(args.inputs.resolve(), args.decisions.resolve())
+    elif args.command == "finalize-decisions":
+        try:
+            decisions = build_final_decisions(
+                args.inputs.resolve(),
+                args.annotation_decisions.resolve(),
+            )
+        except ValueError as exc:
+            errors = [str(exc)]
+        else:
+            content = json_text(decisions)
+            if args.check:
+                stale = not args.output.is_file()
+                stale = stale or args.output.read_text(encoding="utf-8") != content
+                errors = ["final decisions are stale"] if stale else []
+            else:
+                args.output.parent.mkdir(parents=True, exist_ok=True)
+                args.output.write_text(content, encoding="utf-8")
+                errors = []
     else:
         errors = validate_ledger(args.ledger.resolve())
 

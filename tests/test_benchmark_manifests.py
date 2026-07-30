@@ -121,9 +121,13 @@ def test_preregistration_locks_ranking_and_artifact_hashes(
     expected = tmp_path / "expected.json"
     lock = tmp_path / "lock.json"
     ranking = tmp_path / "ranking.json"
+    protocol = tmp_path / "protocol.json"
+    decisions = tmp_path / "decisions.json"
     for path in (inputs, expected, lock):
         path.write_text("{}\n", encoding="utf-8")
     write_json(ranking, {"id": "market-ranking-v1"})
+    write_json(protocol, {"id": "formal-blind-v2-protocol-v1"})
+    write_json(decisions, {"dataset": "blind-v2"})
     power = paired_power_analysis(discordant_rate=0.03)
     preregistration = {
         "version": 1,
@@ -136,7 +140,10 @@ def test_preregistration_locks_ranking_and_artifact_hashes(
         "expected_sha256": hashlib.sha256(expected.read_bytes()).hexdigest(),
         "zhtw_git_sha": "a" * 40,
         "competitor_lock_sha256": hashlib.sha256(lock.read_bytes()).hexdigest(),
+        "decision_summary_sha256": hashlib.sha256(decisions.read_bytes()).hexdigest(),
         "normalization_id": "zhtw-exact-v1",
+        "protocol_id": "formal-blind-v2-protocol-v1",
+        "protocol_sha256": hashlib.sha256(protocol.read_bytes()).hexdigest(),
         "primary_endpoint": "blind-v2.accepted_accuracy",
         "ranking_policy_id": "market-ranking-v1",
         "ranking_policy_sha256": hashlib.sha256(ranking.read_bytes()).hexdigest(),
@@ -153,6 +160,8 @@ def test_preregistration_locks_ranking_and_artifact_hashes(
     preregistration_path = tmp_path / "preregistration.json"
     write_json(preregistration_path, preregistration)
     monkeypatch.setattr(validator, "RANKING_POLICY", ranking)
+    monkeypatch.setattr(validator, "FORMAL_PROTOCOL", protocol)
+    monkeypatch.setattr(validator, "FINAL_DECISIONS", decisions)
 
     assert (
         validator.validate_preregistration(
@@ -185,5 +194,5 @@ def test_ranking_policy_is_fixed() -> None:
 def test_license_notices_cover_planned_external_tracks() -> None:
     licenses = (ACCURACY_ROOT / "LICENSES.md").read_text(encoding="utf-8")
 
-    for notice_id in ("ud-gsd-v1", "naer-terms-v1", "sc-tc-regional-v1"):
+    for notice_id in ("ud-gsd-v1", "naer-terms-v1", "sc-tc-regional-v1", "blind-v2"):
         assert f"## {notice_id}" in licenses

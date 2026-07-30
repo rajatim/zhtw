@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import subprocess
 import sys
@@ -12,7 +13,11 @@ import pytest
 import scripts.run_accuracy_benchmark as benchmark_runner
 from scripts.audit_benchmark_publication import audit_paths, find_sensitive_values
 from scripts.competitor_benchmark import Engine
-from scripts.run_accuracy_benchmark import assert_formal_engines_available, assert_output_policy
+from scripts.run_accuracy_benchmark import (
+    assert_formal_engines_available,
+    assert_output_policy,
+    evaluation_ledger_event,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 AUDITOR = ROOT / "scripts" / "audit_benchmark_publication.py"
@@ -104,6 +109,31 @@ def test_formal_run_rejects_unavailable_engine() -> None:
 
     with pytest.raises(ValueError, match="competitor"):
         assert_formal_engines_available(engines)
+
+
+def test_formal_ledger_event_contains_hashes_only(tmp_path: Path) -> None:
+    artifacts = []
+    for name in ("preregistration.json", "inputs.json", "expected.json", "lock.json"):
+        path = tmp_path / name
+        path.write_text("{}\n", encoding="utf-8")
+        artifacts.append(path)
+
+    event = evaluation_ledger_event(
+        event="run_started",
+        run_id="blind-v2-run-1",
+        operator="tim",
+        reason="formal one-shot evaluation",
+        preregistration_path=artifacts[0],
+        inputs_path=artifacts[1],
+        expected_path=artifacts[2],
+        lock_path=artifacts[3],
+        zhtw_git_sha="a" * 40,
+        exit_status=None,
+    )
+
+    assert event["expected_sha256"] == hashlib.sha256(artifacts[2].read_bytes()).hexdigest()
+    assert "expected" not in event
+    assert event["detailed_rows_read"] is False
 
 
 def test_tracked_benchmark_reports_pass_publication_audit() -> None:

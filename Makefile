@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-freeze-check benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-sample-check benchmark-blind-v2-annotation-validate benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-freeze-check benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-sample-check benchmark-blind-v2-decisions-finalize benchmark-blind-v2-annotation-validate benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -422,7 +422,11 @@ benchmark-blind-v2-sample-check: ## Reproduce the committed Blind-v2 sample exac
 benchmark-blind-v2-annotation-validate: ## Validate public annotation coverage against private expected
 	$(PYTHON) scripts/blind_v2_annotation.py validate-confirmation --inputs $(BLIND_V2_INPUTS) --progress $(BLIND_V2_ANNOTATION_DECISIONS) --expected $(BLIND_V2_EXPECTED)
 
+benchmark-blind-v2-decisions-finalize: ## Rebuild the public N/N Blind-v2 decision summary
+	$(PYTHON) scripts/blind_v2_governance.py finalize-decisions $(BLIND_V2_INPUTS) $(BLIND_V2_ANNOTATION_DECISIONS) --output $(BLIND_V2_DECISIONS)
+
 benchmark-blind-v2-decisions-validate: ## Require maintainer decisions for every Blind-v2 case
+	$(PYTHON) scripts/blind_v2_governance.py finalize-decisions $(BLIND_V2_INPUTS) $(BLIND_V2_ANNOTATION_DECISIONS) --output $(BLIND_V2_DECISIONS) --check
 	$(PYTHON) scripts/blind_v2_governance.py validate-decisions $(BLIND_V2_INPUTS) $(BLIND_V2_DECISIONS)
 
 benchmark-blind-v2-ledger-validate: ## Validate the private Blind-v2 one-shot ledger

@@ -27,6 +27,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from scripts.benchmark_metrics import changed_span_metrics, paired_comparison  # noqa: E402
+from scripts.blind_v2_governance import append_ledger_event  # noqa: E402
 from scripts.competitor_benchmark import ENGINE_LOADERS, Engine, load_engines  # noqa: E402
 from scripts.validate_benchmark_assets import (  # noqa: E402
     validate_manifest,
@@ -46,6 +47,37 @@ NORMALIZATION_RULES = [
     "remove one CLI trailing newline only",
     "do not normalize punctuation, internal spaces, or regional synonyms",
 ]
+
+
+def evaluation_ledger_event(
+    *,
+    event: str,
+    run_id: str,
+    operator: str,
+    reason: str,
+    preregistration_path: Path,
+    inputs_path: Path,
+    expected_path: Path,
+    lock_path: Path,
+    zhtw_git_sha: str,
+    exit_status: int | None,
+) -> dict[str, Any]:
+    return {
+        "version": 1,
+        "dataset": "blind-v2",
+        "run_id": run_id,
+        "event": event,
+        "recorded_at": dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z"),
+        "operator": operator,
+        "reason": reason,
+        "preregistration_sha256": sha256_file(preregistration_path),
+        "inputs_sha256": sha256_file(inputs_path),
+        "expected_sha256": sha256_file(expected_path),
+        "zhtw_git_sha": zhtw_git_sha,
+        "competitor_lock_sha256": sha256_file(lock_path),
+        "exit_status": exit_status,
+        "detailed_rows_read": False,
+    }
 
 
 @dataclass(frozen=True)
@@ -834,6 +866,10 @@ def main() -> int:
     parser.add_argument("--formal", action="store_true")
     parser.add_argument("--manifest", type=Path)
     parser.add_argument("--preregistration", type=Path)
+    parser.add_argument("--evaluation-ledger", type=Path)
+    parser.add_argument("--run-id")
+    parser.add_argument("--operator")
+    parser.add_argument("--run-reason")
     parser.add_argument(
         "--fail-on-zhtw-miss",
         action="store_true",
@@ -847,8 +883,19 @@ def main() -> int:
     args = parser.parse_args()
     assert_output_policy(args.output_prefix, args.formats, args.report_mode)
 
-    if args.formal and (args.manifest is None or args.preregistration is None):
-        parser.error("--formal requires --manifest and --preregistration")
+    formal_required = {
+        "--manifest": args.manifest,
+        "--preregistration": args.preregistration,
+        "--evaluation-ledger": args.evaluation_ledger,
+        "--run-id": args.run_id,
+        "--operator": args.operator,
+        "--run-reason": args.run_reason,
+    }
+    missing_formal = [name for name, value in formal_required.items() if args.formal and not value]
+    if missing_formal:
+        parser.error("--formal requires " + ", ".join(missing_formal))
+    if args.formal and args.report_mode != "aggregate":
+        parser.error("--formal Blind-v2 evaluation requires --report-mode aggregate")
     if args.formal:
         validation_errors = validate_manifest(args.manifest.resolve())
         validation_errors.extend(
@@ -876,41 +923,105 @@ def main() -> int:
 
     if args.formal and not args.competitor_image:
         parser.error("--formal requires --competitor-image")
-    engines = load_engines(
-        args.competitors,
-        lock=lock,
-        container_image=args.competitor_image,
-    )
     if args.formal:
-        assert_formal_engines_available(engines)
-        assert_formal_engines_locked(args.competitors, engines, lock)
-    provenance = build_provenance(engines)
-    if args.formal:
+        assert args.preregistration is not None
+        assert args.evaluation_ledger is not None
+        assert args.run_id is not None
+        assert args.operator is not None
+        assert args.run_reason is not None
         preregistration = load_json(args.preregistration)
-        if provenance["git_dirty"]:
+        git_dirty = bool(git_output("status", "--porcelain"))
+        git_sha = git_output("rev-parse", "HEAD")
+        if git_dirty:
             raise ValueError("formal benchmark requires a clean Git worktree")
-        if preregistration["zhtw_git_sha"] != provenance["git_sha"]:
+        if preregistration["zhtw_git_sha"] != git_sha:
             raise ValueError("formal benchmark zhtw_git_sha does not match HEAD")
-    rows = build_rows(inputs, expected, engines)
-    report = build_report(
-        generated_date=args.generated_date,
-        inputs_path=args.inputs,
-        expected_path=args.expected,
-        lock_path=args.competitors_lock,
-        input_data=input_data,
-        expected_data=expected_data,
-        lock=lock,
-        inputs=inputs,
-        engines=engines,
-        rows=rows,
-        report_mode=args.report_mode,
-        manifest_path=args.manifest,
-        preregistration_path=args.preregistration,
-        provenance=provenance,
-    )
-    write_reports(report, args.output_prefix, args.formats)
+        append_ledger_event(
+            args.evaluation_ledger,
+            evaluation_ledger_event(
+                event="run_started",
+                run_id=args.run_id,
+                operator=args.operator,
+                reason=args.run_reason,
+                preregistration_path=args.preregistration,
+                inputs_path=args.inputs,
+                expected_path=args.expected,
+                lock_path=args.competitors_lock,
+                zhtw_git_sha=git_sha,
+                exit_status=None,
+            ),
+        )
 
-    summary = report["engines"]["zhtw"]["scores"]
+    try:
+        engines = load_engines(
+            args.competitors,
+            lock=lock,
+            container_image=args.competitor_image,
+        )
+        if args.formal:
+            assert_formal_engines_available(engines)
+            assert_formal_engines_locked(args.competitors, engines, lock)
+        provenance = build_provenance(engines)
+        rows = build_rows(inputs, expected, engines)
+        report = build_report(
+            generated_date=args.generated_date,
+            inputs_path=args.inputs,
+            expected_path=args.expected,
+            lock_path=args.competitors_lock,
+            input_data=input_data,
+            expected_data=expected_data,
+            lock=lock,
+            inputs=inputs,
+            engines=engines,
+            rows=rows,
+            report_mode=args.report_mode,
+            manifest_path=args.manifest,
+            preregistration_path=args.preregistration,
+            provenance=provenance,
+        )
+        write_reports(report, args.output_prefix, args.formats)
+
+        summary = report["engines"]["zhtw"]["scores"]
+        exit_status = 0
+        if args.fail_on_unavailable and any(not engine.available for engine in engines):
+            exit_status = 1
+        if args.fail_on_zhtw_miss and summary["misses"]:
+            exit_status = 1
+        if args.formal:
+            append_ledger_event(
+                args.evaluation_ledger,
+                evaluation_ledger_event(
+                    event="score_exposed",
+                    run_id=args.run_id,
+                    operator=args.operator,
+                    reason=args.run_reason,
+                    preregistration_path=args.preregistration,
+                    inputs_path=args.inputs,
+                    expected_path=args.expected,
+                    lock_path=args.competitors_lock,
+                    zhtw_git_sha=provenance["git_sha"],
+                    exit_status=exit_status,
+                ),
+            )
+    except BaseException:
+        if args.formal:
+            append_ledger_event(
+                args.evaluation_ledger,
+                evaluation_ledger_event(
+                    event="run_interrupted",
+                    run_id=args.run_id,
+                    operator=args.operator,
+                    reason=args.run_reason,
+                    preregistration_path=args.preregistration,
+                    inputs_path=args.inputs,
+                    expected_path=args.expected,
+                    lock_path=args.competitors_lock,
+                    zhtw_git_sha=git_sha,
+                    exit_status=1,
+                ),
+            )
+        raise
+
     print(
         "cases={case_count} zhtw_accepted={accepted} zhtw_misses={misses}".format(
             case_count=report["summary"]["case_count"],
@@ -921,11 +1032,7 @@ def main() -> int:
     for output_format in args.formats:
         print(f"wrote {relative_path(args.output_prefix.with_suffix('.' + output_format))}")
 
-    if args.fail_on_unavailable and any(not engine.available for engine in engines):
-        return 1
-    if args.fail_on_zhtw_miss and summary["misses"]:
-        return 1
-    return 0
+    return exit_status
 
 
 if __name__ == "__main__":

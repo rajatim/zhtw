@@ -682,3 +682,11 @@ is missing.
 - Attribution: Pending verified upstream attribution.
 - Modifications: None permitted before license verification.
 - Output license: Pending verification.
+
+## blind-v2
+
+- License: Mixed source terms; see per-case source metadata and benchmarks/accuracy/LICENSES.md.
+- Attribution: Each input retains its source ID, citation, license, and source class in the frozen candidate pool; aggregate reports do not replace those notices.
+- Modifications: Applied input-only classification, Unicode NFC and whitespace normalization, exact and near deduplication, fixed stratified sampling, and maintainer-confirmed expected annotation without converter output.
+- Output license: Source-dependent; aggregate benchmark statistics are published without relicensing source text.
+- Bias notice: The fixed domain and risk quotas do not estimate production traffic. Project-original cases are synthetic, expected values use one maintainer with independent AI advice, and only locked converter families are compared.

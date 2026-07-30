@@ -22,6 +22,9 @@ from scripts.validate_permissioned_user_reports import validate_collection  # no
 ACCURACY_ROOT = PROJECT_ROOT / "benchmarks" / "accuracy"
 MANIFEST_SCHEMA = ACCURACY_ROOT / "manifest.schema.json"
 PREREGISTRATION_SCHEMA = ACCURACY_ROOT / "preregistration.schema.json"
+FORMAL_PROTOCOL_SCHEMA = ACCURACY_ROOT / "formal-protocol.schema.json"
+FORMAL_PROTOCOL = ACCURACY_ROOT / "formal-blind-v2-protocol-v1.json"
+FINAL_DECISIONS = ACCURACY_ROOT / "blind-v2.final-decisions.json"
 LICENSES = ACCURACY_ROOT / "LICENSES.md"
 RANKING_POLICY = ACCURACY_ROOT / "ranking-policy-v1.json"
 COMPETITORS_LOCK = ACCURACY_ROOT / "competitors.lock.json"
@@ -153,6 +156,8 @@ def validate_preregistration(
         ("inputs_sha256", inputs_path),
         ("expected_sha256", expected_path),
         ("competitor_lock_sha256", lock_path),
+        ("decision_summary_sha256", FINAL_DECISIONS),
+        ("protocol_sha256", FORMAL_PROTOCOL),
         ("ranking_policy_sha256", RANKING_POLICY),
     )
     for field, artifact in hash_checks:
@@ -167,6 +172,10 @@ def validate_preregistration(
     ranking_policy = load_json(RANKING_POLICY)
     if preregistration["ranking_policy_id"] != ranking_policy.get("id"):
         errors.append(f"{path}: ranking_policy_id does not match ranking policy")
+
+    protocol = load_json(FORMAL_PROTOCOL)
+    if preregistration["protocol_id"] != protocol.get("id"):
+        errors.append(f"{path}: protocol_id does not match formal protocol")
 
     declared_power = preregistration["power_analysis"]
     computed_power = paired_power_analysis(
@@ -186,6 +195,24 @@ def validate_preregistration(
     return errors
 
 
+def validate_formal_protocol(path: Path = FORMAL_PROTOCOL) -> list[str]:
+    protocol = load_json(path)
+    errors = validate_schema(protocol, FORMAL_PROTOCOL_SCHEMA)
+    if errors:
+        return [f"{path}: {error}" for error in errors]
+    for raw_path, expected_hash in protocol["files"].items():
+        try:
+            artifact = project_path(raw_path, label="formal protocol file")
+        except ValueError as exc:
+            errors.append(f"{path}: {exc}")
+            continue
+        if not artifact.is_file():
+            errors.append(f"{path}: protocol file does not exist: {raw_path}")
+        elif sha256_file(artifact) != expected_hash:
+            errors.append(f"{path}: protocol file hash mismatch: {raw_path}")
+    return errors
+
+
 def discover(directory: Path) -> list[Path]:
     return sorted(directory.glob("*.json")) if directory.is_dir() else []
 
@@ -201,6 +228,7 @@ def main() -> int:
     for schema_path in (
         MANIFEST_SCHEMA,
         PREREGISTRATION_SCHEMA,
+        FORMAL_PROTOCOL_SCHEMA,
         ACCURACY_ROOT / "competitors-lock.schema.json",
         *BLIND_V2_SCHEMAS,
     ):
@@ -208,12 +236,14 @@ def main() -> int:
             Draft202012Validator.check_schema(load_json(schema_path))
         except Exception as exc:
             errors.append(f"{schema_path}: invalid schema: {exc}")
-    for required_path in (LICENSES, RANKING_POLICY, COMPETITORS_LOCK):
+    for required_path in (LICENSES, RANKING_POLICY, COMPETITORS_LOCK, FORMAL_PROTOCOL):
         if not required_path.is_file():
             errors.append(f"required benchmark governance file missing: {required_path}")
 
     if COMPETITORS_LOCK.is_file():
         errors.extend(f"{COMPETITORS_LOCK}: {error}" for error in validate_lock(COMPETITORS_LOCK))
+    if FORMAL_PROTOCOL.is_file():
+        errors.extend(validate_formal_protocol())
     if PERMISSIONED_COLLECTION.is_file():
         errors.extend(
             f"{PERMISSIONED_COLLECTION}: {error}"

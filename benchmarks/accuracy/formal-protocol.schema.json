@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/formal-protocol.schema.json",
+  "title": "zhtw frozen formal Blind-v2 evaluation protocol",
+  "type": "object",
+  "required": [
+    "version",
+    "id",
+    "status",
+    "report_mode",
+    "normalization_id",
+    "one_shot",
+    "detailed_rows_read",
+    "files"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "id": { "type": "string", "const": "formal-blind-v2-protocol-v1" },
+    "status": { "type": "string", "const": "frozen" },
+    "report_mode": { "type": "string", "const": "aggregate" },
+    "normalization_id": { "type": "string", "const": "zhtw-exact-v1" },
+    "one_shot": { "type": "boolean", "const": true },
+    "detailed_rows_read": { "type": "boolean", "const": false },
+    "files": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    }
+  }
+}

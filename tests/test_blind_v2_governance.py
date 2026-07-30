@@ -14,7 +14,9 @@ import scripts.blind_v2_governance as governance
 from scripts.blind_v2_governance import (
     _expected_stats,
     _near_duplicate_pairs,
+    append_ledger_event,
     apportion,
+    build_final_decisions,
     build_frozen_pool,
     build_inputs,
     build_replacement_ledger,
@@ -26,6 +28,7 @@ from scripts.blind_v2_governance import (
     stratum_quotas,
     validate_decisions,
     validate_ledger,
+    validate_ledger_events,
     validate_pool,
     validate_replacements,
     validate_schema,
@@ -37,6 +40,8 @@ FROZEN_POOL = ACCURACY_ROOT / "blind-v2.candidate-pool.json"
 REPLACEMENTS = ACCURACY_ROOT / "blind-v2.replacements.json"
 INPUTS = ACCURACY_ROOT / "blind-v2.inputs.json"
 FREEZE_REPORT = ROOT / "docs/reports/blind-v2-pool-freeze-2026-07-30.json"
+ANNOTATION_DECISIONS = ACCURACY_ROOT / "blind-v2.annotation-decisions.json"
+FINAL_DECISIONS = ACCURACY_ROOT / "blind-v2.final-decisions.json"
 
 
 def write_json(path: Path, value: dict[str, Any]) -> None:
@@ -417,6 +422,19 @@ def test_final_decisions_require_exact_n_of_n_coverage(tmp_path: Path) -> None:
     )
 
 
+def test_final_decisions_reproduce_confirmed_annotation_ledger() -> None:
+    generated = build_final_decisions(INPUTS, ANNOTATION_DECISIONS)
+    committed = json.loads(FINAL_DECISIONS.read_text(encoding="utf-8"))
+
+    assert generated == committed
+    assert validate_decisions(INPUTS, FINAL_DECISIONS) == []
+    assert sum(len(batch["case_ids"]) for batch in generated["batches"]) == 1960
+    serialized = json.dumps(generated)
+    assert '"expected"' not in serialized
+    assert '"acceptable"' not in serialized
+    assert '"output"' not in serialized
+
+
 def test_replacement_ledger_requires_next_deterministic_reserve(tmp_path: Path) -> None:
     pool = sample_pool_fixture(multiplier=2)
     pool_path = tmp_path / "pool.json"
@@ -478,6 +496,36 @@ def test_one_shot_ledger_allows_interrupted_retry_but_blocks_score_reuse(tmp_pat
     errors = validate_ledger(ledger)
     assert any("already exposed a score" in error for error in errors)
     assert any("more than one score" in error for error in errors)
+
+
+def test_one_shot_ledger_rejects_overlapping_runs(tmp_path: Path) -> None:
+    events = [ledger_event("run-1", "run_started"), ledger_event("run-2", "run_started")]
+
+    assert any("overlapping active runs" in error for error in validate_ledger_events(events))
+
+
+def test_one_shot_ledger_rejects_reused_run_id_and_changed_terminal_hashes() -> None:
+    reused = [
+        ledger_event("run-1", "run_started"),
+        ledger_event("run-1", "run_interrupted"),
+        ledger_event("run-1", "run_started"),
+        ledger_event("run-1", "run_interrupted"),
+    ]
+    assert any("starts more than once" in error for error in validate_ledger_events(reused))
+
+    changed = [ledger_event("run-1", "run_started"), ledger_event("run-1", "run_interrupted")]
+    changed[1]["expected_sha256"] = "f" * 64
+    assert any("changes immutable hashes" in error for error in validate_ledger_events(changed))
+
+
+def test_append_ledger_event_requires_a_valid_transition(tmp_path: Path) -> None:
+    ledger = tmp_path / "evaluation-ledger.jsonl"
+    append_ledger_event(ledger, ledger_event("run-1", "run_started"))
+    append_ledger_event(ledger, ledger_event("run-1", "run_interrupted"))
+
+    assert validate_ledger(ledger) == []
+    with pytest.raises(ValueError, match="ends without run_started"):
+        append_ledger_event(ledger, ledger_event("run-2", "score_exposed"))
 
 
 def test_blind_v2_private_artifacts_are_gitignored() -> None:
