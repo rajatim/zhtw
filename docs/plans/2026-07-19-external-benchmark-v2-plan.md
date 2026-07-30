@@ -1230,6 +1230,17 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   （32.00%），皆低於 35%。AOSP 維持 559 筆，占比降至 9.48%。以
   `--require-ready` 執行 pool validation 已通過；下一步為固定 immutable pool hash，
   正式將 pool 轉為 frozen，再依 preregistered seed 與 N 抽樣。
+- [x] 2026-07-30 完成 Blind-v2 pool freeze 與正式抽樣：將 5,896 筆 input-only
+  candidate pool 狀態轉為 `frozen`，pool SHA-256 為
+  `79ab3c476c7e254e7c7a166a3fb595caf03dd4b50d86b91aa5de6c0df9375a4b`；freeze
+  report 明確記錄抽樣前未使用 converter output 或 expected text。依固定 seed
+  `20260719` 與 power analysis 的正式 `N=1,960`，在 domain × risk strata 內完成
+  deterministic sample；inputs SHA-256 為
+  `ddef836456ee29decf019dae981c1017b9728524c42808ae2d7c2c894299820a`。Replacement
+  ledger 目前為空，SHA-256 為
+  `e0393540e7b7385252bd6c1b7019065b66c939ca26f54dedb5f73003bf501069`。下一步只對
+  這 1,960 筆執行 expected annotation 與 human confirmation；正式 one-shot 執行前
+  仍不得查看 zhtw 或競品輸出。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent
@@ -1240,10 +1251,10 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   independent advisory；55 筆四欄完全一致，45 筆差異由 maintainer 於
   2026-07-21 全部採用 Codex。第二批已完成 100/100 human decisions，並已透過
   可重現 promotion 寫入 pool。
-- [ ] 建立至少 `max(1,800, 3 × 正式 N)` 筆 candidate pool，完成來源、授權、
+- [x] 建立至少 `max(1,800, 3 × 正式 N)` 筆 candidate pool，完成來源、授權、
   exact/near dedupe audit。
-- [ ] 凍結 pool hash，以 seed `20260719` 依固定 domain/risk quotas 抽樣。
-- [ ] 完成 power analysis；正式 N 取 `max(600, required_cases)`，不得以 1,200 為硬上限。
+- [x] 凍結 pool hash，以 seed `20260719` 依固定 domain/risk quotas 抽樣。
+- [x] 完成 power analysis；正式 N 取 `max(600, required_cases)`，不得以 1,200 為硬上限。
 - [ ] 執行 Codex first pass。
 - [ ] 執行 Gemini independent advisory。
 - [ ] 產生差異與 maintainer review packet。

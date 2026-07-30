@@ -172,9 +172,9 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
         created_at="2026-07-30T08:23:33+08:00",
     )
 
-    assert generated == committed
+    assert {**generated, "status": "frozen"} == committed
     assert validate_pool(POOL) == []
-    assert committed["status"] == "collecting"
+    assert committed["status"] == "frozen"
     assert committed["stats"] == {
         "total": 5896,
         "by_domain": {
@@ -272,7 +272,7 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
     assert "Status: collecting; freeze-readiness gates passed" in REPORT.read_text(encoding="utf-8")
 
 
-def test_collecting_pool_meets_formal_sampling_gates() -> None:
+def test_frozen_pool_meets_formal_sampling_gates() -> None:
     errors = validate_pool(POOL, require_ready=True)
 
     assert errors == []

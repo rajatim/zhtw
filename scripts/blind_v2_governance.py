@@ -19,7 +19,7 @@ from referencing import Registry, Resource
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.benchmark_metrics import paired_power_analysis  # noqa: E402
+from scripts.benchmark_metrics import canonical_json_bytes, paired_power_analysis  # noqa: E402
 
 ACCURACY_ROOT = PROJECT_ROOT / "benchmarks" / "accuracy"
 POOL_SCHEMA = ACCURACY_ROOT / "blind-v2.candidate-pool.schema.json"
@@ -63,12 +63,8 @@ def load_json(path: Path) -> dict[str, Any]:
     return value
 
 
-def write_json(path: Path, value: dict[str, Any]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
+def json_text(value: dict[str, Any]) -> str:
+    return json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
 
 
 def sha256_file(path: Path) -> str:
@@ -197,6 +193,73 @@ def build_inputs(
         },
         "cases": selected,
     }
+
+
+def build_frozen_pool(
+    pool_path: Path,
+    *,
+    frozen_at: str,
+    check_references: bool = True,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    errors = validate_pool(
+        pool_path,
+        require_ready=True,
+        check_references=check_references,
+    )
+    if errors:
+        raise ValueError("; ".join(errors))
+    pool = load_json(pool_path)
+    deterministic_sample(pool, selected_n=pool["formal_n"])
+    pool["status"] = "frozen"
+    schema_errors = validate_schema(pool, POOL_SCHEMA)
+    if schema_errors:
+        raise ValueError("; ".join(schema_errors))
+    pool_bytes = canonical_json_bytes(pool)
+    try:
+        source_pool_path = str(pool_path.resolve().relative_to(PROJECT_ROOT))
+    except ValueError:
+        source_pool_path = str(pool_path.resolve())
+    report = {
+        "version": 1,
+        "dataset": "blind-v2",
+        "status": "frozen",
+        "frozen_at": frozen_at,
+        "source_pool_path": source_pool_path,
+        "source_pool_sha256": hashlib.sha256(pool_bytes).hexdigest(),
+        "formal_n": pool["formal_n"],
+        "seed": pool["seed"],
+        "candidate_count": pool["stats"]["total"],
+        "source_policy": pool["source_policy"],
+        "reference_snapshot_sha256": pool["deduplication"]["reference_snapshot_sha256"],
+        "converter_output_used": False,
+        "expected_text_used": False,
+    }
+    return pool, report
+
+
+def build_replacement_ledger(
+    pool_path: Path,
+    *,
+    check_references: bool = True,
+) -> dict[str, Any]:
+    pool = load_json(pool_path)
+    errors = validate_pool(pool_path, check_references=check_references)
+    if errors:
+        raise ValueError("; ".join(errors))
+    if pool["status"] != "frozen":
+        raise ValueError("candidate pool must be frozen before creating replacements")
+    ledger = {
+        "version": 1,
+        "dataset": "blind-v2",
+        "source_pool_sha256": sha256_file(pool_path),
+        "seed": pool["seed"],
+        "formal_n": pool["formal_n"],
+        "events": [],
+    }
+    schema_errors = validate_schema(ledger, REPLACEMENTS_SCHEMA)
+    if schema_errors:
+        raise ValueError("; ".join(schema_errors))
+    return ledger
 
 
 def _iter_strings(value: Any, *, parent_key: str | None = None) -> Iterable[str]:
@@ -590,11 +653,24 @@ def main() -> int:
     validate_pool_parser.add_argument("--require-ready", action="store_true")
     validate_pool_parser.add_argument("--skip-references", action="store_true")
 
+    freeze_parser = subparsers.add_parser("freeze")
+    freeze_parser.add_argument("pool", type=Path)
+    freeze_parser.add_argument("--frozen-at", required=True)
+    freeze_parser.add_argument("--output", type=Path, required=True)
+    freeze_parser.add_argument("--report", type=Path, required=True)
+    freeze_parser.add_argument("--check", action="store_true")
+
+    replacements_init_parser = subparsers.add_parser("init-replacements")
+    replacements_init_parser.add_argument("pool", type=Path)
+    replacements_init_parser.add_argument("--output", type=Path, required=True)
+    replacements_init_parser.add_argument("--check", action="store_true")
+
     sample_parser = subparsers.add_parser("sample")
     sample_parser.add_argument("pool", type=Path)
     sample_parser.add_argument("--selected-n", type=int, required=True)
     sample_parser.add_argument("--replacements", type=Path, required=True)
     sample_parser.add_argument("--output", type=Path, required=True)
+    sample_parser.add_argument("--check", action="store_true")
 
     replacements_parser = subparsers.add_parser("validate-replacements")
     replacements_parser.add_argument("pool", type=Path)
@@ -615,6 +691,45 @@ def main() -> int:
             require_ready=args.require_ready,
             check_references=not args.skip_references,
         )
+    elif args.command == "freeze":
+        try:
+            pool, report = build_frozen_pool(
+                args.pool.resolve(),
+                frozen_at=args.frozen_at,
+            )
+        except ValueError as exc:
+            errors = [str(exc)]
+        else:
+            pool_content = canonical_json_bytes(pool)
+            report_content = json_text(report)
+            if args.check:
+                stale = not args.output.is_file() or args.output.read_bytes() != pool_content
+                stale = stale or not args.report.is_file()
+                stale = stale or args.report.read_text(encoding="utf-8") != report_content
+                errors = ["frozen pool or freeze report is stale"] if stale else []
+            else:
+                args.output.parent.mkdir(parents=True, exist_ok=True)
+                args.output.write_bytes(pool_content)
+                args.report.parent.mkdir(parents=True, exist_ok=True)
+                args.report.write_text(report_content, encoding="utf-8")
+                errors = []
+            if not errors:
+                print(f"frozen pool sha256={report['source_pool_sha256']}")
+    elif args.command == "init-replacements":
+        try:
+            ledger = build_replacement_ledger(args.pool.resolve())
+        except ValueError as exc:
+            errors = [str(exc)]
+        else:
+            content = json_text(ledger)
+            if args.check:
+                stale = not args.output.is_file()
+                stale = stale or args.output.read_text(encoding="utf-8") != content
+                errors = ["replacement ledger is stale"] if stale else []
+            else:
+                args.output.parent.mkdir(parents=True, exist_ok=True)
+                args.output.write_text(content, encoding="utf-8")
+                errors = []
     elif args.command == "sample":
         errors = validate_pool(args.pool.resolve(), require_ready=True)
         replacement_errors, excluded_ids = validate_replacements(
@@ -638,8 +753,18 @@ def main() -> int:
                 schema_errors = validate_schema(inputs, INPUTS_SCHEMA)
                 errors.extend(f"generated inputs: {error}" for error in schema_errors)
                 if not errors:
-                    write_json(args.output, inputs)
-                    print(f"wrote {args.output} ({args.selected_n} cases)")
+                    content = json_text(inputs)
+                    if args.check:
+                        stale = not args.output.is_file()
+                        stale = stale or args.output.read_text(encoding="utf-8") != content
+                        if stale:
+                            errors.append("sampled inputs are stale")
+                    else:
+                        args.output.parent.mkdir(parents=True, exist_ok=True)
+                        args.output.write_text(content, encoding="utf-8")
+                    if not errors:
+                        action = "verified" if args.check else "wrote"
+                        print(f"{action} {args.output} ({args.selected_n} cases)")
     elif args.command == "validate-replacements":
         errors, _ = validate_replacements(args.pool.resolve(), args.replacements.resolve())
     elif args.command == "validate-decisions":

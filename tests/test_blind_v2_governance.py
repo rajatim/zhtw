@@ -15,7 +15,9 @@ from scripts.blind_v2_governance import (
     _expected_stats,
     _near_duplicate_pairs,
     apportion,
+    build_frozen_pool,
     build_inputs,
+    build_replacement_ledger,
     character_ngrams,
     deterministic_sample,
     jaccard,
@@ -31,6 +33,10 @@ from scripts.blind_v2_governance import (
 
 ROOT = Path(__file__).resolve().parents[1]
 ACCURACY_ROOT = ROOT / "benchmarks" / "accuracy"
+FROZEN_POOL = ACCURACY_ROOT / "blind-v2.candidate-pool.json"
+REPLACEMENTS = ACCURACY_ROOT / "blind-v2.replacements.json"
+INPUTS = ACCURACY_ROOT / "blind-v2.inputs.json"
+FREEZE_REPORT = ROOT / "docs/reports/blind-v2-pool-freeze-2026-07-30.json"
 
 
 def write_json(path: Path, value: dict[str, Any]) -> None:
@@ -206,6 +212,77 @@ def test_frozen_candidate_pool_requires_three_times_formal_n(tmp_path: Path) -> 
     errors = validate_pool(path, check_references=False)
 
     assert any("requires at least 1800 cases" in error for error in errors)
+
+
+def test_freeze_records_canonical_pool_hash_and_empty_replacement_ledger(
+    tmp_path: Path,
+) -> None:
+    pool = sample_pool_fixture(multiplier=3)
+    pool_path = tmp_path / "pool.json"
+    write_json(pool_path, pool)
+
+    frozen, report = build_frozen_pool(
+        pool_path,
+        frozen_at="2026-07-30T08:30:00+08:00",
+        check_references=False,
+    )
+    frozen_path = tmp_path / "frozen.json"
+    frozen_path.write_bytes(governance.canonical_json_bytes(frozen))
+    ledger = build_replacement_ledger(frozen_path, check_references=False)
+
+    assert frozen["status"] == "frozen"
+    assert report["source_pool_sha256"] == hashlib.sha256(frozen_path.read_bytes()).hexdigest()
+    assert report["candidate_count"] == 1800
+    assert ledger == {
+        "version": 1,
+        "dataset": "blind-v2",
+        "source_pool_sha256": report["source_pool_sha256"],
+        "seed": 20260719,
+        "formal_n": 600,
+        "events": [],
+    }
+
+
+def test_committed_frozen_pool_and_sample_are_reproducible() -> None:
+    pool = governance.load_json(FROZEN_POOL)
+    replacements = governance.load_json(REPLACEMENTS)
+    inputs = governance.load_json(INPUTS)
+    freeze_report = governance.load_json(FREEZE_REPORT)
+
+    assert pool["status"] == "frozen"
+    assert pool["stats"]["total"] == 5896
+    assert pool["formal_n"] == 1960
+    assert freeze_report["frozen_at"] == "2026-07-30T08:37:49+08:00"
+    assert freeze_report["source_pool_sha256"] == governance.sha256_file(FROZEN_POOL)
+    assert freeze_report["candidate_count"] == pool["stats"]["total"]
+    assert freeze_report["converter_output_used"] is False
+    assert freeze_report["expected_text_used"] is False
+    assert governance.sha256_file(FROZEN_POOL) == (
+        "79ab3c476c7e254e7c7a166a3fb595caf03dd4b50d86b91aa5de6c0df9375a4b"
+    )
+    assert governance.sha256_file(REPLACEMENTS) == (
+        "e0393540e7b7385252bd6c1b7019065b66c939ca26f54dedb5f73003bf501069"
+    )
+    assert governance.sha256_file(INPUTS) == (
+        "ddef836456ee29decf019dae981c1017b9728524c42808ae2d7c2c894299820a"
+    )
+    assert validate_pool(FROZEN_POOL, require_ready=True) == []
+    replacement_errors, excluded_ids = validate_replacements(FROZEN_POOL, REPLACEMENTS)
+    assert replacement_errors == []
+    assert excluded_ids == set()
+    assert replacements["events"] == []
+
+    rebuilt = build_inputs(
+        FROZEN_POOL,
+        pool,
+        pool["formal_n"],
+        replacement_ledger_sha256=governance.sha256_file(REPLACEMENTS),
+        excluded_ids=excluded_ids,
+    )
+    assert rebuilt == inputs
+    assert validate_schema(inputs, governance.INPUTS_SCHEMA) == []
+    assert inputs["selected_n"] == 1960
+    assert len(inputs["cases"]) == 1960
 
 
 def test_pool_recomputes_power_requirement(tmp_path: Path) -> None:

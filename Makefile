@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-freeze-check benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-sample-check benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -19,6 +19,8 @@ COMPETITOR_IMAGE ?= zhtw-benchmark-competitors:$(shell printf '%s' '$(COMPETITOR
 BLIND_V2_POOL ?= benchmarks/accuracy/blind-v2.candidate-pool.json
 BLIND_V2_INPUTS ?= benchmarks/accuracy/blind-v2.inputs.json
 BLIND_V2_REPLACEMENTS ?= benchmarks/accuracy/blind-v2.replacements.json
+BLIND_V2_FREEZE_REPORT ?= docs/reports/blind-v2-pool-freeze-2026-07-30.json
+BLIND_V2_FROZEN_AT ?= 2026-07-30T08:37:49+08:00
 BLIND_V2_DECISIONS ?= benchmarks/accuracy/blind-v2.final-decisions.json
 BLIND_V2_LEDGER ?= benchmarks/accuracy/private/blind-v2.evaluation-ledger.jsonl
 BLIND_V2_N ?= 1960
@@ -403,15 +405,17 @@ benchmark-blind-v2-source-classification-check: ## Verify deterministic input-on
 benchmark-blind-v2-pool-validate: ## Validate Blind-v2 source, dedupe, quota, and size policy
 	$(PYTHON) scripts/blind_v2_governance.py validate-pool $(BLIND_V2_POOL) --require-ready
 
-benchmark-blind-v2-pool-collecting-check: ## Rebuild and validate the current collecting pool
-	$(PYTHON) scripts/promote_blind_v2_candidates.py $(foreach decision,$(BLIND_V2_CONFIRMED_DECISIONS),--decision $(decision)) --created-at 2026-07-29T12:43:06+08:00 --output $(BLIND_V2_POOL) --report docs/reports/blind-v2-candidate-promotion-batches-001-050-2026-07-29.md --check
-	$(PYTHON) scripts/blind_v2_governance.py validate-pool $(BLIND_V2_POOL)
+benchmark-blind-v2-freeze-check: ## Reproduce the frozen Blind-v2 pool and freeze report
+	$(PYTHON) scripts/blind_v2_governance.py freeze $(BLIND_V2_POOL) --frozen-at $(BLIND_V2_FROZEN_AT) --output $(BLIND_V2_POOL) --report $(BLIND_V2_FREEZE_REPORT) --check
 
 benchmark-blind-v2-replacements-validate: ## Validate deterministic Blind-v2 replacements
 	$(PYTHON) scripts/blind_v2_governance.py validate-replacements $(BLIND_V2_POOL) $(BLIND_V2_REPLACEMENTS)
 
 benchmark-blind-v2-sample: ## Deterministically sample the frozen Blind-v2 pool
 	$(PYTHON) scripts/blind_v2_governance.py sample $(BLIND_V2_POOL) --selected-n $(BLIND_V2_N) --replacements $(BLIND_V2_REPLACEMENTS) --output $(BLIND_V2_INPUTS)
+
+benchmark-blind-v2-sample-check: ## Reproduce the committed Blind-v2 sample exactly
+	$(PYTHON) scripts/blind_v2_governance.py sample $(BLIND_V2_POOL) --selected-n $(BLIND_V2_N) --replacements $(BLIND_V2_REPLACEMENTS) --output $(BLIND_V2_INPUTS) --check
 
 benchmark-blind-v2-decisions-validate: ## Require maintainer decisions for every Blind-v2 case
 	$(PYTHON) scripts/blind_v2_governance.py validate-decisions $(BLIND_V2_INPUTS) $(BLIND_V2_DECISIONS)
