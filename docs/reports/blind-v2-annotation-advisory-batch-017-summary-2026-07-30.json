@@ -1,0 +1,16 @@
+{
+  "version":1,"dataset":"blind-v2","batch_id":"blind-v2-annotation-batch-017","status":"needs_maintainer_confirmation","case_count":100,
+  "selection":{"offset":1600,"limit":100},
+  "policy":{"approval_policy":"single_human_with_ai_advisory","converter_output_used":false,"expected_text_public":false,"expected_written_to_private_ground_truth":false},
+  "hashes":{
+    "packet_sha256":"9146db97298565d1d935bc2534e380d977dc2127234a7d173d341336a25ee055",
+    "codex_advisory_sha256":"9aa11122199bb6d3952a15cfed5bd55bab3178eaf5a1a5116e28ff84582c5462",
+    "agy_advisory_sha256":"059326c5cd1ebff3292c0016c90f5debb04f4dbda6ea42241fbd48b796ef5ba5",
+    "synthesis_sha256":"1347cb92a07084d7be8824a8efa90b7e656bd34c40b03c526fb45d93785af182"
+  },
+  "codex_first_pass_execution":{"model":"gpt-5.6-sol","accepted_groups":8,"group_sizes":[25,5,5,5,5,5,25,25],"discarded_stalled_runs":4},
+  "independent_review":{"cli":"agy","cli_version":"1.1.8","model":"gemini-3.1-pro-high","accepted_conversations":5,"turns_per_conversation":[1,1,1,1,1],"primary_output_agreement":58,"primary_output_differences":42,"acceptable_only_differences":39},
+  "synthesis_execution":{"model":"gpt-5.6-sol","accepted_groups":3,"group_sizes":[20,20,2]},
+  "synthesis":{"agreement":58,"codex":29,"agy":8,"hybrid":5,"needs_maintainer_review":17},
+  "maintainer_review_case_ids":["blind-v2-candidate-004619","blind-v2-candidate-004624","blind-v2-candidate-004626","blind-v2-candidate-004647","blind-v2-candidate-004660","blind-v2-candidate-004662","blind-v2-candidate-004700","blind-v2-candidate-004707","blind-v2-candidate-004746","blind-v2-candidate-004820","blind-v2-candidate-004823","blind-v2-candidate-004833","blind-v2-candidate-004839","blind-v2-candidate-004845","blind-v2-candidate-004911","blind-v2-candidate-004932","blind-v2-candidate-004972"]
+}
