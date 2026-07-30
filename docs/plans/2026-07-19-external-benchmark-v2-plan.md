@@ -1245,8 +1245,8 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   offset 0 取 100 筆，Codex first pass 與 Agy CLI 1.1.8
   `gemini-3.1-pro-high` independent advisory 均完成。Agy 使用 5 個隔離、sandboxed、
   單輪 conversation，每組 20 筆，100/100 IDs 與順序驗證通過。雙方 primary expected
-  54 筆一致、46 筆不同；Codex synthesis 為 54 agreement、29 Codex、11 Agy、
-  6 hybrid，其中 11 筆因高風險、語意或臺灣術語仍待 maintainer confirmation。
+  54 筆一致、46 筆不同；Codex synthesis 為 54 agreement、28 Codex、10 Agy、
+  8 hybrid，其中 11 筆因高風險、語意或臺灣術語仍待 maintainer confirmation。
   Private expected 尚未寫入，且全程未執行 zhtw 或競品 converter。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
