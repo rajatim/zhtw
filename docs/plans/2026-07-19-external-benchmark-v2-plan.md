@@ -1489,6 +1489,17 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   annotation progress 為 1,900/1,960，SHA-256 為
   `897461093f6bfd63b221e0be451769ef7a9a830024f71b2e44cf45eae1bfff2f`；全程未執行
   zhtw 或競品 converter。
+- [ ] 2026-07-31 完成最終 expected annotation batch 020 advisory，待 maintainer
+  確認：從 frozen inputs 的固定 offset 1,900 取剩餘 60 筆。Codex first pass 由
+  6 個 input-only 群組（每組 10 筆）完成，無丟棄任務；60/60 IDs 與順序通過
+  canonical validation。Agy CLI 1.1.8 `gemini-3.1-pro-high` 使用 3 個隔離、
+  sandboxed、單輪 conversation，每組 20 筆。雙方 primary expected 44 筆一致、
+  16 筆不同，另有 24 筆僅 acceptable variants 不同；Codex 以 1 個 input-only
+  群組完成 synthesis，逐筆複核後修正 2 筆，其中 1 筆使用受測試約束的 explicit
+  hybrid agreement audit override，且未改寫任一獨立 advisory。結果為 43 agreement、
+  14 Codex、1 Agy、2 hybrid，其中 3 筆因 Chromium 產品術語、身分驗證語意或門禁卡
+  用詞交由 maintainer 確認。Private expected 尚未寫入，annotation progress 維持
+  1,900/1,960；全程未執行 zhtw 或競品 converter。
 - [x] 以 seed `20260719` 建立第一批 100 筆 input-only source classification
   packet（FLORES／UD-CFL 各 50 筆）。
 - [x] 完成 classification batch 001 的 Codex first pass 與 Gemini independent

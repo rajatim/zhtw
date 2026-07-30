@@ -345,24 +345,43 @@ def build_synthesis(
     ):
         case_id = packet_case["id"]
         if codex_case["expected"] == agy_case["expected"]:
-            if case_id in choice_by_id:
-                raise ValueError(f"unnecessary synthesis choice for agreeing case {case_id}")
-            common_acceptable = [
-                value for value in codex_case["acceptable"] if value in agy_case["acceptable"]
-            ]
-            value = {
-                "id": case_id,
-                "expected": codex_case["expected"],
-                "acceptable": common_acceptable,
-                "decision": "agreement",
-                "confidence": min(
-                    codex_case["confidence"],
-                    agy_case["confidence"],
-                    key=("low", "medium", "high").index,
-                ),
-                "needs_maintainer_review": False,
-                "rationale": "Codex and Agy primary outputs agree.",
-            }
+            choice = choice_by_id.pop(case_id, None)
+            if choice is None:
+                common_acceptable = [
+                    value for value in codex_case["acceptable"] if value in agy_case["acceptable"]
+                ]
+                value = {
+                    "id": case_id,
+                    "expected": codex_case["expected"],
+                    "acceptable": common_acceptable,
+                    "decision": "agreement",
+                    "confidence": min(
+                        codex_case["confidence"],
+                        agy_case["confidence"],
+                        key=("low", "medium", "high").index,
+                    ),
+                    "needs_maintainer_review": False,
+                    "rationale": "Codex and Agy primary outputs agree.",
+                }
+            else:
+                if choice["decision"] != "hybrid":
+                    raise ValueError(
+                        f"agreeing case {case_id} audit override requires hybrid decision"
+                    )
+                expected = choice.get("expected", "")
+                if not expected or expected == codex_case["expected"]:
+                    raise ValueError(
+                        f"agreeing case {case_id} audit override requires a corrected expected"
+                    )
+                value = {
+                    "id": case_id,
+                    "expected": expected,
+                    "acceptable": choice.get("acceptable", []),
+                    "decision": "hybrid",
+                    "confidence": choice["confidence"],
+                    "needs_maintainer_review": choice["needs_maintainer_review"],
+                    "rationale": choice["rationale"],
+                }
         else:
             if case_id not in choice_by_id:
                 raise ValueError(f"missing synthesis choice for differing case {case_id}")

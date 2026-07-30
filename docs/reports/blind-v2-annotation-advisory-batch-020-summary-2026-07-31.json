@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "batch_id": "blind-v2-annotation-batch-020",
+  "status": "needs_maintainer_confirmation",
+  "case_count": 60,
+  "selection": {
+    "offset": 1900,
+    "limit": 60
+  },
+  "policy": {
+    "approval_policy": "single_human_with_ai_advisory",
+    "converter_output_used": false,
+    "expected_text_public": false,
+    "expected_written_to_private_ground_truth": false
+  },
+  "hashes": {
+    "packet_sha256": "c5512b733dc4d51fdcab1154b4dc1ef339fe3b37c457d30453427671269e0df9",
+    "codex_advisory_sha256": "870c48ddae594b686820c200706ac8dac2610b6a086e5f4a05d8fac949336a72",
+    "agy_advisory_sha256": "a72d4d0e2ca175b024476540aa819c8b1c44b101ed1240864492553e0038c087",
+    "synthesis_sha256": "80c194e5eb491df19d9a0c8e1bc89d4ecfc09297b69597a473acfe8d1d97f176"
+  },
+  "codex_first_pass_execution": {
+    "model": "gpt-5.6-sol",
+    "accepted_groups": 6,
+    "group_sizes": [
+      10,
+      10,
+      10,
+      10,
+      10,
+      10
+    ],
+    "discarded_stalled_runs": 0
+  },
+  "independent_review": {
+    "cli": "agy",
+    "cli_version": "1.1.8",
+    "model": "gemini-3.1-pro-high",
+    "accepted_conversations": 3,
+    "turns_per_conversation": [
+      1,
+      1,
+      1
+    ],
+    "primary_output_agreement": 44,
+    "primary_output_differences": 16,
+    "acceptable_only_differences": 24
+  },
+  "synthesis_execution": {
+    "model": "gpt-5.6-sol",
+    "accepted_groups": 1,
+    "group_sizes": [
+      16
+    ],
+    "codex_audit_corrections": 2,
+    "agreement_audit_overrides": 1
+  },
+  "synthesis": {
+    "agreement": 43,
+    "codex": 14,
+    "agy": 1,
+    "hybrid": 2,
+    "needs_maintainer_review": 3
+  },
+  "maintainer_review_case_ids": [
+    "blind-v2-candidate-005792",
+    "blind-v2-candidate-005805",
+    "blind-v2-candidate-005885"
+  ]
+}

@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 import scripts.blind_v2_annotation as annotation
 from scripts.blind_v2_annotation import (
     agy_prompt,
@@ -150,6 +152,80 @@ def test_synthesis_requires_choices_for_primary_output_differences(tmp_path: Pat
         "needs_maintainer_review": 1,
     }
     assert result["cases"][1]["expected"] == "Agy 預期"
+
+
+def test_synthesis_allows_hybrid_audit_override_for_agreement(tmp_path: Path) -> None:
+    packet = build_packet(INPUTS, batch_number=1, offset=0, limit=1)
+    packet_path = tmp_path / "packet.json"
+    packet_path.write_text(json_text(packet), encoding="utf-8")
+    codex = advisory(packet_path, stage="codex_first_pass")
+    agy = advisory(packet_path, stage="agy_independent")
+    codex_path = tmp_path / "codex.json"
+    agy_path = tmp_path / "agy.json"
+    choices_path = tmp_path / "choices.json"
+    codex_path.write_text(json_text(codex), encoding="utf-8")
+    agy_path.write_text(json_text(agy), encoding="utf-8")
+    choices_path.write_text(
+        json_text(
+            {
+                "choices": [
+                    {
+                        "id": packet["cases"][0]["id"],
+                        "decision": "hybrid",
+                        "expected": "Codex audit correction",
+                        "confidence": "high",
+                        "needs_maintainer_review": False,
+                        "rationale": "Both independent reviews made the same clear error.",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    result = build_synthesis(packet_path, codex_path, agy_path, choices_path)
+
+    assert result["stats"] == {
+        "total": 1,
+        "agreement": 0,
+        "codex": 0,
+        "agy": 0,
+        "hybrid": 1,
+        "needs_maintainer_review": 0,
+    }
+    assert result["cases"][0]["expected"] == "Codex audit correction"
+
+
+def test_synthesis_rejects_non_hybrid_override_for_agreement(tmp_path: Path) -> None:
+    packet = build_packet(INPUTS, batch_number=1, offset=0, limit=1)
+    packet_path = tmp_path / "packet.json"
+    packet_path.write_text(json_text(packet), encoding="utf-8")
+    codex = advisory(packet_path, stage="codex_first_pass")
+    agy = advisory(packet_path, stage="agy_independent")
+    codex_path = tmp_path / "codex.json"
+    agy_path = tmp_path / "agy.json"
+    choices_path = tmp_path / "choices.json"
+    codex_path.write_text(json_text(codex), encoding="utf-8")
+    agy_path.write_text(json_text(agy), encoding="utf-8")
+    choices_path.write_text(
+        json_text(
+            {
+                "choices": [
+                    {
+                        "id": packet["cases"][0]["id"],
+                        "decision": "codex",
+                        "confidence": "high",
+                        "needs_maintainer_review": False,
+                        "rationale": "Invalid override provenance.",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="audit override requires hybrid decision"):
+        build_synthesis(packet_path, codex_path, agy_path, choices_path)
 
 
 def test_confirmation_keeps_expected_private_and_tracks_public_coverage(
