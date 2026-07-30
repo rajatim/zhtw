@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "id": "blind-v2-run-1",
+  "status": "frozen",
+  "created_at": "2026-07-31T06:52:40+08:00",
+  "dataset_id": "blind-v2",
+  "dataset_manifest_sha256": "67a7bf913d70a12773d6a4ca550b2426e2078b266e0247f7e2e101006073eb71",
+  "inputs_sha256": "ddef836456ee29decf019dae981c1017b9728524c42808ae2d7c2c894299820a",
+  "expected_sha256": "511b2845969a60c6c5b53e7de17b85fbe00b11521648dac10e77fe6ec6ace9c5",
+  "zhtw_git_sha": "8ec32ef14ad41276cbfce6a74f87738ac9270f7b",
+  "competitor_lock_sha256": "cb66b1b5d9622f03722ffba7d4602a8c89653602fb7f16894d3ddc91aaca120a",
+  "decision_summary_sha256": "c74862218b06d75143fb52ae4a6f0cf22294a658e16c7028b59760dd90e1fed1",
+  "normalization_id": "zhtw-exact-v1",
+  "protocol_id": "formal-blind-v2-protocol-v1",
+  "protocol_sha256": "c917d2f70829d0f49f5a0d219b98bc3a43c5d9bd6fe29f733be51aba1afe5281",
+  "primary_endpoint": "blind-v2.accepted_accuracy",
+  "ranking_policy_id": "market-ranking-v1",
+  "ranking_policy_sha256": "f3f36a289e79ba7f50b15bc99985bffbac9a354483172292ed99839fafbc8e19",
+  "power_analysis": {
+    "method": "paired_mcnemar_normal_approximation",
+    "discordant_rate": 0.1,
+    "minimum_detectable_effect": 0.02,
+    "alpha": 0.05,
+    "target_power": 0.8,
+    "required_cases": 1960,
+    "selected_cases": 1960
+  }
+}

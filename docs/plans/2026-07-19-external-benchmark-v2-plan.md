@@ -1523,7 +1523,11 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
 - [x] 產生差異與 maintainer review packet。
 - [x] Maintainer confirmation 後寫入 private expected。
 - [x] 驗證 final decisions 明確涵蓋 N/N cases。
-- [ ] 封存 inputs、expected、protocol 與 preregistration hash，再執行 one-shot benchmark。
+- [x] 封存 inputs、expected、protocol 與 preregistration hash：正式候選 commit 為
+  `8ec32ef14ad41276cbfce6a74f87738ac9270f7b`；preregistration SHA-256 為
+  `124686923cfb12fde499882eeeec29752348a9b8ad5decdbdb9cdc9ce530238c`。
+- [ ] 在具備 locked competitor image 的受控環境執行 one-shot benchmark；目前本機未安裝
+  Docker，因此尚未建立 `run_started` 或讀取任何分數。
 
 完成條件：最終抽樣 N/N human decisions 完成，N 滿足預先登記的 power analysis，來源
 標示誠實，第一次執行前無 converter output 接觸 expected。
