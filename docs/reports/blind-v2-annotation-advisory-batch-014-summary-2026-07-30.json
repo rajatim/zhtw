@@ -1,7 +1,7 @@
 {
-  "version":1,"dataset":"blind-v2","batch_id":"blind-v2-annotation-batch-014","status":"needs_maintainer_confirmation","case_count":100,
+  "version":1,"dataset":"blind-v2","batch_id":"blind-v2-annotation-batch-014","status":"human_confirmed","case_count":100,
   "selection":{"offset":1300,"limit":100},
-  "policy":{"approval_policy":"single_human_with_ai_advisory","converter_output_used":false,"expected_text_public":false,"expected_written_to_private_ground_truth":false},
+  "policy":{"approval_policy":"single_human_with_ai_advisory","converter_output_used":false,"expected_text_public":false,"expected_written_to_private_ground_truth":true},
   "hashes":{
     "packet_sha256":"7d867f7eb79c426bea6c16b25b83599f7634e949d17534d06c80ffbd876473e8",
     "codex_advisory_sha256":"76c434dd98f3c42e7815b3861bfb4944cefa5eaeb7e5064820733bee65b05169",
@@ -10,5 +10,6 @@
   },
   "independent_review":{"cli":"agy","cli_version":"1.1.8","model":"gemini-3.1-pro-high","accepted_conversations":5,"turns_per_conversation":[1,1,1,1,1],"primary_output_agreement":38,"primary_output_differences":62,"acceptable_only_differences":20},
   "synthesis":{"agreement":38,"codex":49,"agy":7,"hybrid":6,"needs_maintainer_review":15},
-  "maintainer_review_case_ids":["blind-v2-candidate-003713","blind-v2-candidate-003739","blind-v2-candidate-003740","blind-v2-candidate-003753","blind-v2-candidate-003767","blind-v2-candidate-003796","blind-v2-candidate-003848","blind-v2-candidate-003930","blind-v2-candidate-003933","blind-v2-candidate-003934","blind-v2-candidate-003943","blind-v2-candidate-003953","blind-v2-candidate-003956","blind-v2-candidate-003957","blind-v2-candidate-003961"]
+  "maintainer_review_case_ids":["blind-v2-candidate-003713","blind-v2-candidate-003739","blind-v2-candidate-003740","blind-v2-candidate-003753","blind-v2-candidate-003767","blind-v2-candidate-003796","blind-v2-candidate-003848","blind-v2-candidate-003930","blind-v2-candidate-003933","blind-v2-candidate-003934","blind-v2-candidate-003943","blind-v2-candidate-003953","blind-v2-candidate-003956","blind-v2-candidate-003957","blind-v2-candidate-003961"],
+  "maintainer_confirmation":{"maintainer":"tim","decision_date":"2026-07-30","decision_method":"batch_human_confirmation","confirmed_cases":100,"private_expected_sha256":"484e167ec8d346608387e70cdbfdc459dee8043491830728f2d0c4eb86ba567d","annotation_progress_sha256":"86da787ce55720957ac1f363be7e42e68501470bb9891bcedcae83137c8a96c4"}
 }
