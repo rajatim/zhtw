@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "dataset": "blind-v2",
+  "batch_id": "blind-v2-annotation-batch-004",
+  "status": "needs_maintainer_confirmation",
+  "case_count": 100,
+  "selection": {
+    "offset": 300,
+    "limit": 100
+  },
+  "policy": {
+    "approval_policy": "single_human_with_ai_advisory",
+    "converter_output_used": false,
+    "expected_text_public": false,
+    "expected_written_to_private_ground_truth": false
+  },
+  "hashes": {
+    "packet_sha256": "0605fa44cc058b6161737b13309d2aab034f5333ba0cb9702d4673766a1f27ed",
+    "codex_advisory_sha256": "6985e7ca7c16bc9c37b59a13203a672d8c2a6e8b5a5cf17ba04db4e8ae8b221d",
+    "agy_advisory_sha256": "c4038cedc90d250bb8cd9a9b006b3212d288780949458cbe2c5522e439b5c1a9",
+    "synthesis_sha256": "5d87497ff8d08a1970cd8a938c42c6b6abcbc2a01189a5309aeb3ce9c585e03a"
+  },
+  "independent_review": {
+    "cli": "agy",
+    "cli_version": "1.1.8",
+    "model": "gemini-3.1-pro-high",
+    "accepted_conversations": 5,
+    "turns_per_conversation": [1, 1, 1, 1, 1],
+    "rejected_runs": 1,
+    "rejection_reason": "The third chunk returned case IDs or ordering that did not match the sealed packet; the complete run was discarded and restarted.",
+    "primary_output_agreement": 36,
+    "primary_output_differences": 64,
+    "acceptable_only_differences": 21
+  },
+  "synthesis": {
+    "agreement": 36,
+    "codex": 51,
+    "agy": 4,
+    "hybrid": 9,
+    "needs_maintainer_review": 4
+  }
+}
