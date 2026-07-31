@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
     paths:
+      - 'pyproject.toml'
+      - 'src/zhtw/**'
+      - 'sdk/data/zhtw-data.json'
       - 'benchmarks/accuracy/competitor-env/**'
       - 'benchmarks/accuracy/competitors.lock.json'
       - 'benchmarks/accuracy/competitors-lock.schema.json'
@@ -12,19 +15,27 @@ on:
       - 'scripts/validate_competitor_environment.py'
       - 'scripts/run_ud_gsd_benchmark.py'
       - 'scripts/run_naer_terms_benchmark.py'
+      - 'scripts/import_paired_localization_benchmark.py'
+      - 'scripts/run_paired_localization_benchmark.py'
       - 'scripts/reproduce_public_benchmarks.py'
       - 'scripts/validate_public_benchmark_attestation.py'
       - 'benchmarks/accuracy/public-benchmark-reproduction-attestation.schema.json'
       - 'benchmarks/accuracy/external/ud-gsd-v1.json'
       - 'benchmarks/accuracy/external/naer-terms-v1.json'
+      - 'benchmarks/accuracy/external/*-paired-ui-v1.json'
       - 'benchmarks/accuracy/manifests/ud-gsd-v1.json'
       - 'benchmarks/accuracy/manifests/naer-terms-v1.json'
+      - 'benchmarks/accuracy/manifests/*-paired-ui-v1.json'
       - 'docs/reports/ud-gsd-benchmark-2026-07-31.json'
       - 'docs/reports/naer-terms-benchmark-2026-07-31.json'
+      - 'docs/reports/*-paired-ui-v1-benchmark-2026-07-31.json'
       - '.github/workflows/benchmark-competitors.yml'
   pull_request:
     branches: [main]
     paths:
+      - 'pyproject.toml'
+      - 'src/zhtw/**'
+      - 'sdk/data/zhtw-data.json'
       - 'benchmarks/accuracy/competitor-env/**'
       - 'benchmarks/accuracy/competitors.lock.json'
       - 'benchmarks/accuracy/competitors-lock.schema.json'
@@ -33,15 +44,20 @@ on:
       - 'scripts/validate_competitor_environment.py'
       - 'scripts/run_ud_gsd_benchmark.py'
       - 'scripts/run_naer_terms_benchmark.py'
+      - 'scripts/import_paired_localization_benchmark.py'
+      - 'scripts/run_paired_localization_benchmark.py'
       - 'scripts/reproduce_public_benchmarks.py'
       - 'scripts/validate_public_benchmark_attestation.py'
       - 'benchmarks/accuracy/public-benchmark-reproduction-attestation.schema.json'
       - 'benchmarks/accuracy/external/ud-gsd-v1.json'
       - 'benchmarks/accuracy/external/naer-terms-v1.json'
+      - 'benchmarks/accuracy/external/*-paired-ui-v1.json'
       - 'benchmarks/accuracy/manifests/ud-gsd-v1.json'
       - 'benchmarks/accuracy/manifests/naer-terms-v1.json'
+      - 'benchmarks/accuracy/manifests/*-paired-ui-v1.json'
       - 'docs/reports/ud-gsd-benchmark-2026-07-31.json'
       - 'docs/reports/naer-terms-benchmark-2026-07-31.json'
+      - 'docs/reports/*-paired-ui-v1-benchmark-2026-07-31.json'
       - '.github/workflows/benchmark-competitors.yml'
   workflow_dispatch:
 
