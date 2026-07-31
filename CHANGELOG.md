@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.4.3] - 2026-07-31
+
 ### Added
 - 建立 1,960 筆 Blind-v2 正式盲測與完整治理流程，從 5,896 筆候選語料凍結抽樣；
   expected 維持私密，公開報告只包含彙總結果與可稽核雜湊。
