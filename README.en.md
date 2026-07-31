@@ -230,6 +230,7 @@ ZHTW is a rule-based conversion and quality-checking tool, not a generative tran
 | [CI/CD integration](docs/deployment/CI-CD-INTEGRATION.md) | GitHub Actions, GitLab CI, and pre-commit |
 | [Changelog](CHANGELOG.md) | Accuracy, feature, and compatibility changes by release |
 | [Contributing guide](CONTRIBUTING.md) | Development, testing, and dictionary change process |
+| [Acknowledgments](docs/reference/ACKNOWLEDGMENTS.md) | Development assistance from OpenAI Codex and Anthropic Claude |
 
 ## Help improve accuracy
 
