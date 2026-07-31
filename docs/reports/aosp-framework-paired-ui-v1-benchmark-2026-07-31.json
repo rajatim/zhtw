@@ -1,0 +1,155 @@
+{
+  "generated_date": "2026-07-31",
+  "report_mode": "aggregate",
+  "dataset": "aosp-framework-paired-ui-v1",
+  "track": "external_regional",
+  "evidence_role": "public_external_secondary_evidence",
+  "primary_market_endpoint": false,
+  "reference_kind": "vendor_paired_localization",
+  "reference_is_ground_truth": false,
+  "source_overlap": "blind_v2_source_pool",
+  "manifest_sha256": "4d8f6369016b0085aed9b1567dd6e60e16c51f6b4d4091eeec05ab3309c2eab5",
+  "normalized_sha256": "14aff6e7c31c0e581fb6d6d2aacdae075b3cf30cfbc544f3ab773581d1c929fa",
+  "upstream_revision": "AOSP platform/frameworks/base commit 1cdfff555f4a21f71ccc978290e2e212e2f8b168; paired core framework zh-rCN and zh-rTW string resources.",
+  "license": "Apache License 2.0",
+  "provenance": {
+    "zhtw_version": "4.4.2",
+    "git_sha": "11f34ea19e8cea3d1d52ad679717109468888da5",
+    "git_dirty": false,
+    "python_version": "3.11.14",
+    "node_version": "v26.5.0",
+    "rust_version": "rustc 1.80.0 (051478957 2024-07-21)",
+    "os": "macOS-26.5.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "runner_sha256": "2798414ab5dfa2cbf3752a7ab4e688bc00569a7d04d99e05f59c0c5621daa3ef",
+    "scorer_sha256": "ed28bd89910af57c9508b659533876113bd3290d43014c393b0be595b027fbf8"
+  },
+  "engines": {
+    "zhtw": {
+      "available": true,
+      "version": "4.4.2",
+      "family": "zhtw",
+      "adapter": "local_python",
+      "total_cases": 1968,
+      "exact": 380,
+      "misses": 1588,
+      "exact_accuracy": 0.19308943089430894,
+      "exact_accuracy_ci_95": {
+        "low": 0.17682926829268292,
+        "high": 0.21138211382113822
+      },
+      "idempotent": 1913,
+      "idempotency_rate": 0.9720528455284553,
+      "changed_span": {
+        "required_edits": 7376,
+        "produced_edits": 5823,
+        "correct_edits": 2168,
+        "precision": 0.37231667525330586,
+        "recall": 0.29392624728850325,
+        "f1": 0.32850973558602925
+      },
+      "by_file": {
+        "strings.xml": {
+          "total": 1968,
+          "exact": 380,
+          "exact_accuracy": 0.19308943089430894
+        }
+      },
+      "errors_by_category": {}
+    },
+    "opencc-s2twp": {
+      "available": true,
+      "version": "1.4.1",
+      "family": "opencc",
+      "adapter": "container_jsonl",
+      "total_cases": 1968,
+      "exact": 418,
+      "misses": 1550,
+      "exact_accuracy": 0.21239837398373984,
+      "exact_accuracy_ci_95": {
+        "low": 0.1951219512195122,
+        "high": 0.2301829268292683
+      },
+      "idempotent": 1941,
+      "idempotency_rate": 0.9862804878048781,
+      "changed_span": {
+        "required_edits": 7376,
+        "produced_edits": 5710,
+        "correct_edits": 2282,
+        "precision": 0.39964973730297726,
+        "recall": 0.3093817787418655,
+        "f1": 0.3487696775179581
+      },
+      "by_file": {
+        "strings.xml": {
+          "total": 1968,
+          "exact": 418,
+          "exact_accuracy": 0.21239837398373984
+        }
+      },
+      "errors_by_category": {}
+    },
+    "zhconv-zh-tw": {
+      "available": true,
+      "version": "1.4.3",
+      "family": "mediawiki-zhconv",
+      "adapter": "container_jsonl",
+      "total_cases": 1968,
+      "exact": 309,
+      "misses": 1659,
+      "exact_accuracy": 0.15701219512195122,
+      "exact_accuracy_ci_95": {
+        "low": 0.1407520325203252,
+        "high": 0.17378048780487804
+      },
+      "idempotent": 1967,
+      "idempotency_rate": 0.9994918699186992,
+      "changed_span": {
+        "required_edits": 7376,
+        "produced_edits": 5476,
+        "correct_edits": 1847,
+        "precision": 0.3372899926953981,
+        "recall": 0.2504067245119306,
+        "f1": 0.2874260815437286
+      },
+      "by_file": {
+        "strings.xml": {
+          "total": 1968,
+          "exact": 309,
+          "exact_accuracy": 0.15701219512195122
+        }
+      },
+      "errors_by_category": {}
+    }
+  },
+  "paired_comparisons": {
+    "opencc-s2twp": {
+      "case_count": 1968,
+      "absolute_delta": -0.019308943089430895,
+      "delta_ci_95": {
+        "low": -0.028963414634146343,
+        "high": -0.010670731707317074
+      },
+      "candidate_only_correct": 23,
+      "competitor_only_correct": 61,
+      "mcnemar_exact_p": 4.077126550660336e-05,
+      "result": "loser",
+      "bootstrap_rounds": 10000,
+      "seed": 20260719
+    },
+    "zhconv-zh-tw": {
+      "case_count": 1968,
+      "absolute_delta": 0.036077235772357726,
+      "delta_ci_95": {
+        "low": 0.024898373983739838,
+        "high": 0.04725609756097561
+      },
+      "candidate_only_correct": 97,
+      "competitor_only_correct": 26,
+      "mcnemar_exact_p": 7.967669169699196e-11,
+      "result": "winner",
+      "bootstrap_rounds": 10000,
+      "seed": 20260719
+    }
+  }
+}

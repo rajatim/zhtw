@@ -103,21 +103,171 @@
       "excluded_context_candidates": 754,
       "git_sha": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
       "license": "政府資料開放授權條款-第1版 (Open Government Data License, version 1.0)"
+    },
+    {
+      "dataset": "aosp-framework-paired-ui-v1",
+      "role": "public_external_secondary_evidence",
+      "cases": 1968,
+      "accuracy": 0.19308943089430894,
+      "idempotency_rate": 0.9720528455284553,
+      "reference_kind": "vendor_paired_localization",
+      "reference_is_ground_truth": false,
+      "source_overlap": "blind_v2_source_pool",
+      "engine_accuracy": {
+        "zhtw": 0.19308943089430894,
+        "opencc-s2twp": 0.21239837398373984,
+        "zhconv-zh-tw": 0.15701219512195122
+      },
+      "paired_comparisons": {
+        "opencc-s2twp": {
+          "case_count": 1968,
+          "absolute_delta": -0.019308943089430895,
+          "delta_ci_95": {
+            "low": -0.028963414634146343,
+            "high": -0.010670731707317074
+          },
+          "candidate_only_correct": 23,
+          "competitor_only_correct": 61,
+          "mcnemar_exact_p": 4.077126550660336e-05,
+          "result": "loser",
+          "bootstrap_rounds": 10000,
+          "seed": 20260719
+        },
+        "zhconv-zh-tw": {
+          "case_count": 1968,
+          "absolute_delta": 0.036077235772357726,
+          "delta_ci_95": {
+            "low": 0.024898373983739838,
+            "high": 0.04725609756097561
+          },
+          "candidate_only_correct": 97,
+          "competitor_only_correct": 26,
+          "mcnemar_exact_p": 7.967669169699196e-11,
+          "result": "winner",
+          "bootstrap_rounds": 10000,
+          "seed": 20260719
+        }
+      },
+      "git_sha": "11f34ea19e8cea3d1d52ad679717109468888da5",
+      "license": "Apache License 2.0"
+    },
+    {
+      "dataset": "vscode-paired-ui-v1",
+      "role": "public_external_secondary_evidence",
+      "cases": 17133,
+      "accuracy": 0.1219284421875912,
+      "idempotency_rate": 0.9750189692406467,
+      "reference_kind": "vendor_paired_localization",
+      "reference_is_ground_truth": false,
+      "source_overlap": "blind_v2_source_pool",
+      "engine_accuracy": {
+        "zhtw": 0.1219284421875912,
+        "opencc-s2twp": 0.1278234985116442,
+        "zhconv-zh-tw": 0.0751765598552501
+      },
+      "paired_comparisons": {
+        "opencc-s2twp": {
+          "case_count": 17133,
+          "absolute_delta": -0.005895056324052997,
+          "delta_ci_95": {
+            "low": -0.00869666725033561,
+            "high": -0.0030934453977703846
+          },
+          "candidate_only_correct": 264,
+          "competitor_only_correct": 365,
+          "mcnemar_exact_p": 6.463860869145211e-05,
+          "result": "loser",
+          "bootstrap_rounds": 10000,
+          "seed": 20260719
+        },
+        "zhconv-zh-tw": {
+          "case_count": 17133,
+          "absolute_delta": 0.046751882332341094,
+          "delta_ci_95": {
+            "low": 0.0435417031459756,
+            "high": 0.0500787953073017
+          },
+          "candidate_only_correct": 836,
+          "competitor_only_correct": 35,
+          "mcnemar_exact_p": 5.106932261566178e-200,
+          "result": "winner",
+          "bootstrap_rounds": 10000,
+          "seed": 20260719
+        }
+      },
+      "git_sha": "11f34ea19e8cea3d1d52ad679717109468888da5",
+      "license": "MIT License"
+    },
+    {
+      "dataset": "firefox-paired-ui-v1",
+      "role": "public_external_secondary_evidence",
+      "cases": 1264,
+      "accuracy": 0.21360759493670886,
+      "idempotency_rate": 0.9897151898734177,
+      "reference_kind": "vendor_paired_localization",
+      "reference_is_ground_truth": false,
+      "source_overlap": "none_known",
+      "engine_accuracy": {
+        "zhtw": 0.21360759493670886,
+        "opencc-s2twp": 0.22943037974683544,
+        "zhconv-zh-tw": 0.11629746835443038
+      },
+      "paired_comparisons": {
+        "opencc-s2twp": {
+          "case_count": 1264,
+          "absolute_delta": -0.015822784810126583,
+          "delta_ci_95": {
+            "low": -0.03164556962025317,
+            "high": 0.0
+          },
+          "candidate_only_correct": 43,
+          "competitor_only_correct": 63,
+          "mcnemar_exact_p": 0.06446359198949372,
+          "result": "statistical_tie",
+          "bootstrap_rounds": 10000,
+          "seed": 20260719
+        },
+        "zhconv-zh-tw": {
+          "case_count": 1264,
+          "absolute_delta": 0.09731012658227849,
+          "delta_ci_95": {
+            "low": 0.08069620253164557,
+            "high": 0.11392405063291139
+          },
+          "candidate_only_correct": 124,
+          "competitor_only_correct": 1,
+          "mcnemar_exact_p": 5.924491528144329e-36,
+          "result": "winner",
+          "bootstrap_rounds": 10000,
+          "seed": 20260719
+        }
+      },
+      "git_sha": "11f34ea19e8cea3d1d52ad679717109468888da5",
+      "license": "Mozilla Public License 2.0"
     }
   ],
   "cross_track_assessment": {
-    "status": "no_primary_conflict",
+    "status": "mixed_secondary_evidence_no_primary_conflict",
     "notes": [
-      "Public tracks are secondary zhtw-only diagnostics and cannot change the Blind-v2 ranking.",
+      "Public tracks are secondary diagnostics and cannot change the frozen Blind-v2 ranking.",
       "UD GSD has OpenCC-derived source bias and is not independent competitor evidence.",
       "NAER tests a conservative terminology subset, not sentence-level general accuracy.",
+      "On exact vendor-localization agreement, OpenCC led zhtw on AOSP and VS Code; Firefox was a statistical tie.",
+      "zhtw led zhconv on all three paired vendor-localization tracks.",
+      "Vendor localization is not universal Taiwan Traditional ground truth, and AOSP/VS Code source inputs overlap the Blind-v2 source pool.",
       "Blind-v2 domain results are mixed; zhtw did not lead every domain.",
       "zhtw idempotency was lower than both independent ranking representatives on Blind-v2."
     ]
   },
   "governance": {
     "blind_v2_git_sha": "19626cf119e0ef7c8c04faa81960ee735eb9ac5a",
-    "public_tracks_git_sha": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
+    "public_track_git_shas": {
+      "ud-gsd-v1": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
+      "naer-terms-v1": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
+      "aosp-framework-paired-ui-v1": "11f34ea19e8cea3d1d52ad679717109468888da5",
+      "vscode-paired-ui-v1": "11f34ea19e8cea3d1d52ad679717109468888da5",
+      "firefox-paired-ui-v1": "11f34ea19e8cea3d1d52ad679717109468888da5"
+    },
     "preregistration_sha256": "f9931673a781acd9b3c68d5805b801161dbeb982fb66d07c336c1b68731a5f5c",
     "inputs_sha256": "ddef836456ee29decf019dae981c1017b9728524c42808ae2d7c2c894299820a",
     "expected_sha256": "511b2845969a60c6c5b53e7de17b85fbe00b11521648dac10e77fe6ec6ace9c5",
@@ -140,9 +290,19 @@
       "url": "https://github.com/rajatim/zhtw/actions/runs/30591590536"
     },
     "independent_third_party_reproduction": {
-      "status": "awaiting_external_reviewer",
+      "status": "optional_not_required",
       "request_issue": "https://github.com/rajatim/zhtw/issues/51",
       "scope": "public_secondary_tracks_only"
+    },
+    "project_run_public_external_expansion": {
+      "status": "completed",
+      "tracks": [
+        "aosp-framework-paired-ui-v1",
+        "vscode-paired-ui-v1",
+        "firefox-paired-ui-v1"
+      ],
+      "case_count": 20365,
+      "independent_third_party_validation": false
     },
     "maintainer_claim_confirmation": {
       "status": "confirmed",

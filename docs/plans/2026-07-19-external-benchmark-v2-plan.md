@@ -1547,7 +1547,13 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
 - [x] 驗證所有競品可用、版本相符、case count 相同。
 - [x] 完成統計顯著性與 1,299 筆 zhtw misses 的 error taxonomy review。
 - [x] Maintainer 已確認 152 筆 synthesis decisions、報告措辭與宣稱範圍。
-- [ ] 第三方依公開 manifest 重跑 external tracks。
+- [x] 專案自行新增並執行三個 checksum-pinned 公開配對評測：AOSP 1,968 筆、
+  VS Code 17,133 筆、Firefox 1,264 筆，共 20,365 筆；均以鎖定的 zhtw、OpenCC、
+  zhconv 版本比較並只發布 aggregate 結果。AOSP 與 VS Code exact match 由 OpenCC
+  小幅領先，Firefox 為 statistical tie；zhtw 三項均領先 zhconv。正式報告已標示
+  `mixed_secondary_evidence_no_primary_conflict`，不得包裝成所有資料集全面勝出。
+- [ ] 選配加強證據：第三方依公開 manifest 重跑 external tracks。專案不再等待外部
+  reviewer 才完成本階段，但未取得前不得寫成 third-party validation。
 
 完成條件：公開報告可重現、不洩漏 blind-v2 expected，且宣稱只涵蓋實際測試方向、
 資料與競品。
@@ -1584,6 +1590,10 @@ CI 分層：
 > 以及列出的主要開源
 > 競品版本中，zhtw 的 accepted accuracy／過度轉換防禦率最高。
 
+新增公開配對評測後，必須同時揭露：上述勝出只適用 Blind-v2；AOSP／VS Code 的
+vendor-localization exact match 由 OpenCC 小幅領先，Firefox 無顯著差異。公開配對
+翻譯是衝突檢查，不是通用臺灣繁中 ground truth。
+
 不能說：
 
 - 「所有簡繁轉換器中最準」。
@@ -1608,7 +1618,10 @@ CI 分層：
 - [x] GitHub-hosted Actions 無法存取 private expected，且 workflow leakage tests 通過。
 - [x] 公開報告未洩漏 blind-v2 expected、output、miss IDs 或詳細 rows。
 - [x] 宣稱文字經 maintainer 確認且不超出 benchmark 證據。
-- [ ] 收到並驗證一份外部 `independent_third_party` public-track attestation。
+- [x] 三個額外公開配對 tracks 已完成授權、固定來源、結構化匯入、鎖定競品比較、
+  CI 與 aggregate-only 報告，且正式彙整如實記錄 mixed secondary evidence。
+- [ ] 選配：收到並驗證一份外部 `independent_third_party` public-track attestation；
+  這會提升證據強度，但不是本版 Definition of Done 的阻擋條件。
 
 ## 11. 建議交付拆分
 

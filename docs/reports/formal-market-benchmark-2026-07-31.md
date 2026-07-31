@@ -29,10 +29,14 @@ misses because detailed rows remained sealed.
 
 - `ud-gsd-v1`: 4,997 cases, 70.48% accuracy, 97.94% idempotency; clean commit `4b7f0e66fa0262021d0ec8e37acfae881b06bc4b`.
 - `naer-terms-v1`: 775 cases, 40.13% accuracy, 96.65% idempotency; clean commit `4b7f0e66fa0262021d0ec8e37acfae881b06bc4b`.
+- `aosp-framework-paired-ui-v1`: 1,968 cases, 19.31% accuracy, 97.21% idempotency; clean commit `11f34ea19e8cea3d1d52ad679717109468888da5`.
+- `vscode-paired-ui-v1`: 17,133 cases, 12.19% accuracy, 97.50% idempotency; clean commit `11f34ea19e8cea3d1d52ad679717109468888da5`.
+- `firefox-paired-ui-v1`: 1,264 cases, 21.36% accuracy, 98.97% idempotency; clean commit `11f34ea19e8cea3d1d52ad679717109468888da5`.
 
-These tracks are zhtw-only diagnostics. UD GSD has OpenCC-derived source bias,
-while NAER is a limited terminology subset. Neither is an independent competitor
-ranking, and neither changes the Blind-v2 primary decision.
+The public evidence is mixed. On exact vendor-localization agreement, OpenCC
+led zhtw on AOSP and VS Code, while Firefox was a statistical tie. zhtw led
+zhconv on all three. Vendor translation is not universal Taiwan Traditional
+ground truth, and these results do not change the frozen Blind-v2 decision.
 
 ## Limits
 
@@ -42,7 +46,7 @@ ranking, and neither changes the Blind-v2 primary decision.
 - zhtw did not lead every domain and had lower Blind-v2 idempotency than both ranking representatives.
 - Expected values used one maintainer with Codex and independent Agy advice.
 - Detailed rows were not read during the formal run. A later controlled audit reviewed all 1,299 zhtw misses, and the maintainer confirmed all 152 queued synthesis decisions.
-- Independent third-party reproduction of the public secondary tracks is awaiting an outside reviewer in GitHub issue #51.
+- Independent third-party reproduction remains optional stronger evidence in GitHub issue #51; it is not recorded as completed.
 
 ## Proposed Claim
 
@@ -53,10 +57,10 @@ Status: `confirmed_by_maintainer` on 2026-07-31.
 ## Governance
 
 - Blind-v2 commit: `19626cf119e0ef7c8c04faa81960ee735eb9ac5a`
-- Public-track commit: `4b7f0e66fa0262021d0ec8e37acfae881b06bc4b`
+- Public-track commits: `ud-gsd-v1`=`4b7f0e66fa0262021d0ec8e37acfae881b06bc4b`, `naer-terms-v1`=`4b7f0e66fa0262021d0ec8e37acfae881b06bc4b`, `aosp-framework-paired-ui-v1`=`11f34ea19e8cea3d1d52ad679717109468888da5`, `vscode-paired-ui-v1`=`11f34ea19e8cea3d1d52ad679717109468888da5`, `firefox-paired-ui-v1`=`11f34ea19e8cea3d1d52ad679717109468888da5`
 - Preregistration SHA-256: `f9931673a781acd9b3c68d5805b801161dbeb982fb66d07c336c1b68731a5f5c`
 - Inputs SHA-256: `ddef836456ee29decf019dae981c1017b9728524c42808ae2d7c2c894299820a`
 - Expected SHA-256: `511b2845969a60c6c5b53e7de17b85fbe00b11521648dac10e77fe6ec6ace9c5`
 - Competitor lock SHA-256: `f72ed6d38c1fe1336a61c267baab518b48cd4d3046d4ca3bd525f94eb7ca8765`
 - Public-track score reproduction: GitHub Actions run `30591590536` passed.
-- Independent public-track reproduction request: GitHub issue `#51`.
+- Optional independent public-track reproduction request: GitHub issue `#51`.

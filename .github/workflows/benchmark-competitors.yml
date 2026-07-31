@@ -85,6 +85,9 @@ jobs:
               --container-image "$image" \
               --generated-date 2026-07-31 \
               --output-prefix "/tmp/$id"
+            diff \
+              <(jq -S '{engines,paired_comparisons}' "docs/reports/$id-benchmark-2026-07-31.json") \
+              <(jq -S '{engines,paired_comparisons}' "/tmp/$id.json")
           done
       - name: Smoke-test third-party reproduction package
         run: |

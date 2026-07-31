@@ -1,0 +1,155 @@
+{
+  "generated_date": "2026-07-31",
+  "report_mode": "aggregate",
+  "dataset": "vscode-paired-ui-v1",
+  "track": "external_regional",
+  "evidence_role": "public_external_secondary_evidence",
+  "primary_market_endpoint": false,
+  "reference_kind": "vendor_paired_localization",
+  "reference_is_ground_truth": false,
+  "source_overlap": "blind_v2_source_pool",
+  "manifest_sha256": "b9758382f41efc11f4842046f6b7b4120d4381e1b0e8dcb530bda735ecd60b87",
+  "normalized_sha256": "35c6e7681387503163a6c587d0732bea164fe26cbb3a108bf7d6720d00232412",
+  "upstream_revision": "microsoft/vscode-loc commit da6509eed60b550e0e785d0d78ac05be46d5e982; paired VS Code zh-hans and zh-hant main localization files.",
+  "license": "MIT License",
+  "provenance": {
+    "zhtw_version": "4.4.2",
+    "git_sha": "11f34ea19e8cea3d1d52ad679717109468888da5",
+    "git_dirty": false,
+    "python_version": "3.11.14",
+    "node_version": "v26.5.0",
+    "rust_version": "rustc 1.80.0 (051478957 2024-07-21)",
+    "os": "macOS-26.5.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "runner_sha256": "2798414ab5dfa2cbf3752a7ab4e688bc00569a7d04d99e05f59c0c5621daa3ef",
+    "scorer_sha256": "ed28bd89910af57c9508b659533876113bd3290d43014c393b0be595b027fbf8"
+  },
+  "engines": {
+    "zhtw": {
+      "available": true,
+      "version": "4.4.2",
+      "family": "zhtw",
+      "adapter": "local_python",
+      "total_cases": 17133,
+      "exact": 2089,
+      "misses": 15044,
+      "exact_accuracy": 0.1219284421875912,
+      "exact_accuracy_ci_95": {
+        "low": 0.11720072374948928,
+        "high": 0.127064728885776
+      },
+      "idempotent": 16705,
+      "idempotency_rate": 0.9750189692406467,
+      "changed_span": {
+        "required_edits": 76262,
+        "produced_edits": 59709,
+        "correct_edits": 20420,
+        "precision": 0.34199199450669077,
+        "recall": 0.26776113923054734,
+        "f1": 0.3003581646086298
+      },
+      "by_file": {
+        "translations/main.i18n.json": {
+          "total": 17133,
+          "exact": 2089,
+          "exact_accuracy": 0.1219284421875912
+        }
+      },
+      "errors_by_category": {}
+    },
+    "opencc-s2twp": {
+      "available": true,
+      "version": "1.4.1",
+      "family": "opencc",
+      "adapter": "container_jsonl",
+      "total_cases": 17133,
+      "exact": 2190,
+      "misses": 14943,
+      "exact_accuracy": 0.1278234985116442,
+      "exact_accuracy_ci_95": {
+        "low": 0.12292067939064963,
+        "high": 0.13325161968131677
+      },
+      "idempotent": 16770,
+      "idempotency_rate": 0.9788128173699877,
+      "changed_span": {
+        "required_edits": 76262,
+        "produced_edits": 58601,
+        "correct_edits": 20433,
+        "precision": 0.3486800566543233,
+        "recall": 0.2679316042065511,
+        "f1": 0.3030186188947302
+      },
+      "by_file": {
+        "translations/main.i18n.json": {
+          "total": 17133,
+          "exact": 2190,
+          "exact_accuracy": 0.1278234985116442
+        }
+      },
+      "errors_by_category": {}
+    },
+    "zhconv-zh-tw": {
+      "available": true,
+      "version": "1.4.3",
+      "family": "mediawiki-zhconv",
+      "adapter": "container_jsonl",
+      "total_cases": 17133,
+      "exact": 1288,
+      "misses": 15845,
+      "exact_accuracy": 0.0751765598552501,
+      "exact_accuracy_ci_95": {
+        "low": 0.07155781240880173,
+        "high": 0.07949571003326913
+      },
+      "idempotent": 17047,
+      "idempotency_rate": 0.9949804470904103,
+      "changed_span": {
+        "required_edits": 76262,
+        "produced_edits": 55956,
+        "correct_edits": 14696,
+        "precision": 0.26263492744299094,
+        "recall": 0.19270409902703836,
+        "f1": 0.22229953561542298
+      },
+      "by_file": {
+        "translations/main.i18n.json": {
+          "total": 17133,
+          "exact": 1288,
+          "exact_accuracy": 0.0751765598552501
+        }
+      },
+      "errors_by_category": {}
+    }
+  },
+  "paired_comparisons": {
+    "opencc-s2twp": {
+      "case_count": 17133,
+      "absolute_delta": -0.005895056324052997,
+      "delta_ci_95": {
+        "low": -0.00869666725033561,
+        "high": -0.0030934453977703846
+      },
+      "candidate_only_correct": 264,
+      "competitor_only_correct": 365,
+      "mcnemar_exact_p": 6.463860869145211e-05,
+      "result": "loser",
+      "bootstrap_rounds": 10000,
+      "seed": 20260719
+    },
+    "zhconv-zh-tw": {
+      "case_count": 17133,
+      "absolute_delta": 0.046751882332341094,
+      "delta_ci_95": {
+        "low": 0.0435417031459756,
+        "high": 0.0500787953073017
+      },
+      "candidate_only_correct": 836,
+      "competitor_only_correct": 35,
+      "mcnemar_exact_p": 5.106932261566178e-200,
+      "result": "winner",
+      "bootstrap_rounds": 10000,
+      "seed": 20260719
+    }
+  }
+}

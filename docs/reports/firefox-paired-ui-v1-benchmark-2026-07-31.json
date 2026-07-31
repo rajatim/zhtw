@@ -1,0 +1,215 @@
+{
+  "generated_date": "2026-07-31",
+  "report_mode": "aggregate",
+  "dataset": "firefox-paired-ui-v1",
+  "track": "external_regional",
+  "evidence_role": "public_external_secondary_evidence",
+  "primary_market_endpoint": false,
+  "reference_kind": "vendor_paired_localization",
+  "reference_is_ground_truth": false,
+  "source_overlap": "none_known",
+  "manifest_sha256": "4ae267b70583bf65cb2dfe87f0a5ad9d9bd37da2ef7f9d311017a909636e189b",
+  "normalized_sha256": "1790a0f3853e6d694bd65156d40cd8e18ff83afe7f6b9348b1eb6e793fbfb8d8",
+  "upstream_revision": "mozilla-l10n/firefox-l10n commit 433b19d7cc6ff3c920887f895b486d6f3cfffe89 (2026-07-31); five paired zh-CN and zh-TW browser Fluent files.",
+  "license": "Mozilla Public License 2.0",
+  "provenance": {
+    "zhtw_version": "4.4.2",
+    "git_sha": "11f34ea19e8cea3d1d52ad679717109468888da5",
+    "git_dirty": false,
+    "python_version": "3.11.14",
+    "node_version": "v26.5.0",
+    "rust_version": "rustc 1.80.0 (051478957 2024-07-21)",
+    "os": "macOS-26.5.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "runner_sha256": "2798414ab5dfa2cbf3752a7ab4e688bc00569a7d04d99e05f59c0c5621daa3ef",
+    "scorer_sha256": "ed28bd89910af57c9508b659533876113bd3290d43014c393b0be595b027fbf8"
+  },
+  "engines": {
+    "zhtw": {
+      "available": true,
+      "version": "4.4.2",
+      "family": "zhtw",
+      "adapter": "local_python",
+      "total_cases": 1264,
+      "exact": 270,
+      "misses": 994,
+      "exact_accuracy": 0.21360759493670886,
+      "exact_accuracy_ci_95": {
+        "low": 0.1906645569620253,
+        "high": 0.23734177215189872
+      },
+      "idempotent": 1251,
+      "idempotency_rate": 0.9897151898734177,
+      "changed_span": {
+        "required_edits": 4044,
+        "produced_edits": 3303,
+        "correct_edits": 1228,
+        "precision": 0.37178322736905844,
+        "recall": 0.3036597428288823,
+        "f1": 0.3342861031713625
+      },
+      "by_file": {
+        "browser/browser/aboutLogins.ftl": {
+          "total": 120,
+          "exact": 36,
+          "exact_accuracy": 0.3
+        },
+        "browser/browser/browser.ftl": {
+          "total": 377,
+          "exact": 82,
+          "exact_accuracy": 0.21750663129973474
+        },
+        "browser/browser/downloads.ftl": {
+          "total": 33,
+          "exact": 11,
+          "exact_accuracy": 0.3333333333333333
+        },
+        "browser/browser/preferences/preferences.ftl": {
+          "total": 692,
+          "exact": 133,
+          "exact_accuracy": 0.19219653179190752
+        },
+        "browser/browser/protectionsPanel.ftl": {
+          "total": 42,
+          "exact": 8,
+          "exact_accuracy": 0.19047619047619047
+        }
+      },
+      "errors_by_category": {}
+    },
+    "opencc-s2twp": {
+      "available": true,
+      "version": "1.4.1",
+      "family": "opencc",
+      "adapter": "container_jsonl",
+      "total_cases": 1264,
+      "exact": 290,
+      "misses": 974,
+      "exact_accuracy": 0.22943037974683544,
+      "exact_accuracy_ci_95": {
+        "low": 0.20806962025316456,
+        "high": 0.25158227848101267
+      },
+      "idempotent": 1258,
+      "idempotency_rate": 0.995253164556962,
+      "changed_span": {
+        "required_edits": 4044,
+        "produced_edits": 3258,
+        "correct_edits": 1258,
+        "precision": 0.3861264579496624,
+        "recall": 0.31107814045499504,
+        "f1": 0.34456313338811284
+      },
+      "by_file": {
+        "browser/browser/aboutLogins.ftl": {
+          "total": 120,
+          "exact": 47,
+          "exact_accuracy": 0.39166666666666666
+        },
+        "browser/browser/browser.ftl": {
+          "total": 377,
+          "exact": 97,
+          "exact_accuracy": 0.2572944297082228
+        },
+        "browser/browser/downloads.ftl": {
+          "total": 33,
+          "exact": 16,
+          "exact_accuracy": 0.48484848484848486
+        },
+        "browser/browser/preferences/preferences.ftl": {
+          "total": 692,
+          "exact": 124,
+          "exact_accuracy": 0.1791907514450867
+        },
+        "browser/browser/protectionsPanel.ftl": {
+          "total": 42,
+          "exact": 6,
+          "exact_accuracy": 0.14285714285714285
+        }
+      },
+      "errors_by_category": {}
+    },
+    "zhconv-zh-tw": {
+      "available": true,
+      "version": "1.4.3",
+      "family": "mediawiki-zhconv",
+      "adapter": "container_jsonl",
+      "total_cases": 1264,
+      "exact": 147,
+      "misses": 1117,
+      "exact_accuracy": 0.11629746835443038,
+      "exact_accuracy_ci_95": {
+        "low": 0.09889240506329114,
+        "high": 0.1337025316455696
+      },
+      "idempotent": 1264,
+      "idempotency_rate": 1.0,
+      "changed_span": {
+        "required_edits": 4044,
+        "produced_edits": 3014,
+        "correct_edits": 871,
+        "precision": 0.28898473788984735,
+        "recall": 0.21538081107814044,
+        "f1": 0.24681212808160952
+      },
+      "by_file": {
+        "browser/browser/aboutLogins.ftl": {
+          "total": 120,
+          "exact": 17,
+          "exact_accuracy": 0.14166666666666666
+        },
+        "browser/browser/browser.ftl": {
+          "total": 377,
+          "exact": 48,
+          "exact_accuracy": 0.1273209549071618
+        },
+        "browser/browser/downloads.ftl": {
+          "total": 33,
+          "exact": 9,
+          "exact_accuracy": 0.2727272727272727
+        },
+        "browser/browser/preferences/preferences.ftl": {
+          "total": 692,
+          "exact": 70,
+          "exact_accuracy": 0.10115606936416185
+        },
+        "browser/browser/protectionsPanel.ftl": {
+          "total": 42,
+          "exact": 3,
+          "exact_accuracy": 0.07142857142857142
+        }
+      },
+      "errors_by_category": {}
+    }
+  },
+  "paired_comparisons": {
+    "opencc-s2twp": {
+      "case_count": 1264,
+      "absolute_delta": -0.015822784810126583,
+      "delta_ci_95": {
+        "low": -0.03164556962025317,
+        "high": 0.0
+      },
+      "candidate_only_correct": 43,
+      "competitor_only_correct": 63,
+      "mcnemar_exact_p": 0.06446359198949372,
+      "result": "statistical_tie",
+      "bootstrap_rounds": 10000,
+      "seed": 20260719
+    },
+    "zhconv-zh-tw": {
+      "case_count": 1264,
+      "absolute_delta": 0.09731012658227849,
+      "delta_ci_95": {
+        "low": 0.08069620253164557,
+        "high": 0.11392405063291139
+      },
+      "candidate_only_correct": 124,
+      "competitor_only_correct": 1,
+      "mcnemar_exact_p": 5.924491528144329e-36,
+      "result": "winner",
+      "bootstrap_rounds": 10000,
+      "seed": 20260719
+    }
+  }
+}

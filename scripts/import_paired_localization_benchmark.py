@@ -300,8 +300,7 @@ def main() -> int:
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_bytes(content)
     print(
-        f"{manifest['id']}: {dataset['stats']['total_cases']} pairs; "
-        f"sha256={sha256_bytes(content)}"
+        f"{manifest['id']}: {dataset['stats']['total_cases']} pairs; sha256={sha256_bytes(content)}"
     )
     return 0
 

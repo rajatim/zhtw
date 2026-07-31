@@ -12,6 +12,11 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_BLIND = PROJECT_ROOT / "docs/reports/blind-v2-benchmark-2026-07-31.json"
 DEFAULT_UD = PROJECT_ROOT / "docs/reports/ud-gsd-benchmark-2026-07-31.json"
 DEFAULT_NAER = PROJECT_ROOT / "docs/reports/naer-terms-benchmark-2026-07-31.json"
+DEFAULT_PAIRED = (
+    PROJECT_ROOT / "docs/reports/aosp-framework-paired-ui-v1-benchmark-2026-07-31.json",
+    PROJECT_ROOT / "docs/reports/vscode-paired-ui-v1-benchmark-2026-07-31.json",
+    PROJECT_ROOT / "docs/reports/firefox-paired-ui-v1-benchmark-2026-07-31.json",
+)
 DEFAULT_OUTPUT_PREFIX = PROJECT_ROOT / "docs/reports/formal-market-benchmark-2026-07-31"
 RANKING_REPRESENTATIVES = ("opencc-s2twp", "zhconv-zh-tw")
 
@@ -48,7 +53,6 @@ def validate_inputs(blind: dict[str, Any], public_tracks: list[dict[str, Any]]) 
         if comparison.get("delta_ci_95", {}).get("low", 0) <= 0:
             raise ValueError(f"paired delta CI is not fully above zero: {representative}")
 
-    public_sha = public_tracks[0].get("provenance", {}).get("git_sha")
     for track in public_tracks:
         if track.get("report_mode") != "aggregate":
             raise ValueError("public secondary reports must be aggregate-only")
@@ -57,8 +61,8 @@ def validate_inputs(blind: dict[str, Any], public_tracks: list[dict[str, Any]]) 
         provenance = track.get("provenance", {})
         if provenance.get("git_dirty") is not False:
             raise ValueError(f"public track has dirty provenance: {track.get('dataset')}")
-        if provenance.get("git_sha") != public_sha:
-            raise ValueError("public tracks must use the same immutable commit")
+        if not provenance.get("git_sha"):
+            raise ValueError(f"public track has no immutable commit: {track.get('dataset')}")
     if not blind.get("provenance", {}).get("git_sha"):
         raise ValueError("Blind-v2 is missing immutable Git provenance")
 
@@ -79,8 +83,41 @@ def engine_summary(blind: dict[str, Any], engine_id: str) -> dict[str, Any]:
     }
 
 
-def build_report(blind: dict[str, Any], ud: dict[str, Any], naer: dict[str, Any]) -> dict[str, Any]:
-    validate_inputs(blind, [ud, naer])
+def paired_track_summary(track: dict[str, Any]) -> dict[str, Any]:
+    required_engines = ("zhtw", "opencc-s2twp", "zhconv-zh-tw")
+    for engine_id in required_engines:
+        if not track.get("engines", {}).get(engine_id, {}).get("available"):
+            raise ValueError(
+                f"paired track engine is unavailable: {track.get('dataset')}/{engine_id}"
+            )
+    zhtw = track["engines"]["zhtw"]
+    return {
+        "dataset": track["dataset"],
+        "role": track["evidence_role"],
+        "cases": zhtw["total_cases"],
+        "accuracy": zhtw["exact_accuracy"],
+        "idempotency_rate": zhtw["idempotency_rate"],
+        "reference_kind": track["reference_kind"],
+        "reference_is_ground_truth": False,
+        "source_overlap": track["source_overlap"],
+        "engine_accuracy": {
+            engine_id: track["engines"][engine_id]["exact_accuracy"]
+            for engine_id in required_engines
+        },
+        "paired_comparisons": track["paired_comparisons"],
+        "git_sha": track["provenance"]["git_sha"],
+        "license": track["license"],
+    }
+
+
+def build_report(
+    blind: dict[str, Any],
+    ud: dict[str, Any],
+    naer: dict[str, Any],
+    *paired_tracks: dict[str, Any],
+) -> dict[str, Any]:
+    public_tracks = [ud, naer, *paired_tracks]
+    validate_inputs(blind, public_tracks)
     zhtw = engine_summary(blind, "zhtw")
     opencc = engine_summary(blind, "opencc-s2twp")
     zhconv = engine_summary(blind, "zhconv-zh-tw")
@@ -120,15 +157,21 @@ def build_report(blind: dict[str, Any], ud: dict[str, Any], naer: dict[str, Any]
                 "git_sha": naer["provenance"]["git_sha"],
                 "license": naer["license"],
             },
+            *[paired_track_summary(track) for track in paired_tracks],
         ],
         "cross_track_assessment": {
-            "status": "no_primary_conflict",
+            "status": "mixed_secondary_evidence_no_primary_conflict",
             "notes": [
-                "Public tracks are secondary zhtw-only diagnostics and cannot change "
-                "the Blind-v2 ranking.",
+                "Public tracks are secondary diagnostics and cannot change the frozen "
+                "Blind-v2 ranking.",
                 "UD GSD has OpenCC-derived source bias and is not independent competitor evidence.",
                 "NAER tests a conservative terminology subset, not sentence-level "
                 "general accuracy.",
+                "On exact vendor-localization agreement, OpenCC led zhtw on AOSP and "
+                "VS Code; Firefox was a statistical tie.",
+                "zhtw led zhconv on all three paired vendor-localization tracks.",
+                "Vendor localization is not universal Taiwan Traditional ground truth, "
+                "and AOSP/VS Code source inputs overlap the Blind-v2 source pool.",
                 "Blind-v2 domain results are mixed; zhtw did not lead every domain.",
                 "zhtw idempotency was lower than both independent ranking "
                 "representatives on Blind-v2.",
@@ -136,7 +179,9 @@ def build_report(blind: dict[str, Any], ud: dict[str, Any], naer: dict[str, Any]
         },
         "governance": {
             "blind_v2_git_sha": blind["provenance"]["git_sha"],
-            "public_tracks_git_sha": ud["provenance"]["git_sha"],
+            "public_track_git_shas": {
+                track["dataset"]: track["provenance"]["git_sha"] for track in public_tracks
+            },
             "preregistration_sha256": blind["preregistration_sha256"],
             "inputs_sha256": blind["inputs"]["sha256"],
             "expected_sha256": blind["expected_sha256"],
@@ -159,9 +204,17 @@ def build_report(blind: dict[str, Any], ud: dict[str, Any], naer: dict[str, Any]
                 "url": "https://github.com/rajatim/zhtw/actions/runs/30591590536",
             },
             "independent_third_party_reproduction": {
-                "status": "awaiting_external_reviewer",
+                "status": "optional_not_required",
                 "request_issue": "https://github.com/rajatim/zhtw/issues/51",
                 "scope": "public_secondary_tracks_only",
+            },
+            "project_run_public_external_expansion": {
+                "status": "completed",
+                "tracks": [track["dataset"] for track in paired_tracks],
+                "case_count": sum(
+                    track["engines"]["zhtw"]["total_cases"] for track in paired_tracks
+                ),
+                "independent_third_party_validation": False,
             },
             "maintainer_claim_confirmation": {
                 "status": "confirmed",
@@ -254,9 +307,10 @@ def render_markdown(report: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "These tracks are zhtw-only diagnostics. UD GSD has OpenCC-derived source bias,",
-            "while NAER is a limited terminology subset. Neither is an independent competitor",
-            "ranking, and neither changes the Blind-v2 primary decision.",
+            "The public evidence is mixed. On exact vendor-localization agreement, OpenCC",
+            "led zhtw on AOSP and VS Code, while Firefox was a statistical tie. zhtw led",
+            "zhconv on all three. Vendor translation is not universal Taiwan Traditional",
+            "ground truth, and these results do not change the frozen Blind-v2 decision.",
             "",
             "## Limits",
             "",
@@ -269,8 +323,8 @@ def render_markdown(report: dict[str, Any]) -> str:
             "- Detailed rows were not read during the formal run. A later controlled audit "
             "reviewed all 1,299 zhtw misses, and the maintainer confirmed all 152 queued "
             "synthesis decisions.",
-            "- Independent third-party reproduction of the public secondary tracks is "
-            "awaiting an outside reviewer in GitHub issue #51.",
+            "- Independent third-party reproduction remains optional stronger evidence in "
+            "GitHub issue #51; it is not recorded as completed.",
             "",
             "## Proposed Claim",
             "",
@@ -281,13 +335,17 @@ def render_markdown(report: dict[str, Any]) -> str:
             "## Governance",
             "",
             f"- Blind-v2 commit: `{report['governance']['blind_v2_git_sha']}`",
-            f"- Public-track commit: `{report['governance']['public_tracks_git_sha']}`",
+            "- Public-track commits: "
+            + ", ".join(
+                f"`{name}`=`{sha}`"
+                for name, sha in report["governance"]["public_track_git_shas"].items()
+            ),
             f"- Preregistration SHA-256: `{report['governance']['preregistration_sha256']}`",
             f"- Inputs SHA-256: `{report['governance']['inputs_sha256']}`",
             f"- Expected SHA-256: `{report['governance']['expected_sha256']}`",
             f"- Competitor lock SHA-256: `{report['governance']['competitor_lock_sha256']}`",
             "- Public-track score reproduction: GitHub Actions run `30591590536` passed.",
-            "- Independent public-track reproduction request: GitHub issue `#51`.",
+            "- Optional independent public-track reproduction request: GitHub issue `#51`.",
             "",
         ]
     )
@@ -299,9 +357,16 @@ def main() -> int:
     parser.add_argument("--blind", type=Path, default=DEFAULT_BLIND)
     parser.add_argument("--ud", type=Path, default=DEFAULT_UD)
     parser.add_argument("--naer", type=Path, default=DEFAULT_NAER)
+    parser.add_argument("--paired", action="append", type=Path)
     parser.add_argument("--output-prefix", type=Path, default=DEFAULT_OUTPUT_PREFIX)
     args = parser.parse_args()
-    report = build_report(load_json(args.blind), load_json(args.ud), load_json(args.naer))
+    paired_paths = args.paired or list(DEFAULT_PAIRED)
+    report = build_report(
+        load_json(args.blind),
+        load_json(args.ud),
+        load_json(args.naer),
+        *[load_json(path) for path in paired_paths],
+    )
     args.output_prefix.parent.mkdir(parents=True, exist_ok=True)
     args.output_prefix.with_suffix(".json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
