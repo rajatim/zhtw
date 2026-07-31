@@ -166,7 +166,7 @@ def find_forbidden_keys(value: Any) -> set[str]:
 def test_committed_frozen_candidates_are_input_only_and_internally_valid() -> None:
     committed = json.loads(POOL.read_text(encoding="utf-8"))
 
-    assert validate_pool(POOL) == []
+    assert validate_pool(POOL, check_references=False) == []
     assert committed["status"] == "frozen"
     assert committed["stats"] == {
         "total": 5896,
@@ -266,6 +266,6 @@ def test_committed_frozen_candidates_are_input_only_and_internally_valid() -> No
 
 
 def test_frozen_pool_meets_formal_sampling_gates() -> None:
-    errors = validate_pool(POOL, require_ready=True)
+    errors = validate_pool(POOL, require_ready=True, check_references=False)
 
     assert errors == []

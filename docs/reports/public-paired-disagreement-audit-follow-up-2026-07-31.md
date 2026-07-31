@@ -25,6 +25,9 @@ acceptable Taiwan variants.
 
 ## Post-audit Diagnostics
 
+The post-audit implementation is versioned as zhtw 4.4.3. The original formal
+benchmark remains a historical zhtw 4.4.2 result.
+
 | Track | Before | After | Exact accuracy before | Exact accuracy after | Idempotency before | Idempotency after |
 |---|---:|---:|---:|---:|---:|---:|
 | AOSP framework UI | 380 / 1,968 | 403 / 1,968 | 19.31% | 20.48% | 97.21% | 97.41% |
