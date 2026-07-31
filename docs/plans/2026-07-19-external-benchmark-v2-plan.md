@@ -3,7 +3,9 @@
 
 日期：2026-07-19
 
-狀態：reviewed / execution-ready
+狀態：formal benchmark completed / awaiting independent public-track reproduction
+
+最後更新：2026-07-31
 
 關聯計畫：`docs/plans/2026-07-04-market-best-accuracy-plan.md`
 
@@ -447,10 +449,13 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
 - [x] 國教院 datasets 授權、欄位與下載 URL audit。
 - [x] 導入計算機名詞先導資料；其他領域待先導結果審查後再擴充。
 - [x] 建立 term identity 與 context candidate packet。
-- [ ] SC-TC-Bench repository 資料授權確認。
-- [ ] 授權通過後建立 regional-term candidate packet；否則記錄 blocked。
+- [x] SC-TC-Bench repository 資料授權稽核完成：截至 2026-07-31，repository
+  metadata、完整 tree 與 README 均未提供 repository 或 data-file license。
+- [x] 依 fail-closed 規則將 SC-TC-Bench 標記為 blocked，未建立或提交任何衍生
+  regional-term candidate packet；`LICENSES.md` 保留 pending-verification 記錄。
 
-完成條件：三個 track 各有 manifest、來源 attribution、固定 hash、測試與限制說明。
+完成條件：UD 與國教院兩個已授權 tracks 各有 manifest、來源 attribution、固定 hash、
+測試與限制說明；SC-TC-Bench 因缺少資料授權而明確排除。
 
 國教院計算機名詞先導完成日期：2026-07-19；實作與驗證追蹤於 GitHub Issue #41。
 
@@ -645,7 +650,7 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
   sections、五項 consent、1–10 筆 input、公開 issue URL、容量、敏感資料與 normalized
   duplicate；只有 maintainer 確認並提供含時區 review timestamp 才原子寫入。每筆保存
   reviewer、decision 與 reviewed issue body SHA-256，不匯入 context。
-- [ ] 從公開 permissioned-user-report issues 收滿 batch 001 的 100 筆原創簡體
+- [ ] 非阻擋性後續 intake：從公開 permissioned-user-report issues 收滿 batch 001 的 100 筆原創簡體
   input；逐筆保留 issue URL 與 consent，人工確認自動敏感資料檢查沒有漏報後，才將
   狀態改為 `ready_for_import`。
 - [x] 2026-07-27 再查 issue #47，permissioned intake 仍為 0/100；未虛構授權
@@ -1536,12 +1541,12 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
 
 ### Phase 5：正式比較與發布（P1）
 
-- [ ] 在不可變 zhtw tag/commit 上執行所有 tracks。
+- [x] 在不可變 zhtw commit 上執行正式 Blind-v2 與兩個已授權 public tracks。
 - [x] Blind-v2 只在受控本機／self-hosted 環境執行並寫入 evaluation ledger。
-- [ ] 產生 aggregate-only public report 與 private detailed audit。
+- [x] 產生 aggregate-only public report 與 private detailed audit；post-result audit 已完成。
 - [x] 驗證所有競品可用、版本相符、case count 相同。
-- [ ] 完成統計顯著性與 error taxonomy review。
-- [ ] Maintainer review 報告措辭與宣稱範圍。
+- [x] 完成統計顯著性與 1,299 筆 zhtw misses 的 error taxonomy review。
+- [x] Maintainer 已確認 152 筆 synthesis decisions、報告措辭與宣稱範圍。
 - [ ] 第三方依公開 manifest 重跑 external tracks。
 
 完成條件：公開報告可重現、不洩漏 blind-v2 expected，且宣稱只涵蓋實際測試方向、
@@ -1590,8 +1595,9 @@ CI 分層：
 
 - [x] `blind-v1` 不再被描述為 fresh sealed benchmark。
 - [x] tracked reports 皆為 aggregate-only，publication audit 全綠。
-- [ ] 每個外部 track 有授權、revision、hash、attribution 與 known bias。
-- [ ] `LICENSES.md` 與各衍生資料 output license 通過自動驗證。
+- [x] 每個正式納入的外部 track 有授權、revision、hash、attribution 與 known bias；
+  未授權的 SC-TC-Bench 已 fail-closed 排除。
+- [x] `LICENSES.md` 與各衍生資料 output license 通過自動驗證。
 - [x] runner 記錄 zhtw commit/dirty/version，且版本矛盾時中止。
 - [x] 至少 UD 與國教院兩個外部 tracks 可離線重現評分。
 - [x] 正式競品版本與 config 全部鎖定，不允許 unavailable 被忽略。
@@ -1599,9 +1605,10 @@ CI 分層：
 - [x] Blind-v2 candidate pool、去重、固定抽樣與 power analysis 可重現。
 - [x] blind-v2 的正式 N 滿足 power analysis，且 N/N 完成 maintainer human decision。
 - [x] preregistration 與 evaluation ledger 證明正式比較是 one-shot frozen evaluation。
-- [ ] GitHub-hosted Actions 無法存取 private expected。
+- [x] GitHub-hosted Actions 無法存取 private expected，且 workflow leakage tests 通過。
 - [x] 公開報告未洩漏 blind-v2 expected、output、miss IDs 或詳細 rows。
-- [ ] 宣稱文字經 maintainer 確認且不超出 benchmark 證據。
+- [x] 宣稱文字經 maintainer 確認且不超出 benchmark 證據。
+- [ ] 收到並驗證一份外部 `independent_third_party` public-track attestation。
 
 ## 11. 建議交付拆分
 
