@@ -290,6 +290,24 @@ def test_committed_frozen_pool_and_sample_are_reproducible() -> None:
     assert len(inputs["cases"]) == 1960
 
 
+def test_frozen_pool_skips_mutable_reference_scan_by_default(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    pool = pool_fixture([])
+    pool["status"] = "frozen"
+    path = tmp_path / "pool.json"
+    write_json(path, pool)
+
+    def fail_if_called(*args: object, **kwargs: object) -> tuple[list[str], list[str], str]:
+        raise AssertionError("frozen validation must not rescan mutable references")
+
+    monkeypatch.setattr(governance, "reference_texts", fail_if_called)
+
+    errors = validate_pool(path)
+
+    assert "reference_snapshot_sha256" not in " ".join(errors)
+
+
 def test_pool_recomputes_power_requirement(tmp_path: Path) -> None:
     cases = [candidate(number) for number in range(1, 11)]
     pool = pool_fixture(cases)

@@ -200,7 +200,7 @@ def build_frozen_pool(
     pool_path: Path,
     *,
     frozen_at: str,
-    check_references: bool = True,
+    check_references: bool | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     errors = validate_pool(
         pool_path,
@@ -241,7 +241,7 @@ def build_frozen_pool(
 def build_replacement_ledger(
     pool_path: Path,
     *,
-    check_references: bool = True,
+    check_references: bool | None = None,
 ) -> dict[str, Any]:
     pool = load_json(pool_path)
     errors = validate_pool(pool_path, check_references=check_references)
@@ -423,7 +423,7 @@ def validate_pool(
     pool_path: Path,
     *,
     require_ready: bool = False,
-    check_references: bool = True,
+    check_references: bool | None = None,
 ) -> list[str]:
     pool = load_json(pool_path)
     errors = [f"{pool_path}: {error}" for error in validate_schema(pool, POOL_SCHEMA)]
@@ -487,7 +487,13 @@ def validate_pool(
     ):
         errors.append(f"near duplicate candidates: {left}, {right} ({score:.4f})")
 
-    if check_references:
+    # A frozen pool records the reference snapshot used at freeze time. Later
+    # dictionary and report changes must not rewrite that historical decision.
+    # Callers can still pass True to run an explicit live-reference audit.
+    should_check_references = (
+        pool["status"] != "frozen" if check_references is None else check_references
+    )
+    if should_check_references:
         references, reference_errors, reference_snapshot_sha256 = reference_texts(pool, pool_path)
         errors.extend(reference_errors)
         if pool["deduplication"]["reference_snapshot_sha256"] != reference_snapshot_sha256:
@@ -758,7 +764,9 @@ def main() -> int:
     validate_pool_parser = subparsers.add_parser("validate-pool")
     validate_pool_parser.add_argument("pool", type=Path)
     validate_pool_parser.add_argument("--require-ready", action="store_true")
-    validate_pool_parser.add_argument("--skip-references", action="store_true")
+    reference_group = validate_pool_parser.add_mutually_exclusive_group()
+    reference_group.add_argument("--live-references", action="store_true")
+    reference_group.add_argument("--skip-references", action="store_true")
 
     freeze_parser = subparsers.add_parser("freeze")
     freeze_parser.add_argument("pool", type=Path)
@@ -799,10 +807,11 @@ def main() -> int:
     args = parser.parse_args()
     errors: list[str]
     if args.command == "validate-pool":
+        check_references = True if args.live_references else False if args.skip_references else None
         errors = validate_pool(
             args.pool.resolve(),
             require_ready=args.require_ready,
-            check_references=not args.skip_references,
+            check_references=check_references,
         )
     elif args.command == "freeze":
         try:

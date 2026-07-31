@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import Any
 
 from scripts.blind_v2_governance import validate_pool
-from scripts.promote_blind_v2_candidates import build_pool, render_report
 
 ROOT = Path(__file__).resolve().parents[1]
 POOL = ROOT / "benchmarks/accuracy/blind-v2.candidate-pool.json"
@@ -164,15 +163,9 @@ def find_forbidden_keys(value: Any) -> set[str]:
     return found
 
 
-def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> None:
+def test_committed_frozen_candidates_are_input_only_and_internally_valid() -> None:
     committed = json.loads(POOL.read_text(encoding="utf-8"))
-    generated, report = build_pool(
-        list(DECISIONS),
-        output=POOL,
-        created_at="2026-07-30T08:23:33+08:00",
-    )
 
-    assert {**generated, "status": "frozen"} == committed
     assert validate_pool(POOL) == []
     assert committed["status"] == "frozen"
     assert committed["stats"] == {
@@ -259,17 +252,17 @@ def test_committed_candidates_are_reproducible_input_only_and_deduplicated() -> 
             "zhtw-project-ui-social-baseline-guard-v1": 95,
         },
     }
-    assert report["confirmed_eligible"] == 5912
-    assert report["promoted"] == 5896
-    assert report["excluded_by_dedupe"] == 16
     assert find_forbidden_keys(committed) == set()
     assert {case["source"]["class"] for case in committed["cases"]} == {
         "permissive_license",
         "project_original",
         "public_domain",
     }
-    assert REPORT.read_text(encoding="utf-8") == render_report(report, generated)
-    assert "Status: collecting; freeze-readiness gates passed" in REPORT.read_text(encoding="utf-8")
+    report_text = REPORT.read_text(encoding="utf-8")
+    assert "Maintainer-confirmed eligible inputs: 5912" in report_text
+    assert "Promoted after exact/near dedupe: 5896" in report_text
+    assert "Excluded by dedupe: 16" in report_text
+    assert "Status: collecting; freeze-readiness gates passed" in report_text
 
 
 def test_frozen_pool_meets_formal_sampling_gates() -> None:
