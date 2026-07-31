@@ -11,8 +11,8 @@
   "upstream_revision": "UD_Chinese-GSD@e0d85a020182e264d6384be2a59c0f4879a1cc35; UD_Chinese-GSDSimp@7b61ed473f963e911788efdf1f478154bc1053e4; tag r2.18",
   "license": "CC BY-SA 4.0",
   "provenance": {
-    "zhtw_version": "4.4.2",
-    "git_sha": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
+    "zhtw_version": "4.4.3",
+    "git_sha": "a11d1f4eba49648fabc3fee019c37fb633996cbe",
     "git_dirty": false,
     "python_version": "3.11.14",
     "node_version": "v26.5.0",
@@ -24,22 +24,22 @@
   },
   "scores": {
     "total_cases": 4997,
-    "exact": 3522,
-    "misses": 1475,
-    "exact_accuracy": 0.7048228937362417,
+    "exact": 3524,
+    "misses": 1473,
+    "exact_accuracy": 0.7052231338803282,
     "exact_accuracy_ci_95": {
-      "low": 0.6924154492695618,
+      "low": 0.692615569341605,
       "high": 0.717430458274965
     },
     "idempotent": 4894,
     "idempotency_rate": 0.9793876325795478,
     "changed_span": {
       "required_edits": 36901,
-      "produced_edits": 36869,
-      "correct_edits": 34761,
-      "precision": 0.9428245951883696,
-      "recall": 0.9420069916804422,
-      "f1": 0.9424156161041072
+      "produced_edits": 36868,
+      "correct_edits": 34765,
+      "precision": 0.9429586633394814,
+      "recall": 0.942115389826834,
+      "f1": 0.9425368379671678
     },
     "by_split": {
       "dev": {
@@ -54,15 +54,15 @@
       },
       "train": {
         "total": 3997,
-        "exact": 2837,
-        "exact_accuracy": 0.7097823367525644
+        "exact": 2839,
+        "exact_accuracy": 0.7102827120340255
       }
     },
     "by_genre": {
       "wiki": {
         "total": 4997,
-        "exact": 3522,
-        "exact_accuracy": 0.7048228937362417
+        "exact": 3524,
+        "exact_accuracy": 0.7052231338803282
       }
     },
     "errors_by_category": {}
