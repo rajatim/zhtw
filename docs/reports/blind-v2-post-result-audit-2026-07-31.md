@@ -5,8 +5,9 @@ Report mode: `aggregate`
 
 ## Status
 
-The controlled audit has reviewed every zhtw miss and is pending maintainer
-confirmation. The published Blind-v2 score is immutable.
+The controlled audit reviewed every zhtw miss. The maintainer approved all
+152 queued synthesis decisions, so the audit is complete. The
+published Blind-v2 score remains immutable.
 
 ## Coverage
 
@@ -32,7 +33,7 @@ confirmation. The published Blind-v2 score is immutable.
 | P3 | 82 |
 | none | 516 |
 
-The private maintainer queue contains 152 cases: 45 P1 semantic-error decisions and 107 acceptable-variant decisions. It includes 2 reference-correction candidates.
+The maintainer confirmed all 152 queued cases: 45 P1 semantic-error decisions and 107 acceptable-variant decisions. The review included 2 reference-correction candidates.
 
 ## Governance
 
@@ -40,4 +41,4 @@ The private maintainer queue contains 152 cases: 45 P1 semantic-error decisions 
 - This report contains aggregate counts only.
 - Findings cannot change the consumed Blind-v2 score.
 - Findings cannot be used to tune against sealed rows.
-- The audit is complete only after maintainer confirmation.
+- The maintainer confirmed all queued synthesis decisions.

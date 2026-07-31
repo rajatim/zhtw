@@ -33,6 +33,7 @@ def test_formal_report_uses_blind_v2_as_the_only_primary_endpoint() -> None:
     assert all(track["role"] == "secondary_evidence" for track in report["secondary_tracks"])
     assert report["governance"]["maintainer_claim_confirmation"]["status"] == "confirmed"
     assert report["governance"]["detailed_rows_read"] is False
+    assert report["governance"]["private_detailed_audit"]["status"] == "completed"
     assert report["governance"]["external_hosted_public_reproduction"]["status"] == "passed"
 
 

@@ -145,8 +145,11 @@ def build_report(blind: dict[str, Any], ud: dict[str, Any], naer: dict[str, Any]
             "publication_scope": "aggregate_only",
             "detailed_rows_read": False,
             "private_detailed_audit": {
-                "status": "pending_maintainer_confirmation",
+                "status": "completed",
                 "reviewed_misses": 1299,
+                "maintainer_confirmed_cases": 152,
+                "confirmed_by": "tim",
+                "confirmed_date": "2026-07-31",
                 "aggregate_report": "blind-v2-post-result-audit-2026-07-31.json",
             },
             "external_hosted_public_reproduction": {
@@ -260,7 +263,8 @@ def render_markdown(report: dict[str, Any]) -> str:
             "ranking representatives.",
             "- Expected values used one maintainer with Codex and independent Agy advice.",
             "- Detailed rows were not read during the formal run. A later controlled audit "
-            "reviewed all 1,299 zhtw misses and is pending maintainer confirmation.",
+            "reviewed all 1,299 zhtw misses, and the maintainer confirmed all 152 queued "
+            "synthesis decisions.",
             "- Independent third-party reproduction remains pending.",
             "",
             "## Proposed Claim",

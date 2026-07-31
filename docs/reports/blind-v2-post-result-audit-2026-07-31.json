@@ -3,7 +3,7 @@
   "report_mode": "aggregate",
   "dataset": "blind-v2",
   "audit_id": "blind-v2-post-result-audit-1",
-  "status": "pending_maintainer_confirmation",
+  "status": "completed",
   "scope": {
     "benchmark_cases": 1960,
     "audited_zhtw_misses": 1299,
@@ -73,19 +73,22 @@
     }
   },
   "maintainer_queue": {
+    "status": "confirmed",
     "cases": 152,
     "severity_counts": {
       "P1": 45,
       "none": 107
     },
     "reference_correction_candidates": 2,
-    "acceptable_variant_candidates": 107
+    "acceptable_variant_candidates": 107,
+    "confirmed_by": "tim",
+    "confirmed_date": "2026-07-31"
   },
   "governance": {
     "case_level_artifacts": "private_gitignored",
     "public_content": "aggregate_counts_only",
     "published_score": "immutable",
     "result_tuning": "prohibited",
-    "audit_completion": "requires_maintainer_confirmation"
+    "audit_completion": "maintainer_confirmed"
   }
 }

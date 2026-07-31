@@ -118,3 +118,26 @@ def test_public_audit_report_contains_no_case_level_material(private_audit: Path
 
     assert find_sensitive_values(public) == []
     assert "cases" not in public
+
+
+def test_valid_maintainer_decision_completes_audit(private_audit: Path) -> None:
+    write_json(
+        private_audit / "maintainer-decision.json",
+        {
+            "version": 1,
+            "audit_id": "blind-v2-post-result-audit-1",
+            "decision": "approve_all_synthesis_decisions",
+            "confirmed_cases": 1,
+            "confirmed_by": "tim",
+            "confirmed_at": "2026-07-31T01:00:00Z",
+            "confirmation": "Follow the recommendation",
+        },
+    )
+
+    private, public = build_outputs(private_audit)
+
+    assert private["status"] == "completed"
+    assert private["maintainer_queue"][0]["maintainer_decision"] == "approved_synthesis"
+    assert public["status"] == "completed"
+    assert public["maintainer_queue"]["status"] == "confirmed"
+    assert public["governance"]["audit_completion"] == "maintainer_confirmed"

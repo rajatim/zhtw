@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 from collections import Counter
 from pathlib import Path
@@ -13,6 +14,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 PRIVATE_ROOT = PROJECT_ROOT / "benchmarks/accuracy/private/post-result-audit-v1"
 DEFAULT_OUTPUT_PREFIX = PROJECT_ROOT / "docs/reports/blind-v2-post-result-audit-2026-07-31"
 DECISION_FIELDS = ("severity", "category", "expected_valid", "actual_acceptable")
+MAINTAINER_DECISION = PRIVATE_ROOT / "maintainer-decision.json"
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -37,6 +39,26 @@ def load_cases(directory: Path) -> dict[str, dict[str, Any]]:
 
 def count(values: list[str]) -> dict[str, int]:
     return dict(sorted(Counter(values).items()))
+
+
+def load_maintainer_decision(private_root: Path, queue_size: int) -> dict[str, Any] | None:
+    path = private_root / "maintainer-decision.json"
+    if not path.exists():
+        return None
+    decision = load_json(path)
+    required = {
+        "version": 1,
+        "audit_id": "blind-v2-post-result-audit-1",
+        "decision": "approve_all_synthesis_decisions",
+        "confirmed_cases": queue_size,
+        "confirmed_by": "tim",
+    }
+    for key, expected in required.items():
+        if decision.get(key) != expected:
+            raise ValueError(f"invalid maintainer decision field: {key}")
+    if not decision.get("confirmed_at") or not decision.get("confirmation"):
+        raise ValueError("maintainer decision requires time and confirmation text")
+    return decision
 
 
 def build_outputs(private_root: Path = PRIVATE_ROOT) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -91,13 +113,19 @@ def build_outputs(private_root: Path = PRIVATE_ROOT) -> tuple[dict[str, Any], di
         )
 
     queue = [case for case in final_cases if case["final_advisory"]["needs_maintainer"]]
+    maintainer_decision = load_maintainer_decision(private_root, len(queue))
+    status = "completed" if maintainer_decision else "pending_maintainer_confirmation"
+    if maintainer_decision:
+        for case in queue:
+            case["maintainer_decision"] = "approved_synthesis"
     private = {
         "version": 1,
         "dataset": "blind-v2",
         "audit_id": "blind-v2-post-result-audit-1",
-        "status": "pending_maintainer_confirmation",
+        "status": status,
         "cases": final_cases,
         "maintainer_queue": queue,
+        "maintainer_decision": maintainer_decision,
     }
 
     severity_agreement = sum(codex[key]["severity"] == agy[key]["severity"] for key in case_ids)
@@ -112,7 +140,7 @@ def build_outputs(private_root: Path = PRIVATE_ROOT) -> tuple[dict[str, Any], di
         "report_mode": "aggregate",
         "dataset": "blind-v2",
         "audit_id": "blind-v2-post-result-audit-1",
-        "status": "pending_maintainer_confirmation",
+        "status": status,
         "scope": {
             "benchmark_cases": manifest["total_cases"],
             "audited_zhtw_misses": manifest["misses"],
@@ -151,6 +179,7 @@ def build_outputs(private_root: Path = PRIVATE_ROOT) -> tuple[dict[str, Any], di
             "by_risk": count([case["risk"] for case in final_cases]),
         },
         "maintainer_queue": {
+            "status": "confirmed" if maintainer_decision else "pending",
             "cases": len(queue),
             "severity_counts": count([item["severity"] for item in queue_decisions]),
             "reference_correction_candidates": sum(
@@ -165,9 +194,16 @@ def build_outputs(private_root: Path = PRIVATE_ROOT) -> tuple[dict[str, Any], di
             "public_content": "aggregate_counts_only",
             "published_score": "immutable",
             "result_tuning": "prohibited",
-            "audit_completion": "requires_maintainer_confirmation",
+            "audit_completion": (
+                "maintainer_confirmed"
+                if maintainer_decision
+                else "requires_maintainer_confirmation"
+            ),
         },
     }
+    if maintainer_decision:
+        public["maintainer_queue"]["confirmed_by"] = maintainer_decision["confirmed_by"]
+        public["maintainer_queue"]["confirmed_date"] = maintainer_decision["confirmed_at"][:10]
     return private, public
 
 
@@ -182,6 +218,17 @@ def render_markdown(report: dict[str, Any]) -> str:
     advisory = report["final_advisory"]
     queue = report["maintainer_queue"]
     severity = advisory["severity_counts"]
+    if report["status"] == "completed":
+        status_lines = [
+            "The controlled audit reviewed every zhtw miss. The maintainer approved all",
+            f"{queue['cases']:,} queued synthesis decisions, so the audit is complete. The",
+            "published Blind-v2 score remains immutable.",
+        ]
+    else:
+        status_lines = [
+            "The controlled audit has reviewed every zhtw miss and is pending maintainer",
+            "confirmation. The published Blind-v2 score is immutable.",
+        ]
     lines = [
         "<!-- zhtw:disable -->",
         "# Blind-v2 Post-result Audit (2026-07-31)",
@@ -190,8 +237,7 @@ def render_markdown(report: dict[str, Any]) -> str:
         "",
         "## Status",
         "",
-        "The controlled audit has reviewed every zhtw miss and is pending maintainer",
-        "confirmation. The published Blind-v2 score is immutable.",
+        *status_lines,
         "",
         "## Coverage",
         "",
@@ -218,14 +264,26 @@ def render_markdown(report: dict[str, Any]) -> str:
     ]
     for name in ("P0", "P1", "P2", "P3", "none"):
         lines.append(f"| {name} | {severity.get(name, 0):,} |")
-    lines.extend(
-        [
-            "",
+    if report["status"] == "completed":
+        queue_summary = (
+            f"The maintainer confirmed all {queue['cases']:,} queued cases: "
+            f"{queue['severity_counts'].get('P1', 0):,} P1 semantic-error decisions and "
+            f"{queue['acceptable_variant_candidates']:,} acceptable-variant decisions. "
+            f"The review included {queue['reference_correction_candidates']:,} "
+            "reference-correction candidates."
+        )
+    else:
+        queue_summary = (
             f"The private maintainer queue contains {queue['cases']:,} cases: "
             f"{queue['severity_counts'].get('P1', 0):,} P1 semantic-error decisions and "
             f"{queue['acceptable_variant_candidates']:,} acceptable-variant decisions. "
-            f"It includes {queue['reference_correction_candidates']:,} reference-correction "
-            "candidates.",
+            f"It includes {queue['reference_correction_candidates']:,} "
+            "reference-correction candidates."
+        )
+    lines.extend(
+        [
+            "",
+            queue_summary,
             "",
             "## Governance",
             "",
@@ -233,7 +291,11 @@ def render_markdown(report: dict[str, Any]) -> str:
             "- This report contains aggregate counts only.",
             "- Findings cannot change the consumed Blind-v2 score.",
             "- Findings cannot be used to tune against sealed rows.",
-            "- The audit is complete only after maintainer confirmation.",
+            (
+                "- The maintainer confirmed all queued synthesis decisions."
+                if report["status"] == "completed"
+                else "- The audit is complete only after maintainer confirmation."
+            ),
             "",
         ]
     )
@@ -246,7 +308,11 @@ def render_private_maintainer_review(private: dict[str, Any], batch_size: int = 
         "# Blind-v2 Private Maintainer Review",
         "",
         "This file is private and gitignored. The consumed benchmark score is immutable.",
-        "Approve or correct each final advisory; AI advice is not human ground truth.",
+        (
+            "The maintainer approved every queued final advisory."
+            if private["status"] == "completed"
+            else "Approve or correct each final advisory; AI advice is not human ground truth."
+        ),
         "",
     ]
     queue = private["maintainer_queue"]
@@ -272,12 +338,17 @@ def render_private_maintainer_review(private: dict[str, Any], batch_size: int = 
     return "\n".join(lines)
 
 
-def write_outputs(private: dict[str, Any], public: dict[str, Any], output_prefix: Path) -> None:
-    PRIVATE_ROOT.mkdir(parents=True, exist_ok=True)
-    (PRIVATE_ROOT / "final-advisory.json").write_text(
+def write_outputs(
+    private: dict[str, Any],
+    public: dict[str, Any],
+    output_prefix: Path,
+    private_root: Path = PRIVATE_ROOT,
+) -> None:
+    private_root.mkdir(parents=True, exist_ok=True)
+    (private_root / "final-advisory.json").write_text(
         json.dumps(private, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
-    (PRIVATE_ROOT / "maintainer-review.md").write_text(
+    (private_root / "maintainer-review.md").write_text(
         render_private_maintainer_review(private), encoding="utf-8"
     )
     output_prefix.parent.mkdir(parents=True, exist_ok=True)
@@ -287,15 +358,35 @@ def write_outputs(private: dict[str, Any], public: dict[str, Any], output_prefix
     output_prefix.with_suffix(".md").write_text(render_markdown(public), encoding="utf-8")
 
 
+def record_maintainer_confirmation(private_root: Path, queue_size: int) -> None:
+    path = private_root / "maintainer-decision.json"
+    if path.exists():
+        raise ValueError("maintainer decision is already recorded")
+    decision = {
+        "version": 1,
+        "audit_id": "blind-v2-post-result-audit-1",
+        "decision": "approve_all_synthesis_decisions",
+        "confirmed_cases": queue_size,
+        "confirmed_by": "tim",
+        "confirmed_at": dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z"),
+        "confirmation": "Follow the recommendation",
+    }
+    path.write_text(json.dumps(decision, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-prefix", type=Path, default=DEFAULT_OUTPUT_PREFIX)
+    parser.add_argument("--confirm-maintainer", action="store_true")
     args = parser.parse_args()
+    if args.confirm_maintainer:
+        private, _ = build_outputs()
+        record_maintainer_confirmation(PRIVATE_ROOT, len(private["maintainer_queue"]))
     private, public = build_outputs()
     write_outputs(private, public, args.output_prefix.resolve())
     print(
         f"audit report built: {public['scope']['audited_zhtw_misses']} misses, "
-        f"{public['maintainer_queue']['cases']} pending maintainer cases"
+        f"{public['maintainer_queue']['cases']} maintainer cases; status={public['status']}"
     )
     return 0
 
