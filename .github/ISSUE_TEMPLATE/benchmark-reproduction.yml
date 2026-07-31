@@ -1,0 +1,48 @@
+name: Benchmark reproduction
+description: Submit an independent reproduction of the public benchmark tracks.
+title: "Benchmark reproduction: "
+labels:
+  - benchmark
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for independently checking the public UD GSD and NAER benchmark tracks. Do not submit private Blind-v2 material.
+  - type: input
+    id: reviewer
+    attributes:
+      label: Reviewer
+      description: Your name or public handle.
+    validations:
+      required: true
+  - type: input
+    id: organization
+    attributes:
+      label: Organization
+      description: Optional affiliation. Write "independent" when none applies.
+    validations:
+      required: true
+  - type: checkboxes
+    id: independence
+    attributes:
+      label: Independence
+      options:
+        - label: I did not build, annotate, tune, or publish this benchmark.
+          required: true
+        - label: I ran the reproduction on a machine or account controlled by me or my organization.
+          required: true
+  - type: textarea
+    id: attestation
+    attributes:
+      label: Attestation JSON
+      description: Paste the complete output file from scripts/reproduce_public_benchmarks.py.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: deviations
+    attributes:
+      label: Deviations or failures
+      description: List any changed command, dependency, source, or failed check. Write "None" when unchanged.
+    validations:
+      required: true

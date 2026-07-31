@@ -42,7 +42,7 @@ ranking, and neither changes the Blind-v2 primary decision.
 - zhtw did not lead every domain and had lower Blind-v2 idempotency than both ranking representatives.
 - Expected values used one maintainer with Codex and independent Agy advice.
 - Detailed rows were not read during the formal run. A later controlled audit reviewed all 1,299 zhtw misses, and the maintainer confirmed all 152 queued synthesis decisions.
-- Independent third-party reproduction remains pending.
+- Independent third-party reproduction of the public secondary tracks is awaiting an outside reviewer in GitHub issue #51.
 
 ## Proposed Claim
 
@@ -59,3 +59,4 @@ Status: `confirmed_by_maintainer` on 2026-07-31.
 - Expected SHA-256: `511b2845969a60c6c5b53e7de17b85fbe00b11521648dac10e77fe6ec6ace9c5`
 - Competitor lock SHA-256: `f72ed6d38c1fe1336a61c267baab518b48cd4d3046d4ca3bd525f94eb7ca8765`
 - Public-track score reproduction: GitHub Actions run `30591590536` passed.
+- Independent public-track reproduction request: GitHub issue `#51`.

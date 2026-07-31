@@ -35,6 +35,10 @@ def test_formal_report_uses_blind_v2_as_the_only_primary_endpoint() -> None:
     assert report["governance"]["detailed_rows_read"] is False
     assert report["governance"]["private_detailed_audit"]["status"] == "completed"
     assert report["governance"]["external_hosted_public_reproduction"]["status"] == "passed"
+    assert (
+        report["governance"]["independent_third_party_reproduction"]["status"]
+        == "awaiting_external_reviewer"
+    )
 
 
 def test_formal_report_rejects_nonpositive_paired_delta_ci() -> None:

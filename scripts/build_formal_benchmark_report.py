@@ -158,7 +158,11 @@ def build_report(blind: dict[str, Any], ud: dict[str, Any], naer: dict[str, Any]
                 "run_id": 30591590536,
                 "url": "https://github.com/rajatim/zhtw/actions/runs/30591590536",
             },
-            "independent_third_party_reproduction": "pending",
+            "independent_third_party_reproduction": {
+                "status": "awaiting_external_reviewer",
+                "request_issue": "https://github.com/rajatim/zhtw/issues/51",
+                "scope": "public_secondary_tracks_only",
+            },
             "maintainer_claim_confirmation": {
                 "status": "confirmed",
                 "confirmed_by": "tim",
@@ -265,7 +269,8 @@ def render_markdown(report: dict[str, Any]) -> str:
             "- Detailed rows were not read during the formal run. A later controlled audit "
             "reviewed all 1,299 zhtw misses, and the maintainer confirmed all 152 queued "
             "synthesis decisions.",
-            "- Independent third-party reproduction remains pending.",
+            "- Independent third-party reproduction of the public secondary tracks is "
+            "awaiting an outside reviewer in GitHub issue #51.",
             "",
             "## Proposed Claim",
             "",
@@ -282,6 +287,7 @@ def render_markdown(report: dict[str, Any]) -> str:
             f"- Expected SHA-256: `{report['governance']['expected_sha256']}`",
             f"- Competitor lock SHA-256: `{report['governance']['competitor_lock_sha256']}`",
             "- Public-track score reproduction: GitHub Actions run `30591590536` passed.",
+            "- Independent public-track reproduction request: GitHub issue `#51`.",
             "",
         ]
     )

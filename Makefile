@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-formal-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-freeze-check benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-sample-check benchmark-blind-v2-decisions-finalize benchmark-blind-v2-annotation-validate benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-public-reproduce benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-formal-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-freeze-check benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-sample-check benchmark-blind-v2-decisions-finalize benchmark-blind-v2-annotation-validate benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -130,6 +130,9 @@ benchmark-competitor-build: ## Build the digest-pinned competitor environment
 
 benchmark-competitor-probe: benchmark-competitor-build ## Probe every locked competitor adapter
 	$(PYTHON) scripts/validate_competitor_environment.py --image $(COMPETITOR_IMAGE)
+
+benchmark-public-reproduce: ## Locally smoke-test the public third-party reproduction package
+	$(PYTHON) scripts/reproduce_public_benchmarks.py --operator local-maintainer --local-smoke-test --output /tmp/zhtw-public-benchmark-attestation.json
 
 benchmark-ud-import-check: ## Download pinned UD sources and verify normalized output
 	$(PYTHON) scripts/import_ud_gsd_benchmark.py --check

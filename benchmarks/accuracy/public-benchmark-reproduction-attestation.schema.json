@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/public-benchmark-reproduction-attestation.schema.json",
+  "title": "zhtw public benchmark reproduction attestation",
+  "type": "object",
+  "required": [
+    "version", "kind", "status", "scope", "operator", "organization",
+    "relationship", "recorded_at", "repository_url", "tool_git_sha",
+    "source_git_sha", "source_worktree_clean", "environment", "tracks", "limits"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "kind": { "type": "string", "const": "zhtw-public-benchmark-reproduction" },
+    "status": { "type": "string", "enum": ["passed", "failed"] },
+    "scope": { "type": "string", "const": "public_secondary_tracks_only" },
+    "operator": { "type": "string", "minLength": 1 },
+    "organization": { "type": ["string", "null"] },
+    "relationship": {
+      "type": "string",
+      "enum": ["independent_third_party", "project_local_smoke_test"]
+    },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "repository_url": { "type": "string", "minLength": 1 },
+    "tool_git_sha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "source_git_sha": {
+      "type": "string",
+      "const": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b"
+    },
+    "source_worktree_clean": { "type": "boolean" },
+    "environment": {
+      "type": "object",
+      "required": ["platform", "machine", "python"],
+      "additionalProperties": false,
+      "properties": {
+        "platform": { "type": "string", "minLength": 1 },
+        "machine": { "type": "string", "minLength": 1 },
+        "python": { "type": "string", "minLength": 1 }
+      }
+    },
+    "tracks": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "track", "metadata_matches", "scores_match", "baseline_scores_sha256",
+          "reproduced_scores_sha256", "passed", "baseline_report_sha256",
+          "reproduced_report_sha256"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "track": { "type": "string", "enum": ["ud-gsd-v1", "naer-terms-v1"] },
+          "metadata_matches": {
+            "type": "object",
+            "required": ["dataset", "manifest_sha256", "normalized_sha256"],
+            "additionalProperties": false,
+            "properties": {
+              "dataset": { "type": "boolean" },
+              "manifest_sha256": { "type": "boolean" },
+              "normalized_sha256": { "type": "boolean" }
+            }
+          },
+          "scores_match": { "type": "boolean" },
+          "baseline_scores_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "reproduced_scores_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "passed": { "type": "boolean" },
+          "baseline_report_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "reproduced_report_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "limits": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}
