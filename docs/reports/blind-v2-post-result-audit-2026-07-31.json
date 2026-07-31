@@ -1,0 +1,91 @@
+{
+  "generated_date": "2026-07-31",
+  "report_mode": "aggregate",
+  "dataset": "blind-v2",
+  "audit_id": "blind-v2-post-result-audit-1",
+  "status": "pending_maintainer_confirmation",
+  "scope": {
+    "benchmark_cases": 1960,
+    "audited_zhtw_misses": 1299,
+    "coverage": 1.0
+  },
+  "review": {
+    "order": [
+      "codex_first_pass",
+      "agy_independent",
+      "codex_synthesis",
+      "maintainer_decision"
+    ],
+    "codex_first_pass_cases": 1299,
+    "agy_independent_cases": 1299,
+    "synthesis_cases": 501,
+    "first_pass_agreement": {
+      "severity": 981,
+      "category": 861,
+      "all_decision_fields": 810,
+      "total": 1299
+    }
+  },
+  "final_advisory": {
+    "severity_counts": {
+      "P1": 45,
+      "P2": 656,
+      "P3": 82,
+      "none": 516
+    },
+    "category_counts": {
+      "acceptable_variant": 514,
+      "entity_or_identifier": 18,
+      "expected_problem": 2,
+      "other": 42,
+      "over_conversion": 73,
+      "punctuation_or_format": 42,
+      "regional_wording": 501,
+      "under_conversion": 84,
+      "wrong_character": 23
+    },
+    "decision_source_counts": {
+      "codex_agy_agreement": 798,
+      "synthesis_agy": 158,
+      "synthesis_codex": 317,
+      "synthesis_hybrid": 26
+    },
+    "reference_status_counts": {
+      "needs_correction": 2,
+      "valid": 1297
+    },
+    "actual_assessment_counts": {
+      "accepted_rendering": 516,
+      "rejected_rendering": 783
+    },
+    "by_domain": {
+      "formal_news": 157,
+      "high_stakes": 152,
+      "it_api_cli": 419,
+      "llm_generated": 156,
+      "social_daily": 182,
+      "ui_i18n": 233
+    },
+    "by_risk": {
+      "baseline_guard": 230,
+      "candidate_gap": 589,
+      "over_conversion_guard": 480
+    }
+  },
+  "maintainer_queue": {
+    "cases": 152,
+    "severity_counts": {
+      "P1": 45,
+      "none": 107
+    },
+    "reference_correction_candidates": 2,
+    "acceptable_variant_candidates": 107
+  },
+  "governance": {
+    "case_level_artifacts": "private_gitignored",
+    "public_content": "aggregate_counts_only",
+    "published_score": "immutable",
+    "result_tuning": "prohibited",
+    "audit_completion": "requires_maintainer_confirmation"
+  }
+}

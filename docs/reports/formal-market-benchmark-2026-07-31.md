@@ -41,7 +41,7 @@ ranking, and neither changes the Blind-v2 primary decision.
 - Strict sentence-level accepted accuracy is not normal-traffic accuracy.
 - zhtw did not lead every domain and had lower Blind-v2 idempotency than both ranking representatives.
 - Expected values used one maintainer with Codex and independent Agy advice.
-- Detailed rows were not read; a controlled post-result audit remains pending.
+- Detailed rows were not read during the formal run. A later controlled audit reviewed all 1,299 zhtw misses and is pending maintainer confirmation.
 - Independent third-party reproduction remains pending.
 
 ## Proposed Claim

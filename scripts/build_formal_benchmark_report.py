@@ -144,7 +144,11 @@ def build_report(blind: dict[str, Any], ud: dict[str, Any], naer: dict[str, Any]
             "annotation_model": "single_human_with_ai_advisory",
             "publication_scope": "aggregate_only",
             "detailed_rows_read": False,
-            "private_detailed_audit": "pending_controlled_post_result_audit",
+            "private_detailed_audit": {
+                "status": "pending_maintainer_confirmation",
+                "reviewed_misses": 1299,
+                "aggregate_report": "blind-v2-post-result-audit-2026-07-31.json",
+            },
             "external_hosted_public_reproduction": {
                 "status": "passed",
                 "provider": "GitHub Actions",
@@ -255,7 +259,8 @@ def render_markdown(report: dict[str, Any]) -> str:
             "- zhtw did not lead every domain and had lower Blind-v2 idempotency than both "
             "ranking representatives.",
             "- Expected values used one maintainer with Codex and independent Agy advice.",
-            "- Detailed rows were not read; a controlled post-result audit remains pending.",
+            "- Detailed rows were not read during the formal run. A later controlled audit "
+            "reviewed all 1,299 zhtw misses and is pending maintainer confirmation.",
             "- Independent third-party reproduction remains pending.",
             "",
             "## Proposed Claim",

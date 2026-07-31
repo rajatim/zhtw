@@ -125,7 +125,11 @@
     "annotation_model": "single_human_with_ai_advisory",
     "publication_scope": "aggregate_only",
     "detailed_rows_read": false,
-    "private_detailed_audit": "pending_controlled_post_result_audit",
+    "private_detailed_audit": {
+      "status": "pending_maintainer_confirmation",
+      "reviewed_misses": 1299,
+      "aggregate_report": "blind-v2-post-result-audit-2026-07-31.json"
+    },
     "external_hosted_public_reproduction": {
       "status": "passed",
       "provider": "GitHub Actions",
