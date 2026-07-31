@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/benchmarks/accuracy/blind-v2.post-result-audit-ledger-event.schema.json",
+  "title": "zhtw Blind-v2 private post-result audit ledger event",
+  "type": "object",
+  "required": [
+    "version", "dataset", "audit_id", "event", "recorded_at", "operator", "reason",
+    "source_run_id", "source_report_sha256", "inputs_sha256", "expected_sha256",
+    "zhtw_git_sha", "audit_protocol_sha256", "detailed_rows_read",
+    "case_level_artifacts_private", "result_tuning_prohibited", "exit_status",
+    "findings_summary_sha256"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "dataset": { "type": "string", "const": "blind-v2" },
+    "audit_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "event": { "type": "string", "enum": ["audit_started", "audit_interrupted", "audit_completed"] },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "operator": { "type": "string", "minLength": 1 },
+    "reason": { "type": "string", "minLength": 1 },
+    "source_run_id": { "type": "string", "const": "blind-v2-run-3-attempt-1" },
+    "source_report_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "inputs_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "expected_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "zhtw_git_sha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "audit_protocol_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "detailed_rows_read": { "type": "boolean", "const": true },
+    "case_level_artifacts_private": { "type": "boolean", "const": true },
+    "result_tuning_prohibited": { "type": "boolean", "const": true },
+    "exit_status": { "type": ["integer", "null"] },
+    "findings_summary_sha256": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      ]
+    }
+  }
+}

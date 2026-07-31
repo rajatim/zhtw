@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "id": "blind-v2-post-result-audit-v1",
+  "dataset": "blind-v2",
+  "source_run_id": "blind-v2-run-3-attempt-1",
+  "status": "frozen",
+  "purpose": "Classify consumed benchmark misses without changing the published score or tuning against sealed rows.",
+  "review_order": ["codex_first_pass", "agy_independent", "codex_synthesis", "maintainer_decision"],
+  "scope": "all_zhtw_misses",
+  "severity": {
+    "P0": "Materially dangerous meaning error in safety, medical, legal, financial, security, or identifier content.",
+    "P1": "Clear semantic damage or serious misleading wording without immediate P0-level harm.",
+    "P2": "Clear Taiwan localization, orthography, or terminology error while meaning remains understandable.",
+    "P3": "Style, strict-reference, punctuation, or minor wording difference with no material meaning change.",
+    "none": "The actual output is acceptable, or the reference expected value needs correction."
+  },
+  "maintainer_queue_rule": "Include every P0/P1, expected problem, acceptable actual, AI severity disagreement, or AI category disagreement.",
+  "publication": "Aggregate counts only; never publish inputs, expected values, outputs, rationales, or case IDs.",
+  "score_policy": "The consumed Blind-v2 score is immutable. Audit findings may inform a future benchmark version only."
+}

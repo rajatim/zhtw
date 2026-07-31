@@ -48,7 +48,7 @@ ranking, and neither changes the Blind-v2 primary decision.
 
 On the frozen 1,960-case Blind-v2 benchmark for Simplified Chinese to Taiwan Traditional Chinese, zhtw 4.4.2 achieved 33.72% accepted accuracy, above OpenCC 1.4.1 at 30.82% and zhconv 1.4.3 at 28.57%. Both paired 95% confidence intervals were above zero. This result applies only to this dataset, direction, metric, and the listed versions; it does not prove that zhtw is best for every domain or real-world workload.
 
-Status: `pending_maintainer_confirmation`.
+Status: `confirmed_by_maintainer` on 2026-07-31.
 
 ## Governance
 

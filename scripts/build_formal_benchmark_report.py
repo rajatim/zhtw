@@ -152,10 +152,15 @@ def build_report(blind: dict[str, Any], ud: dict[str, Any], naer: dict[str, Any]
                 "url": "https://github.com/rajatim/zhtw/actions/runs/30591590536",
             },
             "independent_third_party_reproduction": "pending",
-            "maintainer_claim_confirmation": "pending",
+            "maintainer_claim_confirmation": {
+                "status": "confirmed",
+                "confirmed_by": "tim",
+                "confirmed_date": "2026-07-31",
+                "confirmation": "Follow the recommendation",
+            },
         },
         "claim": {
-            "status": "pending_maintainer_confirmation",
+            "status": "confirmed",
             "english": (
                 f"On the frozen 1,960-case Blind-v2 benchmark for Simplified Chinese to "
                 f"Taiwan Traditional Chinese, zhtw {zhtw['version']} achieved "
@@ -257,7 +262,7 @@ def render_markdown(report: dict[str, Any]) -> str:
             "",
             report["claim"]["english"],
             "",
-            "Status: `pending_maintainer_confirmation`.",
+            "Status: `confirmed_by_maintainer` on 2026-07-31.",
             "",
             "## Governance",
             "",
@@ -287,7 +292,7 @@ def main() -> int:
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     args.output_prefix.with_suffix(".md").write_text(render_markdown(report), encoding="utf-8")
-    print("formal report: scoped_winner; maintainer confirmation pending")
+    print("formal report: scoped_winner; maintainer confirmation recorded")
     return 0
 
 
