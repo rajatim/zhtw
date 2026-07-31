@@ -12,6 +12,9 @@ on:
       - 'scripts/validate_competitor_environment.py'
       - 'scripts/run_ud_gsd_benchmark.py'
       - 'scripts/run_naer_terms_benchmark.py'
+      - 'scripts/reproduce_public_benchmarks.py'
+      - 'scripts/validate_public_benchmark_attestation.py'
+      - 'benchmarks/accuracy/public-benchmark-reproduction-attestation.schema.json'
       - 'benchmarks/accuracy/external/ud-gsd-v1.json'
       - 'benchmarks/accuracy/external/naer-terms-v1.json'
       - 'benchmarks/accuracy/manifests/ud-gsd-v1.json'
@@ -30,6 +33,9 @@ on:
       - 'scripts/validate_competitor_environment.py'
       - 'scripts/run_ud_gsd_benchmark.py'
       - 'scripts/run_naer_terms_benchmark.py'
+      - 'scripts/reproduce_public_benchmarks.py'
+      - 'scripts/validate_public_benchmark_attestation.py'
+      - 'benchmarks/accuracy/public-benchmark-reproduction-attestation.schema.json'
       - 'benchmarks/accuracy/external/ud-gsd-v1.json'
       - 'benchmarks/accuracy/external/naer-terms-v1.json'
       - 'benchmarks/accuracy/manifests/ud-gsd-v1.json'
@@ -47,6 +53,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -65,3 +73,13 @@ jobs:
           uv run python scripts/run_naer_terms_benchmark.py --generated-date 2026-07-31 --output-prefix /tmp/naer-terms
           diff <(jq -S .scores docs/reports/ud-gsd-benchmark-2026-07-31.json) <(jq -S .scores /tmp/ud-gsd.json)
           diff <(jq -S .scores docs/reports/naer-terms-benchmark-2026-07-31.json) <(jq -S .scores /tmp/naer-terms.json)
+      - name: Smoke-test third-party reproduction package
+        run: |
+          uv run python scripts/reproduce_public_benchmarks.py \
+            --operator github-actions \
+            --organization rajatim/zhtw \
+            --local-smoke-test \
+            --output /tmp/zhtw-public-benchmark-attestation.json
+          uv run python scripts/validate_public_benchmark_attestation.py \
+            --allow-local-smoke-test \
+            /tmp/zhtw-public-benchmark-attestation.json
