@@ -128,6 +128,39 @@ bare technical term to the source's single academic label. It is a discovery
 signal for future sentence-level review, not evidence that 59.8710% of ordinary
 zhtw conversions are wrong.
 
+## Paired vendor-localization tracks
+
+Three project-run public secondary tracks pair Simplified and Traditional
+vendor localization by stable resource key:
+
+- `aosp-framework-paired-ui-v1`: 1,968 Android `zh-rCN`/`zh-rTW` pairs,
+  Apache-2.0.
+- `vscode-paired-ui-v1`: 17,133 VS Code `zh-hans`/`zh-hant` pairs, MIT.
+- `firefox-paired-ui-v1`: 1,264 plain-text Firefox `zh-CN`/`zh-TW` Fluent
+  pairs from five browser files, MPL-2.0.
+
+The importer requires matching keys and placeholder signatures. It rejects
+unpaired keys, multiline values, rich expressions, and duplicate text pairs.
+Each upstream revision and raw file is checksum-pinned. Reproduce the datasets
+and run zhtw-only diagnostic reports with:
+
+```bash
+make benchmark-paired-import-check
+make benchmark-paired-report DATE=2026-07-31
+```
+
+Use `scripts/run_paired_localization_benchmark.py --engines ...
+--container-image ...` for locked competitor comparisons. Reports are
+aggregate-only.
+
+These tracks measure exact agreement with one vendor's Traditional
+localization, not universal Taiwan Traditional correctness. Product
+localization can shorten or rewrite a message beyond conversion. VS Code uses
+generic `zh-hant`, while AOSP and Firefox use explicit Taiwan locales. The AOSP
+and VS Code Simplified sources also overlap the Blind-v2 source pool. Therefore
+the three tracks are diagnostics and conflict checks, not a replacement for the
+Blind-v2 primary endpoint or third-party validation.
+
 ## Locked competitor environment
 
 `competitors.lock.json` version 2 freezes the formal competitor environment:

@@ -103,6 +103,33 @@ is missing.
 - Bias notice: Microsoft-managed developer-tool localization is not organic
   market traffic and heavily represents UI and software terminology.
 
+## aosp-framework-paired-ui-v1
+
+- Source: Paired AOSP core framework `zh-rCN` and `zh-rTW` string resources at commit `1cdfff555f4a21f71ccc978290e2e212e2f8b168`.
+- License: Apache License 2.0
+- Attribution: Android Open Source Project contributors.
+- Modifications: Paired zh-rCN and zh-rTW string resources by exact Android resource name; removed unsupported resource types, rich markup, unpaired keys, multiline values, placeholder mismatches, and duplicate text pairs; normalized Unicode to NFC.
+- Output license: Apache License 2.0
+- Bias notice: Android platform UI is overrepresented. The Simplified source overlaps the Blind-v2 source pool, so this is a public diagnostic rather than fresh independent evidence.
+
+## vscode-paired-ui-v1
+
+- Source: Paired VS Code `zh-hans` and `zh-hant` main localization files at commit `da6509eed60b550e0e785d0d78ac05be46d5e982`.
+- License: MIT License
+- Attribution: Visual Studio Code Localization Packs, Copyright Microsoft Corporation, commit da6509eed60b550e0e785d0d78ac05be46d5e982.
+- Modifications: Paired zh-hans and zh-hant message values by exact module and message key; removed unpaired keys, multiline values, placeholder mismatches, non-Chinese inputs, and duplicate text pairs; normalized Unicode to NFC.
+- Output license: MIT License
+- Bias notice: Developer-tool UI is overrepresented; `zh-hant` is not an explicit Taiwan locale. The Simplified source overlaps the Blind-v2 source pool.
+
+## firefox-paired-ui-v1
+
+- Source: Five paired Firefox `zh-CN` and `zh-TW` Fluent browser files at commit `433b19d7cc6ff3c920887f895b486d6f3cfffe89`.
+- License: Mozilla Public License 2.0
+- Attribution: Mozilla and Firefox localization contributors, mozilla-l10n/firefox-l10n commit 433b19d7cc6ff3c920887f895b486d6f3cfffe89.
+- Modifications: Paired zh-CN and zh-TW Fluent messages by exact file, message, and attribute key; retained plain text patterns only; removed expressions, unpaired keys, multiline values, placeholder mismatches, non-Chinese inputs, and duplicate text pairs; normalized Unicode to NFC.
+- Output license: Mozilla Public License 2.0
+- Bias notice: Browser UI, account, privacy, and security text are overrepresented. Vendor localization is a useful reference, not universal Taiwan Traditional ground truth.
+
 ## chromium-strings-zh-cn-v1
 
 - Source: Chromium Chinese (Simplified) browser UI, `chromium_strings_zh-CN.xtb`,

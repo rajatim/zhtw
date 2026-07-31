@@ -73,6 +73,19 @@ jobs:
           uv run python scripts/run_naer_terms_benchmark.py --generated-date 2026-07-31 --output-prefix /tmp/naer-terms
           diff <(jq -S .scores docs/reports/ud-gsd-benchmark-2026-07-31.json) <(jq -S .scores /tmp/ud-gsd.json)
           diff <(jq -S .scores docs/reports/naer-terms-benchmark-2026-07-31.json) <(jq -S .scores /tmp/naer-terms.json)
+      - name: Verify public paired localization datasets
+        run: make benchmark-paired-import-check
+      - name: Run public paired localization comparisons
+        run: |
+          image="zhtw-benchmark-competitors:$(jq -r '.environment.environment_sha256' benchmarks/accuracy/competitors.lock.json | cut -c1-12)"
+          for id in aosp-framework-paired-ui-v1 vscode-paired-ui-v1 firefox-paired-ui-v1; do
+            uv run python scripts/run_paired_localization_benchmark.py \
+              --manifest "benchmarks/accuracy/manifests/$id.json" \
+              --engines zhtw,opencc-s2twp,zhconv-zh-tw \
+              --container-image "$image" \
+              --generated-date 2026-07-31 \
+              --output-prefix "/tmp/$id"
+          done
       - name: Smoke-test third-party reproduction package
         run: |
           uv run python scripts/reproduce_public_benchmarks.py \

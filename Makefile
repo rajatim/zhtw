@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-public-reproduce benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-formal-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-freeze-check benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-sample-check benchmark-blind-v2-decisions-finalize benchmark-blind-v2-annotation-validate benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-public-reproduce benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-paired-import-check benchmark-paired-report benchmark-formal-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-freeze-check benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-sample-check benchmark-blind-v2-decisions-finalize benchmark-blind-v2-annotation-validate benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -145,6 +145,19 @@ benchmark-naer-import-check: ## Download pinned NAER source and verify normalize
 
 benchmark-naer-report: ## Run the public NAER computer terminology secondary track
 	$(PYTHON) scripts/run_naer_terms_benchmark.py --generated-date $(DATE) --output-prefix docs/reports/naer-terms-benchmark-$(DATE)
+
+benchmark-paired-import-check: ## Verify pinned AOSP, VS Code, and Firefox paired datasets
+	@for id in aosp-framework-paired-ui-v1 vscode-paired-ui-v1 firefox-paired-ui-v1; do \
+	  $(PYTHON) scripts/import_paired_localization_benchmark.py \
+	    --manifest benchmarks/accuracy/manifests/$$id.json --check || exit 1; \
+	done
+
+benchmark-paired-report: ## Run project-managed public paired localization tracks
+	@for id in aosp-framework-paired-ui-v1 vscode-paired-ui-v1 firefox-paired-ui-v1; do \
+	  $(PYTHON) scripts/run_paired_localization_benchmark.py \
+	    --manifest benchmarks/accuracy/manifests/$$id.json \
+	    --generated-date $(DATE) --output-prefix docs/reports/$$id-benchmark-$(DATE) || exit 1; \
+	done
 
 benchmark-formal-report: ## Build the scoped aggregate market report
 	$(PYTHON) scripts/build_formal_benchmark_report.py

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "aosp-framework-paired-ui-v1",
+  "track": "external_regional",
+  "source_class": "permissive_license",
+  "source_urls": [
+    "https://github.com/aosp-mirror/platform_frameworks_base",
+    "https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/1cdfff555f4a21f71ccc978290e2e212e2f8b168/core/res/res/values-zh-rCN/strings.xml",
+    "https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/1cdfff555f4a21f71ccc978290e2e212e2f8b168/core/res/res/values-zh-rTW/strings.xml"
+  ],
+  "upstream_revision": "AOSP platform/frameworks/base commit 1cdfff555f4a21f71ccc978290e2e212e2f8b168; paired core framework zh-rCN and zh-rTW string resources.",
+  "retrieved_at": "2026-07-31T19:30:00+08:00",
+  "license": "Apache License 2.0",
+  "license_url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/1cdfff555f4a21f71ccc978290e2e212e2f8b168/NOTICE",
+  "output_license": "Apache License 2.0",
+  "attribution": "Android Open Source Project contributors.",
+  "modification_notice": "Paired zh-rCN and zh-rTW string resources by exact Android resource name; removed unsupported resource types, rich markup, unpaired keys, multiline values, placeholder mismatches, and duplicate text pairs; normalized Unicode to NFC.",
+  "notice_id": "aosp-framework-paired-ui-v1",
+  "raw_sha256": {
+    "https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/1cdfff555f4a21f71ccc978290e2e212e2f8b168/core/res/res/values-zh-rCN/strings.xml": "71e241287957d068dcf6df1df1f8279109bd79f68e69b7de9137b60d4ff8d915",
+    "https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/1cdfff555f4a21f71ccc978290e2e212e2f8b168/core/res/res/values-zh-rTW/strings.xml": "35564d6a59d20ce0e3983afd90c80f40150f5a3a88b6a27118cf38173321c858"
+  },
+  "normalized_path": "benchmarks/accuracy/external/aosp-framework-paired-ui-v1.json",
+  "normalized_sha256": "14aff6e7c31c0e581fb6d6d2aacdae075b3cf30cfbc544f3ab773581d1c929fa",
+  "importer": "scripts/import_paired_localization_benchmark.py",
+  "known_biases": [
+    "Android platform UI and system terminology are heavily represented.",
+    "The official zh-rTW localization may rewrite or shorten messages beyond script conversion.",
+    "The Simplified source was already represented in the Blind-v2 source pool, so this is not fresh independent evidence."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "public_track_only"
+}

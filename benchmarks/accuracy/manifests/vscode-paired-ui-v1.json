@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "vscode-paired-ui-v1",
+  "track": "external_regional",
+  "source_class": "permissive_license",
+  "source_urls": [
+    "https://github.com/microsoft/vscode-loc",
+    "https://raw.githubusercontent.com/microsoft/vscode-loc/da6509eed60b550e0e785d0d78ac05be46d5e982/i18n/vscode-language-pack-zh-hans/translations/main.i18n.json",
+    "https://raw.githubusercontent.com/microsoft/vscode-loc/da6509eed60b550e0e785d0d78ac05be46d5e982/i18n/vscode-language-pack-zh-hant/translations/main.i18n.json"
+  ],
+  "upstream_revision": "microsoft/vscode-loc commit da6509eed60b550e0e785d0d78ac05be46d5e982; paired VS Code zh-hans and zh-hant main localization files.",
+  "retrieved_at": "2026-07-31T19:30:00+08:00",
+  "license": "MIT License",
+  "license_url": "https://github.com/microsoft/vscode-loc/blob/da6509eed60b550e0e785d0d78ac05be46d5e982/LICENSE.md",
+  "output_license": "MIT License",
+  "attribution": "Visual Studio Code Localization Packs, Copyright Microsoft Corporation, commit da6509eed60b550e0e785d0d78ac05be46d5e982.",
+  "modification_notice": "Paired zh-hans and zh-hant message values by exact module and message key; removed unpaired keys, multiline values, placeholder mismatches, non-Chinese inputs, and duplicate text pairs; normalized Unicode to NFC.",
+  "notice_id": "vscode-paired-ui-v1",
+  "raw_sha256": {
+    "https://raw.githubusercontent.com/microsoft/vscode-loc/da6509eed60b550e0e785d0d78ac05be46d5e982/i18n/vscode-language-pack-zh-hans/translations/main.i18n.json": "dd07fd811a728567b1360c4d48f55f5717bf4145df1e7245412bd846c6e14517",
+    "https://raw.githubusercontent.com/microsoft/vscode-loc/da6509eed60b550e0e785d0d78ac05be46d5e982/i18n/vscode-language-pack-zh-hant/translations/main.i18n.json": "d4680a108437f9eadb9dc8d8db56dc008892515124a57abbf13b2369493d512e"
+  },
+  "normalized_path": "benchmarks/accuracy/external/vscode-paired-ui-v1.json",
+  "normalized_sha256": "35c6e7681387503163a6c587d0732bea164fe26cbb3a108bf7d6720d00232412",
+  "importer": "scripts/import_paired_localization_benchmark.py",
+  "known_biases": [
+    "Developer-tool UI terminology is heavily represented.",
+    "The zh-hant pack is a generic Traditional Chinese locale and is not an explicit Taiwan locale.",
+    "The Simplified source was already represented in the Blind-v2 source pool, so this is not fresh independent evidence."
+  ],
+  "allowed_uses": [
+    "evaluation",
+    "public_reporting"
+  ],
+  "tuning_policy": "public_track_only"
+}
