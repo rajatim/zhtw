@@ -232,6 +232,8 @@ ZHTW 是規則式轉換與品質檢查工具，不是生成式翻譯模型。
 | [CI/CD 整合指南](docs/deployment/CI-CD-INTEGRATION.md) | GitHub Actions、GitLab CI 與 pre-commit |
 | [版本紀錄](CHANGELOG.md) | 每版精準度、功能與相容性變更 |
 | [貢獻指南](CONTRIBUTING.md) | 開發、測試與詞庫修改流程 |
+| [安全政策](SECURITY.md) | 支援版本與私密漏洞通報方式 |
+| [MIT License](LICENSE) | 使用、修改與再發布條款 |
 | [致謝](docs/reference/ACKNOWLEDGMENTS.md) | OpenAI Codex 與 Anthropic Claude 的開發協助 |
 
 ## 參與改進精準度

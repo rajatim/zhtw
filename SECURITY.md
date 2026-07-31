@@ -2,75 +2,60 @@
 
 ## Supported Versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 2.x.x   | :white_check_mark: |
-| < 2.0   | :x:                |
+Security fixes are provided for the latest stable release line.
+
+| Version | Supported |
+|---|---|
+| 4.4.x | Yes |
+| < 4.4 | No |
+
+Users should upgrade to the latest published patch release before reporting a
+problem that may already be fixed.
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability, please **DO NOT** create a public Issue.
+Do not open a public Issue for a suspected security vulnerability.
 
-Instead, send an email to: **rajatim@gmail.com**
+Use [GitHub Private Vulnerability Reporting](https://github.com/rajatim/zhtw/security/advisories/new)
+whenever possible. If that channel is unavailable, email `rajatim@gmail.com`
+with the subject:
 
-### Email Format
-
-**Subject:**
-```
+```text
 [SECURITY] zhtw - Brief description
 ```
 
-**Example Subject:**
-```
-[SECURITY] zhtw - Command injection in CLI parser
-```
+Include the following information when available:
 
-**Body Template:**
-```
-## Vulnerability Report
+- Affected zhtw version, SDK, operating system, and runtime
+- Vulnerability type and expected impact
+- Minimal steps or proof of concept needed to reproduce the issue
+- Whether the report or your identity may be acknowledged publicly
+- Any suggested fix or temporary mitigation
 
-**Version:** [e.g., 2.8.5]
-**Component:** [e.g., CLI, Converter, Matcher]
-**Severity:** [Critical / High / Medium / Low]
-
-## Description
-
-[Clear description of the vulnerability]
-
-## Steps to Reproduce
-
-1. [Step 1]
-2. [Step 2]
-3. [Step 3]
-
-## Expected vs Actual Behavior
-
-- Expected: [What should happen]
-- Actual: [What actually happens]
-
-## Proof of Concept (if applicable)
-
-[Code snippet or command to reproduce]
-
-## Suggested Fix (optional)
-
-[Your suggestion for fixing]
-
-## Your Information (optional)
-
-- Name/Handle: [For acknowledgment in release notes]
-- Want public credit: [Yes/No]
-```
+Do not include real credentials, customer data, private benchmark answers, or
+other sensitive data unless the maintainer requests a secure transfer method.
 
 ## Scope
 
-This project is a text conversion tool. Security concerns include:
+Security reports may cover:
 
-- Input validation (malicious input handling)
-- File system operations (path traversal)
-- Dependency vulnerabilities
-- Code injection risks
+- CLI input handling and command execution
+- File reads, writes, path traversal, backups, and encoding handling
+- Malformed dictionary or SDK data handling
+- Dependency and build-chain vulnerabilities
+- CI, release workflows, package publishing, and release artifacts
+- Denial of service caused by crafted input
+- Code injection or unsafe deserialization
 
-## Acknowledgments
+Incorrect Chinese conversion is normally an accuracy bug, not a security
+vulnerability. Report it through a regular Issue unless it creates a security
+impact such as policy bypass, data corruption, or unsafe command execution.
 
-Security researchers who report valid vulnerabilities will be credited in release notes (with permission).
+## Disclosure
+
+Please allow time to confirm and fix the problem before public disclosure. The
+maintainer will coordinate disclosure and release notes with the reporter when
+the vulnerability is valid.
+
+Security researchers who report valid vulnerabilities will be credited with
+permission.
