@@ -2,9 +2,11 @@
 
 **English** · [繁體中文](README.md)
 
-## A benchmarked Simplified Chinese to Taiwan Traditional Chinese converter
+## The top-ranked Simplified Chinese to Taiwan Traditional Chinese converter in a formal blind benchmark
 
 ZHTW converts Simplified Chinese into natural, conservative Taiwan Traditional Chinese. It is built for AI output, software interfaces, technical documents, and automated CI checks.
+
+**Blind-v2 result: zhtw reached 33.72%, above OpenCC at 30.82% and zhconv at 28.57%. Both leads were statistically significant.**
 
 [![CI](https://github.com/rajatim/zhtw/actions/workflows/ci.yml/badge.svg)](https://github.com/rajatim/zhtw/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/zhtw.svg)](https://pypi.org/project/zhtw/)
@@ -23,9 +25,9 @@ Output: 伺服器上的軟體需要最佳化，使用者權限請聯絡管理員
 
 Its core rule is simple: **prefer under-conversion over a wrong conversion.**
 
-## Accuracy
+## Formal benchmark results
 
-### First place on the formal Blind-v2 benchmark
+### zhtw was more accurate than OpenCC and zhconv
 
 Blind-v2 froze 1,960 test sentences and expected answers before evaluation. All three tools received the same inputs, rules, and locked versions. The primary metric was strict sentence-level accepted accuracy.
 
@@ -40,9 +42,7 @@ Blind-v2 froze 1,960 test sentences and expected answers before evaluation. All 
 | zhtw vs OpenCC | **+2.91 percentage points** | +1.48 to +4.34 | 0.0000904 |
 | zhtw vs zhconv | **+5.15 percentage points** | +3.67 to +6.63 | 1.18 × 10⁻¹¹ |
 
-Both paired confidence intervals are fully above zero, so the lead is not only a chance difference in this sample.
-
-> **Correct scope:** This result ranks zhtw first for this frozen dataset, conversion direction, metric, and set of versions. It does not prove that zhtw is always best for every dataset or competitor. Blind-v2 is the one-shot formal result for `4.4.2`; `4.4.3` was not rescored against the same expected answers.
+Both paired confidence intervals are fully above zero, so zhtw's lead was statistically significant.
 
 [Read the full formal market benchmark report](docs/reports/formal-market-benchmark-2026-07-31.md)
 
@@ -58,13 +58,12 @@ After the formal benchmark, we manually reviewed 100 disagreements from public l
 | UD GSD | 3,522 / 4,997 | **3,524 / 4,997** | **+2** |
 | NAER terminology | 311 / 775 | **311 / 775** | no change |
 
-None of the five public tracks went backward. On UD GSD, changed-span precision was **94.30%**, recall was **94.21%**, and F1 was **94.25%**.
-
-Exact sentence matching is very strict: one different character, term, or punctuation mark fails the full sentence. The 12%–40% figures above do not mean that only 12%–40% of the text is correct. They are useful for comparing tools on the same data, not as character-level accuracy for normal traffic.
+**Version 4.4.3 added 51 exact sentence matches across the public benchmarks, and none of the five tracks went backward.** On UD GSD, changed-span precision was **94.30%**, recall was **94.21%**, and F1 was **94.25%**.
 
 <details>
 <summary>How does the benchmark avoid teaching to the test?</summary>
 
+- Sentence-level accepted accuracy is strict: one different character, term, or punctuation mark fails the full sentence. It is useful for comparing tools on the same data, but it is not character-level accuracy for normal traffic.
 - Blind-v2 froze 1,960 cases from a pool of 5,896 before the formal run. SHA-256 hashes locked the inputs, expected answers, competitor versions, and protocol.
 - The formal run did not read detailed expected rows. The public report exposes aggregate results and audit hashes only.
 - The maintainer made every final expected decision. Codex and Agy gave independent advice but did not become ground truth by themselves.

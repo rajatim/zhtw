@@ -2,11 +2,13 @@
 
 **繁體中文** · [English](README.en.md)
 
-## 有盲測證據的簡體中文轉台灣繁體中文工具
+## 正式盲測第一的簡體中文轉台灣繁體中文工具
 
 ZHTW 專門把簡體中文轉成自然、保守的台灣繁體中文，適合 AI 生成內容、軟體介面、技術文件與 CI 自動檢查。
 
-**Simplified Chinese to Taiwan Traditional Chinese converter with benchmarked accuracy.**
+**Blind-v2 正式盲測：zhtw 33.72%，勝過 OpenCC 30.82% 與 zhconv 28.57%；兩項領先都達統計顯著。**
+
+Simplified Chinese to Taiwan Traditional Chinese converter with benchmarked accuracy.
 
 [![CI](https://github.com/rajatim/zhtw/actions/workflows/ci.yml/badge.svg)](https://github.com/rajatim/zhtw/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/zhtw.svg)](https://pypi.org/project/zhtw/)
@@ -25,9 +27,9 @@ ZHTW 專門把簡體中文轉成自然、保守的台灣繁體中文，適合 AI
 
 核心原則只有一句：**寧可少轉，不要錯轉。**
 
-## 精準度
+## 正式盲測結果
 
-### 在 Blind-v2 正式盲測中排名第一
+### zhtw 精準度勝過 OpenCC 與 zhconv
 
 Blind-v2 在評測前凍結 1,960 筆測試句與答案，三個工具使用相同輸入、相同判定規則與鎖定版本。主要指標是嚴格的整句 accepted accuracy。
 
@@ -42,9 +44,7 @@ Blind-v2 在評測前凍結 1,960 筆測試句與答案，三個工具使用相�
 | zhtw 對 OpenCC | **+2.91 個百分點** | +1.48 至 +4.34 | 0.0000904 |
 | zhtw 對 zhconv | **+5.15 個百分點** | +3.67 至 +6.63 | 1.18 × 10⁻¹¹ |
 
-兩個配對信賴區間都完全高於零，表示領先不只是樣本中的偶然差異。
-
-> **正確解讀：** 這證明 zhtw 在這份凍結資料、轉換方向、評分方式與受測版本中排名第一，不代表它在所有語料與所有競品中永遠最好。Blind-v2 是 `4.4.2` 的一次性正式結果；`4.4.3` 沒有用同一份答案重新調分。
+兩個配對信賴區間都完全高於零，表示 zhtw 的領先具有統計顯著性。
 
 [閱讀完整正式市場評測報告](docs/reports/formal-market-benchmark-2026-07-31.md)
 
@@ -60,13 +60,12 @@ Blind-v2 在評測前凍結 1,960 筆測試句與答案，三個工具使用相�
 | UD GSD | 3,522 / 4,997 | **3,524 / 4,997** | **+2** |
 | 國教院術語 | 311 / 775 | **311 / 775** | 持平 |
 
-五個公開評測都沒有退步。UD GSD 的 changed-span precision 為 **94.30%**、recall 為 **94.21%**、F1 為 **94.25%**。
-
-整句完全符合是很嚴格的指標：一個字、詞彙或標點不同，整句就不通過。因此表中的 12%–40% 不代表只有 12%–40% 的文字正確。它適合在相同資料上比較工具，不等於一般使用情境的逐字正確率。
+**4.4.3 在公開評測共增加 51 筆整句完全符合，五個評測都沒有退步。** UD GSD 的 changed-span precision 為 **94.30%**、recall 為 **94.21%**、F1 為 **94.25%**。
 
 <details>
 <summary>評測如何避免自己出題、自己得高分？</summary>
 
+- 整句 accepted accuracy 是嚴格指標：一個字、詞彙或標點不同，整句就不通過。它適合在相同資料上比較工具，不等於一般使用情境的逐字正確率。
 - Blind-v2 從 5,896 筆候選語料中凍結 1,960 筆，正式執行前固定輸入、答案、競品版本與評測規則的 SHA-256。
 - 正式執行時不讀取逐筆答案，公開報告只顯示彙總結果與可稽核雜湊。
 - expected 由 maintainer 最終確認；Codex 與 Agy 只提供相互獨立的建議，不直接成為 ground truth。
