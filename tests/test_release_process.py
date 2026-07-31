@@ -1,5 +1,6 @@
 """Regression tests for the fail-closed release pipeline."""
 
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -64,8 +65,15 @@ def test_release_verify_is_version_scoped_and_fail_closed() -> None:
     script = read("scripts/release-verify.sh")
 
     assert '--branch "$branch" --event "$event"' in script
-    assert "缺少 ${missing}、執行中 ${pending}（${attempt}/$WORKFLOW_ATTEMPTS）" in script
+    assert "缺少 ${missing}、執行中 ${pending}（${attempt}/${WORKFLOW_ATTEMPTS}）" in script
     assert "發布 workflows 等待逾時" in script
     assert "registry artifact 等待逾時" in script
     assert 'git -C "$TAP_DIR" pull --ff-only' in script
     assert "diff --quiet -- Formula/zhtw.rb" in script
+
+
+def test_shell_variables_before_non_ascii_text_are_braced() -> None:
+    pattern = re.compile(r"\$[A-Za-z_][A-Za-z0-9_]*[^\x00-\x7f]")
+
+    for script in (ROOT / "scripts").glob("*.sh"):
+        assert not pattern.search(read(str(script.relative_to(ROOT)))), script

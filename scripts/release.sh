@@ -42,7 +42,7 @@ cleanup_candidate() {
 trap cleanup_candidate EXIT
 
 [ -n "$VERSION" ] || die "用法: scripts/release.sh X.Y.Z"
-[[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || die "VERSION 格式須為 X.Y.Z（拿到: $VERSION）"
+[[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || die "VERSION 格式須為 X.Y.Z（拿到: ${VERSION}）"
 
 CURRENT="$(sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml)"
 RELEASE_DATE="$(date +%F)"
