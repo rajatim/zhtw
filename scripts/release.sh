@@ -93,6 +93,7 @@ git worktree add --detach --quiet "$CANDIDATE_DIR" HEAD
     if [ "$PROMOTE_CHANGELOG" = 1 ]; then
         promote_changelog "$VERSION" "$RELEASE_DATE"
     fi
+    uv sync --frozen --extra dev
     make release-gate
     git diff --check
     git diff --binary > "$CANDIDATE_PATCH"

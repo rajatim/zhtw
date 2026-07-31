@@ -41,6 +41,15 @@ def test_changelog_only_release_commit_triggers_conformance() -> None:
     assert workflow.count("- 'CHANGELOG.md'") == 2
 
 
+def test_release_candidate_installs_locked_validation_dependencies() -> None:
+    script = read("scripts/release.sh")
+
+    bump = script.index('make bump VERSION="$VERSION"')
+    sync = script.index("uv sync --frozen --extra dev")
+    gate = script.index("make release-gate")
+    assert bump < sync < gate
+
+
 def test_release_gate_uses_pinned_corpus_and_go_lint() -> None:
     makefile = read("Makefile")
     lock = read("tests/data/corpus.lock").strip()
