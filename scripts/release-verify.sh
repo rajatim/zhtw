@@ -71,7 +71,7 @@ for attempt in $(seq 1 "$WORKFLOW_ATTEMPTS"); do
         WORKFLOWS_OK=1
         break
     fi
-    wait_msg "缺少 $missing、執行中 $pending（$attempt/$WORKFLOW_ATTEMPTS）"
+    wait_msg "缺少 ${missing}、執行中 ${pending}（${attempt}/$WORKFLOW_ATTEMPTS）"
     sleep "$VERIFY_INTERVAL"
 done
 [ "$WORKFLOWS_OK" -eq 1 ] || die "發布 workflows 等待逾時"

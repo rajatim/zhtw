@@ -64,6 +64,7 @@ def test_release_verify_is_version_scoped_and_fail_closed() -> None:
     script = read("scripts/release-verify.sh")
 
     assert '--branch "$branch" --event "$event"' in script
+    assert "缺少 ${missing}、執行中 ${pending}（${attempt}/$WORKFLOW_ATTEMPTS）" in script
     assert "發布 workflows 等待逾時" in script
     assert "registry artifact 等待逾時" in script
     assert 'git -C "$TAP_DIR" pull --ff-only' in script
