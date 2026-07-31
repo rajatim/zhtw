@@ -71,7 +71,7 @@ def test_validator_rejects_local_smoke_test_as_independent_evidence() -> None:
         relationship="project_local_smoke_test",
         repository_url="https://example.com/fork.git",
         tool_git_sha="c" * 40,
-        source_git_sha="4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
+        source_git_sha="a11d1f4eba49648fabc3fee019c37fb633996cbe",
         clean_worktree=True,
         tracks=[track, second_track],
     )

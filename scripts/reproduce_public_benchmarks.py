@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-SOURCE_GIT_SHA = "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b"
+SOURCE_GIT_SHA = "a11d1f4eba49648fabc3fee019c37fb633996cbe"
 GENERATED_DATE = "2026-07-31"
 TRACKS = {
     "ud-gsd-v1": {

@@ -9,7 +9,7 @@ Blind-v2 reference answers.
 
 - UD Chinese GSD/GSDSimp: 4,997 sentence pairs.
 - NAER computer terminology: 775 accepted evaluation cases.
-- Frozen source commit: `4b7f0e66fa0262021d0ec8e37acfae881b06bc4b`.
+- Frozen source commit: `a11d1f4eba49648fabc3fee019c37fb633996cbe`.
 - Published reports dated 2026-07-31.
 
 These tracks are supporting evidence only. They do not replace the private
