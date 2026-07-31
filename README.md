@@ -2,522 +2,181 @@
 
 **繁體中文** · [English](README.en.md)
 
+## 有盲測證據的簡體中文轉台灣繁體中文工具
+
+ZHTW 專門把簡體中文轉成自然、保守的台灣繁體中文，適合 AI 生成內容、軟體介面、技術文件與 CI 自動檢查。
+
+**Simplified Chinese to Taiwan Traditional Chinese converter with benchmarked accuracy.**
+
 [![CI](https://github.com/rajatim/zhtw/actions/workflows/ci.yml/badge.svg)](https://github.com/rajatim/zhtw/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/rajatim/zhtw/branch/main/graph/badge.svg)](https://codecov.io/gh/rajatim/zhtw)
 [![PyPI](https://img.shields.io/pypi/v/zhtw.svg)](https://pypi.org/project/zhtw/)
-[![Maven Central](https://img.shields.io/maven-central/v/com.rajatim/zhtw.svg?label=maven%20central)](https://central.sonatype.com/artifact/com.rajatim/zhtw)
-[![Homebrew](https://img.shields.io/badge/homebrew-tap-FBB040?logo=homebrew)](https://github.com/rajatim/homebrew-tap)
-[![Downloads](https://img.shields.io/pypi/dm/zhtw.svg)](https://pypi.org/project/zhtw/)
-[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Java](https://img.shields.io/badge/java-11+-orange.svg)](https://adoptium.net/)
 [![npm](https://img.shields.io/npm/v/zhtw-js.svg?logo=npm)](https://www.npmjs.com/package/zhtw-js)
 [![crates.io](https://img.shields.io/crates/v/zhtw.svg?logo=rust)](https://crates.io/crates/zhtw)
-[![Go](https://img.shields.io/badge/go-1.21+-00ADD8.svg?logo=go)](https://pkg.go.dev/github.com/rajatim/zhtw/sdk/go/v4/zhtw)
+[![Maven Central](https://img.shields.io/maven-central/v/com.rajatim/zhtw.svg?label=maven%20central)](https://central.sonatype.com/artifact/com.rajatim/zhtw)
 [![NuGet](https://img.shields.io/nuget/v/Zhtw.svg)](https://www.nuget.org/packages/Zhtw)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 <!-- zhtw:disable -->
-**AI 寫的中文，zhtw 替你把關。**
-
-無論是 Copilot 寫的程式碼、Claude 寫的文件，還是 LLM 翻譯的本地化字串 —— 把「許可權」「軟件」「调用」這類簡體污染自動修成真正的台灣繁體。
-
-一行程式、一個 CLI、六種語言 SDK。
-<!-- zhtw:enable -->
-
-<!-- zhtw:disable -->
-```
+```text
 輸入：服务器上的软件需要优化，用户权限请联系管理员
 輸出：伺服器上的軟體需要最佳化，使用者權限請聯絡管理員
 ```
 <!-- zhtw:enable -->
 
-一行 `zhtw scan` / `zhtw fix` 解決 —— 也就是 LLM 給你 100 個檔案後最該做的事。
+核心原則只有一句：**寧可少轉，不要錯轉。**
 
-> **協助建立可信的精準度 benchmark：** 如果你有自己原創、可公開且不含敏感資料的
-> 簡體中文句子，請透過[專用表單](https://github.com/rajatim/zhtw/issues/new?template=permissioned-user-report.yml)
-> 提供 1 至 10 句 input-only 真實用例。請勿附上繁體答案或任何轉換器輸出。
-> 可直接轉貼的簡體／繁體／英文邀請文見[語料徵集說明](docs/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md)。
+## 精準度
 
----
+### 在 Blind-v2 正式盲測中排名第一
 
-## 使用情境
+Blind-v2 在評測前凍結 1,960 筆測試句與答案，三個工具使用相同輸入、相同判定規則與鎖定版本。主要指標是嚴格的整句 accepted accuracy。
 
-| 情境 | 說明 |
-|------|------|
-| 🤖 **AI 生成內容後處理** | Copilot / Cursor / Claude / GPT 寫的中文常混簡體用語，zhtw 在 commit 前自動校正 |
-| 📝 **多語系本機化** | i18n 檔案的繁體欄位品質檢查，CI 失敗或自動修正 |
-| 📚 **技術文件與註解** | function name、註解、字串 literal 的繁體一致性，pre-commit hook 自動修正 |
-| 🏢 **企業合規** | 對外文件、客戶交付物的台灣用語標準化，完全離線 |
+| 工具 | 通過 | 精準度 | 95% 信賴區間 |
+|---|---:|---:|---:|
+| **zhtw 4.4.2** | **661 / 1,960** | **33.72%** | **31.73%–35.87%** |
+| OpenCC `s2twp` 1.4.1 | 604 / 1,960 | 30.82% | 28.88%–32.91% |
+| zhconv `zh-tw` 1.4.3 | 560 / 1,960 | 28.57% | 26.63%–30.46% |
 
----
+| 比較 | 領先幅度 | 配對 95% 信賴區間 | McNemar p-value |
+|---|---:|---:|---:|
+| zhtw 對 OpenCC | **+2.91 個百分點** | +1.48 至 +4.34 | 0.0000904 |
+| zhtw 對 zhconv | **+5.15 個百分點** | +3.67 至 +6.63 | 1.18 × 10⁻¹¹ |
 
-## 為什麼選 ZHTW？
+兩個配對信賴區間都完全高於零，表示領先不只是樣本中的偶然差異。
 
-> **寧可少轉，不要錯轉**
+> **正確解讀：** 這證明 zhtw 在這份凍結資料、轉換方向、評分方式與受測版本中排名第一，不代表它在所有語料與所有競品中永遠最好。Blind-v2 是 `4.4.2` 的一次性正式結果；`4.4.3` 沒有用同一份答案重新調分。
 
-通用轉換工具會過度轉換，把台灣正確的詞也改掉。我們不一樣：**只轉確定要改的詞，其他一律不動。**
+[閱讀完整正式市場評測報告](docs/reports/formal-market-benchmark-2026-07-31.md)
 
-| | |
-|------|------|
-| **低誤轉優先** | 31,000+ 詞條 + 6,360 字元對映；52 本書、1 億字指定語料驗證未發現錯轉 |
-| **秒級掃描** | 3,100 KB/s 穩定吞吐，1MB 文字 < 1 秒 |
-| **完全離線** | 不傳送任何資料到外部，企業內網也能用 |
-| **CI 整合** | 一行指令加入 GitHub Actions，PR 自動檢查 |
-| **彈性跳過** | 測試資料、第三方程式碼？標記一下就不會被改 |
+### 4.4.3 又修正了 51 個公開評測缺口
 
-### 對比 OpenCC
+正式盲測後，我們另外人工檢查 100 筆公開在地化差異，確認 57 個真正缺口，修正其中 51 個；其餘 6 個因缺少語境而維持保守，不強制轉換。
+
+| 公開評測 | 4.4.2 | 4.4.3 | 變化 |
+|---|---:|---:|---:|
+| AOSP 台灣介面 | 380 / 1,968 | **403 / 1,968** | **+23** |
+| Firefox 台灣介面 | 270 / 1,264 | **293 / 1,264** | **+23** |
+| VS Code 台灣介面 | 2,089 / 17,133 | **2,092 / 17,133** | **+3** |
+| UD GSD | 3,522 / 4,997 | **3,524 / 4,997** | **+2** |
+| 國教院術語 | 311 / 775 | **311 / 775** | 持平 |
+
+五個公開評測都沒有退步。UD GSD 的 changed-span precision 為 **94.30%**、recall 為 **94.21%**、F1 為 **94.25%**。
+
+整句完全符合是很嚴格的指標：一個字、詞彙或標點不同，整句就不通過。因此表中的 12%–40% 不代表只有 12%–40% 的文字正確。它適合在相同資料上比較工具，不等於一般使用情境的逐字正確率。
+
+<details>
+<summary>評測如何避免自己出題、自己得高分？</summary>
+
+- Blind-v2 從 5,896 筆候選語料中凍結 1,960 筆，正式執行前固定輸入、答案、競品版本與評測規則的 SHA-256。
+- 正式執行時不讀取逐筆答案，公開報告只顯示彙總結果與可稽核雜湊。
+- expected 由 maintainer 最終確認；Codex 與 Agy 只提供相互獨立的建議，不直接成為 ground truth。
+- AOSP、Firefox、VS Code、UD GSD 與國教院術語另作公開診斷，固定上游 commit，讓第三方可以重現。
+- 公開產品的官方台灣翻譯不一定是唯一正解，所以這些資料只作次要證據，不覆蓋正式盲測結論。
+
+完整治理方式見[精準度標準](docs/precision-standard.md)與[正式評測報告](docs/reports/formal-market-benchmark-2026-07-31.md)。
+</details>
+
+## 為什麼 ZHTW 比只換字更可靠
+
+簡體轉台灣繁體不只是單一字元替換。同一個字在不同語境可能需要保留，也可能要換成完全不同的台灣用語。
 
 <!-- zhtw:disable -->
-OpenCC 是通用的繁簡轉換框架，採用「全字元 + 短語替換」策略，規則之間容易互相牴觸，例如 `权→權` 會把「權限」誤轉成「許可權」。ZHTW 專注於**簡體 → 台灣繁體**一個方向，用「詞彙層 + 字元層」分層處理，複合詞上下文優先匹配。
-
-| | OpenCC (s2twp) | ZHTW |
-|---|------|------|
-| **設計目標** | 通用繁簡多變體轉換 | 簡體 → 台灣繁體 |
-| **轉換策略** | 字元 + 短語全量替換 | 詞彙優先 → 字元層補齊 |
-| **歧義處理** | 依規則順序 | 102 個歧義字分級管理 + balanced mode 語義消歧 |
-| **詞庫規模** | 內建字表 + 短語 | 31,000+ 精選台灣用詞 |
-| **誤轉** | `权限 → 許可權` 等常見案例 | 52 本書、1 億字指定語料驗證未發現錯轉 |
-| **生態** | C++ 核心、多語言 bindings | CLI + Python/Java/TS/Rust/Go/C# SDK + pre-commit |
-
-#### 精準度案例
-
-以下案例來自 2026-07-03 的 500 筆 corpus 競品差異探索。結果：`candidate_gap = 0`、`zhtw_advantage = 308`。也就是這批樣本沒有發現「競品符合 expected、ZHTW 不符合」；反而主要暴露通用轉換器容易過度轉換或保留中國用語。
-
-最新 like-for-like 私有集比較中，v4.4.1 為 951/1,008 accepted，目前詞庫為
-955/1,008，淨增 4 筆且沒有 accepted regression（約 +0.40 個百分點）。另外 369
-筆完整句規則只算已知案例的保守 regression protection，不計為 fresh-blind
-泛化提升；這些結果也不構成「市場最準」宣稱。
-
-| 輸入 | 通用工具常見風險 | ZHTW |
-|------|------------------|------|
-| 写程序前先看法律程序 | 寫程式前先看法律程式 | 寫程式前先看法律程序 |
-| 政府发布官方文件 | 政府釋出官方檔案 | 政府發布官方文件 |
-| 保存文化遗产 | 儲存文化遺產 | 保存文化遺產 |
-| 他的结婚对象很温柔 | 他的結婚物件很溫柔 | 他的結婚對象很溫柔 |
-| 注销账户不是注销公司 | 登出賬戶不是登出公司 / 註銷帳戶不是註銷公司 | 登出帳戶不是註銷公司 |
-| 通过异步回调来处理网络请求 | 通過異步回調來處理網絡請求 | 透過非同步回呼來處理網路請求 |
-| 服务器证书即将过期 | 伺服器證書即將過期 | 伺服器憑證即將過期 |
-| 后端服务返回状态码 | 後端服務返回狀態碼 | 後端服務回傳狀態碼 |
-| 这个函数会抛出异常 | 這個函數會拋出異常 | 這個函式會拋出例外 |
-| 撤销操作成功 | 撤銷操作成功 | 復原操作成功 |
-| 评论区有人分享链接 | 評論區有人分享連結 | 留言區有人分享連結 |
-| 台积电宣布扩大先进制程投资 | 臺積電宣布擴大先進位程投資 | 台積電宣布擴大先進製程投資 |
-
-完整報告見 `docs/reports/competitor-diffs-full-2026-07-03.md` 與 `docs/reports/competitor-advantage-review-2026-07-03.md`。
-
-想看更多對比案例？執行 `zhtw lookup 权限 服务器 用户`。
+| 簡體輸入 | 只做字級轉換的風險 | ZHTW |
+|---|---|---|
+| 用户权限 | 使用者許可權 | **使用者權限** |
+| 写程序前先看法律程序 | 寫程式前先看法律程式 | **寫程式前先看法律程序** |
+| 政府发布官方文件 | 政府釋出官方檔案 | **政府發布官方文件** |
+| 保存文化遗产 | 儲存文化遺產 | **保存文化遺產** |
+| 这个函数会抛出异常 | 這個函數會拋出異常 | **這個函式會拋出例外** |
+| 台积电扩大先进制程投资 | 臺積電擴大先進位程投資 | **台積電擴大先進製程投資** |
 <!-- zhtw:enable -->
 
----
+ZHTW 4.4.3 使用：
 
-## 安裝
+- **31,706 個中國用語規則**，處理軟體、伺服器、資料夾、使用者名稱等台灣詞彙。
+- **6,352 個安全字元對映**，只放適合一對一轉換的字。
+- **111 個歧義字規則**，以語境和保護詞避免把法律「程序」改成「程式」、把公文「發布」改成「釋出」等過度轉換。
+- Aho-Corasick 最長匹配，先處理完整詞彙，再處理安全字元。
+- `balanced` 模式，為常見歧義字提供更積極但仍有保護的轉換。
 
-### macOS (Homebrew) — 推薦
+所有處理都在本機完成，不會把文字送到外部服務。
+
+## 立即開始
+
+### 安裝 CLI
+
+macOS：
 
 ```bash
 brew tap rajatim/tap
 brew install zhtw
 ```
 
-更新：`brew upgrade zhtw`
-
-### pip (所有平臺)
+Python 環境：
 
 ```bash
 python3 -m pip install zhtw
 ```
 
-更新：`pip install --upgrade zhtw`
-
-### pipx (隔離環境)
-
-[pipx](https://pipx.pypa.io/) 會在獨立虛擬環境中安裝，不影響系統 Python：
-
-```bash
-pipx install zhtw
-```
-
-更新：`pipx upgrade zhtw`
-
-### 從原始碼安裝 (開發者)
-
-```bash
-git clone https://github.com/rajatim/zhtw.git
-cd zhtw
-pip install -e ".[dev]"
-```
-
-<details>
-<summary>pip 安裝後找不到 zhtw 指令？設定 PATH</summary>
-
-```bash
-# macOS (zsh)
-echo 'export PATH="$PATH:$(python3 -m site --user-base)/bin"' >> ~/.zshrc
-source ~/.zshrc
-
-# Linux (bash)
-echo 'export PATH="$PATH:~/.local/bin"' >> ~/.bashrc
-source ~/.bashrc
-
-# Windows — 通常自動設定，若無請加入環境變數：
-# %APPDATA%\Python\PythonXX\Scripts
-```
-</details>
-
----
-
-## 30 秒開始使用
-
-ZHTW 提供三種使用方式，選一個最適合你的場景：
-
-### 1. CLI（命令列）
+### 檢查、修正與查詢
 
 <!-- zhtw:disable -->
 ```bash
-zhtw check .            # 檢查整個專案
-zhtw check ./file.py    # 檢查單一檔案
-zhtw fix .              # 自動修正
-zhtw lookup 软件 服务器  # 查詢：软件→軟體、服务器→伺服器
-
-# Balanced mode：自動消歧 10 個高頻歧義字（几→幾、后→後、里→裡 等）
-zhtw fix . --ambiguity-mode balanced
+zhtw check .                         # 檢查專案，不修改檔案
+zhtw fix . --show-diff               # 先顯示差異，再決定是否修正
+zhtw lookup 软件 服务器 用户权限     # 查看每個詞的轉換結果
+zhtw fix . --ambiguity-mode balanced # 啟用常見歧義字消歧
 ```
 <!-- zhtw:enable -->
 
-<!-- zhtw:disable -->
-**輸出範例：**
-```
-📁 掃描 ./src
-
-📄 src/components/Header.tsx
-   L12:5: "用户" → "使用者"
-
-📄 src/utils/api.ts
-   L8:10: "软件" → "軟體"
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚠️  發現 2 處需修正（2 個檔案）
-```
-<!-- zhtw:enable -->
-
-### 2. Python Library
+### Python
 
 <!-- zhtw:disable -->
 ```python
 from zhtw import convert
 
-convert("这个软件需要优化")
-# → "這個軟體需要最佳化"
+result = convert("这个软件需要优化")
+assert result == "這個軟體需要最佳化"
 ```
 <!-- zhtw:enable -->
 
-首次呼叫會載入字典並建立 Aho-Corasick 自動機，後續呼叫會重用快取。進階用法（自訂詞庫、逐行回報、整合到你自己的 pipeline）見 `convert_text` / `Matcher` / `load_dictionary`。詞彙查詢 API：`lookup_word` / `lookup_words`（v3.3.0+）。
+進階 CLI、自訂詞庫、編碼與輸出格式請見 [CLI 進階指南](docs/guides/CLI-ADVANCED.md)。
 
-### 3. Java SDK
+## 同一份詞庫，七種執行環境
 
-**Maven**：
+Python、Java、TypeScript、Rust、WebAssembly、Go 與 C# 共用同一份版本化詞庫及 golden tests。跨 SDK 輸出必須 byte-for-byte 相同，否則不能發版。
 
-<!-- zhtw:disable -->
-```xml
-<dependency>
-    <groupId>com.rajatim</groupId>
-    <artifactId>zhtw</artifactId>
-    <version>4.4.3</version>
-</dependency>
-```
-<!-- zhtw:enable -->
+| 環境 | 安裝 | 文件 |
+|---|---|---|
+| Python / CLI | `pip install zhtw` | [PyPI](https://pypi.org/project/zhtw/) |
+| Java | `com.rajatim:zhtw:4.4.3` | [Java README](sdk/java/README.md) |
+| TypeScript | `npm install zhtw-js` | [TypeScript README](sdk/typescript/README.md) |
+| Rust | `cargo add zhtw` | [Rust README](sdk/rust/zhtw/README.md) |
+| WebAssembly | `npm install zhtw-wasm` | [WASM README](sdk/rust/zhtw-wasm/README.md) |
+| Go | `go get github.com/rajatim/zhtw/sdk/go/v4@latest` | [Go README](sdk/go/README.md) |
+| C# / .NET | `dotnet add package Zhtw` | [.NET README](sdk/dotnet/README.md) |
 
-**Gradle (Kotlin DSL)**：
+Go CLI 也提供 macOS、Linux 與 Windows 的預編譯執行檔，見 [GitHub Releases](https://github.com/rajatim/zhtw/releases)。
 
-```kotlin
-implementation("com.rajatim:zhtw:4.4.3")
-```
-
-**Gradle (Groovy DSL)**：
-
-```groovy
-implementation 'com.rajatim:zhtw:4.4.3'
-```
-
-<!-- zhtw:disable -->
-```java
-import com.rajatim.zhtw.ZhtwConverter;
-
-// 快速使用（thread-safe singleton）
-String result = ZhtwConverter.getDefault().convert("这个软件需要优化");
-// → "這個軟體需要最佳化"
-
-// 自訂設定
-ZhtwConverter conv = ZhtwConverter.builder()
-    .sources(List.of("cn", "hk"))
-    .customDict(Map.of("自定义", "自訂"))
-    .ambiguityMode("balanced")  // 歧義字自動消歧
-    .build();
-```
-<!-- zhtw:enable -->
-
-**效能**：單句 2μs、100K 字 5.5ms（17.9 MB/s），比 Python 快 ~5.8 倍。詳見 [`sdk/java/BENCHMARK.md`](sdk/java/BENCHMARK.md)。
-
-### 4. TypeScript SDK
-
-**npm / pnpm / yarn**：
-
-```bash
-npm install zhtw-js
-# 或
-pnpm add zhtw-js
-yarn add zhtw-js
-```
-
-<!-- zhtw:disable -->
-```typescript
-import { convert, check, lookup } from 'zhtw-js';
-
-// 快速使用（zero config，內建 default converter）
-convert('这个软件需要优化');
-// → '這個軟體需要最佳化'
-
-check('用户权限');
-// → [{ start, end, source, target }, ...]
-
-lookup('软件');
-// → { input, output, changed, details: [...] }
-```
-<!-- zhtw:enable -->
-
-**自訂設定**：
-
-<!-- zhtw:disable -->
-```typescript
-import { createConverter } from 'zhtw-js';
-
-const conv = createConverter({
-  sources: ['cn'],                  // 預設 ['cn', 'hk']
-  customDict: { '自定义': '自訂' },  // 覆蓋內建詞條
-  ambiguityMode: 'balanced',        // 歧義字自動消歧
-});
-
-conv.convert('...');
-```
-<!-- zhtw:enable -->
-
-**特色**：isomorphic（Node.js ≥20 + 瀏覽器原生支援）、ESM + CJS 雙產出、零執行期相依、tree-shakeable。所有索引（`start` / `end` / `position`）均為 **Unicode codepoint**，與 Python CLI、Java SDK 完全 byte-for-byte 一致（共享 `sdk/data/golden-test.json` 驗證）。釋出走 npm Trusted Publishing (OIDC)，無 long-lived token。
-
-### 5. Rust SDK
-
-**Cargo (crates.io)**：
-
-<!-- zhtw:disable -->
-```toml
-[dependencies]
-zhtw = "4.4.3"
-```
-<!-- zhtw:enable -->
-
-<!-- zhtw:disable -->
-```rust
-use zhtw::{AmbiguityMode, Converter, Source};
-
-// Zero config
-assert_eq!(zhtw::convert("这个软件需要优化"), "這個軟體需要最佳化");
-
-// Builder with custom dict + balanced mode
-let conv = Converter::builder()
-    .sources([Source::Cn])
-    .custom_dict([("自定义", "自訂")])
-    .ambiguity_mode(AmbiguityMode::Balanced)  // 歧義字自動消歧
-    .build()
-    .expect("non-empty sources");
-```
-<!-- zhtw:enable -->
-
-**效能**：build-time 預編譯 `daachorse` automaton + `phf` char map，runtime 零建構成本。詳見 benchmarks（`cargo bench -p zhtw`）。
-
-### 6. Go SDK
-
-<!-- zhtw:disable -->
-```bash
-go get github.com/rajatim/zhtw/sdk/go/v4@latest
-```
-<!-- zhtw:enable -->
-
-<!-- zhtw:disable -->
-```go
-package main
-
-import (
-	"fmt"
-	"github.com/rajatim/zhtw/sdk/go/v4/zhtw"
-)
-
-func main() {
-	// 零設定
-	fmt.Println(zhtw.Convert("这个软件需要优化"))
-	// → "這個軟體需要最佳化"
-
-	// Builder：自訂詞典 + balanced mode
-	conv, _ := zhtw.NewBuilder().
-		Sources(zhtw.SourceCn).
-		CustomDict(map[string]string{"自定义": "自訂"}).
-		SetAmbiguityMode(zhtw.AmbiguityBalanced).
-		Build()
-	fmt.Println(conv.Convert("自定义几个里程碑"))
-}
-```
-<!-- zhtw:enable -->
-
-**特色**：`go:embed` 內嵌字典、零外部依賴、goroutine-safe。Go 1.21+，支援 `go get` 直接安裝。所有索引均為 Unicode codepoint，跨 SDK golden-test 驗證。
-
-#### Standalone Binary
-
-不需要 Go 環境，直接下載預編譯 binary：
-
-<!-- zhtw:disable -->
-```bash
-# 從 GitHub Release 下載（以 macOS arm64 為例）
-curl -sL https://github.com/rajatim/zhtw/releases/download/sdk%2Fgo%2Fv4.4.3/zhtw-darwin-arm64.tar.gz | tar xz
-./zhtw convert "软件测试"
-# → 軟體測試
-
-# 或透過 go install
-go install github.com/rajatim/zhtw/sdk/go/v4/cmd/zhtw@latest
-```
-<!-- zhtw:enable -->
-
-### 7. C# (.NET) SDK
-
-**NuGet**：
-
-<!-- zhtw:disable -->
-```bash
-dotnet add package Zhtw
-```
-<!-- zhtw:enable -->
-
-<!-- zhtw:disable -->
-```csharp
-using Zhtw;
-
-// 快速使用（thread-safe singleton）
-string result = ZhtwConvert.Convert("这个软件需要优化");
-// → "這個軟體需要最佳化"
-
-// Builder：自訂詞典 + balanced mode
-var conv = new ConverterBuilder()
-    .Sources(Source.Cn, Source.Hk)
-    .CustomDict(new Dictionary<string, string> { ["自定义"] = "自訂" })
-    .AmbiguityMode(AmbiguityMode.Balanced)
-    .Build();
-```
-<!-- zhtw:enable -->
-
-**特色**：multi-target netstandard2.0 + net8.0、embedded resource 內嵌字典、零外部依賴（net8.0 以上）。所有索引均為 Unicode codepoint，跨 SDK golden-test 驗證。
-
----
-
-## 多語言 SDK
-
-ZHTW 以 Python 實作為主，並提供原生 Java、TypeScript、Rust、Go、C# (.NET) 六種語言 SDK；另提供 1 個 WebAssembly 套件（`zhtw-wasm`）。所有 SDK 共用同一份詞庫資料（`zhtw-data.json`），轉換結果與 Python CLI 完全一致（跨 SDK 透過共享 `sdk/data/golden-test.json` 做 byte-for-byte 驗證，零偏差為釋出條件）。所有 SDK 均支援 balanced mode（歧義字自動消歧）。
-
-| SDK | 安裝 | 吞吐量 (1MB) | 單句延遲 | 適用場景 | 狀態 |
-|-----|------|-------------|---------|---------|------|
-| **Python** | `pip install zhtw` | 3.1 MB/s | — | CLI、CI/CD、pre-commit、資料處理 | ✅ Stable |
-| **Java** | [Maven Central](#3-java-sdk) | 17.9 MB/s | 2μs | Spring Boot、Android、後端服務 | ✅ Stable |
-| **TypeScript** | `npm install zhtw-js` | ~16 MB/s | — | Node.js ≥18、瀏覽器（isomorphic ESM+CJS） | ✅ Stable |
-| **Rust** | [crates.io](#5-rust-sdk) | — | — | 高效能、嵌入式 | ✅ Stable |
-| **WASM** | `npm install zhtw-wasm` | — | — | 瀏覽器、Edge runtime | ✅ Stable |
-| **Go** | [`go get`](#6-go-sdk) | — | — | 微服務、CLI 工具、雲端原生 | ✅ Stable |
-| **C# (.NET)** | [NuGet](#7-c-net-sdk) | — | — | ASP.NET、Unity、桌面應用 | ✅ Stable |
-
-### 跨 SDK 效能基準
-
-<!-- zhtw:disable -->
-247 字簡體輸入，10,000 次暖機迭代，Apple Silicon 測量：
-
-| SDK | Cold Start (ms) | Avg/op (μs) | Ops/sec | vs Python |
-|-----|----------------:|------------:|--------:|----------:|
-| **Rust** | 15.4 | 44.5 | 22,470 | 11.3x |
-| **Go** | 43.1 | 45.0 | 22,233 | 11.1x |
-| **Java** | 135.8 | 53.0 | 18,875 | 9.5x |
-| **C#** | 77.5 | 56.2 | 17,786 | 8.9x |
-| **TypeScript** | 168.2 | 62.1 | 16,094 | 8.1x |
-| **Python** | 121.3 | 501.0 | 1,996 | 1.0x |
-
-> 所有 SDK 輸出完全一致。即使最慢的 Python（0.5ms/次）對 CLI 使用也感覺不到延遲。
-<!-- zhtw:enable -->
-
----
-
-## 涵蓋範圍
-
-<!-- zhtw:disable -->
-**31,000+ 精選詞條 + 6,360 字元對映**，涵蓋 IT 科技、醫療、法律、金融、遊戲、電商、學術、日常、地理、港式用語 10+ 領域。轉換由三層架構負責：**詞彙層**（Aho-Corasick 最長匹配）處理複合詞，**balanced defaults 層**（`--ambiguity-mode balanced`）處理 10 個高頻歧義字（几→幾、后→後、里→裡 等）的預設轉換 + protect_terms 例外保護，**字元層**（`str.translate`）補齊剩餘簡體字。102 個一對多歧義字分級管理，不確定就不轉。
-<!-- zhtw:enable -->
-
-詳細的詞庫分類、雙層架構原理、一對多特例、語義衝突處理表，見 [`docs/DICTIONARY-COVERAGE.md`](docs/DICTIONARY-COVERAGE.md)。
-
----
-
-## CI/CD 整合
-
-### GitHub Actions
-
-加入 GitHub Actions，每個 PR 自動檢查：
+## 放進 CI，阻止簡體汙染進入主分支
 
 ```yaml
-# .github/workflows/chinese-check.yml
-name: Chinese Check
+name: Taiwan Traditional Chinese check
 on: [push, pull_request]
+
 jobs:
-  check:
+  zhtw:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
-      - name: Install zhtw
-        run: pip install zhtw
-      - name: Check Traditional Chinese
-        run: zhtw check . --json
+          python-version: "3.x"
+      - run: pip install zhtw
+      - run: zhtw check . --json
 ```
 
-### GitLab CI
-
-```yaml
-# .gitlab-ci.yml
-chinese-check:
-  image: python:3.12-slim
-  script:
-    - pip install zhtw
-    - zhtw check . --json
-```
-
-有問題就會失敗，再也不怕漏掉。詳細教學請參考 [CI/CD 整合指南](docs/CI-CD-INTEGRATION.md)。
-
----
-
-## Pre-commit Hook
-
-Commit 前自動擋住問題：
-
-```yaml
-# .pre-commit-config.yaml
-repos:
-  - repo: https://github.com/rajatim/zhtw
-    rev: v4.4.3  # 使用最新版本
-    hooks:
-      - id: zhtw-check   # 檢查模式（建議）
-      # - id: zhtw-fix   # 或自動修正模式
-```
-
-```bash
-pip install pre-commit && pre-commit install
-# 之後每次 commit 都會自動檢查
-```
-
-<details>
-<summary>進階設定：只檢查特定檔案型別</summary>
+也可以在 commit 前檢查：
 
 ```yaml
 repos:
@@ -525,71 +184,69 @@ repos:
     rev: v4.4.3
     hooks:
       - id: zhtw-check
-        types: [python, markdown, yaml]  # 只檢查這些型別
-        exclude: ^tests/fixtures/        # 排除測試資料
 ```
-</details>
 
----
+完整設定見 [CI/CD 整合指南](docs/deployment/CI-CD-INTEGRATION.md)。
 
-## 忽略特定程式碼
+## 控制哪些內容不能改
 
-測試資料、第三方程式碼不想被轉？用 pragma 標記即可：
+用 `.zhtwignore` 排除整個檔案，或用 pragma 保護測試資料、引用文字與第三方內容：
 
 ```python
-# 忽略這一行
-test_data = "软件"  # zhtw:disable-line
+fixture = "软件"  # zhtw:disable-line
 
-# 忽略下一行
 # zhtw:disable-next
-legacy_code = "用户信息"
+quoted_text = "用户信息"
 
-# 忽略整個區塊
 # zhtw:disable
-test_cases = ["软件", "硬件", "网络"]
+third_party_samples = ["软件", "硬件", "网络"]
 # zhtw:enable
 ```
 
-專案層級的忽略用 `.zhtwignore`（類 `.gitignore` 格式）；完整範例見 [`docs/CLI-ADVANCED.md`](docs/CLI-ADVANCED.md#zhtwignore-忽略檔案)。
+`zhtw fix . --show-diff` 會先顯示差異，適合第一次匯入或需要人工確認的專案。
 
----
+## 適合與不適合的情境
 
-<!-- zhtw:disable -->
-## 文件
+適合：
+
+- AI、LLM 或翻譯模型產生的台灣繁體中文後處理。
+- 軟體 UI、i18n、技術文件、程式碼註解與客戶交付文件。
+- 需要離線處理、固定規則、可重現結果的 CI 或企業環境。
+- 需要 Python、Java、TypeScript、Rust、Go、C# 或 WebAssembly 一致輸出的系統。
+
+不適合：
+
+- 需要理解整篇文章語意、改寫文風或重新翻譯內容的任務。
+- 要求每個歧義詞在沒有上下文時都強制選定單一答案的流程。
+- 簡繁以外的通用多語翻譯。
+
+ZHTW 是規則式轉換與品質檢查工具，不是生成式翻譯模型。
+
+## 文件與可稽核資料
 
 | 文件 | 內容 |
-|------|------|
-| [`docs/DICTIONARY-COVERAGE.md`](docs/DICTIONARY-COVERAGE.md) | 完整詞庫分類、雙層架構細節、一對多特例、語義衝突處理 |
-| [`docs/CLI-ADVANCED.md`](docs/CLI-ADVANCED.md) | 完整 CLI 引數、詞彙查詢（`lookup`）、多編碼支援、自訂詞庫格式 |
-| [`docs/CI-CD-INTEGRATION.md`](docs/CI-CD-INTEGRATION.md) | GitHub Actions / GitLab CI / pre-commit 深入設定 |
-| [`sdk/java/BENCHMARK.md`](sdk/java/BENCHMARK.md) | Java SDK 效能測試（JMH） |
-| [`docs/RELEASE-CHECKLIST.md`](docs/RELEASE-CHECKLIST.md) | 版本釋出核對清單 |
-| [`CHANGELOG.md`](CHANGELOG.md) | 版本歷史 |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | 貢獻指南 |
-<!-- zhtw:enable -->
+|---|---|
+| [正式市場評測](docs/reports/formal-market-benchmark-2026-07-31.md) | Blind-v2 分數、統計比較、限制與治理雜湊 |
+| [精準度標準](docs/precision-standard.md) | ground truth、人工審核與 benchmark 規則 |
+| [詞庫涵蓋報告](docs/reports/DICTIONARY-COVERAGE.md) | 詞庫分類、歧義字與轉換架構 |
+| [CLI 進階指南](docs/guides/CLI-ADVANCED.md) | 自訂詞庫、忽略規則、編碼與輸出格式 |
+| [CI/CD 整合指南](docs/deployment/CI-CD-INTEGRATION.md) | GitHub Actions、GitLab CI 與 pre-commit |
+| [版本紀錄](CHANGELOG.md) | 每版精準度、功能與相容性變更 |
+| [貢獻指南](CONTRIBUTING.md) | 開發、測試與詞庫修改流程 |
 
----
+## 參與改進精準度
+
+你可以透過[語料投稿表單](https://github.com/rajatim/zhtw/issues/new?template=permissioned-user-report.yml)提供 1 至 10 個自己原創、可公開且不含敏感資料的真實簡體中文句子。請不要附上繁體答案或任何轉換器輸出，避免汙染盲測資料。
+
+授權方式與可直接分享的邀請文見[語料徵集說明](docs/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md)。一般問題與錯誤回報請使用 [GitHub Issues](https://github.com/rajatim/zhtw/issues)。
 
 ## 開發
 
 ```bash
-pip install -e ".[dev]"
+python3 -m pip install -e ".[dev]"
 pytest
 ruff check .
+zhtw validate
 ```
 
-## 協助建立公開 Benchmark
-
-你可以透過
-[專用表單](https://github.com/rajatim/zhtw/issues/new?template=permissioned-user-report.yml)
-提供 1 至 10 個由你原創或有權提供的真實簡體中文句子。請勿附上繁體答案、轉換器
-輸出或敏感資料；授權條款與收集進度請見
-[issue #47](https://github.com/rajatim/zhtw/issues/47)。
-可直接分享的三語邀請文見
-[語料徵集說明](docs/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md)。
-
-有問題？[開 Issue](https://github.com/rajatim/zhtw/issues) | 想貢獻？[看 Contributing Guide](CONTRIBUTING.md)
-
----
-
-MIT License | **tim Insight 出品**
+MIT License · tim Insight
