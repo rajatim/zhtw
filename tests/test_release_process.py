@@ -35,6 +35,12 @@ def test_release_waits_for_remote_gate_before_tags_and_release() -> None:
     assert "ALLOW_ALERT_CHECK_FAILURE" in script
 
 
+def test_changelog_only_release_commit_triggers_conformance() -> None:
+    workflow = read(".github/workflows/sdk-conformance.yml")
+
+    assert workflow.count("- 'CHANGELOG.md'") == 2
+
+
 def test_release_gate_uses_pinned_corpus_and_go_lint() -> None:
     makefile = read("Makefile")
     lock = read("tests/data/corpus.lock").strip()

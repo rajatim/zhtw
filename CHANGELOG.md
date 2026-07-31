@@ -8,6 +8,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- 建立 1,960 筆 Blind-v2 正式盲測與完整治理流程，從 5,896 筆候選語料凍結抽樣；
+  expected 維持私密，公開報告只包含彙總結果與可稽核雜湊。
+- 新增 UD GSD、國教院術語，以及 AOSP、VS Code、Firefox 官方在地化配對等公開
+  次要評測；同時提供固定 commit、容器化競品環境與第三方重現 attestation 流程。
+
+### Changed
+- 依 100 筆公開配對差異人工稽核，保守修正 57 個確認缺口中的 51 個；無語境的
+  「保存／文件／默认／不支持／壁纸」等 6 筆維持不強制轉換，避免矯枉過正。
+- 補強「裝置／檔案／資料夾／使用者名稱／飛航模式／桌布」等 UI 語境，以及下載、
+  藍牙、登入資訊與密碼管理的完整片語保護。
+- 公開次要診斷相較 4.4.2：AOSP exact 380→403、VS Code 2089→2092、
+  Firefox 270→293、UD GSD 3522→3524；正式 Blind-v2 仍保留為 4.4.2 的歷史
+  one-shot 結果，不將調校後資料回寫為新證據。
+
+### Fixed
+- 修正字元層將「旋轉」錯轉成「鏇轉」；把「旋／吁／蔑」移出安全一對一映射，
+  改由語境規則與保護詞處理。
+- 移除過廣的「日常→每日」與「私密→私人」，並將「禁用扩展」修正為台灣常用的
+  「停用擴充套件」。
+- 修復 frozen Blind-v2 驗證會重掃已變動參考資料的問題，同時還原正式 protocol
+  固定的治理腳本雜湊。
+- 補齊公開 paired benchmark 與 CHANGELOG-only release commit 的 CI 觸發條件，
+  避免報告未同步或正式發布等待不到遠端 conformance。
+
+### Security
+- 更新 `pypdf`、`httplib2`、`pyasn1` 與 `postcss` 至已修補版本，清除發版閘門
+  所列的 36 個 medium/high Dependabot 警示。
+
 ## [4.4.2] - 2026-07-19
 
 ### Added

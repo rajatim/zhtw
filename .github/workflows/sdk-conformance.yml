@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'CHANGELOG.md'
       - 'src/zhtw/converter.py'
       - 'src/zhtw/matcher.py'
       - 'src/zhtw/export.py'
@@ -14,6 +15,7 @@ on:
   pull_request:
     branches: [main]
     paths:
+      - 'CHANGELOG.md'
       - 'src/zhtw/converter.py'
       - 'src/zhtw/matcher.py'
       - 'src/zhtw/export.py'
