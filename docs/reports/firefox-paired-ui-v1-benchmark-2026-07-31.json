@@ -13,8 +13,8 @@
   "upstream_revision": "mozilla-l10n/firefox-l10n commit 433b19d7cc6ff3c920887f895b486d6f3cfffe89 (2026-07-31); five paired zh-CN and zh-TW browser Fluent files.",
   "license": "Mozilla Public License 2.0",
   "provenance": {
-    "zhtw_version": "4.4.2",
-    "git_sha": "11f34ea19e8cea3d1d52ad679717109468888da5",
+    "zhtw_version": "4.4.3",
+    "git_sha": "4d26060cbfd7d07b3e80c6a740fc4a069a038c23",
     "git_dirty": false,
     "python_version": "3.11.14",
     "node_version": "v26.5.0",
@@ -27,47 +27,47 @@
   "engines": {
     "zhtw": {
       "available": true,
-      "version": "4.4.2",
+      "version": "4.4.3",
       "family": "zhtw",
       "adapter": "local_python",
       "total_cases": 1264,
-      "exact": 270,
-      "misses": 994,
-      "exact_accuracy": 0.21360759493670886,
+      "exact": 293,
+      "misses": 971,
+      "exact_accuracy": 0.23180379746835442,
       "exact_accuracy_ci_95": {
-        "low": 0.1906645569620253,
-        "high": 0.23734177215189872
+        "low": 0.2088607594936709,
+        "high": 0.254746835443038
       },
-      "idempotent": 1251,
-      "idempotency_rate": 0.9897151898734177,
+      "idempotent": 1254,
+      "idempotency_rate": 0.9920886075949367,
       "changed_span": {
         "required_edits": 4044,
-        "produced_edits": 3303,
-        "correct_edits": 1228,
-        "precision": 0.37178322736905844,
-        "recall": 0.3036597428288823,
-        "f1": 0.3342861031713625
+        "produced_edits": 3316,
+        "correct_edits": 1261,
+        "precision": 0.38027744270205066,
+        "recall": 0.3118199802176063,
+        "f1": 0.3426630434782609
       },
       "by_file": {
         "browser/browser/aboutLogins.ftl": {
           "total": 120,
-          "exact": 36,
-          "exact_accuracy": 0.3
+          "exact": 43,
+          "exact_accuracy": 0.35833333333333334
         },
         "browser/browser/browser.ftl": {
           "total": 377,
-          "exact": 82,
-          "exact_accuracy": 0.21750663129973474
+          "exact": 84,
+          "exact_accuracy": 0.22281167108753316
         },
         "browser/browser/downloads.ftl": {
           "total": 33,
-          "exact": 11,
-          "exact_accuracy": 0.3333333333333333
+          "exact": 15,
+          "exact_accuracy": 0.45454545454545453
         },
         "browser/browser/preferences/preferences.ftl": {
           "total": 692,
-          "exact": 133,
-          "exact_accuracy": 0.19219653179190752
+          "exact": 143,
+          "exact_accuracy": 0.20664739884393063
         },
         "browser/browser/protectionsPanel.ftl": {
           "total": 42,
@@ -185,28 +185,28 @@
   "paired_comparisons": {
     "opencc-s2twp": {
       "case_count": 1264,
-      "absolute_delta": -0.015822784810126583,
+      "absolute_delta": 0.0023734177215189874,
       "delta_ci_95": {
-        "low": -0.03164556962025317,
-        "high": 0.0
+        "low": -0.011867088607594937,
+        "high": 0.01661392405063291
       },
       "candidate_only_correct": 43,
-      "competitor_only_correct": 63,
-      "mcnemar_exact_p": 0.06446359198949372,
+      "competitor_only_correct": 40,
+      "mcnemar_exact_p": 0.8264047244491933,
       "result": "statistical_tie",
       "bootstrap_rounds": 10000,
       "seed": 20260719
     },
     "zhconv-zh-tw": {
       "case_count": 1264,
-      "absolute_delta": 0.09731012658227849,
+      "absolute_delta": 0.11550632911392406,
       "delta_ci_95": {
-        "low": 0.08069620253164557,
-        "high": 0.11392405063291139
+        "low": 0.0981012658227848,
+        "high": 0.13291139240506328
       },
-      "candidate_only_correct": 124,
+      "candidate_only_correct": 147,
       "competitor_only_correct": 1,
-      "mcnemar_exact_p": 5.924491528144329e-36,
+      "mcnemar_exact_p": 8.35173884737591e-43,
       "result": "winner",
       "bootstrap_rounds": 10000,
       "seed": 20260719

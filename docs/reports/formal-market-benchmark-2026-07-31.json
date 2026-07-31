@@ -88,10 +88,10 @@
       "dataset": "ud-gsd-v1",
       "role": "secondary_evidence",
       "cases": 4997,
-      "accuracy": 0.7048228937362417,
+      "accuracy": 0.7052231338803282,
       "idempotency_rate": 0.9793876325795478,
       "source_bias": "opencc_derived_source_bias",
-      "git_sha": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
+      "git_sha": "a11d1f4eba49648fabc3fee019c37fb633996cbe",
       "license": "CC BY-SA 4.0"
     },
     {
@@ -101,148 +101,148 @@
       "accuracy": 0.4012903225806452,
       "idempotency_rate": 0.9664516129032258,
       "excluded_context_candidates": 754,
-      "git_sha": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
+      "git_sha": "a11d1f4eba49648fabc3fee019c37fb633996cbe",
       "license": "政府資料開放授權條款-第1版 (Open Government Data License, version 1.0)"
     },
     {
       "dataset": "aosp-framework-paired-ui-v1",
       "role": "public_external_secondary_evidence",
       "cases": 1968,
-      "accuracy": 0.19308943089430894,
-      "idempotency_rate": 0.9720528455284553,
+      "accuracy": 0.20477642276422764,
+      "idempotency_rate": 0.9740853658536586,
       "reference_kind": "vendor_paired_localization",
       "reference_is_ground_truth": false,
       "source_overlap": "blind_v2_source_pool",
       "engine_accuracy": {
-        "zhtw": 0.19308943089430894,
+        "zhtw": 0.20477642276422764,
         "opencc-s2twp": 0.21239837398373984,
         "zhconv-zh-tw": 0.15701219512195122
       },
       "paired_comparisons": {
         "opencc-s2twp": {
           "case_count": 1968,
-          "absolute_delta": -0.019308943089430895,
+          "absolute_delta": -0.007621951219512195,
           "delta_ci_95": {
-            "low": -0.028963414634146343,
-            "high": -0.010670731707317074
+            "low": -0.01524390243902439,
+            "high": -0.0005081300813008131
           },
-          "candidate_only_correct": 23,
-          "competitor_only_correct": 61,
-          "mcnemar_exact_p": 4.077126550660336e-05,
+          "candidate_only_correct": 20,
+          "competitor_only_correct": 35,
+          "mcnemar_exact_p": 0.058064146792409066,
           "result": "loser",
           "bootstrap_rounds": 10000,
           "seed": 20260719
         },
         "zhconv-zh-tw": {
           "case_count": 1968,
-          "absolute_delta": 0.036077235772357726,
+          "absolute_delta": 0.047764227642276426,
           "delta_ci_95": {
-            "low": 0.024898373983739838,
-            "high": 0.04725609756097561
+            "low": 0.036077235772357726,
+            "high": 0.05945121951219512
           },
-          "candidate_only_correct": 97,
-          "competitor_only_correct": 26,
-          "mcnemar_exact_p": 7.967669169699196e-11,
+          "candidate_only_correct": 119,
+          "competitor_only_correct": 25,
+          "mcnemar_exact_p": 7.248285966038644e-16,
           "result": "winner",
           "bootstrap_rounds": 10000,
           "seed": 20260719
         }
       },
-      "git_sha": "11f34ea19e8cea3d1d52ad679717109468888da5",
+      "git_sha": "4d26060cbfd7d07b3e80c6a740fc4a069a038c23",
       "license": "Apache License 2.0"
     },
     {
       "dataset": "vscode-paired-ui-v1",
       "role": "public_external_secondary_evidence",
       "cases": 17133,
-      "accuracy": 0.1219284421875912,
-      "idempotency_rate": 0.9750189692406467,
+      "accuracy": 0.12210354287048386,
+      "idempotency_rate": 0.9750773361349443,
       "reference_kind": "vendor_paired_localization",
       "reference_is_ground_truth": false,
       "source_overlap": "blind_v2_source_pool",
       "engine_accuracy": {
-        "zhtw": 0.1219284421875912,
+        "zhtw": 0.12210354287048386,
         "opencc-s2twp": 0.1278234985116442,
         "zhconv-zh-tw": 0.0751765598552501
       },
       "paired_comparisons": {
         "opencc-s2twp": {
           "case_count": 17133,
-          "absolute_delta": -0.005895056324052997,
+          "absolute_delta": -0.005719955641160334,
           "delta_ci_95": {
-            "low": -0.00869666725033561,
-            "high": -0.0030934453977703846
+            "low": -0.008463199673145391,
+            "high": -0.0029183447148777215
           },
           "candidate_only_correct": 264,
-          "competitor_only_correct": 365,
-          "mcnemar_exact_p": 6.463860869145211e-05,
+          "competitor_only_correct": 362,
+          "mcnemar_exact_p": 0.00010266561936242648,
           "result": "loser",
           "bootstrap_rounds": 10000,
           "seed": 20260719
         },
         "zhconv-zh-tw": {
           "case_count": 17133,
-          "absolute_delta": 0.046751882332341094,
+          "absolute_delta": 0.04692698301523376,
           "delta_ci_95": {
-            "low": 0.0435417031459756,
-            "high": 0.0500787953073017
+            "low": 0.043716803828868264,
+            "high": 0.050253895990194364
           },
-          "candidate_only_correct": 836,
+          "candidate_only_correct": 839,
           "competitor_only_correct": 35,
-          "mcnemar_exact_p": 5.106932261566178e-200,
+          "mcnemar_exact_p": 7.216279331318949e-201,
           "result": "winner",
           "bootstrap_rounds": 10000,
           "seed": 20260719
         }
       },
-      "git_sha": "11f34ea19e8cea3d1d52ad679717109468888da5",
+      "git_sha": "4d26060cbfd7d07b3e80c6a740fc4a069a038c23",
       "license": "MIT License"
     },
     {
       "dataset": "firefox-paired-ui-v1",
       "role": "public_external_secondary_evidence",
       "cases": 1264,
-      "accuracy": 0.21360759493670886,
-      "idempotency_rate": 0.9897151898734177,
+      "accuracy": 0.23180379746835442,
+      "idempotency_rate": 0.9920886075949367,
       "reference_kind": "vendor_paired_localization",
       "reference_is_ground_truth": false,
       "source_overlap": "none_known",
       "engine_accuracy": {
-        "zhtw": 0.21360759493670886,
+        "zhtw": 0.23180379746835442,
         "opencc-s2twp": 0.22943037974683544,
         "zhconv-zh-tw": 0.11629746835443038
       },
       "paired_comparisons": {
         "opencc-s2twp": {
           "case_count": 1264,
-          "absolute_delta": -0.015822784810126583,
+          "absolute_delta": 0.0023734177215189874,
           "delta_ci_95": {
-            "low": -0.03164556962025317,
-            "high": 0.0
+            "low": -0.011867088607594937,
+            "high": 0.01661392405063291
           },
           "candidate_only_correct": 43,
-          "competitor_only_correct": 63,
-          "mcnemar_exact_p": 0.06446359198949372,
+          "competitor_only_correct": 40,
+          "mcnemar_exact_p": 0.8264047244491933,
           "result": "statistical_tie",
           "bootstrap_rounds": 10000,
           "seed": 20260719
         },
         "zhconv-zh-tw": {
           "case_count": 1264,
-          "absolute_delta": 0.09731012658227849,
+          "absolute_delta": 0.11550632911392406,
           "delta_ci_95": {
-            "low": 0.08069620253164557,
-            "high": 0.11392405063291139
+            "low": 0.0981012658227848,
+            "high": 0.13291139240506328
           },
-          "candidate_only_correct": 124,
+          "candidate_only_correct": 147,
           "competitor_only_correct": 1,
-          "mcnemar_exact_p": 5.924491528144329e-36,
+          "mcnemar_exact_p": 8.35173884737591e-43,
           "result": "winner",
           "bootstrap_rounds": 10000,
           "seed": 20260719
         }
       },
-      "git_sha": "11f34ea19e8cea3d1d52ad679717109468888da5",
+      "git_sha": "4d26060cbfd7d07b3e80c6a740fc4a069a038c23",
       "license": "Mozilla Public License 2.0"
     }
   ],
@@ -262,11 +262,11 @@
   "governance": {
     "blind_v2_git_sha": "19626cf119e0ef7c8c04faa81960ee735eb9ac5a",
     "public_track_git_shas": {
-      "ud-gsd-v1": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
-      "naer-terms-v1": "4b7f0e66fa0262021d0ec8e37acfae881b06bc4b",
-      "aosp-framework-paired-ui-v1": "11f34ea19e8cea3d1d52ad679717109468888da5",
-      "vscode-paired-ui-v1": "11f34ea19e8cea3d1d52ad679717109468888da5",
-      "firefox-paired-ui-v1": "11f34ea19e8cea3d1d52ad679717109468888da5"
+      "ud-gsd-v1": "a11d1f4eba49648fabc3fee019c37fb633996cbe",
+      "naer-terms-v1": "a11d1f4eba49648fabc3fee019c37fb633996cbe",
+      "aosp-framework-paired-ui-v1": "4d26060cbfd7d07b3e80c6a740fc4a069a038c23",
+      "vscode-paired-ui-v1": "4d26060cbfd7d07b3e80c6a740fc4a069a038c23",
+      "firefox-paired-ui-v1": "4d26060cbfd7d07b3e80c6a740fc4a069a038c23"
     },
     "preregistration_sha256": "f9931673a781acd9b3c68d5805b801161dbeb982fb66d07c336c1b68731a5f5c",
     "inputs_sha256": "ddef836456ee29decf019dae981c1017b9728524c42808ae2d7c2c894299820a",

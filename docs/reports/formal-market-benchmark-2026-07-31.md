@@ -27,11 +27,11 @@ misses because detailed rows remained sealed.
 
 ## Secondary Evidence
 
-- `ud-gsd-v1`: 4,997 cases, 70.48% accuracy, 97.94% idempotency; clean commit `4b7f0e66fa0262021d0ec8e37acfae881b06bc4b`.
-- `naer-terms-v1`: 775 cases, 40.13% accuracy, 96.65% idempotency; clean commit `4b7f0e66fa0262021d0ec8e37acfae881b06bc4b`.
-- `aosp-framework-paired-ui-v1`: 1,968 cases, 19.31% accuracy, 97.21% idempotency; clean commit `11f34ea19e8cea3d1d52ad679717109468888da5`.
-- `vscode-paired-ui-v1`: 17,133 cases, 12.19% accuracy, 97.50% idempotency; clean commit `11f34ea19e8cea3d1d52ad679717109468888da5`.
-- `firefox-paired-ui-v1`: 1,264 cases, 21.36% accuracy, 98.97% idempotency; clean commit `11f34ea19e8cea3d1d52ad679717109468888da5`.
+- `ud-gsd-v1`: 4,997 cases, 70.52% accuracy, 97.94% idempotency; clean commit `a11d1f4eba49648fabc3fee019c37fb633996cbe`.
+- `naer-terms-v1`: 775 cases, 40.13% accuracy, 96.65% idempotency; clean commit `a11d1f4eba49648fabc3fee019c37fb633996cbe`.
+- `aosp-framework-paired-ui-v1`: 1,968 cases, 20.48% accuracy, 97.41% idempotency; clean commit `4d26060cbfd7d07b3e80c6a740fc4a069a038c23`.
+- `vscode-paired-ui-v1`: 17,133 cases, 12.21% accuracy, 97.51% idempotency; clean commit `4d26060cbfd7d07b3e80c6a740fc4a069a038c23`.
+- `firefox-paired-ui-v1`: 1,264 cases, 23.18% accuracy, 99.21% idempotency; clean commit `4d26060cbfd7d07b3e80c6a740fc4a069a038c23`.
 
 The public evidence is mixed. On exact vendor-localization agreement, OpenCC
 led zhtw on AOSP and VS Code, while Firefox was a statistical tie. zhtw led
@@ -57,7 +57,7 @@ Status: `confirmed_by_maintainer` on 2026-07-31.
 ## Governance
 
 - Blind-v2 commit: `19626cf119e0ef7c8c04faa81960ee735eb9ac5a`
-- Public-track commits: `ud-gsd-v1`=`4b7f0e66fa0262021d0ec8e37acfae881b06bc4b`, `naer-terms-v1`=`4b7f0e66fa0262021d0ec8e37acfae881b06bc4b`, `aosp-framework-paired-ui-v1`=`11f34ea19e8cea3d1d52ad679717109468888da5`, `vscode-paired-ui-v1`=`11f34ea19e8cea3d1d52ad679717109468888da5`, `firefox-paired-ui-v1`=`11f34ea19e8cea3d1d52ad679717109468888da5`
+- Public-track commits: `ud-gsd-v1`=`a11d1f4eba49648fabc3fee019c37fb633996cbe`, `naer-terms-v1`=`a11d1f4eba49648fabc3fee019c37fb633996cbe`, `aosp-framework-paired-ui-v1`=`4d26060cbfd7d07b3e80c6a740fc4a069a038c23`, `vscode-paired-ui-v1`=`4d26060cbfd7d07b3e80c6a740fc4a069a038c23`, `firefox-paired-ui-v1`=`4d26060cbfd7d07b3e80c6a740fc4a069a038c23`
 - Preregistration SHA-256: `f9931673a781acd9b3c68d5805b801161dbeb982fb66d07c336c1b68731a5f5c`
 - Inputs SHA-256: `ddef836456ee29decf019dae981c1017b9728524c42808ae2d7c2c894299820a`
 - Expected SHA-256: `511b2845969a60c6c5b53e7de17b85fbe00b11521648dac10e77fe6ec6ace9c5`

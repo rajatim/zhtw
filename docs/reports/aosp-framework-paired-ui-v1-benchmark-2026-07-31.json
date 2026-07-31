@@ -13,8 +13,8 @@
   "upstream_revision": "AOSP platform/frameworks/base commit 1cdfff555f4a21f71ccc978290e2e212e2f8b168; paired core framework zh-rCN and zh-rTW string resources.",
   "license": "Apache License 2.0",
   "provenance": {
-    "zhtw_version": "4.4.2",
-    "git_sha": "11f34ea19e8cea3d1d52ad679717109468888da5",
+    "zhtw_version": "4.4.3",
+    "git_sha": "4d26060cbfd7d07b3e80c6a740fc4a069a038c23",
     "git_dirty": false,
     "python_version": "3.11.14",
     "node_version": "v26.5.0",
@@ -27,32 +27,32 @@
   "engines": {
     "zhtw": {
       "available": true,
-      "version": "4.4.2",
+      "version": "4.4.3",
       "family": "zhtw",
       "adapter": "local_python",
       "total_cases": 1968,
-      "exact": 380,
-      "misses": 1588,
-      "exact_accuracy": 0.19308943089430894,
+      "exact": 403,
+      "misses": 1565,
+      "exact_accuracy": 0.20477642276422764,
       "exact_accuracy_ci_95": {
-        "low": 0.17682926829268292,
-        "high": 0.21138211382113822
+        "low": 0.18800813008130082,
+        "high": 0.22306910569105692
       },
-      "idempotent": 1913,
-      "idempotency_rate": 0.9720528455284553,
+      "idempotent": 1917,
+      "idempotency_rate": 0.9740853658536586,
       "changed_span": {
         "required_edits": 7376,
-        "produced_edits": 5823,
-        "correct_edits": 2168,
-        "precision": 0.37231667525330586,
-        "recall": 0.29392624728850325,
-        "f1": 0.32850973558602925
+        "produced_edits": 5822,
+        "correct_edits": 2192,
+        "precision": 0.37650291995877705,
+        "recall": 0.29718004338394793,
+        "f1": 0.33217154114259734
       },
       "by_file": {
         "strings.xml": {
           "total": 1968,
-          "exact": 380,
-          "exact_accuracy": 0.19308943089430894
+          "exact": 403,
+          "exact_accuracy": 0.20477642276422764
         }
       },
       "errors_by_category": {}
@@ -125,28 +125,28 @@
   "paired_comparisons": {
     "opencc-s2twp": {
       "case_count": 1968,
-      "absolute_delta": -0.019308943089430895,
+      "absolute_delta": -0.007621951219512195,
       "delta_ci_95": {
-        "low": -0.028963414634146343,
-        "high": -0.010670731707317074
+        "low": -0.01524390243902439,
+        "high": -0.0005081300813008131
       },
-      "candidate_only_correct": 23,
-      "competitor_only_correct": 61,
-      "mcnemar_exact_p": 4.077126550660336e-05,
+      "candidate_only_correct": 20,
+      "competitor_only_correct": 35,
+      "mcnemar_exact_p": 0.058064146792409066,
       "result": "loser",
       "bootstrap_rounds": 10000,
       "seed": 20260719
     },
     "zhconv-zh-tw": {
       "case_count": 1968,
-      "absolute_delta": 0.036077235772357726,
+      "absolute_delta": 0.047764227642276426,
       "delta_ci_95": {
-        "low": 0.024898373983739838,
-        "high": 0.04725609756097561
+        "low": 0.036077235772357726,
+        "high": 0.05945121951219512
       },
-      "candidate_only_correct": 97,
-      "competitor_only_correct": 26,
-      "mcnemar_exact_p": 7.967669169699196e-11,
+      "candidate_only_correct": 119,
+      "competitor_only_correct": 25,
+      "mcnemar_exact_p": 7.248285966038644e-16,
       "result": "winner",
       "bootstrap_rounds": 10000,
       "seed": 20260719
