@@ -9,7 +9,7 @@
 - [ ] `CHANGELOG.md` 的 `[Unreleased]` 內容**寫給人看**：使用者能否從中判斷要不要升級？
 - [ ] 版本號符合語意：breaking → major、新功能 → minor、修復 → patch
   （mono-versioning：6 個 SDK 一律同號，不個別論證）
-- [ ] 詞庫有改動時：依 `docs/precision-standard.md` 跑精準度 release gate
+- [ ] 詞庫有改動時：依 `docs/testing/accuracy/precision-standard.md` 跑精準度 release gate
 
 ## 釋出（一鍵）
 

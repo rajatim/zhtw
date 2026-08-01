@@ -15,6 +15,11 @@ export default defineConfig({
   platform: 'neutral',
   outDir: 'dist',
   loader: { '.json': 'json' },
+  esbuildOptions(options) {
+    // The CJS bundle intentionally falls back to __dirname. Package smoke tests
+    // execute both output formats, so this known transform warning is redundant.
+    options.logOverride = { ...options.logOverride, 'empty-import-meta': 'silent' };
+  },
   outExtension({ format }) {
     return { js: format === 'esm' ? '.mjs' : '.cjs' };
   },

@@ -180,3 +180,22 @@ def test_github_workflows_cannot_request_private_blind_v2_expected() -> None:
 
     assert "blind-v2.expected" not in content
     assert "private/blind-v2" not in content
+
+
+@pytest.mark.parametrize(
+    "relative_path",
+    [
+        "benchmarks/accuracy/blind-v3.candidate-pool.json",
+        "benchmarks/accuracy/blind-v3.inputs.json",
+        "benchmarks/accuracy/blind-v3.expected.json",
+        "docs/reports/blind-v3-private-detailed.json",
+    ],
+)
+def test_blind_v3_artifacts_are_private_by_default(relative_path: str) -> None:
+    result = subprocess.run(
+        ["git", "check-ignore", "--quiet", relative_path],
+        cwd=ROOT,
+        check=False,
+    )
+
+    assert result.returncode == 0, relative_path

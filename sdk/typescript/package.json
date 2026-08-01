@@ -30,6 +30,7 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
+    "test:package": "node tests/package-smoke.cjs && node tests/package-smoke.mjs",
     "test:watch": "vitest",
     "bench": "tsx scripts/bench.ts"
   },

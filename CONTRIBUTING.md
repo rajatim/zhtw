@@ -81,7 +81,7 @@ src/zhtw/data/terms/
 - 個資、客戶資料、憑證或未公開內容
 - 無法確認授權的第三方文字
 
-提交前請閱讀 [Permissioned User Report Consent v1](docs/benchmark/PERMISSIONED-USER-REPORT-CONSENT.md)。可分享的三語邀請文見[語料徵集說明](docs/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md)。授權問題可先到 [Discussion #49](https://github.com/rajatim/zhtw/discussions/49) 詢問；Discussion 回覆不會自動視為投稿同意。
+提交前請閱讀 [Permissioned User Report Consent v1](docs/testing/benchmark/PERMISSIONED-USER-REPORT-CONSENT.md)。可分享的三語邀請文見[語料徵集說明](docs/testing/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md)。授權問題可先到 [Discussion #49](https://github.com/rajatim/zhtw/discussions/49) 詢問；Discussion 回覆不會自動視為投稿同意。
 
 ## 回報轉換問題
 

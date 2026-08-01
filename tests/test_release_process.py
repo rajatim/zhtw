@@ -16,6 +16,7 @@ def test_go_binary_requires_gated_workflow_dispatch() -> None:
     assert "workflow_dispatch:" in workflow
     assert "tags: ['sdk/go/v*']" not in workflow
     assert "ref: ${{ inputs.tag }}" in workflow
+    assert "--latest=false" in workflow
 
 
 def test_conformance_ignores_go_binary_release_event() -> None:
@@ -34,6 +35,7 @@ def test_release_waits_for_remote_gate_before_tags_and_release() -> None:
     release = script.index('gh release create "v$VERSION"')
     assert gate < tag < release
     assert "ALLOW_ALERT_CHECK_FAILURE" in script
+    assert script.count("--latest") == 2
 
 
 def test_changelog_only_release_commit_triggers_conformance() -> None:

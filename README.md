@@ -72,7 +72,7 @@ Blind-v2 在評測前凍結 1,960 筆測試句與答案，三個工具使用相�
 - AOSP、Firefox、VS Code、UD GSD 與國教院術語另作公開診斷，固定上游 commit，讓第三方可以重現。
 - 公開產品的官方台灣翻譯不一定是唯一正解，所以這些資料只作次要證據，不覆蓋正式盲測結論。
 
-完整治理方式見[精準度標準](docs/precision-standard.md)與[正式評測報告](docs/reports/formal-market-benchmark-2026-07-31.md)。
+完整治理方式見[精準度標準](docs/testing/accuracy/precision-standard.md)與[正式評測報告](docs/reports/formal-market-benchmark-2026-07-31.md)。
 </details>
 
 ## 為什麼 ZHTW 比只換字更可靠
@@ -226,7 +226,7 @@ ZHTW 是規則式轉換與品質檢查工具，不是生成式翻譯模型。
 | 文件 | 內容 |
 |---|---|
 | [正式市場評測](docs/reports/formal-market-benchmark-2026-07-31.md) | Blind-v2 分數、統計比較、限制與治理雜湊 |
-| [精準度標準](docs/precision-standard.md) | ground truth、人工審核與 benchmark 規則 |
+| [精準度標準](docs/testing/accuracy/precision-standard.md) | ground truth、人工審核與 benchmark 規則 |
 | [詞庫涵蓋報告](docs/reports/DICTIONARY-COVERAGE.md) | 詞庫分類、歧義字與轉換架構 |
 | [CLI 進階指南](docs/guides/CLI-ADVANCED.md) | 自訂詞庫、忽略規則、編碼與輸出格式 |
 | [CI/CD 整合指南](docs/deployment/CI-CD-INTEGRATION.md) | GitHub Actions、GitLab CI 與 pre-commit |
@@ -240,7 +240,7 @@ ZHTW 是規則式轉換與品質檢查工具，不是生成式翻譯模型。
 
 你可以透過[語料投稿表單](https://github.com/rajatim/zhtw/issues/new?template=permissioned-user-report.yml)提供 1 至 10 個自己原創、可公開且不含敏感資料的真實簡體中文句子。請不要附上繁體答案或任何轉換器輸出，避免汙染盲測資料。
 
-授權方式與可直接分享的邀請文見[語料徵集說明](docs/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md)。一般問題與錯誤回報請使用 [GitHub Issues](https://github.com/rajatim/zhtw/issues)。
+授權方式與可直接分享的邀請文見[語料徵集說明](docs/testing/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md)。一般問題與錯誤回報請使用 [GitHub Issues](https://github.com/rajatim/zhtw/issues)。
 
 ## 開發
 

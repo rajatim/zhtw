@@ -82,4 +82,5 @@ jobs:
             --repo "${{ github.repository }}" \
             --title "Go CLI ${TAG#sdk/go/}" \
             --generate-notes \
+            --latest=false \
             *.tar.gz *.zip zhtw_checksums.txt

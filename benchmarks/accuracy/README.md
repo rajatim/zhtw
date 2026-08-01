@@ -257,7 +257,7 @@ The first permissioned batch is an empty 100-case collection template at
 `sources/permissioned-user-report-batch-001.json`. Contributors submit 1-10
 original Simplified Chinese sentences through
 `.github/ISSUE_TEMPLATE/permissioned-user-report.yml` after accepting
-`docs/benchmark/PERMISSIONED-USER-REPORT-CONSENT.md`. The public issue URL and
+`docs/testing/benchmark/PERMISSIONED-USER-REPORT-CONSENT.md`. The public issue URL and
 consent record are retained with every input.
 Each accepted case also freezes the numeric issue ID and submitter login next to
 the reviewed issue-body SHA-256, so the public consent provenance does not rely

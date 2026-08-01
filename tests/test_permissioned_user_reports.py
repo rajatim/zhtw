@@ -186,7 +186,7 @@ def test_issue_form_requires_all_consent_confirmations() -> None:
     form = ISSUE_FORM.read_text(encoding="utf-8")
 
     assert form.count("required: true") == 6
-    assert "https://github.com/rajatim/zhtw/blob/main/docs/benchmark/" in form
+    assert "https://github.com/rajatim/zhtw/blob/main/docs/testing/benchmark/" in form
     assert "CC0 1.0 Universal" in form
     assert "不得附上繁體答案或任何轉換器輸出" in form
 

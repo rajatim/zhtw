@@ -70,7 +70,7 @@ After the formal benchmark, we manually reviewed 100 disagreements from public l
 - Public AOSP, Firefox, VS Code, UD GSD, and NAER tracks use pinned upstream commits so third parties can reproduce them.
 - Official vendor translations are not always the only valid Taiwan wording, so public paired data is secondary evidence and does not replace the formal blind result.
 
-See the [accuracy standard](docs/precision-standard.md) and [formal report](docs/reports/formal-market-benchmark-2026-07-31.md) for the full governance process.
+See the [accuracy standard](docs/testing/accuracy/precision-standard.md) and [formal report](docs/reports/formal-market-benchmark-2026-07-31.md) for the full governance process.
 </details>
 
 ## Why ZHTW is more reliable than character replacement
@@ -224,7 +224,7 @@ ZHTW is a rule-based conversion and quality-checking tool, not a generative tran
 | Document | Contents |
 |---|---|
 | [Formal market benchmark](docs/reports/formal-market-benchmark-2026-07-31.md) | Blind-v2 scores, statistical comparisons, limits, and governance hashes |
-| [Accuracy standard](docs/precision-standard.md) | Ground truth, human review, and benchmark rules |
+| [Accuracy standard](docs/testing/accuracy/precision-standard.md) | Ground truth, human review, and benchmark rules |
 | [Dictionary coverage](docs/reports/DICTIONARY-COVERAGE.md) | Term groups, ambiguous characters, and conversion design |
 | [Advanced CLI guide](docs/guides/CLI-ADVANCED.md) | Custom dictionaries, ignore rules, encodings, and output formats |
 | [CI/CD integration](docs/deployment/CI-CD-INTEGRATION.md) | GitHub Actions, GitLab CI, and pre-commit |
@@ -238,7 +238,7 @@ ZHTW is a rule-based conversion and quality-checking tool, not a generative tran
 
 Use the [corpus submission form](https://github.com/rajatim/zhtw/issues/new?template=permissioned-user-report.yml) to share 1–10 real Simplified Chinese sentences that you wrote, may publish, and that contain no sensitive data. Do not include expected Traditional Chinese answers or converter output, because that would contaminate blind evaluation data.
 
-See the [corpus invitation](docs/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md) for permission terms and shareable text. Use [GitHub Issues](https://github.com/rajatim/zhtw/issues) for normal questions and bug reports.
+See the [corpus invitation](docs/testing/benchmark/PERMISSIONED-USER-REPORT-INVITATION.md) for permission terms and shareable text. Use [GitHub Issues](https://github.com/rajatim/zhtw/issues) for normal questions and bug reports.
 
 ## Development
 

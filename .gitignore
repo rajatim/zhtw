@@ -103,3 +103,7 @@ src/zhtw/data/terms/pending/*.json
 benchmarks/accuracy/blind-v*.expected.json
 benchmarks/accuracy/private/
 docs/reports/blind-v2-private-*
+
+# Fresh benchmark generations remain fully private until their frozen protocol permits publication.
+benchmarks/accuracy/blind-v[3-9]*
+docs/reports/blind-v[3-9]-private-*

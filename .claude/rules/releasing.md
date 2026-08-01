@@ -85,12 +85,14 @@ gh run watch <run-id> --exit-status
 git tag -a vX.Y.Z -m "vX.Y.Z: 簡短說明"
 git tag -a sdk/go/vX.Y.Z -m "sdk/go vX.Y.Z"   # Go 子目錄 module 需要
 git push origin vX.Y.Z sdk/go/vX.Y.Z
-gh release create vX.Y.Z --title "vX.Y.Z: 標題" --notes "（從 CHANGELOG 複製）"
+gh release create vX.Y.Z --title "vX.Y.Z: 標題" --notes "（從 CHANGELOG 複製）" --latest
 ```
 
 > **GitHub Release（published 事件）會驗證不可變 tag**；全綠後才分派發布：
 > PyPI、Maven Central、npm（zhtw-js + zhtw-wasm）、crates.io、NuGet，
 > 以及 Go binaries。Go tag 本身不會直接發布 binary。
+> Go binary workflow 建立 `sdk/go/vX.Y.Z` release 時必須使用 `--latest=false`，
+> 避免它覆蓋主版本的 Latest 標記。
 
 ### 3. 釋出後驗證 + Homebrew（一鍵）
 

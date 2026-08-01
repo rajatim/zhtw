@@ -8,6 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- 新增 Blind-v3 私有優先執行計畫、忽略規則與洩漏防護測試，禁止重用 Blind-v1、
+  Blind-v2 或公開評測語料建立新的 fresh claim。
+- 新增 Blind-v2 句級 idempotency 彙總稽核與 4.4.3 固定基線；公開資料只保存總數、
+  input hash 與失敗 ID 集合 hash，不揭露逐筆輸出。
+
+### Changed
+- TypeScript release gate 新增 CommonJS 與 ESM 成品 smoke tests，並移除已由成品測試
+  覆蓋的 `import.meta` 已知建置警告。
+- 將大型 Blind-v1 與 Blind-v2 歷史測試依 collection、governance、post-review 與 batch
+  範圍拆分，維持原有 222 項稽核斷言。
+- 將精準度與 benchmark 投稿文件移入 `docs/testing/` 標準分類，並更新所有連結。
+
+### Fixed
+- 主 GitHub Release 明確設為 Latest；後發布的 Go CLI 子 release 使用
+  `--latest=false`，不再覆蓋主要版本的 Latest 標記。
+- 詞庫 validator 分開顯示 bulk-to-curated 的 116 個刻意 pin／覆蓋與真正重複；移除
+  3 個跨手工檔的同值重複詞條，並新增防止重複回歸的測試。
+
 ## [4.4.3] - 2026-07-31
 
 ### Added

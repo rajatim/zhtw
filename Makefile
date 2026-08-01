@@ -124,6 +124,7 @@ accuracy-holdout-gemini-advisory: ## Generate Gemini Vertex advisory for sealed 
 benchmark-validate: ## Validate benchmark manifests, licenses, hashes, and preregistrations
 	$(PYTHON) scripts/validate_benchmark_assets.py
 	$(PYTHON) scripts/audit_benchmark_publication.py
+	$(PYTHON) scripts/audit_corpus_idempotency.py benchmarks/accuracy/blind-v2.inputs.json --baseline benchmarks/accuracy/blind-v2.idempotency-baseline.json
 
 benchmark-competitor-build: ## Build the digest-pinned competitor environment
 	docker build --build-arg ENVIRONMENT_HASH=$(COMPETITOR_ENV_HASH) --tag $(COMPETITOR_IMAGE) --file benchmarks/accuracy/competitor-env/Dockerfile benchmarks/accuracy/competitor-env
@@ -461,7 +462,7 @@ test-java: ## Run Java SDK tests
 	cd sdk/java && mvn verify --batch-mode
 
 test-typescript: ## Run TypeScript SDK tests and type-check
-	cd sdk/typescript && pnpm install --frozen-lockfile && pnpm exec tsc --noEmit && pnpm test && pnpm build
+	cd sdk/typescript && pnpm install --frozen-lockfile && pnpm exec tsc --noEmit && pnpm test && pnpm build && pnpm test:package
 
 test-rust: ## Run Rust SDK and WASM host tests
 	cd sdk/rust && cargo test --workspace --release

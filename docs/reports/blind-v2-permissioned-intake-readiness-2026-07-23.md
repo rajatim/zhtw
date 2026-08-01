@@ -11,7 +11,7 @@
 ## 已完成
 
 - GitHub issue form：`.github/ISSUE_TEMPLATE/permissioned-user-report.yml`
-- 同意與資料治理條款：`docs/benchmark/PERMISSIONED-USER-REPORT-CONSENT.md`
+- 同意與資料治理條款：`docs/testing/benchmark/PERMISSIONED-USER-REPORT-CONSENT.md`
 - 100 筆收集模板：
   `benchmarks/accuracy/sources/permissioned-user-report-batch-001.json`
 - JSON Schema：

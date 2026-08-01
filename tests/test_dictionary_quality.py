@@ -183,6 +183,22 @@ class TestNoDuplicateConflicts:
             f"發現 {len(conflicts)} 條手工檔衝突詞彙: " f"{dict(list(conflicts.items())[:5])}"
         )
 
+    def test_no_redundant_curated_terms(self):
+        """同一個詞不應重複出現在多個手工詞庫檔案。"""
+        registry: dict[str, list[str]] = {}
+
+        for json_file in CN_FILES:
+            if json_file.name in BULK_FILES:
+                continue
+            for key in _load_terms_only(json_file):
+                registry.setdefault(key, []).append(json_file.name)
+
+        duplicates = {key: files for key, files in registry.items() if len(files) > 1}
+
+        assert not duplicates, (
+            f"發現 {len(duplicates)} 條重複手工詞彙: " f"{dict(list(duplicates.items())[:5])}"
+        )
+
 
 # ──────────────────────────────────────────────
 # Target 冪等性

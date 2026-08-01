@@ -153,9 +153,9 @@ say "[7/7] 建立 GitHub Release"
 NOTES_FILE="$(mktemp)"
 awk -v version="$VERSION" '$0 ~ "^## \\["version"\\]"{flag=1;next}/^## \[/{flag=0}flag' CHANGELOG.md > "$NOTES_FILE"
 if [ -s "$NOTES_FILE" ]; then
-    gh release create "v$VERSION" --title "v$VERSION" --notes-file "$NOTES_FILE"
+    gh release create "v$VERSION" --title "v$VERSION" --notes-file "$NOTES_FILE" --latest
 else
-    gh release create "v$VERSION" --title "v$VERSION" --generate-notes
+    gh release create "v$VERSION" --title "v$VERSION" --generate-notes --latest
 fi
 rm -f "$NOTES_FILE"
 

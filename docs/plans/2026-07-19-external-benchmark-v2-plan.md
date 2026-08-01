@@ -1562,7 +1562,8 @@ Alignment 必須使用可測試的 sequence alignment，不以逐字 zip 比較�
 
 新增或擴充測試：
 
-- `tests/test_accuracy_holdout.py`：blind-v2 schema、hash 與 leakage。
+- `tests/test_accuracy_holdout_collection.py`、`tests/test_accuracy_holdout_governance.py`
+  與 `tests/test_accuracy_holdout_post_review.py`：benchmark schema、hash、governance 與 leakage。
 - `tests/test_accuracy_benchmark.py`：aggregate/detailed mode、provenance、metrics。
 - `tests/test_benchmark_manifests.py`：license/revision/hash 必填與 normalized freshness。
 - `tests/test_benchmark_publication.py`：掃描 tracked reports 的敏感欄位。

@@ -819,12 +819,13 @@ def validate(source: str, strict: bool):
 
     # Check 3: Duplicate source terms across files
     # 依實際載入順序（bulk 先、手工後）檢查：
-    # - 同 key 不同值 = 後載檔會無聲覆蓋前載檔 → 真正的 bug（⚠️ 計入 issues）
-    # - 同 key 同值 = 冗餘但無害 → 資訊提示（ℹ️ 不計入）
+    # - curated 覆蓋 bulk = 刻意 pin 或在地化修正（ℹ️ 不計入）
+    # - curated 之間重複 = 冗餘；不同值 = 真正的 bug（⚠️ 計入 issues）
     click.echo("\n📋 檢查重複來源詞彙...")
     source_defs: dict = {}  # (src, term) -> (file_stem, target)
     conflicts = []
     redundant = []
+    curated_overrides = []
     for src in sources:
         src_dir = DATA_DIR / src
         if not src_dir.exists():
@@ -839,20 +840,19 @@ def validate(source: str, strict: bool):
                 key = (src, source_term)
                 if key in source_defs:
                     prev_file, prev_target = source_defs[key]
-                    if prev_target != target_term:
-                        if f"{prev_file}.json" in BULK_FILES:
-                            # 手工檔覆蓋 bulk 匯入檔 = 刻意設計（curated 勝出）
-                            redundant.append(
-                                f"   ℹ️  {src}/: 「{source_term}」手工檔 "
-                                f"{json_file.stem}.json→「{target_term}」覆蓋 "
-                                f"{prev_file}.json→「{prev_target}」（by design）"
-                            )
-                        else:
-                            conflicts.append(
-                                f"   ⚠️  {src}/: 「{source_term}」定義不一致："
-                                f"{prev_file}.json→「{prev_target}」 被 "
-                                f"{json_file.stem}.json→「{target_term}」覆蓋"
-                            )
+                    if f"{prev_file}.json" in BULK_FILES:
+                        relation = "同值 pin" if prev_target == target_term else "在地化覆蓋"
+                        curated_overrides.append(
+                            f"   ℹ️  {src}/: 「{source_term}」手工檔 "
+                            f"{json_file.stem}.json→「{target_term}」相對於 "
+                            f"{prev_file}.json→「{prev_target}」（{relation}）"
+                        )
+                    elif prev_target != target_term:
+                        conflicts.append(
+                            f"   ⚠️  {src}/: 「{source_term}」定義不一致："
+                            f"{prev_file}.json→「{prev_target}」 被 "
+                            f"{json_file.stem}.json→「{target_term}」覆蓋"
+                        )
                     else:
                         redundant.append(
                             f"   ℹ️  {src}/: 「{source_term}」重複定義（同值）於 "
@@ -872,7 +872,12 @@ def validate(source: str, strict: bool):
         if strict:
             for r in redundant[:10]:
                 click.echo(r)
-    if not conflicts and not redundant:
+    if curated_overrides:
+        click.echo(f"   ℹ️  {len(curated_overrides)} 個手工檔對 bulk 的刻意 pin／覆蓋")
+        if strict:
+            for override in curated_overrides[:10]:
+                click.echo(override)
+    if not conflicts and not redundant and not curated_overrides:
         click.echo("   ✅ 無重複")
 
     # Summary

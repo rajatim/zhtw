@@ -10,7 +10,7 @@
 
 ## 為什麼是這個計畫(給沒有前情的工程師)
 
-zhtw 已在 1 億 3500 萬字真實簡體書籍上稽核過:**殘留簡體 0、過度轉換 3(已修)**。代表「字形完整度」與「過度轉換率」幾乎已解決。唯一還沒被規模化量測的,是「詞彙在地化正確率」(例:大陸用詞 → 台灣用詞、香港繁體形 → 台灣形 有沒有正確在地化)。curated corpus 是 100%-passing 的 gate,**設計上只裝得下我們已經轉對的句子**,所以它無法發現新缺陷;把它從 500 養到 1000 主要是擴大回歸面積,邊際效益遞減。因此本計畫不追 corpus 數字,而是補上量測 + 回饋這兩塊缺口。完整論證見 `docs/precision-standard.md` 與本 repo 對話紀錄。
+zhtw 已在 1 億 3500 萬字真實簡體書籍上稽核過:**殘留簡體 0、過度轉換 3(已修)**。代表「字形完整度」與「過度轉換率」幾乎已解決。唯一還沒被規模化量測的,是「詞彙在地化正確率」(例:大陸用詞 → 台灣用詞、香港繁體形 → 台灣形 有沒有正確在地化)。curated corpus 是 100%-passing 的 gate,**設計上只裝得下我們已經轉對的句子**,所以它無法發現新缺陷;把它從 500 養到 1000 主要是擴大回歸面積,邊際效益遞減。因此本計畫不追 corpus 數字,而是補上量測 + 回饋這兩塊缺口。完整論證見 `docs/testing/accuracy/precision-standard.md` 與本 repo 對話紀錄。
 
 ## Global Constraints
 
@@ -824,7 +824,7 @@ Expected:印出 `[holdout-eval] N/總數 pass (X%)`,並在 `docs/reports/holdout
 
 1. **held-out 成為官方精準度數字** —— 對外宣稱品質時引用 held-out 分數,而非 corpus 案例數。
    - *驗證:* 每次 release notes 附「四件套」:corpus 版本 + case 數 + held-out 分數(含日期)+ gate 結果;不得出現沒有分母的百分比或「市場最佳」這類無法證明的字眼。
-2. **標準文件更新** —— 把三維度(字形完整度 / 過度轉換率 / 在地化正確率)正式寫進 `docs/precision-standard.md`,held-out 列為 report-only 量測線。
+2. **標準文件更新** —— 把三維度(字形完整度 / 過度轉換率 / 在地化正確率)正式寫進 `docs/testing/accuracy/precision-standard.md`,held-out 列為 report-only 量測線。
    - *驗證:* `precision-standard.md` 的「成長目標」段落從「corpus 朝 750/1000」改為「held-out C 維度趨勢 + discovery 收斂」。
 
 ---
