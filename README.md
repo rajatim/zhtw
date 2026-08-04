@@ -117,6 +117,8 @@ Python 環境：
 python3 -m pip install zhtw
 ```
 
+兩種安裝方式得到的是**同一個 `zhtw` 指令**，功能完全相同。
+
 ### 檢查、修正與查詢
 
 <!-- zhtw:disable -->
@@ -147,7 +149,7 @@ Python、Java、TypeScript、Rust、WebAssembly、Go 與 C# 共用同一份版�
 
 | 環境 | 安裝 | 文件 |
 |---|---|---|
-| Python / CLI | `pip install zhtw` | [PyPI](https://pypi.org/project/zhtw/) |
+| Python | `pip install zhtw` | [PyPI](https://pypi.org/project/zhtw/) |
 | Java | `com.rajatim:zhtw:4.4.3` | [Java README](sdk/java/README.md) |
 | TypeScript | `npm install zhtw-js` | [TypeScript README](sdk/typescript/README.md) |
 | Rust | `cargo add zhtw` | [Rust README](sdk/rust/zhtw/README.md) |
@@ -155,7 +157,7 @@ Python、Java、TypeScript、Rust、WebAssembly、Go 與 C# 共用同一份版�
 | Go | `go get github.com/rajatim/zhtw/sdk/go/v4@latest` | [Go README](sdk/go/README.md) |
 | C# / .NET | `dotnet add package Zhtw` | [.NET README](sdk/dotnet/README.md) |
 
-Go CLI 也提供 macOS、Linux 與 Windows 的預編譯執行檔，見 [GitHub Releases](https://github.com/rajatim/zhtw/releases)。
+沒有 Python 的環境，可以到 [GitHub Releases](https://github.com/rajatim/zhtw/releases) 下載單一執行檔（macOS、Linux 與 Windows，Go 編譯）。這是輕量版本，只有 `convert`、`lookup`、`version`；需要 `check` 或 `fix` 請用上面的 `zhtw`。
 
 ## 放進 CI，阻止簡體汙染進入主分支
 

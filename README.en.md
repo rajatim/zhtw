@@ -115,6 +115,8 @@ Python environments:
 python3 -m pip install zhtw
 ```
 
+Both install methods give you the **same `zhtw` command** with identical features.
+
 ### Check, fix, and inspect
 
 <!-- zhtw:disable -->
@@ -145,7 +147,7 @@ Python, Java, TypeScript, Rust, WebAssembly, Go, and C# share the same versioned
 
 | Runtime | Install | Documentation |
 |---|---|---|
-| Python / CLI | `pip install zhtw` | [PyPI](https://pypi.org/project/zhtw/) |
+| Python | `pip install zhtw` | [PyPI](https://pypi.org/project/zhtw/) |
 | Java | `com.rajatim:zhtw:4.4.3` | [Java README](sdk/java/README.md) |
 | TypeScript | `npm install zhtw-js` | [TypeScript README](sdk/typescript/README.md) |
 | Rust | `cargo add zhtw` | [Rust README](sdk/rust/zhtw/README.md) |
@@ -153,7 +155,7 @@ Python, Java, TypeScript, Rust, WebAssembly, Go, and C# share the same versioned
 | Go | `go get github.com/rajatim/zhtw/sdk/go/v4@latest` | [Go README](sdk/go/README.md) |
 | C# / .NET | `dotnet add package Zhtw` | [.NET README](sdk/dotnet/README.md) |
 
-Prebuilt Go CLI binaries for macOS, Linux, and Windows are available from [GitHub Releases](https://github.com/rajatim/zhtw/releases).
+If Python is not available, download a single executable for macOS, Linux, or Windows (built in Go) from [GitHub Releases](https://github.com/rajatim/zhtw/releases). It is a lightweight build with only `convert`, `lookup`, and `version`; use the `zhtw` command above when you need `check` or `fix`.
 
 ## Put accuracy checks in CI
 
