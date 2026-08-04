@@ -8,7 +8,7 @@
 
 **Tech Stack:** Python 3.9+、Click（CLI）、ahocorasick（Matcher）、dataclasses
 
-**Spec:** `docs/superpowers/specs/2026-04-08-lookup-command-design.md`
+**Spec:** `docs/architecture/2026-04-08-lookup-command-design.md`
 
 ---
 

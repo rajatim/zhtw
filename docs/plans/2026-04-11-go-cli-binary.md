@@ -9,7 +9,7 @@
 
 **Tech Stack:** Go 1.21+, stdlib only (`flag`, `os`, `io`, `encoding/json`, `fmt`, `bufio`, `strings`, `runtime/debug`), GitHub Actions for binary release.
 
-**Spec:** `docs/superpowers/specs/2026-04-11-go-cli-binary-design.md`
+**Spec:** `docs/architecture/2026-04-11-go-cli-binary-design.md`
 
 ---
 

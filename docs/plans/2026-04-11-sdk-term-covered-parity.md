@@ -9,7 +9,7 @@
 
 **Tech Stack:** Java 11 (Maven, ahocorasick-trie), TypeScript (Vitest, custom AC), Rust (daachorse, PHF charmap)
 
-**Spec:** `docs/superpowers/specs/2026-04-10-sdk-check-parity-design.md`
+**Spec:** `docs/architecture/2026-04-10-sdk-check-parity-design.md`
 
 ---
 

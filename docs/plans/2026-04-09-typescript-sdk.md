@@ -2271,7 +2271,7 @@ Report results. This plan does NOT release to npm — that happens through the m
 
 ## Self-Review
 
-**Spec coverage map** (verified against `docs/superpowers/specs/2026-04-09-typescript-sdk-design.md`):
+**Spec coverage map** (verified against `docs/architecture/2026-04-09-typescript-sdk-design.md`):
 
 | Spec section | Requirements | Implementing tasks |
 |---|---|---|
@@ -2301,7 +2301,7 @@ Report results. This plan does NOT release to npm — that happens through the m
 
 ## Execution
 
-**Plan complete and saved to `docs/superpowers/plans/2026-04-09-typescript-sdk.md`. Two execution options:**
+**Plan complete and saved to `docs/plans/2026-04-09-typescript-sdk.md`. Two execution options:**
 
 **1. Subagent-Driven (recommended)** — I dispatch a fresh subagent per task, review between tasks, fast iteration
 
