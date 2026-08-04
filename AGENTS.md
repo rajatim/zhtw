@@ -1,6 +1,6 @@
 # ZHTW - AI 開發指南
 
-> **AI instruction source of truth is `AGENTS.md`** — Codex reads it natively (no import). `CLAUDE.md` / `GEMINI.md` are `@AGENTS.md` wrappers.
+> **AI instruction source of truth is `AGENTS.md`** — Codex loads it through official AGENTS discovery; its instruction docs do not define Markdown `@file` imports. `CLAUDE.md` / `GEMINI.md` are `@AGENTS.md` wrappers.
 
 > **v4.4.3** | 簡轉繁轉換器 | 指南：`.claude/guides/`
 
@@ -146,3 +146,5 @@ pytest tests/test_corpus.py
 ---
 
 **開始開發：遵守黃金規則，按需讀取模組化指南**
+
+*AI instructions reviewed: 2026-08-04*
