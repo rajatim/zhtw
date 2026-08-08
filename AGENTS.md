@@ -47,8 +47,8 @@ make bump VERSION=X.Y.Z
 make version-check   # 任一檔案不一致就 exit 1
 ```
 
-**理由：** GitHub Release 會先通過全 SDK conformance gate，再分派各 registry
-發布 workflow；所有套件版本都必須跟 tag 對齊，否則釋出會失敗或語意混亂。
+**理由：** Jenkins 會從同一個封存候選發布全部 registry；所有套件版本都必須跟
+不可變 tag 對齊，否則釋出會失敗或語意混亂。
 共享的 `sdk/data/zhtw-data.json` 也嵌入版本號，多語言 SDK 讀這份資料會做版本比對。
 
 ## 🎯 準確度 Review 預設流程
@@ -68,6 +68,20 @@ make version-check   # 任一檔案不一致就 exit 1
    `single_human_with_ai_advisory`，除非另有第二位 human reviewer。
 
 下一步提案時，先主動建議這個流程，不要直接要求使用者從空白 expected 開始填。
+
+## 🔒 Jenkins-only CI/CD（MUST）
+
+- zhtw 的建置、相容性驗證與公開發布只能走 Jenkins：`zhtw/build`、
+  `zhtw/verify`、`zhtw/release`。
+- 禁止恢復 `.github/workflows`、執行 `gh workflow run`、本機建立 release tag，或
+  直接對 PyPI/npm/crates/NuGet/Maven publish。
+- `make release` 與 `make release-dry` 會故意失敗；不是備援流程。
+- `zhtw/release` 預設 `PREVIEW`，不改任何外部狀態。只有使用者明確核准確切
+  Jenkins build 後，才可用 `PUBLISH_ALL` 或 `RETRY_*`。
+- Registry 接受版本後沒有 rollback；失敗時重跑同一 build 補齊，內容錯誤則升下一個
+  patch，禁止刪除／移動 tag 或重用版號。
+- 每次操作前必讀 `.claude/rules/releasing.md` 與
+  `docs/releases/RELEASE-CHECKLIST.md`；內部 Jenkins 維護細節在 private runbook。
 
 ## 📍 檔案定位
 
@@ -147,4 +161,4 @@ pytest tests/test_corpus.py
 
 **開始開發：遵守黃金規則，按需讀取模組化指南**
 
-*AI instructions reviewed: 2026-08-04*
+*AI instructions reviewed: 2026-08-09*

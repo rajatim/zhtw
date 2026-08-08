@@ -4,5 +4,6 @@
 
 [`docs/releases/RELEASE-CHECKLIST.md`](../releases/RELEASE-CHECKLIST.md)
 
-請勿依賴舊版的 tag 直接發布步驟；目前流程必須先通過 release commit 的遠端
-conformance，再建立雙 tag 與 GitHub Release，之後由不可變 tag gate 分派發布。
+請勿依賴舊版的 tag 直接發布步驟。zhtw 只走 Jenkins：先完成 `zhtw/build`，再用
+`zhtw/release` 的 `PREVIEW` 驗證同一份封存候選；使用者明確核准後才可
+`PUBLISH_ALL`。GitHub Actions 與手動 registry publish 都不是備援路徑。
