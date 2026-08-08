@@ -1,117 +1,89 @@
 # 釋出流程
 
-> 版本釋出透過手動操作執行
+> zhtw 的建置、驗證與公開發布只走 Jenkins。GitHub Actions、手動 tag、
+> `gh workflow run`、本機 registry publish 都不是備援路徑。
 
-## 🚨 最高優先順序規則
+## 最高優先順序規則
 
+```text
+⛔ 沒有使用者明確同意，不可公開釋出
+⛔ 不可用 make release、手動 tag 或手動 publish 繞過 Jenkins
+⛔ 已被 registry 接受的版本不可回滾、覆蓋或重用
+✅ 所有 SDK 必須維持 mono-versioning
+✅ build、read-only preview、正式 publication 必須使用同一份封存候選
 ```
-⛔ 沒有使用者明確同意，不可釋出
-⛔ 升版必須 mono-versioning（所有 SDK 同步，見 CLAUDE.md 黃金規則 6）
-✅ release commit 的遠端 conformance 通過後，才建立 tag + GitHub Release
-✅ GitHub Release 的不可變 tag gate 通過後，才分派所有發布 workflow
-```
 
-> **重要**：release commit 推上 main 後，必須先通過遠端全 SDK conformance gate，
-> 才能建立 tag 與 GitHub Release。Release 發布後會再以相同 gate 驗證不可變 tag，
-> 通過才分派所有 registry 與 Go binary workflow。
+## 角色分工
 
-## 釋出步驟
+- 貢獻者可以執行 `make bump VERSION=X.Y.Z`、`make version-check`、
+  `make release-gate`，但不能因此建立正式版本。
+- `zhtw/build` 計算版本、產生候選 patch、測試一次並封存所有套件。
+- `zhtw/release` 預設 `PREVIEW`；只有明確核准後才可 `PUBLISH_ALL`。
+- `zhtw/verify` 接手 SDK 版本矩陣與公開 competitor benchmark。
+- `make release` 與 `make release-dry` 會 fail-closed，提醒改用 Jenkins。
 
-### 1. 準備版本（貢獻者/AI 可做）
+## 標準流程
 
-**一鍵升所有 SDK + 驗證 + 重新匯出資料檔：**
+### 1. 建立完整候選
 
 ```bash
-make bump VERSION=X.Y.Z
+jcli build zhtw/build -s -v \
+  -p BRANCH=main \
+  -p VERSION_BUMP=patch
 ```
 
-會自動更新這 8 個地方（mono-versioning）：
+`patch` 用於修正、`minor` 用於向下相容的新功能、`major` 用於 breaking
+change。Jenkins 會同步更新所有 SDK 版本、提升 CHANGELOG `[Unreleased]`、跑完整
+release gate，並建出 PyPI、npm x2、crate、NuGet、Maven 與五種 Go binary。
 
-| # | 檔案 | 內容 |
-|---|------|------|
-| 1 | `pyproject.toml` | `version = "X.Y.Z"` |
-| 2 | `src/zhtw/__init__.py` | `__version__ = "X.Y.Z"` |
-| 3 | `sdk/java/pom.xml` | `<version>X.Y.Z</version>` |
-| 4 | `sdk/typescript/package.json` | `"version": "X.Y.Z"` |
-| 5 | `sdk/rust/Cargo.toml` | `version = "X.Y.Z"` |
-| 6 | `sdk/dotnet/Zhtw.csproj` | `<Version>X.Y.Z</Version>` |
-| 7 | `sdk/data/zhtw-data.json` + `golden-test.json` | `zhtw export` 重新產生 |
-| 8 | `sdk/rust/zhtw-wasm/package.json` | `"version": "X.Y.Z"` |
-
-若因特殊原因需手動改：改完**務必**跑 `make version-check`，任一檔案不一致就會 exit 1。
-
-**然後手動更新 `CHANGELOG.md`**（AI 可做，`make bump` 不自動寫 CHANGELOG）：
-
-```markdown
-## [X.Y.Z] - YYYY-MM-DD
-### Added / Changed / Fixed / Breaking
-- ...
-```
-
-最後：
-- `make release-gate` 以固定 corpus commit 執行 Python、所有 SDK、Go lint、
-  版本、匯出、詞庫與 idempotency 驗證
-- Commit + Push 到 main
-
-### 2. 釋出（Maintainer 操作）
-
-**方法 A：一鍵釋出（推薦，`scripts/release.sh`）**
+### 2. 唯讀預演
 
 ```bash
-make release-dry VERSION=X.Y.Z   # 先預演：閘門 + 測試，不做任何變更
-make release VERSION=X.Y.Z       # 正式釋出（含 y/N 確認）
+jcli build zhtw/release -s -v \
+  -p BUILD_NUMBER=<成功的-zhtw-build> \
+  -p RELEASE_ACTION=PREVIEW \
+  -p SKIP_CONFIRMATION=false
 ```
 
-指令碼閘門：main 分支、工作樹乾淨、與 origin 同步、tag 不存在、
-Dependabot 無 medium+ 開放弱點、CHANGELOG 有內容、版本同步、SDK data 與 fresh
-export 完全一致、詞庫驗證、curated target idempotency、全部 SDK 測試。
-dry-run 會在暫存 worktree 中完成 bump，測試實際候選版本，不修改目前工作樹。
-正式流程會自動：測試 bump 後候選 → 人工確認 → 建立並推送 release commit →
-等待該 commit 的遠端 conformance 全綠 → 建立雙 tag
-（vX.Y.Z + sdk/go/vX.Y.Z）→ GitHub Release（notes 取自 CHANGELOG）。
+預演只驗證封存檔、checksum、base SHA、candidate tree、main 前進關係與既有 tag。
+它不繫結 registry credential，也不改 Git 或外部服務。
 
-**方法 B：手動（fallback）**
+### 3. 明確核准後正式發布
 
 ```bash
-# 先完成 make bump、CHANGELOG、make release-gate、commit 與 push
-# 找出 release commit 對應的 SDK Conformance run，且必須等到成功
-RELEASE_SHA=$(git rev-parse HEAD)
-gh run list --workflow "SDK Conformance" --branch main --event push \
-  --json databaseId,headSha,conclusion \
-  --jq ".[] | select(.headSha == \"$RELEASE_SHA\")"
-gh run watch <run-id> --exit-status
-
-# 遠端 gate 成功後才能建立 tag 與 release
-git tag -a vX.Y.Z -m "vX.Y.Z: 簡短說明"
-git tag -a sdk/go/vX.Y.Z -m "sdk/go vX.Y.Z"   # Go 子目錄 module 需要
-git push origin vX.Y.Z sdk/go/vX.Y.Z
-gh release create vX.Y.Z --title "vX.Y.Z: 標題" --notes "（從 CHANGELOG 複製）" --latest
+jcli build zhtw/release -s -v \
+  -p BUILD_NUMBER=<同一個-zhtw-build> \
+  -p RELEASE_ACTION=PUBLISH_ALL \
+  -p SKIP_CONFIRMATION=true
 ```
 
-> **GitHub Release（published 事件）會驗證不可變 tag**；全綠後才分派發布：
-> PyPI、Maven Central、npm（zhtw-js + zhtw-wasm）、crates.io、NuGet，
-> 以及 Go binaries。Go tag 本身不會直接發布 binary。
-> Go binary workflow 建立 `sdk/go/vX.Y.Z` release 時必須使用 `--latest=false`，
-> 避免它覆蓋主版本的 Latest 標記。
+正常順序是：雙 tag 與 GitHub Release → PyPI → npm `zhtw-js` → npm
+`zhtw-wasm` → crates.io → NuGet → Maven Central → Homebrew → 完整公開驗證。
 
-### 3. 釋出後驗證 + Homebrew（一鍵）
+`SKIP_CONFIRMATION=true` 只代表使用者已在目前對話核准這個確切 build，不會略過
+來源、checksum、tag 或 registry 驗證。
 
-```bash
-make release-verify VERSION=X.Y.Z
-```
+## 失敗處理
 
-自動：只追蹤該版本的 7 個 workflow 並等待全綠 → 輪詢 registry artifact
-（PyPI / npm×2 / crates.io / NuGet / Maven / Go proxy）→
-idempotent 更新 `~/GitHub/homebrew-tap`（同步、算 sha256、無差異即略過）。
-任一 workflow 失敗、registry 逾時或 Homebrew 未完成都會非零退出。
+公開 registry 沒有網站部署式 rollback。某一步失敗時：
 
-煙霧測試（自選）：`pip install zhtw==X.Y.Z && zhtw --version`、`brew upgrade zhtw`
+1. 停止後續發布。
+2. 使用同一個 `zhtw/build` 編號重跑 `PUBLISH_ALL`，或選對應的 `RETRY_*`。
+3. 已存在的正確版本會被安全略過，不會重傳。
+4. 如果已發布內容本身有錯，只能修正後升下一個 patch；不可刪 tag 或重用版號。
 
----
+可用的修復動作：`RETRY_GIT`、`RETRY_PYPI`、`RETRY_NPM_JS`、
+`RETRY_NPM_WASM`、`RETRY_CRATES`、`RETRY_NUGET`、`RETRY_MAVEN`、
+`RETRY_HOMEBREW`。每個動作仍是不可逆公開操作，必須確認。
 
-## 📋 核對清單
+## 限制
 
-每次釋出前請參照 [`docs/releases/RELEASE-CHECKLIST.md`](../../docs/releases/RELEASE-CHECKLIST.md)，逐項確認。
+目前 Jenkins 只有 Linux builder。Python、Java、Node、Rust、Go 與 .NET 的 Linux
+版本矩陣已搬到 `zhtw/verify`；Go 也會交叉編譯 Darwin/Windows binary。但 macOS 與
+Windows 原生執行測試要等新增 Jenkins agent，不能把交叉編譯說成原生驗證。
+
+內部 credential、job 維護與首次發布證據請依 private Jenkins runbook；公開 repo
+不保存 Jenkins URL 或 secret 細節。
 
 ---
 

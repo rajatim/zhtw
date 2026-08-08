@@ -8,7 +8,6 @@ ZHTW converts Simplified Chinese into natural, conservative Taiwan Traditional C
 
 **Blind-v2 result: zhtw reached 33.72%, above OpenCC at 30.82% and zhconv at 28.57%. Both leads were statistically significant.**
 
-[![CI](https://github.com/rajatim/zhtw/actions/workflows/ci.yml/badge.svg)](https://github.com/rajatim/zhtw/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/zhtw.svg)](https://pypi.org/project/zhtw/)
 [![npm](https://img.shields.io/npm/v/zhtw-js.svg?logo=npm)](https://www.npmjs.com/package/zhtw-js)
 [![crates.io](https://img.shields.io/crates/v/zhtw.svg?logo=rust)](https://crates.io/crates/zhtw)

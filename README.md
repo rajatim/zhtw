@@ -10,7 +10,6 @@ ZHTW 專門把簡體中文轉成自然、保守的台灣繁體中文，適合 AI
 
 Simplified Chinese to Taiwan Traditional Chinese converter with benchmarked accuracy.
 
-[![CI](https://github.com/rajatim/zhtw/actions/workflows/ci.yml/badge.svg)](https://github.com/rajatim/zhtw/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/zhtw.svg)](https://pypi.org/project/zhtw/)
 [![npm](https://img.shields.io/npm/v/zhtw-js.svg?logo=npm)](https://www.npmjs.com/package/zhtw-js)
 [![crates.io](https://img.shields.io/crates/v/zhtw.svg?logo=rust)](https://crates.io/crates/zhtw)

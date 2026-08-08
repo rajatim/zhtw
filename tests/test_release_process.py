@@ -1,6 +1,8 @@
-"""Regression tests for the fail-closed release pipeline."""
+"""Regression tests for the Jenkins-only release pipeline."""
 
 import re
+import shutil
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -10,47 +12,113 @@ def read(path: str) -> str:
     return (ROOT / path).read_text(encoding="utf-8")
 
 
-def test_go_binary_requires_gated_workflow_dispatch() -> None:
-    workflow = read(".github/workflows/go-binary.yml")
+def test_github_actions_are_not_a_ci_or_release_path() -> None:
+    workflows = ROOT / ".github" / "workflows"
 
-    assert "workflow_dispatch:" in workflow
-    assert "tags: ['sdk/go/v*']" not in workflow
-    assert "ref: ${{ inputs.tag }}" in workflow
-    assert "--latest=false" in workflow
+    assert not workflows.exists() or not list(workflows.glob("*.yml"))
+    assert not workflows.exists() or not list(workflows.glob("*.yaml"))
 
 
-def test_conformance_ignores_go_binary_release_event() -> None:
-    workflow = read(".github/workflows/sdk-conformance.yml")
-
-    assert "startsWith(github.event.release.tag_name, 'v')" in workflow
-    assert "^v[0-9]+\\.[0-9]+\\.[0-9]+$" in workflow
-    assert "ref: ${{ github.event_name == 'release'" in workflow
-
-
-def test_release_waits_for_remote_gate_before_tags_and_release() -> None:
+def test_direct_release_command_fails_closed() -> None:
     script = read("scripts/release.sh")
 
-    gate = script.index('gh run watch "$RUN_ID" --exit-status')
-    tag = script.index('git tag -a "v$VERSION"')
-    release = script.index('gh release create "v$VERSION"')
-    assert gate < tag < release
-    assert "ALLOW_ALERT_CHECK_FAILURE" in script
-    assert script.count("--latest") == 2
+    assert "Use Jenkins zhtw/build, then zhtw/release" in script
+    assert "exit 64" in script
+    assert "git push" not in script
+    assert "gh release" not in script
+    assert "gh workflow" not in script
 
 
-def test_changelog_only_release_commit_triggers_conformance() -> None:
-    workflow = read(".github/workflows/sdk-conformance.yml")
+def test_jenkins_build_creates_one_complete_candidate() -> None:
+    script = read("scripts/jenkins-build.sh")
 
-    assert workflow.count("- 'CHANGELOG.md'") == 2
+    for phase in ("scan", "build", "test", "package", "verify"):
+        assert f"{phase})" in script
+    for package in ("python", "npm", "crates", "nuget", "maven", "go"):
+        assert f"packages/{package}" in script
+    assert "make release-gate" in script
+    assert "candidate-tree-sha" in script
+    assert "release.patch" in script
+    assert "zhtw_checksums.txt" in script
 
 
-def test_release_candidate_installs_locked_validation_dependencies() -> None:
-    script = read("scripts/release.sh")
+def test_jenkins_release_is_idempotent_and_covers_every_target() -> None:
+    script = read("scripts/jenkins-release.sh")
 
-    bump = script.index('make bump VERSION="$VERSION"')
-    sync = script.index("uv sync --frozen --extra dev")
-    gate = script.index("make release-gate")
-    assert bump < sync < gate
+    for action in (
+        "publish-git",
+        "publish-pypi",
+        "publish-npm-js",
+        "publish-npm-wasm",
+        "publish-crates",
+        "publish-nuget",
+        "publish-maven",
+        "publish-homebrew",
+    ):
+        assert f"{action})" in script
+    assert "registry_exists" in script
+    assert "git push --atomic" in script
+    assert "Existing GitHub asset differs" in script
+    assert "Cargo repack differs from the archived crate" in script
+    assert "publishingType=AUTOMATIC" in script
+
+
+def test_release_secrets_are_not_command_line_arguments() -> None:
+    script = read("scripts/jenkins-release.sh")
+
+    assert '--password "$PYPI_TOKEN"' not in script
+    assert '--api-key "$NUGET_API_KEY"' not in script
+    assert '--token "$CARGO_REGISTRY_TOKEN"' not in script
+    assert 'TWINE_PASSWORD="$PYPI_TOKEN"' in script
+    assert "X-NuGet-ApiKey: %s" in script
+    assert "_authToken=${NODE_AUTH_TOKEN}" in script
+
+
+def test_release_verify_is_read_only_and_version_scoped() -> None:
+    script = read("scripts/release-verify.sh")
+
+    assert "12/12 checks" in script
+    assert "pypi.org/pypi/zhtw/$VERSION" in script
+    assert "registry.npmjs.org/zhtw-js/$VERSION" in script
+    assert "repo1.maven.org" in script
+    assert "homebrew-tap/main/Formula/zhtw.rb" in script
+    assert "git commit" not in script
+    assert "git push" not in script
+    assert "gh run" not in script
+
+
+def test_version_bump_is_portable(tmp_path: Path) -> None:
+    files = (
+        "pyproject.toml",
+        "src/zhtw/__init__.py",
+        "sdk/java/pom.xml",
+        "sdk/typescript/package.json",
+        "sdk/rust/Cargo.toml",
+        "sdk/rust/zhtw-wasm/package.json",
+        "sdk/dotnet/Zhtw.csproj",
+        "AGENTS.md",
+        "README.md",
+        "README.en.md",
+        "sdk/java/BENCHMARK.md",
+        "sdk/java/README.md",
+        "sdk/go/README.md",
+        "sdk/dotnet/README.md",
+        "sdk/rust/zhtw/README.md",
+    )
+    for relative in files:
+        source = ROOT / relative
+        destination = tmp_path / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)
+
+    subprocess.run(
+        ["python3", str(ROOT / "scripts/bump_version.py"), "9.8.7"],
+        cwd=tmp_path,
+        check=True,
+    )
+    assert 'version = "9.8.7"' in (tmp_path / "pyproject.toml").read_text()
+    assert '"version": "9.8.7"' in (tmp_path / "sdk/typescript/package.json").read_text()
+    assert "sed -i ''" not in read("Makefile")
 
 
 def test_release_gate_uses_pinned_corpus_and_go_lint() -> None:
@@ -61,17 +129,6 @@ def test_release_gate_uses_pinned_corpus_and_go_lint() -> None:
     assert "golangci-lint/cmd/golangci-lint@v1.64.8" in makefile
     assert len(lock) == 40
     assert all(char in "0123456789abcdef" for char in lock)
-
-
-def test_release_verify_is_version_scoped_and_fail_closed() -> None:
-    script = read("scripts/release-verify.sh")
-
-    assert '--branch "$branch" --event "$event"' in script
-    assert "缺少 ${missing}、執行中 ${pending}（${attempt}/${WORKFLOW_ATTEMPTS}）" in script
-    assert "發布 workflows 等待逾時" in script
-    assert "registry artifact 等待逾時" in script
-    assert 'git -C "$TAP_DIR" pull --ff-only' in script
-    assert "diff --quiet -- Formula/zhtw.rb" in script
 
 
 def test_shell_variables_before_non_ascii_text_are_braced() -> None:

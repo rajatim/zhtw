@@ -537,37 +537,7 @@ ifndef VERSION
 	$(error VERSION is required. Usage: make bump VERSION=4.0.0)
 endif
 	@echo "📝 Bumping all SDKs to $(VERSION)..."
-	@sed -i '' 's/^version = .*/version = "$(VERSION)"/' pyproject.toml
-	@sed -i '' 's/^__version__ = .*/__version__ = "$(VERSION)"/' src/zhtw/__init__.py
-	@# Only match the project version (4-space indent, top level of <project>).
-	@# Plugin versions are nested deeper (12+ spaces) and must not be touched.
-	@sed -i '' 's|^    <version>[^<]*</version>|    <version>$(VERSION)</version>|' sdk/java/pom.xml
-	@sed -i '' 's/"version": "[^"]*"/"version": "$(VERSION)"/' sdk/typescript/package.json
-	@sed -i '' '/^\[workspace\.package\]/,/^\[/ s|^version = "[0-9][0-9.]*"|version = "$(VERSION)"|' sdk/rust/Cargo.toml
-	@sed -i '' 's/"version": "[^"]*"/"version": "$(VERSION)"/' sdk/rust/zhtw-wasm/package.json
-	@sed -i '' 's|<Version>[^<]*</Version>|<Version>$(VERSION)</Version>|' sdk/dotnet/Zhtw.csproj
-	@# AGENTS.md 標頭版本（曾因不在 bump 清單而漂移）
-	@sed -i '' 's|^> \*\*v[0-9][0-9.]*\*\*|> **v$(VERSION)**|' AGENTS.md
-	@# README files: Maven dep version, Gradle (Kotlin + Groovy), pre-commit rev tag.
-	@# Pattern requires the version starts with a digit so we never touch placeholders.
-	@sed -i '' 's|<version>[0-9][0-9.]*</version>|<version>$(VERSION)</version>|g' README.md README.en.md
-	@sed -i '' 's|com.rajatim:zhtw:[0-9][0-9.]*|com.rajatim:zhtw:$(VERSION)|g' README.md README.en.md
-	@sed -i '' 's|rev: v[0-9][0-9.]*|rev: v$(VERSION)|g' README.md README.en.md
-	@# README files: Rust crate version in TOML snippets.
-	@sed -i '' 's|zhtw = "[0-9][0-9.]*"|zhtw = "$(VERSION)"|g' README.md README.en.md
-	@# Java SDK benchmark report header
-	@sed -i '' 's,| SDK Version | [0-9][0-9.]* |,| SDK Version | $(VERSION) |,' sdk/java/BENCHMARK.md
-	@# README: standalone binary download URL (percent-encoded tag)
-	@sed -i '' 's|sdk%2Fgo%2Fv[0-9][0-9.]*|sdk%2Fgo%2Fv$(VERSION)|g' README.md README.en.md
-	@# SDK READMEs: version strings in install snippets
-	@for f in sdk/java/README.md sdk/go/README.md sdk/dotnet/README.md sdk/rust/zhtw/README.md; do \
-	  if [ -f "$$f" ]; then \
-	    sed -i '' 's|<version>[0-9][0-9.]*</version>|<version>$(VERSION)</version>|g' "$$f"; \
-	    sed -i '' 's|com.rajatim:zhtw:[0-9][0-9.]*|com.rajatim:zhtw:$(VERSION)|g' "$$f"; \
-	    sed -i '' 's|zhtw = "[0-9][0-9.]*"|zhtw = "$(VERSION)"|g' "$$f"; \
-	    sed -i '' 's|sdk%2Fgo%2Fv[0-9][0-9.]*|sdk%2Fgo%2Fv$(VERSION)|g' "$$f"; \
-	  fi; \
-	done
+	@$(PYTHON) scripts/bump_version.py "$(VERSION)"
 	@echo "📦 Regenerating sdk/data (embeds version)..."
 	$(PYTHON) -m zhtw export --output sdk/data
 	@mkdir -p sdk/rust/zhtw/data
@@ -579,19 +549,19 @@ endif
 
 # === Release ===
 
-release: ## One-command release（閘門+測試+bump+tag+GH Release）: make release VERSION=x.y.z
+release: ## Formal releases run only through Jenkins zhtw/release
 ifndef VERSION
 	$(error VERSION is required. Usage: make release VERSION=4.0.0)
 endif
 	@bash scripts/release.sh $(VERSION)
 
-release-dry: ## Release 預演（只跑閘門與測試，不做任何變更）: make release-dry VERSION=x.y.z
+release-dry: ## Release previews run only through Jenkins zhtw/release
 ifndef VERSION
 	$(error VERSION is required. Usage: make release-dry VERSION=4.0.0)
 endif
 	@DRY_RUN=1 bash scripts/release.sh $(VERSION)
 
-release-verify: ## 發布後驗證（7 workflows + 7 registries + Homebrew）: make release-verify VERSION=x.y.z
+release-verify: ## Read-only registry verification for a published version
 ifndef VERSION
 	$(error VERSION is required. Usage: make release-verify VERSION=4.0.0)
 endif
