@@ -78,6 +78,11 @@ make version-check   # 任一檔案不一致就 exit 1
 - `make release` 與 `make release-dry` 會故意失敗；不是備援流程。
 - `zhtw/release` 預設 `PREVIEW`，不改任何外部狀態。只有使用者明確核准確切
   Jenkins build 後，才可用 `PUBLISH_ALL` 或 `RETRY_*`。
+- 所有 Git、通知與 registry 機密只能由 `zhtw/` folder-scoped Jenkins
+  Credentials 在需要的 stage 注入。Job 不得呼叫 1Password、讀取 agent 主機上的
+  私鑰／credential profile／session cache，或依賴互動式 shell。由 credential 產生的
+  npm、GPG、GitHub CLI 等暫存設定只能放在 disposable workspace，且每種結果都要清除。
+  1Password 只可由 operator 在 Job 外做 credential 建立或輪替，不是 runtime fallback。
 - Registry 接受版本後沒有 rollback；失敗時重跑同一 build 補齊，內容錯誤則升下一個
   patch，禁止刪除／移動 tag 或重用版號。
 - 每次操作前必讀 `.claude/rules/releasing.md` 與
