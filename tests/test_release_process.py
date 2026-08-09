@@ -5,7 +5,13 @@ import json
 import re
 import shutil
 import subprocess
+from dataclasses import asdict
 from pathlib import Path
+
+import pytest
+
+import scripts.audit_corpus_idempotency as idempotency_audit
+import scripts.update_idempotency_baseline_version as baseline_updater
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -167,6 +173,61 @@ def test_version_bump_refreshes_local_benchmark_lock(tmp_path: Path) -> None:
     assert local["version"] == "9.8.7"
     assert local["artifact_sha256"]["sdk/data/zhtw-data.json"] == digest
     assert local["config_sha256"] == digest
+
+
+def test_version_bump_advances_only_an_unchanged_idempotency_baseline(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    inputs = tmp_path / "inputs.json"
+    baseline = tmp_path / "baseline.json"
+    inputs.write_text("{}\n", encoding="utf-8")
+    summary = idempotency_audit.Summary(
+        schema_version=1,
+        dataset="fixture",
+        converter_version="9.8.7",
+        inputs_sha256="a" * 64,
+        total_cases=10,
+        idempotent_cases=9,
+        non_idempotent_cases=1,
+        idempotency_rate=0.9,
+        non_idempotent_ids_sha256="b" * 64,
+    )
+    payload = asdict(summary)
+    payload["converter_version"] = "4.4.3"
+    baseline.write_text(json.dumps(payload), encoding="utf-8")
+    monkeypatch.setattr(baseline_updater, "build_summary", lambda _: summary)
+
+    baseline_updater.update_baseline("9.8.7", inputs, baseline)
+
+    updated = json.loads(baseline.read_text(encoding="utf-8"))
+    assert updated == asdict(summary)
+
+
+def test_version_bump_rejects_changed_idempotency_results(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    inputs = tmp_path / "inputs.json"
+    baseline = tmp_path / "baseline.json"
+    inputs.write_text("{}\n", encoding="utf-8")
+    summary = idempotency_audit.Summary(
+        schema_version=1,
+        dataset="fixture",
+        converter_version="9.8.7",
+        inputs_sha256="a" * 64,
+        total_cases=10,
+        idempotent_cases=9,
+        non_idempotent_cases=1,
+        idempotency_rate=0.9,
+        non_idempotent_ids_sha256="b" * 64,
+    )
+    payload = asdict(summary)
+    payload["converter_version"] = "4.4.3"
+    payload["idempotent_cases"] = 8
+    baseline.write_text(json.dumps(payload), encoding="utf-8")
+    monkeypatch.setattr(baseline_updater, "build_summary", lambda _: summary)
+
+    with pytest.raises(ValueError, match="idempotent_cases"):
+        baseline_updater.update_baseline("9.8.7", inputs, baseline)
 
 
 def test_release_gate_uses_pinned_corpus_and_go_lint() -> None:
