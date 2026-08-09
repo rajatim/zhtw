@@ -3,6 +3,7 @@
 """Blind-v1 post-review and public promotion tests."""
 
 from tests._accuracy_holdout_support import *  # noqa: F403
+from zhtw import __version__ as ZHTW_VERSION
 
 
 def test_batch7_miss_final_decision_omits_sealed_values() -> None:
@@ -2597,7 +2598,7 @@ def test_run_accuracy_benchmark_with_temp_fixture(tmp_path: Path) -> None:
     assert "rows" not in payload
     assert "expected" not in payload
     assert payload["expected_sha256"] == hashlib.sha256(expected_path.read_bytes()).hexdigest()
-    assert payload["provenance"]["zhtw_version"] == "4.4.3"
+    assert payload["provenance"]["zhtw_version"] == ZHTW_VERSION
     assert len(payload["provenance"]["git_sha"]) == 40
     assert payload["provenance"]["python_version"]
     assert payload["provenance"]["os"]
