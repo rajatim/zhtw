@@ -59,6 +59,13 @@ def test_nuget_package_builds_every_target_before_no_build_pack() -> None:
     assert script.index(restore) < script.index(build) < script.index(pack)
 
 
+def test_python_candidate_excludes_uv_output_helper() -> None:
+    script = read("scripts/jenkins-build.sh")
+
+    assert 'rm -f "$destination/.gitignore"' in script
+    assert 'find "$OUTPUT_DIR/packages/python" -maxdepth 1 -type f | wc -l' in script
+
+
 def test_jenkins_release_is_idempotent_and_covers_every_target() -> None:
     script = read("scripts/jenkins-release.sh")
 

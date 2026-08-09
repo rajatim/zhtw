@@ -78,6 +78,9 @@ package_python() {
     mkdir -p "$destination"
     rm -rf dist
     uv build --out-dir "$destination"
+    # uv creates this helper for output directories. It is not a distribution
+    # artifact and Jenkins' default archive excludes it, so never checksum it.
+    rm -f "$destination/.gitignore"
 }
 
 package_typescript() {
@@ -245,6 +248,7 @@ verify_candidate() {
 
     compgen -G "$OUTPUT_DIR/packages/python/zhtw-$RELEASE_VERSION.tar.gz" >/dev/null
     compgen -G "$OUTPUT_DIR/packages/python/zhtw-$RELEASE_VERSION-*.whl" >/dev/null
+    [ "$(find "$OUTPUT_DIR/packages/python" -maxdepth 1 -type f | wc -l | tr -d ' ')" = 2 ]
     local js_tgz wasm_tgz
     js_tgz="$(find "$OUTPUT_DIR/packages/npm" -maxdepth 1 -name "zhtw-js-$RELEASE_VERSION.tgz" -print -quit)"
     wasm_tgz="$(find "$OUTPUT_DIR/packages/npm" -maxdepth 1 -name "zhtw-wasm-$RELEASE_VERSION.tgz" -print -quit)"
