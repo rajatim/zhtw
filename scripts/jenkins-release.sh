@@ -12,6 +12,19 @@ die() {
     exit 64
 }
 
+secret_runtime_root() {
+    local root="${ZHTW_SECRET_RUNTIME_ROOT:-}"
+    [ -n "$root" ] || die "ZHTW_SECRET_RUNTIME_ROOT is required for publication"
+    [ -n "${WORKSPACE:-}" ] || die "WORKSPACE is required for publication"
+    case "$root" in
+        "$WORKSPACE"/*) ;;
+        *) die "ZHTW_SECRET_RUNTIME_ROOT must stay inside WORKSPACE" ;;
+    esac
+    mkdir -p "$root"
+    chmod 700 "$root"
+    printf '%s\n' "$root"
+}
+
 require_common() {
     local name
     for name in SOURCE_SHA CANDIDATE_TREE_SHA RELEASE_VERSION VERSION_TAG; do
@@ -218,7 +231,7 @@ publish_pypi() {
 }
 
 publish_npm() {
-    local target="$1" package_name tarball temporary_config
+    local target="$1" package_name tarball temporary_config runtime_root
     require_common
     ensure_git_release
     [ -n "${NODE_AUTH_TOKEN:-}" ] || die "NODE_AUTH_TOKEN is required"
@@ -233,7 +246,8 @@ publish_npm() {
     fi
     tarball="$PAYLOAD_DIR/packages/npm/$package_name-$RELEASE_VERSION.tgz"
     [ -s "$tarball" ] || die "Missing npm tarball: $tarball"
-    temporary_config="$(mktemp)"
+    runtime_root="$(secret_runtime_root)"
+    temporary_config="$(mktemp "$runtime_root/npmrc.XXXXXX")"
     chmod 600 "$temporary_config"
     printf '%s\n' \
         'registry=https://registry.npmjs.org/' \
@@ -297,8 +311,9 @@ publish_maven() {
         return
     fi
 
-    local temporary layout bundle auth deployment_id attempt status
-    temporary="$(mktemp -d)"
+    local temporary layout bundle auth deployment_id attempt status runtime_root
+    runtime_root="$(secret_runtime_root)"
+    temporary="$(mktemp -d "$runtime_root/maven.XXXXXX")"
     trap "rm -rf -- '$temporary'" EXIT
     export GNUPGHOME="$temporary/gnupg"
     mkdir -m 700 "$GNUPGHOME"
