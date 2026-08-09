@@ -230,6 +230,27 @@ def test_version_bump_rejects_changed_idempotency_results(
         baseline_updater.update_baseline("9.8.7", inputs, baseline)
 
 
+def test_idempotency_baseline_updater_runs_as_a_script(tmp_path: Path) -> None:
+    baseline = tmp_path / "baseline.json"
+    shutil.copy2(ROOT / "benchmarks/accuracy/blind-v2.idempotency-baseline.json", baseline)
+
+    subprocess.run(
+        [
+            "python3",
+            str(ROOT / "scripts/update_idempotency_baseline_version.py"),
+            "4.4.3",
+            "--inputs",
+            str(ROOT / "benchmarks/accuracy/blind-v2.inputs.json"),
+            "--baseline",
+            str(baseline),
+        ],
+        cwd=tmp_path,
+        check=True,
+    )
+
+    assert json.loads(baseline.read_text(encoding="utf-8"))["converter_version"] == "4.4.3"
+
+
 def test_release_gate_uses_pinned_corpus_and_go_lint() -> None:
     makefile = read("Makefile")
     lock = read("tests/data/corpus.lock").strip()
