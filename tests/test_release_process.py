@@ -1,5 +1,7 @@
 """Regression tests for the Jenkins-only release pipeline."""
 
+import hashlib
+import json
 import re
 import shutil
 import subprocess
@@ -139,9 +141,32 @@ def test_release_candidate_keeps_unreleased_notes(tmp_path: Path) -> None:
         cwd=tmp_path,
         check=True,
     )
-
     assert "Blind-v3" in notes.read_text(encoding="utf-8")
     assert "## [9.8.7] - 2026-08-09" in (tmp_path / "CHANGELOG.md").read_text(encoding="utf-8")
+
+
+def test_version_bump_refreshes_local_benchmark_lock(tmp_path: Path) -> None:
+    lock_path = tmp_path / "benchmarks/accuracy/competitors.lock.json"
+    data_path = tmp_path / "sdk/data/zhtw-data.json"
+    lock_path.parent.mkdir(parents=True)
+    data_path.parent.mkdir(parents=True)
+    shutil.copy2(ROOT / "benchmarks/accuracy/competitors.lock.json", lock_path)
+    payload = json.loads((ROOT / "sdk/data/zhtw-data.json").read_text(encoding="utf-8"))
+    payload["version"] = "9.8.7"
+    data_path.write_text(json.dumps(payload, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    subprocess.run(
+        ["python3", str(ROOT / "scripts/update_local_benchmark_lock.py"), "9.8.7"],
+        cwd=tmp_path,
+        check=True,
+    )
+
+    lock = json.loads(lock_path.read_text(encoding="utf-8"))
+    local = next(item for item in lock["competitors"] if item["id"] == "zhtw")
+    digest = hashlib.sha256(data_path.read_bytes()).hexdigest()
+    assert local["version"] == "9.8.7"
+    assert local["artifact_sha256"]["sdk/data/zhtw-data.json"] == digest
+    assert local["config_sha256"] == digest
 
 
 def test_release_gate_uses_pinned_corpus_and_go_lint() -> None:
