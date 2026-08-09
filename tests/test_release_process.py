@@ -108,6 +108,16 @@ def test_release_secret_files_stay_in_disposable_workspace() -> None:
     assert 'temporary_config="$(mktemp)"' not in script
 
 
+def test_jenkins_verify_uses_isolated_podman_compatible_cli() -> None:
+    script = read("scripts/jenkins-verify.sh")
+
+    assert "prepare_container_cli" in script
+    assert 'ln -sf "$(command -v podman)"' in script
+    assert 'export DOCKER_CONFIG="$runtime_root/docker-config"' in script
+    assert 'export REGISTRY_AUTH_FILE="$runtime_root/registry-auth.json"' in script
+    assert "printf '{\"auths\":{}}\\n'" in script
+
+
 def test_release_verify_is_read_only_and_version_scoped() -> None:
     script = read("scripts/release-verify.sh")
 

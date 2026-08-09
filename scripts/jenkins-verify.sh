@@ -11,6 +11,23 @@ die() {
     exit 64
 }
 
+prepare_container_cli() {
+    local runtime_root="$PWD/.jenkins-container-runtime"
+    mkdir -p "$runtime_root/bin" "$runtime_root/docker-config"
+    chmod 700 "$runtime_root" "$runtime_root/bin" "$runtime_root/docker-config"
+    printf '{"auths":{}}\n' > "$runtime_root/registry-auth.json"
+    chmod 600 "$runtime_root/registry-auth.json"
+    export DOCKER_CONFIG="$runtime_root/docker-config"
+    export REGISTRY_AUTH_FILE="$runtime_root/registry-auth.json"
+
+    if ! command -v docker >/dev/null 2>&1; then
+        command -v podman >/dev/null 2>&1 || die "Docker or Podman is required for competitor verification"
+        ln -sf "$(command -v podman)" "$runtime_root/bin/docker"
+        export PATH="$runtime_root/bin:$PATH"
+    fi
+    docker --version
+}
+
 verify_sdk_matrix() {
     local version environment java_home node_bin rust_toolchain go_bin
 
@@ -58,6 +75,7 @@ verify_sdk_matrix() {
 }
 
 verify_competitor_benchmark() {
+    prepare_container_cli
     uv sync --frozen --extra dev
     uv run python scripts/validate_competitor_environment.py
     make benchmark-competitor-probe
