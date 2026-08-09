@@ -130,7 +130,15 @@ def test_version_bump_is_portable(tmp_path: Path) -> None:
 
 
 def test_release_candidate_keeps_unreleased_notes(tmp_path: Path) -> None:
-    shutil.copy2(ROOT / "CHANGELOG.md", tmp_path / "CHANGELOG.md")
+    (tmp_path / "CHANGELOG.md").write_text(
+        "# Changelog\n\n"
+        "## [Unreleased]\n\n"
+        "### Changed\n\n"
+        "- Candidate fixture note.\n\n"
+        "## [1.0.0] - 2026-01-01\n\n"
+        "- Previous release.\n",
+        encoding="utf-8",
+    )
     notes = tmp_path / "release-notes.md"
 
     subprocess.run(
@@ -147,7 +155,7 @@ def test_release_candidate_keeps_unreleased_notes(tmp_path: Path) -> None:
         cwd=tmp_path,
         check=True,
     )
-    assert "Blind-v3" in notes.read_text(encoding="utf-8")
+    assert "Candidate fixture note." in notes.read_text(encoding="utf-8")
     assert "## [9.8.7] - 2026-08-09" in (tmp_path / "CHANGELOG.md").read_text(encoding="utf-8")
 
 
@@ -238,7 +246,7 @@ def test_idempotency_baseline_updater_runs_as_a_script(tmp_path: Path) -> None:
         [
             "python3",
             str(ROOT / "scripts/update_idempotency_baseline_version.py"),
-            "4.4.3",
+            idempotency_audit.__version__,
             "--inputs",
             str(ROOT / "benchmarks/accuracy/blind-v2.inputs.json"),
             "--baseline",
@@ -248,7 +256,10 @@ def test_idempotency_baseline_updater_runs_as_a_script(tmp_path: Path) -> None:
         check=True,
     )
 
-    assert json.loads(baseline.read_text(encoding="utf-8"))["converter_version"] == "4.4.3"
+    assert (
+        json.loads(baseline.read_text(encoding="utf-8"))["converter_version"]
+        == idempotency_audit.__version__
+    )
 
 
 def test_release_gate_uses_pinned_corpus_and_go_lint() -> None:
