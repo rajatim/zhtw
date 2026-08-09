@@ -22,9 +22,13 @@ def read(path: str) -> str:
 
 def test_github_actions_are_not_a_ci_or_release_path() -> None:
     workflows = ROOT / ".github" / "workflows"
+    agent_rules = read("AGENTS.md")
 
     assert not workflows.exists() or not list(workflows.glob("*.yml"))
     assert not workflows.exists() or not list(workflows.glob("*.yaml"))
+    assert "folder-scoped Jenkins" in agent_rules
+    assert "1Password" in agent_rules
+    assert "disposable workspace" in agent_rules
 
 
 def test_direct_release_command_fails_closed() -> None:
