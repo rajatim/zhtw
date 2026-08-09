@@ -544,6 +544,7 @@ endif
 	@cp sdk/data/zhtw-data.json sdk/rust/zhtw/data/zhtw-data.json
 	@cp sdk/data/zhtw-data.json sdk/go/zhtw/zhtw-data.json
 	@$(PYTHON) scripts/update_local_benchmark_lock.py "$(VERSION)"
+	@$(PYTHON) scripts/update_idempotency_baseline_version.py "$(VERSION)"
 	@echo "🔒 Refreshing Cargo.lock..."
 	@cd sdk/rust && cargo check --quiet 2>/dev/null || true
 	@$(MAKE) version-check
