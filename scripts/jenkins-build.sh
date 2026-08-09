@@ -6,7 +6,9 @@ ACTION="${1:-}"
 OUTPUT_DIR="${2:-}"
 STATE_DIR=".jenkins-release"
 TOOLS_ROOT="${ZHTW_TOOLS_ROOT:-$HOME/.local/share/zhtw-tools}"
-export PATH="$HOME/.cargo/bin:$TOOLS_ROOT/dotnet:$TOOLS_ROOT/go/bin:$TOOLS_ROOT/wasm-pack:$PATH"
+export PATH="$TOOLS_ROOT/node-20/bin:$HOME/.cargo/bin:$TOOLS_ROOT/dotnet:$TOOLS_ROOT/go/bin:$TOOLS_ROOT/wasm-pack:$PATH"
+export UV_PYTHON=3.13
+export UV_PYTHON_PREFERENCE=only-managed
 
 die() {
     printf 'ERROR: %s\n' "$*" >&2
