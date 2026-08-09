@@ -6,10 +6,14 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from dataclasses import asdict
 from pathlib import Path
 
-from scripts.audit_corpus_idempotency import build_summary
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from scripts.audit_corpus_idempotency import build_summary  # noqa: E402
 
 SEMVER = re.compile(r"^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$")
 DEFAULT_INPUTS = Path("benchmarks/accuracy/blind-v2.inputs.json")
