@@ -112,7 +112,8 @@ def test_jenkins_verify_uses_isolated_podman_compatible_cli() -> None:
     script = read("scripts/jenkins-verify.sh")
 
     assert "prepare_container_cli" in script
-    assert 'ln -sf "$(command -v podman)"' in script
+    assert "--cgroup-manager=cgroupfs --events-backend=file" in script
+    assert 'chmod 700 "$runtime_root/bin/docker"' in script
     assert 'export DOCKER_CONFIG="$runtime_root/docker-config"' in script
     assert 'export REGISTRY_AUTH_FILE="$runtime_root/registry-auth.json"' in script
     assert "printf '{\"auths\":{}}\\n'" in script

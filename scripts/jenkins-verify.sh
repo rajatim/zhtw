@@ -22,7 +22,9 @@ prepare_container_cli() {
 
     if ! command -v docker >/dev/null 2>&1; then
         command -v podman >/dev/null 2>&1 || die "Docker or Podman is required for competitor verification"
-        ln -sf "$(command -v podman)" "$runtime_root/bin/docker"
+        printf '#!/usr/bin/env bash\nexec %q --cgroup-manager=cgroupfs --events-backend=file "$@"\n' \
+            "$(command -v podman)" > "$runtime_root/bin/docker"
+        chmod 700 "$runtime_root/bin/docker"
         export PATH="$runtime_root/bin:$PATH"
     fi
     docker --version
