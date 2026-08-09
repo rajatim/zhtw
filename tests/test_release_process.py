@@ -50,6 +50,15 @@ def test_jenkins_build_creates_one_complete_candidate() -> None:
     assert "zhtw_checksums.txt" in script
 
 
+def test_nuget_package_builds_every_target_before_no_build_pack() -> None:
+    script = read("scripts/jenkins-build.sh")
+    restore = "dotnet restore sdk/dotnet/Zhtw.csproj"
+    build = "dotnet build sdk/dotnet/Zhtw.csproj -c Release --no-restore"
+    pack = 'dotnet pack sdk/dotnet/Zhtw.csproj -c Release --no-build --no-restore -o "$destination"'
+
+    assert script.index(restore) < script.index(build) < script.index(pack)
+
+
 def test_jenkins_release_is_idempotent_and_covers_every_target() -> None:
     script = read("scripts/jenkins-release.sh")
 
