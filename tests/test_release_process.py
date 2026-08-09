@@ -121,6 +121,29 @@ def test_version_bump_is_portable(tmp_path: Path) -> None:
     assert "sed -i ''" not in read("Makefile")
 
 
+def test_release_candidate_keeps_unreleased_notes(tmp_path: Path) -> None:
+    shutil.copy2(ROOT / "CHANGELOG.md", tmp_path / "CHANGELOG.md")
+    notes = tmp_path / "release-notes.md"
+
+    subprocess.run(
+        [
+            "python3",
+            str(ROOT / "scripts/prepare_release_candidate.py"),
+            "--version",
+            "9.8.7",
+            "--date",
+            "2026-08-09",
+            "--notes-output",
+            str(notes),
+        ],
+        cwd=tmp_path,
+        check=True,
+    )
+
+    assert "Blind-v3" in notes.read_text(encoding="utf-8")
+    assert "## [9.8.7] - 2026-08-09" in (tmp_path / "CHANGELOG.md").read_text(encoding="utf-8")
+
+
 def test_release_gate_uses_pinned_corpus_and_go_lint() -> None:
     makefile = read("Makefile")
     lock = read("tests/data/corpus.lock").strip()
