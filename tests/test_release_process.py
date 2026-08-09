@@ -98,6 +98,16 @@ def test_release_secrets_are_not_command_line_arguments() -> None:
     assert "_authToken=${NODE_AUTH_TOKEN}" in script
 
 
+def test_release_secret_files_stay_in_disposable_workspace() -> None:
+    script = read("scripts/jenkins-release.sh")
+
+    assert "ZHTW_SECRET_RUNTIME_ROOT is required for publication" in script
+    assert "ZHTW_SECRET_RUNTIME_ROOT must stay inside WORKSPACE" in script
+    assert 'mktemp "$runtime_root/npmrc.XXXXXX"' in script
+    assert 'mktemp -d "$runtime_root/maven.XXXXXX"' in script
+    assert 'temporary_config="$(mktemp)"' not in script
+
+
 def test_release_verify_is_read_only_and_version_scoped() -> None:
     script = read("scripts/release-verify.sh")
 
