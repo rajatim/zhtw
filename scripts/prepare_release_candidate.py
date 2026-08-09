@@ -50,7 +50,7 @@ def main() -> None:
         changelog.write_text(text, encoding="utf-8")
 
     notes_match = re.search(
-        rf"^## \[{re.escape(args.version)}\](?: - .*)?\n(?P<body>.*?)(?=^## \[|\Z)",
+        rf"^## \[{re.escape(args.version)}\](?: - [^\n]*)?\n(?P<body>.*?)(?=^## \[|\Z)",
         text,
         re.MULTILINE | re.DOTALL,
     )
