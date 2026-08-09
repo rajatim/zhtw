@@ -123,7 +123,9 @@ package_crate() {
 package_nuget() {
     local destination="$1"
     mkdir -p "$destination"
-    dotnet pack sdk/dotnet/Zhtw.csproj -c Release --no-build -o "$destination"
+    dotnet restore sdk/dotnet/Zhtw.csproj
+    dotnet build sdk/dotnet/Zhtw.csproj -c Release --no-restore
+    dotnet pack sdk/dotnet/Zhtw.csproj -c Release --no-build --no-restore -o "$destination"
 }
 
 package_maven() {
