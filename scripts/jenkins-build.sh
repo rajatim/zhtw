@@ -37,7 +37,7 @@ require_env() {
 
 require_tools() {
     local tool
-    for tool in uv python3 java mvn node pnpm cargo rustc go dotnet wasm-pack jq zip unzip git sha256sum; do
+    for tool in uv python3 java javac mvn node npm pnpm cargo rustc go dotnet wasm-pack jq zip unzip git sha256sum; do
         command -v "$tool" >/dev/null 2>&1 || die "Required tool is missing: $tool"
     done
 }
@@ -165,7 +165,7 @@ package_crate() {
     local destination="$1"
     mkdir -p "$destination"
     rm -f sdk/rust/target/package/zhtw-*.crate
-    cargo package --manifest-path sdk/rust/zhtw/Cargo.toml --allow-dirty --no-verify
+    cargo package --manifest-path sdk/rust/zhtw/Cargo.toml --allow-dirty
     cp sdk/rust/target/package/zhtw-"$RELEASE_VERSION".crate "$destination/"
 }
 
@@ -261,6 +261,8 @@ package_candidate() {
     package_maven "$OUTPUT_DIR/packages/maven"
     package_go "$OUTPUT_DIR/packages/go"
 
+    ./scripts/write-toolchain-evidence.sh "$OUTPUT_DIR/metadata/toolchain.properties"
+
     git diff --check
     git diff --binary HEAD -- . > "$OUTPUT_DIR/candidate/release.patch"
     [ -s "$OUTPUT_DIR/candidate/release.patch" ] || die "Candidate patch is empty"
@@ -312,6 +314,105 @@ verify_candidate() {
     [ -s "$OUTPUT_DIR/packages/maven/zhtw-$RELEASE_VERSION.pom" ]
     [ "$(find "$OUTPUT_DIR/packages/go" -maxdepth 1 \( -name '*.tar.gz' -o -name '*.zip' \) | wc -l | tr -d ' ')" = 5 ]
     (cd "$OUTPUT_DIR/packages/go" && sha256sum -c zhtw_checksums.txt)
+    [ -s "$OUTPUT_DIR/metadata/toolchain.properties" ]
+    smoke_candidate_packages
+}
+
+smoke_candidate_packages() {
+    local temporary wheel js_tgz wasm_tgz crate nuget jar pom java_classpath
+    local go_archive go_binary go_platform dotnet_major dotnet_framework
+    temporary="$(mktemp -d "$WORKSPACE/candidate-smoke.XXXXXX")"
+    trap 'rm -rf -- "$temporary"' RETURN
+
+    wheel="$(find "$OUTPUT_DIR/packages/python" -maxdepth 1 -name 'zhtw-*.whl' -print -quit)"
+    [ -s "$wheel" ] || die "Python wheel is missing for consumer smoke test"
+    uv venv --python 3.13 "$temporary/python"
+    uv pip install --python "$temporary/python/bin/python" "$wheel"
+    "$temporary/python/bin/python" -c \
+        'from zhtw import convert; assert convert("这个软件") == "這個軟體"'
+
+    js_tgz="$OUTPUT_DIR/packages/npm/zhtw-js-$RELEASE_VERSION.tgz"
+    wasm_tgz="$OUTPUT_DIR/packages/npm/zhtw-wasm-$RELEASE_VERSION.tgz"
+    mkdir -p "$temporary/node-js" "$temporary/node-wasm"
+    (
+        cd "$temporary/node-js"
+        npm install --ignore-scripts --no-audit --no-fund "$js_tgz" >/dev/null
+        node --input-type=module -e \
+            'import { convert } from "zhtw-js"; if (convert("这个软件") !== "這個軟體") process.exit(1)'
+    )
+    (
+        cd "$temporary/node-wasm"
+        npm install --ignore-scripts --no-audit --no-fund "$wasm_tgz" >/dev/null
+        node --experimental-wasm-modules --no-warnings --input-type=module -e \
+            'import { convert } from "zhtw-wasm"; if (convert("这个软件") !== "這個軟體") process.exit(1)'
+    )
+
+    crate="$OUTPUT_DIR/packages/crates/zhtw-$RELEASE_VERSION.crate"
+    mkdir -p "$temporary/crate"
+    tar -xzf "$crate" -C "$temporary/crate"
+    cargo +stable test \
+        --manifest-path "$temporary/crate/zhtw-$RELEASE_VERSION/Cargo.toml" --release
+
+    nuget="$OUTPUT_DIR/packages/nuget/Zhtw.$RELEASE_VERSION.nupkg"
+    dotnet_major="$(dotnet --version | cut -d. -f1)"
+    [[ "$dotnet_major" =~ ^[0-9]+$ ]] && [ "$dotnet_major" -ge 8 ] || \
+        die "Consumer smoke test requires .NET SDK 8 or newer"
+    dotnet_framework="net${dotnet_major}.0"
+    dotnet new console --framework "$dotnet_framework" \
+        --output "$temporary/dotnet" --no-restore >/dev/null
+    dotnet add "$temporary/dotnet" package Zhtw --version "$RELEASE_VERSION" \
+        --no-restore >/dev/null
+    dotnet restore "$temporary/dotnet" \
+        --source "$OUTPUT_DIR/packages/nuget" >/dev/null
+    printf '%s\n' \
+        'using Zhtw;' \
+        'if (ZhtwConvert.Convert("这个软件") != "這個軟體") Environment.Exit(1);' \
+        > "$temporary/dotnet/Program.cs"
+    dotnet run --project "$temporary/dotnet" --framework "$dotnet_framework" --no-restore
+
+    jar="$OUTPUT_DIR/packages/maven/zhtw-$RELEASE_VERSION.jar"
+    pom="$OUTPUT_DIR/packages/maven/zhtw-$RELEASE_VERSION.pom"
+    mkdir -p "$temporary/java/src" "$temporary/java/classes" "$temporary/java/repository"
+    mvn --batch-mode --no-transfer-progress \
+        -Dmaven.repo.local="$temporary/java/repository" \
+        org.apache.maven.plugins:maven-install-plugin:3.1.4:install-file \
+        -Dfile="$jar" -DpomFile="$pom"
+    cp "$pom" "$temporary/java/pom.xml"
+    mvn --batch-mode --no-transfer-progress \
+        -Dmaven.repo.local="$temporary/java/repository" \
+        -f "$temporary/java/pom.xml" \
+        org.apache.maven.plugins:maven-dependency-plugin:3.8.1:build-classpath \
+        -Dmdep.outputFile="$temporary/java/classpath"
+    java_classpath="$jar:$(cat "$temporary/java/classpath")"
+    printf '%s\n' \
+        'import com.rajatim.zhtw.ZhtwConverter;' \
+        'public final class Smoke {' \
+        '  public static void main(String[] args) {' \
+        '    if (!ZhtwConverter.getDefault().convert("这个软件").equals("這個軟體")) System.exit(1);' \
+        '  }' \
+        '}' > "$temporary/java/src/Smoke.java"
+    javac -encoding UTF-8 -cp "$java_classpath" -d "$temporary/java/classes" \
+        "$temporary/java/src/Smoke.java"
+    java -cp "$java_classpath:$temporary/java/classes" Smoke
+
+    case "$(uname -s)-$(uname -m)" in
+        Linux-x86_64) go_platform="linux-amd64" ;;
+        Linux-aarch64|Linux-arm64) go_platform="linux-arm64" ;;
+        Darwin-x86_64) go_platform="darwin-amd64" ;;
+        Darwin-arm64) go_platform="darwin-arm64" ;;
+        *) die "No native Go CLI archive for $(uname -s)-$(uname -m)" ;;
+    esac
+    go_archive="$OUTPUT_DIR/packages/go/zhtw-$go_platform.tar.gz"
+    mkdir -p "$temporary/go"
+    tar -xzf "$go_archive" -C "$temporary/go"
+    go_binary="$temporary/go/zhtw-$go_platform"
+    [ -x "$go_binary" ] || die "Native Go CLI is missing from its archive"
+    "$go_binary" version | grep -F "zhtw $RELEASE_VERSION " >/dev/null
+    [ "$("$go_binary" convert '这个软件')" = '這個軟體' ] || die "Go CLI consumer smoke failed"
+
+    rm -rf -- "$temporary"
+    trap - RETURN
+    printf 'All archived package consumer smoke tests passed\n'
 }
 
 require_jenkins_build_runtime

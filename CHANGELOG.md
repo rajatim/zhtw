@@ -8,6 +8,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- zhtw Jenkins build、verify、release 改為只在準備發版時手動執行；移除每日與每週
+  排程，build 固定從 `main` 建立候選，不再接受任意 branch。
+- 候選新增 Rust、Go、.NET、Maven 相依套件安全閘門、完整 toolchain 證據，以及從
+  封存 Python、npm、WASM、Rust、NuGet、Maven、Go 成品執行的 consumer smoke test。
+- verification receipt 與 release receipt 新增 Jenkins pipeline SHA、驗證證據
+  checksum、核准參照、freshness、永久保留與最終公開驗證紀錄。
+
+### Fixed
+- 發布中斷後會保留原 build、verify 與 release，並從第一個未完成 registry 接續；
+  已完成且內容相同的 registry 不會重複上傳。
+- GitHub Release 現在會嚴格驗證 tag、標題、notes、Latest、draft/prerelease 狀態與
+  候選 tree，Maven 公開驗證也會確認每個主要 artifact 的簽章存在。
+- Dependabot read token 在 checkout 專案程式碼前完成 API 讀取並立即解除綁定，且
+  必須和 GitHub Release write token 使用不同的 1Password item 與不同 token。
+
 ## [4.4.5] - 2026-08-10
 
 ### Fixed

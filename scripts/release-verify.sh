@@ -37,16 +37,42 @@ github_api() {
 }
 
 check_all() {
-    local pass=0 root_release go_release root_sha go_sha
+    local pass=0 root_release latest_release go_release root_sha go_sha
+    local expected_notes actual_notes go_notes
+    local commit_json expected_tree
     root_release="$(github_api \
         "https://api.github.com/repos/rajatim/zhtw/releases/tags/$TAG" 2>/dev/null)" || root_release=''
+    latest_release="$(github_api \
+        "https://api.github.com/repos/rajatim/zhtw/releases/latest" 2>/dev/null)" || latest_release=''
     go_release="$(github_api \
         "https://api.github.com/repos/rajatim/zhtw/releases/tags/sdk%2Fgo%2Fv$VERSION" 2>/dev/null)" || go_release=''
-    [ "$(printf '%s' "$root_release" | jq -r '.tag_name // empty')" = "$TAG" ] && pass=$((pass + 1)) || true
-    [ -n "$(printf '%s' "$root_release" | jq -r '.body // empty' | tr -d '[:space:]')" ] && \
+    printf '%s' "$root_release" | jq -e \
+        --arg tag "$TAG" \
+        '.tag_name == $tag and .name == $tag and .draft == false and .prerelease == false' \
+        >/dev/null && \
+        [ "$(printf '%s' "$latest_release" | jq -r '.tag_name // empty')" = "$TAG" ] && \
         pass=$((pass + 1)) || true
-    [ "$(printf '%s' "$go_release" | jq '[.assets[]? | select(.name | test("^(zhtw-(darwin|linux)-(amd64|arm64)\\.tar\\.gz|zhtw-windows-amd64\\.zip|zhtw_checksums\\.txt)$"))] | length')" = 6 ] && \
+    actual_notes="$(printf '%s' "$root_release" | jq -r '.body // ""')"
+    if [ -n "$PAYLOAD_DIR" ]; then
+        expected_notes="$(cat "$PAYLOAD_DIR/candidate/release-notes.md")"
+        [ "$actual_notes" = "$expected_notes" ] && pass=$((pass + 1)) || true
+    else
+        [ -n "$(printf '%s' "$actual_notes" | tr -d '[:space:]')" ] && pass=$((pass + 1)) || true
+    fi
+    go_notes="$(printf '%s' "$go_release" | jq -r '.body // ""')"
+    if printf '%s' "$go_release" | jq -e \
+        --arg tag "$GO_TAG" \
+        --arg title "Go CLI $TAG" \
+        '.tag_name == $tag and .name == $title and
+         .draft == false and .prerelease == false and
+         ([.assets[]?.name] | sort) == ([
+           "zhtw-darwin-amd64.tar.gz", "zhtw-darwin-arm64.tar.gz",
+           "zhtw-linux-amd64.tar.gz", "zhtw-linux-arm64.tar.gz",
+           "zhtw-windows-amd64.zip", "zhtw_checksums.txt"
+         ] | sort)' >/dev/null && \
+        [ "$go_notes" = "Jenkins-built Go CLI for $TAG." ]; then
         pass=$((pass + 1)) || true
+    fi
     check_url "https://pypi.org/pypi/zhtw/$VERSION/json" && pass=$((pass + 1)) || true
     check_url "https://registry.npmjs.org/zhtw-js/$VERSION" && pass=$((pass + 1)) || true
     check_url "https://registry.npmjs.org/zhtw-wasm/$VERSION" && pass=$((pass + 1)) || true
@@ -59,7 +85,18 @@ check_all() {
 
     root_sha="$(git ls-remote https://github.com/rajatim/zhtw.git "refs/tags/$TAG^{}" | awk '{print $1}')"
     go_sha="$(git ls-remote https://github.com/rajatim/zhtw.git "refs/tags/$GO_TAG^{}" | awk '{print $1}')"
-    [ -n "$root_sha" ] && [ "$root_sha" = "$go_sha" ] && pass=$((pass + 1)) || true
+    if [ -n "$root_sha" ] && [ "$root_sha" = "$go_sha" ]; then
+        if [ -n "$PAYLOAD_DIR" ]; then
+            expected_tree="$(tr -d '[:space:]' < "$PAYLOAD_DIR/metadata/candidate-tree-sha")"
+            commit_json="$(github_api \
+                "https://api.github.com/repos/rajatim/zhtw/git/commits/$root_sha" 2>/dev/null)" || \
+                commit_json=''
+            [ "$(printf '%s' "$commit_json" | jq -r '.tree.sha // empty')" = "$expected_tree" ] && \
+                pass=$((pass + 1)) || true
+        else
+            pass=$((pass + 1))
+        fi
+    fi
     printf '%s\n' "$pass"
 }
 
@@ -152,6 +189,8 @@ verify_exact_payload() (
         download_matches \
             "https://repo1.maven.org/maven2/com/rajatim/zhtw/$VERSION/$name" \
             "$file" "$temporary/$name" || return 1
+        check_url \
+            "https://repo1.maven.org/maven2/com/rajatim/zhtw/$VERSION/$name.asc" || return 1
     done
 
     files=()
