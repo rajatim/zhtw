@@ -9,6 +9,7 @@ TOOLS_ROOT="${ZHTW_TOOLS_ROOT:-$HOME/.local/share/zhtw-tools}"
 export PATH="$TOOLS_ROOT/node-20/bin:$HOME/.cargo/bin:$TOOLS_ROOT/dotnet:$TOOLS_ROOT/go/bin:$TOOLS_ROOT/wasm-pack:$PATH"
 export UV_PYTHON=3.13
 export UV_PYTHON_PREFERENCE=only-managed
+PYTHON_SDIST_MAX_BYTES=$((10 * 1024 * 1024))
 
 die() {
     printf 'ERROR: %s\n' "$*" >&2
@@ -82,13 +83,46 @@ test_candidate() {
 }
 
 package_python() {
-    local destination="$1"
+    local destination="$1" wheel
     mkdir -p "$destination"
     rm -rf dist
     uv build --out-dir "$destination"
     # uv creates this helper for output directories. It is not a distribution
     # artifact and Jenkins' default archive excludes it, so never checksum it.
     rm -f "$destination/.gitignore"
+    wheel="$(find "$destination" -maxdepth 1 -name 'zhtw-*.whl' -print -quit)"
+    [ -n "$wheel" ] || die "Python wheel is missing after build"
+    validate_python_sdist "$destination/zhtw-$RELEASE_VERSION.tar.gz" "$wheel"
+}
+
+validate_python_sdist() {
+    local archive="$1" expected_wheel="${2:-}" root size required forbidden
+    [ -s "$archive" ] || die "Python sdist is missing: $archive"
+    root="zhtw-$RELEASE_VERSION"
+    size="$(wc -c < "$archive" | tr -d '[:space:]')"
+    [ "$size" -le "$PYTHON_SDIST_MAX_BYTES" ] || \
+        die "Python sdist is too large: $size bytes (limit $PYTHON_SDIST_MAX_BYTES)"
+
+    for required in pyproject.toml README.md LICENSE src/zhtw/__init__.py; do
+        tar -tzf "$archive" | grep -Fx "$root/$required" >/dev/null || \
+            die "Python sdist is missing required file: $required"
+    done
+    for forbidden in benchmarks docs sdk tests; do
+        if tar -tzf "$archive" | grep -E "^$root/$forbidden/" >/dev/null; then
+            die "Python sdist contains non-package tree: $forbidden/"
+        fi
+    done
+
+    [ -z "$expected_wheel" ] || (
+        local temporary rebuilt_wheel
+        temporary="$(mktemp -d)"
+        trap 'rm -rf -- "$temporary"' EXIT
+        uv build --wheel --out-dir "$temporary" "$archive"
+        rebuilt_wheel="$temporary/zhtw-$RELEASE_VERSION-py3-none-any.whl"
+        [ -s "$rebuilt_wheel" ] || die "Python sdist could not rebuild the expected wheel"
+        cmp -s "$expected_wheel" "$rebuilt_wheel" || \
+            die "Python sdist rebuilt wheel differs from the direct wheel"
+    )
 }
 
 package_typescript() {
@@ -257,6 +291,7 @@ verify_candidate() {
     compgen -G "$OUTPUT_DIR/packages/python/zhtw-$RELEASE_VERSION.tar.gz" >/dev/null
     compgen -G "$OUTPUT_DIR/packages/python/zhtw-$RELEASE_VERSION-*.whl" >/dev/null
     [ "$(find "$OUTPUT_DIR/packages/python" -maxdepth 1 -type f | wc -l | tr -d ' ')" = 2 ]
+    validate_python_sdist "$OUTPUT_DIR/packages/python/zhtw-$RELEASE_VERSION.tar.gz"
     local js_tgz wasm_tgz nuget_package
     js_tgz="$(find "$OUTPUT_DIR/packages/npm" -maxdepth 1 -name "zhtw-js-$RELEASE_VERSION.tgz" -print -quit)"
     wasm_tgz="$(find "$OUTPUT_DIR/packages/npm" -maxdepth 1 -name "zhtw-wasm-$RELEASE_VERSION.tgz" -print -quit)"

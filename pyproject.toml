@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling==1.31.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -78,6 +78,9 @@ Changelog = "https://github.com/rajatim/zhtw/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/zhtw"]
+
+[tool.hatch.build.targets.sdist]
+only-include = ["src/zhtw"]
 
 [tool.ruff]
 line-length = 100

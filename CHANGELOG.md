@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- 修正 Python sdist 會把大型測試、benchmark 與其他 SDK 一起封裝，導致 PyPI 拒收；
+  現在只包含可重建 wheel 的 Python 原始碼與必要 metadata，Jenkins 也會檢查大小、
+  禁止目錄及從 sdist 重建 wheel，避免同類問題再次進入正式發布。
+
 ## [4.4.4] - 2026-08-10
 
 ### Added

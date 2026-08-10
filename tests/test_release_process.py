@@ -7,11 +7,17 @@ import re
 import shutil
 import subprocess
 import sys
+import tarfile
 import zipfile
 from dataclasses import asdict
 from pathlib import Path
 
 import pytest
+
+try:
+    import tomllib
+except ModuleNotFoundError:  # pragma: no cover - Python 3.10 compatibility
+    import tomli as tomllib
 
 import scripts.audit_corpus_idempotency as idempotency_audit
 import scripts.update_idempotency_baseline_version as baseline_updater
@@ -99,6 +105,61 @@ def test_python_candidate_excludes_uv_output_helper() -> None:
 
     assert 'rm -f "$destination/.gitignore"' in script
     assert 'find "$OUTPUT_DIR/packages/python" -maxdepth 1 -type f | wc -l' in script
+
+
+def test_python_sdist_is_minimal_and_can_rebuild_a_wheel(tmp_path: Path) -> None:
+    project = tomllib.loads(read("pyproject.toml"))
+    sdist_config = project["tool"]["hatch"]["build"]["targets"]["sdist"]
+
+    assert project["build-system"]["requires"] == ["hatchling==1.31.0"]
+    assert sdist_config == {"only-include": ["src/zhtw"]}
+    direct = tmp_path / "direct"
+    result = subprocess.run(
+        ["uv", "build", "--out-dir", str(direct)],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode == 0, result.stderr
+
+    archive = next(direct.glob("zhtw-*.tar.gz"))
+    direct_wheel = next(direct.glob("zhtw-*.whl"))
+    assert archive.stat().st_size <= 10 * 1024 * 1024
+    with tarfile.open(archive, "r:gz") as source:
+        names = set(source.getnames())
+    root = archive.name.removesuffix(".tar.gz")
+    for required in (
+        "pyproject.toml",
+        "README.md",
+        "LICENSE",
+        "src/zhtw/__init__.py",
+    ):
+        assert f"{root}/{required}" in names
+    for forbidden in ("benchmarks", "docs", "sdk", "tests"):
+        assert not any(name.startswith(f"{root}/{forbidden}/") for name in names)
+
+    rebuilt = tmp_path / "rebuilt"
+    result = subprocess.run(
+        ["uv", "build", "--wheel", "--out-dir", str(rebuilt), str(archive)],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode == 0, result.stderr
+    rebuilt_wheel = next(rebuilt.glob("zhtw-*.whl"))
+    assert direct_wheel.read_bytes() == rebuilt_wheel.read_bytes()
+
+
+def test_jenkins_rejects_an_oversized_or_bloated_python_sdist() -> None:
+    script = read("scripts/jenkins-build.sh")
+
+    assert "PYTHON_SDIST_MAX_BYTES=$((10 * 1024 * 1024))" in script
+    assert "Python sdist is too large" in script
+    assert "Python sdist contains non-package tree" in script
+    assert "Python sdist rebuilt wheel differs from the direct wheel" in script
+    assert 'validate_python_sdist "$destination/zhtw-$RELEASE_VERSION.tar.gz" "$wheel"' in script
 
 
 def test_jenkins_release_is_idempotent_and_covers_every_target() -> None:
