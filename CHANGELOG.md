@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.4.4] - 2026-08-10
+
 ### Added
 - 新增可重現的 target identity guard 產生器與 374 條自動保護規則，讓包含 bulk
   詞庫在內的所有有效 target 都通過第二輪轉換穩定性檢查。
@@ -551,7 +553,8 @@ Python / Java / Rust / .NET 程式碼與 4.0.0 **完全相同**，僅為滿足 m
 - `--exclude` 排除目錄
 - 自訂詞庫支援
 
-[Unreleased]: https://github.com/rajatim/zhtw/compare/v4.4.3...HEAD
+[Unreleased]: https://github.com/rajatim/zhtw/compare/v4.4.4...HEAD
+[4.4.4]: https://github.com/rajatim/zhtw/compare/v4.4.3...v4.4.4
 [4.4.3]: https://github.com/rajatim/zhtw/compare/v4.4.2...v4.4.3
 [4.4.2]: https://github.com/rajatim/zhtw/compare/v4.4.1...v4.4.2
 [4.4.1]: https://github.com/rajatim/zhtw/compare/v4.4.0...v4.4.1
