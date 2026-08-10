@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -54,7 +54,7 @@ def summarize(alerts: list[dict[str, Any]], repository: str) -> dict[str, Any]:
     return {
         "schema_version": 1,
         "repository": repository,
-        "checked_at": datetime.now(UTC).replace(microsecond=0).isoformat(),
+        "checked_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "policy": "block open medium, high, and critical Dependabot alerts",
         "open_alert_count": sum(alert["state"] == "open" for alert in normalized),
         "blocking_alert_count": len(blocking),

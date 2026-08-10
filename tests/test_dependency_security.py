@@ -44,6 +44,7 @@ def test_dependency_gate_allows_low_and_closed_alerts(tmp_path: Path) -> None:
     evidence = json.loads((tmp_path / "evidence.json").read_text(encoding="utf-8"))
     assert evidence["blocking_alert_count"] == 0
     assert evidence["blocking_alerts"] == []
+    assert evidence["checked_at"].endswith("+00:00")
 
 
 def test_dependency_gate_blocks_medium_or_higher_alerts(tmp_path: Path) -> None:
