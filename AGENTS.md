@@ -76,6 +76,8 @@ make version-check   # 任一檔案不一致就 exit 1
 - 禁止恢復 `.github/workflows`、執行 `gh workflow run`、本機建立 release tag，或
   直接對 PyPI/npm/crates/NuGet/Maven publish。
 - `make release` 與 `make release-dry` 會故意失敗；不是備援流程。
+- `zhtw/build`、`zhtw/verify`、`zhtw/release` 都只在準備發版時手動執行；禁止每日、
+  每週或 SCM 自動 trigger。build 固定從 `main` 建立候選，不接受任意 branch。
 - `zhtw/verify` 必須選定一個成功的 main `zhtw/build`，並以 `VERIFY_SUITE=all`
   產生 verification receipt；`zhtw/release` 只接受 SHA、tree、版本與 checksum
   都和候選完全相同的成功 receipt。
@@ -83,8 +85,12 @@ make version-check   # 任一檔案不一致就 exit 1
   Jenkins build 與 verify build 後，才可用 `PUBLISH_ALL` 或 `RETRY_*`。
 - `CREDENTIAL_PREFLIGHT` 是不發布的安全驗證；正式發布與每個 retry 會在確認閘門前
   重新執行該目標需要的 credential preflight。預檢成功不等於核准正式發布。
-- `zhtw/build` 必須阻擋 open medium/high/critical Dependabot 警示，並封存去敏後證據；
-  npm token 到期日少於 14 天也必須阻擋候選。
+- `zhtw/build` 必須阻擋 open medium/high/critical Dependabot 警示與 Python、npm、
+  Rust、Go、.NET、Maven 本機相依套件檢查失敗，並封存去敏後證據；npm token 到期日
+  少於 14 天也必須阻擋候選。
+- `PUBLISH_ALL` 只接受 24 小時內完成 dependency gate、7 天內完成 `all` verify 的
+  候選。任何 mutating action 都必須永久保留 build/verify/release 證據；略過 Jenkins
+  UI 確認時必須留下 `APPROVAL_REFERENCE`。Recovery 可續用過期但完全相同的候選。
 - 所有 Git、通知與 registry 機密只能由 `zhtw/` folder-scoped Jenkins
   Credentials 在需要的 stage 注入。Job 不得呼叫 1Password、讀取 agent 主機上的
   私鑰／credential profile／session cache，或依賴互動式 shell。由 credential 產生的

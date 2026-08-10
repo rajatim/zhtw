@@ -151,6 +151,23 @@ ensure_release_asset() {
     fi
 }
 
+verify_github_release_metadata() {
+    local tag="$1" expected_title="$2" expected_notes="$3" release_json
+    local actual_notes expected_notes_text
+    release_json="$(gh release view "$tag" --json tagName,name,body,isDraft,isPrerelease)" || \
+        die "GitHub Release metadata is unavailable: $tag"
+    jq -e \
+        --arg tag "$tag" \
+        --arg title "$expected_title" \
+        '.tagName == $tag and .name == $title and .isDraft == false and .isPrerelease == false' \
+        <<< "$release_json" >/dev/null || \
+        die "Existing GitHub Release metadata differs: $tag"
+    actual_notes="$(jq -r '.body // ""' <<< "$release_json")"
+    expected_notes_text="$(cat "$expected_notes")"
+    [ "$actual_notes" = "$expected_notes_text" ] || \
+        die "Existing GitHub Release notes differ: $tag"
+}
+
 publish_git() {
     require_common
     [ -n "${GH_TOKEN:-}" ] || die "GH_TOKEN is required"
@@ -206,10 +223,21 @@ publish_git() {
         gh release create "$VERSION_TAG" --title "$VERSION_TAG" \
             --notes-file "$PAYLOAD_DIR/candidate/release-notes.md" --latest
     fi
+    verify_github_release_metadata \
+        "$VERSION_TAG" "$VERSION_TAG" "$PAYLOAD_DIR/candidate/release-notes.md"
+    [ "$(gh api repos/rajatim/zhtw/releases/latest --jq '.tag_name')" = "$VERSION_TAG" ] || \
+        die "Root GitHub Release is not marked latest: $VERSION_TAG"
+
+    local go_release_notes
+    go_release_notes="$(mktemp "$WORKSPACE/go-release-notes.XXXXXX")"
+    printf 'Jenkins-built Go CLI for %s.\n' "$VERSION_TAG" > "$go_release_notes"
     if ! gh release view "sdk/go/$VERSION_TAG" >/dev/null 2>&1; then
         gh release create "sdk/go/$VERSION_TAG" --title "Go CLI $VERSION_TAG" \
-            --notes "Jenkins-built Go CLI for $VERSION_TAG." --latest=false
+            --notes-file "$go_release_notes" --latest=false
     fi
+    verify_github_release_metadata \
+        "sdk/go/$VERSION_TAG" "Go CLI $VERSION_TAG" "$go_release_notes"
+    rm -f -- "$go_release_notes"
     local asset
     for asset in "$PAYLOAD_DIR"/packages/go/*.tar.gz \
                  "$PAYLOAD_DIR"/packages/go/*.zip \

@@ -76,6 +76,13 @@ def test_jenkins_build_creates_one_complete_candidate() -> None:
     assert "candidate-tree-sha" in script
     assert "release.patch" in script
     assert "zhtw_checksums.txt" in script
+    assert "smoke_candidate_packages" in script
+    assert "write-toolchain-evidence.sh" in script
+    assert "--no-verify" not in script.split("package_crate()", 1)[1].split("package_nuget()", 1)[0]
+    assert 'dotnet restore "$temporary/dotnet"' in script
+    assert '--source "$OUTPUT_DIR/packages/nuget"' in script
+    assert 'dotnet run --project "$temporary/dotnet" --framework net8.0 --no-restore' in script
+    assert 'java_classpath="$jar:' in script
 
 
 def test_nuget_package_builds_every_target_before_no_build_pack() -> None:
@@ -199,6 +206,9 @@ def test_jenkins_release_is_idempotent_and_covers_every_target() -> None:
         assert f"{action})" in script
     assert "registry_exists" in script
     assert "git push --atomic" in script
+    assert "verify_github_release_metadata" in script
+    assert "Existing GitHub Release notes differ" in script
+    assert "Root GitHub Release is not marked latest" in script
     assert "Existing GitHub asset differs" in script
     assert "Existing PyPI file differs" in script
     assert "Existing npm package differs" in script
@@ -279,7 +289,11 @@ def test_jenkins_verify_uses_isolated_podman_compatible_cli() -> None:
     script = read("scripts/jenkins-verify.sh")
 
     assert "prepare_container_cli" in script
-    assert "--cgroup-manager=cgroupfs --events-backend=file" in script
+    assert "/home/jenkins-agent/.local/run/podman.sock" in script
+    assert "--remote --url %q" in script
+    for isolation in ("XDG_RUNTIME_DIR", "--root", "--runroot", "--tmpdir"):
+        assert isolation in script
+    assert "TESTCONTAINERS_RYUK_DISABLED=true" in script
     assert 'chmod 700 "$runtime_root/bin/docker"' in script
     assert 'export DOCKER_CONFIG="$runtime_root/docker-config"' in script
     assert 'export REGISTRY_AUTH_FILE="$runtime_root/registry-auth.json"' in script
@@ -291,6 +305,10 @@ def test_release_verify_is_read_only_and_version_scoped() -> None:
 
     assert "TOTAL_CHECKS=12" in script
     assert "Exact archived payload matches every public artifact" in script
+    assert "releases/latest" in script
+    assert "candidate-tree-sha" in script
+    assert "git/commits/$root_sha" in script
+    assert "$name.asc" in script
     assert "pypi.org/pypi/zhtw/$VERSION" in script
     assert "registry.npmjs.org/zhtw-js/$VERSION" in script
     assert "repo1.maven.org" in script
@@ -307,9 +325,12 @@ def test_public_release_docs_require_detached_preflight_before_publish() -> None
     for document in (rules, checklist):
         assert "RELEASE_ACTION=CREDENTIAL_PREFLIGHT" in document
         assert "jcli build zhtw/release -s -v" not in document
+        assert "-p BRANCH=main" not in document
+        assert "APPROVAL_REFERENCE" in document
     assert "PREVIEW" in rules
     assert "PUBLISH_ALL" in rules
     assert "RESUME_ALL" in rules
+    assert "每日、每週或 SCM 自動觸發" in rules
     assert rules.index("RELEASE_ACTION=PREVIEW") < rules.index(
         "RELEASE_ACTION=CREDENTIAL_PREFLIGHT"
     )
@@ -338,9 +359,22 @@ if "sdk%2Fgo" in url:
         "zhtw-windows-amd64.zip",
         "zhtw_checksums.txt",
     ]
-    print(json.dumps({"assets": [{"name": name} for name in names]}))
+    print(json.dumps({
+        "tag_name": "sdk/go/v9.8.7",
+        "name": "Go CLI v9.8.7",
+        "body": "Jenkins-built Go CLI for v9.8.7.",
+        "draft": False,
+        "prerelease": False,
+        "assets": [{"name": name} for name in names],
+    }))
 elif "api.github.com" in url:
-    print(json.dumps({"tag_name": "v9.8.7", "body": os.environ.get("RELEASE_BODY", "notes")}))
+    print(json.dumps({
+        "tag_name": "v9.8.7",
+        "name": "v9.8.7",
+        "body": os.environ.get("RELEASE_BODY", "notes"),
+        "draft": False,
+        "prerelease": False,
+    }))
 elif "homebrew-tap" in url:
     print('url "https://files.example/zhtw-9.8.7.tar.gz"')
 elif "nuget.org" in url:

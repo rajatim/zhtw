@@ -24,6 +24,8 @@
   verification receipt。`CREDENTIAL_PREFLIGHT` 會安全驗證所有發布 credential，
   但不建立 tag、Release 或 registry version；只有明確核准後才可 `PUBLISH_ALL`。
 - `make release` 與 `make release-dry` 會 fail-closed，提醒改用 Jenkins。
+- 三個 job 都只在準備發布時手動執行，不設每日、每週或 SCM 自動觸發。
+  `zhtw/build` 固定從 `main` 建立候選，不接受任意 branch。
 
 ## 標準流程
 
@@ -31,14 +33,15 @@
 
 ```bash
 jcli build zhtw/build \
-  -p BRANCH=main \
   -p VERSION_BUMP=patch
 ```
 
 `patch` 用於修正、`minor` 用於向下相容的新功能、`major` 用於 breaking
 change。Jenkins 會同步更新所有 SDK 版本、提升 CHANGELOG `[Unreleased]`、跑完整
-release gate，阻擋 open medium 以上 Dependabot 警示與即將到期的 npm token，並建出
-PyPI、npm x2、crate、NuGet、Maven 與五種 Go binary。
+release gate，阻擋 open medium 以上 Dependabot 警示與即將到期的 npm token；它也會
+執行 Python、npm、Rust、Go、.NET、Maven 的相依套件安全檢查。完成後建出 PyPI、
+npm x2、crate、NuGet、Maven 與五種 Go binary，並從封存成品逐一執行 consumer
+smoke test。候選會記錄 Jenkins pipeline 與完整 toolchain 版本證據。
 
 ### 2. 驗證同一份候選
 
@@ -48,8 +51,9 @@ jcli build zhtw/verify \
   -p VERIFY_SUITE=all
 ```
 
-只有 `all` 會產生可供發布的 receipt。`sdk-matrix` 與 `competitor-benchmark` 可以單獨
-診斷，但不能解除 release gate。
+只有 `all` 會產生可供發布的 receipt。receipt 也會繫結驗證 pipeline 與驗證證據
+checksum。`sdk-matrix` 與 `competitor-benchmark` 可以單獨診斷，但不能解除
+release gate。
 
 ### 3. 唯讀預演
 
@@ -61,9 +65,9 @@ jcli build zhtw/release \
   -p SKIP_CONFIRMATION=false
 ```
 
-預演會先驗證 receipt 與候選的 checksum、base SHA、base tree、candidate tree、版本
-完全相同，再檢查 main 前進關係與既有 tag。它不繫結 registry credential，也不改
-Git 或外部服務。
+預演會先驗證 receipt、候選、toolchain 與驗證證據的 checksum，以及 base SHA、base
+tree、candidate tree、版本完全相同，再檢查 main 前進關係與既有 tag。它不繫結
+registry credential，也不改 Git 或外部服務。
 
 ### 4. 安全驗證所有 credential
 
@@ -86,14 +90,20 @@ jcli build zhtw/release \
   -p BUILD_NUMBER=<同一個-zhtw-build> \
   -p VERIFY_BUILD_NUMBER=<同一個-zhtw-verify> \
   -p RELEASE_ACTION=PUBLISH_ALL \
+  -p APPROVAL_REFERENCE='<目前對話或變更單參照>' \
   -p SKIP_CONFIRMATION=true
 ```
 
 正常順序是：雙 tag 與 GitHub Release → PyPI → npm `zhtw-js` → npm
 `zhtw-wasm` → crates.io → NuGet → Maven Central → Homebrew → 完整公開驗證。
 
-`SKIP_CONFIRMATION=true` 只代表使用者已在目前對話核准這組確切 build 與 verify，
-不會略過 receipt、來源、checksum、tag 或 registry 驗證。
+`PUBLISH_ALL` 只接受 24 小時內完成相依套件閘門、且 7 天內完成 `all` 驗證的候選。
+開始任何會改變外部狀態的 action 前，Jenkins 會把選定的 build、verify 與本次 release
+標記為永久保留，避免 recovery 證據被一般保留政策清除。
+
+`SKIP_CONFIRMATION=true` 只代表使用者已在目前對話核准這組確切 build 與 verify；此時
+`APPROVAL_REFERENCE` 必填。它不會略過 receipt、來源、checksum、tag、GitHub Release
+notes、候選 tree 或 registry 驗證。
 
 所有長時間 job 都要 detached 啟動，再用 Jenkins UI 或 API 監看回傳的 build number；
 不可使用 attached `jcli -s -v`。CLI 連線中斷曾經直接中止還在執行的 Jenkins build。
@@ -113,11 +123,14 @@ jcli build zhtw/release \
   -p BUILD_NUMBER=<同一個-zhtw-build> \
   -p VERIFY_BUILD_NUMBER=<同一個-zhtw-verify> \
   -p RELEASE_ACTION=RESUME_ALL \
+  -p APPROVAL_REFERENCE='<目前對話或 incident 參照>' \
   -p SKIP_CONFIRMATION=true
 ```
 
 Maven 上傳後會立即封存 deployment ID。若狀態查詢斷線，使用
 `RESUME_ALL` 加上該 ID 續查既有 deployment，不可建立第二次 upload。
+Recovery action 可以使用超過上述 freshness 期限的同一份封存候選，因為它的目的只
+是補完已開始的不可逆發布；SHA、tree、receipt 與 checksum 仍必須完全相符。
 
 可用的修復動作：`RETRY_GIT`、`RETRY_PYPI`、`RETRY_NPM_JS`、
 `RETRY_NPM_WASM`、`RETRY_CRATES`、`RETRY_NUGET`、`RETRY_MAVEN`、
