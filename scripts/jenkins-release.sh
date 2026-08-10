@@ -465,15 +465,30 @@ preflight_npm() {
 preflight_crates() {
     require_common
     [ -n "${CARGO_REGISTRY_TOKEN:-}" ] || die "CARGO_REGISTRY_TOKEN is required"
-    local identity
-    identity="$(
-        printf 'Authorization: %s\n' "$CARGO_REGISTRY_TOKEN" | \
-            curl -fsS --max-time 20 -A "$REGISTRY_USER_AGENT" --header @- \
-                https://crates.io/api/v1/me
-    )"
-    printf '%s' "$identity" | jq -e '.user.login == "rajatim"' >/dev/null || \
-        die "crates.io token belongs to an unexpected account"
-    printf 'crates.io token authentication preflight passed\n'
+    local owners owner_id response endpoint
+    owners="$(
+        curl -fsS --max-time 20 -A "$REGISTRY_USER_AGENT" \
+            https://crates.io/api/v1/crates/zhtw/owners
+    )" || die "Could not read the crates.io zhtw owners"
+    owner_id="$(
+        printf '%s' "$owners" | jq -er \
+            '[.users[] | select(.login == "rajatim" and .kind == "user") | .id] |
+             if length == 1 then .[0] else error("expected one rajatim owner") end'
+    )" || die "crates.io does not report rajatim as a zhtw owner"
+
+    for endpoint in \
+        "https://crates.io/api/v1/trusted_publishing/github_configs?user_id=$owner_id" \
+        'https://crates.io/api/v1/trusted_publishing/github_configs?crate=zhtw'; do
+        response="$(
+            printf 'Authorization: %s\nAccept: application/json\n' "$CARGO_REGISTRY_TOKEN" | \
+                curl -fsS --max-time 20 -A "$REGISTRY_USER_AGENT" --header @- "$endpoint"
+        )" || die "crates.io scoped token authentication failed"
+        printf '%s' "$response" | jq -e \
+            '(.github_configs | type == "array") and (.meta.total | type == "number")' \
+            >/dev/null || die "crates.io returned an invalid scoped-token response"
+    done
+    unset owners response
+    printf 'crates.io scoped owner-token authentication preflight passed for zhtw\n'
 }
 
 preflight_nuget() {

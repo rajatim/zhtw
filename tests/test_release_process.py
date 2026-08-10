@@ -714,7 +714,12 @@ require_common() { :; }
 curl() {
     printf '%s\n' "$*" >> "$CURL_LOG"
     case "$*" in
-        *crates.io/api/v1/me*) printf '{"user":{"login":"rajatim"}}\n' ;;
+        *crates.io/api/v1/crates/zhtw/owners*)
+            printf '{"users":[{"id":405856,"login":"rajatim","kind":"user"}]}\n'
+            ;;
+        *"github_configs?user_id=405856"*|*"github_configs?crate=zhtw"*)
+            printf '{"github_configs":[],"meta":{"total":0,"next_page":null}}\n'
+            ;;
         *create-verification-key*) printf '{"Key":"ephemeral-verification-key"}\n' ;;
         *verifykey*) : ;;
         *) return 1 ;;
@@ -732,11 +737,42 @@ preflight_nuget
 
     assert result.returncode == 0, result.stderr
     arguments = curl_log.read_text(encoding="utf-8")
-    assert "crates.io/api/v1/me" in arguments
+    assert "crates.io/api/v1/crates/zhtw/owners" in arguments
+    assert "github_configs?user_id=405856" in arguments
+    assert "github_configs?crate=zhtw" in arguments
+    assert "crates.io/api/v1/me" not in arguments
     assert "create-verification-key/Zhtw" in arguments
     assert "verifykey/Zhtw" in arguments
     assert "--request PUT" not in arguments
+    assert "--request DELETE" not in arguments
     assert "--form package=@" not in arguments
+
+
+def test_crates_preflight_rejects_a_token_without_zhtw_scope(tmp_path: Path) -> None:
+    result = run_preflight_shell(
+        tmp_path,
+        r"""
+source "$ADAPTER" ignored /missing
+require_common() { :; }
+curl() {
+    case "$*" in
+        *crates.io/api/v1/crates/zhtw/owners*)
+            printf '{"users":[{"id":405856,"login":"rajatim","kind":"user"}]}\n'
+            ;;
+        *"github_configs?user_id=405856"*)
+            printf '{"github_configs":[],"meta":{"total":0,"next_page":null}}\n'
+            ;;
+        *"github_configs?crate=zhtw"*) return 22 ;;
+        *) return 1 ;;
+    esac
+}
+preflight_crates
+""",
+        {"CARGO_REGISTRY_TOKEN": "fixture"},
+    )
+
+    assert result.returncode != 0
+    assert "scoped token authentication failed" in result.stderr
 
 
 def test_maven_preflight_checks_auth_and_signing_without_upload(tmp_path: Path) -> None:
