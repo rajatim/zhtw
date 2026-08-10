@@ -712,7 +712,8 @@ def test_crates_and_nuget_preflights_use_nonpublishing_endpoints(tmp_path: Path)
 source "$ADAPTER" ignored /missing
 require_common() { :; }
 curl() {
-    printf '%s\n' "$*" >> "$CURL_LOG"
+    supplied_headers="$(cat)"
+    printf '%s\n%s\n' "$*" "$supplied_headers" >> "$CURL_LOG"
     case "$*" in
         *crates.io/api/v1/crates/zhtw/owners*)
             printf '{"users":[{"id":405856,"login":"rajatim","kind":"user"}]}\n'
@@ -743,6 +744,7 @@ preflight_nuget
     assert "crates.io/api/v1/me" not in arguments
     assert "create-verification-key/Zhtw" in arguments
     assert "verifykey/Zhtw" in arguments
+    assert "Content-Length: 0" in arguments
     assert "--request PUT" not in arguments
     assert "--request DELETE" not in arguments
     assert "--form package=@" not in arguments

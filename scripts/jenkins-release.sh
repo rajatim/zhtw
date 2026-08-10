@@ -496,7 +496,10 @@ preflight_nuget() {
     [ -n "${NUGET_API_KEY:-}" ] || die "NUGET_API_KEY is required"
     local verification key
     verification="$(
-        printf 'X-NuGet-ApiKey: %s\nX-NuGet-Protocol-Version: 4.1.0\n' "$NUGET_API_KEY" | \
+        printf '%s\n' \
+            "X-NuGet-ApiKey: $NUGET_API_KEY" \
+            'X-NuGet-Protocol-Version: 4.1.0' \
+            'Content-Length: 0' | \
             curl -fsS --max-time 20 --request POST --header @- \
                 https://www.nuget.org/api/v2/package/create-verification-key/Zhtw
     )"

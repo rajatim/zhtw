@@ -55,6 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 修正 crates.io 已禁止 API token 呼叫 `/api/v1/me` 而造成的 403；現在改用唯讀查詢
   驗證 token 屬於 `rajatim`，並確認它的 crate scope 涵蓋 `zhtw`，不執行任何發布或
   owner 變更。
+- 修正 NuGet verify-scope key 的 POST 未送出明確零長度 body 而回傳 411；現在設定
+  `Content-Length: 0` 後再驗證一次性 key，不上傳套件。
 - 修正依賴警示證據在 Python 3.10 無法匯入 `datetime.UTC`；現在使用相容的 UTC
   timezone 寫法，並由完整 Python 3.10 測試覆蓋。
 - 修正 `应用于` 會輸出 `應用于`、`两千万` 會輸出 `兩千万` 的重疊詞尾端漏轉，
