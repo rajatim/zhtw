@@ -81,6 +81,7 @@ packages = ["src/zhtw"]
 
 [tool.hatch.build.targets.sdist]
 only-include = ["src/zhtw"]
+exclude = ["src/zhtw/data/terms/pending/*.json"]
 
 [tool.ruff]
 line-length = 100

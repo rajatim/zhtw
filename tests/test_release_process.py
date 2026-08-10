@@ -112,11 +112,21 @@ def test_python_sdist_is_minimal_and_can_rebuild_a_wheel(tmp_path: Path) -> None
     sdist_config = project["tool"]["hatch"]["build"]["targets"]["sdist"]
 
     assert project["build-system"]["requires"] == ["hatchling==1.31.0"]
-    assert sdist_config == {"only-include": ["src/zhtw"]}
+    assert sdist_config == {
+        "only-include": ["src/zhtw"],
+        "exclude": ["src/zhtw/data/terms/pending/*.json"],
+    }
+    fixture = tmp_path / "project"
+    shutil.copytree(ROOT / "src", fixture / "src")
+    for filename in (".gitignore", "LICENSE", "README.md", "pyproject.toml"):
+        shutil.copy2(ROOT / filename, fixture / filename)
+    ignored_pending = fixture / "src/zhtw/data/terms/pending/import_terms.json"
+    ignored_pending.write_text('{"status":"pending"}\n', encoding="utf-8")
+
     direct = tmp_path / "direct"
     result = subprocess.run(
         ["uv", "build", "--out-dir", str(direct)],
-        cwd=ROOT,
+        cwd=fixture,
         capture_output=True,
         text=True,
         check=False,
@@ -138,6 +148,7 @@ def test_python_sdist_is_minimal_and_can_rebuild_a_wheel(tmp_path: Path) -> None
         assert f"{root}/{required}" in names
     for forbidden in ("benchmarks", "docs", "sdk", "tests"):
         assert not any(name.startswith(f"{root}/{forbidden}/") for name in names)
+    assert f"{root}/src/zhtw/data/terms/pending/import_terms.json" not in names
 
     rebuilt = tmp_path / "rebuilt"
     result = subprocess.run(
@@ -158,6 +169,7 @@ def test_jenkins_rejects_an_oversized_or_bloated_python_sdist() -> None:
     assert "PYTHON_SDIST_MAX_BYTES=$((10 * 1024 * 1024))" in script
     assert "Python sdist is too large" in script
     assert "Python sdist contains non-package tree" in script
+    assert "Python sdist contains a pending term draft" in script
     assert "Python sdist rebuilt wheel differs from the direct wheel" in script
     assert 'validate_python_sdist "$destination/zhtw-$RELEASE_VERSION.tar.gz" "$wheel"' in script
 

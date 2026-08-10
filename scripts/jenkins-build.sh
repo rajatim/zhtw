@@ -112,6 +112,10 @@ validate_python_sdist() {
             die "Python sdist contains non-package tree: $forbidden/"
         fi
     done
+    if tar -tzf "$archive" | \
+        grep -E "^$root/src/zhtw/data/terms/pending/.*\.json$" >/dev/null; then
+        die "Python sdist contains a pending term draft"
+    fi
 
     [ -z "$expected_wheel" ] || (
         local temporary rebuilt_wheel
