@@ -5,6 +5,7 @@ set -euo pipefail
 ACTION="${1:-}"
 PAYLOAD_DIR="${2:-}"
 TOOLS_ROOT="${ZHTW_TOOLS_ROOT:-$HOME/.local/share/zhtw-tools}"
+REGISTRY_USER_AGENT="${ZHTW_REGISTRY_USER_AGENT:-zhtw-jenkins-release}"
 export PATH="$HOME/.cargo/bin:$TOOLS_ROOT/dotnet:$TOOLS_ROOT/go/bin:$TOOLS_ROOT/wasm-pack:$PATH"
 
 die() {
@@ -199,44 +200,342 @@ ensure_git_release() {
     verify_release_commit "$release_sha"
 }
 
+pypi_release_json() {
+    curl -fsS --max-time 20 -A "$REGISTRY_USER_AGENT" \
+        "https://pypi.org/pypi/zhtw/$RELEASE_VERSION/json"
+}
+
+pypi_file_matches() {
+    local file="$1" info public_sha expected_sha name
+    info="$(pypi_release_json 2>/dev/null)" || return 2
+    name="$(basename "$file")"
+    public_sha="$(printf '%s' "$info" | jq -r --arg name "$name" \
+        '.urls[]? | select(.filename == $name) | .digests.sha256')"
+    [ -n "$public_sha" ] || return 1
+    expected_sha="$(sha256sum "$file" | cut -d' ' -f1)"
+    [ "$public_sha" = "$expected_sha" ] || die "Existing PyPI file differs: $name"
+}
+
+wait_for_pypi_file() {
+    local file="$1" attempt result
+    for attempt in $(seq 1 120); do
+        if pypi_file_matches "$file"; then
+            printf 'PyPI file is visible and exact: %s\n' "$(basename "$file")"
+            return
+        else
+            result=$?
+        fi
+        if [ "$result" -eq 2 ]; then
+            printf 'PyPI metadata request failed; retrying (%s/120)\n' "$attempt" >&2
+        fi
+        sleep 15
+    done
+    die "PyPI did not expose the exact file before timeout: $(basename "$file")"
+}
+
+upload_pypi_file() {
+    local file="$1"
+    TWINE_USERNAME=__token__ TWINE_PASSWORD="$PYPI_TOKEN" \
+        UV_CACHE_DIR="${UV_CACHE_DIR:-$HOME/.cache/uv}" \
+        uvx --from twine==6.1.0 twine upload --non-interactive "$file"
+}
+
+npm_tarball_matches() {
+    local package_name="$1" tarball="$2" info public_sha expected_sha
+    info="$(curl -fsS --max-time 20 -A "$REGISTRY_USER_AGENT" \
+        "https://registry.npmjs.org/$package_name/$RELEASE_VERSION" 2>/dev/null)" || return 1
+    public_sha="$(printf '%s' "$info" | jq -r '.dist.shasum // empty')"
+    [ -n "$public_sha" ] || return 1
+    expected_sha="$(sha1sum "$tarball" | cut -d' ' -f1)"
+    [ "$public_sha" = "$expected_sha" ] || \
+        die "Existing npm package differs: $package_name@$RELEASE_VERSION"
+}
+
+crate_matches() {
+    local crate="$1" info public_sha expected_sha
+    info="$(curl -fsS --max-time 20 -A "$REGISTRY_USER_AGENT" \
+        "https://crates.io/api/v1/crates/zhtw/$RELEASE_VERSION" 2>/dev/null)" || return 1
+    public_sha="$(printf '%s' "$info" | jq -r '.version.checksum // empty')"
+    [ -n "$public_sha" ] || return 1
+    expected_sha="$(sha256sum "$crate" | cut -d' ' -f1)"
+    [ "$public_sha" = "$expected_sha" ] || \
+        die "Existing crates.io package differs: zhtw@$RELEASE_VERSION"
+}
+
+download_matches() {
+    local url="$1" expected="$2" temporary actual_sha expected_sha
+    temporary="$(mktemp -d)"
+    if ! curl -fsSL --max-time 60 -A "$REGISTRY_USER_AGENT" \
+        -o "$temporary/download" "$url" 2>/dev/null; then
+        rm -rf -- "$temporary"
+        return 1
+    fi
+    actual_sha="$(sha256sum "$temporary/download" | cut -d' ' -f1)"
+    expected_sha="$(sha256sum "$expected" | cut -d' ' -f1)"
+    rm -rf -- "$temporary"
+    [ "$actual_sha" = "$expected_sha" ]
+}
+
+nuget_semantic_matches() {
+    local expected="$1" public="$2"
+    python3 - "$expected" "$public" <<'PY'
+import sys
+import zipfile
+
+ignored = {".signature.p7s", "[Content_Types].xml", "_rels/.rels"}
+
+
+def authored_files(path: str) -> dict[str, bytes]:
+    with zipfile.ZipFile(path) as archive:
+        return {
+            name: archive.read(name)
+            for name in archive.namelist()
+            if not name.endswith("/") and name not in ignored
+        }
+
+
+expected_files = authored_files(sys.argv[1])
+public_files = authored_files(sys.argv[2])
+if not expected_files or expected_files != public_files:
+    raise SystemExit(1)
+PY
+}
+
+nuget_package_matches() {
+    local package="$1" temporary
+    temporary="$(mktemp -d)"
+    if ! curl -fsSL --max-time 60 -A "$REGISTRY_USER_AGENT" \
+        -o "$temporary/public.nupkg" \
+        "https://api.nuget.org/v3-flatcontainer/zhtw/$RELEASE_VERSION/zhtw.$RELEASE_VERSION.nupkg" \
+        2>/dev/null; then
+        rm -rf -- "$temporary"
+        die "Could not download existing NuGet package: Zhtw.$RELEASE_VERSION"
+    fi
+    nuget_semantic_matches "$package" "$temporary/public.nupkg" || {
+        rm -rf -- "$temporary"
+        die "Existing NuGet package differs: Zhtw.$RELEASE_VERSION"
+    }
+    rm -rf -- "$temporary"
+}
+
+maven_artifacts_match() {
+    local file name count=0
+    for file in "$PAYLOAD_DIR"/packages/maven/*; do
+        [ -f "$file" ] || continue
+        count=$((count + 1))
+        name="$(basename "$file")"
+        download_matches \
+            "https://repo1.maven.org/maven2/com/rajatim/zhtw/$RELEASE_VERSION/$name" \
+            "$file" || die "Existing Maven Central artifact differs: $name"
+    done
+    [ "$count" -eq 4 ] || die "Expected four archived Maven artifacts, found $count"
+}
+
 registry_exists() {
+    local url status
     case "$1" in
-        pypi) curl -fsS --max-time 20 "https://pypi.org/pypi/zhtw/$RELEASE_VERSION/json" >/dev/null ;;
-        npm-js) curl -fsS --max-time 20 "https://registry.npmjs.org/zhtw-js/$RELEASE_VERSION" >/dev/null ;;
-        npm-wasm) curl -fsS --max-time 20 "https://registry.npmjs.org/zhtw-wasm/$RELEASE_VERSION" >/dev/null ;;
-        crates) curl -fsS --max-time 20 "https://crates.io/api/v1/crates/zhtw/$RELEASE_VERSION" >/dev/null ;;
-        nuget) curl -fsS --max-time 20 "https://api.nuget.org/v3-flatcontainer/zhtw/$RELEASE_VERSION/zhtw.$RELEASE_VERSION.nupkg" >/dev/null ;;
-        maven) curl -fsS --max-time 20 "https://repo1.maven.org/maven2/com/rajatim/zhtw/$RELEASE_VERSION/zhtw-$RELEASE_VERSION.pom" >/dev/null ;;
-        go) curl -fsS --max-time 20 "https://proxy.golang.org/github.com/rajatim/zhtw/sdk/go/v4/@v/v$RELEASE_VERSION.info" >/dev/null ;;
+        pypi) url="https://pypi.org/pypi/zhtw/$RELEASE_VERSION/json" ;;
+        npm-js) url="https://registry.npmjs.org/zhtw-js/$RELEASE_VERSION" ;;
+        npm-wasm) url="https://registry.npmjs.org/zhtw-wasm/$RELEASE_VERSION" ;;
+        crates) url="https://crates.io/api/v1/crates/zhtw/$RELEASE_VERSION" ;;
+        nuget) url="https://api.nuget.org/v3-flatcontainer/zhtw/$RELEASE_VERSION/zhtw.$RELEASE_VERSION.nupkg" ;;
+        maven) url="https://repo1.maven.org/maven2/com/rajatim/zhtw/$RELEASE_VERSION/zhtw-$RELEASE_VERSION.pom" ;;
+        go) url="https://proxy.golang.org/github.com/rajatim/zhtw/sdk/go/v4/@v/v$RELEASE_VERSION.info" ;;
         *) die "Unknown registry: $1" ;;
+    esac
+    status="$(curl -sSL --max-time 20 -A "$REGISTRY_USER_AGENT" \
+        --output /dev/null --write-out '%{http_code}' "$url")" || return 2
+    case "$status" in
+        200) return 0 ;;
+        404) return 1 ;;
+        *) return 2 ;;
     esac
 }
 
 wait_for_registry() {
-    local target="$1" attempt
+    local target="$1" attempt result
     for attempt in $(seq 1 120); do
         if registry_exists "$target"; then
             printf '%s %s is visible\n' "$target" "$RELEASE_VERSION"
             return
+        else
+            result=$?
+        fi
+        if [ "$result" -eq 2 ]; then
+            printf '%s registry request failed; retrying (%s/120)\n' \
+                "$target" "$attempt" >&2
         fi
         sleep 15
     done
     die "$target did not expose $RELEASE_VERSION before timeout"
 }
 
+preflight_git() {
+    local tap_dir="${1:-}"
+    require_common
+    [ -n "${GH_TOKEN:-}" ] || die "GH_TOKEN is required"
+    [ -d "$tap_dir/.git" ] || die "Homebrew tap preflight checkout is required"
+    local login push_permission remote_main
+    login="$(gh api user --jq '.login')"
+    [ "$login" = rajatim ] || die "GitHub token belongs to an unexpected account: $login"
+    push_permission="$(gh api repos/rajatim/zhtw --jq '.permissions.push')"
+    [ "$push_permission" = true ] || die "GitHub token cannot write rajatim/zhtw"
+    remote_main="$(git rev-parse refs/remotes/origin/main)"
+    git push --dry-run origin "$remote_main:refs/heads/main" >/dev/null
+    git -C "$tap_dir" push --dry-run origin HEAD:refs/heads/main >/dev/null
+    printf 'GitHub API and SSH write credential preflight passed for zhtw and Homebrew\n'
+}
+
+preflight_pypi() {
+    require_common
+    [ -n "${PYPI_TOKEN:-}" ] || die "PYPI_TOKEN is required"
+    [[ "$PYPI_TOKEN" =~ ^pypi-[A-Za-z0-9_-]{85,}$ ]] || die "PyPI token format is invalid"
+    local runtime_root response_file auth status
+    runtime_root="$(secret_runtime_root)"
+    response_file="$(mktemp "$runtime_root/pypi-preflight.XXXXXX")"
+    auth="$(printf '%s' "__token__:$PYPI_TOKEN" | base64 | tr -d '\n')"
+    status="$(
+        printf 'Authorization: Basic %s\n' "$auth" | \
+            curl -sS --max-time 20 -A "$REGISTRY_USER_AGENT" --header @- \
+                --output "$response_file" --write-out '%{http_code}' \
+                --form ':action=file_upload' --form 'protocol_version=1' \
+                https://upload.pypi.org/legacy/
+    )"
+    rm -f "$response_file"
+    [ "$status" = 400 ] || die "PyPI rejected the project token during non-uploading authentication check (HTTP $status)"
+    printf 'PyPI project token authentication preflight passed\n'
+}
+
+preflight_npm() {
+    require_common
+    [ -n "${NODE_AUTH_TOKEN:-}" ] || die "NODE_AUTH_TOKEN is required"
+    [ -n "${NPM_TOKEN_EXPIRES:-}" ] || die "NPM_TOKEN_EXPIRES is required"
+    local expires_epoch minimum_epoch runtime_root temporary_config login access
+    expires_epoch="$(date -u -d "$NPM_TOKEN_EXPIRES" +%s 2>/dev/null)" || die "Invalid npm token expiry: $NPM_TOKEN_EXPIRES"
+    minimum_epoch="$(( $(date -u +%s) + 7 * 24 * 60 * 60 ))"
+    [ "$expires_epoch" -gt "$minimum_epoch" ] || die "npm token expires within seven days: $NPM_TOKEN_EXPIRES"
+    runtime_root="$(secret_runtime_root)"
+    temporary_config="$(mktemp "$runtime_root/npmrc.XXXXXX")"
+    chmod 600 "$temporary_config"
+    printf '%s\n' \
+        'registry=https://registry.npmjs.org/' \
+        '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}' > "$temporary_config"
+    login="$(NPM_CONFIG_USERCONFIG="$temporary_config" npm whoami --registry=https://registry.npmjs.org/)"
+    [ "$login" = rajatim ] || die "npm token belongs to an unexpected account: $login"
+    access="$(NPM_CONFIG_USERCONFIG="$temporary_config" npm access list packages rajatim --json \
+        --registry=https://registry.npmjs.org/)"
+    printf '%s' "$access" | jq -e \
+        '(."zhtw-js" == "read-write") and (."zhtw-wasm" == "read-write")' >/dev/null || \
+        die "npm token does not report read-write access to both packages"
+    rm -f "$temporary_config"
+    printf 'npm token preflight passed for both packages; expiry=%s\n' "$NPM_TOKEN_EXPIRES"
+}
+
+preflight_crates() {
+    require_common
+    [ -n "${CARGO_REGISTRY_TOKEN:-}" ] || die "CARGO_REGISTRY_TOKEN is required"
+    local identity
+    identity="$(
+        printf 'Authorization: %s\n' "$CARGO_REGISTRY_TOKEN" | \
+            curl -fsS --max-time 20 -A "$REGISTRY_USER_AGENT" --header @- \
+                https://crates.io/api/v1/me
+    )"
+    printf '%s' "$identity" | jq -e '.user.login == "rajatim"' >/dev/null || \
+        die "crates.io token belongs to an unexpected account"
+    printf 'crates.io token authentication preflight passed\n'
+}
+
+preflight_nuget() {
+    require_common
+    [ -n "${NUGET_API_KEY:-}" ] || die "NUGET_API_KEY is required"
+    local verification key
+    verification="$(
+        printf 'X-NuGet-ApiKey: %s\nX-NuGet-Protocol-Version: 4.1.0\n' "$NUGET_API_KEY" | \
+            curl -fsS --max-time 20 --request POST --header @- \
+                https://www.nuget.org/api/v2/package/create-verification-key/Zhtw
+    )"
+    key="$(printf '%s' "$verification" | jq -r '.Key // .key // empty')"
+    [ -n "$key" ] || die "NuGet did not issue a verification key"
+    printf 'X-NuGet-ApiKey: %s\nX-NuGet-Protocol-Version: 4.1.0\n' "$key" | \
+        curl -fsS --max-time 20 --header @- \
+            https://www.nuget.org/api/v2/verifykey/Zhtw >/dev/null
+    unset key verification
+    printf 'NuGet package-scoped API key preflight passed\n'
+}
+
+preflight_maven() {
+    require_common
+    [ -n "${CENTRAL_USERNAME:-}" ] || die "CENTRAL_USERNAME is required"
+    [ -n "${CENTRAL_PASSWORD:-}" ] || die "CENTRAL_PASSWORD is required"
+    [ -n "${GPG_PRIVATE_KEY:-}" ] || die "GPG_PRIVATE_KEY is required"
+    [ -n "${GPG_PASSPHRASE:-}" ] || die "GPG_PASSPHRASE is required"
+    local runtime_root temporary auth response status
+    runtime_root="$(secret_runtime_root)"
+    temporary="$(mktemp -d "$runtime_root/maven-preflight.XXXXXX")"
+    export GNUPGHOME="$temporary/gnupg"
+    mkdir -m 700 "$GNUPGHOME"
+    printf '%s' "$GPG_PRIVATE_KEY" | gpg --batch --import >/dev/null
+    printf 'zhtw Maven signing preflight\n' > "$temporary/message"
+    sign_maven_file "$temporary/message"
+    gpg --batch --verify "$temporary/message.asc" "$temporary/message" >/dev/null 2>&1
+
+    auth="$(printf '%s:%s' "$CENTRAL_USERNAME" "$CENTRAL_PASSWORD" | base64 | tr -d '\n')"
+    response="$temporary/central-response"
+    status="$(
+        printf 'Authorization: Bearer %s\n' "$auth" | \
+            curl -sS --max-time 20 --request POST --header @- \
+                --output "$response" --write-out '%{http_code}' \
+                'https://central.sonatype.com/api/v1/publisher/status?id=00000000-0000-0000-0000-000000000000'
+    )"
+    case "$status" in
+        400|404) ;;
+        *) rm -rf -- "$temporary"; die "Maven Central token authentication failed (HTTP $status)" ;;
+    esac
+    rm -rf -- "$temporary"
+    unset GNUPGHOME
+    printf 'Maven Central token and GPG signing preflight passed\n'
+}
+
 publish_pypi() {
     require_common
     ensure_git_release
     [ -n "${PYPI_TOKEN:-}" ] || die "PYPI_TOKEN is required"
+    local file registry_result release_exists=0 match_result
+    local -a files=() missing=()
+    while IFS= read -r file; do
+        files+=("$file")
+    done < <(find "$PAYLOAD_DIR/packages/python" -maxdepth 1 -type f -print | LC_ALL=C sort)
+    [ "${#files[@]}" -eq 2 ] || die "Expected exactly two Python distributions"
     if registry_exists pypi; then
-        printf 'PyPI %s already exists; skipping\n' "$RELEASE_VERSION"
+        release_exists=1
+    else
+        registry_result=$?
+        [ "$registry_result" -eq 1 ] || die "Could not determine whether PyPI $RELEASE_VERSION exists"
+    fi
+    for file in "${files[@]}"; do
+        if [ "$release_exists" -eq 1 ] && pypi_file_matches "$file"; then
+            printf 'PyPI file already matches: %s\n' "$(basename "$file")"
+        else
+            match_result=$?
+            if [ "$release_exists" -eq 1 ] && [ "$match_result" -eq 2 ]; then
+                die "Could not read PyPI file metadata: $(basename "$file")"
+            fi
+            missing+=("$file")
+        fi
+    done
+    if [ "${#missing[@]}" -eq 0 ]; then
+        printf 'PyPI %s is complete and exact; skipping\n' "$RELEASE_VERSION"
         return
     fi
-    TWINE_USERNAME=__token__ TWINE_PASSWORD="$PYPI_TOKEN" \
-        UV_CACHE_DIR="${UV_CACHE_DIR:-$HOME/.cache/uv}" \
-        uvx --from twine==6.1.0 twine upload --non-interactive \
-        "$PAYLOAD_DIR"/packages/python/*
-    wait_for_registry pypi
+    for file in "${missing[@]}"; do
+        upload_pypi_file "$file"
+        wait_for_pypi_file "$file"
+    done
+    for file in "${files[@]}"; do
+        if ! pypi_file_matches "$file"; then
+            die "PyPI release remains incomplete or unreadable: $(basename "$file")"
+        fi
+    done
 }
 
 publish_npm() {
@@ -249,12 +548,16 @@ publish_npm() {
         npm-wasm) package_name=zhtw-wasm ;;
         *) die "Unknown npm target: $target" ;;
     esac
-    if registry_exists "$target"; then
-        printf '%s %s already exists; skipping\n' "$package_name" "$RELEASE_VERSION"
-        return
-    fi
     tarball="$PAYLOAD_DIR/packages/npm/$package_name-$RELEASE_VERSION.tgz"
     [ -s "$tarball" ] || die "Missing npm tarball: $tarball"
+    if registry_exists "$target"; then
+        npm_tarball_matches "$package_name" "$tarball"
+        printf '%s %s already exists and matches; skipping\n' "$package_name" "$RELEASE_VERSION"
+        return
+    else
+        local registry_result=$?
+        [ "$registry_result" -eq 1 ] || die "Could not determine whether $package_name $RELEASE_VERSION exists"
+    fi
     runtime_root="$(secret_runtime_root)"
     temporary_config="$(mktemp "$runtime_root/npmrc.XXXXXX")"
     chmod 600 "$temporary_config"
@@ -270,12 +573,18 @@ publish_crates() {
     require_common
     ensure_git_release
     [ -n "${CARGO_REGISTRY_TOKEN:-}" ] || die "CARGO_REGISTRY_TOKEN is required"
+    local crate expected actual
+    crate="$PAYLOAD_DIR/packages/crates/zhtw-$RELEASE_VERSION.crate"
+    [ -s "$crate" ] || die "Missing archived crate: $crate"
     if registry_exists crates; then
-        printf 'crates.io %s already exists; skipping\n' "$RELEASE_VERSION"
+        crate_matches "$crate"
+        printf 'crates.io %s already exists and matches; skipping\n' "$RELEASE_VERSION"
         return
+    else
+        local registry_result=$?
+        [ "$registry_result" -eq 1 ] || die "Could not determine whether crates.io $RELEASE_VERSION exists"
     fi
-    local expected actual
-    expected="$(sha256sum "$PAYLOAD_DIR/packages/crates/zhtw-$RELEASE_VERSION.crate" | cut -d' ' -f1)"
+    expected="$(sha256sum "$crate" | cut -d' ' -f1)"
     rm -f sdk/rust/target/package/zhtw-"$RELEASE_VERSION".crate
     cargo package --manifest-path sdk/rust/zhtw/Cargo.toml --allow-dirty --no-verify
     actual="$(sha256sum "sdk/rust/target/package/zhtw-$RELEASE_VERSION.crate" | cut -d' ' -f1)"
@@ -288,13 +597,17 @@ publish_nuget() {
     require_common
     ensure_git_release
     [ -n "${NUGET_API_KEY:-}" ] || die "NUGET_API_KEY is required"
-    if registry_exists nuget; then
-        printf 'NuGet %s already exists; skipping\n' "$RELEASE_VERSION"
-        return
-    fi
     local package
     package="$PAYLOAD_DIR/packages/nuget/Zhtw.$RELEASE_VERSION.nupkg"
     [ -s "$package" ] || die "Missing NuGet package: $package"
+    if registry_exists nuget; then
+        nuget_package_matches "$package"
+        printf 'NuGet %s already exists and matches; skipping\n' "$RELEASE_VERSION"
+        return
+    else
+        local registry_result=$?
+        [ "$registry_result" -eq 1 ] || die "Could not determine whether NuGet $RELEASE_VERSION exists"
+    fi
     printf 'X-NuGet-ApiKey: %s\nX-NuGet-Protocol-Version: 4.1.0\n' "$NUGET_API_KEY" | \
         curl -fsS --request PUT --header @- \
         --form "package=@$package;type=application/octet-stream" \
@@ -313,61 +626,99 @@ publish_maven() {
     ensure_git_release
     [ -n "${CENTRAL_USERNAME:-}" ] || die "CENTRAL_USERNAME is required"
     [ -n "${CENTRAL_PASSWORD:-}" ] || die "CENTRAL_PASSWORD is required"
-    [ -n "${GPG_PRIVATE_KEY:-}" ] || die "GPG_PRIVATE_KEY is required"
-    [ -n "${GPG_PASSPHRASE:-}" ] || die "GPG_PASSPHRASE is required"
+    [ -n "${MAVEN_DEPLOYMENT_RECORD:-}" ] || die "MAVEN_DEPLOYMENT_RECORD is required"
+    case "$MAVEN_DEPLOYMENT_RECORD" in
+        "$WORKSPACE"/*) ;;
+        *) die "MAVEN_DEPLOYMENT_RECORD must stay inside WORKSPACE" ;;
+    esac
     if registry_exists maven; then
-        printf 'Maven Central %s already exists; skipping\n' "$RELEASE_VERSION"
+        maven_artifacts_match
+        printf 'Maven Central %s already exists and matches; skipping\n' "$RELEASE_VERSION"
         return
+    else
+        local registry_result=$?
+        [ "$registry_result" -eq 1 ] || die "Could not determine whether Maven Central $RELEASE_VERSION exists"
     fi
 
-    local temporary layout bundle auth deployment_id attempt status runtime_root
-    runtime_root="$(secret_runtime_root)"
-    temporary="$(mktemp -d "$runtime_root/maven.XXXXXX")"
-    trap "rm -rf -- '$temporary'" EXIT
-    export GNUPGHOME="$temporary/gnupg"
-    mkdir -m 700 "$GNUPGHOME"
-    printf '%s' "$GPG_PRIVATE_KEY" | gpg --batch --import >/dev/null
-    layout="$temporary/com/rajatim/zhtw/$RELEASE_VERSION"
-    mkdir -p "$layout"
-    cp "$PAYLOAD_DIR"/packages/maven/* "$layout/"
+    local temporary='' layout bundle auth deployment_id attempt status state runtime_root
     local file algorithm suffix
-    for file in "$layout"/*; do
-        sign_maven_file "$file"
-    done
-    for file in "$layout"/*; do
-        for algorithm in md5 sha1 sha256 sha512; do
-            suffix="$algorithm"
-            [ "$algorithm" != sha1 ] || suffix=sha1
-            "${algorithm}sum" "$file" | cut -d' ' -f1 > "$file.$suffix"
+    deployment_id="${MAVEN_DEPLOYMENT_ID:-}"
+    if [ -n "$deployment_id" ]; then
+        [[ "$deployment_id" =~ ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ ]] || \
+            die "Invalid MAVEN_DEPLOYMENT_ID: $deployment_id"
+        printf 'Resuming Maven Central deployment %s without creating another upload\n' "$deployment_id"
+    else
+        [ -n "${GPG_PRIVATE_KEY:-}" ] || die "GPG_PRIVATE_KEY is required"
+        [ -n "${GPG_PASSPHRASE:-}" ] || die "GPG_PASSPHRASE is required"
+        runtime_root="$(secret_runtime_root)"
+        temporary="$(mktemp -d "$runtime_root/maven.XXXXXX")"
+        trap "rm -rf -- '$temporary'" EXIT
+        export GNUPGHOME="$temporary/gnupg"
+        mkdir -m 700 "$GNUPGHOME"
+        printf '%s' "$GPG_PRIVATE_KEY" | gpg --batch --import >/dev/null
+        layout="$temporary/com/rajatim/zhtw/$RELEASE_VERSION"
+        mkdir -p "$layout"
+        cp "$PAYLOAD_DIR"/packages/maven/* "$layout/"
+        for file in "$layout"/*; do
+            sign_maven_file "$file"
         done
-    done
-    bundle="$temporary/zhtw-$RELEASE_VERSION-central.zip"
-    (cd "$temporary" && zip -qr "$bundle" com)
+        for file in "$layout"/*; do
+            for algorithm in md5 sha1 sha256 sha512; do
+                suffix="$algorithm"
+                [ "$algorithm" != sha1 ] || suffix=sha1
+                "${algorithm}sum" "$file" | cut -d' ' -f1 > "$file.$suffix"
+            done
+        done
+        bundle="$temporary/zhtw-$RELEASE_VERSION-central.zip"
+        (cd "$temporary" && zip -qr "$bundle" com)
+    fi
+
     auth="$(printf '%s:%s' "$CENTRAL_USERNAME" "$CENTRAL_PASSWORD" | base64 | tr -d '\n')"
-    deployment_id="$(
-        printf 'Authorization: Bearer %s\n' "$auth" | \
-            curl -fsS --request POST --header @- \
-            --form "bundle=@$bundle;type=application/octet-stream" \
-            "https://central.sonatype.com/api/v1/publisher/upload?name=zhtw-$RELEASE_VERSION&publishingType=AUTOMATIC"
-    )"
-    [[ "$deployment_id" =~ ^[0-9a-f-]{36}$ ]] || die "Unexpected Maven deployment ID: $deployment_id"
-    for attempt in $(seq 1 120); do
-        status="$(
+    if [ -z "$deployment_id" ]; then
+        deployment_id="$(
             printf 'Authorization: Bearer %s\n' "$auth" | \
                 curl -fsS --request POST --header @- \
-                "https://central.sonatype.com/api/v1/publisher/status?id=$deployment_id"
+                --form "bundle=@$bundle;type=application/octet-stream" \
+                "https://central.sonatype.com/api/v1/publisher/upload?name=zhtw-$RELEASE_VERSION&publishingType=AUTOMATIC"
         )"
-        case "$(printf '%s' "$status" | jq -r .deploymentState)" in
+        [[ "$deployment_id" =~ ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ ]] || \
+            die "Unexpected Maven deployment ID: $deployment_id"
+    fi
+    {
+        printf 'MAVEN_DEPLOYMENT_ID=%s\n' "$deployment_id"
+        printf 'RELEASE_VERSION=%s\n' "$RELEASE_VERSION"
+        printf 'SOURCE_SHA=%s\n' "$SOURCE_SHA"
+        printf 'RECORDED_AT=%s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    } > "$MAVEN_DEPLOYMENT_RECORD"
+
+    status=''
+    state=''
+    for attempt in $(seq 1 120); do
+        if ! status="$(
+            printf 'Authorization: Bearer %s\n' "$auth" | \
+                curl -fsS --max-time 30 --request POST --header @- \
+                "https://central.sonatype.com/api/v1/publisher/status?id=$deployment_id"
+        )"; then
+            printf 'Maven Central status request failed; retrying (%s/120)\n' "$attempt" >&2
+            sleep 15
+            continue
+        fi
+        state="$(printf '%s' "$status" | jq -r '.deploymentState // empty' 2>/dev/null || true)"
+        case "$state" in
             PUBLISHED) break ;;
             FAILED) printf '%s\n' "$status" | jq . >&2; die "Maven Central deployment failed" ;;
             *) sleep 15 ;;
         esac
     done
-    [ "$(printf '%s' "$status" | jq -r .deploymentState)" = PUBLISHED ] || \
+    [ "$state" = PUBLISHED ] || \
         die "Maven Central deployment timed out: $deployment_id"
-    rm -rf -- "$temporary"
-    trap - EXIT
+    if [ -n "$temporary" ]; then
+        rm -rf -- "$temporary"
+        trap - EXIT
+        unset GNUPGHOME
+    fi
     wait_for_registry maven
+    maven_artifacts_match
 }
 
 publish_homebrew() {
@@ -375,10 +726,13 @@ publish_homebrew() {
     require_common
     ensure_git_release
     [ -d "$tap_dir/.git" ] || die "Homebrew tap checkout not found: $tap_dir"
-    registry_exists pypi || die "PyPI must be visible before Homebrew"
+    if ! registry_exists pypi; then
+        die "PyPI must be visible and readable before Homebrew"
+    fi
     [ -z "$(git -C "$tap_dir" status --porcelain)" ] || die "Homebrew tap checkout is dirty"
     local info sdist_url sdist_sha formula
-    info="$(curl -fsS --max-time 20 "https://pypi.org/pypi/zhtw/$RELEASE_VERSION/json")"
+    info="$(curl -fsS --max-time 20 -A "$REGISTRY_USER_AGENT" \
+        "https://pypi.org/pypi/zhtw/$RELEASE_VERSION/json")"
     sdist_url="$(printf '%s' "$info" | jq -r '.urls[] | select(.packagetype == "sdist") | .url')"
     sdist_sha="$(printf '%s' "$info" | jq -r '.urls[] | select(.packagetype == "sdist") | .digests.sha256')"
     [ -n "$sdist_url" ] && [ -n "$sdist_sha" ] || die "PyPI sdist metadata is incomplete"
@@ -407,13 +761,23 @@ PY
     git -C "$tap_dir" push origin HEAD:main
 }
 
+if [ "${BASH_SOURCE[0]}" != "$0" ]; then
+    return 0
+fi
+
 case "$ACTION" in
-    preview|publish-*) require_jenkins_release_runtime ;;
+    preview|preflight-*|publish-*) require_jenkins_release_runtime ;;
 esac
 
 case "$ACTION" in
     prepare) prepare_candidate ;;
     preview) preview_release ;;
+    preflight-git) preflight_git "${3:-}" ;;
+    preflight-pypi) preflight_pypi ;;
+    preflight-npm) preflight_npm ;;
+    preflight-crates) preflight_crates ;;
+    preflight-nuget) preflight_nuget ;;
+    preflight-maven) preflight_maven ;;
     publish-git) publish_git ;;
     publish-pypi) publish_pypi ;;
     publish-npm-js) publish_npm npm-js ;;

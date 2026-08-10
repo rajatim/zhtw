@@ -29,6 +29,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Jenkins 是唯一 CI/CD；`zhtw/verify` 現在必須對指定的 main `zhtw/build` 跑完
   `all`，並產生綁定 SHA、tree、版本、manifest 與 checksum 的 receipt。
   `zhtw/release` 的 `PREVIEW`、正式發布與所有 retry 都只接受完全相符的 receipt。
+- Jenkins 候選新增 Dependabot medium 以上警示與 npm token 到期閘門；release 新增
+  pinned `pip-audit`、`pnpm audit` 與不發布的完整 credential preflight；正式發布
+  仍會在確認前重新驗證所需權限。
 - 公開 benchmark gate 分開檢查「目前候選不得低於歷史基線」與「歷史報告可重現」；
   zhtw 分數可以提升，但資料集、鎖定競品輸出或 zhtw 指標退步都會失敗。
 - Blind-v2 句級 idempotency 由 1,915/1,960（97.70%）提升至
@@ -56,6 +59,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `[Unreleased]` 與新版本連結，GitHub Release notes 仍原樣取自該版本內容。
 - 詞庫 validator 分開顯示 bulk-to-curated 的 116 個刻意 pin／覆蓋與真正重複；移除
   3 個跨手工檔的同值重複詞條，並新增防止重複回歸的測試。
+- 修正發布後公開驗證實際只能到 11/12、crates.io probe 缺少 User-Agent、PyPI
+  部分成功後無法只補缺檔，以及 Maven 狀態查詢斷線後可能遺失 deployment ID。
+  Registry 已存在版本現在會比對封存內容；NuGet 只忽略官方 repository signature
+  產生的 wrapper 檔案。
+
+### Security
+- `cryptography` 更新至 50.0.0、`pypdf` 更新至 6.15.0、`postcss` 更新至 8.5.23，
+  `click` 更新至 8.4.2，修補本次 release gate 與獨立套件稽核發現的警示。
 
 ## [4.4.3] - 2026-07-31
 

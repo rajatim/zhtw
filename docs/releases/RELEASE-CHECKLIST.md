@@ -13,25 +13,39 @@
 ## 候選與唯讀預演
 
 ```bash
-jcli build zhtw/build -s -v -p BRANCH=main -p VERSION_BUMP=patch
-jcli build zhtw/verify -s -v \
+jcli build zhtw/build -p BRANCH=main -p VERSION_BUMP=patch
+jcli build zhtw/verify \
   -p BUILD_NUMBER=<成功-build> -p VERIFY_SUITE=all
-jcli build zhtw/release -s -v \
+jcli build zhtw/release \
   -p BUILD_NUMBER=<成功-build> -p VERIFY_BUILD_NUMBER=<成功-verify> \
   -p RELEASE_ACTION=PREVIEW \
   -p SKIP_CONFIRMATION=false
 ```
 
 - [ ] build 的 lint、release gate、全部套件建置與 checksum 都成功。
+- [ ] Dependabot 沒有 open medium/high/critical 警示，npm token 距離到期超過 14 天。
 - [ ] manifest 的 base SHA、base tree、candidate tree、release/build version 正確。
 - [ ] verify 使用同一 build、`VERIFY_SUITE=all`，並封存 release-eligible receipt。
 - [ ] receipt 的 build、SHA、tree、版本與 manifest/checksum hash 都和候選完全相同。
 - [ ] preview 使用同一組 build/verify，且沒有新增 tag、Release 或 registry version。
+- [ ] 所有 job 都 detached 啟動並用 Jenkins UI/API 監看，沒有使用 `jcli -s -v`。
+
+## Credential 預檢
+
+```bash
+jcli build zhtw/release \
+  -p BUILD_NUMBER=<同一-build> -p VERIFY_BUILD_NUMBER=<同一-verify> \
+  -p RELEASE_ACTION=CREDENTIAL_PREFLIGHT \
+  -p SKIP_CONFIRMATION=false
+```
+
+- [ ] GitHub API/SSH、PyPI、npm x2、crates.io、NuGet、Maven Central 與 GPG 全部通過。
+- [ ] 預檢沒有建立 tag、Release、registry version 或 Homebrew commit。
 
 ## 正式發布
 
 ```bash
-jcli build zhtw/release -s -v \
+jcli build zhtw/release \
   -p BUILD_NUMBER=<同一-build> -p VERIFY_BUILD_NUMBER=<同一-verify> \
   -p RELEASE_ACTION=PUBLISH_ALL \
   -p SKIP_CONFIRMATION=true
@@ -42,9 +56,11 @@ jcli build zhtw/release -s -v \
 - [ ] PyPI、npm x2、crates.io、NuGet、Maven Central、Go proxy 都可見。
 - [ ] Homebrew formula 指向同一版本 PyPI sdist 與正確 SHA-256。
 - [ ] Jenkins 最後 12/12 公開檢查通過。
+- [ ] 公開 registry 內容與 Jenkins 封存 payload 相符；NuGet 僅忽略 registry 簽章 wrapper。
 
 ## 部分失敗
 
 - [ ] 使用同一組 build/verify 重跑 `PUBLISH_ALL`，或使用正確的 `RETRY_*`。
 - [ ] 不刪除、不移動 tag，不覆蓋已存在的 registry version。
 - [ ] 若內容本身有錯，修正後升下一個 patch，不重用版號。
+- [ ] Maven 若已有 deployment ID，使用 `RETRY_MAVEN` 加該 ID 續查，不重複上傳。

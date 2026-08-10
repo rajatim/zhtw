@@ -81,6 +81,10 @@ make version-check   # 任一檔案不一致就 exit 1
   都和候選完全相同的成功 receipt。
 - `zhtw/release` 預設 `PREVIEW`，不改任何外部狀態。只有使用者明確核准確切
   Jenkins build 與 verify build 後，才可用 `PUBLISH_ALL` 或 `RETRY_*`。
+- `CREDENTIAL_PREFLIGHT` 是不發布的安全驗證；正式發布與每個 retry 會在確認閘門前
+  重新執行該目標需要的 credential preflight。預檢成功不等於核准正式發布。
+- `zhtw/build` 必須阻擋 open medium/high/critical Dependabot 警示，並封存去敏後證據；
+  npm token 到期日少於 14 天也必須阻擋候選。
 - 所有 Git、通知與 registry 機密只能由 `zhtw/` folder-scoped Jenkins
   Credentials 在需要的 stage 注入。Job 不得呼叫 1Password、讀取 agent 主機上的
   私鑰／credential profile／session cache，或依賴互動式 shell。由 credential 產生的

@@ -7,6 +7,7 @@ import re
 import shutil
 import subprocess
 import sys
+import zipfile
 from dataclasses import asdict
 from pathlib import Path
 
@@ -104,6 +105,15 @@ def test_jenkins_release_is_idempotent_and_covers_every_target() -> None:
     script = read("scripts/jenkins-release.sh")
 
     for action in (
+        "preflight-git",
+        "preflight-pypi",
+        "preflight-npm",
+        "preflight-crates",
+        "preflight-nuget",
+        "preflight-maven",
+    ):
+        assert f"{action})" in script
+    for action in (
         "publish-git",
         "publish-pypi",
         "publish-npm-js",
@@ -117,6 +127,10 @@ def test_jenkins_release_is_idempotent_and_covers_every_target() -> None:
     assert "registry_exists" in script
     assert "git push --atomic" in script
     assert "Existing GitHub asset differs" in script
+    assert "Existing PyPI file differs" in script
+    assert "Existing npm package differs" in script
+    assert "Existing NuGet package differs" in script
+    assert "Existing Maven Central artifact differs" in script
     assert "Cargo repack differs from the archived crate" in script
     assert "publishingType=AUTOMATIC" in script
 
@@ -198,7 +212,8 @@ def test_jenkins_verify_uses_isolated_podman_compatible_cli() -> None:
 def test_release_verify_is_read_only_and_version_scoped() -> None:
     script = read("scripts/release-verify.sh")
 
-    assert "12/12 checks" in script
+    assert "TOTAL_CHECKS=12" in script
+    assert "Exact archived payload matches every public artifact" in script
     assert "pypi.org/pypi/zhtw/$VERSION" in script
     assert "registry.npmjs.org/zhtw-js/$VERSION" in script
     assert "repo1.maven.org" in script
@@ -206,6 +221,311 @@ def test_release_verify_is_read_only_and_version_scoped() -> None:
     assert "git commit" not in script
     assert "git push" not in script
     assert "gh run" not in script
+
+
+def test_public_release_docs_require_detached_preflight_before_publish() -> None:
+    rules = read(".claude/rules/releasing.md")
+    checklist = read("docs/releases/RELEASE-CHECKLIST.md")
+
+    for document in (rules, checklist):
+        assert "RELEASE_ACTION=CREDENTIAL_PREFLIGHT" in document
+        assert "jcli build zhtw/release -s -v" not in document
+    assert "PREVIEW" in rules
+    assert "PUBLISH_ALL" in rules
+    assert rules.index("RELEASE_ACTION=PREVIEW") < rules.index(
+        "RELEASE_ACTION=CREDENTIAL_PREFLIGHT"
+    )
+    assert rules.index("RELEASE_ACTION=CREDENTIAL_PREFLIGHT") < rules.index(
+        "RELEASE_ACTION=PUBLISH_ALL"
+    )
+
+
+def make_fake_release_curl(tmp_path: Path) -> Path:
+    fake_bin = tmp_path / "bin"
+    fake_bin.mkdir()
+    curl = fake_bin / "curl"
+    curl.write_text(
+        """#!/usr/bin/env python3
+import json
+import os
+import sys
+
+url = sys.argv[-1]
+if "sdk%2Fgo" in url:
+    names = [
+        "zhtw-darwin-amd64.tar.gz",
+        "zhtw-darwin-arm64.tar.gz",
+        "zhtw-linux-amd64.tar.gz",
+        "zhtw-linux-arm64.tar.gz",
+        "zhtw-windows-amd64.zip",
+        "zhtw_checksums.txt",
+    ]
+    print(json.dumps({"assets": [{"name": name} for name in names]}))
+elif "api.github.com" in url:
+    print(json.dumps({"tag_name": "v9.8.7", "body": os.environ.get("RELEASE_BODY", "notes")}))
+elif "homebrew-tap" in url:
+    print('url "https://files.example/zhtw-9.8.7.tar.gz"')
+elif "nuget.org" in url:
+    print('{"versions":["9.8.7"]}')
+else:
+    print("{}")
+""",
+        encoding="utf-8",
+    )
+    curl.chmod(0o755)
+    git = fake_bin / "git"
+    git.write_text(
+        """#!/usr/bin/env sh
+printf '%s  %s\n' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa "$3"
+""",
+        encoding="utf-8",
+    )
+    git.chmod(0o755)
+    return fake_bin
+
+
+def run_release_verify(tmp_path: Path, release_body: str) -> subprocess.CompletedProcess[str]:
+    fake_bin = make_fake_release_curl(tmp_path)
+    environment = os.environ.copy()
+    environment.pop("GH_TOKEN", None)
+    environment.update(
+        {
+            "PATH": f"{fake_bin}{os.pathsep}{environment['PATH']}",
+            "RELEASE_BODY": release_body,
+            "VERIFY_ATTEMPTS": "1",
+            "VERIFY_INTERVAL": "0",
+        }
+    )
+    return subprocess.run(
+        [str(ROOT / "scripts/release-verify.sh"), "9.8.7"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env=environment,
+    )
+
+
+def test_release_verify_reaches_all_twelve_checks(tmp_path: Path) -> None:
+    result = run_release_verify(tmp_path, "Complete release notes")
+
+    assert result.returncode == 0, result.stderr
+    assert "12/12 checks" in result.stdout
+
+
+def test_release_verify_rejects_an_empty_changelog(tmp_path: Path) -> None:
+    result = run_release_verify(tmp_path, "   ")
+
+    assert result.returncode == 1
+    assert "11/12 checks" in result.stdout
+
+
+def test_partial_pypi_retry_uploads_only_the_missing_file(tmp_path: Path) -> None:
+    payload = tmp_path / "payload"
+    distributions = payload / "packages" / "python"
+    distributions.mkdir(parents=True)
+    (distributions / "zhtw-9.8.7-py3-none-any.whl").write_bytes(b"wheel")
+    (distributions / "zhtw-9.8.7.tar.gz").write_bytes(b"sdist")
+    upload_log = tmp_path / "uploads"
+    environment = os.environ.copy()
+    environment.update(
+        {
+            "ADAPTER": str(ROOT / "scripts/jenkins-release.sh"),
+            "PAYLOAD": str(payload),
+            "UPLOAD_LOG": str(upload_log),
+            "PYPI_TOKEN": "fixture",
+        }
+    )
+    result = subprocess.run(
+        [
+            "bash",
+            "-c",
+            r"""
+source "$ADAPTER" ignored "$PAYLOAD"
+require_common() { :; }
+ensure_git_release() { :; }
+registry_exists() { return 0; }
+pypi_file_matches() {
+    case "$(basename "$1")" in
+        *.whl) return 0 ;;
+        *) [ -s "$UPLOAD_LOG" ] ;;
+    esac
+}
+upload_pypi_file() { basename "$1" >> "$UPLOAD_LOG"; }
+wait_for_pypi_file() { :; }
+publish_pypi
+""",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env=environment,
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert upload_log.read_text(encoding="utf-8").splitlines() == ["zhtw-9.8.7.tar.gz"]
+
+
+def test_crates_registry_probe_sends_a_named_user_agent(tmp_path: Path) -> None:
+    curl_log = tmp_path / "curl-arguments"
+    environment = os.environ.copy()
+    environment.update(
+        {
+            "ADAPTER": str(ROOT / "scripts/jenkins-release.sh"),
+            "CURL_LOG": str(curl_log),
+        }
+    )
+    result = subprocess.run(
+        [
+            "bash",
+            "-c",
+            r"""
+source "$ADAPTER" ignored /missing
+RELEASE_VERSION=9.8.7
+curl() { printf '%s\n' "$*" > "$CURL_LOG"; printf '200'; }
+registry_exists crates
+""",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env=environment,
+    )
+
+    assert result.returncode == 0, result.stderr
+    arguments = curl_log.read_text(encoding="utf-8")
+    assert "-A zhtw-jenkins-release" in arguments
+    assert "https://crates.io/api/v1/crates/zhtw/9.8.7" in arguments
+
+
+def test_registry_probe_distinguishes_absence_from_service_failure() -> None:
+    environment = os.environ.copy()
+    environment.update({"ADAPTER": str(ROOT / "scripts/jenkins-release.sh")})
+    script = r"""
+source "$ADAPTER" ignored /missing
+RELEASE_VERSION=9.8.7
+curl() { printf '%s' "$REGISTRY_STATUS"; }
+registry_exists npm-js
+"""
+
+    absent = subprocess.run(
+        ["bash", "-c", script],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env={**environment, "REGISTRY_STATUS": "404"},
+    )
+    unavailable = subprocess.run(
+        ["bash", "-c", script],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env={**environment, "REGISTRY_STATUS": "503"},
+    )
+
+    assert absent.returncode == 1
+    assert unavailable.returncode == 2
+
+
+def test_maven_retry_resumes_recorded_deployment_without_upload(tmp_path: Path) -> None:
+    payload = tmp_path / "payload"
+    payload.mkdir()
+    curl_log = tmp_path / "curl-arguments"
+    record = tmp_path / "maven-deployment.properties"
+    deployment_id = "12345678-1234-1234-1234-123456789abc"
+    environment = os.environ.copy()
+    environment.update(
+        {
+            "ADAPTER": str(ROOT / "scripts/jenkins-release.sh"),
+            "PAYLOAD": str(payload),
+            "CURL_LOG": str(curl_log),
+            "CENTRAL_USERNAME": "fixture-user",
+            "CENTRAL_PASSWORD": "fixture-password",
+            "MAVEN_DEPLOYMENT_ID": deployment_id,
+            "MAVEN_DEPLOYMENT_RECORD": str(record),
+            "WORKSPACE": str(tmp_path),
+            "SOURCE_SHA": "a" * 40,
+            "RELEASE_VERSION": "9.8.7",
+        }
+    )
+    result = subprocess.run(
+        [
+            "bash",
+            "-c",
+            r"""
+source "$ADAPTER" ignored "$PAYLOAD"
+require_common() { :; }
+ensure_git_release() { :; }
+registry_exists() { return 1; }
+wait_for_registry() { :; }
+maven_artifacts_match() { :; }
+curl() {
+    printf '%s\n' "$*" >> "$CURL_LOG"
+    printf '{"deploymentState":"PUBLISHED"}\n'
+}
+publish_maven
+""",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env=environment,
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "Resuming Maven Central deployment" in result.stdout
+    assert "/publisher/upload" not in curl_log.read_text(encoding="utf-8")
+    assert f"MAVEN_DEPLOYMENT_ID={deployment_id}" in record.read_text(encoding="utf-8")
+
+
+def write_nuget_fixture(path: Path, library: bytes, signed: bool) -> None:
+    with zipfile.ZipFile(path, "w") as package:
+        package.writestr("Zhtw.nuspec", b"<package />")
+        package.writestr("lib/net8.0/Zhtw.dll", library)
+        package.writestr("[Content_Types].xml", b"signed" if signed else b"unsigned")
+        package.writestr("_rels/.rels", b"signed" if signed else b"unsigned")
+        if signed:
+            package.writestr(".signature.p7s", b"repository signature")
+
+
+def run_nuget_comparison(expected: Path, public: Path) -> subprocess.CompletedProcess[str]:
+    environment = os.environ.copy()
+    environment.update(
+        {
+            "ADAPTER": str(ROOT / "scripts/jenkins-release.sh"),
+            "EXPECTED": str(expected),
+            "PUBLIC": str(public),
+        }
+    )
+    return subprocess.run(
+        [
+            "bash",
+            "-c",
+            'source "$ADAPTER" ignored /missing; nuget_semantic_matches "$EXPECTED" "$PUBLIC"',
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env=environment,
+    )
+
+
+def test_nuget_comparison_ignores_only_repository_signature_wrappers(tmp_path: Path) -> None:
+    expected = tmp_path / "expected.nupkg"
+    signed = tmp_path / "signed.nupkg"
+    changed = tmp_path / "changed.nupkg"
+    write_nuget_fixture(expected, b"exact library", signed=False)
+    write_nuget_fixture(signed, b"exact library", signed=True)
+    write_nuget_fixture(changed, b"different library", signed=True)
+
+    assert run_nuget_comparison(expected, signed).returncode == 0
+    assert run_nuget_comparison(expected, changed).returncode == 1
 
 
 def test_version_bump_is_portable(tmp_path: Path) -> None:

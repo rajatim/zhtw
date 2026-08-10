@@ -21,7 +21,8 @@
 - `zhtw/verify` 只能選成功的 main `zhtw/build`；`VERIFY_SUITE=all` 通過後會封存
   繫結 SHA、tree、版本與候選 checksum 的 release-eligible receipt。
 - `zhtw/release` 預設 `PREVIEW`，而且連 preview 都必須提供完全相符的成功
-  verification receipt；只有明確核准後才可 `PUBLISH_ALL`。
+  verification receipt。`CREDENTIAL_PREFLIGHT` 會安全驗證所有發布 credential，
+  但不建立 tag、Release 或 registry version；只有明確核准後才可 `PUBLISH_ALL`。
 - `make release` 與 `make release-dry` 會 fail-closed，提醒改用 Jenkins。
 
 ## 標準流程
@@ -29,19 +30,20 @@
 ### 1. 建立完整候選
 
 ```bash
-jcli build zhtw/build -s -v \
+jcli build zhtw/build \
   -p BRANCH=main \
   -p VERSION_BUMP=patch
 ```
 
 `patch` 用於修正、`minor` 用於向下相容的新功能、`major` 用於 breaking
 change。Jenkins 會同步更新所有 SDK 版本、提升 CHANGELOG `[Unreleased]`、跑完整
-release gate，並建出 PyPI、npm x2、crate、NuGet、Maven 與五種 Go binary。
+release gate，阻擋 open medium 以上 Dependabot 警示與即將到期的 npm token，並建出
+PyPI、npm x2、crate、NuGet、Maven 與五種 Go binary。
 
 ### 2. 驗證同一份候選
 
 ```bash
-jcli build zhtw/verify -s -v \
+jcli build zhtw/verify \
   -p BUILD_NUMBER=<成功的-zhtw-build> \
   -p VERIFY_SUITE=all
 ```
@@ -52,7 +54,7 @@ jcli build zhtw/verify -s -v \
 ### 3. 唯讀預演
 
 ```bash
-jcli build zhtw/release -s -v \
+jcli build zhtw/release \
   -p BUILD_NUMBER=<成功的-zhtw-build> \
   -p VERIFY_BUILD_NUMBER=<相符的-zhtw-verify> \
   -p RELEASE_ACTION=PREVIEW \
@@ -63,10 +65,24 @@ jcli build zhtw/release -s -v \
 完全相同，再檢查 main 前進關係與既有 tag。它不繫結 registry credential，也不改
 Git 或外部服務。
 
-### 4. 明確核准後正式發布
+### 4. 安全驗證所有 credential
 
 ```bash
-jcli build zhtw/release -s -v \
+jcli build zhtw/release \
+  -p BUILD_NUMBER=<成功的-zhtw-build> \
+  -p VERIFY_BUILD_NUMBER=<相符的-zhtw-verify> \
+  -p RELEASE_ACTION=CREDENTIAL_PREFLIGHT \
+  -p SKIP_CONFIRMATION=false
+```
+
+這個動作只做 authentication 與權限 probe，不上傳套件。它會驗證 GitHub API/SSH、
+PyPI、npm 兩個 package 的 read-write scope 與到期日、crates.io、NuGet、Maven
+Central token，以及 Maven GPG 簽章。
+
+### 5. 明確核准後正式發布
+
+```bash
+jcli build zhtw/release \
   -p BUILD_NUMBER=<同一個-zhtw-build> \
   -p VERIFY_BUILD_NUMBER=<同一個-zhtw-verify> \
   -p RELEASE_ACTION=PUBLISH_ALL \
@@ -79,6 +95,9 @@ jcli build zhtw/release -s -v \
 `SKIP_CONFIRMATION=true` 只代表使用者已在目前對話核准這組確切 build 與 verify，
 不會略過 receipt、來源、checksum、tag 或 registry 驗證。
 
+所有長時間 job 都要 detached 啟動，再用 Jenkins UI 或 API 監看回傳的 build number；
+不可使用 attached `jcli -s -v`。CLI 連線中斷曾經直接中止還在執行的 Jenkins build。
+
 ## 失敗處理
 
 公開 registry 沒有網站部署式 rollback。某一步失敗時：
@@ -86,8 +105,11 @@ jcli build zhtw/release -s -v \
 1. 停止後續發布。
 2. 使用同一組 `zhtw/build` 與 `zhtw/verify` 編號重跑 `PUBLISH_ALL`，或選對應的
    `RETRY_*`。
-3. 已存在的正確版本會被安全略過，不會重傳。
+3. 已存在的版本只有在公開內容與封存候選相符時才會略過；PyPI 只補傳缺少的檔案。
 4. 如果已發布內容本身有錯，只能修正後升下一個 patch；不可刪 tag 或重用版號。
+
+Maven 上傳後會立即封存 deployment ID。若狀態查詢斷線，使用
+`RETRY_MAVEN` 加上該 ID 續查既有 deployment，不可建立第二次 upload。
 
 可用的修復動作：`RETRY_GIT`、`RETRY_PYPI`、`RETRY_NPM_JS`、
 `RETRY_NPM_WASM`、`RETRY_CRATES`、`RETRY_NUGET`、`RETRY_MAVEN`、
