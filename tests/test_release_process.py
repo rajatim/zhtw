@@ -232,6 +232,7 @@ def test_public_release_docs_require_detached_preflight_before_publish() -> None
         assert "jcli build zhtw/release -s -v" not in document
     assert "PREVIEW" in rules
     assert "PUBLISH_ALL" in rules
+    assert "RESUME_ALL" in rules
     assert rules.index("RELEASE_ACTION=PREVIEW") < rules.index(
         "RELEASE_ACTION=CREDENTIAL_PREFLIGHT"
     )
@@ -365,6 +366,115 @@ publish_pypi
 
     assert result.returncode == 0, result.stderr
     assert upload_log.read_text(encoding="utf-8").splitlines() == ["zhtw-9.8.7.tar.gz"]
+
+
+def test_resume_skips_exact_prior_registries_and_continues_at_nuget(
+    tmp_path: Path,
+) -> None:
+    payload = tmp_path / "payload"
+    for relative, content in (
+        ("packages/python/zhtw-9.8.7-py3-none-any.whl", b"wheel"),
+        ("packages/python/zhtw-9.8.7.tar.gz", b"sdist"),
+        ("packages/npm/zhtw-js-9.8.7.tgz", b"js"),
+        ("packages/npm/zhtw-wasm-9.8.7.tgz", b"wasm"),
+        ("packages/crates/zhtw-9.8.7.crate", b"crate"),
+        ("packages/nuget/Zhtw.9.8.7.nupkg", b"nuget"),
+    ):
+        path = payload / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(content)
+    mutation_log = tmp_path / "mutations"
+    result = subprocess.run(
+        [
+            "bash",
+            "-c",
+            r"""
+source "$ADAPTER" ignored "$PAYLOAD"
+require_common() { :; }
+ensure_git_release() { :; }
+registry_exists() {
+    case "$1" in
+        pypi|npm-js|npm-wasm|crates) return 0 ;;
+        nuget) return 1 ;;
+        *) return 2 ;;
+    esac
+}
+pypi_file_matches() { :; }
+npm_tarball_matches() { :; }
+crate_matches() { :; }
+upload_pypi_file() { printf 'unexpected-pypi-upload\n' >> "$MUTATION_LOG"; return 1; }
+npm() { printf 'unexpected-npm-publish\n' >> "$MUTATION_LOG"; return 1; }
+cargo() { printf 'unexpected-cargo-publish\n' >> "$MUTATION_LOG"; return 1; }
+curl() { cat >/dev/null || true; printf 'nuget %s\n' "$*" >> "$MUTATION_LOG"; }
+wait_for_registry() { [ "$1" = nuget ]; }
+publish_pypi
+publish_npm npm-js
+publish_npm npm-wasm
+publish_crates
+publish_nuget
+""",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env={
+            **os.environ,
+            "ADAPTER": str(ROOT / "scripts/jenkins-release.sh"),
+            "PAYLOAD": str(payload),
+            "MUTATION_LOG": str(mutation_log),
+            "PYPI_TOKEN": "fixture",
+            "NODE_AUTH_TOKEN": "fixture",
+            "CARGO_REGISTRY_TOKEN": "fixture",
+            "NUGET_API_KEY": "fixture",
+            "RELEASE_VERSION": "9.8.7",
+        },
+    )
+
+    assert result.returncode == 0, result.stderr
+    mutations = mutation_log.read_text(encoding="utf-8").splitlines()
+    assert len(mutations) == 1
+    assert "--request PUT" in mutations[0]
+    assert "https://www.nuget.org/api/v2/package" in mutations[0]
+
+
+def test_resume_refuses_an_existing_nuget_version_with_different_content(
+    tmp_path: Path,
+) -> None:
+    package = tmp_path / "payload" / "packages" / "nuget" / "Zhtw.9.8.7.nupkg"
+    package.parent.mkdir(parents=True)
+    package.write_bytes(b"candidate")
+    mutation_log = tmp_path / "mutations"
+    result = subprocess.run(
+        [
+            "bash",
+            "-c",
+            r"""
+source "$ADAPTER" ignored "$PAYLOAD"
+require_common() { :; }
+ensure_git_release() { :; }
+registry_exists() { return 0; }
+nuget_package_matches() { return 1; }
+curl() { printf 'unexpected-put\n' >> "$MUTATION_LOG"; }
+publish_nuget
+""",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env={
+            **os.environ,
+            "ADAPTER": str(ROOT / "scripts/jenkins-release.sh"),
+            "PAYLOAD": str(tmp_path / "payload"),
+            "MUTATION_LOG": str(mutation_log),
+            "NUGET_API_KEY": "fixture",
+            "RELEASE_VERSION": "9.8.7",
+        },
+    )
+
+    assert result.returncode != 0
+    assert not mutation_log.exists()
 
 
 def test_crates_registry_probe_sends_a_named_user_agent(tmp_path: Path) -> None:
@@ -519,27 +629,79 @@ date() {
     esac
 }
 npm() {
-    printf '%s\n' "$*" >> "$NPM_LOG"
+    printf '%s|%s\n' "$NPM_CONFIG_CACHE" "$*" >> "$NPM_LOG"
     case "$*" in
         *whoami*) printf 'rajatim\n' ;;
-        *"access list packages"*) printf '{"zhtw-js":"read-write","zhtw-wasm":"read-write"}\n' ;;
+        *"token list"*)
+            fingerprint="${NODE_AUTH_TOKEN:0:8}...${NODE_AUTH_TOKEN: -4}"
+            printf '%s' '[{"token":"'
+            printf '%s' "$fingerprint"
+            printf '%s\n' '","expiry":"2099-01-01T00:00:00Z","bypass_2fa":true,' \
+                '"revoked":null,"permissions":[{"name":"package","action":"write"}],' \
+                '"scopes":[{"name":null,"type":"package"}]}]'
+            ;;
+        *"access list collaborators zhtw-js"*) printf '{"rajatim":"read-write"}\n' ;;
+        *"access list collaborators zhtw-wasm"*) printf '{"rajatim":"read-write"}\n' ;;
         *) return 1 ;;
     esac
 }
 preflight_npm
 """,
         {
-            "NODE_AUTH_TOKEN": "fixture",
+            "NODE_AUTH_TOKEN": "npm_fixture_token_1234",
             "NPM_TOKEN_EXPIRES": "2099-01-01T00:00:00Z",
             "NPM_LOG": str(npm_log),
         },
     )
 
     assert result.returncode == 0, result.stderr
-    commands = npm_log.read_text(encoding="utf-8")
+    lines = npm_log.read_text(encoding="utf-8").splitlines()
+    commands = "\n".join(lines)
     assert "whoami" in commands
-    assert "access list packages rajatim" in commands
+    assert "token list --json" in commands
+    assert "access list collaborators zhtw-js rajatim" in commands
+    assert "access list collaborators zhtw-wasm rajatim" in commands
+    assert "access list packages" not in commands
     assert "publish" not in commands
+    assert all(line.startswith(f"{tmp_path / 'secrets' / 'npm-cache'}|") for line in lines)
+
+
+def test_npm_preflight_rejects_a_read_only_token(tmp_path: Path) -> None:
+    result = run_preflight_shell(
+        tmp_path,
+        r"""
+source "$ADAPTER" ignored /missing
+require_common() { :; }
+date() {
+    case "$*" in
+        *" -d "*) printf '2000000000\n' ;;
+        *) printf '1900000000\n' ;;
+    esac
+}
+npm() {
+    case "$*" in
+        *whoami*) printf 'rajatim\n' ;;
+        *"token list"*)
+            fingerprint="${NODE_AUTH_TOKEN:0:8}...${NODE_AUTH_TOKEN: -4}"
+            printf '%s' '[{"token":"'
+            printf '%s' "$fingerprint"
+            printf '%s\n' '","expiry":"2099-01-01T00:00:00Z","bypass_2fa":true,' \
+                '"revoked":null,"permissions":[{"name":"package","action":"read"}],' \
+                '"scopes":[{"name":null,"type":"package"}]}]'
+            ;;
+        *) return 1 ;;
+    esac
+}
+preflight_npm
+""",
+        {
+            "NODE_AUTH_TOKEN": "npm_fixture_token_1234",
+            "NPM_TOKEN_EXPIRES": "2099-01-01T00:00:00Z",
+        },
+    )
+
+    assert result.returncode != 0
+    assert "active package-write token with 2FA bypass" in result.stderr
 
 
 def test_crates_and_nuget_preflights_use_nonpublishing_endpoints(tmp_path: Path) -> None:

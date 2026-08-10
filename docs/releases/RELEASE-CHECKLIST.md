@@ -60,7 +60,9 @@ jcli build zhtw/release \
 
 ## 部分失敗
 
-- [ ] 使用同一組 build/verify 重跑 `PUBLISH_ALL`，或使用正確的 `RETRY_*`。
+- [ ] 使用同一組 build/verify 執行 `RESUME_ALL`；已成功且內容完全相同的項目必須跳過。
+- [ ] `RESUME_ALL` 從第一個未完成 registry 接續，並在最後跑完整 12/12 公開驗證。
 - [ ] 不刪除、不移動 tag，不覆蓋已存在的 registry version。
 - [ ] 若內容本身有錯，修正後升下一個 patch，不重用版號。
-- [ ] Maven 若已有 deployment ID，使用 `RETRY_MAVEN` 加該 ID 續查，不重複上傳。
+- [ ] Maven 若已有 deployment ID，使用 `RESUME_ALL` 加該 ID 續查，不重複上傳。
+- [ ] 單項 `RETRY_*` 完成後仍執行 `RESUME_ALL`，補完後續 registry 與最終驗證。

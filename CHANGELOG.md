@@ -32,6 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Jenkins 候選新增 Dependabot medium 以上警示與 npm token 到期閘門；release 新增
   pinned `pip-audit`、`pnpm audit` 與不發布的完整 credential preflight；正式發布
   仍會在確認前重新驗證所需權限。
+- Jenkins release 新增 `RESUME_ALL`；中斷後會用同一組 build/verify 核對並跳過已成功
+  且內容完全相同的 registry，從第一個未完成項目接續，最後再跑完整公開驗證。
 - 公開 benchmark gate 分開檢查「目前候選不得低於歷史基線」與「歷史報告可重現」；
   zhtw 分數可以提升，但資料集、鎖定競品輸出或 zhtw 指標退步都會失敗。
 - Blind-v2 句級 idempotency 由 1,915/1,960（97.70%）提升至
@@ -47,6 +49,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 將精準度與 benchmark 投稿文件移入 `docs/testing/` 標準分類，並更新所有連結。
 
 ### Fixed
+- 修正 npm credential preflight 把個人帳號誤當 organization 而回傳 403；現在會核對
+  目前 token 的有效期、package write、2FA bypass 與兩個套件的 maintainer 權限，
+  npm cache 與錯誤 log 也只會寫入 Jenkins disposable workspace。
+- 修正依賴警示證據在 Python 3.10 無法匯入 `datetime.UTC`；現在使用相容的 UTC
+  timezone 寫法，並由完整 Python 3.10 測試覆蓋。
 - 修正 `应用于` 會輸出 `應用于`、`两千万` 會輸出 `兩千万` 的重疊詞尾端漏轉，
   並加入跨 SDK golden regressions。
 - 修正 release subprocess test 使用裸 `python3` 時可能匯入系統舊版 zhtw；現在使用

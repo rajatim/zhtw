@@ -103,17 +103,26 @@ jcli build zhtw/release \
 公開 registry 沒有網站部署式 rollback。某一步失敗時：
 
 1. 停止後續發布。
-2. 使用同一組 `zhtw/build` 與 `zhtw/verify` 編號重跑 `PUBLISH_ALL`，或選對應的
-   `RETRY_*`。
+2. 使用同一組 `zhtw/build` 與 `zhtw/verify` 編號執行 `RESUME_ALL`。它會重新核對
+   每個先前步驟，內容完全相同就跳過，從第一個未完成 registry 接續到最終公開驗證。
 3. 已存在的版本只有在公開內容與封存候選相符時才會略過；PyPI 只補傳缺少的檔案。
 4. 如果已發布內容本身有錯，只能修正後升下一個 patch；不可刪 tag 或重用版號。
 
+```bash
+jcli build zhtw/release \
+  -p BUILD_NUMBER=<同一個-zhtw-build> \
+  -p VERIFY_BUILD_NUMBER=<同一個-zhtw-verify> \
+  -p RELEASE_ACTION=RESUME_ALL \
+  -p SKIP_CONFIRMATION=true
+```
+
 Maven 上傳後會立即封存 deployment ID。若狀態查詢斷線，使用
-`RETRY_MAVEN` 加上該 ID 續查既有 deployment，不可建立第二次 upload。
+`RESUME_ALL` 加上該 ID 續查既有 deployment，不可建立第二次 upload。
 
 可用的修復動作：`RETRY_GIT`、`RETRY_PYPI`、`RETRY_NPM_JS`、
 `RETRY_NPM_WASM`、`RETRY_CRATES`、`RETRY_NUGET`、`RETRY_MAVEN`、
-`RETRY_HOMEBREW`。每個動作仍是不可逆公開操作，必須確認。
+`RETRY_HOMEBREW`。單項 `RETRY_*` 只修該項；完成後仍要跑 `RESUME_ALL`，讓後續
+registry 與最後 12/12 驗證完成。每個動作仍是不可逆公開操作，必須確認。
 
 ## 限制
 

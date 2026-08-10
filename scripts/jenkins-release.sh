@@ -410,24 +410,55 @@ preflight_npm() {
     require_common
     [ -n "${NODE_AUTH_TOKEN:-}" ] || die "NODE_AUTH_TOKEN is required"
     [ -n "${NPM_TOKEN_EXPIRES:-}" ] || die "NPM_TOKEN_EXPIRES is required"
-    local expires_epoch minimum_epoch runtime_root temporary_config login access
+    local expires_epoch minimum_epoch runtime_root temporary_config npm_cache login
+    local token_inventory token_fingerprint token_record token_expiry token_expiry_epoch
+    local package_name access
     expires_epoch="$(date -u -d "$NPM_TOKEN_EXPIRES" +%s 2>/dev/null)" || die "Invalid npm token expiry: $NPM_TOKEN_EXPIRES"
     minimum_epoch="$(( $(date -u +%s) + 14 * 24 * 60 * 60 ))"
     [ "$expires_epoch" -gt "$minimum_epoch" ] || die "npm token expires within 14 days: $NPM_TOKEN_EXPIRES"
     runtime_root="$(secret_runtime_root)"
+    npm_cache="$runtime_root/npm-cache"
+    mkdir -p "$npm_cache"
     temporary_config="$(mktemp "$runtime_root/npmrc.XXXXXX")"
     chmod 600 "$temporary_config"
     printf '%s\n' \
         'registry=https://registry.npmjs.org/' \
         '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}' > "$temporary_config"
-    login="$(NPM_CONFIG_USERCONFIG="$temporary_config" npm whoami --registry=https://registry.npmjs.org/)"
+    login="$(NPM_CONFIG_CACHE="$npm_cache" NPM_CONFIG_USERCONFIG="$temporary_config" \
+        npm whoami --registry=https://registry.npmjs.org/)"
     [ "$login" = rajatim ] || die "npm token belongs to an unexpected account: $login"
-    access="$(NPM_CONFIG_USERCONFIG="$temporary_config" npm access list packages rajatim --json \
-        --registry=https://registry.npmjs.org/)"
-    printf '%s' "$access" | jq -e \
-        '(."zhtw-js" == "read-write") and (."zhtw-wasm" == "read-write")' >/dev/null || \
-        die "npm token does not report read-write access to both packages"
+
+    token_inventory="$(NPM_CONFIG_CACHE="$npm_cache" NPM_CONFIG_USERCONFIG="$temporary_config" \
+        npm token list --json --registry=https://registry.npmjs.org/)"
+    token_fingerprint="${NODE_AUTH_TOKEN:0:8}...${NODE_AUTH_TOKEN: -4}"
+    token_record="$(
+        printf '%s' "$token_inventory" |
+            NPM_TOKEN_FINGERPRINT="$token_fingerprint" jq -cer '
+                [.[] | select(.token == env.NPM_TOKEN_FINGERPRINT)] |
+                if length == 1 then .[0] else error("expected one matching token") end
+            '
+    )" || die "npm could not identify the exact token metadata"
+    printf '%s' "$token_record" | jq -e '
+        .revoked == null and .bypass_2fa == true and
+        any(.permissions[]?; .name == "package" and .action == "write") and
+        any(.scopes[]?; .type == "package")
+    ' >/dev/null || die "npm token is not an active package-write token with 2FA bypass"
+    token_expiry="$(printf '%s' "$token_record" | jq -er '.expiry')"
+    token_expiry_epoch="$(date -u -d "$token_expiry" +%s 2>/dev/null)" || \
+        die "npm token metadata has an invalid expiry"
+    [ "$token_expiry_epoch" -gt "$minimum_epoch" ] || die "npm token metadata expires within 14 days"
+    [ "${token_expiry%%T*}" = "${NPM_TOKEN_EXPIRES%%T*}" ] || \
+        die "npm token expiry metadata does not match the active token"
+
+    for package_name in zhtw-js zhtw-wasm; do
+        access="$(NPM_CONFIG_CACHE="$npm_cache" NPM_CONFIG_USERCONFIG="$temporary_config" \
+            npm access list collaborators "$package_name" rajatim --json \
+                --registry=https://registry.npmjs.org/)"
+        printf '%s' "$access" | jq -e '.rajatim == "read-write"' >/dev/null || \
+            die "npm account does not have read-write access to $package_name"
+    done
     rm -f "$temporary_config"
+    unset token_inventory token_fingerprint token_record
     printf 'npm token preflight passed for both packages; expiry=%s\n' "$NPM_TOKEN_EXPIRES"
 }
 
@@ -539,7 +570,7 @@ publish_pypi() {
 }
 
 publish_npm() {
-    local target="$1" package_name tarball temporary_config runtime_root
+    local target="$1" package_name tarball temporary_config runtime_root npm_cache
     require_common
     ensure_git_release
     [ -n "${NODE_AUTH_TOKEN:-}" ] || die "NODE_AUTH_TOKEN is required"
@@ -559,12 +590,15 @@ publish_npm() {
         [ "$registry_result" -eq 1 ] || die "Could not determine whether $package_name $RELEASE_VERSION exists"
     fi
     runtime_root="$(secret_runtime_root)"
+    npm_cache="$runtime_root/npm-cache"
+    mkdir -p "$npm_cache"
     temporary_config="$(mktemp "$runtime_root/npmrc.XXXXXX")"
     chmod 600 "$temporary_config"
     printf '%s\n' \
         'registry=https://registry.npmjs.org/' \
         '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}' > "$temporary_config"
-    NPM_CONFIG_USERCONFIG="$temporary_config" npm publish "$tarball" --access public
+    NPM_CONFIG_CACHE="$npm_cache" NPM_CONFIG_USERCONFIG="$temporary_config" \
+        npm publish "$tarball" --access public
     rm -f "$temporary_config"
     wait_for_registry "$target"
 }
