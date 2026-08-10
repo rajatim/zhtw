@@ -320,7 +320,7 @@ verify_candidate() {
 
 smoke_candidate_packages() {
     local temporary wheel js_tgz wasm_tgz crate nuget jar pom java_classpath
-    local go_archive go_binary dotnet_major dotnet_framework
+    local go_archive go_binary go_platform dotnet_major dotnet_framework
     temporary="$(mktemp -d "$WORKSPACE/candidate-smoke.XXXXXX")"
     trap 'rm -rf -- "$temporary"' RETURN
 
@@ -395,11 +395,18 @@ smoke_candidate_packages() {
         "$temporary/java/src/Smoke.java"
     java -cp "$java_classpath:$temporary/java/classes" Smoke
 
-    go_archive="$OUTPUT_DIR/packages/go/zhtw-linux-amd64.tar.gz"
+    case "$(uname -s)-$(uname -m)" in
+        Linux-x86_64) go_platform="linux-amd64" ;;
+        Linux-aarch64|Linux-arm64) go_platform="linux-arm64" ;;
+        Darwin-x86_64) go_platform="darwin-amd64" ;;
+        Darwin-arm64) go_platform="darwin-arm64" ;;
+        *) die "No native Go CLI archive for $(uname -s)-$(uname -m)" ;;
+    esac
+    go_archive="$OUTPUT_DIR/packages/go/zhtw-$go_platform.tar.gz"
     mkdir -p "$temporary/go"
     tar -xzf "$go_archive" -C "$temporary/go"
-    go_binary="$temporary/go/zhtw-linux-amd64"
-    [ -x "$go_binary" ] || die "Linux Go CLI is missing from its archive"
+    go_binary="$temporary/go/zhtw-$go_platform"
+    [ -x "$go_binary" ] || die "Native Go CLI is missing from its archive"
     "$go_binary" version | grep -F "zhtw $RELEASE_VERSION " >/dev/null
     [ "$("$go_binary" convert '这个软件')" = '這個軟體' ] || die "Go CLI consumer smoke failed"
 

@@ -84,6 +84,8 @@ def test_jenkins_build_creates_one_complete_candidate() -> None:
     assert 'dotnet_framework="net${dotnet_major}.0"' in script
     assert 'dotnet run --project "$temporary/dotnet" --framework "$dotnet_framework"' in script
     assert 'java_classpath="$jar:' in script
+    assert 'Darwin-arm64) go_platform="darwin-arm64"' in script
+    assert 'Linux-x86_64) go_platform="linux-amd64"' in script
 
 
 def test_nuget_package_builds_every_target_before_no_build_pack() -> None:
