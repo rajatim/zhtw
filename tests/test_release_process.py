@@ -431,6 +431,179 @@ registry_exists npm-js
     assert unavailable.returncode == 2
 
 
+def run_preflight_shell(
+    tmp_path: Path, script: str, extra_environment: dict[str, str]
+) -> subprocess.CompletedProcess[str]:
+    environment = os.environ.copy()
+    environment.update(
+        {
+            "ADAPTER": str(ROOT / "scripts/jenkins-release.sh"),
+            "WORKSPACE": str(tmp_path),
+            "ZHTW_SECRET_RUNTIME_ROOT": str(tmp_path / "secrets"),
+            **extra_environment,
+        }
+    )
+    return subprocess.run(
+        ["bash", "-c", script],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env=environment,
+    )
+
+
+def test_git_preflight_proves_both_ssh_write_paths_with_dry_runs(tmp_path: Path) -> None:
+    tap = tmp_path / "tap"
+    (tap / ".git").mkdir(parents=True)
+    git_log = tmp_path / "git-log"
+    result = run_preflight_shell(
+        tmp_path,
+        r"""
+source "$ADAPTER" ignored /missing
+require_common() { :; }
+gh() {
+    case "$*" in
+        *"api user"*) printf 'rajatim\n' ;;
+        *) printf 'true\n' ;;
+    esac
+}
+git() {
+    case "$*" in
+        *"rev-parse refs/remotes/origin/main"*) printf '%040d\n' 0 ;;
+        *"push --dry-run"*) printf '%s\n' "$*" >> "$GIT_LOG" ;;
+        *) return 1 ;;
+    esac
+}
+preflight_git "$TAP"
+""",
+        {"GH_TOKEN": "fixture", "GIT_LOG": str(git_log), "TAP": str(tap)},
+    )
+
+    assert result.returncode == 0, result.stderr
+    pushes = git_log.read_text(encoding="utf-8").splitlines()
+    assert len(pushes) == 2
+    assert all("push --dry-run" in line for line in pushes)
+
+
+def test_pypi_preflight_authenticates_without_a_file_upload(tmp_path: Path) -> None:
+    curl_log = tmp_path / "curl-log"
+    result = run_preflight_shell(
+        tmp_path,
+        r"""
+source "$ADAPTER" ignored /missing
+require_common() { :; }
+curl() { printf '%s\n' "$*" > "$CURL_LOG"; printf '400'; }
+preflight_pypi
+""",
+        {"PYPI_TOKEN": "pypi-" + "A" * 90, "CURL_LOG": str(curl_log)},
+    )
+
+    assert result.returncode == 0, result.stderr
+    arguments = curl_log.read_text(encoding="utf-8")
+    assert ":action=file_upload" in arguments
+    assert "=@" not in arguments
+
+
+def test_npm_preflight_checks_identity_scope_and_fourteen_day_expiry(tmp_path: Path) -> None:
+    npm_log = tmp_path / "npm-log"
+    result = run_preflight_shell(
+        tmp_path,
+        r"""
+source "$ADAPTER" ignored /missing
+require_common() { :; }
+date() {
+    case "$*" in
+        *" -d "*) printf '2000000000\n' ;;
+        *) printf '1900000000\n' ;;
+    esac
+}
+npm() {
+    printf '%s\n' "$*" >> "$NPM_LOG"
+    case "$*" in
+        *whoami*) printf 'rajatim\n' ;;
+        *"access list packages"*) printf '{"zhtw-js":"read-write","zhtw-wasm":"read-write"}\n' ;;
+        *) return 1 ;;
+    esac
+}
+preflight_npm
+""",
+        {
+            "NODE_AUTH_TOKEN": "fixture",
+            "NPM_TOKEN_EXPIRES": "2099-01-01T00:00:00Z",
+            "NPM_LOG": str(npm_log),
+        },
+    )
+
+    assert result.returncode == 0, result.stderr
+    commands = npm_log.read_text(encoding="utf-8")
+    assert "whoami" in commands
+    assert "access list packages rajatim" in commands
+    assert "publish" not in commands
+
+
+def test_crates_and_nuget_preflights_use_nonpublishing_endpoints(tmp_path: Path) -> None:
+    curl_log = tmp_path / "curl-log"
+    result = run_preflight_shell(
+        tmp_path,
+        r"""
+source "$ADAPTER" ignored /missing
+require_common() { :; }
+curl() {
+    printf '%s\n' "$*" >> "$CURL_LOG"
+    case "$*" in
+        *crates.io/api/v1/me*) printf '{"user":{"login":"rajatim"}}\n' ;;
+        *create-verification-key*) printf '{"Key":"ephemeral-verification-key"}\n' ;;
+        *verifykey*) : ;;
+        *) return 1 ;;
+    esac
+}
+preflight_crates
+preflight_nuget
+""",
+        {
+            "CARGO_REGISTRY_TOKEN": "fixture",
+            "NUGET_API_KEY": "fixture",
+            "CURL_LOG": str(curl_log),
+        },
+    )
+
+    assert result.returncode == 0, result.stderr
+    arguments = curl_log.read_text(encoding="utf-8")
+    assert "crates.io/api/v1/me" in arguments
+    assert "create-verification-key/Zhtw" in arguments
+    assert "verifykey/Zhtw" in arguments
+    assert "--request PUT" not in arguments
+    assert "--form package=@" not in arguments
+
+
+def test_maven_preflight_checks_auth_and_signing_without_upload(tmp_path: Path) -> None:
+    curl_log = tmp_path / "curl-log"
+    result = run_preflight_shell(
+        tmp_path,
+        r"""
+source "$ADAPTER" ignored /missing
+require_common() { :; }
+gpg() { cat >/dev/null || true; }
+sign_maven_file() { printf 'signature' > "$1.asc"; }
+curl() { printf '%s\n' "$*" > "$CURL_LOG"; printf '404'; }
+preflight_maven
+""",
+        {
+            "CENTRAL_USERNAME": "fixture-user",
+            "CENTRAL_PASSWORD": "fixture-password",
+            "GPG_PRIVATE_KEY": "fixture-key",
+            "GPG_PASSPHRASE": "fixture-passphrase",
+            "CURL_LOG": str(curl_log),
+        },
+    )
+
+    assert result.returncode == 0, result.stderr
+    arguments = curl_log.read_text(encoding="utf-8")
+    assert "/publisher/status" in arguments
+    assert "/publisher/upload" not in arguments
+
+
 def test_maven_retry_resumes_recorded_deployment_without_upload(tmp_path: Path) -> None:
     payload = tmp_path / "payload"
     payload.mkdir()

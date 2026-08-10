@@ -412,8 +412,8 @@ preflight_npm() {
     [ -n "${NPM_TOKEN_EXPIRES:-}" ] || die "NPM_TOKEN_EXPIRES is required"
     local expires_epoch minimum_epoch runtime_root temporary_config login access
     expires_epoch="$(date -u -d "$NPM_TOKEN_EXPIRES" +%s 2>/dev/null)" || die "Invalid npm token expiry: $NPM_TOKEN_EXPIRES"
-    minimum_epoch="$(( $(date -u +%s) + 7 * 24 * 60 * 60 ))"
-    [ "$expires_epoch" -gt "$minimum_epoch" ] || die "npm token expires within seven days: $NPM_TOKEN_EXPIRES"
+    minimum_epoch="$(( $(date -u +%s) + 14 * 24 * 60 * 60 ))"
+    [ "$expires_epoch" -gt "$minimum_epoch" ] || die "npm token expires within 14 days: $NPM_TOKEN_EXPIRES"
     runtime_root="$(secret_runtime_root)"
     temporary_config="$(mktemp "$runtime_root/npmrc.XXXXXX")"
     chmod 600 "$temporary_config"
