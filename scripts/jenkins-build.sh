@@ -320,7 +320,7 @@ verify_candidate() {
 
 smoke_candidate_packages() {
     local temporary wheel js_tgz wasm_tgz crate nuget jar pom java_classpath
-    local go_archive go_binary
+    local go_archive go_binary dotnet_major dotnet_framework
     temporary="$(mktemp -d "$WORKSPACE/candidate-smoke.XXXXXX")"
     trap 'rm -rf -- "$temporary"' RETURN
 
@@ -354,7 +354,12 @@ smoke_candidate_packages() {
         --manifest-path "$temporary/crate/zhtw-$RELEASE_VERSION/Cargo.toml" --release
 
     nuget="$OUTPUT_DIR/packages/nuget/Zhtw.$RELEASE_VERSION.nupkg"
-    dotnet new console --framework net8.0 --output "$temporary/dotnet" --no-restore >/dev/null
+    dotnet_major="$(dotnet --version | cut -d. -f1)"
+    [[ "$dotnet_major" =~ ^[0-9]+$ ]] && [ "$dotnet_major" -ge 8 ] || \
+        die "Consumer smoke test requires .NET SDK 8 or newer"
+    dotnet_framework="net${dotnet_major}.0"
+    dotnet new console --framework "$dotnet_framework" \
+        --output "$temporary/dotnet" --no-restore >/dev/null
     dotnet add "$temporary/dotnet" package Zhtw --version "$RELEASE_VERSION" \
         --no-restore >/dev/null
     dotnet restore "$temporary/dotnet" \
@@ -363,7 +368,7 @@ smoke_candidate_packages() {
         'using Zhtw;' \
         'if (ZhtwConvert.Convert("这个软件") != "這個軟體") Environment.Exit(1);' \
         > "$temporary/dotnet/Program.cs"
-    dotnet run --project "$temporary/dotnet" --framework net8.0 --no-restore
+    dotnet run --project "$temporary/dotnet" --framework "$dotnet_framework" --no-restore
 
     jar="$OUTPUT_DIR/packages/maven/zhtw-$RELEASE_VERSION.jar"
     pom="$OUTPUT_DIR/packages/maven/zhtw-$RELEASE_VERSION.pom"

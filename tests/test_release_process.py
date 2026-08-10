@@ -81,7 +81,8 @@ def test_jenkins_build_creates_one_complete_candidate() -> None:
     assert "--no-verify" not in script.split("package_crate()", 1)[1].split("package_nuget()", 1)[0]
     assert 'dotnet restore "$temporary/dotnet"' in script
     assert '--source "$OUTPUT_DIR/packages/nuget"' in script
-    assert 'dotnet run --project "$temporary/dotnet" --framework net8.0 --no-restore' in script
+    assert 'dotnet_framework="net${dotnet_major}.0"' in script
+    assert 'dotnet run --project "$temporary/dotnet" --framework "$dotnet_framework"' in script
     assert 'java_classpath="$jar:' in script
 
 
