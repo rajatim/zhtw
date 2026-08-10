@@ -35,6 +35,31 @@ secret_runtime_root() {
     printf '%s\n' "$root"
 }
 
+create_short_gnupg_runtime() {
+    local prefix="$1" runtime_dir
+    secret_runtime_root >/dev/null
+    case "$prefix" in
+        .mvnpf|.mvn) ;;
+        *) die "Invalid GnuPG runtime prefix: $prefix" ;;
+    esac
+    # gpg-agent creates several Unix sockets. Keep their paths well below the
+    # platform limit while still containing every secret inside WORKSPACE.
+    runtime_dir="$(mktemp -d "$WORKSPACE/$prefix.XXXXXX")"
+    chmod 700 "$runtime_dir"
+    printf '%s\n' "$runtime_dir"
+}
+
+cleanup_gnupg_runtime() {
+    local runtime_dir="${1:-}"
+    if [ -n "${GNUPGHOME:-}" ]; then
+        GNUPGHOME="$GNUPGHOME" gpgconf --kill gpg-agent >/dev/null 2>&1 || true
+    fi
+    case "$runtime_dir" in
+        "$WORKSPACE"/.mvnpf.*|"$WORKSPACE"/.mvn.*) rm -rf -- "$runtime_dir" ;;
+    esac
+    unset GNUPGHOME
+}
+
 require_common() {
     local name
     for name in SOURCE_SHA CANDIDATE_TREE_SHA RELEASE_VERSION VERSION_TAG; do
@@ -518,10 +543,10 @@ preflight_maven() {
     [ -n "${CENTRAL_PASSWORD:-}" ] || die "CENTRAL_PASSWORD is required"
     [ -n "${GPG_PRIVATE_KEY:-}" ] || die "GPG_PRIVATE_KEY is required"
     [ -n "${GPG_PASSPHRASE:-}" ] || die "GPG_PASSPHRASE is required"
-    local runtime_root temporary auth response status
-    runtime_root="$(secret_runtime_root)"
-    temporary="$(mktemp -d "$runtime_root/maven-preflight.XXXXXX")"
-    export GNUPGHOME="$temporary/gnupg"
+    local temporary auth response status
+    temporary="$(create_short_gnupg_runtime .mvnpf)"
+    trap 'cleanup_gnupg_runtime "$temporary"' EXIT
+    export GNUPGHOME="$temporary/g"
     mkdir -m 700 "$GNUPGHOME"
     printf '%s' "$GPG_PRIVATE_KEY" | gpg --batch --import >/dev/null
     printf 'zhtw Maven signing preflight\n' > "$temporary/message"
@@ -538,10 +563,11 @@ preflight_maven() {
     )"
     case "$status" in
         400|404) ;;
-        *) rm -rf -- "$temporary"; die "Maven Central token authentication failed (HTTP $status)" ;;
+        *) die "Maven Central token authentication failed (HTTP $status)" ;;
     esac
-    rm -rf -- "$temporary"
-    unset GNUPGHOME
+    cleanup_gnupg_runtime "$temporary"
+    temporary=''
+    trap - EXIT
     printf 'Maven Central token and GPG signing preflight passed\n'
 }
 
@@ -692,7 +718,7 @@ publish_maven() {
         [ "$registry_result" -eq 1 ] || die "Could not determine whether Maven Central $RELEASE_VERSION exists"
     fi
 
-    local temporary='' layout bundle auth deployment_id attempt status state runtime_root
+    local temporary='' layout bundle auth deployment_id attempt status state
     local file algorithm suffix
     deployment_id="${MAVEN_DEPLOYMENT_ID:-}"
     if [ -n "$deployment_id" ]; then
@@ -702,10 +728,9 @@ publish_maven() {
     else
         [ -n "${GPG_PRIVATE_KEY:-}" ] || die "GPG_PRIVATE_KEY is required"
         [ -n "${GPG_PASSPHRASE:-}" ] || die "GPG_PASSPHRASE is required"
-        runtime_root="$(secret_runtime_root)"
-        temporary="$(mktemp -d "$runtime_root/maven.XXXXXX")"
-        trap "rm -rf -- '$temporary'" EXIT
-        export GNUPGHOME="$temporary/gnupg"
+        temporary="$(create_short_gnupg_runtime .mvn)"
+        trap 'cleanup_gnupg_runtime "$temporary"' EXIT
+        export GNUPGHOME="$temporary/g"
         mkdir -m 700 "$GNUPGHOME"
         printf '%s' "$GPG_PRIVATE_KEY" | gpg --batch --import >/dev/null
         layout="$temporary/com/rajatim/zhtw/$RELEASE_VERSION"
@@ -765,9 +790,9 @@ publish_maven() {
     [ "$state" = PUBLISHED ] || \
         die "Maven Central deployment timed out: $deployment_id"
     if [ -n "$temporary" ]; then
-        rm -rf -- "$temporary"
+        cleanup_gnupg_runtime "$temporary"
+        temporary=''
         trap - EXIT
-        unset GNUPGHOME
     fi
     wait_for_registry maven
     maven_artifacts_match

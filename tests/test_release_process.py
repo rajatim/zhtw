@@ -194,7 +194,11 @@ def test_release_secret_files_stay_in_disposable_workspace() -> None:
     assert "ZHTW_SECRET_RUNTIME_ROOT is required for publication" in script
     assert "ZHTW_SECRET_RUNTIME_ROOT must stay inside WORKSPACE" in script
     assert 'mktemp "$runtime_root/npmrc.XXXXXX"' in script
-    assert 'mktemp -d "$runtime_root/maven.XXXXXX"' in script
+    assert 'mktemp -d "$WORKSPACE/$prefix.XXXXXX"' in script
+    assert "create_short_gnupg_runtime .mvnpf" in script
+    assert "create_short_gnupg_runtime .mvn" in script
+    assert "gpgconf --kill gpg-agent" in script
+    assert 'mktemp -d "$runtime_root/maven.XXXXXX"' not in script
     assert 'temporary_config="$(mktemp)"' not in script
 
 
@@ -779,12 +783,14 @@ preflight_crates
 
 def test_maven_preflight_checks_auth_and_signing_without_upload(tmp_path: Path) -> None:
     curl_log = tmp_path / "curl-log"
+    gpg_home_log = tmp_path / "gpg-home-log"
     result = run_preflight_shell(
         tmp_path,
         r"""
 source "$ADAPTER" ignored /missing
 require_common() { :; }
-gpg() { cat >/dev/null || true; }
+gpg() { printf '%s\n' "$GNUPGHOME" >> "$GPG_HOME_LOG"; cat >/dev/null || true; }
+gpgconf() { :; }
 sign_maven_file() { printf 'signature' > "$1.asc"; }
 curl() { printf '%s\n' "$*" > "$CURL_LOG"; printf '404'; }
 preflight_maven
@@ -795,6 +801,7 @@ preflight_maven
             "GPG_PRIVATE_KEY": "fixture-key",
             "GPG_PASSPHRASE": "fixture-passphrase",
             "CURL_LOG": str(curl_log),
+            "GPG_HOME_LOG": str(gpg_home_log),
         },
     )
 
@@ -802,6 +809,14 @@ preflight_maven
     arguments = curl_log.read_text(encoding="utf-8")
     assert "/publisher/status" in arguments
     assert "/publisher/upload" not in arguments
+    gpg_homes = {Path(line) for line in gpg_home_log.read_text(encoding="utf-8").splitlines()}
+    assert len(gpg_homes) == 1
+    gpg_home = gpg_homes.pop()
+    assert gpg_home.parent.parent == tmp_path
+    assert gpg_home.parent.name.startswith(".mvnpf.")
+    old_socket = tmp_path / "secrets" / "maven-preflight.XXXXXX" / "gnupg" / "S.gpg-agent.extra"
+    assert len(f"{gpg_home}/S.gpg-agent.extra") < len(str(old_socket))
+    assert not gpg_home.parent.exists()
 
 
 def test_maven_retry_resumes_recorded_deployment_without_upload(tmp_path: Path) -> None:

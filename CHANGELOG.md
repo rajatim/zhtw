@@ -57,6 +57,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   owner 變更。
 - 修正 NuGet verify-scope key 的 POST 未送出明確零長度 body 而回傳 411；現在設定
   `Content-Length: 0` 後再驗證一次性 key，不上傳套件。
+- 修正 Jenkins workspace 內的 GnuPG 路徑過長，導致 gpg-agent Unix socket 無法建立；
+  Maven 預檢與發布現在使用 workspace 內的短暫存路徑，結束時停止 agent 並清除私鑰。
 - 修正依賴警示證據在 Python 3.10 無法匯入 `datetime.UTC`；現在使用相容的 UTC
   timezone 寫法，並由完整 Python 3.10 測試覆蓋。
 - 修正 `应用于` 會輸出 `應用于`、`两千万` 會輸出 `兩千万` 的重疊詞尾端漏轉，
