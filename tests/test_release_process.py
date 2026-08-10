@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -15,10 +16,25 @@ import scripts.audit_corpus_idempotency as idempotency_audit
 import scripts.update_idempotency_baseline_version as baseline_updater
 
 ROOT = Path(__file__).resolve().parents[1]
+JENKINS_IDENTITY_VARIABLES = (
+    "CI_PROVIDER",
+    "JOB_NAME",
+    "JENKINS_URL",
+    "BUILD_TAG",
+    "WORKSPACE",
+    "ZHTW_JENKINS_RELEASE",
+)
 
 
 def read(path: str) -> str:
     return (ROOT / path).read_text(encoding="utf-8")
+
+
+def outside_jenkins_environment() -> dict[str, str]:
+    environment = os.environ.copy()
+    for name in JENKINS_IDENTITY_VARIABLES:
+        environment.pop(name, None)
+    return environment
 
 
 def test_github_actions_are_not_a_ci_or_release_path() -> None:
@@ -112,6 +128,7 @@ def test_public_release_adapter_fails_outside_jenkins() -> None:
         capture_output=True,
         text=True,
         check=False,
+        env=outside_jenkins_environment(),
     )
 
     assert result.returncode == 64
@@ -139,6 +156,7 @@ def test_formal_cicd_adapters_fail_outside_matching_jenkins_job(
         capture_output=True,
         text=True,
         check=False,
+        env=outside_jenkins_environment(),
     )
 
     assert result.returncode == 64
