@@ -11,7 +11,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(PROJECT_ROOT))
+sys.path[:0] = [str(PROJECT_ROOT / "src"), str(PROJECT_ROOT)]
 
 from scripts.audit_corpus_idempotency import build_summary  # noqa: E402
 

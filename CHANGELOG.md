@@ -9,12 +9,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- 新增可重現的 target identity guard 產生器與 374 條自動保護規則，讓包含 bulk
+  詞庫在內的所有有效 target 都通過第二輪轉換穩定性檢查。
+- 新增 Unicode 17.0.0 Unihan 固定版本、SHA-256 驗證與來源 metadata，避免
+  上游 `latest` 更新後無聲改變字元表。
 - 新增 Blind-v3 私有優先執行計畫、忽略規則與洩漏防護測試，禁止重用 Blind-v1、
   Blind-v2 或公開評測語料建立新的 fresh claim。
-- 新增 Blind-v2 句級 idempotency 彙總稽核與 4.4.3 固定基線；公開資料只保存總數、
-  input hash 與失敗 ID 集合 hash，不揭露逐筆輸出。
+- 新增 Blind-v2 句級 idempotency 彙總稽核；基線先以 v4.4.3 結果凍結，升版只允許
+  在稽核結果完全相同時同步版本欄位。公開資料只保存總數、input hash 與失敗 ID
+  集合 hash，不揭露逐筆輸出。
 
 ### Changed
+- Python、Java、TypeScript、Rust、Go 與 .NET 的 matcher coverage 改為只涵蓋
+  實際選中的詞與有效 identity 保護；未選中的重疊候選不再阻擋後續字元轉換。
+- 詞庫載入與 SDK export 不再把 `_comment_*` metadata 當成規則；README 改為
+  分開揭露正式詞彙、生成保護與歧義字資料，不再用註解墊高規則數。
+- release gate 現在會驗證 target guard freshness，並檢查包含 bulk 在內的完整
+  target idempotency，不再只驗證 curated 詞庫。
+- Jenkins 是唯一 CI/CD；`zhtw/verify` 現在必須對指定的 main `zhtw/build` 跑完
+  `all`，並產生綁定 SHA、tree、版本、manifest 與 checksum 的 receipt。
+  `zhtw/release` 的 `PREVIEW`、正式發布與所有 retry 都只接受完全相符的 receipt。
+- 公開 benchmark gate 分開檢查「目前候選不得低於歷史基線」與「歷史報告可重現」；
+  zhtw 分數可以提升，但資料集、鎖定競品輸出或 zhtw 指標退步都會失敗。
+- Blind-v2 句級 idempotency 由 1,915/1,960（97.70%）提升至
+  1,925/1,960（98.21%），只更新 aggregate 與失敗 ID 集合雜湊。
+- 公開 UD GSD exact 由 3,524/4,997（70.52%）提升至 3,544/4,997（70.92%），
+  idempotency 由 4,894/4,997（97.94%）提升至 4,954/4,997（99.14%）。
+- 品質稽核腳本改走正式 public converter；LLM 詞彙審查只接受結構正確且含 boolean
+  `correct` 的 JSON，無法解析或語意不清時一律 fail closed。
 - TypeScript release gate 新增 CommonJS 與 ESM 成品 smoke tests，並移除已由成品測試
   覆蓋的 `import.meta` 已知建置警告。
 - 將大型 Blind-v1 與 Blind-v2 歷史測試依 collection、governance、post-review 與 batch
@@ -22,8 +44,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 將精準度與 benchmark 投稿文件移入 `docs/testing/` 標準分類，並更新所有連結。
 
 ### Fixed
+- 修正 `应用于` 會輸出 `應用于`、`两千万` 會輸出 `兩千万` 的重疊詞尾端漏轉，
+  並加入跨 SDK golden regressions。
+- 修正 release subprocess test 使用裸 `python3` 時可能匯入系統舊版 zhtw；現在使用
+  目前測試 interpreter，腳本也會把專案 `src/` 放在 import path 最前面。
 - 主 GitHub Release 明確設為 Latest；後發布的 Go CLI 子 release 使用
   `--latest=false`，不再覆蓋主要版本的 Latest 標記。
+- 補齊 `zhtw-wasm` npm 套件的 MIT LICENSE 與 NuGet 套件 README；Jenkins 會直接
+  檢查封裝內容，避免帶著 registry metadata 警告發布。
+- 補齊 CHANGELOG 的版本 compare links；Jenkins 提升 `[Unreleased]` 時會同步更新
+  `[Unreleased]` 與新版本連結，GitHub Release notes 仍原樣取自該版本內容。
 - 詞庫 validator 分開顯示 bulk-to-curated 的 116 個刻意 pin／覆蓋與真正重複；移除
   3 個跨手工檔的同值重複詞條，並新增防止重複回歸的測試。
 
@@ -496,6 +526,32 @@ Python / Java / Rust / .NET 程式碼與 4.0.0 **完全相同**，僅為滿足 m
 - `--exclude` 排除目錄
 - 自訂詞庫支援
 
+[Unreleased]: https://github.com/rajatim/zhtw/compare/v4.4.3...HEAD
+[4.4.3]: https://github.com/rajatim/zhtw/compare/v4.4.2...v4.4.3
+[4.4.2]: https://github.com/rajatim/zhtw/compare/v4.4.1...v4.4.2
+[4.4.1]: https://github.com/rajatim/zhtw/compare/v4.4.0...v4.4.1
+[4.4.0]: https://github.com/rajatim/zhtw/compare/v4.3.0...v4.4.0
+[4.3.0]: https://github.com/rajatim/zhtw/compare/v4.1.0...v4.3.0
+[4.1.0]: https://github.com/rajatim/zhtw/compare/v4.0.1...v4.1.0
+[4.0.1]: https://github.com/rajatim/zhtw/compare/v4.0.0...v4.0.1
+[4.0.0]: https://github.com/rajatim/zhtw/compare/v3.4.0...v4.0.0
+[3.4.0]: https://github.com/rajatim/zhtw/compare/v3.3.0...v3.4.0
+[3.3.0]: https://github.com/rajatim/zhtw/compare/v3.2.1...v3.3.0
+[3.2.1]: https://github.com/rajatim/zhtw/compare/v3.2.0...v3.2.1
+[3.2.0]: https://github.com/rajatim/zhtw/compare/v3.1.0...v3.2.0
+[3.1.0]: https://github.com/rajatim/zhtw/compare/v3.0.0...v3.1.0
+[3.0.0]: https://github.com/rajatim/zhtw/compare/v2.8.7...v3.0.0
+[2.8.7]: https://github.com/rajatim/zhtw/compare/v2.8.6...v2.8.7
+[2.8.6]: https://github.com/rajatim/zhtw/compare/v2.8.5...v2.8.6
+[2.8.5]: https://github.com/rajatim/zhtw/compare/v2.8.4...v2.8.5
+[2.8.4]: https://github.com/rajatim/zhtw/compare/v2.8.3...v2.8.4
+[2.8.3]: https://github.com/rajatim/zhtw/compare/v2.8.2...v2.8.3
+[2.8.2]: https://github.com/rajatim/zhtw/compare/v2.8.1...v2.8.2
+[2.8.1]: https://github.com/rajatim/zhtw/compare/v2.8.0...v2.8.1
+[2.8.0]: https://github.com/rajatim/zhtw/compare/v2.7.0...v2.8.0
+[2.7.0]: https://github.com/rajatim/zhtw/compare/v2.6.0...v2.7.0
+[2.6.0]: https://github.com/rajatim/zhtw/compare/v2.5.0...v2.6.0
+[2.5.0]: https://github.com/rajatim/zhtw/compare/v2.4.0...v2.5.0
 [2.4.0]: https://github.com/rajatim/zhtw/compare/v2.3.0...v2.4.0
 [2.3.0]: https://github.com/rajatim/zhtw/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/rajatim/zhtw/compare/v2.1.0...v2.2.0

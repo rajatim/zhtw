@@ -14,6 +14,7 @@ from zhtw.converter import convert
 from zhtw.dictionary import (
     BULK_FILES,
     DATA_DIR,
+    TARGET_GUARD_FILES,
     iter_directory_files,
     load_dictionary,
     load_json_file,
@@ -77,10 +78,11 @@ def _load_terms_only(path: Path) -> dict[str, str]:
 class TestTermCount:
     """詞條數量驗證。"""
 
-    def test_cn_total_above_30000(self):
-        """CN 詞庫總數應超過 30,000 條。"""
+    def test_cn_runtime_terms_exclude_metadata(self):
+        """Runtime quality is not measured by an inflated raw rule count."""
         terms = load_dictionary(sources=["cn"])
-        assert len(terms) > 30_000, f"CN 詞條只有 {len(terms)} 條，低於 30,000"
+        assert terms
+        assert not any(source.startswith("_") for source in terms)
 
     @pytest.mark.parametrize("json_file", CN_FILES, ids=lambda p: p.name)
     def test_each_file_nonempty(self, json_file: Path):
@@ -206,7 +208,7 @@ class TestNoDuplicateConflicts:
 
 
 class TestTargetIdempotency:
-    """手工詞庫的 target 不應被第二輪 convert() 改壞。"""
+    """Every effective target must remain stable on another conversion pass."""
 
     @staticmethod
     def _effective_terms_with_source(sources: list[str]) -> dict[str, tuple[str, str, str]]:
@@ -228,15 +230,13 @@ class TestTargetIdempotency:
             pytest.param(["cn", "hk"], id="cn-hk"),
         ],
     )
-    def test_curated_targets_are_idempotent(self, sources: list[str]):
-        """排除 opencc.json 後，所有手工 target 都必須能穩定保留。"""
+    def test_all_targets_are_idempotent(self, sources: list[str]):
+        """Generated guards also cover lower-trust bulk targets."""
         terms = self._effective_terms_with_source(sources)
         converted_cache: dict[str, str] = {}
         bad: list[tuple[str, str, str, str]] = []
 
         for source, (target, source_name, file_name) in terms.items():
-            if file_name in BULK_FILES:
-                continue
             converted = converted_cache.get(target)
             if converted is None:
                 converted = convert(target, sources=sources)
@@ -245,8 +245,7 @@ class TestTargetIdempotency:
                 bad.append((f"{source_name}/{file_name}", source, target, converted))
 
         assert not bad, (
-            "手工詞庫 target 被第二輪 convert() 改變，請補 identity mapping 或修正詞條: "
-            f"{bad[:20]}"
+            "詞庫 target 被第二輪 convert() 改變，請重新產生 guard 或修正詞條: " f"{bad[:20]}"
         )
 
 
@@ -266,7 +265,7 @@ class TestNoArchaicChars:
         """載入排除 opencc.json 的所有 CN 詞條。"""
         merged = {}
         for json_file in CN_FILES:
-            if json_file.name == "opencc.json":
+            if json_file.name in BULK_FILES | TARGET_GUARD_FILES:
                 continue
             merged.update(_load_terms_only(json_file))
         return merged

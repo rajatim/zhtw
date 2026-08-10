@@ -89,11 +89,11 @@ Blind-v2 在評測前凍結 1,960 筆測試句與答案，三個工具使用相�
 | 台积电扩大先进制程投资 | 臺積電擴大先進位程投資 | **台積電擴大先進製程投資** |
 <!-- zhtw:enable -->
 
-ZHTW 4.4.3 使用：
+ZHTW 4.4.4 使用：
 
-- **31,706 個中國用語規則**，處理軟體、伺服器、資料夾、使用者名稱等台灣詞彙。
+- **31,904 個匯出的中國來源對映**：31,505 條正式詞彙規則、374 條自動產生的目標穩定保護，以及 25 條額外產生的語境保護。
 - **6,352 個安全字元對映**，只放適合一對一轉換的字。
-- **111 個歧義字規則**，以語境和保護詞避免把法律「程序」改成「程式」、把公文「發布」改成「釋出」等過度轉換。
+- **111 個從安全字元層排除的歧義字**，另有 13 個 balanced 預設轉換和 32 條經確認的語境保護詞。
 - Aho-Corasick 最長匹配，先處理完整詞彙，再處理安全字元。
 - `balanced` 模式，為常見歧義字提供更積極但仍有保護的轉換。
 
@@ -149,7 +149,7 @@ Python、Java、TypeScript、Rust、WebAssembly、Go 與 C# 共用同一份版�
 | 環境 | 安裝 | 文件 |
 |---|---|---|
 | Python | `pip install zhtw` | [PyPI](https://pypi.org/project/zhtw/) |
-| Java | `com.rajatim:zhtw:4.4.3` | [Java README](sdk/java/README.md) |
+| Java | `com.rajatim:zhtw:4.4.4` | [Java README](sdk/java/README.md) |
 | TypeScript | `npm install zhtw-js` | [TypeScript README](sdk/typescript/README.md) |
 | Rust | `cargo add zhtw` | [Rust README](sdk/rust/zhtw/README.md) |
 | WebAssembly | `npm install zhtw-wasm` | [WASM README](sdk/rust/zhtw-wasm/README.md) |
@@ -181,12 +181,13 @@ jobs:
 ```yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.4.3
+    rev: v4.4.4
     hooks:
       - id: zhtw-check
 ```
 
-完整設定見 [CI/CD 整合指南](docs/deployment/CI-CD-INTEGRATION.md)。
+要在其他專案使用這項檢查，完整設定見
+[consumer CI/CD 整合指南](docs/deployment/CI-CD-INTEGRATION.md)。
 
 ## 控制哪些內容不能改
 
@@ -230,7 +231,7 @@ ZHTW 是規則式轉換與品質檢查工具，不是生成式翻譯模型。
 | [精準度標準](docs/testing/accuracy/precision-standard.md) | ground truth、人工審核與 benchmark 規則 |
 | [詞庫涵蓋報告](docs/reports/DICTIONARY-COVERAGE.md) | 詞庫分類、歧義字與轉換架構 |
 | [CLI 進階指南](docs/guides/CLI-ADVANCED.md) | 自訂詞庫、忽略規則、編碼與輸出格式 |
-| [CI/CD 整合指南](docs/deployment/CI-CD-INTEGRATION.md) | GitHub Actions、GitLab CI 與 pre-commit |
+| [其他專案的 CI/CD 整合指南](docs/deployment/CI-CD-INTEGRATION.md) | 在 consumer repo 使用 GitHub Actions、GitLab CI 與 pre-commit |
 | [版本紀錄](CHANGELOG.md) | 每版精準度、功能與相容性變更 |
 | [貢獻指南](CONTRIBUTING.md) | 開發、測試與詞庫修改流程 |
 | [安全政策](SECURITY.md) | 支援版本與私密漏洞通報方式 |

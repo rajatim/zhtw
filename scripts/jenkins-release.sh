@@ -12,6 +12,15 @@ die() {
     exit 64
 }
 
+require_jenkins_release_runtime() {
+    [ "${CI_PROVIDER:-}" = jenkins ] || die "Release actions require Jenkins"
+    [ "${ZHTW_JENKINS_RELEASE:-}" = 1 ] || die "Release actions require zhtw/release"
+    [ "${JOB_NAME:-}" = zhtw/release ] || die "JOB_NAME must be zhtw/release"
+    [ -n "${JENKINS_URL:-}" ] || die "JENKINS_URL is required for publication"
+    [ -n "${BUILD_TAG:-}" ] || die "BUILD_TAG is required for publication"
+    [ -n "${WORKSPACE:-}" ] || die "WORKSPACE is required for publication"
+}
+
 secret_runtime_root() {
     local root="${ZHTW_SECRET_RUNTIME_ROOT:-}"
     [ -n "$root" ] || die "ZHTW_SECRET_RUNTIME_ROOT is required for publication"
@@ -397,6 +406,10 @@ PY
     git -C "$tap_dir" commit -m "zhtw $RELEASE_VERSION"
     git -C "$tap_dir" push origin HEAD:main
 }
+
+case "$ACTION" in
+    preview|publish-*) require_jenkins_release_runtime ;;
+esac
 
 case "$ACTION" in
     prepare) prepare_candidate ;;

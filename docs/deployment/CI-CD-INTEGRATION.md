@@ -2,6 +2,11 @@
 
 將 zhtw 整合到你的 CI/CD 流程，確保每次提交都符合台灣繁體中文用語規範。
 
+> 本頁是「其他專案把已發布的 zhtw 當檢查工具」的範例，不是 zhtw repo 本身的
+> 建置或發布設定。zhtw repo 的唯一 CI/CD 是 Jenkins `zhtw/build`、`zhtw/verify`、
+> `zhtw/release`；請勿在本 repo 建立 `.github/workflows` 或把下列 consumer 範例當
+> 成備援發布路徑。
+
 ## GitHub Actions
 
 ### 基本設定

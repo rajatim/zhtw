@@ -11,6 +11,14 @@ die() {
     exit 64
 }
 
+require_jenkins_verify_runtime() {
+    [ "${CI_PROVIDER:-}" = jenkins ] || die "Formal compatibility checks require Jenkins"
+    [ "${JOB_NAME:-}" = zhtw/verify ] || die "JOB_NAME must be zhtw/verify"
+    [ -n "${JENKINS_URL:-}" ] || die "JENKINS_URL is required"
+    [ -n "${BUILD_TAG:-}" ] || die "BUILD_TAG is required"
+    [ -n "${WORKSPACE:-}" ] || die "WORKSPACE is required"
+}
+
 prepare_container_cli() {
     local runtime_root="$PWD/.jenkins-container-runtime"
     mkdir -p "$runtime_root/bin" "$runtime_root/docker-config"
@@ -86,10 +94,12 @@ verify_competitor_benchmark() {
         --generated-date 2026-07-31 --output-prefix /tmp/zhtw-jenkins-ud-gsd
     uv run python scripts/run_naer_terms_benchmark.py \
         --generated-date 2026-07-31 --output-prefix /tmp/zhtw-jenkins-naer-terms
-    diff <(jq -S .scores docs/reports/ud-gsd-benchmark-2026-07-31.json) \
-         <(jq -S .scores /tmp/zhtw-jenkins-ud-gsd.json)
-    diff <(jq -S .scores docs/reports/naer-terms-benchmark-2026-07-31.json) \
-         <(jq -S .scores /tmp/zhtw-jenkins-naer-terms.json)
+    uv run python scripts/validate_benchmark_non_regression.py \
+        docs/reports/ud-gsd-benchmark-2026-07-31.json \
+        /tmp/zhtw-jenkins-ud-gsd.json
+    uv run python scripts/validate_benchmark_non_regression.py \
+        docs/reports/naer-terms-benchmark-2026-07-31.json \
+        /tmp/zhtw-jenkins-naer-terms.json
     make benchmark-paired-import-check
 
     local image benchmark_id
@@ -102,11 +112,9 @@ verify_competitor_benchmark() {
             --container-image "$image" \
             --generated-date 2026-07-31 \
             --output-prefix "/tmp/zhtw-jenkins-$benchmark_id"
-        diff \
-            <(jq -S '{engines,paired_comparisons}' \
-                "docs/reports/$benchmark_id-benchmark-2026-07-31.json") \
-            <(jq -S '{engines,paired_comparisons}' \
-                "/tmp/zhtw-jenkins-$benchmark_id.json")
+        uv run python scripts/validate_benchmark_non_regression.py \
+            "docs/reports/$benchmark_id-benchmark-2026-07-31.json" \
+            "/tmp/zhtw-jenkins-$benchmark_id.json"
     done
 
     uv run python scripts/reproduce_public_benchmarks.py \
@@ -118,6 +126,8 @@ verify_competitor_benchmark() {
         --allow-local-smoke-test \
         /tmp/zhtw-public-benchmark-attestation.json
 }
+
+require_jenkins_verify_runtime
 
 case "$SUITE" in
     sdk-matrix) verify_sdk_matrix ;;

@@ -124,7 +124,7 @@ pub(crate) fn build_byte_to_cp(text: &str) -> Vec<usize> {
 /// with identity-based protection to avoid false conversions.
 ///
 /// This is the Rust port of Python `matcher.py:find_matches` (lines 60-134).
-/// Walk the automaton once and derive selected term hits and raw coverage.
+/// Walk the automaton once and derive selected term hits and effective coverage.
 pub(crate) fn scan(
     pma: &CharwiseDoubleArrayAhoCorasick<u32>,
     pattern_table: &[(String, String)],
@@ -144,16 +144,17 @@ pub(crate) fn scan(
         })
         .collect();
 
-    let mut covered = HashSet::new();
-    for hit in &all_hits {
+    let (selected, protected) = select_term_matches(all_hits);
+    let mut covered: HashSet<usize> = protected.into_iter().collect();
+    for hit in &selected {
         covered.extend(hit.byte_start..hit.byte_end);
     }
-    (select_term_matches(all_hits), covered)
+    (selected, covered)
 }
 
-fn select_term_matches(mut all_hits: Vec<TermHit>) -> Vec<TermHit> {
+fn select_term_matches(mut all_hits: Vec<TermHit>) -> (Vec<TermHit>, BTreeSet<usize>) {
     if all_hits.is_empty() {
-        return Vec::new();
+        return (Vec::new(), BTreeSet::new());
     }
 
     // 2. Sort by (byte_start ASC, length DESC).
@@ -238,7 +239,7 @@ fn select_term_matches(mut all_hits: Vec<TermHit>) -> Vec<TermHit> {
         // Identity matches advance cursor but are never emitted.
     }
 
-    result
+    (result, protected)
 }
 
 /// Check whether the identity span `[start, end)` is fully contained within

@@ -18,6 +18,7 @@ DATA_DIR = Path(__file__).parent / "data" / "terms"
 # explicit order, alphabetical glob order would let opencc.json (28k imported
 # terms) silently override curated entries.
 BULK_FILES = frozenset({"opencc.json"})
+TARGET_GUARD_FILES = frozenset({"target-guards.json"})
 
 # Reserved top-level keys that must NOT be loaded as term mappings
 # when a JSON file uses the legacy flat format (no "terms" wrapper).
@@ -52,6 +53,11 @@ def load_json_file(path: Path) -> Dict[str, str]:
 
     result = {}
     for source, target in terms.items():
+        # Underscore-prefixed keys are section comments or other dictionary
+        # metadata. They are never conversion rules, even inside a `terms`
+        # wrapper.
+        if source.startswith("_"):
+            continue
         if isinstance(target, dict):
             # Extended format: {"target": "...", "category": "...", ...}
             if "target" not in target:
@@ -71,9 +77,11 @@ def iter_directory_files(directory: Path) -> List[Path]:
     手工策展檔按字母序排後 —— key 碰撞時手工詞條必定勝出。
     """
     files = sorted(directory.glob("*.json"))
-    return [f for f in files if f.name in BULK_FILES] + [
-        f for f in files if f.name not in BULK_FILES
-    ]
+    return (
+        [f for f in files if f.name in BULK_FILES]
+        + [f for f in files if f.name in TARGET_GUARD_FILES]
+        + [f for f in files if f.name not in BULK_FILES and f.name not in TARGET_GUARD_FILES]
+    )
 
 
 def load_directory(directory: Path) -> Dict[str, str]:

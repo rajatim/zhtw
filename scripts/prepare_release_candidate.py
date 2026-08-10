@@ -11,6 +11,31 @@ from pathlib import Path
 SEMVER = re.compile(r"^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$")
 
 
+def update_compare_links(text: str, version: str) -> str:
+    released_versions = re.findall(r"^## \[([0-9]+\.[0-9]+\.[0-9]+)\]", text, re.MULTILINE)
+    previous = next((item for item in released_versions if item != version), None)
+    if previous is None:
+        raise SystemExit("CHANGELOG needs a previous release for compare links")
+
+    unreleased_link = f"[Unreleased]: https://github.com/rajatim/zhtw/compare/v{version}...HEAD"
+    version_link = f"[{version}]: https://github.com/rajatim/zhtw/compare/v{previous}...v{version}"
+    if re.search(r"^\[Unreleased\]: .*?$", text, re.MULTILINE):
+        text = re.sub(r"^\[Unreleased\]: .*?$", unreleased_link, text, count=1, flags=re.MULTILINE)
+    else:
+        text = text.rstrip() + f"\n\n{unreleased_link}\n"
+
+    existing_version_link = re.search(rf"^\[{re.escape(version)}\]: .*?$", text, re.MULTILINE)
+    if existing_version_link:
+        if existing_version_link.group(0) != version_link:
+            raise SystemExit(
+                f"CHANGELOG has an unexpected {version} compare link: "
+                f"{existing_version_link.group(0)!r}"
+            )
+    else:
+        text = text.replace(unreleased_link, f"{unreleased_link}\n{version_link}", 1)
+    return text
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--version", required=True)
@@ -47,7 +72,9 @@ def main() -> None:
         if not unreleased_match or not unreleased_match.group("body").strip():
             raise SystemExit("CHANGELOG [Unreleased] section is empty")
         text = text.replace(marker, f"{marker}\n{heading}\n", 1)
-        changelog.write_text(text, encoding="utf-8")
+
+    text = update_compare_links(text, args.version)
+    changelog.write_text(text, encoding="utf-8")
 
     notes_match = re.search(
         rf"^## \[{re.escape(args.version)}\](?: - [^\n]*)?\n(?P<body>.*?)(?=^## \[|\Z)",

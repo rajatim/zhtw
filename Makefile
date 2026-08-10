@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-public-reproduce benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-paired-import-check benchmark-paired-report benchmark-formal-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-freeze-check benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-sample-check benchmark-blind-v2-decisions-finalize benchmark-blind-v2-annotation-validate benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check target-guard-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-public-reproduce benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-paired-import-check benchmark-paired-report benchmark-formal-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-freeze-check benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-sample-check benchmark-blind-v2-decisions-finalize benchmark-blind-v2-annotation-validate benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -96,6 +96,9 @@ export-check: ## Verify committed SDK data exactly matches a fresh export
 	  cmp -s sdk/data/zhtw-data.json sdk/go/zhtw/zhtw-data.json || \
 	    { echo "❌ Go SDK data copy is stale — run 'make export'"; exit 1; }; \
 	  echo "✅ SDK data matches a fresh export"
+
+target-guard-check: ## Verify generated target identity guards are current
+	$(PYTHON) scripts/generate_target_guards.py --check
 
 precision-benchmark: ## Compare zhtw precision with optional competitor converters
 	$(PYTHON) scripts/competitor_benchmark.py
@@ -483,10 +486,10 @@ test-corpus-prepare: ## Clone or verify the pinned public corpus
 	@bash scripts/prepare-test-corpus.sh
 
 release-gate: test-corpus-prepare ## Run the exact local/CI release gate
-	@$(MAKE) version-check export-check
+	@$(MAKE) version-check export-check target-guard-check
 	uv run zhtw validate
 	@$(MAKE) benchmark-validate
-	uv run python scripts/audit_idempotency.py --sources cn,hk --curated-only --fail-on-issues
+	uv run python scripts/audit_idempotency.py --sources cn,hk --fail-on-issues
 	@$(MAKE) test-all
 
 # === Version management (mono-versioning) ===
@@ -514,7 +517,7 @@ version-check: ## Verify all SDK versions are aligned (mono-versioning)
 	    [ "$$PY_VER" != "$$WASM_VER" ]; then \
 	   echo ""; \
 	   echo "❌ Version mismatch — all SDKs must stay in sync (mono-versioning)"; \
-	   echo "   Fix: run 'make bump VERSION=X.Y.Z' or 'make release VERSION=X.Y.Z'"; \
+	   echo "   Fix: run 'make bump VERSION=X.Y.Z', then verify with 'make version-check'"; \
 	   exit 1; \
 	 fi; \
 	 echo ""; \

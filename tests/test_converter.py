@@ -103,6 +103,17 @@ class TestConvertWrapper:
         """Simplified input is converted using default sources."""
         assert convert("这个软件需要优化") == "這個軟體需要最佳化"
 
+    @pytest.mark.parametrize(
+        ("source", "expected"),
+        [
+            ("应用于", "應用於"),
+            ("两千万", "兩千萬"),
+        ],
+    )
+    def test_convert_unselected_overlap_suffix(self, source: str, expected: str):
+        """A losing overlap must not prevent safe conversion of its suffix."""
+        assert convert(source, sources=["cn"]) == expected
+
     def test_convert_hk_traditional(self):
         """HK Traditional input is converted to TW Traditional."""
         assert convert("這個軟件需要優化") == "這個軟體需要最佳化"

@@ -86,6 +86,16 @@ _GOLDEN_CASES = [
     ("\u6570\u636e\u5e93\u670d\u52a1\u5668", ["cn"], "term layer: compound terms"),
     ("\u4e91\u8ba1\u7b97", ["cn"], "ambiguous: cloud"),
     ("\u53d1\u5c55\u5f88\u5feb", ["cn"], "ambiguous: fa"),
+    (
+        "\u5e94\u7528\u4e8e",
+        ["cn"],
+        "overlap: losing suffix term must not block char conversion",
+    ),
+    (
+        "\u4e24\u5343\u4e07",
+        ["cn"],
+        "overlap: selected prefix leaves suffix available to char conversion",
+    ),
     # Identity-term protection: char layer must NOT convert chars inside identity terms
     ("\u5c38\u4f4d\u7d20\u9910", ["cn"], "identity: \u5c38\u4f4d\u7d20\u9910 protects \u5c38"),
     ("\u4eba\u4e91\u4ea6\u4e91", ["cn"], "identity: \u4eba\u4e91\u4ea6\u4e91 protects \u4e91"),

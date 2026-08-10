@@ -6,8 +6,11 @@
 
 ```bash
 jcli build zhtw/build -s -v -p BRANCH=main -p VERSION_BUMP=patch
+jcli build zhtw/verify -s -v \
+  -p BUILD_NUMBER=<build> -p VERIFY_SUITE=all
 jcli build zhtw/release -s -v \
-  -p BUILD_NUMBER=<build> -p RELEASE_ACTION=PREVIEW \
+  -p BUILD_NUMBER=<build> -p VERIFY_BUILD_NUMBER=<verify> \
+  -p RELEASE_ACTION=PREVIEW \
   -p SKIP_CONFIRMATION=false
 ```
 

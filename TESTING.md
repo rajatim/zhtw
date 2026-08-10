@@ -10,7 +10,7 @@
 
 這是 zhtw 的核心設計原則，測試策略也圍繞此展開：
 
-| 優先級 | 測試重點 | 原因 |
+| 優先順序 | 測試重點 | 原因 |
 |--------|----------|------|
 | 1 | **誤轉防護** | 錯誤轉換比漏轉更糟糕 |
 | 2 | **Identity Mapping** | 保護不該轉的詞 |
@@ -39,7 +39,7 @@
                /   25%    \  詞庫 + Matcher + Converter
               /------------\
              /              \  單元測試
-            /      70%       \ 純函數、獨立模組
+            /      70%       \ 純函式、獨立模組
            --------------------
 ```
 
@@ -634,18 +634,12 @@ open htmlcov/index.html
 
 ## 持續整合
 
-GitHub Actions 自動執行：
+zhtw repo 的唯一 CI/CD 是 Jenkins。`zhtw/build` 會執行 lint、完整 release gate、
+所有 SDK 測試與套件建置；`zhtw/verify` 會針對同一份封存候選執行 Linux SDK
+版本矩陣與公開 benchmark。`zhtw/release` 只接受相符的 `VERIFY_SUITE=all` receipt。
 
-```yaml
-# .github/workflows/test.yml
-- name: Run tests
-  run: pytest --cov=zhtw
-
-- name: Upload coverage
-  uses: codecov/codecov-action@v3
-```
-
-每次 push 和 PR 都會執行測試。
+GitHub Actions 已停用，`.github/workflows/` 必須保持不存在。Jenkins 失敗時要修正
+Jenkins job，不可建立 workflow 當備援。
 
 ---
 

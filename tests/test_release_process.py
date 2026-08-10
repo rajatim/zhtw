@@ -5,6 +5,7 @@ import json
 import re
 import shutil
 import subprocess
+import sys
 from dataclasses import asdict
 from pathlib import Path
 
@@ -34,7 +35,7 @@ def test_github_actions_are_not_a_ci_or_release_path() -> None:
 def test_direct_release_command_fails_closed() -> None:
     script = read("scripts/release.sh")
 
-    assert "Use Jenkins zhtw/build, then zhtw/release" in script
+    assert "Use Jenkins zhtw/build, zhtw/verify for that build, then zhtw/release" in script
     assert "exit 64" in script
     assert "git push" not in script
     assert "gh release" not in script
@@ -63,6 +64,19 @@ def test_nuget_package_builds_every_target_before_no_build_pack() -> None:
     assert script.index(restore) < script.index(build) < script.index(pack)
 
 
+def test_packages_include_public_license_and_readme_metadata() -> None:
+    wasm = json.loads(read("sdk/rust/zhtw-wasm/package.json"))
+    dotnet = read("sdk/dotnet/Zhtw.csproj")
+
+    assert "LICENSE" in wasm["files"]
+    assert (ROOT / "sdk/rust/zhtw-wasm/LICENSE").read_bytes() == (ROOT / "LICENSE").read_bytes()
+    assert "<PackageReadmeFile>README.md</PackageReadmeFile>" in dotnet
+    assert '<None Include="README.md" Pack="true" PackagePath="/" />' in dotnet
+    build = read("scripts/jenkins-build.sh")
+    assert "tar -tzf \"$wasm_tgz\" | grep -Fx 'package/LICENSE'" in build
+    assert "unzip -Z1 \"$nuget_package\" | grep -Fx 'README.md'" in build
+
+
 def test_python_candidate_excludes_uv_output_helper() -> None:
     script = read("scripts/jenkins-build.sh")
 
@@ -89,6 +103,46 @@ def test_jenkins_release_is_idempotent_and_covers_every_target() -> None:
     assert "Existing GitHub asset differs" in script
     assert "Cargo repack differs from the archived crate" in script
     assert "publishingType=AUTOMATIC" in script
+
+
+def test_public_release_adapter_fails_outside_jenkins() -> None:
+    result = subprocess.run(
+        [str(ROOT / "scripts/jenkins-release.sh"), "publish-git", "/missing"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 64
+    assert "Release actions require Jenkins" in result.stderr
+
+
+@pytest.mark.parametrize(
+    ("script", "action", "message"),
+    [
+        ("scripts/jenkins-build.sh", "scan", "Formal candidates require Jenkins"),
+        (
+            "scripts/jenkins-verify.sh",
+            "sdk-matrix",
+            "Formal compatibility checks require Jenkins",
+        ),
+        ("scripts/jenkins-release.sh", "preview", "Release actions require Jenkins"),
+    ],
+)
+def test_formal_cicd_adapters_fail_outside_matching_jenkins_job(
+    script: str, action: str, message: str
+) -> None:
+    result = subprocess.run(
+        [str(ROOT / script), action],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 64
+    assert message in result.stderr
 
 
 def test_release_secrets_are_not_command_line_arguments() -> None:
@@ -197,7 +251,26 @@ def test_release_candidate_keeps_unreleased_notes(tmp_path: Path) -> None:
         check=True,
     )
     assert "Candidate fixture note." in notes.read_text(encoding="utf-8")
-    assert "## [9.8.7] - 2026-08-09" in (tmp_path / "CHANGELOG.md").read_text(encoding="utf-8")
+    promoted = (tmp_path / "CHANGELOG.md").read_text(encoding="utf-8")
+    assert "## [9.8.7] - 2026-08-09" in promoted
+    assert "[Unreleased]: https://github.com/rajatim/zhtw/compare/v9.8.7...HEAD" in promoted
+    assert "[9.8.7]: https://github.com/rajatim/zhtw/compare/v1.0.0...v9.8.7" in promoted
+
+    subprocess.run(
+        [
+            "python3",
+            str(ROOT / "scripts/prepare_release_candidate.py"),
+            "--version",
+            "9.8.7",
+            "--date",
+            "2026-08-09",
+            "--notes-output",
+            str(notes),
+        ],
+        cwd=tmp_path,
+        check=True,
+    )
+    assert (tmp_path / "CHANGELOG.md").read_text(encoding="utf-8") == promoted
 
 
 def test_version_bump_refreshes_local_benchmark_lock(tmp_path: Path) -> None:
@@ -285,7 +358,7 @@ def test_idempotency_baseline_updater_runs_as_a_script(tmp_path: Path) -> None:
 
     subprocess.run(
         [
-            "python3",
+            sys.executable,
             str(ROOT / "scripts/update_idempotency_baseline_version.py"),
             idempotency_audit.__version__,
             "--inputs",

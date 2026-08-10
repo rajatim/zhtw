@@ -4,7 +4,7 @@
 
 ## 釋出前人工判斷
 
-- [ ] 使用者／Maintainer 明確同意要發布的確切 Jenkins build。
+- [ ] 使用者／Maintainer 明確同意要發布的確切 Jenkins build 與 verify build。
 - [ ] CHANGELOG `[Unreleased]` 能讓使用者判斷是否值得升級。
 - [ ] 版號符合語意：breaking → major、新功能 → minor、修復 → patch。
 - [ ] 詞庫有改動時，精準度 release gate 與治理證據均已完成。
@@ -14,20 +14,26 @@
 
 ```bash
 jcli build zhtw/build -s -v -p BRANCH=main -p VERSION_BUMP=patch
+jcli build zhtw/verify -s -v \
+  -p BUILD_NUMBER=<成功-build> -p VERIFY_SUITE=all
 jcli build zhtw/release -s -v \
-  -p BUILD_NUMBER=<成功-build> -p RELEASE_ACTION=PREVIEW \
+  -p BUILD_NUMBER=<成功-build> -p VERIFY_BUILD_NUMBER=<成功-verify> \
+  -p RELEASE_ACTION=PREVIEW \
   -p SKIP_CONFIRMATION=false
 ```
 
 - [ ] build 的 lint、release gate、全部套件建置與 checksum 都成功。
 - [ ] manifest 的 base SHA、base tree、candidate tree、release/build version 正確。
-- [ ] preview 使用同一 build，且沒有新增 tag、Release 或 registry version。
+- [ ] verify 使用同一 build、`VERIFY_SUITE=all`，並封存 release-eligible receipt。
+- [ ] receipt 的 build、SHA、tree、版本與 manifest/checksum hash 都和候選完全相同。
+- [ ] preview 使用同一組 build/verify，且沒有新增 tag、Release 或 registry version。
 
 ## 正式發布
 
 ```bash
 jcli build zhtw/release -s -v \
-  -p BUILD_NUMBER=<同一-build> -p RELEASE_ACTION=PUBLISH_ALL \
+  -p BUILD_NUMBER=<同一-build> -p VERIFY_BUILD_NUMBER=<同一-verify> \
+  -p RELEASE_ACTION=PUBLISH_ALL \
   -p SKIP_CONFIRMATION=true
 ```
 
@@ -39,6 +45,6 @@ jcli build zhtw/release -s -v \
 
 ## 部分失敗
 
-- [ ] 使用同一 build 重跑 `PUBLISH_ALL`，或使用正確的 `RETRY_*`。
+- [ ] 使用同一組 build/verify 重跑 `PUBLISH_ALL`，或使用正確的 `RETRY_*`。
 - [ ] 不刪除、不移動 tag，不覆蓋已存在的 registry version。
 - [ ] 若內容本身有錯，修正後升下一個 patch，不重用版號。

@@ -256,27 +256,36 @@ class TestGeminiClientValidateTerm:
     @patch("zhtw.llm.client.load_config")
     @patch.dict("os.environ", {"GEMINI_API_KEY": "test-key"})
     def test_validate_term_non_json_response(self, mock_config):
-        """Test validating with non-JSON response."""
+        """Free-form approval text must not become an accepted verdict."""
         mock_config.return_value = {}
         client = GeminiClient()
 
-        # Non-JSON response containing "正確"
         with patch.object(client, "generate", return_value="這個轉換是正確的"):
-            result = client.validate_term("軟體", "軟體")
-            assert result["correct"] is True
-            assert "正確" in result["reason"]
+            with pytest.raises(APIError, match="valid JSON"):
+                client.validate_term("軟體", "軟體")
 
     @patch("zhtw.llm.client.load_config")
     @patch.dict("os.environ", {"GEMINI_API_KEY": "test-key"})
     def test_validate_term_non_json_incorrect(self, mock_config):
-        """Test validating with non-JSON response indicating incorrect."""
+        """Negative wording containing 正確 must fail closed."""
         mock_config.return_value = {}
         client = GeminiClient()
 
-        # Non-JSON response not containing "正確" or "correct"
-        with patch.object(client, "generate", return_value="這個轉換有問題"):
-            result = client.validate_term("test", "wrong")
-            assert result["correct"] is False
+        with patch.object(client, "generate", return_value="這個轉換不正確"):
+            with pytest.raises(APIError, match="valid JSON"):
+                client.validate_term("test", "wrong")
+
+    @patch("zhtw.llm.client.load_config")
+    @patch.dict("os.environ", {"GEMINI_API_KEY": "test-key"})
+    def test_validate_term_requires_boolean_verdict(self, mock_config):
+        """Missing or non-boolean verdicts must not default to approval."""
+        mock_config.return_value = {}
+        client = GeminiClient()
+
+        for response in ('{"reason": "looks fine"}', '{"correct": "yes"}'):
+            with patch.object(client, "generate", return_value=response):
+                with pytest.raises(APIError, match="boolean 'correct'"):
+                    client.validate_term("test", "target")
 
 
 class TestGeminiClientBatchValidate:

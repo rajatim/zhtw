@@ -49,17 +49,25 @@
   "ranking_families": [
     {
       "id": "zhtw",
-      "engine_ids": ["zhtw"],
+      "engine_ids": [
+        "zhtw"
+      ],
       "ranking_representative": "zhtw"
     },
     {
       "id": "opencc",
-      "engine_ids": ["opencc-s2twp", "opencc-js-cn-twp"],
+      "engine_ids": [
+        "opencc-s2twp",
+        "opencc-js-cn-twp"
+      ],
       "ranking_representative": "opencc-s2twp"
     },
     {
       "id": "mediawiki-zhconv",
-      "engine_ids": ["zhconv-zh-tw", "zhconv-rs-zh-tw"],
+      "engine_ids": [
+        "zhconv-zh-tw",
+        "zhconv-rs-zh-tw"
+      ],
       "ranking_representative": "zhconv-zh-tw"
     }
   ],
@@ -71,15 +79,15 @@
       "adapter": "local_python",
       "family": "zhtw",
       "package": "zhtw",
-      "version": "4.4.3",
+      "version": "4.4.4",
       "license": "MIT",
       "artifact_sha256": {
-        "sdk/data/zhtw-data.json": "0a559536c2282126ee1d232a83929772f127dbf966af0b2b969bc7c0302927f5"
+        "sdk/data/zhtw-data.json": "1a8a42005a0f6841790c889219c2414a5c80122e43127e819c3b819ed01427c3"
       },
       "source_url": "https://github.com/rajatim/zhtw",
       "command": "from zhtw import convert; convert(text)",
       "locale_or_config": "default Simplified/HK Traditional to Taiwan Traditional rules",
-      "config_sha256": "0a559536c2282126ee1d232a83929772f127dbf966af0b2b969bc7c0302927f5",
+      "config_sha256": "1a8a42005a0f6841790c889219c2414a5c80122e43127e819c3b819ed01427c3",
       "version_probe": "zhtw.__version__",
       "notes": "Primary candidate engine; preregistration additionally pins the immutable Git commit."
     },

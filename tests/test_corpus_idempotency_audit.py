@@ -49,7 +49,7 @@ def test_baseline_comparison_fails_closed(tmp_path: Path) -> None:
     assert errors == ["idempotent_cases: expected 0, got 1"]
 
 
-def test_blind_v2_idempotency_matches_frozen_443_baseline() -> None:
+def test_blind_v2_idempotency_matches_frozen_baseline() -> None:
     inputs = ROOT / "benchmarks/accuracy/blind-v2.inputs.json"
     baseline = ROOT / "benchmarks/accuracy/blind-v2.idempotency-baseline.json"
 

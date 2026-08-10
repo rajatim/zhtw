@@ -337,9 +337,9 @@ def get_context(text: str, start: int, end: int, context_chars: int = 20) -> str
 def _apply_term_layer(text: str, matcher: Matcher) -> tuple[str, set[int]]:
     """詞庫層替換，並收集已覆蓋的字元位置。
 
-    covered_positions 包含「所有詞庫層命中的位置」，含 identity mapping
-    （茶几→茶几 這類保護性 mapping），因此 balanced defaults 不會再改動
-    詞庫層已處理過的字元。
+    covered_positions contains selected term spans and effective identity
+    mappings (for example, protective mappings such as 茶几→茶几). Losing
+    overlap candidates remain available to the character layer.
 
     Args:
         text: 要處理的文字。
@@ -414,7 +414,7 @@ def _transform_uncovered_segment(
     merged = _merged_translate_table(char_table, defaults)
 
     # Fast path：區段與 covered 無交集（絕大多數情況）→ C 層級 translate。
-    # covered 來自 identity 保護詞與未被選上的重疊命中，通常稀疏。
+    # Coverage comes from selected terms and effective identity guards.
     if sorted_covered:
         idx = bisect_right(sorted_covered, start_offset - 1)
         intersects = idx < len(sorted_covered) and sorted_covered[idx] < start_offset + len(segment)

@@ -87,11 +87,11 @@ Simplified-to-Taiwan conversion is more than one-to-one character replacement. A
 | 台积电扩大先进制程投资 | 臺積電擴大先進位程投資 | **台積電擴大先進製程投資** |
 <!-- zhtw:enable -->
 
-ZHTW 4.4.3 uses:
+ZHTW 4.4.4 uses:
 
-- **31,706 Mainland-to-Taiwan term rules** for words such as 軟體, 伺服器, 資料夾, and 使用者名稱.
+- **31,904 exported CN mappings**: 31,505 lexical rules, 374 generated target-stability guards, and 25 additional generated context guards.
 - **6,352 safe character mappings** limited to suitable one-to-one conversions.
-- **111 ambiguous-character rules** with context and protected terms to keep legal `程序` separate from software `程式`, and formal `發布` separate from software `釋出`.
+- **111 ambiguous characters excluded from the safe character layer**, plus 13 balanced defaults and 32 protection phrases for reviewed contexts.
 - Aho-Corasick longest matching, with complete terms handled before safe characters.
 - A `balanced` mode for more active conversion of common ambiguous characters while keeping context protections.
 
@@ -147,7 +147,7 @@ Python, Java, TypeScript, Rust, WebAssembly, Go, and C# share the same versioned
 | Runtime | Install | Documentation |
 |---|---|---|
 | Python | `pip install zhtw` | [PyPI](https://pypi.org/project/zhtw/) |
-| Java | `com.rajatim:zhtw:4.4.3` | [Java README](sdk/java/README.md) |
+| Java | `com.rajatim:zhtw:4.4.4` | [Java README](sdk/java/README.md) |
 | TypeScript | `npm install zhtw-js` | [TypeScript README](sdk/typescript/README.md) |
 | Rust | `cargo add zhtw` | [Rust README](sdk/rust/zhtw/README.md) |
 | WebAssembly | `npm install zhtw-wasm` | [WASM README](sdk/rust/zhtw-wasm/README.md) |
@@ -179,12 +179,13 @@ You can also check each commit:
 ```yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.4.3
+    rev: v4.4.4
     hooks:
       - id: zhtw-check
 ```
 
-See the [CI/CD integration guide](docs/deployment/CI-CD-INTEGRATION.md) for GitHub Actions, GitLab CI, and pre-commit setup.
+To use this check in another project, see the
+[consumer CI/CD integration guide](docs/deployment/CI-CD-INTEGRATION.md).
 
 ## Control what must stay unchanged
 
@@ -228,7 +229,7 @@ ZHTW is a rule-based conversion and quality-checking tool, not a generative tran
 | [Accuracy standard](docs/testing/accuracy/precision-standard.md) | Ground truth, human review, and benchmark rules |
 | [Dictionary coverage](docs/reports/DICTIONARY-COVERAGE.md) | Term groups, ambiguous characters, and conversion design |
 | [Advanced CLI guide](docs/guides/CLI-ADVANCED.md) | Custom dictionaries, ignore rules, encodings, and output formats |
-| [CI/CD integration](docs/deployment/CI-CD-INTEGRATION.md) | GitHub Actions, GitLab CI, and pre-commit |
+| [Consumer CI/CD integration](docs/deployment/CI-CD-INTEGRATION.md) | Use zhtw from GitHub Actions, GitLab CI, or pre-commit in another repo |
 | [Changelog](CHANGELOG.md) | Accuracy, feature, and compatibility changes by release |
 | [Contributing guide](CONTRIBUTING.md) | Development, testing, and dictionary change process |
 | [Security policy](SECURITY.md) | Supported versions and private vulnerability reporting |

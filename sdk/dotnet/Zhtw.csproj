@@ -3,14 +3,16 @@
     <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <RootNamespace>Zhtw</RootNamespace>
     <PackageId>Zhtw</PackageId>
-    <Version>4.4.3</Version>
+    <Version>4.4.4</Version>
     <Description>Traditional Chinese converter for Taiwan — .NET SDK</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/rajatim/zhtw</RepositoryUrl>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="tests/**" />
+    <None Include="README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="Zhtw.Tests" />

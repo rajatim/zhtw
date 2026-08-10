@@ -2,7 +2,7 @@
 
 > **AI instruction source of truth is `AGENTS.md`** — Codex loads it through official AGENTS discovery; its instruction docs do not define Markdown `@file` imports. `CLAUDE.md` / `GEMINI.md` are `@AGENTS.md` wrappers.
 
-> **v4.4.3** | 簡轉繁轉換器 | 指南：`.claude/guides/`
+> **v4.4.4** | 簡轉繁轉換器 | 指南：`.claude/guides/`
 
 ## 🚨 黃金規則
 
@@ -76,8 +76,11 @@ make version-check   # 任一檔案不一致就 exit 1
 - 禁止恢復 `.github/workflows`、執行 `gh workflow run`、本機建立 release tag，或
   直接對 PyPI/npm/crates/NuGet/Maven publish。
 - `make release` 與 `make release-dry` 會故意失敗；不是備援流程。
+- `zhtw/verify` 必須選定一個成功的 main `zhtw/build`，並以 `VERIFY_SUITE=all`
+  產生 verification receipt；`zhtw/release` 只接受 SHA、tree、版本與 checksum
+  都和候選完全相同的成功 receipt。
 - `zhtw/release` 預設 `PREVIEW`，不改任何外部狀態。只有使用者明確核准確切
-  Jenkins build 後，才可用 `PUBLISH_ALL` 或 `RETRY_*`。
+  Jenkins build 與 verify build 後，才可用 `PUBLISH_ALL` 或 `RETRY_*`。
 - 所有 Git、通知與 registry 機密只能由 `zhtw/` folder-scoped Jenkins
   Credentials 在需要的 stage 注入。Job 不得呼叫 1Password、讀取 agent 主機上的
   私鑰／credential profile／session cache，或依賴互動式 shell。由 credential 產生的

@@ -13,7 +13,7 @@ Simplified Chinese / HK Traditional to Taiwan Traditional Chinese converter. Thr
 <dependency>
     <groupId>com.rajatim</groupId>
     <artifactId>zhtw</artifactId>
-    <version>4.4.3</version>
+    <version>4.4.4</version>
 </dependency>
 ```
 <!-- zhtw:enable -->
@@ -21,7 +21,7 @@ Simplified Chinese / HK Traditional to Taiwan Traditional Chinese converter. Thr
 **Gradle (Kotlin DSL)**:
 
 ```kotlin
-implementation("com.rajatim:zhtw:4.4.3")
+implementation("com.rajatim:zhtw:4.4.4")
 ```
 
 ## Quick start

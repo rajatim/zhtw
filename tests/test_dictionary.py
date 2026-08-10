@@ -72,6 +72,25 @@ class TestDictionary:
 
         assert terms == {"自定义": "自訂"}
 
+    def test_wrapped_format_excludes_underscore_metadata(self):
+        """Section comments inside `terms` are not runtime conversion rules."""
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            data = {
+                "version": "1.0",
+                "terms": {
+                    "_comment_ui": "UI section",
+                    "软件": "軟體",
+                },
+            }
+            json.dump(data, f, ensure_ascii=False)
+            f.flush()
+
+            terms = load_custom(Path(f.name))
+
+        assert terms == {"软件": "軟體"}
+
     def test_load_dictionary_with_custom(self):
         """Test load_dictionary merges custom terms."""
         with tempfile.NamedTemporaryFile(
@@ -131,6 +150,7 @@ class TestDictionary:
                     "description": "Some metadata",
                     "source": "External provider",
                     "license": "Apache-2.0",
+                    "_comment_source": "Not a conversion rule",
                     # Real entries (legacy flat format)
                     "软件": "軟體",
                     "数据": "資料",
@@ -150,3 +170,4 @@ class TestDictionary:
         assert "description" not in terms
         assert "source" not in terms
         assert "license" not in terms
+        assert "_comment_source" not in terms

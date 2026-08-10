@@ -122,11 +122,16 @@ export class AhoCorasickMatcher {
    * non-identity term wins.
    */
   findMatches(text: string): Utf16Match[] {
-    return this.selectMatches(Array.from(this.iterEmissions(text)));
+    return this.selectMatches(Array.from(this.iterEmissions(text))).matches;
   }
 
-  private selectMatches(raw: Utf16Match[]): Utf16Match[] {
-    if (raw.length === 0) return [];
+  private selectMatches(raw: Utf16Match[]): {
+    matches: Utf16Match[];
+    protectedPositions: Set<number>;
+  } {
+    if (raw.length === 0) {
+      return { matches: [], protectedPositions: new Set<number>() };
+    }
 
     // Sort by start ASC, then length DESC (longer match wins at same start).
     raw.sort((a, b) => {
@@ -188,21 +193,23 @@ export class AhoCorasickMatcher {
       lastEnd = m.end;
       if (m.source !== m.target) chosen.push(m);
     }
-    return chosen;
+    return { matches: chosen, protectedPositions };
   }
 
   /**
-   * Return all UTF-16 code-unit positions covered by any raw automaton hit,
-   * including identity terms (source === target). Used to prevent the char
-   * layer from converting characters protected by identity term matches.
+   * Return UTF-16 positions covered by selected terms or effective identity
+   * guards. Losing overlap candidates do not block the character layer.
    */
   getCoveredPositions(text: string): Set<number> {
-    return this.coveredPositions(Array.from(this.iterEmissions(text)));
+    return this.scan(text).covered;
   }
 
-  private coveredPositions(raw: Utf16Match[]): Set<number> {
-    const covered = new Set<number>();
-    for (const m of raw) {
+  private coveredPositions(
+    matches: Utf16Match[],
+    protectedPositions: Set<number>,
+  ): Set<number> {
+    const covered = new Set<number>(protectedPositions);
+    for (const m of matches) {
       for (let i = m.start; i < m.end; i++) {
         covered.add(i);
       }
@@ -212,7 +219,8 @@ export class AhoCorasickMatcher {
 
   scan(text: string): { matches: Utf16Match[]; covered: Set<number> } {
     const raw = Array.from(this.iterEmissions(text));
-    return { matches: this.selectMatches(raw), covered: this.coveredPositions(raw) };
+    const { matches, protectedPositions } = this.selectMatches(raw);
+    return { matches, covered: this.coveredPositions(matches, protectedPositions) };
   }
 
   replaceAll(text: string): string {

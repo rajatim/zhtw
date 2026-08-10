@@ -224,7 +224,7 @@ impl Converter {
         let inner = &self.inner;
         let byte_to_cp = matcher::build_byte_to_cp(text);
 
-        // Term matches and raw coverage come from one automaton walk.
+        // Term matches and effective coverage come from one automaton walk.
         let (hits, covered_bytes) = matcher::scan(&inner.automaton, &inner.pattern_table, text);
         let mut matches: Vec<Match> = hits
             .iter()

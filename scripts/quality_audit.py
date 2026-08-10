@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-zhtw 大規模品質審計腳本。
+zhtw 大規模品質審計指令碼。
 
 對比 zhtw 轉換結果與 gold standard（繁體中文原文），
 逐章、逐段、逐字分析差異，產出品質報告。
@@ -80,21 +80,15 @@ class AuditReport:
 
 
 def load_converter():
-    """載入 zhtw 轉換器。"""
-    from zhtw.charconv import get_translate_table
-    from zhtw.dictionary import load_dictionary
-    from zhtw.matcher import Matcher
+    """Load the canonical public conversion pipeline."""
+    from zhtw import convert as public_convert
 
-    terms = load_dictionary(sources=["cn"])
-    matcher = Matcher(terms)
-    char_table = get_translate_table()
-    return matcher, char_table
+    return lambda text: public_convert(text, sources=["cn"])
 
 
-def convert(text: str, matcher, char_table) -> str:
-    """全管線轉換。"""
-    result = matcher.replace_all(text)
-    return result.translate(char_table)
+def convert(text: str, converter) -> str:
+    """Convert through the same path used by the public API."""
+    return converter(text)
 
 
 def extract_paragraphs(text: str, min_len: int = 8) -> list[str]:
@@ -205,7 +199,7 @@ def classify_diff(our_char: str, gold_char: str, context: str = "") -> str:
 
 
 def compare_chapter(
-    chapter_num: int, simplified_path: Path, gold_path: Path, matcher, char_table
+    chapter_num: int, simplified_path: Path, gold_path: Path, converter
 ) -> ChapterResult:
     """比對單章。"""
     result = ChapterResult(chapter_num=chapter_num)
@@ -214,7 +208,7 @@ def compare_chapter(
     tc_text = gold_path.read_text("utf-8")
 
     # 轉換
-    converted = convert(sc_text, matcher, char_table)
+    converted = convert(sc_text, converter)
 
     # 提取段落
     conv_paras = extract_paragraphs(converted)
@@ -401,7 +395,7 @@ def main():
 
     # 載入轉換器
     print("\n  載入轉換器...", end=" ", flush=True)
-    matcher, char_table = load_converter()
+    converter = load_converter()
     print("OK")
 
     # 逐章比對
@@ -416,7 +410,7 @@ def main():
 
         # 計時
         start = time.perf_counter()
-        cr = compare_chapter(i + 1, sc_path, gold_path, matcher, char_table)
+        cr = compare_chapter(i + 1, sc_path, gold_path, converter)
         elapsed = time.perf_counter() - start
 
         report.total_source_bytes += sc_path.stat().st_size

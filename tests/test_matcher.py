@@ -125,3 +125,13 @@ class TestMatcher:
         # Both cases in same text
         result = matcher.replace_all("文檔和中文檔案")
         assert result == "文件和中文檔案"
+
+    def test_losing_overlap_does_not_cover_unselected_suffix(self):
+        """An unselected overlap must leave its suffix for the char layer."""
+        matcher = Matcher({"应用": "應用", "用于": "用於"})
+
+        matches, covered = matcher.scan("应用于")
+
+        assert [match.source for match in matches] == ["应用"]
+        assert covered == {0, 1}
+        assert 2 not in matcher.get_covered_positions("应用于")

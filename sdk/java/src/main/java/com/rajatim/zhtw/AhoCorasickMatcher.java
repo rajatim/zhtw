@@ -55,14 +55,10 @@ final class AhoCorasickMatcher {
 
         // Convert to Match objects (Emit.getEnd() is INCLUSIVE, we need EXCLUSIVE)
         List<Match> allMatches = new ArrayList<>();
-        Set<Integer> covered = new HashSet<>();
         for (Emit emit : emits) {
             String source = emit.getKeyword();
             String target = terms.get(source);
             allMatches.add(new Match(emit.getStart(), emit.getEnd() + 1, source, target));
-            for (int i = emit.getStart(); i <= emit.getEnd(); i++) {
-                covered.add(i);
-            }
         }
 
         // Sort by start, then longer first
@@ -74,6 +70,7 @@ final class AhoCorasickMatcher {
 
         // Build protected ranges from identity mappings
         Set<Integer> protectedPositions = buildProtectedRanges(allMatches);
+        Set<Integer> covered = new HashSet<>(protectedPositions);
 
         // Greedy left-to-right selection
         List<Match> result = new ArrayList<>();
@@ -96,6 +93,9 @@ final class AhoCorasickMatcher {
                 lastEnd = match.getEnd();
                 if (!isIdentity) {
                     result.add(match);
+                    for (int i = match.getStart(); i < match.getEnd(); i++) {
+                        covered.add(i);
+                    }
                 }
             }
         }
@@ -184,10 +184,8 @@ final class AhoCorasickMatcher {
     }
 
     /**
-     * Return all UTF-16 positions covered by any raw automaton hit,
-     * including identity terms (source == target). This is used to
-     * prevent the char layer from converting characters that are
-     * protected by identity term matches.
+     * Return UTF-16 positions covered by selected terms or effective identity
+     * guards. Losing overlap candidates do not block the character layer.
      */
     Set<Integer> getCoveredPositions(String text) {
         return scan(text).covered;

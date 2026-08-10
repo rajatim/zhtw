@@ -112,22 +112,16 @@ func (ac *ahoCorasick) iterEmissions(runes []rune) []acMatch {
 	return hits
 }
 
-// ── Covered positions ───────────────────────────────────────────────────────
-
-func coveredPositions(raw []acMatch) map[int]bool {
-	covered := make(map[int]bool)
-	for _, m := range raw {
+// scan walks the automaton once and derives selected matches and effective coverage.
+func (ac *ahoCorasick) scan(runes []rune) ([]acMatch, map[int]bool) {
+	raw := ac.iterEmissions(runes)
+	matches, covered := selectTermMatches(raw)
+	for _, m := range matches {
 		for i := m.start; i < m.end; i++ {
 			covered[i] = true
 		}
 	}
-	return covered
-}
-
-// scan walks the automaton once and derives both selected matches and coverage.
-func (ac *ahoCorasick) scan(runes []rune) ([]acMatch, map[int]bool) {
-	raw := ac.iterEmissions(runes)
-	return selectTermMatches(raw), coveredPositions(raw)
+	return matches, covered
 }
 
 // ── Match selection ──────────────────────────────────────────────────────────
@@ -139,12 +133,13 @@ func (ac *ahoCorasick) scan(runes []rune) ([]acMatch, map[int]bool) {
 //
 // Mirrors Python src/zhtw/matcher.py:find_matches.
 func (ac *ahoCorasick) findTermMatches(runes []rune) []acMatch {
-	return selectTermMatches(ac.iterEmissions(runes))
+	matches, _ := selectTermMatches(ac.iterEmissions(runes))
+	return matches
 }
 
-func selectTermMatches(raw []acMatch) []acMatch {
+func selectTermMatches(raw []acMatch) ([]acMatch, map[int]bool) {
 	if len(raw) == 0 {
-		return nil
+		return nil, make(map[int]bool)
 	}
 
 	// Sort by (start ASC, length DESC).
@@ -230,7 +225,7 @@ func selectTermMatches(raw []acMatch) []acMatch {
 			result = append(result, m)
 		}
 	}
-	return result
+	return result, protected
 }
 
 // bisectRight returns the insertion point for x in a sorted slice a

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "4.4.3",
+  "version": "4.4.4",
   "description": "SDK consistency test — all SDKs must pass",
   "convert": [
     {
@@ -58,6 +58,20 @@
         "cn"
       ],
       "expected": "發展很快"
+    },
+    {
+      "input": "应用于",
+      "sources": [
+        "cn"
+      ],
+      "expected": "應用於"
+    },
+    {
+      "input": "两千万",
+      "sources": [
+        "cn"
+      ],
+      "expected": "兩千萬"
     },
     {
       "input": "尸位素餐",
@@ -276,6 +290,46 @@
           "end": 2,
           "source": "发展",
           "target": "發展"
+        }
+      ]
+    },
+    {
+      "input": "应用于",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 2,
+          "source": "应用",
+          "target": "應用"
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "source": "于",
+          "target": "於"
+        }
+      ]
+    },
+    {
+      "input": "两千万",
+      "sources": [
+        "cn"
+      ],
+      "expected_matches": [
+        {
+          "start": 0,
+          "end": 2,
+          "source": "两千",
+          "target": "兩千"
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "source": "万",
+          "target": "萬"
         }
       ]
     },

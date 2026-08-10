@@ -63,6 +63,15 @@ def test_export_data_stats_match_content():
     assert data["stats"]["terms_hk_count"] == len(data["terms"]["hk"])
 
 
+def test_export_data_excludes_dictionary_metadata():
+    """SDK exports contain lexical mappings and generated guards, not comments."""
+    from zhtw.export import export_data
+
+    data = export_data()
+    for terms in data["terms"].values():
+        assert not any(source.startswith("_") for source in terms)
+
+
 def test_export_data_version_matches_package():
     """Exported version must match __version__."""
     from zhtw import __version__

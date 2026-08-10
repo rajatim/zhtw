@@ -57,30 +57,29 @@ class Matcher:
         return automaton
 
     def scan(self, text: str) -> tuple[list[Match], set[int]]:
-        """單次 Aho-Corasick 掃描，同時產出選定 matches 與 covered positions。
+        """Scan once and return selected matches plus effective coverage.
 
         等價於 ``(list(find_matches(text)), get_covered_positions(text))``，
         但 automaton 只走訪一次。fix/check 熱路徑應優先使用本方法，
         避免重複掃描（automaton.iter 是整條轉換管線的主要成本）。
 
         Returns:
-            Tuple of (selected non-identity matches, covered positions)。
-            covered 含「所有」命中位置（含 identity 與未被選上的重疊命中），
-            供字元層跳過詞庫層已處理的區段。
+            Tuple of (selected non-identity matches, covered positions).
+            Coverage contains selected conversions and effective identity guards.
+            A losing overlapping conversion must not hide its unmatched suffix
+            from the character layer.
         """
         if not self.terms:
             return [], set()
 
         all_matches = []
-        covered: set[int] = set()
         for end_pos, (source, target) in self.automaton.iter(text):
             start_pos = end_pos - len(source) + 1
             all_matches.append(
                 Match(start=start_pos, end=end_pos + 1, source=source, target=target)
             )
-            covered.update(range(start_pos, end_pos + 1))
 
-        return list(self._select(all_matches)), covered
+        return self._select_with_coverage(all_matches)
 
     def find_matches(self, text: str) -> Iterator[Match]:
         """
@@ -116,6 +115,14 @@ class Matcher:
 
     def _select(self, all_matches: list[Match]) -> Iterator[Match]:
         """從全部命中中選出實際要套用的轉換（共用的選擇邏輯）。"""
+        selected, _covered = self._select_with_coverage(all_matches)
+        yield from selected
+
+    def _select_with_coverage(self, all_matches: list[Match]) -> tuple[list[Match], set[int]]:
+        """Select conversions and return only coverage that affects output."""
+        if not all_matches:
+            return [], set()
+
         # Sort by start position, then by length (longer first)
         all_matches.sort(key=lambda m: (m.start, -(m.end - m.start)))
 
@@ -149,7 +156,11 @@ class Matcher:
             for identity in identity_matches:
                 protected.update(range(identity.start, identity.end))
 
-        # Filter overlapping matches
+        # Filter overlapping matches. Only selected conversions and effective
+        # identity guards count as covered. Raw candidates that lose overlap
+        # selection must remain available to the character layer.
+        selected: list[Match] = []
+        covered = set(protected)
         last_end = -1
         for match in all_matches:
             if match.start >= last_end:
@@ -160,18 +171,14 @@ class Matcher:
                 last_end = match.end
                 # Skip identity matches (no actual change needed)
                 if match.source != match.target:
-                    yield match
+                    selected.append(match)
+                    covered.update(range(match.start, match.end))
+
+        return selected, covered
 
     def get_covered_positions(self, text: str) -> set[int]:
-        """Return source positions covered by any term hit, including identity terms."""
-        covered: set[int] = set()
-        if not self.terms:
-            return covered
-
-        for end_pos, (source, _target) in self.automaton.iter(text):
-            start_pos = end_pos - len(source) + 1
-            covered.update(range(start_pos, end_pos + 1))
-        return covered
+        """Return positions covered by selected terms or effective identity guards."""
+        return self.scan(text)[1]
 
     def find_matches_with_lines(self, text: str) -> Iterator[tuple[Match, int, int]]:
         """

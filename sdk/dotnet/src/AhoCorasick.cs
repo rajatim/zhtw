@@ -165,17 +165,22 @@ namespace Zhtw
         {
             int[] codepoints = CodepointHelper.ToCodepoints(text);
             var raw = IterEmissions(codepoints);
-            var covered = new HashSet<int>();
-            foreach (var m in raw)
+            var matches = SelectTermMatches(raw, out var covered);
+            foreach (var m in matches)
                 for (int i = m.Start; i < m.End; i++)
                     covered.Add(i);
-            return new ScanResult(SelectTermMatches(raw), covered);
+            return new ScanResult(matches, covered);
         }
 
-        private static List<AcMatch> SelectTermMatches(List<AcMatch> raw)
+        private static List<AcMatch> SelectTermMatches(
+            List<AcMatch> raw,
+            out HashSet<int> protectedPos)
         {
             if (raw.Count == 0)
+            {
+                protectedPos = new HashSet<int>();
                 return new List<AcMatch>();
+            }
 
             // Sort by (start ASC, length DESC).
             raw.Sort((a, b) =>
@@ -199,7 +204,7 @@ namespace Zhtw
             }
 
             // Build protected positions.
-            var protectedPos = new HashSet<int>();
+            protectedPos = new HashSet<int>();
             if (nonIdentitySpans.Count == 0)
             {
                 foreach (var m in identity)

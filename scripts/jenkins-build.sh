@@ -15,6 +15,14 @@ die() {
     exit 64
 }
 
+require_jenkins_build_runtime() {
+    [ "${CI_PROVIDER:-}" = jenkins ] || die "Formal candidates require Jenkins"
+    [ "${JOB_NAME:-}" = zhtw/build ] || die "JOB_NAME must be zhtw/build"
+    [ -n "${JENKINS_URL:-}" ] || die "JENKINS_URL is required"
+    [ -n "${BUILD_TAG:-}" ] || die "BUILD_TAG is required"
+    [ -n "${WORKSPACE:-}" ] || die "WORKSPACE is required"
+}
+
 require_env() {
     local name
     for name in SOURCE_SHA PROJECT_TREE_SHA RELEASE_VERSION BUILD_VERSION VERSION_TAG RELEASE_DATE; do
@@ -249,13 +257,16 @@ verify_candidate() {
     compgen -G "$OUTPUT_DIR/packages/python/zhtw-$RELEASE_VERSION.tar.gz" >/dev/null
     compgen -G "$OUTPUT_DIR/packages/python/zhtw-$RELEASE_VERSION-*.whl" >/dev/null
     [ "$(find "$OUTPUT_DIR/packages/python" -maxdepth 1 -type f | wc -l | tr -d ' ')" = 2 ]
-    local js_tgz wasm_tgz
+    local js_tgz wasm_tgz nuget_package
     js_tgz="$(find "$OUTPUT_DIR/packages/npm" -maxdepth 1 -name "zhtw-js-$RELEASE_VERSION.tgz" -print -quit)"
     wasm_tgz="$(find "$OUTPUT_DIR/packages/npm" -maxdepth 1 -name "zhtw-wasm-$RELEASE_VERSION.tgz" -print -quit)"
     [ -n "$js_tgz" ] && [ "$(package_json_version "$js_tgz")" = "$RELEASE_VERSION" ]
     [ -n "$wasm_tgz" ] && [ "$(package_json_version "$wasm_tgz")" = "$RELEASE_VERSION" ]
+    tar -tzf "$wasm_tgz" | grep -Fx 'package/LICENSE' >/dev/null
     [ -s "$OUTPUT_DIR/packages/crates/zhtw-$RELEASE_VERSION.crate" ]
-    [ -s "$OUTPUT_DIR/packages/nuget/Zhtw.$RELEASE_VERSION.nupkg" ]
+    nuget_package="$OUTPUT_DIR/packages/nuget/Zhtw.$RELEASE_VERSION.nupkg"
+    [ -s "$nuget_package" ]
+    unzip -Z1 "$nuget_package" | grep -Fx 'README.md' >/dev/null
     [ -s "$OUTPUT_DIR/packages/maven/zhtw-$RELEASE_VERSION.jar" ]
     [ -s "$OUTPUT_DIR/packages/maven/zhtw-$RELEASE_VERSION-sources.jar" ]
     [ -s "$OUTPUT_DIR/packages/maven/zhtw-$RELEASE_VERSION-javadoc.jar" ]
@@ -263,6 +274,8 @@ verify_candidate() {
     [ "$(find "$OUTPUT_DIR/packages/go" -maxdepth 1 \( -name '*.tar.gz' -o -name '*.zip' \) | wc -l | tr -d ' ')" = 5 ]
     (cd "$OUTPUT_DIR/packages/go" && sha256sum -c zhtw_checksums.txt)
 }
+
+require_jenkins_build_runtime
 
 case "$ACTION" in
     scan) scan ;;

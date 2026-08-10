@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import io
 import json
 import sys
@@ -21,8 +22,11 @@ import zipfile
 from pathlib import Path
 from urllib.request import urlopen
 
-# Unicode Unihan 資料庫 URL
-UNIHAN_URL = "https://www.unicode.org/Public/UCD/latest/ucd/Unihan.zip"
+# Pin the exact Unicode release and archive digest so regeneration cannot change
+# when the upstream `latest` alias advances.
+UNIHAN_VERSION = "17.0.0"
+UNIHAN_URL = f"https://www.unicode.org/Public/{UNIHAN_VERSION}/ucd/Unihan.zip"
+UNIHAN_SHA256 = "f7a48b2b545acfaa77b2d607ae28747404ce02baefee16396c5d2d7a8ef34b5e"
 
 # 預設輸出路徑
 DEFAULT_OUTPUT = (
@@ -96,6 +100,15 @@ FORCE_EXCLUDE = {
     "合",  # 閤(door/archaic) vs 合(combine) — Taiwan uses 合
     "灶",  # 竈(archaic) vs 灶(stove) — Taiwan uses 灶
     "𬮤",  # CJK Ext-F, maps to archaic 閤 — too rare and archaic
+    "伙",  # 夥(partner/group) vs 伙(food unit); resolve through terms
+    "佣",  # 傭(servant) vs 佣(commission); resolve through terms
+    "吁",  # 籲(appeal) vs 吁(sigh); resolve through context rules
+    "姜",  # 薑(ginger) vs 姜(surname); resolve through terms
+    "旋",  # 鏇(tool) vs 旋(turn); no safe default
+    "沈",  # 瀋(Shenyang) vs 沈(surname); resolve through terms
+    "症",  # 癥(illness) vs 症(symptom); resolve through terms
+    "范",  # 範(pattern) vs 范(surname); resolve through terms
+    "蔑",  # 衊(slander) vs 蔑(despise); resolve through terms
 }
 
 # Unihan 標記為一對多，但實際上某個變體是明確標準的字。
@@ -298,7 +311,6 @@ FORCE_INCLUDE = {
     "壳": "殼",  # 殼 是標準
     "够": "夠",  # 够 不是繁體字
     "孙": "孫",  # 孙 不是繁體字
-    "姜": "薑",  # 姜(surname) 幾乎只在姓名用，薑 是標準
     "娇": "嬌",  # 娇 不是繁體字
     "层": "層",  # 层 不是繁體字
     "当": "當",  # 噹 由詞庫處理
@@ -318,9 +330,7 @@ FORCE_INCLUDE = {
     "叠": "疊",  # 叠 不是繁體字
     "减": "減",  # 减 不是繁體字
     "凉": "涼",  # 凉 是 涼 的異體字
-    "沈": "瀋",  # 沈(surname) 也存在但瀋(Shenyang) 是主要用法
     "涂": "塗",  # 塗 是標準
-    "范": "範",  # 范(surname) 也存在但範 是標準
     "强": "強",  # 强 是 強 的異體
     "侠": "俠",  # 侠 不是繁體字
     "岩": "巖",  # 巖 是標準
@@ -365,6 +375,11 @@ def download_unihan() -> bytes:
     print("📥 下載 Unicode Unihan 資料庫...")
     with urlopen(UNIHAN_URL) as resp:
         data = resp.read()
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != UNIHAN_SHA256:
+        raise RuntimeError(
+            "Unihan archive checksum mismatch: " f"expected {UNIHAN_SHA256}, got {digest}"
+        )
     print(f"   下載完成 ({len(data) / 1024 / 1024:.1f} MB)")
     return data
 
@@ -610,7 +625,14 @@ def main():
         output_data = {
             "version": "1.0",
             "description": "安全一對一簡繁字元映射（排除一對多歧義字）",
-            "source": "Unicode Unihan kTraditionalVariant（自動生成 + 人工審核）",
+            "source": (
+                f"Unicode {UNIHAN_VERSION} Unihan kTraditionalVariant" "（自動生成 + 人工審核）"
+            ),
+            "source_metadata": {
+                "unicode_version": UNIHAN_VERSION,
+                "url": UNIHAN_URL,
+                "sha256": UNIHAN_SHA256,
+            },
             "stats": {
                 "safe_chars": len(safe_chars),
                 "ambiguous_excluded": len(ambiguous),

@@ -158,21 +158,24 @@ class GeminiClient:
 
         try:
             response = self.generate(prompt, max_tokens=200)
-            # Try to parse as JSON
             result = json.loads(response)
+            if not isinstance(result, dict):
+                raise APIError("LLM validation response must be a JSON object")
+            if not isinstance(result.get("correct"), bool):
+                raise APIError("LLM validation response must contain a boolean 'correct' field")
+            reason = result.get("reason", "")
+            suggestion = result.get("suggestion")
+            if not isinstance(reason, str):
+                raise APIError("LLM validation 'reason' must be a string")
+            if suggestion is not None and not isinstance(suggestion, str):
+                raise APIError("LLM validation 'suggestion' must be a string or null")
             return {
-                "correct": result.get("correct", True),
-                "reason": result.get("reason", ""),
-                "suggestion": result.get("suggestion"),
+                "correct": result["correct"],
+                "reason": reason,
+                "suggestion": suggestion,
             }
-        except json.JSONDecodeError:
-            # If not valid JSON, try to extract info
-            is_correct = "正確" in response or "correct" in response.lower()
-            return {
-                "correct": is_correct,
-                "reason": response,
-                "suggestion": None,
-            }
+        except json.JSONDecodeError as exc:
+            raise APIError("LLM validation response must be valid JSON") from exc
 
     def batch_validate(
         self, terms: list[tuple[str, str]], callback: Optional[callable] = None

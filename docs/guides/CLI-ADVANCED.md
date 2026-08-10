@@ -133,5 +133,5 @@ zhtw fix ./src --dict ./my-terms.json
 
 - [README](../README.md) — 專案總覽、Quick Start、忽略特定程式碼 pragma
 - [詞庫涵蓋範圍](DICTIONARY-COVERAGE.md) — 31,000+ 詞條分類、雙層架構細節
-- [CI/CD 整合](CI-CD-INTEGRATION.md) — GitHub Actions / GitLab CI / pre-commit 完整設定
+- [其他專案的 CI/CD 整合](../deployment/CI-CD-INTEGRATION.md) — consumer repo 的 GitHub Actions / GitLab CI / pre-commit 設定
 <!-- zhtw:enable -->
