@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.4.5] - 2026-08-10
+
 ### Fixed
 - 修正 Python sdist 會把大型測試、benchmark 與其他 SDK 一起封裝，導致 PyPI 拒收；
   現在只包含可重建 wheel 的 Python 原始碼與必要 metadata，Jenkins 也會檢查大小、
@@ -558,7 +560,8 @@ Python / Java / Rust / .NET 程式碼與 4.0.0 **完全相同**，僅為滿足 m
 - `--exclude` 排除目錄
 - 自訂詞庫支援
 
-[Unreleased]: https://github.com/rajatim/zhtw/compare/v4.4.4...HEAD
+[Unreleased]: https://github.com/rajatim/zhtw/compare/v4.4.5...HEAD
+[4.4.5]: https://github.com/rajatim/zhtw/compare/v4.4.4...v4.4.5
 [4.4.4]: https://github.com/rajatim/zhtw/compare/v4.4.3...v4.4.4
 [4.4.3]: https://github.com/rajatim/zhtw/compare/v4.4.2...v4.4.3
 [4.4.2]: https://github.com/rajatim/zhtw/compare/v4.4.1...v4.4.2

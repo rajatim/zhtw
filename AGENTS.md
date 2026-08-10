@@ -2,7 +2,7 @@
 
 > **AI instruction source of truth is `AGENTS.md`** — Codex loads it through official AGENTS discovery; its instruction docs do not define Markdown `@file` imports. `CLAUDE.md` / `GEMINI.md` are `@AGENTS.md` wrappers.
 
-> **v4.4.4** | 簡轉繁轉換器 | 指南：`.claude/guides/`
+> **v4.4.5** | 簡轉繁轉換器 | 指南：`.claude/guides/`
 
 ## 🚨 黃金規則
 
