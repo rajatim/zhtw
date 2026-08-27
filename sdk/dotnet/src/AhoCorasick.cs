@@ -34,6 +34,20 @@ namespace Zhtw
         }
     }
 
+    internal sealed class MatchDecision
+    {
+        internal AcMatch Hit { get; }
+        internal string Outcome { get; }
+        internal string ReasonCode { get; }
+
+        internal MatchDecision(AcMatch hit, string outcome, string reasonCode)
+        {
+            Hit = hit;
+            Outcome = outcome;
+            ReasonCode = reasonCode;
+        }
+    }
+
     internal sealed class AcNode
     {
         internal Dictionary<int, AcNode> Children = new Dictionary<int, AcNode>();
@@ -52,6 +66,21 @@ namespace Zhtw
             {
                 Matches = matches;
                 Covered = covered;
+            }
+        }
+
+        internal sealed class DetailedScanResult
+        {
+            internal List<AcMatch> Matches { get; }
+            internal HashSet<int> Covered { get; }
+            internal List<MatchDecision> Decisions { get; }
+
+            internal DetailedScanResult(List<AcMatch> matches, HashSet<int> covered,
+                List<MatchDecision> decisions)
+            {
+                Matches = matches;
+                Covered = covered;
+                Decisions = decisions;
             }
         }
 
@@ -172,10 +201,30 @@ namespace Zhtw
             return new ScanResult(matches, covered);
         }
 
+        internal DetailedScanResult ScanDetailed(string text)
+        {
+            var raw = IterEmissions(CodepointHelper.ToCodepoints(text));
+            var matches = SelectTermMatches(raw, true, out var covered, out var decisions);
+            foreach (var match in matches)
+                for (int i = match.Start; i < match.End; i++)
+                    covered.Add(i);
+            return new DetailedScanResult(matches, covered, decisions);
+        }
+
         private static List<AcMatch> SelectTermMatches(
             List<AcMatch> raw,
             out HashSet<int> protectedPos)
         {
+            return SelectTermMatches(raw, false, out protectedPos, out _);
+        }
+
+        private static List<AcMatch> SelectTermMatches(
+            List<AcMatch> raw,
+            bool detailed,
+            out HashSet<int> protectedPos,
+            out List<MatchDecision> decisions)
+        {
+            decisions = new List<MatchDecision>();
             if (raw.Count == 0)
             {
                 protectedPos = new HashSet<int>();
@@ -205,11 +254,15 @@ namespace Zhtw
 
             // Build protected positions.
             protectedPos = new HashSet<int>();
+            var effectiveIdentity = new HashSet<AcMatch>();
             if (nonIdentitySpans.Count == 0)
             {
                 foreach (var m in identity)
+                {
                     for (int i = m.Start; i < m.End; i++)
                         protectedPos.Add(i);
+                    effectiveIdentity.Add(m);
+                }
             }
             else
             {
@@ -232,6 +285,7 @@ namespace Zhtw
                     {
                         for (int i = m.Start; i < m.End; i++)
                             protectedPos.Add(i);
+                        effectiveIdentity.Add(m);
                     }
                 }
             }
@@ -241,7 +295,19 @@ namespace Zhtw
             int cursor = 0;
             foreach (var m in raw)
             {
-                if (m.Start < cursor) continue;
+                if (m.Start < cursor)
+                {
+                    if (detailed)
+                    {
+                        bool identityMatch = m.Source == m.Target;
+                        bool effective = effectiveIdentity.Contains(m);
+                        string outcome = identityMatch && effective ? "protected" : "skipped";
+                        string reason = !identityMatch ? "overlap_loser" :
+                            effective ? "identity_guard" : "identity_contained";
+                        decisions.Add(new MatchDecision(m, outcome, reason));
+                    }
+                    continue;
+                }
                 bool isIdentity = m.Source == m.Target;
                 if (!isIdentity)
                 {
@@ -250,11 +316,26 @@ namespace Zhtw
                     {
                         if (protectedPos.Contains(i)) { overlaps = true; break; }
                     }
-                    if (overlaps) continue;
+                    if (overlaps)
+                    {
+                        if (detailed)
+                            decisions.Add(new MatchDecision(m, "skipped", "protected_by_identity"));
+                        continue;
+                    }
                 }
                 cursor = m.End;
                 if (!isIdentity)
+                {
                     result.Add(m);
+                    if (detailed)
+                        decisions.Add(new MatchDecision(m, "applied", "term_selected"));
+                }
+                else if (detailed)
+                {
+                    string reason = effectiveIdentity.Contains(m) ?
+                        "identity_guard" : "identity_contained";
+                    decisions.Add(new MatchDecision(m, "protected", reason));
+                }
             }
             return result;
         }

@@ -14,16 +14,22 @@ namespace Zhtw
         internal Dictionary<int, int> BalancedDefaults { get; }
         internal Dictionary<string, string> TermsCn { get; }
         internal Dictionary<string, string> TermsHk { get; }
+        internal Dictionary<string, List<RuleMeta>> RuleRecordsCn { get; }
+        internal Dictionary<string, List<RuleMeta>> RuleRecordsHk { get; }
 
         private ZhtwData(string version, Dictionary<int, int> charMap,
             Dictionary<int, int> balancedDefaults,
-            Dictionary<string, string> termsCn, Dictionary<string, string> termsHk)
+            Dictionary<string, string> termsCn, Dictionary<string, string> termsHk,
+            Dictionary<string, List<RuleMeta>> ruleRecordsCn,
+            Dictionary<string, List<RuleMeta>> ruleRecordsHk)
         {
             Version = version;
             CharMap = charMap;
             BalancedDefaults = balancedDefaults;
             TermsCn = termsCn;
             TermsHk = termsHk;
+            RuleRecordsCn = ruleRecordsCn;
+            RuleRecordsHk = ruleRecordsHk;
         }
 
         private static readonly Lazy<ZhtwData> _instance = new Lazy<ZhtwData>(Load);
@@ -110,7 +116,34 @@ namespace Zhtw
                 if (schemaVersion == 2)
                     ValidateRuleCatalog(root, termsEl);
 
-                return new ZhtwData(version, charMap, balancedDefaults, termsCn, termsHk);
+                var ruleRecordsCn = new Dictionary<string, List<RuleMeta>>();
+                var ruleRecordsHk = new Dictionary<string, List<RuleMeta>>();
+                if (schemaVersion == 2)
+                    ParseRuleRecords(root, ruleRecordsCn, ruleRecordsHk);
+
+                return new ZhtwData(version, charMap, balancedDefaults, termsCn, termsHk,
+                    ruleRecordsCn, ruleRecordsHk);
+            }
+        }
+
+        private static void ParseRuleRecords(JsonElement root,
+            Dictionary<string, List<RuleMeta>> cn,
+            Dictionary<string, List<RuleMeta>> hk)
+        {
+            foreach (var group in root.GetProperty("rule_catalog").GetProperty("groups").EnumerateArray())
+            {
+                if (group.GetProperty("review_status").GetString() != "approved") continue;
+                var destination = group.GetProperty("source_locale").GetString() == "cn" ? cn : hk;
+                foreach (var rule in group.GetProperty("rules").EnumerateObject())
+                {
+                    string source = rule.Value[0].GetString();
+                    if (!destination.TryGetValue(source, out var records))
+                    {
+                        records = new List<RuleMeta>();
+                        destination[source] = records;
+                    }
+                    records.Add(new RuleMeta(rule.Name, source, rule.Value[1].GetString()));
+                }
             }
         }
 

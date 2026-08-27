@@ -11,6 +11,7 @@ namespace Zhtw.Tests
     {
         private static readonly JsonDocument _golden;
         private static readonly JsonDocument _conformance;
+        private static readonly JsonDocument _jsonAdapter;
 
         static GoldenTests()
         {
@@ -21,6 +22,8 @@ namespace Zhtw.Tests
             _golden = JsonDocument.Parse(json);
             string conformancePath = Path.GetFullPath(Path.Combine(dir, "..", "..", "..", "..", "..", "..", "data", "conformance-v1.json"));
             _conformance = JsonDocument.Parse(File.ReadAllText(conformancePath));
+            string adapterPath = Path.GetFullPath(Path.Combine(dir, "..", "..", "..", "..", "..", "..", "data", "json-adapter-golden.json"));
+            _jsonAdapter = JsonDocument.Parse(File.ReadAllText(adapterPath));
         }
 
         [Fact]
@@ -148,6 +151,80 @@ namespace Zhtw.Tests
                     Assert.True(actual.Details[i].Position == ePos,
                         $"Lookup(\"{input}\").Details[{i}].Position: expected {ePos}, got {actual.Details[i].Position}");
                 }
+            }
+        }
+
+        [Fact]
+        public void ExplainGolden()
+        {
+            foreach (var tc in _golden.RootElement.GetProperty("explain").EnumerateArray())
+            {
+                string input = tc.GetProperty("input").GetString();
+                var converter = BuildConverter(tc);
+                var actual = converter.Explain(input);
+                Assert.Equal(tc.GetProperty("expected_output").GetString(), actual.Output);
+                Assert.Equal(converter.Convert(input), actual.Output);
+                using (var actualJson = JsonDocument.Parse(JsonSerializer.Serialize(actual.Events)))
+                {
+                    Assert.True(JsonEqual(
+                        tc.GetProperty("expected_events"), actualJson.RootElement),
+                        $"Explain(\"{input}\") events differ");
+                }
+            }
+        }
+
+        [Fact]
+        public void JsonAdapterGolden()
+        {
+            Assert.Equal(ZhtwConvert.DataVersion,
+                _jsonAdapter.RootElement.GetProperty("version").GetString());
+            foreach (var tc in _jsonAdapter.RootElement.GetProperty("cases").EnumerateArray())
+            {
+                var converter = BuildConverter(tc);
+                Assert.Equal(tc.GetProperty("expected").GetString(),
+                    converter.ConvertJson(tc.GetProperty("input").GetString()));
+            }
+            foreach (var tc in _jsonAdapter.RootElement.GetProperty("reject").EnumerateArray())
+            {
+                var error = Assert.Throws<JsonAdapterException>(() =>
+                    ZhtwConvert.ConvertJson(tc.GetProperty("input").GetString()));
+                Assert.Equal(tc.GetProperty("error_code").GetString(), error.Code);
+            }
+        }
+
+        private static bool JsonEqual(JsonElement left, JsonElement right)
+        {
+            if (left.ValueKind != right.ValueKind) return false;
+            switch (left.ValueKind)
+            {
+                case JsonValueKind.Object:
+                    var leftProperties = left.EnumerateObject().ToList();
+                    var rightProperties = right.EnumerateObject().ToList();
+                    if (leftProperties.Count != rightProperties.Count) return false;
+                    for (int i = 0; i < leftProperties.Count; i++)
+                    {
+                        if (leftProperties[i].Name != rightProperties[i].Name ||
+                            !JsonEqual(leftProperties[i].Value, rightProperties[i].Value)) return false;
+                    }
+                    return true;
+                case JsonValueKind.Array:
+                    var leftItems = left.EnumerateArray().ToList();
+                    var rightItems = right.EnumerateArray().ToList();
+                    if (leftItems.Count != rightItems.Count) return false;
+                    for (int i = 0; i < leftItems.Count; i++)
+                        if (!JsonEqual(leftItems[i], rightItems[i])) return false;
+                    return true;
+                case JsonValueKind.String:
+                    return left.GetString() == right.GetString();
+                case JsonValueKind.Number:
+                    return left.GetRawText() == right.GetRawText();
+                case JsonValueKind.True:
+                case JsonValueKind.False:
+                    return left.GetBoolean() == right.GetBoolean();
+                case JsonValueKind.Null:
+                    return true;
+                default:
+                    return false;
             }
         }
     }

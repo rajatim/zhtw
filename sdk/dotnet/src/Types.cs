@@ -60,4 +60,59 @@ namespace Zhtw
             Position = position;
         }
     }
+
+    public sealed class ExplainEvent
+    {
+        [System.Text.Json.Serialization.JsonPropertyName("rule_id")]
+        public string RuleId { get; }
+        [System.Text.Json.Serialization.JsonPropertyName("layer")]
+        public string Layer { get; }
+        [System.Text.Json.Serialization.JsonPropertyName("outcome")]
+        public string Outcome { get; }
+        [System.Text.Json.Serialization.JsonPropertyName("input_start")]
+        public int InputStart { get; }
+        [System.Text.Json.Serialization.JsonPropertyName("input_end")]
+        public int InputEnd { get; }
+        [System.Text.Json.Serialization.JsonPropertyName("output_start")]
+        public int OutputStart { get; }
+        [System.Text.Json.Serialization.JsonPropertyName("output_end")]
+        public int OutputEnd { get; }
+        [System.Text.Json.Serialization.JsonPropertyName("source")]
+        public string Source { get; }
+        [System.Text.Json.Serialization.JsonPropertyName("target")]
+        public string Target { get; }
+        [System.Text.Json.Serialization.JsonPropertyName("reason_code")]
+        public string ReasonCode { get; }
+
+        internal ExplainEvent(string ruleId, string layer, string outcome,
+            int inputStart, int inputEnd, int outputStart, int outputEnd,
+            string source, string target, string reasonCode)
+        {
+            RuleId = ruleId;
+            Layer = layer;
+            Outcome = outcome;
+            InputStart = inputStart;
+            InputEnd = inputEnd;
+            OutputStart = outputStart;
+            OutputEnd = outputEnd;
+            Source = source;
+            Target = target;
+            ReasonCode = reasonCode;
+        }
+    }
+
+    public sealed class ExplainResult
+    {
+        [System.Text.Json.Serialization.JsonPropertyName("output")]
+        public string Output { get; }
+        [System.Text.Json.Serialization.JsonPropertyName("events")]
+        public System.Collections.Generic.IReadOnlyList<ExplainEvent> Events { get; }
+
+        internal ExplainResult(string output,
+            System.Collections.Generic.IReadOnlyList<ExplainEvent> events)
+        {
+            Output = output;
+            Events = events;
+        }
+    }
 }

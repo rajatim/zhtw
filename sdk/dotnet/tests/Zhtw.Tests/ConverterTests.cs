@@ -86,6 +86,18 @@ namespace Zhtw.Tests
         }
 
         [Fact]
+        public void CustomExplainUsesDeterministicLegacyIdWithHkOnly()
+        {
+            var conv = new ConverterBuilder()
+                .Sources(Source.Hk)
+                .CustomDict(new Dictionary<string, string> { { "\u8f6f\u4ef6", "\u81ea\u8a02\u8edf\u9ad4" } })
+                .Build();
+            var result = conv.Explain("\u8f6f\u4ef6");
+            Assert.Single(result.Events);
+            Assert.Equal("legacy:cn:custom:6dee1b8fe38334612ee097e8", result.Events[0].RuleId);
+        }
+
+        [Fact]
         public void BalancedMode()
         {
             var conv = new ConverterBuilder()

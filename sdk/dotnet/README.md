@@ -21,6 +21,9 @@ using Zhtw;
 // Thread-safe singleton, zero config
 string result = ZhtwConvert.Convert("这个软件需要优化");
 // => "這個軟體需要最佳化"
+
+string convertedJson = ZhtwConvert.ConvertJson("{\"软件\":\"这个软件\"}");
+ExplainResult explanation = ZhtwConvert.Explain("软件");
 ```
 <!-- zhtw:enable -->
 
@@ -43,8 +46,10 @@ conv.Convert("自定义几个里程碑");
 | Method | Description |
 |--------|-------------|
 | `ZhtwConvert.Convert(text)` | Convert text (static, uses default converter) |
+| `ZhtwConvert.ConvertJson(text)` | Convert JSON string values only; reject duplicate keys |
 | `ZhtwConvert.Check(text)` | Return replacements without modifying |
 | `ZhtwConvert.Lookup(word)` | Look up a single word |
+| `ZhtwConvert.Explain(text)` | Return converted output and stable rule events |
 | `ConverterBuilder` | Custom converter with builder pattern |
 
 ## Requirements

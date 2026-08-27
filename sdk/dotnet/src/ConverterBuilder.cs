@@ -52,13 +52,44 @@ namespace Zhtw
                 }
             }
 
+            var ruleRecords = new Dictionary<string, List<RuleMeta>>();
+            foreach (var src in _sources)
+            {
+                Dictionary<string, List<RuleMeta>> bucket;
+                switch (src)
+                {
+                    case Source.Cn: bucket = data.RuleRecordsCn; break;
+                    case Source.Hk: bucket = data.RuleRecordsHk; break;
+                    default: continue;
+                }
+                foreach (var entry in bucket)
+                {
+                    if (!ruleRecords.TryGetValue(entry.Key, out var records))
+                    {
+                        records = new List<RuleMeta>();
+                        ruleRecords[entry.Key] = records;
+                    }
+                    records.AddRange(entry.Value);
+                }
+            }
+
             // Custom dict overrides.
             if (_customDict != null)
             {
                 foreach (var kvp in _customDict)
                 {
                     if (kvp.Key.Length > 0)
+                    {
                         merged[kvp.Key] = kvp.Value;
+                        if (!ruleRecords.TryGetValue(kvp.Key, out var records))
+                        {
+                            records = new List<RuleMeta>();
+                            ruleRecords[kvp.Key] = records;
+                        }
+                        records.Add(new RuleMeta(
+                            RuleCatalog.LegacyCustomRuleId(kvp.Key, kvp.Value),
+                            kvp.Key, kvp.Value));
+                    }
                 }
             }
 
@@ -82,7 +113,7 @@ namespace Zhtw
                 balanced = data.BalancedDefaults;
             }
 
-            return new Converter(ac, data.CharMap, balanced, hasCn);
+            return new Converter(ac, data.CharMap, balanced, hasCn, ruleRecords);
         }
     }
 }
