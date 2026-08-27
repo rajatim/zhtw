@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rajatim/zhtw/src/zhtw/data/schemas/rule-v2.schema.json",
+  "title": "zhtw rule authoring schema v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "rules"],
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rule"
+      }
+    }
+  },
+  "$defs": {
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "source_locale",
+        "source",
+        "target",
+        "rule_class",
+        "domain",
+        "trust_level",
+        "priority",
+        "context",
+        "evidence_source",
+        "review_status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._:-]{2,127}$"
+        },
+        "source_locale": {
+          "enum": ["cn", "hk"]
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule_class": {
+          "enum": ["bulk", "generated_guard", "curated", "custom"]
+        },
+        "domain": {
+          "enum": [
+            "general",
+            "business",
+            "daily",
+            "ecommerce",
+            "education",
+            "finance",
+            "formal",
+            "gaming",
+            "geography",
+            "it",
+            "legal",
+            "medical",
+            "social",
+            "ui"
+          ]
+        },
+        "trust_level": {
+          "enum": ["imported", "generated", "curated", "custom"]
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "context": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "evidence_source": {
+          "type": ["string", "null"],
+          "minLength": 1
+        },
+        "review_status": {
+          "enum": ["pending", "approved", "rejected"]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "review_status": {
+                "const": "approved"
+              }
+            },
+            "required": ["review_status"]
+          },
+          "then": {
+            "properties": {
+              "evidence_source": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
