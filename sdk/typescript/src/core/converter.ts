@@ -1,13 +1,23 @@
-import { AhoCorasickMatcher, type Utf16Match } from './matcher';
+import {
+  AhoCorasickMatcher,
+  type Utf16Match,
+  type Utf16MatchScan,
+} from './matcher';
 import type {
   Converter,
   ConverterOptions,
+  ExplainEvent,
+  ExplainLayer,
+  ExplainReasonCode,
+  ExplainResult,
   Match,
   LookupResult,
   Source,
   ZhtwData,
 } from './types';
 import { utf16ToCodepoint } from './codepoint';
+import { convertJsonValues } from './json-adapter';
+import { sha256Hex } from './sha256';
 
 const DEFAULT_SOURCES: readonly Source[] = ['cn', 'hk'];
 const VALID_SOURCES = new Set<string>(['cn', 'hk']);
@@ -90,15 +100,68 @@ function applyLayersSkipping(
         const bd = balancedDefaults[ch];
         if (bd !== undefined) result = bd;
       }
-      if (result === ch) {
-        const mapped = charmap[ch];
-        if (mapped !== undefined && mapped !== ch) result = mapped;
-      }
+      const mapped = charmap[result];
+      if (mapped !== undefined && mapped !== result) result = mapped;
       out += result;
     }
     i += step;
   }
   return out;
+}
+
+interface RuleMeta {
+  id: string;
+  source: string;
+  target: string;
+}
+
+function legacyCustomRuleId(source: string, target: string): string {
+  const canonical = JSON.stringify({
+    rule_class: 'custom',
+    source,
+    source_locale: 'cn',
+    target,
+  });
+  return `legacy:cn:custom:${sha256Hex(canonical).slice(0, 24)}`;
+}
+
+function collectRuleMetadata(
+  data: ZhtwData,
+  sources: readonly Source[],
+  customDict: Record<string, string> | undefined,
+): Map<string, RuleMeta[]> {
+  const records = new Map<string, RuleMeta[]>();
+  for (const group of data.rule_catalog?.groups ?? []) {
+    if (!sources.includes(group.source_locale)) continue;
+    for (const [id, [source, target]] of Object.entries(group.rules)) {
+      const current = records.get(source) ?? [];
+      current.push({ id, source, target });
+      records.set(source, current);
+    }
+  }
+  for (const [source, target] of Object.entries(customDict ?? {})) {
+    if (source.length === 0) continue;
+    const current = records.get(source) ?? [];
+    current.push({ id: legacyCustomRuleId(source, target), source, target });
+    records.set(source, current);
+  }
+  return records;
+}
+
+interface CharacterChange {
+  position: number;
+  step: number;
+  source: string;
+  target: string;
+  layer: Extract<ExplainLayer, 'balanced' | 'char'>;
+  ruleId: string;
+  reasonCode: Extract<ExplainReasonCode, 'balanced_default' | 'char_map'>;
+}
+
+const codepointLength = (value: string): number => Array.from(value).length;
+
+function compareText(a: string, b: string): number {
+  return a < b ? -1 : a > b ? 1 : 0;
 }
 
 export function createConverter(
@@ -116,13 +179,10 @@ export function createConverter(
       ? data.charmap.balanced_defaults
       : undefined;
   const layersEnabled = charLayerEnabled || balancedDefaults !== undefined;
+  const ruleRecords = collectRuleMetadata(data, sources, options.customDict);
 
-  function convert(text: string): string {
-    requireString(text, 'convert');
-    if (text.length === 0) return '';
-
-    // Covered positions from ALL automaton hits (including identity terms).
-    const { covered, matches } = matcher.scan(text);
+  function convertWithScan(text: string, scan: Pick<Utf16MatchScan, 'matches' | 'covered'>): string {
+    const { covered, matches } = scan;
 
     if (matches.length === 0) {
       return layersEnabled
@@ -130,7 +190,6 @@ export function createConverter(
         : text;
     }
 
-    // Gap mode: term targets inserted verbatim; gaps get char/balanced layers on uncovered only.
     let result = '';
     let lastEnd = 0;
     for (const m of matches) {
@@ -146,6 +205,169 @@ export function createConverter(
       ? applyLayersSkipping(tail, charmap, balancedDefaults, covered, lastEnd)
       : tail;
     return result;
+  }
+
+  function convert(text: string): string {
+    requireString(text, 'convert');
+    if (text.length === 0) return '';
+
+    // Covered positions from ALL automaton hits (including identity terms).
+    return convertWithScan(text, matcher.scan(text));
+  }
+
+  function convertJson(text: string): string {
+    return convertJsonValues(text, convert);
+  }
+
+  function characterChanges(text: string, covered: Set<number>): CharacterChange[] {
+    const changes: CharacterChange[] = [];
+    for (let position = 0; position < text.length; ) {
+      const code = text.charCodeAt(position);
+      const step = code >= 0xd800 && code <= 0xdbff && position + 1 < text.length ? 2 : 1;
+      const source = text.substring(position, position + step);
+      if (!covered.has(position)) {
+        const balanced = balancedDefaults?.[source];
+        if (balanced !== undefined) {
+          const target = charmap[balanced] ?? balanced;
+          if (target !== source) {
+            changes.push({
+              position,
+              step,
+              source,
+              target,
+              layer: 'balanced',
+              ruleId: `balanced:u${source.codePointAt(0)!.toString(16)}`,
+              reasonCode: 'balanced_default',
+            });
+          }
+        } else if (charLayerEnabled) {
+          const target = charmap[source];
+          if (target !== undefined && target !== source) {
+            changes.push({
+              position,
+              step,
+              source,
+              target,
+              layer: 'char',
+              ruleId: `charmap:u${source.codePointAt(0)!.toString(16)}`,
+              reasonCode: 'char_map',
+            });
+          }
+        }
+      }
+      position += step;
+    }
+    return changes;
+  }
+
+  function ruleRecordFor(match: Utf16Match): RuleMeta | undefined {
+    const candidates = ruleRecords.get(match.source) ?? [];
+    return [...candidates].reverse().find((record) => record.target === match.target);
+  }
+
+  function explain(text: string): ExplainResult {
+    requireString(text, 'explain');
+    if (text.length === 0) return { output: '', events: [] };
+
+    const scan = matcher.scanDetailed(text);
+    const changes = characterChanges(text, scan.covered);
+    const selectedByStart = new Map(scan.matches.map((match) => [match.start, match]));
+    const changesByStart = new Map(changes.map((change) => [change.position, change]));
+    const spans: Array<[number, number]> = new Array(text.length);
+    let output = '';
+    let inputPosition = 0;
+    let outputPosition = 0;
+    while (inputPosition < text.length) {
+      const match = selectedByStart.get(inputPosition);
+      if (match !== undefined) {
+        const outputEnd = outputPosition + codepointLength(match.target);
+        for (let i = match.start; i < match.end; i++) spans[i] = [outputPosition, outputEnd];
+        output += match.target;
+        outputPosition = outputEnd;
+        inputPosition = match.end;
+        continue;
+      }
+      const code = text.charCodeAt(inputPosition);
+      const step = code >= 0xd800 && code <= 0xdbff && inputPosition + 1 < text.length ? 2 : 1;
+      const source = text.substring(inputPosition, inputPosition + step);
+      const target = changesByStart.get(inputPosition)?.target ?? source;
+      const outputEnd = outputPosition + codepointLength(target);
+      for (let i = inputPosition; i < inputPosition + step; i++) {
+        spans[i] = [outputPosition, outputEnd];
+      }
+      output += target;
+      outputPosition = outputEnd;
+      inputPosition += step;
+    }
+    if (output !== convertWithScan(text, scan)) {
+      throw new Error('zhtw: explain trace diverged from conversion output');
+    }
+
+    const events: ExplainEvent[] = [];
+    for (const decision of scan.decisions) {
+      const match = decision.match;
+      const affected = spans.slice(match.start, match.end);
+      const outputStart = Math.min(...affected.map(([start]) => start));
+      const outputEnd = Math.max(...affected.map(([, end]) => end));
+      const winner = ruleRecordFor(match);
+      const candidates = ruleRecords.get(match.source) ?? [];
+      const conflicts = candidates.filter((record) => record.id !== winner?.id);
+      events.push({
+        rule_id: winner?.id ?? legacyCustomRuleId(match.source, match.target),
+        layer: match.source === match.target ? 'identity' : 'term',
+        outcome: decision.outcome,
+        input_start: utf16ToCodepoint(text, match.start),
+        input_end: utf16ToCodepoint(text, match.end),
+        output_start: outputStart,
+        output_end: outputEnd,
+        source: match.source,
+        target: match.target,
+        reason_code:
+          decision.outcome === 'applied' && conflicts.length > 0
+            ? 'loader_conflict_winner'
+            : decision.reasonCode,
+      });
+      if (decision.outcome === 'applied') {
+        for (const conflict of conflicts) {
+          events.push({
+            rule_id: conflict.id,
+            layer: 'term',
+            outcome: 'skipped',
+            input_start: utf16ToCodepoint(text, match.start),
+            input_end: utf16ToCodepoint(text, match.end),
+            output_start: outputStart,
+            output_end: outputEnd,
+            source: conflict.source,
+            target: conflict.target,
+            reason_code: 'loader_conflict_loser',
+          });
+        }
+      }
+    }
+    for (const change of changes) {
+      const [outputStart, outputEnd] = spans[change.position]!;
+      events.push({
+        rule_id: change.ruleId,
+        layer: change.layer,
+        outcome: 'applied',
+        input_start: utf16ToCodepoint(text, change.position),
+        input_end: utf16ToCodepoint(text, change.position + change.step),
+        output_start: outputStart,
+        output_end: outputEnd,
+        source: change.source,
+        target: change.target,
+        reason_code: change.reasonCode,
+      });
+    }
+    const outcomeOrder = { applied: 0, protected: 1, skipped: 2 } as const;
+    events.sort(
+      (a, b) =>
+        a.input_start - b.input_start ||
+        a.input_end - b.input_end ||
+        outcomeOrder[a.outcome] - outcomeOrder[b.outcome] ||
+        compareText(a.rule_id, b.rule_id),
+    );
+    return { output, events };
   }
 
   function check(text: string): Match[] {
@@ -323,7 +545,7 @@ export function createConverter(
     // No-op: JS objects are garbage-collected. Provided for WASM API parity.
   }
 
-  return { convert, check, lookup, free };
+  return { convert, convertJson, check, lookup, explain, free };
 }
 
 // Re-export so callers can import utilities if needed (internal helpers stay private).

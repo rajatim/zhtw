@@ -3,12 +3,15 @@ import { createConverter as createCoreConverter } from './core/converter';
 import type {
   Converter,
   ConverterOptions,
+  ExplainEvent,
+  ExplainResult,
   Match,
   LookupResult,
   ConversionDetail,
   Source,
   ZhtwData,
 } from './core/types';
+export { JsonAdapterError } from './core/json-adapter';
 
 let cachedData: ZhtwData | null = null;
 let defaultConverter: Converter | null = null;
@@ -27,12 +30,20 @@ export function convert(text: string): string {
   return getDefault().convert(text);
 }
 
+export function convertJson(text: string): string {
+  return getDefault().convertJson(text);
+}
+
 export function check(text: string): Match[] {
   return getDefault().check(text);
 }
 
 export function lookup(word: string): LookupResult {
   return getDefault().lookup(word);
+}
+
+export function explain(text: string): ExplainResult {
+  return getDefault().explain(text);
 }
 
 export function createConverter(options: ConverterOptions = {}): Converter {
@@ -45,5 +56,7 @@ export type {
   Match,
   LookupResult,
   ConversionDetail,
+  ExplainEvent,
+  ExplainResult,
   Source,
 };

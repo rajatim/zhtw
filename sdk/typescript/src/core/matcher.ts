@@ -12,6 +12,23 @@ export interface Utf16Match {
   target: string;
 }
 
+export interface Utf16MatchDecision {
+  match: Utf16Match;
+  outcome: 'applied' | 'protected' | 'skipped';
+  reasonCode:
+    | 'term_selected'
+    | 'identity_guard'
+    | 'identity_contained'
+    | 'overlap_loser'
+    | 'protected_by_identity';
+}
+
+export interface Utf16MatchScan {
+  matches: Utf16Match[];
+  covered: Set<number>;
+  decisions: Utf16MatchDecision[];
+}
+
 interface Node {
   children: Map<number, Node>;
   fail: Node | null;
@@ -125,12 +142,20 @@ export class AhoCorasickMatcher {
     return this.selectMatches(Array.from(this.iterEmissions(text))).matches;
   }
 
-  private selectMatches(raw: Utf16Match[]): {
+  private selectMatches(
+    raw: Utf16Match[],
+    collectDecisions?: boolean,
+  ): {
     matches: Utf16Match[];
     protectedPositions: Set<number>;
+    decisions: Utf16MatchDecision[];
   } {
     if (raw.length === 0) {
-      return { matches: [], protectedPositions: new Set<number>() };
+      return {
+        matches: [],
+        protectedPositions: new Set<number>(),
+        decisions: [],
+      };
     }
 
     // Sort by start ASC, then length DESC (longer match wins at same start).
@@ -150,6 +175,7 @@ export class AhoCorasickMatcher {
     }
 
     const protectedPositions = new Set<number>();
+    const effectiveIdentity = new Set<string>();
     if (nonIdentitySpans.length > 0) {
       nonIdentitySpans.sort((a, b) => (a[0] !== b[0] ? a[0] - b[0] : a[1] - b[1]));
       const niStarts = nonIdentitySpans.map(([s]) => s);
@@ -164,11 +190,13 @@ export class AhoCorasickMatcher {
         const isContained = idx >= 0 && niMaxEnd[idx]! >= idM.end;
         if (!isContained) {
           for (let i = idM.start; i < idM.end; i++) protectedPositions.add(i);
+          effectiveIdentity.add(matchKey(idM));
         }
       }
     } else {
       for (const idM of identity) {
         for (let i = idM.start; i < idM.end; i++) protectedPositions.add(i);
+        effectiveIdentity.add(matchKey(idM));
       }
     }
 
@@ -177,9 +205,28 @@ export class AhoCorasickMatcher {
     // matches that touch a protected position are skipped WITHOUT advancing
     // the cursor — matching Python's exact control flow.
     const chosen: Utf16Match[] = [];
+    const decisions: Utf16MatchDecision[] = [];
     let lastEnd = -1;
     for (const m of raw) {
-      if (m.start < lastEnd) continue;
+      const identityKey = matchKey(m);
+      if (m.start < lastEnd) {
+        if (collectDecisions) {
+          decisions.push({
+            match: m,
+            outcome:
+              m.source === m.target && effectiveIdentity.has(identityKey)
+                ? 'protected'
+                : 'skipped',
+            reasonCode:
+              m.source === m.target
+                ? effectiveIdentity.has(identityKey)
+                  ? 'identity_guard'
+                  : 'identity_contained'
+                : 'overlap_loser',
+          });
+        }
+        continue;
+      }
       if (m.source !== m.target) {
         let overlaps = false;
         for (let i = m.start; i < m.end; i++) {
@@ -188,12 +235,34 @@ export class AhoCorasickMatcher {
             break;
           }
         }
-        if (overlaps) continue;
+        if (overlaps) {
+          if (collectDecisions) {
+            decisions.push({
+              match: m,
+              outcome: 'skipped',
+              reasonCode: 'protected_by_identity',
+            });
+          }
+          continue;
+        }
       }
       lastEnd = m.end;
-      if (m.source !== m.target) chosen.push(m);
+      if (m.source !== m.target) {
+        chosen.push(m);
+        if (collectDecisions) {
+          decisions.push({ match: m, outcome: 'applied', reasonCode: 'term_selected' });
+        }
+      } else if (collectDecisions) {
+        decisions.push({
+          match: m,
+          outcome: 'protected',
+          reasonCode: effectiveIdentity.has(identityKey)
+            ? 'identity_guard'
+            : 'identity_contained',
+        });
+      }
     }
-    return { matches: chosen, protectedPositions };
+    return { matches: chosen, protectedPositions, decisions };
   }
 
   /**
@@ -223,6 +292,16 @@ export class AhoCorasickMatcher {
     return { matches, covered: this.coveredPositions(matches, protectedPositions) };
   }
 
+  scanDetailed(text: string): Utf16MatchScan {
+    const raw = Array.from(this.iterEmissions(text));
+    const { matches, protectedPositions, decisions } = this.selectMatches(raw, true);
+    return {
+      matches,
+      covered: this.coveredPositions(matches, protectedPositions),
+      decisions,
+    };
+  }
+
   replaceAll(text: string): string {
     const matches = this.findMatches(text);
     if (matches.length === 0) return text;
@@ -236,6 +315,10 @@ export class AhoCorasickMatcher {
     if (last < text.length) out += text.substring(last);
     return out;
   }
+}
+
+function matchKey(match: Utf16Match): string {
+  return `${match.start}\0${match.end}\0${match.source}\0${match.target}`;
 }
 
 /** Rightmost insertion point for `x` in sorted array `arr`. */

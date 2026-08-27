@@ -26,6 +26,37 @@ export interface LookupResult {
   details: ConversionDetail[];
 }
 
+export type ExplainLayer = 'term' | 'identity' | 'balanced' | 'char';
+export type ExplainOutcome = 'applied' | 'protected' | 'skipped';
+export type ExplainReasonCode =
+  | 'term_selected'
+  | 'identity_guard'
+  | 'identity_contained'
+  | 'overlap_loser'
+  | 'protected_by_identity'
+  | 'loader_conflict_winner'
+  | 'loader_conflict_loser'
+  | 'balanced_default'
+  | 'char_map';
+
+export interface ExplainEvent {
+  rule_id: string;
+  layer: ExplainLayer;
+  outcome: ExplainOutcome;
+  input_start: number;
+  input_end: number;
+  output_start: number;
+  output_end: number;
+  source: string;
+  target: string;
+  reason_code: ExplainReasonCode;
+}
+
+export interface ExplainResult {
+  output: string;
+  events: ExplainEvent[];
+}
+
 export type AmbiguityMode = 'strict' | 'balanced';
 
 export interface ConverterOptions {
@@ -39,8 +70,10 @@ export interface ConverterOptions {
 
 export interface Converter {
   convert(text: string): string;
+  convertJson(text: string): string;
   check(text: string): Match[];
   lookup(word: string): LookupResult;
+  explain(text: string): ExplainResult;
   /** Release resources. No-op in JS; required for WASM interop. */
   free(): void;
 }

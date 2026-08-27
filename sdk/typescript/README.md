@@ -20,7 +20,7 @@ Zero config — the module exports a ready-to-use default converter:
 
 <!-- zhtw:disable -->
 ```ts
-import { convert, check, lookup } from 'zhtw-js';
+import { convert, convertJson, check, lookup, explain } from 'zhtw-js';
 
 convert('这个软件需要优化');
 // => '這個軟體需要最佳化'
@@ -30,6 +30,12 @@ check('用户权限');
 
 lookup('软件');
 // => { input, output, changed, details: [...] }
+
+explain('软件');
+// => { output: '軟體', events: [...] }
+
+convertJson('{"软件":"这个软件"}');
+// => '{"软件":"這個軟體"}' (keys and unrelated bytes stay unchanged)
 ```
 <!-- zhtw:enable -->
 
@@ -47,8 +53,10 @@ const conv = createConverter({
 });
 
 conv.convert('...');
+conv.convertJson('{"value":"..."}');
 conv.check('...');
 conv.lookup('...');
+conv.explain('...');
 ```
 <!-- zhtw:enable -->
 
@@ -78,6 +86,24 @@ interface LookupResult {
   details: ConversionDetail[];
 }
 
+interface ExplainEvent {
+  rule_id: string;
+  layer: 'term' | 'identity' | 'balanced' | 'char';
+  outcome: 'applied' | 'protected' | 'skipped';
+  input_start: number;
+  input_end: number;
+  output_start: number;
+  output_end: number;
+  source: string;
+  target: string;
+  reason_code: string;
+}
+
+interface ExplainResult {
+  output: string;
+  events: ExplainEvent[];
+}
+
 interface ConverterOptions {
   sources?: Source[];                  // default: ['cn', 'hk']
   customDict?: Record<string, string>;
@@ -85,8 +111,10 @@ interface ConverterOptions {
 
 interface Converter {
   convert(text: string): string;
+  convertJson(text: string): string;
   check(text: string): Match[];
   lookup(word: string): LookupResult;
+  explain(text: string): ExplainResult;
 }
 ```
 
@@ -94,7 +122,7 @@ All `start` / `end` / `position` fields are **Unicode codepoint indices**, not J
 
 ## Cross-SDK parity
 
-Every release is verified against [`sdk/data/golden-test.json`](https://github.com/rajatim/zhtw/blob/main/sdk/data/golden-test.json), the shared fixture file consumed by the Python CLI, Java SDK, and TypeScript SDK. Zero divergence is a release gate.
+Every release is verified against [`sdk/data/golden-test.json`](https://github.com/rajatim/zhtw/blob/main/sdk/data/golden-test.json) and [`sdk/data/json-adapter-golden.json`](https://github.com/rajatim/zhtw/blob/main/sdk/data/json-adapter-golden.json). The same fixtures are consumed by every SDK. Zero divergence is a release gate.
 
 ## License
 
