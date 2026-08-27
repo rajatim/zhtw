@@ -1,8 +1,9 @@
 # zhtw 4.5.0 可解釋規則基礎實作計畫
 
-> Status: Approved
+> Status: Done
 > Date: 2026-08-27
 > Approved: 2026-08-27
+> Result: schema v2、Unicode 17、explain、JSON adapter 與六套 SDK parity 已完成；2026-08-27 release gate 通過，版本維持 4.4.5，未執行發布。
 > Target: 4.5.0
 > Version scope: https://rajatim.wiki/projects/zhtw/roadmap/
 > Supporting plan: `docs/plans/2026-08-26-unicode-and-mixed-term-import-plan.md`
