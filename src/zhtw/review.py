@@ -97,7 +97,7 @@ def approve_terms(
     # Save
     data = {
         "version": "1.0",
-        "description": "使用者覈准的詞彙",
+        "description": "使用者核准的詞彙",  # zhtw:disable-line
         "terms": existing,
     }
 
