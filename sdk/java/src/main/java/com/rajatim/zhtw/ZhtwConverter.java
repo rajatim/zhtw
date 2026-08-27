@@ -8,6 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Simplified Chinese to Traditional Chinese (Taiwan) converter.
@@ -25,19 +28,26 @@ public final class ZhtwConverter {
     private final boolean charLayerEnabled;
     private final boolean balancedMode;
     private final List<String> sources;
+    private final Map<String, List<ZhtwData.RuleMeta>> ruleRecords;
 
     private ZhtwConverter(AhoCorasickMatcher matcher,
                           Map<Integer, String> charmap,
                           Map<Integer, String> balancedDefaults,
                           boolean charLayerEnabled,
                           boolean balancedMode,
-                          List<String> sources) {
+                          List<String> sources,
+                          List<ZhtwData.RuleMeta> ruleCatalog) {
         this.matcher = matcher;
         this.charmap = charmap;
         this.balancedDefaults = balancedDefaults;
         this.charLayerEnabled = charLayerEnabled;
         this.balancedMode = balancedMode;
         this.sources = Collections.unmodifiableList(new ArrayList<>(sources));
+        Map<String, List<ZhtwData.RuleMeta>> grouped = new HashMap<>();
+        for (ZhtwData.RuleMeta record : ruleCatalog) {
+            grouped.computeIfAbsent(record.source, ignored -> new ArrayList<>()).add(record);
+        }
+        this.ruleRecords = Collections.unmodifiableMap(grouped);
     }
 
     /**
@@ -74,9 +84,10 @@ public final class ZhtwConverter {
             return text;
         }
 
-        // Covered positions from ALL automaton hits (including identity terms).
-        // Must be computed on original text before any replacements.
-        AhoCorasickMatcher.ScanResult scan = matcher.scan(text);
+        return convertWithScan(text, matcher.scan(text));
+    }
+
+    private String convertWithScan(String text, AhoCorasickMatcher.ScanResult scan) {
         Set<Integer> covered = scan.covered;
         List<Match> matches = scan.matches;
 
@@ -99,6 +110,11 @@ public final class ZhtwConverter {
         String tail = text.substring(lastEnd);
         sb.append(layersEnabled ? applyLayersSkipping(tail, covered, lastEnd) : tail);
         return sb.toString();
+    }
+
+    /** Convert only JSON string values while preserving all unrelated bytes. */
+    public String convertJson(String text) {
+        return JsonAdapter.convert(text, this::convert);
     }
 
     /**
@@ -286,6 +302,10 @@ public final class ZhtwConverter {
                 String replacement = null;
                 if (balancedMode) {
                     replacement = balancedDefaults.get(cp);
+                    if (replacement != null && charLayerEnabled) {
+                        String remapped = charmap.get(replacement.codePointAt(0));
+                        if (remapped != null) replacement = remapped;
+                    }
                 }
                 if (replacement == null && charLayerEnabled) {
                     replacement = charmap.get(cp);
@@ -300,6 +320,183 @@ public final class ZhtwConverter {
             i += charLen;
         }
         return changed ? sb.toString() : segment;
+    }
+
+    private static final class CharacterChange {
+        final int position;
+        final int length;
+        final String source;
+        final String target;
+        final String layer;
+        final String ruleId;
+        final String reasonCode;
+
+        CharacterChange(int position, int length, String source, String target,
+                        String layer, String ruleId, String reasonCode) {
+            this.position = position;
+            this.length = length;
+            this.source = source;
+            this.target = target;
+            this.layer = layer;
+            this.ruleId = ruleId;
+            this.reasonCode = reasonCode;
+        }
+    }
+
+    private List<CharacterChange> characterChanges(String text, Set<Integer> covered) {
+        List<CharacterChange> changes = new ArrayList<>();
+        int position = 0;
+        while (position < text.length()) {
+            int cp = text.codePointAt(position);
+            int length = Character.charCount(cp);
+            String source = new String(Character.toChars(cp));
+            if (!covered.contains(position)) {
+                String balanced = balancedMode ? balancedDefaults.get(cp) : null;
+                if (balanced != null) {
+                    String target = charLayerEnabled
+                            ? charmap.getOrDefault(balanced.codePointAt(0), balanced)
+                            : balanced;
+                    if (!target.equals(source)) {
+                        changes.add(new CharacterChange(
+                                position, length, source, target, "balanced",
+                                "balanced:u" + Integer.toHexString(cp), "balanced_default"));
+                    }
+                } else if (charLayerEnabled) {
+                    String target = charmap.get(cp);
+                    if (target != null && !target.equals(source)) {
+                        changes.add(new CharacterChange(
+                                position, length, source, target, "char",
+                                "charmap:u" + Integer.toHexString(cp), "char_map"));
+                    }
+                }
+            }
+            position += length;
+        }
+        return changes;
+    }
+
+    private ZhtwData.RuleMeta ruleRecordFor(Match match) {
+        List<ZhtwData.RuleMeta> candidates = ruleRecords.getOrDefault(
+                match.getSource(), Collections.emptyList());
+        for (int i = candidates.size() - 1; i >= 0; i--) {
+            ZhtwData.RuleMeta record = candidates.get(i);
+            if (record.target.equals(match.getTarget())) return record;
+        }
+        return null;
+    }
+
+    /** Convert text and return stable rule events from the same matcher scan. */
+    public ExplainResult explain(String text) {
+        if (text == null || text.isEmpty()) {
+            return new ExplainResult(text, Collections.emptyList());
+        }
+
+        AhoCorasickMatcher.DetailedScanResult scan = matcher.scanDetailed(text);
+        List<CharacterChange> changes = characterChanges(text, scan.covered);
+        Map<Integer, Match> selectedByStart = new HashMap<>();
+        for (Match match : scan.matches) selectedByStart.put(match.getStart(), match);
+        Map<Integer, CharacterChange> changesByStart = new HashMap<>();
+        for (CharacterChange change : changes) changesByStart.put(change.position, change);
+
+        int[][] spans = new int[text.length()][2];
+        StringBuilder output = new StringBuilder(text.length());
+        int inputPosition = 0;
+        int outputPosition = 0;
+        while (inputPosition < text.length()) {
+            Match match = selectedByStart.get(inputPosition);
+            if (match != null) {
+                int outputEnd = outputPosition
+                        + match.getTarget().codePointCount(0, match.getTarget().length());
+                for (int i = match.getStart(); i < match.getEnd(); i++) {
+                    spans[i][0] = outputPosition;
+                    spans[i][1] = outputEnd;
+                }
+                output.append(match.getTarget());
+                outputPosition = outputEnd;
+                inputPosition = match.getEnd();
+                continue;
+            }
+            int cp = text.codePointAt(inputPosition);
+            int length = Character.charCount(cp);
+            String source = new String(Character.toChars(cp));
+            CharacterChange change = changesByStart.get(inputPosition);
+            String target = change == null ? source : change.target;
+            int outputEnd = outputPosition + target.codePointCount(0, target.length());
+            for (int i = inputPosition; i < inputPosition + length; i++) {
+                spans[i][0] = outputPosition;
+                spans[i][1] = outputEnd;
+            }
+            output.append(target);
+            outputPosition = outputEnd;
+            inputPosition += length;
+        }
+        String outputText = output.toString();
+        if (!outputText.equals(convertWithScan(text, scan))) {
+            throw new IllegalStateException("explain trace diverged from conversion output");
+        }
+
+        List<ExplainEvent> events = new ArrayList<>();
+        for (AhoCorasickMatcher.MatchDecision decision : scan.decisions) {
+            Match match = decision.match;
+            int outputStart = Integer.MAX_VALUE;
+            int outputEnd = Integer.MIN_VALUE;
+            for (int i = match.getStart(); i < match.getEnd(); i++) {
+                outputStart = Math.min(outputStart, spans[i][0]);
+                outputEnd = Math.max(outputEnd, spans[i][1]);
+            }
+            ZhtwData.RuleMeta winner = ruleRecordFor(match);
+            List<ZhtwData.RuleMeta> conflicts = new ArrayList<>();
+            for (ZhtwData.RuleMeta candidate : ruleRecords.getOrDefault(
+                    match.getSource(), Collections.emptyList())) {
+                if (winner == null || !candidate.id.equals(winner.id)) conflicts.add(candidate);
+            }
+            String reasonCode = "applied".equals(decision.outcome) && !conflicts.isEmpty()
+                    ? "loader_conflict_winner" : decision.reasonCode;
+            events.add(new ExplainEvent(
+                    winner == null
+                            ? legacyCustomRuleId(match.getSource(), match.getTarget())
+                            : winner.id,
+                    match.getSource().equals(match.getTarget()) ? "identity" : "term",
+                    decision.outcome,
+                    Character.codePointCount(text, 0, match.getStart()),
+                    Character.codePointCount(text, 0, match.getEnd()),
+                    outputStart,
+                    outputEnd,
+                    match.getSource(),
+                    match.getTarget(),
+                    reasonCode));
+            if ("applied".equals(decision.outcome)) {
+                for (ZhtwData.RuleMeta conflict : conflicts) {
+                    events.add(new ExplainEvent(
+                            conflict.id, "term", "skipped",
+                            Character.codePointCount(text, 0, match.getStart()),
+                            Character.codePointCount(text, 0, match.getEnd()),
+                            outputStart, outputEnd, conflict.source, conflict.target,
+                            "loader_conflict_loser"));
+                }
+            }
+        }
+        for (CharacterChange change : changes) {
+            events.add(new ExplainEvent(
+                    change.ruleId, change.layer, "applied",
+                    Character.codePointCount(text, 0, change.position),
+                    Character.codePointCount(text, 0, change.position + change.length),
+                    spans[change.position][0], spans[change.position][1],
+                    change.source, change.target, change.reasonCode));
+        }
+        Map<String, Integer> outcomeOrder = Map.of(
+                "applied", 0, "protected", 1, "skipped", 2);
+        events.sort((left, right) -> {
+            int compare = Integer.compare(left.getInputStart(), right.getInputStart());
+            if (compare != 0) return compare;
+            compare = Integer.compare(left.getInputEnd(), right.getInputEnd());
+            if (compare != 0) return compare;
+            compare = Integer.compare(
+                    outcomeOrder.get(left.getOutcome()), outcomeOrder.get(right.getOutcome()));
+            if (compare != 0) return compare;
+            return left.getRuleId().compareTo(right.getRuleId());
+        });
+        return new ExplainResult(outputText, events);
     }
 
     /**
@@ -361,8 +558,39 @@ public final class ZhtwConverter {
                     data.getBalancedDefaults(),
                     charLayerEnabled,
                     balanced,
-                    sources
+                    sources,
+                    buildRuleCatalog(data)
             );
+        }
+
+        private List<ZhtwData.RuleMeta> buildRuleCatalog(ZhtwData data) {
+            List<ZhtwData.RuleMeta> records = new ArrayList<>();
+            for (ZhtwData.RuleMeta record : data.getRuleCatalog()) {
+                if (sources.contains(record.sourceLocale)) records.add(record);
+            }
+            for (Map.Entry<String, String> entry : customDict.entrySet()) {
+                if (entry.getKey().isEmpty()) continue;
+                records.add(new ZhtwData.RuleMeta(
+                        legacyCustomRuleId(entry.getKey(), entry.getValue()),
+                        "cn", entry.getKey(), entry.getValue()));
+            }
+            return records;
+        }
+    }
+
+    private static String legacyCustomRuleId(String source, String target) {
+        String canonical = "{\"rule_class\":\"custom\",\"source\":"
+                + JsonAdapter.quote(source)
+                + ",\"source_locale\":\"cn\",\"target\":"
+                + JsonAdapter.quote(target) + "}";
+        try {
+            byte[] digest = MessageDigest.getInstance("SHA-256")
+                    .digest(canonical.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hex = new StringBuilder();
+            for (byte value : digest) hex.append(String.format("%02x", value & 0xff));
+            return "legacy:cn:custom:" + hex.substring(0, 24);
+        } catch (NoSuchAlgorithmException impossible) {
+            throw new IllegalStateException("SHA-256 is unavailable", impossible);
         }
     }
 }

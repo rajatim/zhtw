@@ -14,13 +14,46 @@ import java.util.Set;
 
 final class AhoCorasickMatcher {
 
-    static final class ScanResult {
+    static class ScanResult {
         final List<Match> matches;
         final Set<Integer> covered;
 
         ScanResult(List<Match> matches, Set<Integer> covered) {
             this.matches = matches;
             this.covered = covered;
+        }
+    }
+
+    static final class MatchDecision {
+        final Match match;
+        final String outcome;
+        final String reasonCode;
+
+        MatchDecision(Match match, String outcome, String reasonCode) {
+            this.match = match;
+            this.outcome = outcome;
+            this.reasonCode = reasonCode;
+        }
+    }
+
+    static final class DetailedScanResult extends ScanResult {
+        final List<MatchDecision> decisions;
+
+        DetailedScanResult(List<Match> matches,
+                           Set<Integer> covered,
+                           List<MatchDecision> decisions) {
+            super(matches, covered);
+            this.decisions = decisions;
+        }
+    }
+
+    private static final class Protection {
+        final Set<Integer> positions;
+        final Set<Match> effectiveIdentity;
+
+        Protection(Set<Integer> positions, Set<Match> effectiveIdentity) {
+            this.positions = positions;
+            this.effectiveIdentity = effectiveIdentity;
         }
     }
 
@@ -44,13 +77,28 @@ final class AhoCorasickMatcher {
     }
 
     ScanResult scan(String text) {
+        return scanInternal(text, false);
+    }
+
+    DetailedScanResult scanDetailed(String text) {
+        ScanResult result = scanInternal(text, true);
+        return (DetailedScanResult) result;
+    }
+
+    private ScanResult scanInternal(String text, boolean detailed) {
         if (trie == null || text == null || text.isEmpty()) {
-            return new ScanResult(Collections.emptyList(), Collections.emptySet());
+            return detailed
+                    ? new DetailedScanResult(
+                            Collections.emptyList(), Collections.emptySet(), Collections.emptyList())
+                    : new ScanResult(Collections.emptyList(), Collections.emptySet());
         }
 
         Collection<Emit> emits = trie.parseText(text);
         if (emits.isEmpty()) {
-            return new ScanResult(Collections.emptyList(), Collections.emptySet());
+            return detailed
+                    ? new DetailedScanResult(
+                            Collections.emptyList(), Collections.emptySet(), Collections.emptyList())
+                    : new ScanResult(Collections.emptyList(), Collections.emptySet());
         }
 
         // Convert to Match objects (Emit.getEnd() is INCLUSIVE, we need EXCLUSIVE)
@@ -69,45 +117,72 @@ final class AhoCorasickMatcher {
         });
 
         // Build protected ranges from identity mappings
-        Set<Integer> protectedPositions = buildProtectedRanges(allMatches);
+        Protection protection = buildProtectedRanges(allMatches);
+        Set<Integer> protectedPositions = protection.positions;
         Set<Integer> covered = new HashSet<>(protectedPositions);
 
         // Greedy left-to-right selection
         List<Match> result = new ArrayList<>();
+        List<MatchDecision> decisions = detailed ? new ArrayList<>() : Collections.emptyList();
         int lastEnd = -1;
         for (Match match : allMatches) {
-            if (match.getStart() >= lastEnd) {
-                boolean isIdentity = match.getSource().equals(match.getTarget());
-                if (!isIdentity) {
-                    boolean overlapsProtected = false;
-                    for (int i = match.getStart(); i < match.getEnd(); i++) {
-                        if (protectedPositions.contains(i)) {
-                            overlapsProtected = true;
-                            break;
-                        }
-                    }
-                    if (overlapsProtected) {
-                        continue;
+            boolean isIdentity = match.getSource().equals(match.getTarget());
+            if (match.getStart() < lastEnd) {
+                if (detailed) {
+                    boolean effective = protection.effectiveIdentity.contains(match);
+                    decisions.add(new MatchDecision(
+                            match,
+                            isIdentity && effective ? "protected" : "skipped",
+                            isIdentity
+                                    ? (effective ? "identity_guard" : "identity_contained")
+                                    : "overlap_loser"));
+                }
+                continue;
+            }
+            if (!isIdentity) {
+                boolean overlapsProtected = false;
+                for (int i = match.getStart(); i < match.getEnd(); i++) {
+                    if (protectedPositions.contains(i)) {
+                        overlapsProtected = true;
+                        break;
                     }
                 }
-                lastEnd = match.getEnd();
-                if (!isIdentity) {
-                    result.add(match);
-                    for (int i = match.getStart(); i < match.getEnd(); i++) {
-                        covered.add(i);
+                if (overlapsProtected) {
+                    if (detailed) {
+                        decisions.add(new MatchDecision(
+                                match, "skipped", "protected_by_identity"));
                     }
+                    continue;
                 }
+            }
+            lastEnd = match.getEnd();
+            if (!isIdentity) {
+                result.add(match);
+                for (int i = match.getStart(); i < match.getEnd(); i++) {
+                    covered.add(i);
+                }
+                if (detailed) {
+                    decisions.add(new MatchDecision(match, "applied", "term_selected"));
+                }
+            } else if (detailed) {
+                decisions.add(new MatchDecision(
+                        match,
+                        "protected",
+                        protection.effectiveIdentity.contains(match)
+                                ? "identity_guard" : "identity_contained"));
             }
         }
 
-        return new ScanResult(result, covered);
+        return detailed
+                ? new DetailedScanResult(result, covered, decisions)
+                : new ScanResult(result, covered);
     }
 
     List<Match> findMatches(String text) {
         return scan(text).matches;
     }
 
-    private Set<Integer> buildProtectedRanges(List<Match> allMatches) {
+    private Protection buildProtectedRanges(List<Match> allMatches) {
         List<Match> identityMatches = new ArrayList<>();
         List<int[]> nonIdentity = new ArrayList<>();
 
@@ -120,6 +195,7 @@ final class AhoCorasickMatcher {
         }
 
         Set<Integer> protectedPositions = new HashSet<>();
+        Set<Match> effectiveIdentity = new HashSet<>();
 
         if (!nonIdentity.isEmpty()) {
             nonIdentity.sort((a, b) -> Integer.compare(a[0], b[0]));
@@ -140,6 +216,7 @@ final class AhoCorasickMatcher {
                     for (int i = identity.getStart(); i < identity.getEnd(); i++) {
                         protectedPositions.add(i);
                     }
+                    effectiveIdentity.add(identity);
                 }
             }
         } else {
@@ -147,10 +224,11 @@ final class AhoCorasickMatcher {
                 for (int i = identity.getStart(); i < identity.getEnd(); i++) {
                     protectedPositions.add(i);
                 }
+                effectiveIdentity.add(identity);
             }
         }
 
-        return protectedPositions;
+        return new Protection(protectedPositions, effectiveIdentity);
     }
 
     private static int bisectRight(int[] arr, int value) {

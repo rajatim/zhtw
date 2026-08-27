@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,6 +24,20 @@ import java.util.regex.Pattern;
  * (CJK Extension B+, codepoints above U+FFFF) that cannot fit in a Java {@code char}.
  */
 final class ZhtwData {
+
+    static final class RuleMeta {
+        final String id;
+        final String sourceLocale;
+        final String source;
+        final String target;
+
+        RuleMeta(String id, String sourceLocale, String source, String target) {
+            this.id = id;
+            this.sourceLocale = sourceLocale;
+            this.source = source;
+            this.target = target;
+        }
+    }
 
     private static final Set<Integer> SUPPORTED_SCHEMA_VERSIONS = Set.of(1, 2);
     private static final Pattern RULE_ID =
@@ -42,12 +57,14 @@ final class ZhtwData {
     private final Set<Integer> ambiguous;          // ambiguous codepoints
     private final Map<Integer, String> balancedDefaults; // codepoint -> default replacement
     private final Map<String, Map<String, String>> terms;
+    private final List<RuleMeta> ruleCatalog;
 
     private ZhtwData(String version,
                      Map<Integer, String> charmap,
                      Set<Integer> ambiguous,
                      Map<Integer, String> balancedDefaults,
-                     Map<String, Map<String, String>> terms) {
+                     Map<String, Map<String, String>> terms,
+                     List<RuleMeta> ruleCatalog) {
         this.version = version;
         this.charmap = Collections.unmodifiableMap(charmap);
         this.ambiguous = Collections.unmodifiableSet(ambiguous);
@@ -57,6 +74,7 @@ final class ZhtwData {
             unmodTerms.put(e.getKey(), Collections.unmodifiableMap(e.getValue()));
         }
         this.terms = Collections.unmodifiableMap(unmodTerms);
+        this.ruleCatalog = Collections.unmodifiableList(new ArrayList<>(ruleCatalog));
     }
 
     static ZhtwData fromClasspath() {
@@ -154,15 +172,16 @@ final class ZhtwData {
             terms.put(e.getKey(), new HashMap<>(sourceTerms));
         }
 
-        if (parsedSchemaVersion == 2) {
-            validateRuleCatalog(root, rawTerms);
-        }
+        List<RuleMeta> ruleCatalog = parsedSchemaVersion == 2
+                ? validateRuleCatalog(root, rawTerms)
+                : Collections.emptyList();
 
-        return new ZhtwData(version, charmap, ambiguous, balancedDefaults, terms);
+        return new ZhtwData(
+                version, charmap, ambiguous, balancedDefaults, terms, ruleCatalog);
     }
 
     @SuppressWarnings("unchecked")
-    private static void validateRuleCatalog(
+    private static List<RuleMeta> validateRuleCatalog(
             Map<String, Object> root,
             Map<String, Object> rawTerms) {
         Object rawCatalog = root.get("rule_catalog");
@@ -178,6 +197,7 @@ final class ZhtwData {
 
         Set<String> ids = new HashSet<>();
         Set<String> approved = new HashSet<>();
+        List<RuleMeta> records = new ArrayList<>();
         int count = 0;
         for (Object rawGroup : (List<Object>) catalog.get("groups")) {
             if (!(rawGroup instanceof Map)) {
@@ -246,6 +266,8 @@ final class ZhtwData {
                 count++;
                 if ("approved".equals(review)) {
                     approved.add(locale + "\0" + pair.get(0) + "\0" + pair.get(1));
+                    records.add(new RuleMeta(
+                            id, locale, (String) pair.get(0), (String) pair.get(1)));
                 }
             }
         }
@@ -264,6 +286,7 @@ final class ZhtwData {
                 }
             }
         }
+        return records;
     }
 
     private static String requireMember(Map<String, Object> value, String name) {
@@ -288,4 +311,6 @@ final class ZhtwData {
     Map<String, String> getTerms(String source) {
         return terms.getOrDefault(source, Collections.emptyMap());
     }
+
+    List<RuleMeta> getRuleCatalog() { return ruleCatalog; }
 }

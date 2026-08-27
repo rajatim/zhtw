@@ -47,6 +47,8 @@ ZhtwConverter conv = ZhtwConverter.builder()
     .build();
 
 conv.convert("自定义几个里程碑");
+conv.explain("软件");
+conv.convertJson("{\"软件\":\"这个软件\"}");
 ```
 <!-- zhtw:enable -->
 
@@ -55,8 +57,10 @@ conv.convert("自定义几个里程碑");
 | Method | Description |
 |--------|-------------|
 | `convert(text)` | Convert text |
+| `convertJson(text)` | Convert JSON string values only; reject duplicate keys |
 | `check(text)` | Return list of replacements without modifying |
 | `lookup(word)` | Look up a single word in the dictionary |
+| `explain(text)` | Return converted output and stable rule events |
 
 ## Performance
 

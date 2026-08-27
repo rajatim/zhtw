@@ -1,5 +1,6 @@
 package com.rajatim.zhtw;
 
+import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -311,5 +312,48 @@ class ZhtwConverterTest {
                 .sources(Collections.singletonList("cn"))
                 .build();
         assertEquals("\uD840\uDC00\u8edf\u9ad4", conv.convert("\uD840\uDC00\u8f6f\u4ef6"));
+    }
+
+    @Test
+    void customExplainUsesDeterministicLegacyId() {
+        ZhtwConverter converter = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .customDict(Collections.singletonMap(
+                        "\u8f6f\u4ef6", "\u81ea\u8a02\u8edf\u9ad4"))
+                .build();
+        ExplainEvent applied = converter.explain("\u8f6f\u4ef6").getEvents().stream()
+                .filter(event -> "applied".equals(event.getOutcome()))
+                .findFirst()
+                .orElseThrow();
+        assertEquals("legacy:cn:custom:6dee1b8fe38334612ee097e8", applied.getRuleId());
+    }
+
+    @Test
+    void explainJsonUsesCrossSdkFieldNames() {
+        String json = new Gson().toJson(
+                ZhtwConverter.builder()
+                        .sources(Collections.singletonList("cn"))
+                        .build()
+                        .explain("\u8f6f\u4ef6"));
+        assertTrue(json.contains("\"rule_id\""));
+        assertTrue(json.contains("\"input_start\""));
+        assertTrue(json.contains("\"reason_code\""));
+        assertFalse(json.contains("\"ruleId\""));
+    }
+
+    @Test
+    void explainSupplementaryPrefixUsesCodepointSpans() {
+        ExplainEvent applied = ZhtwConverter.builder()
+                .sources(Collections.singletonList("cn"))
+                .build()
+                .explain("\uD840\uDC00\u8f6f\u4ef6")
+                .getEvents().stream()
+                .filter(event -> "applied".equals(event.getOutcome()))
+                .findFirst()
+                .orElseThrow();
+        assertEquals(1, applied.getInputStart());
+        assertEquals(3, applied.getInputEnd());
+        assertEquals(1, applied.getOutputStart());
+        assertEquals(3, applied.getOutputEnd());
     }
 }

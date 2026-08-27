@@ -33,6 +33,14 @@ class GoldenTest {
         return new Gson().fromJson(new InputStreamReader(is, StandardCharsets.UTF_8), type);
     }
 
+    private Map<String, Object> loadJsonAdapterGolden() {
+        InputStream is = getClass().getResourceAsStream("/json-adapter-golden.json");
+        assertNotNull(is, "json-adapter-golden.json not found on classpath");
+        Type type = new TypeToken<Map<String, Object>>() {}.getType();
+        return new Gson().fromJson(
+                new InputStreamReader(is, StandardCharsets.UTF_8), type);
+    }
+
     @TestFactory
     @SuppressWarnings("unchecked")
     Collection<DynamicTest> conformanceCases() {
@@ -175,6 +183,71 @@ class GoldenTest {
                         }
                     }
             ));
+        }
+        return tests;
+    }
+
+    @TestFactory
+    @SuppressWarnings("unchecked")
+    Collection<DynamicTest> explainCases() {
+        List<Map<String, Object>> cases =
+                (List<Map<String, Object>>) loadGolden().get("explain");
+        List<DynamicTest> tests = new ArrayList<>();
+        for (Map<String, Object> c : cases) {
+            String input = (String) c.get("input");
+            List<String> sources = (List<String>) c.get("sources");
+            String ambiguityMode = (String) c.get("ambiguity_mode");
+            List<Map<String, Object>> expected =
+                    (List<Map<String, Object>>) c.get("expected_events");
+            tests.add(DynamicTest.dynamicTest("explain: " + input, () -> {
+                ZhtwConverter converter = converterFor(sources, ambiguityMode);
+                ExplainResult result = converter.explain(input);
+                assertEquals(c.get("expected_output"), result.getOutput());
+                assertEquals(converter.convert(input), result.getOutput());
+                assertEquals(expected.size(), result.getEvents().size());
+                for (int i = 0; i < expected.size(); i++) {
+                    Map<String, Object> item = expected.get(i);
+                    ExplainEvent event = result.getEvents().get(i);
+                    assertEquals(item.get("rule_id"), event.getRuleId(), "rule ID at " + i);
+                    assertEquals(item.get("layer"), event.getLayer(), "layer at " + i);
+                    assertEquals(item.get("outcome"), event.getOutcome(), "outcome at " + i);
+                    assertEquals(((Number) item.get("input_start")).intValue(),
+                            event.getInputStart(), "input start at " + i);
+                    assertEquals(((Number) item.get("input_end")).intValue(),
+                            event.getInputEnd(), "input end at " + i);
+                    assertEquals(((Number) item.get("output_start")).intValue(),
+                            event.getOutputStart(), "output start at " + i);
+                    assertEquals(((Number) item.get("output_end")).intValue(),
+                            event.getOutputEnd(), "output end at " + i);
+                    assertEquals(item.get("source"), event.getSource(), "source at " + i);
+                    assertEquals(item.get("target"), event.getTarget(), "target at " + i);
+                    assertEquals(item.get("reason_code"), event.getReasonCode(), "reason at " + i);
+                }
+            }));
+        }
+        return tests;
+    }
+
+    @TestFactory
+    @SuppressWarnings("unchecked")
+    Collection<DynamicTest> jsonAdapterCases() {
+        Map<String, Object> golden = loadJsonAdapterGolden();
+        List<DynamicTest> tests = new ArrayList<>();
+        for (Map<String, Object> c : (List<Map<String, Object>>) golden.get("cases")) {
+            tests.add(DynamicTest.dynamicTest((String) c.get("id"), () -> {
+                ZhtwConverter converter = converterFor(
+                        (List<String>) c.get("sources"), (String) c.get("ambiguity_mode"));
+                assertEquals(c.get("expected"), converter.convertJson((String) c.get("input")));
+            }));
+        }
+        for (Map<String, Object> c : (List<Map<String, Object>>) golden.get("reject")) {
+            tests.add(DynamicTest.dynamicTest("reject: " + c.get("id"), () -> {
+                JsonAdapterException error = assertThrows(
+                        JsonAdapterException.class,
+                        () -> converterFor(List.of("cn"), null)
+                                .convertJson((String) c.get("input")));
+                assertEquals(c.get("error_code"), error.getCode());
+            }));
         }
         return tests;
     }
