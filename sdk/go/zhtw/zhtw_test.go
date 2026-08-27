@@ -59,7 +59,7 @@ func TestFindTermMatchesBasic(t *testing.T) {
 
 func TestFindTermMatchesLongestWins(t *testing.T) {
 	ac := buildAhoCorasick([]acPattern{
-		{source: "\u4e91", target: "\u96f2", runeLen: 1},                                // 云→雲 (short)
+		{source: "\u4e91", target: "\u96f2", runeLen: 1},                               // 云→雲 (short)
 		{source: "\u4e91\u8ba1\u7b97", target: "\u96f2\u7aef\u904b\u7b97", runeLen: 3}, // 云计算→雲端運算 (long)
 	})
 	runes := []rune("\u4e91\u8ba1\u7b97") // 云计算
@@ -97,9 +97,9 @@ func TestConverterConvertBasic(t *testing.T) {
 		expected string
 	}{
 		{"", ""},
-		{"\u8f6f\u4ef6\u6d4b\u8bd5", "\u8edf\u9ad4\u6e2c\u8a66"},                       // 软件测试 → 軟體測試
-		{"\u5df2\u7d93\u662f\u7e41\u9ad4", "\u5df2\u7d93\u662f\u7e41\u9ad4"},             // 已經是繁體 (unchanged)
-		{"hello", "hello"},                                                                 // ASCII pass-through
+		{"\u8f6f\u4ef6\u6d4b\u8bd5", "\u8edf\u9ad4\u6e2c\u8a66"},             // 软件测试 → 軟體測試
+		{"\u5df2\u7d93\u662f\u7e41\u9ad4", "\u5df2\u7d93\u662f\u7e41\u9ad4"}, // 已經是繁體 (unchanged)
+		{"hello", "hello"}, // ASCII pass-through
 		{"\u6570\u636e\u5e93\u670d\u52a1\u5668", "\u8cc7\u6599\u5eab\u4f3a\u670d\u5668"}, // 数据库服务器 → 資料庫伺服器
 	}
 	for _, tt := range tests {
@@ -199,7 +199,7 @@ func TestBuilderDefault(t *testing.T) {
 		t.Fatal(err)
 	}
 	got := conv.Convert("\u8f6f\u4ef6\u6d4b\u8bd5") // 软件测试
-	if got != "\u8edf\u9ad4\u6e2c\u8a66" {            // 軟體測試
+	if got != "\u8edf\u9ad4\u6e2c\u8a66" {          // 軟體測試
 		t.Errorf("got %q", got)
 	}
 }
@@ -242,7 +242,7 @@ func TestBuilderBalancedMode(t *testing.T) {
 
 func TestConvenienceConvert(t *testing.T) {
 	got := Convert("\u8f6f\u4ef6\u6d4b\u8bd5") // 软件测试
-	want := "\u8edf\u9ad4\u6e2c\u8a66"          // 軟體測試
+	want := "\u8edf\u9ad4\u6e2c\u8a66"         // 軟體測試
 	if got != want {
 		t.Errorf("Convert() = %q, want %q", got, want)
 	}
@@ -259,6 +259,25 @@ func TestConvenienceLookup(t *testing.T) {
 	result := Lookup("\u8f6f\u4ef6") // 软件
 	if !result.Changed {
 		t.Error("expected changed=true")
+	}
+}
+
+func TestCustomExplainUsesDeterministicLegacyIDWithHKOnly(t *testing.T) {
+	conv, err := NewBuilder().
+		Sources(SourceHk).
+		CustomDict(map[string]string{
+			"\u8f6f\u4ef6": "\u81ea\u8a02\u8edf\u9ad4",
+		}).
+		Build()
+	if err != nil {
+		t.Fatal(err)
+	}
+	result := conv.Explain("\u8f6f\u4ef6")
+	if len(result.Events) != 1 {
+		t.Fatalf("got %d events, want 1: %+v", len(result.Events), result.Events)
+	}
+	if result.Events[0].RuleID != "legacy:cn:custom:6dee1b8fe38334612ee097e8" {
+		t.Errorf("got rule ID %s", result.Events[0].RuleID)
 	}
 }
 

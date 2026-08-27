@@ -17,6 +17,12 @@ type acMatch struct {
 	target string
 }
 
+type matchDecision struct {
+	hit        acMatch
+	outcome    string
+	reasonCode string
+}
+
 type acNode struct {
 	children map[rune]*acNode
 	fail     *acNode
@@ -124,6 +130,16 @@ func (ac *ahoCorasick) scan(runes []rune) ([]acMatch, map[int]bool) {
 	return matches, covered
 }
 
+func (ac *ahoCorasick) scanDetailed(runes []rune) ([]acMatch, map[int]bool, []matchDecision) {
+	matches, covered, decisions := selectTermMatchesCore(ac.iterEmissions(runes), true)
+	for _, match := range matches {
+		for i := match.start; i < match.end; i++ {
+			covered[i] = true
+		}
+	}
+	return matches, covered, decisions
+}
+
 // ── Match selection ──────────────────────────────────────────────────────────
 
 // findTermMatches returns non-overlapping, leftmost-longest term matches
@@ -138,8 +154,13 @@ func (ac *ahoCorasick) findTermMatches(runes []rune) []acMatch {
 }
 
 func selectTermMatches(raw []acMatch) ([]acMatch, map[int]bool) {
+	matches, covered, _ := selectTermMatchesCore(raw, false)
+	return matches, covered
+}
+
+func selectTermMatchesCore(raw []acMatch, detailed bool) ([]acMatch, map[int]bool, []matchDecision) {
 	if len(raw) == 0 {
-		return nil, make(map[int]bool)
+		return nil, make(map[int]bool), nil
 	}
 
 	// Sort by (start ASC, length DESC).
@@ -166,11 +187,13 @@ func selectTermMatches(raw []acMatch) ([]acMatch, map[int]bool) {
 	// Build protected rune positions from identity matches not contained
 	// in any non-identity span.
 	protected := make(map[int]bool)
+	effectiveIdentity := make(map[acMatch]bool)
 	if len(nonIdentitySpans) == 0 {
 		for _, m := range identity {
 			for i := m.start; i < m.end; i++ {
 				protected[i] = true
 			}
+			effectiveIdentity[m] = true
 		}
 	} else {
 		sort.Slice(nonIdentitySpans, func(i, j int) bool {
@@ -196,15 +219,32 @@ func selectTermMatches(raw []acMatch) ([]acMatch, map[int]bool) {
 				for i := m.start; i < m.end; i++ {
 					protected[i] = true
 				}
+				effectiveIdentity[m] = true
 			}
 		}
 	}
 
 	// Left-to-right greedy filter.
 	var result []acMatch
+	var decisions []matchDecision
 	cursor := 0
 	for _, m := range raw {
 		if m.start < cursor {
+			if detailed {
+				isIdentity := m.source == m.target
+				effective := effectiveIdentity[m]
+				outcome := "skipped"
+				reason := "overlap_loser"
+				if isIdentity {
+					if effective {
+						outcome = "protected"
+						reason = "identity_guard"
+					} else {
+						reason = "identity_contained"
+					}
+				}
+				decisions = append(decisions, matchDecision{hit: m, outcome: outcome, reasonCode: reason})
+			}
 			continue
 		}
 		isIdentity := m.source == m.target
@@ -217,15 +257,33 @@ func selectTermMatches(raw []acMatch) ([]acMatch, map[int]bool) {
 				}
 			}
 			if overlaps {
+				if detailed {
+					decisions = append(decisions, matchDecision{
+						hit: m, outcome: "skipped", reasonCode: "protected_by_identity",
+					})
+				}
 				continue // skip without advancing cursor
 			}
 		}
 		cursor = m.end
 		if !isIdentity {
 			result = append(result, m)
+			if detailed {
+				decisions = append(decisions, matchDecision{
+					hit: m, outcome: "applied", reasonCode: "term_selected",
+				})
+			}
+		} else if detailed {
+			reason := "identity_contained"
+			if effectiveIdentity[m] {
+				reason = "identity_guard"
+			}
+			decisions = append(decisions, matchDecision{
+				hit: m, outcome: "protected", reasonCode: reason,
+			})
 		}
 	}
-	return result, protected
+	return result, protected, decisions
 }
 
 // bisectRight returns the insertion point for x in a sorted slice a

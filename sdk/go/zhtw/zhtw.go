@@ -26,6 +26,11 @@ func Convert(text string) string {
 	return getDefault().Convert(text)
 }
 
+// ConvertJSON converts only JSON string values using the default converter.
+func ConvertJSON(text string) (string, error) {
+	return getDefault().ConvertJSON(text)
+}
+
 // Check scans text for simplified Chinese terms/characters using the default
 // converter and returns match information.
 func Check(text string) []Match {
@@ -36,4 +41,9 @@ func Check(text string) []Match {
 // using the default converter.
 func Lookup(word string) LookupResult {
 	return getDefault().Lookup(word)
+}
+
+// Explain converts text and returns stable rule events using the default converter.
+func Explain(text string) ExplainResult {
+	return getDefault().Explain(text)
 }

@@ -2,7 +2,9 @@ package zhtw
 
 import (
 	"encoding/json"
+	"errors"
 	"os"
+	"reflect"
 	"testing"
 )
 
@@ -12,6 +14,35 @@ type goldenFile struct {
 	Convert []goldenConvert `json:"convert"`
 	Check   []goldenCheck   `json:"check"`
 	Lookup  []goldenLookup  `json:"lookup"`
+	Explain []goldenExplain `json:"explain"`
+}
+
+type goldenExplain struct {
+	Input          string         `json:"input"`
+	Sources        []string       `json:"sources"`
+	ExpectedOutput string         `json:"expected_output"`
+	ExpectedEvents []ExplainEvent `json:"expected_events"`
+	AmbiguityMode  string         `json:"ambiguity_mode,omitempty"`
+}
+
+type jsonAdapterGolden struct {
+	Version string            `json:"version"`
+	Cases   []jsonAdapterCase `json:"cases"`
+	Reject  []jsonRejectCase  `json:"reject"`
+}
+
+type jsonAdapterCase struct {
+	ID            string   `json:"id"`
+	Input         string   `json:"input"`
+	Sources       []string `json:"sources"`
+	Expected      string   `json:"expected"`
+	AmbiguityMode string   `json:"ambiguity_mode,omitempty"`
+}
+
+type jsonRejectCase struct {
+	ID        string `json:"id"`
+	Input     string `json:"input"`
+	ErrorCode string `json:"error_code"`
 }
 
 type goldenConvert struct {
@@ -174,6 +205,59 @@ func TestGoldenLookup(t *testing.T) {
 					g.Source, g.Target, g.Layer, g.Position,
 					exp.Source, exp.Target, exp.Layer, exp.Position)
 			}
+		}
+	}
+}
+
+func TestGoldenExplain(t *testing.T) {
+	gf := loadGolden(t)
+	for _, tc := range gf.Explain {
+		conv := buildGoldenConverter(t, tc.Sources, tc.AmbiguityMode)
+		got := conv.Explain(tc.Input)
+		if got.Output != tc.ExpectedOutput {
+			t.Errorf("explain input=%q output: got %q, want %q", tc.Input, got.Output, tc.ExpectedOutput)
+		}
+		if got.Output != conv.Convert(tc.Input) {
+			t.Errorf("explain input=%q diverged from Convert", tc.Input)
+		}
+		if !reflect.DeepEqual(got.Events, tc.ExpectedEvents) {
+			t.Errorf("explain input=%q events differ\n  got:  %+v\n  want: %+v", tc.Input, got.Events, tc.ExpectedEvents)
+		}
+	}
+}
+
+func TestJSONAdapterGolden(t *testing.T) {
+	raw, err := os.ReadFile("../../data/json-adapter-golden.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var fixture jsonAdapterGolden
+	if err := json.Unmarshal(raw, &fixture); err != nil {
+		t.Fatal(err)
+	}
+	if fixture.Version != DataVersion() {
+		t.Fatalf("fixture version %s does not match data version %s", fixture.Version, DataVersion())
+	}
+	for _, tc := range fixture.Cases {
+		conv := buildGoldenConverter(t, tc.Sources, tc.AmbiguityMode)
+		got, err := conv.ConvertJSON(tc.Input)
+		if err != nil {
+			t.Errorf("JSON adapter case %s returned error: %v", tc.ID, err)
+			continue
+		}
+		if got != tc.Expected {
+			t.Errorf("JSON adapter case %s: got %q, want %q", tc.ID, got, tc.Expected)
+		}
+	}
+	for _, tc := range fixture.Reject {
+		_, err := ConvertJSON(tc.Input)
+		var adapterError *JSONAdapterError
+		if !errors.As(err, &adapterError) {
+			t.Errorf("JSON adapter reject %s: got %v, want JSONAdapterError", tc.ID, err)
+			continue
+		}
+		if adapterError.Code != tc.ErrorCode {
+			t.Errorf("JSON adapter reject %s: got code %s, want %s", tc.ID, adapterError.Code, tc.ErrorCode)
 		}
 	}
 }

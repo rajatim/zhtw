@@ -4,6 +4,7 @@ import (
 	"bytes"
 	_ "embed"
 	"encoding/json"
+	"errors"
 	"regexp"
 	"sync"
 )
@@ -39,15 +40,48 @@ type ruleCatalogJSON struct {
 }
 
 type ruleGroupJSON struct {
-	SourceLocale string              `json:"source_locale"`
-	RuleClass    string              `json:"rule_class"`
-	Domain       string              `json:"domain"`
-	TrustLevel   string              `json:"trust_level"`
-	Priority     int                 `json:"priority"`
-	Context      []string            `json:"context"`
-	Evidence     *string             `json:"evidence_source"`
-	ReviewStatus string              `json:"review_status"`
-	Rules        map[string][]string `json:"rules"`
+	SourceLocale string           `json:"source_locale"`
+	RuleClass    string           `json:"rule_class"`
+	Domain       string           `json:"domain"`
+	TrustLevel   string           `json:"trust_level"`
+	Priority     int              `json:"priority"`
+	Context      []string         `json:"context"`
+	Evidence     *string          `json:"evidence_source"`
+	ReviewStatus string           `json:"review_status"`
+	Rules        orderedRulePairs `json:"rules"`
+}
+
+type orderedRulePair struct {
+	id   string
+	pair []string
+}
+
+type orderedRulePairs struct {
+	present bool
+	entries []orderedRulePair
+}
+
+func (rules *orderedRulePairs) UnmarshalJSON(raw []byte) error {
+	decoder := json.NewDecoder(bytes.NewReader(raw))
+	token, err := decoder.Token()
+	if err != nil || token != json.Delim('{') {
+		return errors.New("zhtw: rule pairs must be a JSON object")
+	}
+	rules.present = true
+	rules.entries = make([]orderedRulePair, 0)
+	for decoder.More() {
+		key, err := decoder.Token()
+		if err != nil {
+			return err
+		}
+		var pair []string
+		if err := decoder.Decode(&pair); err != nil {
+			return err
+		}
+		rules.entries = append(rules.entries, orderedRulePair{id: key.(string), pair: pair})
+	}
+	_, err = decoder.Token()
+	return err
 }
 
 // ── Parsed data (rune-optimised) ─────────────────────────────────────────────
@@ -58,6 +92,13 @@ type parsedData struct {
 	balancedDefaults map[rune]rune
 	termsCn          map[string]string
 	termsHk          map[string]string
+	ruleRecords      map[Source]map[string][]ruleMeta
+}
+
+type ruleMeta struct {
+	id     string
+	source string
+	target string
 }
 
 var (
@@ -131,6 +172,22 @@ func mustParseData(raw []byte) *parsedData {
 	if termsHk == nil {
 		termsHk = make(map[string]string)
 	}
+	ruleRecords := map[Source]map[string][]ruleMeta{
+		SourceCn: make(map[string][]ruleMeta),
+		SourceHk: make(map[string][]ruleMeta),
+	}
+	if j.RuleCatalog != nil {
+		for _, group := range j.RuleCatalog.Groups {
+			if group.ReviewStatus != "approved" {
+				continue
+			}
+			locale := Source(group.SourceLocale)
+			for _, entry := range group.Rules.entries {
+				record := ruleMeta{id: entry.id, source: entry.pair[0], target: entry.pair[1]}
+				ruleRecords[locale][record.source] = append(ruleRecords[locale][record.source], record)
+			}
+		}
+	}
 
 	return &parsedData{
 		version:          j.Version,
@@ -138,6 +195,7 @@ func mustParseData(raw []byte) *parsedData {
 		balancedDefaults: balancedDefaults,
 		termsCn:          termsCn,
 		termsHk:          termsHk,
+		ruleRecords:      ruleRecords,
 	}
 }
 
@@ -166,7 +224,7 @@ func validateRuleCatalog(data *zhtwDataJSON) {
 			!allowedClass[group.RuleClass] || !allowedDomain[group.Domain] ||
 			!allowedTrust[group.TrustLevel] || !allowedReview[group.ReviewStatus] ||
 			group.Priority < -1000 || group.Priority > 1000 || group.Context == nil ||
-			group.Rules == nil {
+			!group.Rules.present {
 			panic("zhtw: invalid rule catalog group")
 		}
 		context := make(map[string]bool)
@@ -182,7 +240,8 @@ func validateRuleCatalog(data *zhtwDataJSON) {
 		if group.ReviewStatus == "approved" && group.Evidence == nil {
 			panic("zhtw: approved rule catalog group requires evidence")
 		}
-		for id, pair := range group.Rules {
+		for _, entry := range group.Rules.entries {
+			id, pair := entry.id, entry.pair
 			if !ruleIDPattern.MatchString(id) || ids[id] || len(pair) != 2 ||
 				pair[0] == "" || pair[1] == "" {
 				panic("zhtw: duplicate or invalid rule catalog entry")

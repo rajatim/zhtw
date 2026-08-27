@@ -26,6 +26,12 @@ import (
 func main() {
     fmt.Println(zhtw.Convert("这个软件需要优化"))
     // => "這個軟體需要最佳化"
+
+    convertedJSON, _ := zhtw.ConvertJSON(`{"软件":"这个软件"}`)
+    fmt.Println(convertedJSON)
+
+    result := zhtw.Explain("软件")
+    fmt.Println(result.Output, result.Events)
 }
 ```
 <!-- zhtw:enable -->
@@ -64,8 +70,10 @@ go install github.com/rajatim/zhtw/sdk/go/v4/cmd/zhtw@latest
 | Function | Description |
 |----------|-------------|
 | `Convert(text)` | Convert text (uses default converter) |
+| `ConvertJSON(text)` | Convert JSON string values only; reject duplicate keys |
 | `Check(text)` | Return replacements without modifying |
 | `Lookup(word)` | Look up a single word |
+| `Explain(text)` | Return converted output and stable rule events |
 | `NewBuilder()` | Custom converter with builder pattern |
 
 ## Requirements

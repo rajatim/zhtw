@@ -40,3 +40,23 @@ type ConversionDetail struct {
 	Layer    string `json:"layer"`    // "term" or "char"
 	Position int    `json:"position"` // Unicode codepoint index
 }
+
+// ExplainEvent describes why one rule was applied, protected, or skipped.
+type ExplainEvent struct {
+	RuleID      string `json:"rule_id"`
+	Layer       string `json:"layer"`
+	Outcome     string `json:"outcome"`
+	InputStart  int    `json:"input_start"`
+	InputEnd    int    `json:"input_end"`
+	OutputStart int    `json:"output_start"`
+	OutputEnd   int    `json:"output_end"`
+	Source      string `json:"source"`
+	Target      string `json:"target"`
+	ReasonCode  string `json:"reason_code"`
+}
+
+// ExplainResult contains converted output and stable rule events.
+type ExplainResult struct {
+	Output string         `json:"output"`
+	Events []ExplainEvent `json:"events"`
+}
