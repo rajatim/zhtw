@@ -18,12 +18,14 @@ API fixture，讓中文內容可以轉換，同時保留原本的結構與無關
 
 轉換後只有 value 會改變：
 
+<!-- zhtw:disable -->
 ```json
 {
-  "軟體 key": "這個軟體",
+  "软件 key": "這個軟體",
   "number": 1.00e+02
 }
 ```
+<!-- zhtw:enable -->
 
 ## Python API
 
