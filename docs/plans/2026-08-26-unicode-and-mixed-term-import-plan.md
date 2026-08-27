@@ -1,12 +1,14 @@
 # Unicode Detection and Mixed-Term Import Plan
 
-> Status: Approved
+> Status: Integrated into the Approved 4.5.0 master plan
 > Date: 2026-08-26
-> Target: 4.5.0
+> Integrated: 2026-08-27
+> Implementation approved: 2026-08-27
+> Target: 4.5.0 Phase A supporting work
 
 ## Goal
 
-Complete the first additive 4.5.0 roadmap slice without changing established
+Support the rule-foundation phase of 4.5.0 without changing established
 conversion output:
 
 1. detect Han ideographs across the Unicode 17.0 blocks already pinned by the
@@ -59,7 +61,7 @@ plan before editing those files.
 
 1. Add a Unicode 17.0 Han-range module that includes:
    - CJK Unified Ideographs;
-   - Extensions A through I;
+   - Extensions A through J;
    - CJK Compatibility Ideographs and their supplementary block.
 2. Replace the narrow converter regular expression with the shared helper.
    Keep the public `contains_chinese(text)` behavior and signature stable.
@@ -108,9 +110,13 @@ plan before editing those files.
   external service, published package, or production dictionary migration is
   involved.
 
-## Open questions
+## Integration decisions
 
-1. Should this focused slice define the full 4.5.0 feature scope, with larger
-   items such as rule schema v2 and structured adapters moved to later releases?
-2. Is the proposed technical ASCII allowlist enough for the first release, or
-   is there one required mixed-term format that needs another character?
+1. This work is supporting scope inside the 4.5.0 rule-schema phase. It does
+   not define the full 4.5.0 release by itself.
+2. Mixed-term import must write schema v2 review candidates, so it starts only
+   after the v2 rule model and compatibility contract are approved.
+3. The technical ASCII allowlist in this plan is the approved first-release
+   baseline. Expanding it requires a reviewed use case and a plan update.
+4. Implementation follows the separately approved 4.5.0 master plan and its
+   fixed compatibility baseline.

@@ -3,6 +3,9 @@
 > Status: 4.4.4 implementation and local release gate complete
 > Recorded: 2026-08-09
 > Completed: 2026-08-10
+> Future version allocation synchronized: 2026-08-27
+> Version scope source: https://rajatim.wiki/projects/zhtw/roadmap/
+> Implementation detail: `docs/plans/2026-08-27-4-5-0-rule-foundation-plan.md`
 
 ## 1. Goal
 
@@ -146,20 +149,38 @@ The reviewers disagreed about the existing protected phrase
 it for a later maintainer review. AI output remains advice rather than language
 ground truth.
 
-## 4. Version 4.5.0 candidates
+## 4. Allocated 4.x scope
 
-These changes are additive and should preserve the 4.x default behavior:
+The earlier candidate list is now assigned to explicit releases. The private
+operator roadmap fixes version goals and acceptance criteria; the repository
+implementation plan fixes files, APIs, migration steps, tests, and rollback.
+Neither document may expand the other's scope independently.
+
+### Version 4.5.0: explainable rule foundation
 
 - rule schema v2 with stable ID, source locale, domain, trust level, priority,
   context, evidence source, and review status;
+- Unicode 17.0 Han detection through Extension J and safe mixed
+  Chinese/Latin/number candidate import as part of the v2 review workflow;
+- report-only `explain` output for applied, protected, and rejected candidates;
+- an explicit opt-in JSON value adapter that preserves every non-value input
+  byte and never changes normal text conversion by default.
+
+### Version 4.6.0: profiles and structured files
+
 - separate `general`, `ui`, `it`, `formal`, `medical`, `legal`, and `social`
   profiles;
-- complete CJK Unicode detection and mixed Chinese/Latin/number term import;
-- stronger HK coverage, followed by evidence-based Singapore and Macau source
-  packs;
-- structure-aware adapters for JSON values, XML/Android resources, gettext,
-  Fluent, ICU messages, Markdown, and HTML;
-- report-only `explain` output for applied and uncertain rules.
+- opt-in XML/Android resources, gettext, Fluent, ICU message, Markdown, and
+  HTML adapters with parser, placeholder, and round-trip structure gates.
+
+### Version 4.7.0: regional source support
+
+- stronger HK coverage;
+- evidence-based Singapore and Macau source packs after the required native
+  source-region and Taiwan-output reviews.
+
+Every 4.x feature remains additive. Metadata, profiles, adapters, and regional
+packs must not silently change the established default output.
 
 ## 5. Version 5.0.0 boundary
 
