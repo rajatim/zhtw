@@ -1,8 +1,12 @@
 """Tests for review.py module."""
+# zhtw:disable  # schema-v2 review fixtures need simplified source terms
 
 import json
 from unittest.mock import MagicMock, patch
 
+import pytest
+
+from zhtw.import_terms import extract_pending_records, save_to_pending
 from zhtw.review import (
     ReviewResult,
     approve_terms,
@@ -99,6 +103,19 @@ class TestApproveTerms:
                 data = json.load(f)
             assert data["terms"] == {"new": "新"}
 
+    def test_schema_v2_terms_must_match_records(self, tmp_path):
+        pending_dir = tmp_path / "pending"
+        pending_dir.mkdir()
+        with patch("zhtw.import_terms.get_pending_dir", return_value=pending_dir):
+            packet = save_to_pending({"USB接口": "USB介面"}, "mixed", evidence_source="fixture")
+        records = extract_pending_records(json.loads(packet.read_text("utf-8")))
+
+        with (
+            patch("zhtw.review.get_builtin_terms_dir", return_value=tmp_path),
+            pytest.raises(ValueError, match="不一致"),
+        ):
+            approve_terms({"USB接口": "錯誤"}, records=records)
+
 
 class TestReviewPendingFile:
     """Test review_pending_file function."""
@@ -137,6 +154,17 @@ class TestReviewPendingFile:
             assert result.approved == 0
             assert result.terms == {}
 
+    def test_schema_v2_auto_approve_preserves_records(self, tmp_path):
+        with patch("zhtw.import_terms.get_pending_dir", return_value=tmp_path):
+            save_to_pending({"USB接口": "USB介面"}, "mixed", evidence_source="fixture")
+            data = json.loads((tmp_path / "mixed.json").read_text("utf-8"))
+
+        with patch("zhtw.review.load_pending", return_value=data):
+            result = review_pending_file("mixed", auto_approve=True)
+
+        assert result.terms == {"USB接口": "USB介面"}
+        assert result.records["USB接口"].review_status.value == "pending"
+
 
 class TestFinalizeReview:
     """Test finalize_review function."""
@@ -150,9 +178,40 @@ class TestFinalizeReview:
             patch("zhtw.review.delete_pending") as mock_delete,
         ):
             path = finalize_review("test", result, delete_after=True)
-            mock_approve.assert_called_once_with({"a": "A", "b": "B"}, "cn")
+            mock_approve.assert_called_once_with({"a": "A", "b": "B"}, "cn", records=None)
             mock_delete.assert_called_once_with("test")
             assert path == tmp_path / "out.json"
+
+    def test_finalize_schema_v2_promotes_records_into_separate_v2_file(self, tmp_path):
+        pending_dir = tmp_path / "pending"
+        pending_dir.mkdir()
+        terms_dir = tmp_path / "terms"
+        terms_dir.mkdir()
+        with patch("zhtw.import_terms.get_pending_dir", return_value=pending_dir):
+            pending_path = save_to_pending(
+                {"USB接口": "USB介面"},
+                "mixed",
+                evidence_source="fixture",
+            )
+        packet = json.loads(pending_path.read_text("utf-8"))
+        records = extract_pending_records(packet)
+        result = ReviewResult(
+            approved=1,
+            terms={"USB接口": "USB介面"},
+            records={records[0].source: records[0]},
+        )
+
+        with (
+            patch("zhtw.review.get_builtin_terms_dir", return_value=terms_dir),
+            patch("zhtw.review.delete_pending"),
+        ):
+            output = finalize_review("mixed", result)
+
+        assert output == terms_dir / "imported-v2.json"
+        data = json.loads(output.read_text("utf-8"))
+        assert data["schema_version"] == 2
+        assert data["rules"][0]["review_status"] == "approved"
+        assert data["rules"][0]["evidence_source"] == "fixture"
 
     def test_finalize_no_terms(self):
         """Test finalizing with no approved terms."""

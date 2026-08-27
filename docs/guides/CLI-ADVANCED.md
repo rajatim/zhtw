@@ -129,6 +129,27 @@ zhtw fix ./src --dict ./my-terms.json
 自訂詞庫會覆蓋同名的內建詞條。
 
 <!-- zhtw:disable -->
+## 外部詞彙匯入與待審核流程
+
+`zhtw import` 會先驗證詞彙，再寫入 schema v2 待審核檔。匯入本身不會讓詞彙進入
+正式轉換規則；必須由 maintainer 透過 `zhtw review` 做最後決定。
+
+```bash
+zhtw import ./external-terms.json --name vendor-terms
+zhtw review --list
+zhtw review --file vendor-terms.json --no-llm
+```
+
+4.5.0 起可接受安全的中英數混合技術詞，例如 `USB接口` → `USB介面`、
+`IPv6地址` → `IPv6位址` 與 `3D打印` → `3D列印`。source 與 target 都必須至少包含
+一個 Unicode 17.0 漢字；移除漢字後，英文、數字、空白與符號序列必須完全相同。
+
+目前只允許 ASCII 英文字母、數字、一般空白，以及 `. + # - _ / : @`。前後空白、
+控制字元、換行、emoji、括號、未知符號、超過 20 個 codepoint、identity、重複來源與
+現有詞庫衝突都會被拒絕。`--no-pending` 已停用，不能跳過人工審核。
+<!-- zhtw:enable -->
+
+<!-- zhtw:disable -->
 ## 相關文件
 
 - [README](../README.md) — 專案總覽、Quick Start、忽略特定程式碼 pragma

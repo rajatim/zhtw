@@ -21,6 +21,7 @@ from typing import List, Optional, Set
 from .dictionary import load_dictionary
 from .encoding import EncodingInfo
 from .matcher import Match, Matcher
+from .unicode_ranges import contains_han
 
 # Valid values for the `sources` argument of `convert()`.
 # Keeping this in sync with the subdirectories under `src/zhtw/data/terms/`.
@@ -51,9 +52,6 @@ def inject_protect_terms(
             for term in pterms:
                 terms[term] = term
 
-
-# Regex to detect Chinese characters
-CHINESE_PATTERN = re.compile(r"[\u4e00-\u9fff]")
 
 # Ignore directive patterns
 IGNORE_LINE_PATTERN = re.compile(r"zhtw:disable-line")
@@ -230,7 +228,7 @@ class ConversionResult:
 
 def contains_chinese(text: str) -> bool:
     """Check if text contains any Chinese characters."""
-    return bool(CHINESE_PATTERN.search(text))
+    return contains_han(text)
 
 
 def get_ignored_lines(text: str) -> Set[int]:

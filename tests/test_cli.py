@@ -712,6 +712,35 @@ class TestImportCommand:
 
         assert result.exit_code != 0 or "失敗" in result.output or "錯誤" in result.output
 
+    def test_import_mixed_terms_writes_schema_v2_pending_packet(
+        self, runner: CliRunner, tmp_path: Path
+    ):
+        terms_file = tmp_path / "mixed.json"
+        terms_file.write_text(
+            json.dumps({"USB接口": "USB介面", "IPv6地址": "IPv6位址"}),
+            encoding="utf-8",
+        )
+        pending_dir = tmp_path / "pending"
+        pending_dir.mkdir()
+
+        with patch("zhtw.import_terms.get_pending_dir", return_value=pending_dir):
+            result = runner.invoke(main, ["import", str(terms_file), "--name", "mixed"])
+
+        assert result.exit_code == 0
+        data = json.loads((pending_dir / "mixed.json").read_text("utf-8"))
+        assert data["schema_version"] == 2
+        assert [rule["source"] for rule in data["rules"]] == ["IPv6地址", "USB接口"]
+        assert all(rule["review_status"] == "pending" for rule in data["rules"])
+
+    def test_import_cannot_skip_pending_review(self, runner: CliRunner, tmp_path: Path):
+        terms_file = tmp_path / "terms.json"
+        terms_file.write_text(json.dumps({"测试": "測試"}), encoding="utf-8")
+
+        result = runner.invoke(main, ["import", str(terms_file), "--no-pending"])
+
+        assert result.exit_code != 0
+        assert "不可跳過待審核流程" in result.output
+
 
 # =============================================================================
 # Review Command Tests

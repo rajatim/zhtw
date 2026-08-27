@@ -10,6 +10,8 @@ from unittest.mock import MagicMock, patch
 from zhtw.import_terms import (
     ImportResult,
     delete_pending,
+    extract_pending_records,
+    extract_pending_terms,
     import_terms,
     is_simplified_chinese,
     list_pending,
@@ -82,6 +84,46 @@ class TestValidateTerm:
 
         assert is_valid is False
         assert "非中文" in error
+
+    def test_safe_mixed_technical_terms(self):
+        """Approved technical ASCII is allowed when its sequence is unchanged."""
+        for source, target in (
+            ("USB接口", "USB介面"),
+            ("IPv6地址", "IPv6位址"),
+            ("3D打印", "3D列印"),
+            ("C++程序", "C++程式"),
+            ("API/接口", "API/介面"),
+        ):
+            assert validate_term(source, target, {}) == (True, None)
+
+    def test_supplementary_han_mixed_term(self):
+        """Supplementary-plane Han counts as Han, not unsafe punctuation."""
+        assert validate_term(f"USB{chr(0x20000)}", f"USB{chr(0x20001)}", {}) == (True, None)
+
+    def test_non_han_sequence_must_stay_identical(self):
+        is_valid, error = validate_term("HTTP接口", "HTTPS介面", {})
+
+        assert is_valid is False
+        assert "序列不同" in error
+
+    def test_rejects_leading_or_trailing_whitespace(self):
+        is_valid, error = validate_term(" USB接口", " USB介面", {})
+
+        assert is_valid is False
+        assert "前後空白" in error
+
+    def test_rejects_control_characters(self):
+        is_valid, error = validate_term("USB\n接口", "USB\n介面", {})
+
+        assert is_valid is False
+        assert "控制字元" in error
+
+    def test_rejects_unapproved_symbols(self):
+        for source, target in (("USB(接口)", "USB(介面)"), ("USB😀接口", "USB😀介面")):
+            is_valid, error = validate_term(source, target, {})
+
+            assert is_valid is False
+            assert "不支援" in error
 
     def test_conflict_with_existing(self):
         """Test conflict with existing term fails."""
@@ -211,7 +253,7 @@ class TestImportTerms:
             Path(path).unlink()
 
     def test_import_list_format_detects_duplicate_sources(self):
-        """Test duplicate sources in list format are counted instead of hidden."""
+        """Duplicate sources are reported and excluded from pending terms."""
         with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             json.dump(
                 [
@@ -229,7 +271,8 @@ class TestImportTerms:
             assert result.total == 2
             assert result.duplicates == 1
             assert "重複: 软件" in result.errors
-            assert result.terms == {"软件": "軟件"}
+            assert result.invalid == 1
+            assert result.terms == {}
         finally:
             Path(path).unlink()
 
@@ -244,7 +287,11 @@ class TestSaveToPending:
 
             with patch("zhtw.import_terms.get_pending_dir", return_value=pending_dir):
                 terms = {"软件": "軟體"}
-                path = save_to_pending(terms, "test-import")
+                path = save_to_pending(
+                    terms,
+                    "test-import",
+                    evidence_source="https://example.com/terms.json",
+                )
 
                 assert path.exists()
                 assert path.name == "test-import.json"
@@ -252,8 +299,37 @@ class TestSaveToPending:
                 with open(path, encoding="utf-8") as f:
                     data = json.load(f)
 
-                assert data["terms"] == terms
-                assert data["status"] == "pending"
+                assert data["schema_version"] == 2
+                assert extract_pending_terms(data) == terms
+                records = extract_pending_records(data)
+                assert len(records) == 1
+                assert records[0].review_status.value == "pending"
+                assert records[0].trust_level.value == "imported"
+                assert records[0].evidence_source == "https://example.com/terms.json"
+
+                from jsonschema import Draft202012Validator
+
+                schema_path = (
+                    Path(__file__).parents[1]
+                    / "src"
+                    / "zhtw"
+                    / "data"
+                    / "schemas"
+                    / "rule-v2.schema.json"
+                )
+                schema = json.loads(schema_path.read_text("utf-8"))
+                Draft202012Validator(schema).validate(data)
+
+    def test_pending_packet_is_deterministic(self):
+        """The same packet name and terms produce byte-identical review data."""
+        with tempfile.TemporaryDirectory() as first, tempfile.TemporaryDirectory() as second:
+            terms = {"USB接口": "USB介面", "IPv6地址": "IPv6位址"}
+            with patch("zhtw.import_terms.get_pending_dir", return_value=Path(first)):
+                first_path = save_to_pending(terms, "packet", evidence_source="fixture")
+            with patch("zhtw.import_terms.get_pending_dir", return_value=Path(second)):
+                second_path = save_to_pending(terms, "packet", evidence_source="fixture")
+
+            assert first_path.read_bytes() == second_path.read_bytes()
 
     def test_save_cleans_name(self):
         """Test save cleans up filename."""
@@ -417,6 +493,20 @@ class TestListPending:
                 assert results[0]["description"] == "Test file 1"
                 assert results[1]["name"] == "test2.json"
                 assert results[1]["terms_count"] == 1
+
+    def test_list_schema_v2_pending_file(self, tmp_path):
+        with patch("zhtw.import_terms.get_pending_dir", return_value=tmp_path):
+            save_to_pending(
+                {"USB接口": "USB介面", "IPv6地址": "IPv6位址"},
+                "mixed",
+                evidence_source="fixture",
+            )
+            results = list_pending()
+
+        assert len(results) == 1
+        assert results[0]["terms_count"] == 2
+        assert results[0]["description"] == "fixture"
+        assert results[0]["status"] == "pending"
 
     def test_list_skips_invalid_json(self):
         """Test listing skips invalid JSON files."""

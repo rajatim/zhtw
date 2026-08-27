@@ -1,12 +1,24 @@
 """Import terms from external sources."""
 
+import hashlib
 import json
 import re
+import string
 import urllib.error
 import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, List, Optional, Tuple
+
+from .rules import (
+    ReviewStatus,
+    RuleCatalogError,
+    RuleClass,
+    RuleRecord,
+    SourceLocale,
+    TrustLevel,
+)
+from .unicode_ranges import contains_han, is_han_character
 
 
 @dataclass
@@ -65,6 +77,7 @@ def _extract_terms(data: Any) -> Tuple[dict, List[str], int]:
 
 
 _simplified_chars_cache: Optional[set] = None
+_TECHNICAL_ASCII = frozenset(string.ascii_letters + string.digits + " .+#-_/:@")
 
 
 def get_pending_dir() -> Path:
@@ -99,24 +112,37 @@ def validate_term(source: str, target: str, existing_terms: dict) -> tuple[bool,
     Returns:
         (is_valid, error_message)
     """
-    # Check empty
-    if not source or not target:
+    if not isinstance(source, str) or not isinstance(target, str) or not source or not target:
         return False, "來源或目標為空"
 
-    # Check same
     if source == target:
         return False, "來源與目標相同"
 
-    # Check length
     if len(source) > 20 or len(target) > 20:
         return False, "詞彙過長（超過 20 字元）"
 
-    # Check for non-Chinese characters (allow some punctuation)
-    chinese_pattern = re.compile(r"^[\u4e00-\u9fff\u3400-\u4dbf]+$")
-    if not chinese_pattern.match(source):
-        return False, "來源包含非中文字元"
-    if not chinese_pattern.match(target):
-        return False, "目標包含非中文字元"
+    if source != source.strip() or target != target.strip():
+        return False, "來源或目標含前後空白"
+
+    if any(ord(character) < 0x20 or ord(character) == 0x7F for character in source + target):
+        return False, "來源或目標含控制字元或換行"
+
+    if not contains_han(source):
+        return False, "來源缺少中文字元（純非中文）"
+    if not contains_han(target):
+        return False, "目標缺少中文字元（純非中文）"
+
+    for label, value in (("來源", source), ("目標", target)):
+        if any(
+            not is_han_character(character) and character not in _TECHNICAL_ASCII
+            for character in value
+        ):
+            return False, f"{label}包含不支援的非中文字元"
+
+    source_non_han = "".join(character for character in source if not is_han_character(character))
+    target_non_han = "".join(character for character in target if not is_han_character(character))
+    if source_non_han != target_non_han:
+        return False, "來源與目標的非中文字元序列不同"
 
     # Check for conflicts with existing terms
     if source in existing_terms:
@@ -215,6 +241,7 @@ def import_terms(
             raise ImportError(f"JSON 解析錯誤: {e}")
 
     raw_terms, duplicate_sources, total_terms = _extract_terms(data)
+    duplicate_source_set = set(duplicate_sources)
 
     result.total = total_terms
     result.duplicates = len(duplicate_sources)
@@ -222,6 +249,9 @@ def import_terms(
 
     # Validate each term
     for src, tgt in raw_terms.items():
+        if src in duplicate_source_set:
+            result.invalid += 1
+            continue
         if validate:
             is_valid, error = validate_term(src, tgt, existing)
             if not is_valid:
@@ -237,7 +267,28 @@ def import_terms(
     return result
 
 
-def save_to_pending(terms: dict, name: str) -> Path:
+def _candidate_rule_id(source_locale: SourceLocale, source: str, target: str) -> str:
+    identity = json.dumps(
+        {
+            "rule_class": RuleClass.CUSTOM.value,
+            "source": source,
+            "source_locale": source_locale.value,
+            "target": target,
+        },
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return f"candidate:{source_locale.value}:custom:{hashlib.sha256(identity).hexdigest()[:24]}"
+
+
+def save_to_pending(
+    terms: dict,
+    name: str,
+    *,
+    evidence_source: str | None = None,
+    source_locale: str = "cn",
+) -> Path:
     """Save terms to pending directory for review.
 
     Args:
@@ -247,26 +298,73 @@ def save_to_pending(terms: dict, name: str) -> Path:
     Returns:
         Path to the saved file
     """
-    pending_dir = get_pending_dir()
-
     # Clean up name
     clean_name = re.sub(r"[^\w\-]", "_", name)
     if not clean_name.endswith(".json"):
         clean_name += ".json"
 
+    pending_dir = get_pending_dir()
     path = pending_dir / clean_name
-
-    data = {
-        "version": "1.0",
-        "description": f"匯入於 {__import__('datetime').datetime.now().isoformat()}",
-        "status": "pending",
-        "terms": terms,
-    }
+    locale = SourceLocale(source_locale)
+    provenance = evidence_source or name
+    packet_context = f"import-packet:{Path(clean_name).stem}"
+    records = [
+        RuleRecord(
+            id=_candidate_rule_id(locale, source, target),
+            source_locale=locale,
+            source=source,
+            target=target,
+            rule_class=RuleClass.CUSTOM,
+            domain="general",
+            trust_level=TrustLevel.IMPORTED,
+            priority=0,
+            context=(packet_context,),
+            evidence_source=provenance,
+            review_status=ReviewStatus.PENDING,
+        )
+        for source, target in sorted(terms.items())
+    ]
+    data = {"schema_version": 2, "rules": [record.to_mapping() for record in records]}
 
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+        f.write("\n")
 
     return path
+
+
+def extract_pending_records(data: Any) -> tuple[RuleRecord, ...]:
+    """Parse a schema-v2 pending packet and reject malformed review state."""
+
+    if not isinstance(data, dict) or data.get("schema_version") != 2:
+        return ()
+    if set(data) != {"schema_version", "rules"} or not isinstance(data["rules"], list):
+        raise ImportError("待審核 schema v2 格式不正確")
+    try:
+        records = tuple(RuleRecord.from_mapping(item) for item in data["rules"])
+    except RuleCatalogError as exc:
+        raise ImportError(f"待審核規則格式不正確: {exc}") from exc
+    if any(record.review_status is not ReviewStatus.PENDING for record in records):
+        raise ImportError("待審核規則的 review_status 必須是 pending")
+    if len({record.id for record in records}) != len(records):
+        raise ImportError("待審核規則含重複 ID")
+    if len({record.source for record in records}) != len(records):
+        raise ImportError("待審核規則含重複來源")
+    return records
+
+
+def extract_pending_terms(data: Any) -> dict[str, str]:
+    """Return terms from schema-v2 packets or legacy pending files."""
+
+    records = extract_pending_records(data)
+    if records:
+        return {record.source: record.target for record in records}
+    if isinstance(data, dict) and data.get("schema_version") == 2:
+        return {}
+    terms = data.get("terms", {}) if isinstance(data, dict) else {}
+    if not isinstance(terms, dict):
+        raise ImportError("待審核詞彙格式不正確")
+    return terms
 
 
 def list_pending() -> list[dict]:
@@ -282,16 +380,21 @@ def list_pending() -> list[dict]:
         try:
             with open(path, encoding="utf-8") as f:
                 data = json.load(f)
+                records = extract_pending_records(data)
+                terms = extract_pending_terms(data)
                 results.append(
                     {
                         "path": path,
                         "name": path.name,
-                        "terms_count": len(data.get("terms", {})),
-                        "description": data.get("description", ""),
-                        "status": data.get("status", "pending"),
+                        "terms_count": len(terms),
+                        "description": data.get(
+                            "description",
+                            records[0].evidence_source if records else "",
+                        ),
+                        "status": "pending" if records else data.get("status", "pending"),
                     }
                 )
-        except (json.JSONDecodeError, IOError):
+        except (json.JSONDecodeError, IOError, ImportError):
             continue
 
     return results

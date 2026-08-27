@@ -8,7 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- 漢字偵測擴充到 Unicode 17.0 的基本區、Extensions A～J 與兩個相容漢字區；外部詞彙
+  匯入可接受非 Han 序列完全一致的安全中英數混合技術詞，並以 schema v2 規則保存
+  provenance 與 pending review 狀態。
+
 ### Changed
+- 外部詞彙匯入一律先進待審核區，不再允許用 `--no-pending` 直接寫入正式詞庫；重複
+  來源也會整組拒絕，不再保留最後一筆。
 - zhtw Jenkins build、verify、release 改為只在準備發版時手動執行；移除每日與每週
   排程，build 固定從 `main` 建立候選，不再接受任意 branch。
 - 候選新增 Rust、Go、.NET、Maven 相依套件安全閘門、完整 toolchain 證據，以及從

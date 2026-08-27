@@ -30,6 +30,12 @@ class TestContainsChinese:
         assert contains_chinese("123 abc") is False
         assert contains_chinese("") is False
 
+    def test_contains_chinese_unicode_17_supplementary_blocks(self):
+        """Supplementary and compatibility Han blocks enter file scanning."""
+        assert contains_chinese(chr(0x20000)) is True  # Extension B
+        assert contains_chinese(chr(0x323B0)) is True  # Extension J
+        assert contains_chinese(chr(0x2F800)) is True  # Compatibility supplement
+
 
 class TestShouldCheckFile:
     """Test file filtering logic."""

@@ -910,7 +910,7 @@ def validate(source: str, strict: bool):
 @click.option(
     "--no-pending",
     is_flag=True,
-    help="直接匯入，跳過暫存審核（不建議）",
+    help="已停用：4.5.0 起所有匯入都必須先進待審核區",
 )
 @click.option(
     "--name",
@@ -939,6 +939,9 @@ def import_cmd(source: str, no_pending: bool, name: Optional[str], allow_insecur
     """
     from .import_terms import ImportError as TermImportError
     from .import_terms import import_terms, save_to_pending
+
+    if no_pending:
+        raise click.UsageError("4.5.0 起不可跳過待審核流程；請移除 --no-pending")
 
     click.echo(f"📥 匯入詞庫: {source}")
 
@@ -974,26 +977,18 @@ def import_cmd(source: str, no_pending: bool, name: Optional[str], allow_insecur
         click.echo(click.style("\n❌ 無有效詞彙可匯入", fg="red"))
         sys.exit(1)
 
-    if no_pending:
-        # Direct import (not recommended)
-        from .review import approve_terms
+    if not name:
+        # Generate name from source
+        if source.startswith("http"):
+            name = source.split("/")[-1].replace(".json", "")
+        else:
+            name = Path(source).stem
+        name = f"import_{name}"
 
-        path = approve_terms(result.terms)
-        click.echo(click.style(f"\n✅ 已直接匯入 {result.valid} 個詞彙到 {path}", fg="green"))
-    else:
-        # Save to pending
-        if not name:
-            # Generate name from source
-            if source.startswith("http"):
-                name = source.split("/")[-1].replace(".json", "")
-            else:
-                name = Path(source).stem
-            name = f"import_{name}"
-
-        path = save_to_pending(result.terms, name)
-        click.echo(click.style(f"\n✅ 已儲存 {result.valid} 個詞彙到暫存區", fg="green"))
-        click.echo(f"   檔案: {path}")
-        click.echo("\n💡 使用 'zhtw review' 審核並核准詞彙")
+    path = save_to_pending(result.terms, name, evidence_source=source)
+    click.echo(click.style(f"\n✅ 已儲存 {result.valid} 個詞彙到暫存區", fg="green"))
+    click.echo(f"   檔案: {path}")
+    click.echo("\n💡 使用 'zhtw review' 審核並核准詞彙")
 
 
 @main.command()
