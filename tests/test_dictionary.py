@@ -5,12 +5,18 @@ import json
 import tempfile
 from pathlib import Path
 
+import pytest
+
 from zhtw.dictionary import (
     load_builtin,
+    load_builtin_catalog,
     load_custom,
     load_dictionary,
+    load_dictionary_catalog,
     load_json_file,
+    load_rule_file,
 )
+from zhtw.rules import ReviewStatus, RuleCatalogError, RuleClass, TrustLevel
 
 
 class TestDictionary:
@@ -71,6 +77,15 @@ class TestDictionary:
             terms = load_custom(Path(f.name))
 
         assert terms == {"自定义": "自訂"}
+
+    def test_legacy_custom_keeps_applying_with_hk_only(self, tmp_path):
+        """Legacy custom files had no locale and must preserve that behavior."""
+        custom = tmp_path / "custom.json"
+        custom.write_text('{"自定义": "自訂"}', encoding="utf-8")
+
+        terms = load_dictionary(sources=["hk"], custom_path=custom)
+
+        assert terms["自定义"] == "自訂"
 
     def test_wrapped_format_excludes_underscore_metadata(self):
         """Section comments inside `terms` are not runtime conversion rules."""
@@ -171,3 +186,142 @@ class TestDictionary:
         assert "source" not in terms
         assert "license" not in terms
         assert "_comment_source" not in terms
+
+    def test_schema_v2_loads_only_approved_rules(self, tmp_path):
+        path = tmp_path / "rules.json"
+        path.write_text(
+            json.dumps(
+                {
+                    "schema_version": 2,
+                    "rules": [
+                        {
+                            "id": "rule:cn:it:approved",
+                            "source_locale": "cn",
+                            "source": "软件",
+                            "target": "軟體",
+                            "rule_class": "custom",
+                            "domain": "it",
+                            "trust_level": "custom",
+                            "priority": 400,
+                            "context": [],
+                            "evidence_source": "maintainer-review-2026-08-27",
+                            "review_status": "approved",
+                        },
+                        {
+                            "id": "rule:cn:it:pending",
+                            "source_locale": "cn",
+                            "source": "测试",
+                            "target": "測試",
+                            "rule_class": "custom",
+                            "domain": "it",
+                            "trust_level": "custom",
+                            "priority": 400,
+                            "context": [],
+                            "evidence_source": None,
+                            "review_status": "pending",
+                        },
+                    ],
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+        result = load_rule_file(path)
+
+        assert result.terms == {"软件": "軟體"}
+        assert len(result.catalog) == 2
+        assert result.catalog[1].review_status is ReviewStatus.PENDING
+
+    def test_schema_v2_filters_explicit_source_locale(self, tmp_path):
+        path = tmp_path / "rules.json"
+        rule = {
+            "id": "rule:hk:it:approved",
+            "source_locale": "hk",
+            "source": "軟件",
+            "target": "軟體",
+            "rule_class": "custom",
+            "domain": "it",
+            "trust_level": "custom",
+            "priority": 400,
+            "context": [],
+            "evidence_source": "maintainer-review-2026-08-27",
+            "review_status": "approved",
+        }
+        path.write_text(
+            json.dumps({"schema_version": 2, "rules": [rule]}, ensure_ascii=False),
+            encoding="utf-8",
+        )
+
+        assert (
+            load_dictionary(sources=["cn"], custom_path=path, include_builtin=False).get("軟件")
+            is None
+        )
+        assert (
+            load_dictionary(sources=["hk"], custom_path=path, include_builtin=False)["軟件"]
+            == "軟體"
+        )
+
+    @pytest.mark.parametrize("version", [3, True, "2"])
+    def test_schema_v2_rejects_unknown_version(self, tmp_path, version):
+        path = tmp_path / "rules.json"
+        path.write_text(
+            json.dumps({"schema_version": version, "rules": []}),
+            encoding="utf-8",
+        )
+
+        with pytest.raises(RuleCatalogError, match="unsupported dictionary schema_version"):
+            load_rule_file(path)
+
+    def test_schema_v2_rejects_rule_class_mismatch(self, tmp_path):
+        path = tmp_path / "rules.json"
+        payload = {
+            "schema_version": 2,
+            "rules": [
+                {
+                    "id": "rule:cn:it:wrong-class",
+                    "source_locale": "cn",
+                    "source": "软件",
+                    "target": "軟體",
+                    "rule_class": "curated",
+                    "domain": "it",
+                    "trust_level": "curated",
+                    "priority": 300,
+                    "context": [],
+                    "evidence_source": "maintainer-review-2026-08-27",
+                    "review_status": "approved",
+                }
+            ],
+        }
+        path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+
+        with pytest.raises(RuleCatalogError, match="rule_class does not match"):
+            load_rule_file(path)
+
+    def test_builtin_catalog_preserves_effective_terms_and_precedence_metadata(self):
+        result = load_builtin_catalog(["cn"])
+
+        assert result.terms == load_builtin(["cn"])
+        assert {record.rule_class for record in result.catalog} == {
+            RuleClass.BULK,
+            RuleClass.GENERATED_GUARD,
+            RuleClass.CURATED,
+        }
+        priorities = {record.rule_class: record.priority for record in result.catalog}
+        assert priorities == {
+            RuleClass.BULK: 100,
+            RuleClass.GENERATED_GUARD: 200,
+            RuleClass.CURATED: 300,
+        }
+        trusts = {record.rule_class: record.trust_level for record in result.catalog}
+        assert trusts == {
+            RuleClass.BULK: TrustLevel.IMPORTED,
+            RuleClass.GENERATED_GUARD: TrustLevel.GENERATED,
+            RuleClass.CURATED: TrustLevel.CURATED,
+        }
+
+    def test_dictionary_catalog_matches_legacy_runtime_map(self):
+        result = load_dictionary_catalog()
+
+        assert result.terms == load_dictionary()
+        assert len(result.catalog) >= len(result.terms)

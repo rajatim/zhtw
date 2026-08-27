@@ -260,17 +260,35 @@ def legacy_rule_record(
 
 
 def validate_rule_catalog(records: Iterable[RuleRecord]) -> tuple[RuleRecord, ...]:
-    """Validate IDs and collapse only byte-equivalent duplicate records."""
+    """Validate stable identities and let later equivalent metadata win."""
 
     by_id: dict[str, RuleRecord] = {}
     ordered: list[RuleRecord] = []
+    positions: dict[str, int] = {}
     for record in records:
         if not isinstance(record, RuleRecord):
             raise RuleCatalogError("catalog items must be RuleRecord instances")
         previous = by_id.get(record.id)
         if previous is None:
             by_id[record.id] = record
+            positions[record.id] = len(ordered)
             ordered.append(record)
-        elif previous != record:
+            continue
+
+        previous_identity = (
+            previous.source_locale,
+            previous.source,
+            previous.target,
+            previous.rule_class,
+        )
+        record_identity = (
+            record.source_locale,
+            record.source,
+            record.target,
+            record.rule_class,
+        )
+        if previous_identity != record_identity:
             raise RuleCatalogError(f"rule id {record.id!r} points to different content")
+        by_id[record.id] = record
+        ordered[positions[record.id]] = record
     return tuple(ordered)
