@@ -47,7 +47,7 @@ export interface Converter {
 
 /** Shape of sdk/data/zhtw-data.json. */
 export interface ZhtwData {
-  schema_version: 1;
+  schema_version: 1 | 2;
   version: string;
   charmap: {
     chars: Record<string, string>;
@@ -57,4 +57,18 @@ export interface ZhtwData {
   };
   terms: Record<string, Record<string, string>>;
   stats?: Record<string, unknown>;
+  rule_catalog?: {
+    format: 'grouped-v1';
+    groups: Array<{
+      source_locale: Source;
+      rule_class: 'bulk' | 'generated_guard' | 'curated' | 'custom';
+      domain: string;
+      trust_level: 'imported' | 'generated' | 'curated' | 'custom';
+      priority: number;
+      context: string[];
+      evidence_source: string | null;
+      review_status: 'pending' | 'approved' | 'rejected';
+      rules: Record<string, [string, string]>;
+    }>;
+  };
 }

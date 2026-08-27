@@ -4,19 +4,20 @@
   "title": "zhtw SDK data",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "version", "stats", "charmap", "terms"],
+  "required": ["schema_version", "version", "stats", "charmap", "terms", "rule_catalog"],
   "properties": {
-    "schema_version": { "const": 1 },
+    "schema_version": { "const": 2 },
     "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
     "stats": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["charmap_count", "ambiguous_count", "terms_cn_count", "terms_hk_count"],
+      "required": ["charmap_count", "ambiguous_count", "terms_cn_count", "terms_hk_count", "rule_catalog_count"],
       "properties": {
         "charmap_count": { "type": "integer", "minimum": 0 },
         "ambiguous_count": { "type": "integer", "minimum": 0 },
         "terms_cn_count": { "type": "integer", "minimum": 0 },
-        "terms_hk_count": { "type": "integer", "minimum": 0 }
+        "terms_hk_count": { "type": "integer", "minimum": 0 },
+        "rule_catalog_count": { "type": "integer", "minimum": 0 }
       }
     },
     "charmap": {
@@ -38,6 +39,18 @@
       "propertyNames": { "enum": ["cn", "hk"] },
       "additionalProperties": { "$ref": "#/$defs/stringMap" },
       "minProperties": 1
+    },
+    "rule_catalog": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["format", "groups"],
+      "properties": {
+        "format": { "const": "grouped-v1" },
+        "groups": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ruleGroup" }
+        }
+      }
     }
   },
   "$defs": {
@@ -45,6 +58,64 @@
       "type": "object",
       "propertyNames": { "minLength": 1 },
       "additionalProperties": { "type": "string", "minLength": 1 }
+    },
+    "ruleGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_locale",
+        "rule_class",
+        "domain",
+        "trust_level",
+        "priority",
+        "context",
+        "evidence_source",
+        "review_status",
+        "rules"
+      ],
+      "properties": {
+        "source_locale": { "enum": ["cn", "hk"] },
+        "rule_class": { "enum": ["bulk", "generated_guard", "curated", "custom"] },
+        "domain": {
+          "enum": ["general", "business", "daily", "ecommerce", "education", "finance", "formal", "gaming", "geography", "it", "legal", "medical", "social", "ui"]
+        },
+        "trust_level": { "enum": ["imported", "generated", "curated", "custom"] },
+        "priority": { "type": "integer", "minimum": -1000, "maximum": 1000 },
+        "context": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "evidence_source": { "type": ["string", "null"], "minLength": 1 },
+        "review_status": { "enum": ["pending", "approved", "rejected"] },
+        "rules": {
+          "type": "object",
+          "propertyNames": { "pattern": "^[a-z0-9][a-z0-9._:-]{2,127}$" },
+          "additionalProperties": {
+            "type": "array",
+            "prefixItems": [
+              { "type": "string", "minLength": 1 },
+              { "type": "string", "minLength": 1 }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "review_status": { "const": "approved" } },
+            "required": ["review_status"]
+          },
+          "then": {
+            "properties": {
+              "evidence_source": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ]
     }
   }
 }

@@ -15,12 +15,52 @@ from .charconv import (
     load_charmap,
 )
 from .converter import convert_text, inject_protect_terms
-from .dictionary import DATA_DIR, load_dictionary, load_directory
+from .dictionary import DATA_DIR, load_dictionary, load_directory_catalog
 from .lookup import lookup_word
 from .matcher import Matcher
+from .rules import (
+    RuleClass,
+    SourceLocale,
+    TrustLevel,
+    legacy_rule_record,
+    validate_rule_catalog,
+)
 
-DATA_SCHEMA_VERSION = 1
+DATA_SCHEMA_VERSION = 2
 GOLDEN_SCHEMA_VERSION = 1
+
+
+def _group_rule_catalog(catalog: list) -> Dict[str, Any]:
+    """Compact repeated metadata while keeping every rule independently addressable."""
+
+    groups: Dict[tuple, Dict[str, Any]] = {}
+    for record in catalog:
+        key = (
+            record.source_locale.value,
+            record.rule_class.value,
+            record.domain,
+            record.trust_level.value,
+            record.priority,
+            record.context,
+            record.evidence_source,
+            record.review_status.value,
+        )
+        group = groups.get(key)
+        if group is None:
+            group = {
+                "source_locale": record.source_locale.value,
+                "rule_class": record.rule_class.value,
+                "domain": record.domain,
+                "trust_level": record.trust_level.value,
+                "priority": record.priority,
+                "context": list(record.context),
+                "evidence_source": record.evidence_source,
+                "review_status": record.review_status.value,
+                "rules": {},
+            }
+            groups[key] = group
+        group["rules"][record.id] = [record.source, record.target]
+    return {"format": "grouped-v1", "groups": list(groups.values())}
 
 
 def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
@@ -40,9 +80,11 @@ def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
 
     terms: Dict[str, Dict[str, str]] = {}
     terms_counts: Dict[str, int] = {}
+    catalog = []
     for src in sources:
-        src_terms = load_directory(DATA_DIR / src)
-        terms[src] = src_terms
+        loaded = load_directory_catalog(DATA_DIR / src, src)
+        terms[src] = loaded.terms
+        catalog.extend(loaded.catalog)
 
     # Bake protect_terms into CN terms so SDKs get them without special code.
     # Identity entries (source == target) are handled natively by all SDKs'
@@ -51,6 +93,20 @@ def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
         for _char, pterms in get_protect_terms().items():
             for term in pterms:
                 terms["cn"][term] = term
+                catalog.append(
+                    legacy_rule_record(
+                        source_locale=SourceLocale.CN,
+                        source=term,
+                        target=term,
+                        rule_class=RuleClass.GENERATED_GUARD,
+                        domain="general",
+                        trust_level=TrustLevel.GENERATED,
+                        priority=200,
+                        evidence_source="data/charmap/disambiguation.json",
+                    )
+                )
+
+    catalog = list(validate_rule_catalog(catalog))
 
     for src in sources:
         terms_counts[src] = len(terms[src])
@@ -63,6 +119,7 @@ def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
             "ambiguous_count": len(ambiguous),
             "terms_cn_count": terms_counts.get("cn", 0),
             "terms_hk_count": terms_counts.get("hk", 0),
+            "rule_catalog_count": len(catalog),
         },
         "charmap": {
             "chars": charmap,
@@ -71,6 +128,7 @@ def export_data(sources: Optional[List[str]] = None) -> Dict[str, Any]:
             "balanced_protect_terms": get_protect_terms(),
         },
         "terms": terms,
+        "rule_catalog": _group_rule_catalog(catalog),
     }
 
 

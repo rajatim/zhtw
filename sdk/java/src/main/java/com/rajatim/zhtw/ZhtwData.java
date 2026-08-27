@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * Loads and provides access to zhtw-data.json.
@@ -23,7 +24,18 @@ import java.util.Set;
  */
 final class ZhtwData {
 
-    private static final int SUPPORTED_SCHEMA_VERSION = 1;
+    private static final Set<Integer> SUPPORTED_SCHEMA_VERSIONS = Set.of(1, 2);
+    private static final Pattern RULE_ID =
+            Pattern.compile("^[a-z0-9][a-z0-9._:-]{2,127}$");
+    private static final Set<String> RULE_CLASSES =
+            Set.of("bulk", "generated_guard", "curated", "custom");
+    private static final Set<String> TRUST_LEVELS =
+            Set.of("imported", "generated", "curated", "custom");
+    private static final Set<String> REVIEW_STATUSES =
+            Set.of("pending", "approved", "rejected");
+    private static final Set<String> RULE_DOMAINS = Set.of(
+            "general", "business", "daily", "ecommerce", "education", "finance", "formal",
+            "gaming", "geography", "it", "legal", "medical", "social", "ui");
 
     private final String version;
     private final Map<Integer, String> charmap;   // codepoint -> replacement string
@@ -70,15 +82,21 @@ final class ZhtwData {
         }
 
         Number schemaVersion = (Number) root.get("schema_version");
-        if (schemaVersion == null || schemaVersion.intValue() != SUPPORTED_SCHEMA_VERSION) {
+        if (schemaVersion == null
+                || schemaVersion.doubleValue() % 1 != 0
+                || !SUPPORTED_SCHEMA_VERSIONS.contains(schemaVersion.intValue())) {
             throw new IllegalStateException("Unsupported zhtw data schema version");
         }
+        int parsedSchemaVersion = schemaVersion.intValue();
 
         String version = (String) root.get("version");
         if (version == null || version.isEmpty()) {
             throw new IllegalStateException("Missing zhtw data version");
         }
-        if (!root.keySet().equals(Set.of("schema_version", "version", "stats", "charmap", "terms"))) {
+        Set<String> expectedRoot = parsedSchemaVersion == 1
+                ? Set.of("schema_version", "version", "stats", "charmap", "terms")
+                : Set.of("schema_version", "version", "stats", "charmap", "terms", "rule_catalog");
+        if (!root.keySet().equals(expectedRoot)) {
             throw new IllegalStateException("Unexpected or missing top-level zhtw data fields");
         }
 
@@ -136,7 +154,124 @@ final class ZhtwData {
             terms.put(e.getKey(), new HashMap<>(sourceTerms));
         }
 
+        if (parsedSchemaVersion == 2) {
+            validateRuleCatalog(root, rawTerms);
+        }
+
         return new ZhtwData(version, charmap, ambiguous, balancedDefaults, terms);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static void validateRuleCatalog(
+            Map<String, Object> root,
+            Map<String, Object> rawTerms) {
+        Object rawCatalog = root.get("rule_catalog");
+        if (!(rawCatalog instanceof Map)) {
+            throw new IllegalStateException("rule_catalog must be an object");
+        }
+        Map<String, Object> catalog = (Map<String, Object>) rawCatalog;
+        if (!catalog.keySet().equals(Set.of("format", "groups"))
+                || !"grouped-v1".equals(catalog.get("format"))
+                || !(catalog.get("groups") instanceof List)) {
+            throw new IllegalStateException("Invalid rule_catalog envelope");
+        }
+
+        Set<String> ids = new HashSet<>();
+        Set<String> approved = new HashSet<>();
+        int count = 0;
+        for (Object rawGroup : (List<Object>) catalog.get("groups")) {
+            if (!(rawGroup instanceof Map)) {
+                throw new IllegalStateException("rule_catalog group must be an object");
+            }
+            Map<String, Object> group = (Map<String, Object>) rawGroup;
+            Set<String> groupKeys = Set.of(
+                    "source_locale", "rule_class", "domain", "trust_level", "priority",
+                    "context", "evidence_source", "review_status", "rules");
+            if (!group.keySet().equals(groupKeys)) {
+                throw new IllegalStateException("Unexpected or missing rule_catalog group fields");
+            }
+            String locale = requireMember(group, "source_locale");
+            String ruleClass = requireMember(group, "rule_class");
+            String domain = requireMember(group, "domain");
+            String trust = requireMember(group, "trust_level");
+            String review = requireMember(group, "review_status");
+            if (!Set.of("cn", "hk").contains(locale)
+                    || !RULE_CLASSES.contains(ruleClass)
+                    || !RULE_DOMAINS.contains(domain)
+                    || !TRUST_LEVELS.contains(trust)
+                    || !REVIEW_STATUSES.contains(review)) {
+                throw new IllegalStateException("Invalid rule_catalog group metadata");
+            }
+            Object priority = group.get("priority");
+            if (!(priority instanceof Number)
+                    || ((Number) priority).doubleValue() % 1 != 0
+                    || ((Number) priority).intValue() < -1000
+                    || ((Number) priority).intValue() > 1000) {
+                throw new IllegalStateException("Invalid rule_catalog priority");
+            }
+            Object context = group.get("context");
+            if (!(context instanceof List)
+                    || ((List<Object>) context).stream().anyMatch(
+                            item -> !(item instanceof String) || ((String) item).isEmpty())
+                    || new HashSet<>((List<Object>) context).size() != ((List<Object>) context).size()) {
+                throw new IllegalStateException("Invalid rule_catalog context");
+            }
+            Object evidence = group.get("evidence_source");
+            if (evidence != null && (!(evidence instanceof String) || ((String) evidence).isEmpty())) {
+                throw new IllegalStateException("Invalid rule_catalog evidence_source");
+            }
+            if ("approved".equals(review) && evidence == null) {
+                throw new IllegalStateException("Approved rule_catalog groups require evidence");
+            }
+            Object rawRules = group.get("rules");
+            if (!(rawRules instanceof Map)) {
+                throw new IllegalStateException("rule_catalog rules must be an object");
+            }
+            for (Map.Entry<String, Object> entry : ((Map<String, Object>) rawRules).entrySet()) {
+                String id = entry.getKey();
+                if (!RULE_ID.matcher(id).matches() || !ids.add(id)) {
+                    throw new IllegalStateException("Duplicate or invalid rule ID");
+                }
+                if (!(entry.getValue() instanceof List)) {
+                    throw new IllegalStateException("rule_catalog rule must be a pair");
+                }
+                List<Object> pair = (List<Object>) entry.getValue();
+                if (pair.size() != 2
+                        || !(pair.get(0) instanceof String)
+                        || ((String) pair.get(0)).isEmpty()
+                        || !(pair.get(1) instanceof String)
+                        || ((String) pair.get(1)).isEmpty()) {
+                    throw new IllegalStateException("rule_catalog rule must contain source and target");
+                }
+                count++;
+                if ("approved".equals(review)) {
+                    approved.add(locale + "\0" + pair.get(0) + "\0" + pair.get(1));
+                }
+            }
+        }
+
+        Map<String, Object> stats = (Map<String, Object>) root.get("stats");
+        Object expectedCount = stats.get("rule_catalog_count");
+        if (!(expectedCount instanceof Number) || ((Number) expectedCount).intValue() != count) {
+            throw new IllegalStateException("rule_catalog count does not match stats");
+        }
+        for (Map.Entry<String, Object> localeEntry : rawTerms.entrySet()) {
+            Map<String, String> sourceTerms = (Map<String, String>) localeEntry.getValue();
+            for (Map.Entry<String, String> term : sourceTerms.entrySet()) {
+                String key = localeEntry.getKey() + "\0" + term.getKey() + "\0" + term.getValue();
+                if (!approved.contains(key)) {
+                    throw new IllegalStateException("rule_catalog does not cover effective terms");
+                }
+            }
+        }
+    }
+
+    private static String requireMember(Map<String, Object> value, String name) {
+        Object member = value.get(name);
+        if (!(member instanceof String)) {
+            throw new IllegalStateException("rule_catalog field must be a string: " + name);
+        }
+        return (String) member;
     }
 
     private static void requireSingleCodepoint(String value, String name) {

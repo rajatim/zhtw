@@ -3,7 +3,7 @@
 //!   - `automaton-cnhk.bin` — 28-byte magic header + daachorse serialized automaton
 //!   - `pattern-table-cnhk.bin` — pattern table (source/target byte pairs)
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::env;
 use std::fs;
 use std::io::Write;
@@ -23,6 +23,8 @@ struct ZhtwData {
     stats: Stats,
     charmap: CharMap,
     terms: Terms,
+    #[serde(default)]
+    rule_catalog: Option<RuleCatalog>,
 }
 
 #[derive(Deserialize)]
@@ -33,6 +35,8 @@ struct Stats {
     ambiguous_count: usize,
     terms_cn_count: usize,
     terms_hk_count: usize,
+    #[serde(default)]
+    rule_catalog_count: Option<usize>,
 }
 
 #[derive(Deserialize)]
@@ -56,6 +60,139 @@ fn _use_ambiguous(_: Vec<String>) {}
 struct Terms {
     cn: HashMap<String, String>,
     hk: HashMap<String, String>,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct RuleCatalog {
+    format: String,
+    groups: Vec<RuleGroup>,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct RuleGroup {
+    source_locale: String,
+    rule_class: String,
+    domain: String,
+    trust_level: String,
+    priority: i32,
+    context: Vec<String>,
+    evidence_source: Option<String>,
+    review_status: String,
+    rules: HashMap<String, [String; 2]>,
+}
+
+fn valid_rule_id(value: &str) -> bool {
+    let bytes = value.as_bytes();
+    if !(3..=128).contains(&bytes.len()) {
+        return false;
+    }
+    (bytes[0].is_ascii_lowercase() || bytes[0].is_ascii_digit())
+        && bytes[1..].iter().all(|byte| {
+            byte.is_ascii_lowercase() || byte.is_ascii_digit() || b"._:-".contains(byte)
+        })
+}
+
+fn validate_rule_catalog(data: &ZhtwData) {
+    match (data.schema_version, data.rule_catalog.as_ref()) {
+        (1, None) => return,
+        (2, Some(_)) => {}
+        _ => panic!("build.rs: rule catalog does not match schema version"),
+    }
+    let catalog = data.rule_catalog.as_ref().unwrap();
+    assert_eq!(
+        catalog.format, "grouped-v1",
+        "build.rs: invalid rule catalog format"
+    );
+    let expected_count = data
+        .stats
+        .rule_catalog_count
+        .expect("build.rs: missing rule catalog count");
+    let mut ids = HashSet::new();
+    let mut approved = HashSet::new();
+    let mut count = 0usize;
+    for group in &catalog.groups {
+        assert!(
+            matches!(group.source_locale.as_str(), "cn" | "hk")
+                && matches!(
+                    group.rule_class.as_str(),
+                    "bulk" | "generated_guard" | "curated" | "custom"
+                )
+                && matches!(
+                    group.domain.as_str(),
+                    "general"
+                        | "business"
+                        | "daily"
+                        | "ecommerce"
+                        | "education"
+                        | "finance"
+                        | "formal"
+                        | "gaming"
+                        | "geography"
+                        | "it"
+                        | "legal"
+                        | "medical"
+                        | "social"
+                        | "ui"
+                )
+                && matches!(
+                    group.trust_level.as_str(),
+                    "imported" | "generated" | "curated" | "custom"
+                )
+                && (-1000..=1000).contains(&group.priority)
+                && matches!(
+                    group.review_status.as_str(),
+                    "pending" | "approved" | "rejected"
+                ),
+            "build.rs: invalid rule catalog group"
+        );
+        let mut context = HashSet::new();
+        assert!(
+            group
+                .context
+                .iter()
+                .all(|value| !value.is_empty() && context.insert(value)),
+            "build.rs: invalid rule catalog context"
+        );
+        assert!(
+            group
+                .evidence_source
+                .as_ref()
+                .map_or(true, |value| !value.is_empty()),
+            "build.rs: invalid rule catalog evidence"
+        );
+        assert!(
+            group.review_status != "approved" || group.evidence_source.is_some(),
+            "build.rs: approved rule catalog group requires evidence"
+        );
+        for (id, pair) in &group.rules {
+            assert!(
+                valid_rule_id(id) && ids.insert(id) && !pair[0].is_empty() && !pair[1].is_empty(),
+                "build.rs: duplicate or invalid rule catalog entry"
+            );
+            count += 1;
+            if group.review_status == "approved" {
+                approved.insert((
+                    group.source_locale.as_str(),
+                    pair[0].as_str(),
+                    pair[1].as_str(),
+                ));
+            }
+        }
+    }
+    assert_eq!(
+        count, expected_count,
+        "build.rs: rule catalog count mismatch"
+    );
+    for (locale, terms) in [("cn", &data.terms.cn), ("hk", &data.terms.hk)] {
+        for (source, target) in terms {
+            assert!(
+                approved.contains(&(locale, source.as_str(), target.as_str())),
+                "build.rs: rule catalog does not cover effective terms"
+            );
+        }
+    }
 }
 
 // ── Magic header constants ────────────────────────────────────────────────────
@@ -93,10 +230,11 @@ fn main() {
 
     let data: ZhtwData = serde_json::from_slice(&json_bytes)
         .unwrap_or_else(|e| panic!("build.rs: cannot parse {}: {}", data_path.display(), e));
-    assert_eq!(
-        data.schema_version, 1,
+    assert!(
+        matches!(data.schema_version, 1 | 2),
         "build.rs: unsupported zhtw data schema version"
     );
+    validate_rule_catalog(&data);
     assert!(
         !data.version.is_empty(),
         "build.rs: missing zhtw data version"

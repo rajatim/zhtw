@@ -13,17 +13,19 @@ def test_export_data_schema():
 
     data = export_data()
 
-    assert data["schema_version"] == 1
+    assert data["schema_version"] == 2
     assert "version" in data
     assert "exported_at" not in data  # removed for deterministic output
     assert "stats" in data
     assert "charmap" in data
     assert "terms" in data
+    assert "rule_catalog" in data
 
     assert "charmap_count" in data["stats"]
     assert "ambiguous_count" in data["stats"]
     assert "terms_cn_count" in data["stats"]
     assert "terms_hk_count" in data["stats"]
+    assert "rule_catalog_count" in data["stats"]
 
     assert "chars" in data["charmap"]
     assert "ambiguous" in data["charmap"]
@@ -36,6 +38,8 @@ def test_export_data_schema():
     assert "hk" in data["terms"]
     assert isinstance(data["terms"]["cn"], dict)
     assert isinstance(data["terms"]["hk"], dict)
+    assert data["rule_catalog"]["format"] == "grouped-v1"
+    assert isinstance(data["rule_catalog"]["groups"], list)
 
 
 def test_export_data_matches_published_json_schema():
@@ -61,6 +65,56 @@ def test_export_data_stats_match_content():
     assert data["stats"]["ambiguous_count"] == len(data["charmap"]["ambiguous"])
     assert data["stats"]["terms_cn_count"] == len(data["terms"]["cn"])
     assert data["stats"]["terms_hk_count"] == len(data["terms"]["hk"])
+    assert data["stats"]["rule_catalog_count"] == sum(
+        len(group["rules"]) for group in data["rule_catalog"]["groups"]
+    )
+
+
+def test_export_catalog_has_unique_ids_and_covers_every_effective_term():
+    """Every matcher input must have one approved catalog record."""
+    from zhtw.export import export_data
+
+    data = export_data()
+    catalog = [
+        {
+            "id": rule_id,
+            "source_locale": group["source_locale"],
+            "source": pair[0],
+            "target": pair[1],
+            "review_status": group["review_status"],
+        }
+        for group in data["rule_catalog"]["groups"]
+        for rule_id, pair in group["rules"].items()
+    ]
+
+    assert len({record["id"] for record in catalog}) == len(catalog)
+    approved = {
+        (record["source_locale"], record["source"], record["target"])
+        for record in catalog
+        if record["review_status"] == "approved"
+    }
+    for source_locale, terms in data["terms"].items():
+        for source, target in terms.items():
+            assert (source_locale, source, target) in approved
+
+
+def test_export_catalog_is_deterministic():
+    from zhtw.export import export_data
+
+    assert export_data()["rule_catalog"] == export_data()["rule_catalog"]
+
+
+def test_export_data_stays_within_sdk_artifact_size_budget():
+    """Keep the shared SDK payload small enough for registry packages."""
+    import gzip
+    import json
+
+    from zhtw.export import export_data
+
+    payload = (json.dumps(export_data(), ensure_ascii=False, indent=2) + "\n").encode()
+
+    assert len(payload) < 6_000_000
+    assert len(gzip.compress(payload, compresslevel=9)) < 1_500_000
 
 
 def test_export_data_excludes_dictionary_metadata():

@@ -2,6 +2,8 @@ package com.rajatim.zhtw;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,6 +15,36 @@ class ZhtwDataTest {
     void loadsFromClasspath() {
         ZhtwData data = ZhtwData.fromClasspath();
         assertNotNull(data);
+    }
+
+    @Test
+    void rejectsSchemaV2CatalogMismatch() {
+        String json = "{"
+                + "\"schema_version\":2,\"version\":\"1.2.3\","
+                + "\"stats\":{\"rule_catalog_count\":0},"
+                + "\"charmap\":{\"chars\":{},\"ambiguous\":[],"
+                + "\"balanced_defaults\":{},\"balanced_protect_terms\":{}},"
+                + "\"terms\":{\"cn\":{\"software\":\"target\"}},"
+                + "\"rule_catalog\":{\"format\":\"grouped-v1\",\"groups\":[]}}";
+
+        ByteArrayInputStream input = new ByteArrayInputStream(
+                json.getBytes(StandardCharsets.UTF_8));
+
+        assertThrows(IllegalStateException.class, () -> ZhtwData.fromInputStream(input));
+    }
+
+    @Test
+    void stillAcceptsSchemaV1() {
+        String json = "{"
+                + "\"schema_version\":1,\"version\":\"1.2.3\",\"stats\":{},"
+                + "\"charmap\":{\"chars\":{},\"ambiguous\":[],"
+                + "\"balanced_defaults\":{},\"balanced_protect_terms\":{}},"
+                + "\"terms\":{\"cn\":{},\"hk\":{}}}";
+
+        ByteArrayInputStream input = new ByteArrayInputStream(
+                json.getBytes(StandardCharsets.UTF_8));
+
+        assertEquals("1.2.3", ZhtwData.fromInputStream(input).getVersion());
     }
 
     @Test

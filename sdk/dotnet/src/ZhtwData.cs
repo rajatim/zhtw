@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace Zhtw
 {
@@ -52,15 +53,18 @@ namespace Zhtw
             }
         }
 
-        private static ZhtwData Parse(string json)
+        internal static ZhtwData Parse(string json)
         {
             using (var doc = JsonDocument.Parse(json))
             {
                 var root = doc.RootElement;
-                RequireOnlyProperties(root, "schema_version", "version", "stats", "charmap", "terms");
                 int schemaVersion = root.GetProperty("schema_version").GetInt32();
-                if (schemaVersion != 1)
+                if (schemaVersion != 1 && schemaVersion != 2)
                     throw new InvalidOperationException("Unsupported zhtw data schema version");
+                if (schemaVersion == 1)
+                    RequireOnlyProperties(root, "schema_version", "version", "stats", "charmap", "terms");
+                else
+                    RequireOnlyProperties(root, "schema_version", "version", "stats", "charmap", "terms", "rule_catalog");
                 string version = root.GetProperty("version").GetString();
                 if (string.IsNullOrEmpty(version))
                     throw new InvalidOperationException("Missing zhtw data version");
@@ -103,7 +107,87 @@ namespace Zhtw
                 var termsCn = ParseTerms(termsEl, "cn");
                 var termsHk = ParseTerms(termsEl, "hk");
 
+                if (schemaVersion == 2)
+                    ValidateRuleCatalog(root, termsEl);
+
                 return new ZhtwData(version, charMap, balancedDefaults, termsCn, termsHk);
+            }
+        }
+
+        private static void ValidateRuleCatalog(JsonElement root, JsonElement termsEl)
+        {
+            var catalog = root.GetProperty("rule_catalog");
+            RequireOnlyProperties(catalog, "format", "groups");
+            if (catalog.GetProperty("format").GetString() != "grouped-v1" ||
+                catalog.GetProperty("groups").ValueKind != JsonValueKind.Array)
+                throw new InvalidOperationException("Invalid rule catalog envelope");
+
+            var ruleClasses = new HashSet<string> { "bulk", "generated_guard", "curated", "custom" };
+            var trustLevels = new HashSet<string> { "imported", "generated", "curated", "custom" };
+            var reviewStatuses = new HashSet<string> { "pending", "approved", "rejected" };
+            var domains = new HashSet<string> { "general", "business", "daily", "ecommerce",
+                "education", "finance", "formal", "gaming", "geography", "it", "legal",
+                "medical", "social", "ui" };
+            var ruleId = new Regex("^[a-z0-9][a-z0-9._:-]{2,127}$", RegexOptions.CultureInvariant);
+            var ids = new HashSet<string>();
+            var approved = new HashSet<string>();
+            int count = 0;
+
+            foreach (var group in catalog.GetProperty("groups").EnumerateArray())
+            {
+                RequireOnlyProperties(group, "source_locale", "rule_class", "domain", "trust_level",
+                    "priority", "context", "evidence_source", "review_status", "rules");
+                string locale = group.GetProperty("source_locale").GetString();
+                string ruleClass = group.GetProperty("rule_class").GetString();
+                string domain = group.GetProperty("domain").GetString();
+                string trust = group.GetProperty("trust_level").GetString();
+                string review = group.GetProperty("review_status").GetString();
+                int priority = group.GetProperty("priority").GetInt32();
+                if ((locale != "cn" && locale != "hk") || !ruleClasses.Contains(ruleClass) ||
+                    !domains.Contains(domain) || !trustLevels.Contains(trust) ||
+                    !reviewStatuses.Contains(review) || priority < -1000 || priority > 1000)
+                    throw new InvalidOperationException("Invalid rule catalog group metadata");
+
+                var contexts = new HashSet<string>();
+                foreach (var context in group.GetProperty("context").EnumerateArray())
+                {
+                    string value = context.GetString();
+                    if (string.IsNullOrEmpty(value) || !contexts.Add(value))
+                        throw new InvalidOperationException("Invalid rule catalog context");
+                }
+                var evidence = group.GetProperty("evidence_source");
+                if (evidence.ValueKind != JsonValueKind.Null &&
+                    (evidence.ValueKind != JsonValueKind.String || string.IsNullOrEmpty(evidence.GetString())))
+                    throw new InvalidOperationException("Invalid rule catalog evidence source");
+                if (review == "approved" && evidence.ValueKind == JsonValueKind.Null)
+                    throw new InvalidOperationException("Approved rule catalog groups require evidence");
+
+                foreach (var rule in group.GetProperty("rules").EnumerateObject())
+                {
+                    if (!ruleId.IsMatch(rule.Name) || !ids.Add(rule.Name) ||
+                        rule.Value.ValueKind != JsonValueKind.Array || rule.Value.GetArrayLength() != 2)
+                        throw new InvalidOperationException("Duplicate or invalid rule catalog entry");
+                    string source = rule.Value[0].GetString();
+                    string target = rule.Value[1].GetString();
+                    if (string.IsNullOrEmpty(source) || string.IsNullOrEmpty(target))
+                        throw new InvalidOperationException("Rule catalog source and target must be non-empty");
+                    count++;
+                    if (review == "approved")
+                        approved.Add(locale + "\0" + source + "\0" + target);
+                }
+            }
+
+            int expectedCount = root.GetProperty("stats").GetProperty("rule_catalog_count").GetInt32();
+            if (count != expectedCount)
+                throw new InvalidOperationException("Rule catalog count does not match stats");
+            foreach (var locale in termsEl.EnumerateObject())
+            {
+                foreach (var term in locale.Value.EnumerateObject())
+                {
+                    string key = locale.Name + "\0" + term.Name + "\0" + term.Value.GetString();
+                    if (!approved.Contains(key))
+                        throw new InvalidOperationException("Rule catalog does not cover effective terms");
+                }
             }
         }
 
