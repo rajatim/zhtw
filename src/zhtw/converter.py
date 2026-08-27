@@ -196,6 +196,7 @@ class Issue:
     source: str
     target: str
     context: str = ""
+    replacement_context: str = ""
 
 
 @dataclass
@@ -220,10 +221,12 @@ class ConversionResult:
     files_with_issues: int = 0
     files_modified: int = 0
     files_skipped: int = 0
+    files_failed: int = 0
     total_issues: int = 0
     issues: List[Issue] = field(default_factory=list)
     encoding_conversions: int = 0
     files_needing_conversion: List[Path] = field(default_factory=list)
+    errors: List[FileResult] = field(default_factory=list)
 
 
 def contains_chinese(text: str) -> bool:

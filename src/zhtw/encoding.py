@@ -123,6 +123,7 @@ def detect_encoding(file_path: Path) -> EncodingInfo:
 def read_file(
     file_path: Path,
     encoding: str | None = None,
+    errors: str = "replace",
 ) -> tuple[str, EncodingInfo]:
     """
     Read a file with automatic or specified encoding detection.
@@ -130,6 +131,7 @@ def read_file(
     Args:
         file_path: Path to the file to read.
         encoding: Optional encoding to use. If None, auto-detect.
+        errors: Unicode decoding error policy used after auto-detection.
 
     Returns:
         Tuple of (file content, encoding info).
@@ -149,7 +151,7 @@ def read_file(
     # Auto-detect encoding
     info = detect_encoding(file_path)
 
-    with open(file_path, "r", encoding=info.encoding, errors="replace") as f:
+    with open(file_path, "r", encoding=info.encoding, errors=errors) as f:
         content = f.read()
 
     # Remove BOM if present in content

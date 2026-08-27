@@ -163,6 +163,15 @@ def format_diff(result: ConversionResult) -> str:
 
         for line_num in sorted(issues_by_line.keys()):
             line_issues = issues_by_line[line_num]
+            if all(issue.replacement_context for issue in line_issues):
+                output_lines.append(click.style(f"   L{line_num}:", fg="cyan"))
+                for issue in line_issues:
+                    output_lines.append(click.style(f"   - {issue.context}", fg="red"))
+                    output_lines.append(
+                        click.style(f"   + {issue.replacement_context}", fg="green")
+                    )
+                continue
+
             # Get original context from first issue
             original = line_issues[0].context
 
@@ -193,11 +202,21 @@ def print_results(result: ConversionResult, verbose: bool = False) -> None:
         for issue in sorted(issues, key=lambda i: (i.line, i.column)):
             click.echo(format_issue(issue, show_context=verbose))
 
+    for error in result.errors:
+        click.echo(click.style(f"\n❌ {error.file}: {error.error}", fg="red"))
+
     # Print summary
     click.echo()
     click.echo("━" * 50)
 
-    if result.files_modified > 0:
+    if result.files_failed > 0:
+        click.echo(
+            click.style(
+                f"❌ {result.files_failed} 個檔案處理失敗；原檔未變更",
+                fg="red",
+            )
+        )
+    elif result.files_modified > 0:
         click.echo(
             click.style(
                 f"✅ 已修正 {result.files_modified} 個檔案 ({result.total_issues} 處)",
@@ -252,8 +271,9 @@ def print_json(result: ConversionResult) -> None:
         "files_checked": result.files_checked,
         "files_modified": result.files_modified,
         "files_skipped": result.files_skipped,
+        "files_failed": result.files_failed,
         "encoding_conversions": result.encoding_conversions,
-        "status": "pass" if result.total_issues == 0 else "fail",
+        "status": "pass" if result.total_issues == 0 and result.files_failed == 0 else "fail",
         "issues": [
             {
                 "file": str(issue.file),
@@ -263,6 +283,13 @@ def print_json(result: ConversionResult) -> None:
                 "target": issue.target,
             }
             for issue in result.issues
+        ],
+        "errors": [
+            {
+                "file": str(error.file),
+                "error": error.error,
+            }
+            for error in result.errors
         ],
     }
     if result.files_needing_conversion:

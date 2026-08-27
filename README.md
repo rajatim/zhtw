@@ -126,6 +126,7 @@ zhtw check .                         # 檢查專案，不修改檔案
 zhtw fix . --show-diff               # 先顯示差異，再決定是否修正
 zhtw lookup 软件 服务器 用户权限     # 查看每個詞的轉換結果
 zhtw fix . --ambiguity-mode balanced # 啟用常見歧義字消歧
+zhtw fix ./locales --adapter json     # 只轉換 JSON string value
 ```
 <!-- zhtw:enable -->
 
@@ -133,10 +134,13 @@ zhtw fix . --ambiguity-mode balanced # 啟用常見歧義字消歧
 
 <!-- zhtw:disable -->
 ```python
-from zhtw import convert
+from zhtw import convert, convert_json
 
 result = convert("这个软件需要优化")
 assert result == "這個軟體需要最佳化"
+
+json_result = convert_json('{"软件":"这个软件"}', sources=["cn"])
+assert json_result == '{"软件":"這個軟體"}'
 ```
 <!-- zhtw:enable -->
 

@@ -720,6 +720,176 @@ class TestExplainCommand:
         assert "term_selected" in result.output
 
 
+class TestJsonAdapterCommand:
+    """Tests for explicitly enabled JSON value-only conversion."""
+
+    def test_check_json_adapter_reports_values_without_writing(
+        self, runner: CliRunner, tmp_path: Path
+    ):
+        path = tmp_path / "data.json"
+        original = '{\n  "软件": "这个软件",\n  "number": 1.00e+02\n}\n'
+        path.write_text(original, encoding="utf-8")
+
+        result = runner.invoke(
+            main,
+            ["check", str(path), "--source", "cn", "--adapter", "json", "--json"],
+        )
+
+        assert result.exit_code == 1
+        payload = json.loads(result.output)
+        assert payload["total_issues"] == 1
+        assert payload["files_failed"] == 0
+        assert path.read_text("utf-8") == original
+
+    def test_fix_json_adapter_preserves_keys_and_number_bytes(
+        self, runner: CliRunner, tmp_path: Path
+    ):
+        path = tmp_path / "data.json"
+        path.write_text(
+            '{\n  "软件": "这个软件",\n  "number": 1.00e+02\n}\n',
+            encoding="utf-8",
+        )
+
+        result = runner.invoke(
+            main,
+            ["fix", str(path), "--source", "cn", "--adapter", "json", "--yes"],
+        )
+
+        assert result.exit_code == 0
+        assert path.read_text("utf-8") == ('{\n  "软件": "這個軟體",\n  "number": 1.00e+02\n}\n')
+
+    def test_json_adapter_diff_does_not_show_key_as_changed(
+        self,
+        runner: CliRunner,
+        tmp_path: Path,
+    ):
+        path = tmp_path / "data.json"
+        path.write_text('{"软件":"软件"}', encoding="utf-8")
+
+        result = runner.invoke(
+            main,
+            [
+                "fix",
+                str(path),
+                "--source",
+                "cn",
+                "--adapter",
+                "json",
+                "--show-diff",
+                "--yes",
+            ],
+        )
+
+        assert result.exit_code == 0
+        assert '   - "软件"' in result.output
+        assert '   + "軟體"' in result.output
+        assert '"軟體":' not in result.output
+        assert path.read_text("utf-8") == '{"软件":"軟體"}'
+
+    @pytest.mark.parametrize(
+        "content",
+        ['{"key":"软件",}', '{"key":"软件","key":"軟體"}'],
+    )
+    def test_json_adapter_parse_failure_keeps_original(
+        self, runner: CliRunner, tmp_path: Path, content: str
+    ):
+        path = tmp_path / "data.json"
+        path.write_text(content, encoding="utf-8")
+
+        result = runner.invoke(
+            main,
+            ["fix", str(path), "--source", "cn", "--adapter", "json", "--yes", "--json"],
+        )
+
+        assert result.exit_code == 1
+        payload = json.loads(result.output)
+        assert payload["files_failed"] == 1
+        assert payload["errors"]
+        assert path.read_text("utf-8") == content
+
+    def test_json_adapter_decode_failure_keeps_original(
+        self,
+        runner: CliRunner,
+        tmp_path: Path,
+    ):
+        path = tmp_path / "data.json"
+        original = b'{"value":"\xff"}'
+        path.write_bytes(original)
+
+        result = runner.invoke(
+            main,
+            [
+                "fix",
+                str(path),
+                "--adapter",
+                "json",
+                "--encoding",
+                "utf-8",
+                "--yes",
+                "--json",
+            ],
+        )
+
+        assert result.exit_code == 1
+        payload = json.loads(result.output)
+        assert payload["files_failed"] == 1
+        assert path.read_bytes() == original
+
+    def test_json_adapter_read_only_failure_keeps_original(
+        self,
+        runner: CliRunner,
+        tmp_path: Path,
+    ):
+        path = tmp_path / "data.json"
+        original = '{"value":"软件"}'
+        path.write_text(original, encoding="utf-8")
+        path.chmod(0o444)
+
+        try:
+            result = runner.invoke(
+                main,
+                ["fix", str(path), "--adapter", "json", "--yes", "--json"],
+            )
+        finally:
+            path.chmod(0o644)
+
+        assert result.exit_code == 1
+        payload = json.loads(result.output)
+        assert payload["files_failed"] == 1
+        assert path.read_text("utf-8") == original
+
+    def test_json_adapter_directory_ignores_non_json_files(self, runner: CliRunner, tmp_path: Path):
+        json_path = tmp_path / "data.json"
+        text_path = tmp_path / "notes.txt"
+        json_path.write_text('{"value":"软件"}', encoding="utf-8")
+        text_path.write_text("软件", encoding="utf-8")
+
+        result = runner.invoke(
+            main,
+            ["fix", str(tmp_path), "--source", "cn", "--adapter", "json", "--yes"],
+        )
+
+        assert result.exit_code == 0
+        assert json_path.read_text("utf-8") == '{"value":"軟體"}'
+        assert text_path.read_text("utf-8") == "软件"
+
+    @pytest.mark.parametrize("command", ["check", "fix"])
+    def test_json_adapter_rejects_non_json_single_file(
+        self,
+        runner: CliRunner,
+        tmp_path: Path,
+        command: str,
+    ):
+        path = tmp_path / "data.txt"
+        path.write_text("软件", encoding="utf-8")
+
+        result = runner.invoke(main, [command, str(path), "--adapter", "json"])
+
+        assert result.exit_code == 2
+        assert "只接受 .json" in result.output
+        assert path.read_text("utf-8") == "软件"
+
+
 class TestImportCommand:
     """Tests for 'zhtw import' command."""
 

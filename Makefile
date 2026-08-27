@@ -73,7 +73,7 @@ BLIND_V2_CONFIRMED_DECISIONS := $(wildcard \
 
 # === Core ===
 
-export: ## Export SDK data (zhtw-data.json + golden-test.json)
+export: ## Export SDK data and shared golden fixtures
 	$(PYTHON) -m zhtw export --output sdk/data --verbose
 	@mkdir -p sdk/rust/zhtw/data
 	@cp sdk/data/zhtw-data.json sdk/rust/zhtw/data/zhtw-data.json
@@ -85,7 +85,7 @@ export-check: ## Verify committed SDK data exactly matches a fresh export
 	@tmp=$$(mktemp -d); \
 	  trap 'rm -rf "$$tmp"' EXIT; \
 	  $(PYTHON) -m zhtw export --output "$$tmp" >/dev/null; \
-	  for f in zhtw-data.json golden-test.json; do \
+	  for f in zhtw-data.json golden-test.json json-adapter-golden.json; do \
 	    if ! cmp -s "sdk/data/$$f" "$$tmp/$$f"; then \
 	      echo "❌ sdk/data/$$f is stale — run 'make export'"; \
 	      exit 1; \

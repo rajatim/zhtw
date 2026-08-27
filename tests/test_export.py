@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import pytest
 from click.testing import CliRunner
 
 from zhtw.cli import main
@@ -320,26 +321,30 @@ def test_golden_convert_matches_python_pipeline():
 
 
 def test_write_export_creates_files(tmp_path):
-    """write_export() must create both JSON files."""
+    """write_export() must create all shared JSON files."""
     from zhtw.export import write_export
 
     write_export(output_dir=tmp_path)
 
     data_path = tmp_path / "zhtw-data.json"
     golden_path = tmp_path / "golden-test.json"
+    json_adapter_path = tmp_path / "json-adapter-golden.json"
 
     assert data_path.exists()
     assert golden_path.exists()
+    assert json_adapter_path.exists()
 
     # Verify they are valid JSON
     import json
 
     data = json.loads(data_path.read_text("utf-8"))
     golden = json.loads(golden_path.read_text("utf-8"))
+    json_adapter = json.loads(json_adapter_path.read_text("utf-8"))
 
-    assert data["version"] == golden["version"]
+    assert data["version"] == golden["version"] == json_adapter["version"]
     assert "terms" in data
     assert "convert" in golden
+    assert "cases" in json_adapter
 
 
 def test_write_export_deterministic_keys(tmp_path):
@@ -375,6 +380,7 @@ def test_cli_export_default(tmp_path, monkeypatch):
     assert result.exit_code == 0
     assert (sdk_data / "zhtw-data.json").exists()
     assert (sdk_data / "golden-test.json").exists()
+    assert (sdk_data / "json-adapter-golden.json").exists()
 
 
 def test_cli_export_custom_output(tmp_path):
@@ -385,6 +391,7 @@ def test_cli_export_custom_output(tmp_path):
     assert result.exit_code == 0
     assert (tmp_path / "zhtw-data.json").exists()
     assert (tmp_path / "golden-test.json").exists()
+    assert (tmp_path / "json-adapter-golden.json").exists()
 
 
 def test_cli_export_missing_default_dir(tmp_path, monkeypatch):
@@ -417,6 +424,10 @@ def test_cli_export_source_filter(tmp_path):
     for case in golden["lookup"]:
         assert "hk" not in case["sources"], f"HK case leaked into CN-only golden: {case}"
 
+    json_adapter = json.loads((tmp_path / "json-adapter-golden.json").read_text("utf-8"))
+    for case in json_adapter["cases"]:
+        assert "hk" not in case["sources"], f"HK case leaked into CN-only adapter golden: {case}"
+
 
 def test_write_export_byte_stable(tmp_path):
     """Two consecutive exports must produce identical bytes."""
@@ -432,6 +443,50 @@ def test_write_export_byte_stable(tmp_path):
 
     assert (dir1 / "zhtw-data.json").read_bytes() == (dir2 / "zhtw-data.json").read_bytes()
     assert (dir1 / "golden-test.json").read_bytes() == (dir2 / "golden-test.json").read_bytes()
+    assert (dir1 / "json-adapter-golden.json").read_bytes() == (
+        dir2 / "json-adapter-golden.json"
+    ).read_bytes()
+
+
+def test_json_adapter_golden_schema_and_python_parity():
+    """Shared JSON fixtures must match the Python reference implementation."""
+    import json
+    from pathlib import Path
+
+    from zhtw.converter import convert
+    from zhtw.export import generate_json_adapter_golden
+    from zhtw.json_adapter import JsonAdapterError, transform_json_values
+
+    golden = generate_json_adapter_golden()
+    committed = json.loads(
+        (Path(__file__).parents[1] / "sdk" / "data" / "json-adapter-golden.json").read_text("utf-8")
+    )
+
+    assert committed == golden
+    assert golden["schema_version"] == 1
+    assert golden["escaping"] == "json-compact-unicode-v1"
+    assert golden["cases"]
+    assert golden["reject"]
+    assert {case["failure"] for case in golden["write_failures"]} == {
+        "read_only",
+        "replace_failure",
+        "encoding_failure",
+    }
+
+    for case in golden["cases"]:
+        result = transform_json_values(
+            case["input"],
+            lambda value, selected=case["sources"], mode=case.get("ambiguity_mode", "strict"): (
+                convert(value, sources=selected, ambiguity_mode=mode)
+            ),
+        )
+        assert result.output == case["expected"], case["id"]
+        assert len(result.changes) == case["changed_values"], case["id"]
+
+    for case in golden["reject"]:
+        with pytest.raises(JsonAdapterError) as error:
+            transform_json_values(case["input"], lambda value: value)
+        assert error.value.code == case["error_code"], case["id"]
 
 
 def test_cli_export_verbose(tmp_path):

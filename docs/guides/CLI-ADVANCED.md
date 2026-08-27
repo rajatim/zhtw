@@ -82,6 +82,28 @@ echo "这个软件" | zhtw explain --source cn
 預設不顯示前後文。只有明確加 `--context` 才會加入 context；處理敏感資料時不要使用。
 完整欄位與 reason code 請見 [Explain API 參考](../reference/explain-api.md)。
 
+## JSON value adapter（4.5.0 開發中）
+
+一般 `check`／`fix` 會把檔案當成純文字。需要安全處理 JSON 時，必須明確加上
+`--adapter json`；這個模式只轉換 string value，不改 object key、空白、數字表示或
+其他結構。
+
+<!-- zhtw:disable -->
+```bash
+# 檢查目錄中的 .json 檔
+zhtw check ./locales --adapter json --source cn
+
+# 先看差異，再決定是否原子寫回
+zhtw fix ./locales --adapter json --source cn --show-diff
+
+# CLI 報告本身也輸出成 JSON；兩個選項用途不同
+zhtw check ./locales --adapter json --json
+```
+<!-- zhtw:enable -->
+
+輸入不是合法 JSON、含 duplicate key，或寫入失敗時，命令會回傳非零狀態並保留原檔。
+完整規則請見 [JSON adapter 參考](../reference/json-adapter.md)。
+
 ## 多編碼支援 (v2.5.0+)
 
 自動偵測並處理 Big5、GBK 等舊編碼檔案：

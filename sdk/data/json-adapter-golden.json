@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "version": "4.4.5",
+  "escaping": "json-compact-unicode-v1",
+  "cases": [
+    {
+      "id": "nested-values-and-number-bytes",
+      "input": "{\n  \"软件 key\": \"软件\", \"nested\": [\"服务器\", 1.00e+02, true, null],\n  \"object\": {\"接口\": \"接口\", \"empty\": \"\"}\n}\n",
+      "sources": [
+        "cn"
+      ],
+      "expected": "{\n  \"软件 key\": \"軟體\", \"nested\": [\"伺服器\", 1.00e+02, true, null],\n  \"object\": {\"接口\": \"介面\", \"empty\": \"\"}\n}\n",
+      "changed_values": 3
+    },
+    {
+      "id": "escaped-quote-backslash-newline",
+      "input": "{\"value\":\"软件\\\"C:\\\\tmp\\n\"}",
+      "sources": [
+        "cn"
+      ],
+      "expected": "{\"value\":\"軟體\\\"C:\\\\tmp\\n\"}",
+      "changed_values": 1
+    },
+    {
+      "id": "unchanged-escape-bytes",
+      "input": "{\"escaped\":\"\\u8edf\\u9ad4\",\"slash\":\"a\\/b\"}",
+      "sources": [
+        "cn"
+      ],
+      "expected": "{\"escaped\":\"\\u8edf\\u9ad4\",\"slash\":\"a\\/b\"}",
+      "changed_values": 0
+    },
+    {
+      "id": "supplementary-han-and-repeated-values",
+      "input": "{\"rare\":\"\\ud840\\udc00软件\",\"items\":[\"软件\",\"软件\"]}",
+      "sources": [
+        "cn"
+      ],
+      "expected": "{\"rare\":\"𠀀軟體\",\"items\":[\"軟體\",\"軟體\"]}",
+      "changed_values": 3
+    },
+    {
+      "id": "mixed-text-and-surrounding-space",
+      "input": "{\"mixed\":\"USB接口 v2\",\"space\":\" 软件 \"}",
+      "sources": [
+        "cn"
+      ],
+      "expected": "{\"mixed\":\"USB介面 v2\",\"space\":\" 軟體 \"}",
+      "changed_values": 2
+    },
+    {
+      "id": "balanced-string-value",
+      "input": "{\"value\":\"丰满\"}",
+      "sources": [
+        "cn"
+      ],
+      "expected": "{\"value\":\"豐滿\"}",
+      "changed_values": 1,
+      "ambiguity_mode": "balanced"
+    }
+  ],
+  "reject": [
+    {
+      "id": "duplicate-key",
+      "input": "{\"key\":\"软件\",\"key\":\"軟體\"}",
+      "error_code": "duplicate_key"
+    },
+    {
+      "id": "escaped-duplicate-key",
+      "input": "{\"key\":\"软件\",\"\\u006bey\":\"軟體\"}",
+      "error_code": "duplicate_key"
+    },
+    {
+      "id": "trailing-comma",
+      "input": "{\"key\":\"软件\",}",
+      "error_code": "invalid_json"
+    },
+    {
+      "id": "non-standard-number",
+      "input": "{\"value\":NaN}",
+      "error_code": "invalid_json"
+    },
+    {
+      "id": "unpaired-surrogate",
+      "input": "{\"value\":\"\\ud800\"}",
+      "error_code": "invalid_json"
+    }
+  ],
+  "write_failures": [
+    {
+      "id": "read-only-file",
+      "input": "{\"value\":\"软件\"}",
+      "converted": "{\"value\":\"軟體\"}",
+      "failure": "read_only",
+      "expected_after_failure": "{\"value\":\"软件\"}"
+    },
+    {
+      "id": "atomic-replace-failure",
+      "input": "{\"value\":\"软件\"}",
+      "converted": "{\"value\":\"軟體\"}",
+      "failure": "replace_failure",
+      "expected_after_failure": "{\"value\":\"软件\"}"
+    },
+    {
+      "id": "encoding-failure",
+      "input": "{\"value\":\"软件\"}",
+      "converted": "{\"value\":\"軟體\"}",
+      "failure": "encoding_failure",
+      "expected_after_failure": "{\"value\":\"软件\"}"
+    }
+  ]
+}

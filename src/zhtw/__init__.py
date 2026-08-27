@@ -12,6 +12,7 @@ from .converter import VALID_SOURCES, convert, convert_file, convert_text
 from .dictionary import load_dictionary
 from .explain import ExplainEvent, ExplainResult, explain, explain_text
 from .export import export_data, write_export
+from .json_adapter import JsonAdapterError, convert_json
 from .lookup import ConversionDetail, LookupResult, lookup_word, lookup_words
 from .matcher import Matcher
 
@@ -33,5 +34,7 @@ __all__ = [
     "lookup_word",
     "lookup_words",
     "Matcher",
+    "convert_json",
+    "JsonAdapterError",
 ]
 # zhtw:enable

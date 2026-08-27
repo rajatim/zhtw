@@ -33,7 +33,7 @@ def export(output: str | None, source: str, verbose: bool) -> None:
     匯出 SDK 資料檔（maintainer-only）。
 
     \b
-    產生 zhtw-data.json 和 golden-test.json 供多語言 SDK 使用。
+    產生 zhtw-data.json、golden-test.json 和 json-adapter-golden.json 供多語言 SDK 使用。
     預設輸出到 ./sdk/data/，可用 --output 指定其他路徑。
     """
     from .export import write_export
@@ -55,7 +55,7 @@ def export(output: str | None, source: str, verbose: bool) -> None:
             )
             raise SystemExit(1)
 
-    data_path, golden_path = write_export(
+    data_path, golden_path, json_adapter_path = write_export(
         output_dir=output_dir,
         sources=sources,
     )
@@ -72,6 +72,7 @@ def export(output: str | None, source: str, verbose: bool) -> None:
         click.echo(f"   HK 詞條:  {stats['terms_hk_count']} 個")
         click.echo(f"   📄 {data_path}")
         click.echo(f"   📄 {golden_path}")
+        click.echo(f"   📄 {json_adapter_path}")
     else:
         click.echo(f"📦 匯出完成 → {output_dir}/")
 

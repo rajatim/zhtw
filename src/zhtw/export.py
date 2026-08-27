@@ -14,9 +14,10 @@ from .charconv import (
     get_translate_table,
     load_charmap,
 )
-from .converter import convert_text, inject_protect_terms
+from .converter import convert, convert_text, inject_protect_terms
 from .dictionary import DATA_DIR, load_dictionary, load_directory_catalog
 from .explain import explain
+from .json_adapter import transform_json_values
 from .lookup import lookup_word
 from .matcher import Matcher
 from .rules import (
@@ -29,6 +30,7 @@ from .rules import (
 
 DATA_SCHEMA_VERSION = 2
 GOLDEN_SCHEMA_VERSION = 2
+JSON_ADAPTER_GOLDEN_SCHEMA_VERSION = 1
 
 
 def _group_rule_catalog(catalog: list) -> Dict[str, Any]:
@@ -198,6 +200,115 @@ _LOOKUP_CASES = [
     ("\u5f71\u540e", ["cn"], "balanced"),  # balanced: 影後 protect_term → no conversion
 ]
 
+# zhtw:disable - shared fixtures intentionally contain Simplified Chinese input
+_JSON_ADAPTER_CASES = [
+    (
+        "nested-values-and-number-bytes",
+        '{\n  "软件 key": "软件", "nested": ["服务器", 1.00e+02, true, null],\n'
+        '  "object": {"接口": "接口", "empty": ""}\n}\n',
+        ["cn"],
+        "strict",
+    ),
+    (
+        "escaped-quote-backslash-newline",
+        '{"value":"软件\\"C:\\\\tmp\\n"}',
+        ["cn"],
+        "strict",
+    ),
+    (
+        "unchanged-escape-bytes",
+        '{"escaped":"\\u8edf\\u9ad4","slash":"a\\/b"}',
+        ["cn"],
+        "strict",
+    ),
+    (
+        "supplementary-han-and-repeated-values",
+        '{"rare":"\\ud840\\udc00软件","items":["软件","软件"]}',
+        ["cn"],
+        "strict",
+    ),
+    (
+        "mixed-text-and-surrounding-space",
+        '{"mixed":"USB接口 v2","space":" 软件 "}',
+        ["cn"],
+        "strict",
+    ),
+    (
+        "balanced-string-value",
+        '{"value":"丰满"}',
+        ["cn"],
+        "balanced",
+    ),
+]
+
+_JSON_ADAPTER_REJECT_CASES = [
+    ("duplicate-key", '{"key":"软件","key":"軟體"}', "duplicate_key"),
+    ("escaped-duplicate-key", '{"key":"软件","\\u006bey":"軟體"}', "duplicate_key"),
+    ("trailing-comma", '{"key":"软件",}', "invalid_json"),
+    ("non-standard-number", '{"value":NaN}', "invalid_json"),
+    ("unpaired-surrogate", '{"value":"\\ud800"}', "invalid_json"),
+]
+
+_JSON_ADAPTER_WRITE_FAILURES = [
+    ("read-only-file", '{"value":"软件"}', "read_only"),
+    ("atomic-replace-failure", '{"value":"软件"}', "replace_failure"),
+    ("encoding-failure", '{"value":"软件"}', "encoding_failure"),
+]
+# zhtw:enable
+
+
+def generate_json_adapter_golden(
+    sources: Optional[List[str]] = None,
+) -> Dict[str, Any]:
+    """Generate exact-byte JSON adapter fixtures shared by every SDK."""
+
+    cases = []
+    for case_id, input_text, srcs, mode in _JSON_ADAPTER_CASES:
+        if sources is not None and not all(source in sources for source in srcs):
+            continue
+        result = transform_json_values(
+            input_text,
+            lambda value, selected=srcs, selected_mode=mode: convert(
+                value,
+                sources=selected,
+                ambiguity_mode=selected_mode,
+            ),
+        )
+        entry: Dict[str, Any] = {
+            "id": case_id,
+            "input": input_text,
+            "sources": srcs,
+            "expected": result.output,
+            "changed_values": len(result.changes),
+        }
+        if mode != "strict":
+            entry["ambiguity_mode"] = mode
+        cases.append(entry)
+
+    return {
+        "schema_version": JSON_ADAPTER_GOLDEN_SCHEMA_VERSION,
+        "version": __version__,
+        "escaping": "json-compact-unicode-v1",
+        "cases": cases,
+        "reject": [
+            {"id": case_id, "input": input_text, "error_code": error_code}
+            for case_id, input_text, error_code in _JSON_ADAPTER_REJECT_CASES
+        ],
+        "write_failures": [
+            {
+                "id": case_id,
+                "input": input_text,
+                "converted": transform_json_values(
+                    input_text,
+                    lambda value: convert(value, sources=["cn"]),
+                ).output,
+                "failure": failure,
+                "expected_after_failure": input_text,
+            }
+            for case_id, input_text, failure in _JSON_ADAPTER_WRITE_FAILURES
+        ],
+    }
+
 
 def generate_golden_test(
     sources: Optional[List[str]] = None,
@@ -338,7 +449,7 @@ def _sort_dict(d: dict) -> dict:
 def write_export(
     output_dir: Path,
     sources: Optional[List[str]] = None,
-) -> tuple[Path, Path]:
+) -> tuple[Path, Path, Path]:
     """Export data and golden test to files.
 
     Args:
@@ -346,16 +457,18 @@ def write_export(
         sources: Sources to export. Default: ["cn", "hk"].
 
     Returns:
-        Tuple of (data_path, golden_path).
+        Tuple of (data_path, golden_path, json_adapter_path).
     """
     data = export_data(sources=sources)
     golden = generate_golden_test(sources=sources)
+    json_adapter = generate_json_adapter_golden(sources=sources)
 
     # Sort for deterministic output
     sorted_data = _sort_dict(data)
 
     data_path = output_dir / "zhtw-data.json"
     golden_path = output_dir / "golden-test.json"
+    json_adapter_path = output_dir / "json-adapter-golden.json"
 
     data_path.write_text(
         json.dumps(sorted_data, indent=2, ensure_ascii=False) + "\n",
@@ -365,5 +478,9 @@ def write_export(
         json.dumps(golden, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
+    json_adapter_path.write_text(
+        json.dumps(json_adapter, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
-    return data_path, golden_path
+    return data_path, golden_path, json_adapter_path

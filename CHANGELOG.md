@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- 新增明確啟用的 JSON value adapter：只轉換 string value，逐位元保留 key、空白、
+  數字表示與未變更的字串 token；duplicate key 與無效 JSON 會安全失敗，CLI 寫回則使用
+  同目錄暫存檔與原子替換。
 - 新增唯讀 `explain` Python API 與 CLI 指令，共用正式 matcher scan，回傳穩定規則 ID、
   term／identity／balanced／char layer、input／output codepoint span 與 reason code；預設
   不包含前後文，CLI 必須明確加 `--context` 才會顯示。

@@ -8,6 +8,7 @@ from .converter import (
     ConversionResult,
     FileResult,
     Issue,
+    _apply_conversion_layers,
     contains_chinese,
     convert_text,
     get_context,
@@ -30,6 +31,7 @@ def convert_file(
     output_encoding: str = "auto",
     char_table: Optional[dict[int, str]] = None,
     ambiguity_mode: str = "strict",
+    adapter: str | None = None,
 ) -> FileResult:
     """
     Process a single file.
@@ -52,15 +54,79 @@ def convert_file(
 
     result = FileResult(file=path)
 
+    if adapter == "json" and path.suffix.lower() != ".json":
+        result.skipped = True
+        return result
+
     try:
-        content, encoding_info = read_file(path, encoding=input_encoding)
+        content, encoding_info = read_file(
+            path,
+            encoding=input_encoding,
+            errors="strict" if adapter == "json" else "replace",
+        )
         result.encoding_info = encoding_info
     except UnicodeDecodeError as e:
         result.error = f"Encoding error: {e}"
-        result.skipped = True
+        result.skipped = adapter is None
         return result
     except Exception as e:
         result.error = str(e)
+        return result
+
+    if adapter == "json":
+        from bisect import bisect_right
+
+        from .json_adapter import JsonAdapterError, atomic_write_json_text, transform_json_values
+
+        try:
+            adapted = transform_json_values(
+                content,
+                lambda value: _apply_conversion_layers(
+                    value,
+                    matcher,
+                    char_table,
+                    ambiguity_mode,
+                ),
+            )
+        except JsonAdapterError as exc:
+            result.error = str(exc)
+            return result
+        except Exception as exc:
+            result.error = f"JSON conversion failed: {exc}"
+            return result
+
+        line_starts = [0]
+        for index, character in enumerate(content):
+            if character == "\n":
+                line_starts.append(index + 1)
+        for change in adapted.changes:
+            line_index = bisect_right(line_starts, change.token_start) - 1
+            result.issues.append(
+                Issue(
+                    file=path,
+                    line=line_index + 1,
+                    column=change.token_start - line_starts[line_index] + 1,
+                    source=change.source,
+                    target=change.target,
+                    context=content[change.token_start : change.token_end],
+                    replacement_context=change.replacement,
+                )
+            )
+
+        if fix and adapted.changes:
+            try:
+                used_encoding = atomic_write_json_text(
+                    path,
+                    adapted.output,
+                    output_encoding=output_encoding,
+                    original_info=encoding_info,
+                )
+                result.modified = True
+                result.output_encoding = used_encoding
+                if used_encoding != encoding_info.encoding:
+                    result.encoding_converted = True
+            except Exception as exc:
+                result.error = f"Failed to write JSON atomically: {exc}"
         return result
 
     # Skip files without Chinese characters
@@ -136,6 +202,7 @@ def convert_directory(
     output_encoding: str = "auto",
     char_table: Optional[dict[int, str]] = None,
     ambiguity_mode: str = "strict",
+    adapter: str | None = None,
 ) -> Iterator[FileResult]:
     """
     Process files in a directory or a single file.
@@ -156,9 +223,11 @@ def convert_directory(
     Yields:
         FileResult for each processed file.
     """
+    effective_extensions = {".json"} if adapter == "json" else extensions
+
     # Handle single file
     if path.is_file():
-        if should_check_file(path, extensions, excludes):
+        if should_check_file(path, effective_extensions, excludes):
             if on_progress:
                 on_progress(1, 1)
             yield convert_file(
@@ -169,6 +238,7 @@ def convert_directory(
                 output_encoding=output_encoding,
                 char_table=char_table,
                 ambiguity_mode=ambiguity_mode,
+                adapter=adapter,
             )
         return
 
@@ -181,7 +251,7 @@ def convert_directory(
         f
         for f in base_dir.rglob("*")
         if f.is_file()
-        and should_check_file(f, extensions, excludes)
+        and should_check_file(f, effective_extensions, excludes)
         and not is_ignored_by_patterns(f, base_dir, ignore_patterns)
     ]
 
@@ -198,6 +268,7 @@ def convert_directory(
             output_encoding=output_encoding,
             char_table=char_table,
             ambiguity_mode=ambiguity_mode,
+            adapter=adapter,
         )
 
 
@@ -213,6 +284,7 @@ def process_directory(
     output_encoding: str = "auto",
     char_convert: bool = True,
     ambiguity_mode: str = "strict",
+    adapter: str | None = None,
 ) -> ConversionResult:
     """
     Process a directory or single file and return aggregated results.
@@ -237,6 +309,10 @@ def process_directory(
             f"Invalid ambiguity_mode: {ambiguity_mode!r}. "
             f"Valid modes are: {sorted(VALID_AMBIGUITY_MODES)}"
         )
+    if adapter not in (None, "json"):
+        raise ValueError(f"Unsupported adapter: {adapter!r}")
+    if adapter == "json" and path.is_file() and path.suffix.lower() != ".json":
+        raise ValueError("The json adapter requires a .json file or a directory")
 
     # Load dictionary and create matcher
     terms = load_dictionary(sources=sources, custom_path=custom_dict)
@@ -271,12 +347,17 @@ def process_directory(
         output_encoding=output_encoding,
         char_table=char_table,
         ambiguity_mode=effective_mode,
+        adapter=adapter,
     ):
         if file_result.skipped:
             result.files_skipped += 1
             continue
 
         result.files_checked += 1
+
+        if file_result.error:
+            result.files_failed += 1
+            result.errors.append(file_result)
 
         if file_result.issues:
             result.files_with_issues += 1

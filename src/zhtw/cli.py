@@ -106,6 +106,12 @@ def main():
     default="strict",
     help="歧義字處理模式。strict（預設）：不轉換歧義字。balanced：套用高信心預設映射。",
 )
+@click.option(
+    "--adapter",
+    type=click.Choice(["json"]),
+    default=None,
+    help="明確啟用結構化檔 adapter；json 只轉換 string value",
+)
 def check(
     path: Path,
     source: str,
@@ -116,6 +122,7 @@ def check(
     encoding: Optional[str],
     no_char_convert: bool,
     ambiguity_mode: str,
+    adapter: Optional[str],
 ):
     """
     檢查模式：掃描檔案並報告問題，不修改檔案。
@@ -132,6 +139,9 @@ def check(
 
         zhtw check ./src --json
     """
+    if adapter == "json" and path.is_file() and path.suffix.lower() != ".json":
+        raise click.UsageError("json adapter 只接受 .json 單檔或目錄")
+
     sources = [s.strip() for s in source.split(",")]
     excludes = set(e.strip() for e in exclude.split(",")) if exclude else None
 
@@ -158,6 +168,7 @@ def check(
         input_encoding=input_encoding,
         char_convert=use_char_convert,
         ambiguity_mode=ambiguity_mode,
+        adapter=adapter,
     )
 
     if json_output:
@@ -166,7 +177,7 @@ def check(
         print_results(result, verbose=verbose)
 
     # Exit with error code if issues found
-    sys.exit(1 if result.total_issues > 0 else 0)
+    sys.exit(1 if result.total_issues > 0 or result.files_failed > 0 else 0)
 
 
 @main.command()
@@ -249,6 +260,12 @@ def check(
     default="strict",
     help="歧義字處理模式。strict（預設）：不轉換歧義字。balanced：套用高信心預設映射。",
 )
+@click.option(
+    "--adapter",
+    type=click.Choice(["json"]),
+    default=None,
+    help="明確啟用結構化檔 adapter；json 只轉換 string value",
+)
 def fix(
     path: Path,
     source: str,
@@ -264,6 +281,7 @@ def fix(
     yes: bool,
     no_char_convert: bool,
     ambiguity_mode: str,
+    adapter: Optional[str],
 ):
     """
     修正模式：掃描檔案並自動修正問題。
@@ -286,6 +304,9 @@ def fix(
 
         zhtw fix ./src --output-encoding utf-8
     """
+    if adapter == "json" and path.is_file() and path.suffix.lower() != ".json":
+        raise click.UsageError("json adapter 只接受 .json 單檔或目錄")
+
     sources = [s.strip() for s in source.split(",")]
     excludes = set(e.strip() for e in exclude.split(",")) if exclude else None
 
@@ -340,7 +361,15 @@ def fix(
             output_encoding=out_encoding,
             char_convert=use_char_convert,
             ambiguity_mode=ambiguity_mode,
+            adapter=adapter,
         )
+
+        if result.files_failed > 0:
+            if json_output:
+                print_json(result)
+            else:
+                print_results(result, verbose=verbose)
+            sys.exit(1)
 
         if result.total_issues == 0:
             if json_output:
@@ -382,13 +411,14 @@ def fix(
                 output_encoding=out_encoding,
                 char_convert=use_char_convert,
                 ambiguity_mode=ambiguity_mode,
+                adapter=adapter,
             )
             print_results(result, verbose=verbose)
         else:
             print_json(result)
-            sys.exit(1 if result.total_issues > 0 else 0)
+            sys.exit(1 if result.total_issues > 0 or result.files_failed > 0 else 0)
 
-        sys.exit(0)
+        sys.exit(1 if result.files_failed > 0 else 0)
 
     # Normal mode (no show_diff)
     if not json_output:
@@ -410,6 +440,7 @@ def fix(
             output_encoding=out_encoding,
             char_convert=use_char_convert,
             ambiguity_mode=ambiguity_mode,
+            adapter=adapter,
         )
         do_backup_if_needed(check_result)
 
@@ -424,6 +455,7 @@ def fix(
         output_encoding=out_encoding,
         char_convert=use_char_convert,
         ambiguity_mode=ambiguity_mode,
+        adapter=adapter,
     )
 
     if json_output:
@@ -433,9 +465,9 @@ def fix(
 
     # Exit with success after fixing (or error if dry-run found issues)
     if dry_run:
-        sys.exit(1 if result.total_issues > 0 else 0)
+        sys.exit(1 if result.total_issues > 0 or result.files_failed > 0 else 0)
     else:
-        sys.exit(0)
+        sys.exit(1 if result.files_failed > 0 else 0)
 
 
 @main.command()
