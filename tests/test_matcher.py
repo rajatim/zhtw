@@ -135,3 +135,16 @@ class TestMatcher:
         assert [match.source for match in matches] == ["应用"]
         assert covered == {0, 1}
         assert 2 not in matcher.get_covered_positions("应用于")
+
+    def test_detailed_scan_keeps_raw_candidates_and_selection_reasons(self):
+        matcher = Matcher({"应用": "應用", "用于": "用於"})
+
+        scan = matcher.scan_detailed("应用于")
+
+        assert [match.source for match in scan.raw_matches] == ["应用", "用于"]
+        assert [match.source for match in scan.selected] == ["应用"]
+        assert scan.covered == frozenset({0, 1})
+        assert [decision.reason_code for decision in scan.decisions] == [
+            "term_selected",
+            "overlap_loser",
+        ]

@@ -690,6 +690,36 @@ class TestValidateCommandExtended:
 # =============================================================================
 
 
+class TestExplainCommand:
+    """Tests for the read-only explain command."""
+
+    def test_explain_json_uses_minimal_event_shape(self, runner: CliRunner):
+        result = runner.invoke(main, ["explain", "软件", "--source", "cn", "--json"])
+
+        assert result.exit_code == 0
+        payload = json.loads(result.output)
+        assert payload["output"] == "軟體"
+        assert payload["events"]
+        assert all("context" not in event for event in payload["events"])
+
+    def test_explain_context_requires_explicit_option(self, runner: CliRunner):
+        result = runner.invoke(
+            main,
+            ["explain", "prefix软件suffix", "--source", "cn", "--json", "--context"],
+        )
+
+        assert result.exit_code == 0
+        payload = json.loads(result.output)
+        assert any("prefix" in event["context"] for event in payload["events"])
+
+    def test_explain_accepts_stdin(self, runner: CliRunner):
+        result = runner.invoke(main, ["explain", "--source", "cn"], input="软件")
+
+        assert result.exit_code == 0
+        assert "軟體" in result.output
+        assert "term_selected" in result.output
+
+
 class TestImportCommand:
     """Tests for 'zhtw import' command."""
 

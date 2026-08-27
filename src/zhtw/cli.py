@@ -629,6 +629,70 @@ def _print_lookup_json(results):
     click.echo(json.dumps(data, ensure_ascii=False, indent=2))
 
 
+@main.command("explain")
+@click.argument("text", required=False)
+@click.option(
+    "--source",
+    "-s",
+    type=str,
+    default="cn,hk",
+    help="轉換來源: cn (簡體), hk (港式), 或 cn,hk (預設)",
+)
+@click.option(
+    "--ambiguity-mode",
+    type=click.Choice(["strict", "balanced"]),
+    default="strict",
+    help="歧義字處理模式 (預設: strict)",
+)
+@click.option("--json", "json_output", is_flag=True, help="JSON 輸出")
+@click.option(
+    "--context",
+    "include_context",
+    is_flag=True,
+    help="明確加入命中前後文；可能包含敏感內容",
+)
+def explain_cmd(
+    text: Optional[str],
+    source: str,
+    ambiguity_mode: str,
+    json_output: bool,
+    include_context: bool,
+):
+    """轉換一段文字，並說明每個套用、保護或略過的規則。"""
+    import sys as _sys
+
+    from .explain import explain
+
+    if text is None and hasattr(_sys.stdin, "isatty") and not _sys.stdin.isatty():
+        text = _sys.stdin.read()
+    if text is None:
+        raise click.UsageError("請提供 TEXT 或從 stdin 傳入文字")
+
+    sources = [value.strip() for value in source.split(",")]
+    result = explain(text, sources=sources, ambiguity_mode=ambiguity_mode)
+    if json_output:
+        payload = result.to_mapping()
+        if include_context:
+            from .converter import get_context
+
+            for event, raw_event in zip(result.events, payload["events"]):
+                raw_event["context"] = get_context(text, event.input_start, event.input_end)
+        click.echo(json.dumps(payload, ensure_ascii=False, indent=2))
+        return
+
+    click.echo(result.output)
+    for event in result.events:
+        line = (
+            f"[{event.outcome}] {event.layer} {event.input_start}:{event.input_end} "
+            f"{event.source} → {event.target} ({event.reason_code}, {event.rule_id})"
+        )
+        if include_context:
+            from .converter import get_context
+
+            line += f"\n  context: {get_context(text, event.input_start, event.input_end)}"
+        click.echo(line)
+
+
 def _print_lookup_words(results, verbose: bool):
     """多個單詞的輸出格式。"""
     for r in results:

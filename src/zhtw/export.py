@@ -16,6 +16,7 @@ from .charconv import (
 )
 from .converter import convert_text, inject_protect_terms
 from .dictionary import DATA_DIR, load_dictionary, load_directory_catalog
+from .explain import explain
 from .lookup import lookup_word
 from .matcher import Matcher
 from .rules import (
@@ -27,7 +28,7 @@ from .rules import (
 )
 
 DATA_SCHEMA_VERSION = 2
-GOLDEN_SCHEMA_VERSION = 1
+GOLDEN_SCHEMA_VERSION = 2
 
 
 def _group_rule_catalog(catalog: list) -> Dict[str, Any]:
@@ -212,6 +213,7 @@ def generate_golden_test(
     convert_cases = []
     check_cases = []
     lookup_cases = []
+    explain_cases = []
 
     for case in _GOLDEN_CASES:
         input_text, srcs, _desc = case[0], case[1], case[2]
@@ -267,6 +269,19 @@ def generate_golden_test(
             check_entry["ambiguity_mode"] = mode
         check_cases.append(check_entry)
 
+        explained = explain(input_text, sources=srcs, ambiguity_mode=mode)
+        if explained.output != converted:
+            raise RuntimeError("golden explain output diverged from convert output")
+        explain_entry: Dict[str, Any] = {
+            "input": input_text,
+            "sources": srcs,
+            "expected_output": explained.output,
+            "expected_events": [event.to_mapping() for event in explained.events],
+        }
+        if mode != "strict":
+            explain_entry["ambiguity_mode"] = mode
+        explain_cases.append(explain_entry)
+
     for case in _LOOKUP_CASES:
         word, srcs = case[0], case[1]
         mode = case[2] if len(case) > 2 else "strict"
@@ -304,6 +319,7 @@ def generate_golden_test(
         "convert": convert_cases,
         "check": check_cases,
         "lookup": lookup_cases,
+        "explain": explain_cases,
     }
 
 

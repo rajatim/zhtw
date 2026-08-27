@@ -204,15 +204,17 @@ def test_golden_test_schema():
 
     golden = generate_golden_test()
 
-    assert golden["schema_version"] == 1
+    assert golden["schema_version"] == 2
     assert "version" in golden
     assert "description" in golden
     assert "convert" in golden
     assert "check" in golden
     assert "lookup" in golden
+    assert "explain" in golden
     assert isinstance(golden["convert"], list)
     assert isinstance(golden["check"], list)
     assert isinstance(golden["lookup"], list)
+    assert isinstance(golden["explain"], list)
 
 
 def test_golden_convert_cases():
@@ -260,6 +262,32 @@ def test_golden_lookup_has_full_details():
             assert "target" in d
             assert "layer" in d
             assert "position" in d
+
+
+def test_golden_explain_has_cross_sdk_event_shape():
+    """Explain fixtures carry output, spans, stable IDs, and reason codes."""
+    from zhtw.export import generate_golden_test
+
+    golden = generate_golden_test()
+    required = {
+        "rule_id",
+        "layer",
+        "outcome",
+        "input_start",
+        "input_end",
+        "output_start",
+        "output_end",
+        "source",
+        "target",
+        "reason_code",
+    }
+
+    for case in golden["explain"]:
+        assert "input" in case
+        assert "sources" in case
+        assert "expected_output" in case
+        assert "expected_events" in case
+        assert all(set(event) == required for event in case["expected_events"])
 
 
 def test_golden_convert_matches_python_pipeline():

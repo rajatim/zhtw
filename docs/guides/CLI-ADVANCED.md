@@ -67,6 +67,21 @@ echo "心态" | zhtw lookup
 ```
 <!-- zhtw:enable -->
 
+## 規則解釋（4.5.0 開發中）
+
+`explain` 會回傳正式轉換結果，並列出實際套用、identity 保護及因重疊而略過的規則：
+
+<!-- zhtw:disable -->
+```bash
+zhtw explain "这个软件" --source cn
+zhtw explain "这个软件" --source cn --json
+echo "这个软件" | zhtw explain --source cn
+```
+<!-- zhtw:enable -->
+
+預設不顯示前後文。只有明確加 `--context` 才會加入 context；處理敏感資料時不要使用。
+完整欄位與 reason code 請見 [Explain API 參考](../reference/explain-api.md)。
+
 ## 多編碼支援 (v2.5.0+)
 
 自動偵測並處理 Big5、GBK 等舊編碼檔案：

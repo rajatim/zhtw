@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "version": "4.4.5",
   "description": "SDK consistency test — all SDKs must pass",
   "convert": [
@@ -608,6 +608,946 @@
       "expected_output": "影后",
       "expected_changed": false,
       "expected_details": [],
+      "ambiguity_mode": "balanced"
+    }
+  ],
+  "explain": [
+    {
+      "input": "软件测试",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "軟體測試",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:0c6bb17aae5a7c1f9e9464ba",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 0,
+          "input_end": 1,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "软",
+          "target": "軟",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:d53fbca4452dd2624fced37d",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "软件",
+          "target": "軟體",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:76fcf5a950b7c60a4f358be4",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 2,
+          "input_end": 4,
+          "output_start": 2,
+          "output_end": 4,
+          "source": "测试",
+          "target": "測試",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:9661da3ac05ed2e2449efc5e",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 3,
+          "input_end": 4,
+          "output_start": 2,
+          "output_end": 4,
+          "source": "试",
+          "target": "試",
+          "reason_code": "overlap_loser"
+        }
+      ]
+    },
+    {
+      "input": "这个服务器的内存不够",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "這個伺服器的記憶體不夠",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:c0d10f2a2412c53604e0176c",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 0,
+          "input_end": 1,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "这",
+          "target": "這",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:b7297c444695243cc18448f9",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "这个",
+          "target": "這個",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:d842b9ba3a31e85ade13e5ff",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "个",
+          "target": "個",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:f126e87bcb7129b43700dbdb",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 2,
+          "input_end": 4,
+          "output_start": 2,
+          "output_end": 5,
+          "source": "服务",
+          "target": "服務",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:662a9403c321334128447b3b",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 2,
+          "input_end": 5,
+          "output_start": 2,
+          "output_end": 5,
+          "source": "服务器",
+          "target": "伺服器",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:838d98c2d0ccdc330cd99a90",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 3,
+          "input_end": 4,
+          "output_start": 2,
+          "output_end": 5,
+          "source": "务",
+          "target": "務",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:2bb645ada12fa7b95f0c81b9",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 6,
+          "input_end": 8,
+          "output_start": 6,
+          "output_end": 9,
+          "source": "内存",
+          "target": "記憶體",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:b5150982692c2f32385611de",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 9,
+          "input_end": 10,
+          "output_start": 10,
+          "output_end": 11,
+          "source": "够",
+          "target": "夠",
+          "reason_code": "term_selected"
+        }
+      ]
+    },
+    {
+      "input": "头发很干",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "頭髮很干",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:d3e5ccde86f81ccf024926e3",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 0,
+          "input_end": 1,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "头",
+          "target": "頭",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:b7bb896a27ee600ceb0ac16b",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "头发",
+          "target": "頭髮",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:799294af5cbde37dcaef0e08",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "发",
+          "target": "發",
+          "reason_code": "overlap_loser"
+        }
+      ]
+    },
+    {
+      "input": "軟件工程師",
+      "sources": [
+        "hk"
+      ],
+      "expected_output": "軟體工程師",
+      "expected_events": [
+        {
+          "rule_id": "legacy:hk:curated:060100f717e32737ca4c5447",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "軟件",
+          "target": "軟體",
+          "reason_code": "term_selected"
+        }
+      ]
+    },
+    {
+      "input": "已經是繁體",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "已經是繁體",
+      "expected_events": []
+    },
+    {
+      "input": "数据库服务器",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "資料庫伺服器",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:b82b6c0a84d0d04730d9ecae",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 0,
+          "input_end": 1,
+          "output_start": 0,
+          "output_end": 3,
+          "source": "数",
+          "target": "數",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:74c9fe225d1569bf8880d199",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 3,
+          "source": "数据",
+          "target": "資料",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:e9ffcdbb8a1f181b980fe8d7",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 3,
+          "output_start": 0,
+          "output_end": 3,
+          "source": "数据库",
+          "target": "資料庫",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:85697a5c5a690c7ae9fb086f",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 3,
+          "source": "据",
+          "target": "據",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:35eaceeb0b36cda807468bbf",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 2,
+          "input_end": 3,
+          "output_start": 0,
+          "output_end": 3,
+          "source": "库",
+          "target": "庫",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:f126e87bcb7129b43700dbdb",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 3,
+          "input_end": 5,
+          "output_start": 3,
+          "output_end": 6,
+          "source": "服务",
+          "target": "服務",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:662a9403c321334128447b3b",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 3,
+          "input_end": 6,
+          "output_start": 3,
+          "output_end": 6,
+          "source": "服务器",
+          "target": "伺服器",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:838d98c2d0ccdc330cd99a90",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 4,
+          "input_end": 5,
+          "output_start": 3,
+          "output_end": 6,
+          "source": "务",
+          "target": "務",
+          "reason_code": "overlap_loser"
+        }
+      ]
+    },
+    {
+      "input": "云计算",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "雲端運算",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:1aa47cdbda0106158c6147af",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 0,
+          "input_end": 1,
+          "output_start": 0,
+          "output_end": 4,
+          "source": "云",
+          "target": "雲",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:2d51f4d29fd5a87f3c9b73bd",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 3,
+          "output_start": 0,
+          "output_end": 4,
+          "source": "云计算",
+          "target": "雲端運算",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:6d435adf4158d0a7213ad962",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 4,
+          "source": "计",
+          "target": "計",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:832dff084e9d36af50a9960e",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 3,
+          "output_start": 0,
+          "output_end": 4,
+          "source": "计算",
+          "target": "計算",
+          "reason_code": "overlap_loser"
+        }
+      ]
+    },
+    {
+      "input": "发展很快",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "發展很快",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:799294af5cbde37dcaef0e08",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 0,
+          "input_end": 1,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "发",
+          "target": "發",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:1599a0013e0af0164fc2973a",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "发展",
+          "target": "發展",
+          "reason_code": "term_selected"
+        }
+      ]
+    },
+    {
+      "input": "应用于",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "應用於",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:f75749240b23006b520964fd",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 0,
+          "input_end": 1,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "应",
+          "target": "應",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:30172d1ddb5d47b37a1b1bf0",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "应用",
+          "target": "應用",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:96f3ee9b58234e5a0b31413e",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 3,
+          "output_start": 0,
+          "output_end": 3,
+          "source": "用于",
+          "target": "用於",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "charmap:u4e8e",
+          "layer": "char",
+          "outcome": "applied",
+          "input_start": 2,
+          "input_end": 3,
+          "output_start": 2,
+          "output_end": 3,
+          "source": "于",
+          "target": "於",
+          "reason_code": "char_map"
+        }
+      ]
+    },
+    {
+      "input": "两千万",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "兩千萬",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:2e306667ea6065f8a3cd7036",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 0,
+          "input_end": 1,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "两",
+          "target": "兩",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:bulk:539346b66eda0678d0c86cdf",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "两千",
+          "target": "兩千",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:bulk:bf91e003499773ec15b6ee7f",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 3,
+          "output_start": 0,
+          "output_end": 3,
+          "source": "千万",
+          "target": "千萬",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "charmap:u4e07",
+          "layer": "char",
+          "outcome": "applied",
+          "input_start": 2,
+          "input_end": 3,
+          "output_start": 2,
+          "output_end": 3,
+          "source": "万",
+          "target": "萬",
+          "reason_code": "char_map"
+        }
+      ]
+    },
+    {
+      "input": "尸位素餐",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "尸位素餐",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:b58bd74a83a8dbdebbf33d05",
+          "layer": "identity",
+          "outcome": "protected",
+          "input_start": 0,
+          "input_end": 4,
+          "output_start": 0,
+          "output_end": 4,
+          "source": "尸位素餐",
+          "target": "尸位素餐",
+          "reason_code": "identity_guard"
+        }
+      ]
+    },
+    {
+      "input": "人云亦云",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "人云亦云",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:afdd3f88f103d2f74dcc6e98",
+          "layer": "identity",
+          "outcome": "protected",
+          "input_start": 0,
+          "input_end": 4,
+          "output_start": 0,
+          "output_end": 4,
+          "source": "人云亦云",
+          "target": "人云亦云",
+          "reason_code": "identity_guard"
+        },
+        {
+          "rule_id": "legacy:cn:curated:1aa47cdbda0106158c6147af",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 2,
+          "output_start": 1,
+          "output_end": 2,
+          "source": "云",
+          "target": "雲",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:1aa47cdbda0106158c6147af",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 3,
+          "input_end": 4,
+          "output_start": 3,
+          "output_end": 4,
+          "source": "云",
+          "target": "雲",
+          "reason_code": "overlap_loser"
+        }
+      ]
+    },
+    {
+      "input": "急症很严重",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "急症很嚴重",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:585762345e2943f5457b4fce",
+          "layer": "identity",
+          "outcome": "protected",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "急症",
+          "target": "急症",
+          "reason_code": "identity_guard"
+        },
+        {
+          "rule_id": "charmap:u4e25",
+          "layer": "char",
+          "outcome": "applied",
+          "input_start": 3,
+          "input_end": 4,
+          "output_start": 3,
+          "output_end": 4,
+          "source": "严",
+          "target": "嚴",
+          "reason_code": "char_map"
+        }
+      ]
+    },
+    {
+      "input": "炎症",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "炎症",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:218f27649b2b129d32eb8a9c",
+          "layer": "identity",
+          "outcome": "protected",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "炎症",
+          "target": "炎症",
+          "reason_code": "identity_guard"
+        }
+      ]
+    },
+    {
+      "input": "党太尉吃匹食",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "黨太尉吃匹食",
+      "expected_events": [
+        {
+          "rule_id": "charmap:u515a",
+          "layer": "char",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 1,
+          "output_start": 0,
+          "output_end": 1,
+          "source": "党",
+          "target": "黨",
+          "reason_code": "char_map"
+        }
+      ]
+    },
+    {
+      "input": "以后再说",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "以後再說",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:ecd3765415e47c7ea79716b9",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "以后",
+          "target": "以後",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:b54d502e082f0e08fcea87bf",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "后",
+          "target": "後",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:cf342fbbfd5ad2e80a85d0a4",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 3,
+          "input_end": 4,
+          "output_start": 3,
+          "output_end": 4,
+          "source": "说",
+          "target": "說",
+          "reason_code": "term_selected"
+        }
+      ],
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "皇后很美",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "皇后很美",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:generated_guard:20b14ea1b64ca33b8843f205",
+          "layer": "identity",
+          "outcome": "protected",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "皇后",
+          "target": "皇后",
+          "reason_code": "identity_guard"
+        },
+        {
+          "rule_id": "legacy:cn:curated:b54d502e082f0e08fcea87bf",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 2,
+          "output_start": 1,
+          "output_end": 2,
+          "source": "后",
+          "target": "後",
+          "reason_code": "overlap_loser"
+        }
+      ],
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "家里很大",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "家裡很大",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:curated:d37de07d76e4c579825067ec",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "家里",
+          "target": "家裡",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:469e56ec18a9581dc29531e5",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "里",
+          "target": "裡",
+          "reason_code": "overlap_loser"
+        }
+      ],
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "公里数很大",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "公里數很大",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:generated_guard:184c86f384de88e594e77631",
+          "layer": "identity",
+          "outcome": "skipped",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 3,
+          "source": "公里",
+          "target": "公里",
+          "reason_code": "identity_contained"
+        },
+        {
+          "rule_id": "legacy:cn:bulk:1f2e771efc38470ef72b56e8",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 3,
+          "output_start": 0,
+          "output_end": 3,
+          "source": "公里数",
+          "target": "公里數",
+          "reason_code": "term_selected"
+        },
+        {
+          "rule_id": "legacy:cn:curated:469e56ec18a9581dc29531e5",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 3,
+          "source": "里",
+          "target": "裡",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:b82b6c0a84d0d04730d9ecae",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 2,
+          "input_end": 3,
+          "output_start": 0,
+          "output_end": 3,
+          "source": "数",
+          "target": "數",
+          "reason_code": "overlap_loser"
+        }
+      ],
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "影后得奖",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "影后得獎",
+      "expected_events": [
+        {
+          "rule_id": "legacy:cn:generated_guard:5cfe15ceafa6a1c166c896ec",
+          "layer": "identity",
+          "outcome": "protected",
+          "input_start": 0,
+          "input_end": 2,
+          "output_start": 0,
+          "output_end": 2,
+          "source": "影后",
+          "target": "影后",
+          "reason_code": "identity_guard"
+        },
+        {
+          "rule_id": "legacy:cn:curated:b54d502e082f0e08fcea87bf",
+          "layer": "term",
+          "outcome": "skipped",
+          "input_start": 1,
+          "input_end": 2,
+          "output_start": 1,
+          "output_end": 2,
+          "source": "后",
+          "target": "後",
+          "reason_code": "overlap_loser"
+        },
+        {
+          "rule_id": "legacy:cn:curated:9d132865ca7769933d627b74",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 3,
+          "input_end": 4,
+          "output_start": 3,
+          "output_end": 4,
+          "source": "奖",
+          "target": "獎",
+          "reason_code": "term_selected"
+        }
+      ],
+      "ambiguity_mode": "balanced"
+    },
+    {
+      "input": "丰满",
+      "sources": [
+        "cn"
+      ],
+      "expected_output": "豐滿",
+      "expected_events": [
+        {
+          "rule_id": "balanced:u4e30",
+          "layer": "balanced",
+          "outcome": "applied",
+          "input_start": 0,
+          "input_end": 1,
+          "output_start": 0,
+          "output_end": 1,
+          "source": "丰",
+          "target": "豐",
+          "reason_code": "balanced_default"
+        },
+        {
+          "rule_id": "legacy:cn:curated:ca5a797b901c912c12767d99",
+          "layer": "term",
+          "outcome": "applied",
+          "input_start": 1,
+          "input_end": 2,
+          "output_start": 1,
+          "output_end": 2,
+          "source": "满",
+          "target": "滿",
+          "reason_code": "term_selected"
+        }
+      ],
       "ambiguity_mode": "balanced"
     }
   ]

@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- 新增唯讀 `explain` Python API 與 CLI 指令，共用正式 matcher scan，回傳穩定規則 ID、
+  term／identity／balanced／char layer、input／output codepoint span 與 reason code；預設
+  不包含前後文，CLI 必須明確加 `--context` 才會顯示。
 - 漢字偵測擴充到 Unicode 17.0 的基本區、Extensions A～J 與兩個相容漢字區；外部詞彙
   匯入可接受非 Han 序列完全一致的安全中英數混合技術詞，並以 schema v2 規則保存
   provenance 與 pending review 狀態。

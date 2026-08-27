@@ -6,9 +6,11 @@ This allows O(n) scanning of text regardless of the number of terms in the dicti
 
 from bisect import bisect_right
 from dataclasses import dataclass
-from typing import Dict, Iterator
+from typing import Dict, Iterable, Iterator
 
 import ahocorasick
+
+from .rules import ReviewStatus, RuleClass, RuleRecord, SourceLocale, legacy_rule_id
 
 
 @dataclass
@@ -19,6 +21,25 @@ class Match:
     end: int  # End position in text (exclusive)
     source: str  # Original term found
     target: str  # Replacement term
+
+
+@dataclass(frozen=True, slots=True)
+class MatchDecision:
+    """One raw automaton candidate and the shared selection outcome."""
+
+    match: Match
+    outcome: str
+    reason_code: str
+
+
+@dataclass(frozen=True, slots=True)
+class MatchScan:
+    """Detailed result from one automaton traversal."""
+
+    raw_matches: tuple[Match, ...]
+    selected: tuple[Match, ...]
+    covered: frozenset[int]
+    decisions: tuple[MatchDecision, ...]
 
 
 class Matcher:
@@ -35,7 +56,11 @@ class Matcher:
         # zhtw:enable
     """
 
-    def __init__(self, terms: Dict[str, str]):
+    def __init__(
+        self,
+        terms: Dict[str, str],
+        rule_records: Iterable[RuleRecord] = (),
+    ):
         """
         Initialize matcher with a dictionary of terms.
 
@@ -43,6 +68,14 @@ class Matcher:
             terms: Dictionary mapping source terms to target terms.
         """
         self.terms = terms
+        self._rule_records_by_source: dict[str, tuple[RuleRecord, ...]] = {}
+        grouped: dict[str, list[RuleRecord]] = {}
+        for record in rule_records:
+            if record.review_status is ReviewStatus.APPROVED:
+                grouped.setdefault(record.source, []).append(record)
+        self._rule_records_by_source = {
+            source: tuple(records) for source, records in grouped.items()
+        }
         self.automaton = self._build_automaton()
 
     def _build_automaton(self) -> ahocorasick.Automaton:
@@ -69,17 +102,40 @@ class Matcher:
             A losing overlapping conversion must not hide its unmatched suffix
             from the character layer.
         """
+        all_matches = self._scan_raw(text)
+        selected, covered, _decisions = self._select_with_coverage(all_matches)
+        return selected, covered
+
+    def scan_detailed(self, text: str) -> MatchScan:
+        """Scan once and retain raw candidates plus selection reasons."""
+
+        all_matches = self._scan_raw(text)
+        raw_matches = tuple(all_matches)
+        selected, covered, decisions = self._select_with_coverage(
+            all_matches,
+            collect_decisions=True,
+        )
+        return MatchScan(
+            raw_matches=raw_matches,
+            selected=tuple(selected),
+            covered=frozenset(covered),
+            decisions=tuple(decisions),
+        )
+
+    def _scan_raw(self, text: str) -> list[Match]:
+        """Collect raw candidates from exactly one automaton traversal."""
+
         if not self.terms:
-            return [], set()
-
-        all_matches = []
-        for end_pos, (source, target) in self.automaton.iter(text):
-            start_pos = end_pos - len(source) + 1
-            all_matches.append(
-                Match(start=start_pos, end=end_pos + 1, source=source, target=target)
+            return []
+        return [
+            Match(
+                start=end_pos - len(source) + 1,
+                end=end_pos + 1,
+                source=source,
+                target=target,
             )
-
-        return self._select_with_coverage(all_matches)
+            for end_pos, (source, target) in self.automaton.iter(text)
+        ]
 
     def find_matches(self, text: str) -> Iterator[Match]:
         """
@@ -115,13 +171,18 @@ class Matcher:
 
     def _select(self, all_matches: list[Match]) -> Iterator[Match]:
         """從全部命中中選出實際要套用的轉換（共用的選擇邏輯）。"""
-        selected, _covered = self._select_with_coverage(all_matches)
+        selected, _covered, _decisions = self._select_with_coverage(all_matches)
         yield from selected
 
-    def _select_with_coverage(self, all_matches: list[Match]) -> tuple[list[Match], set[int]]:
+    def _select_with_coverage(
+        self,
+        all_matches: list[Match],
+        *,
+        collect_decisions: bool = False,
+    ) -> tuple[list[Match], set[int], list[MatchDecision]]:
         """Select conversions and return only coverage that affects output."""
         if not all_matches:
-            return [], set()
+            return [], set(), []
 
         # Sort by start position, then by length (longer first)
         all_matches.sort(key=lambda m: (m.start, -(m.end - m.start)))
@@ -135,6 +196,7 @@ class Matcher:
         # Separate identity and non-identity matches
         identity_matches = [m for m in all_matches if m.source == m.target]
         non_identity = [(m.start, m.end) for m in all_matches if m.source != m.target]
+        effective_identity_keys: set[tuple[int, int, str, str]] = set()
 
         # Use binary search to check containment: O(m log m) instead of O(n*m)
         if non_identity:
@@ -152,29 +214,90 @@ class Matcher:
                 is_contained = idx >= 0 and ni_max_end[idx] >= identity.end
                 if not is_contained:
                     protected.update(range(identity.start, identity.end))
+                    effective_identity_keys.add(
+                        (identity.start, identity.end, identity.source, identity.target)
+                    )
         else:
             for identity in identity_matches:
                 protected.update(range(identity.start, identity.end))
+                effective_identity_keys.add(
+                    (identity.start, identity.end, identity.source, identity.target)
+                )
 
         # Filter overlapping matches. Only selected conversions and effective
         # identity guards count as covered. Raw candidates that lose overlap
         # selection must remain available to the character layer.
         selected: list[Match] = []
+        decisions: list[MatchDecision] = []
         covered = set(protected)
         last_end = -1
         for match in all_matches:
+            identity_key = (match.start, match.end, match.source, match.target)
             if match.start >= last_end:
                 # Skip if this conversion overlaps with a protected range
                 if match.source != match.target:
                     if any(i in protected for i in range(match.start, match.end)):
+                        if collect_decisions:
+                            decisions.append(
+                                MatchDecision(match, "skipped", "protected_by_identity")
+                            )
                         continue
                 last_end = match.end
                 # Skip identity matches (no actual change needed)
                 if match.source != match.target:
                     selected.append(match)
                     covered.update(range(match.start, match.end))
+                    if collect_decisions:
+                        decisions.append(MatchDecision(match, "applied", "term_selected"))
+                elif collect_decisions:
+                    reason = (
+                        "identity_guard"
+                        if identity_key in effective_identity_keys
+                        else "identity_contained"
+                    )
+                    decisions.append(MatchDecision(match, "protected", reason))
+            elif collect_decisions:
+                if match.source == match.target and identity_key in effective_identity_keys:
+                    decisions.append(MatchDecision(match, "protected", "identity_guard"))
+                else:
+                    reason = (
+                        "identity_contained" if match.source == match.target else "overlap_loser"
+                    )
+                    decisions.append(MatchDecision(match, "skipped", reason))
 
-        return selected, covered
+        return selected, covered, decisions
+
+    def rule_record_for(self, match: Match) -> RuleRecord | None:
+        """Return the effective descriptive record for a runtime match."""
+
+        candidates = self._rule_records_by_source.get(match.source, ())
+        for record in reversed(candidates):
+            if record.target == match.target:
+                return record
+        return None
+
+    def rule_id_for(self, match: Match) -> str:
+        """Return a stable rule ID, including for ad-hoc matchers."""
+
+        record = self.rule_record_for(match)
+        if record is not None:
+            return record.id
+        return legacy_rule_id(
+            SourceLocale.CN,
+            match.source,
+            match.target,
+            RuleClass.CUSTOM,
+        )
+
+    def loader_conflicts_for(self, match: Match) -> tuple[RuleRecord, ...]:
+        """Return approved records hidden by the effective source winner."""
+
+        winner = self.rule_record_for(match)
+        return tuple(
+            record
+            for record in self._rule_records_by_source.get(match.source, ())
+            if winner is None or record.id != winner.id
+        )
 
     def get_covered_positions(self, text: str) -> set[int]:
         """Return positions covered by selected terms or effective identity guards."""
