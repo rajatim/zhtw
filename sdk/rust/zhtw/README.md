@@ -36,6 +36,8 @@ let conv = Converter::builder()
     .expect("non-empty sources");
 
 conv.convert("自定义几个里程碑");
+conv.explain("软件");
+conv.convert_json("{\"软件\":\"这个软件\"}")?;
 ```
 <!-- zhtw:enable -->
 
@@ -44,8 +46,10 @@ conv.convert("自定义几个里程碑");
 | Function | Description |
 |----------|-------------|
 | `convert(text)` | Convert text (uses default converter) |
+| `convert_json(text)` | Convert JSON string values only; reject duplicate keys |
 | `check(text)` | Return replacements without modifying |
 | `lookup(word)` | Look up a single word |
+| `explain(text)` | Return converted output and stable rule events |
 | `Converter::builder()` | Custom converter with builder pattern |
 
 ## Performance

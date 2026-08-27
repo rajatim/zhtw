@@ -80,7 +80,7 @@ struct RuleGroup {
     context: Vec<String>,
     evidence_source: Option<String>,
     review_status: String,
-    rules: HashMap<String, [String; 2]>,
+    rules: indexmap::IndexMap<String, [String; 2]>,
 }
 
 fn valid_rule_id(value: &str) -> bool {
@@ -368,6 +368,29 @@ fn main() {
         *source_masks.entry(key.clone()).or_insert(0) |= 0b10;
     }
 
+    // Keep approved rule IDs beside each runtime pattern. This avoids embedding
+    // and parsing the full shared JSON in Rust/WASM at runtime just for explain().
+    let mut rule_records: HashMap<String, Vec<(String, u8, String)>> = HashMap::new();
+    if let Some(catalog) = &data.rule_catalog {
+        for group in &catalog.groups {
+            if group.review_status != "approved" {
+                continue;
+            }
+            let locale_mask = match group.source_locale.as_str() {
+                "cn" => 0b01,
+                "hk" => 0b10,
+                _ => unreachable!("catalog locale was validated"),
+            };
+            for (id, pair) in &group.rules {
+                rule_records.entry(pair[0].clone()).or_default().push((
+                    id.clone(),
+                    locale_mask,
+                    pair[1].clone(),
+                ));
+            }
+        }
+    }
+
     let mut patterns: Vec<(String, String)> =
         data.terms.cn.into_iter().chain(data.terms.hk).collect();
     patterns.sort_by(|(a, _), (b, _)| a.cmp(b));
@@ -408,6 +431,8 @@ fn main() {
     //     [u8; source_len]: source UTF-8 bytes
     //     u32 LE: target_len
     //     [u8; target_len]: target UTF-8 bytes
+    //     u32 LE: approved rule record count
+    //     For each record: locale mask + ID bytes + target bytes
     {
         let out_file = out_dir.join("pattern-table-cnhk.bin");
         let mut f = fs::File::create(&out_file)
@@ -429,6 +454,17 @@ fn main() {
             f.write_all(&(tgt_bytes.len() as u32).to_le_bytes())
                 .unwrap();
             f.write_all(tgt_bytes).unwrap();
+
+            let records = rule_records.get(src).map(Vec::as_slice).unwrap_or(&[]);
+            f.write_all(&(records.len() as u32).to_le_bytes()).unwrap();
+            for (id, locale_mask, record_target) in records {
+                f.write_all(&[*locale_mask]).unwrap();
+                f.write_all(&(id.len() as u32).to_le_bytes()).unwrap();
+                f.write_all(id.as_bytes()).unwrap();
+                f.write_all(&(record_target.len() as u32).to_le_bytes())
+                    .unwrap();
+                f.write_all(record_target.as_bytes()).unwrap();
+            }
         }
     }
 }

@@ -27,11 +27,12 @@ daachorse = { workspace = true }
 phf_codegen = "0.13"
 serde = { workspace = true }
 serde_json = { workspace = true }
+indexmap = { workspace = true }
 blake3 = "=1.5.5"
 
 [dev-dependencies]
-serde_json = { workspace = true }
 criterion = { workspace = true }
+serde_json = { workspace = true }
 
 [[bench]]
 name = "convert"

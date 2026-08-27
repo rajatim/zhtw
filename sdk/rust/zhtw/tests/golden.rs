@@ -15,6 +15,42 @@ struct GoldenFile {
     check: Vec<CheckCase>,
     #[serde(default)]
     lookup: Vec<LookupCase>,
+    #[serde(default)]
+    explain: Vec<ExplainCase>,
+}
+
+#[derive(Deserialize)]
+struct ExplainCase {
+    input: String,
+    sources: Vec<String>,
+    expected_output: String,
+    expected_events: Vec<serde_json::Value>,
+    #[serde(default)]
+    ambiguity_mode: Option<String>,
+}
+
+#[derive(Deserialize)]
+struct JsonAdapterGolden {
+    version: String,
+    cases: Vec<JsonAdapterCase>,
+    reject: Vec<JsonRejectCase>,
+}
+
+#[derive(Deserialize)]
+struct JsonAdapterCase {
+    id: String,
+    input: String,
+    sources: Vec<String>,
+    expected: String,
+    #[serde(default)]
+    ambiguity_mode: Option<String>,
+}
+
+#[derive(Deserialize)]
+struct JsonRejectCase {
+    id: String,
+    input: String,
+    error_code: String,
 }
 
 #[derive(Deserialize)]
@@ -68,6 +104,7 @@ struct ExpectedDetail {
 
 const GOLDEN_JSON: &str = include_str!("../../../data/golden-test.json");
 const CONFORMANCE_JSON: &str = include_str!("../../../data/conformance-v1.json");
+const JSON_ADAPTER_JSON: &str = include_str!("../../../data/json-adapter-golden.json");
 
 #[test]
 fn approved_conformance() {
@@ -249,4 +286,51 @@ fn lookup_parity() {
         failures.len(),
         failures.join("\n")
     );
+}
+
+#[test]
+fn explain_parity() {
+    let golden: GoldenFile = serde_json::from_str(GOLDEN_JSON).unwrap();
+    for case in golden.explain {
+        let converter = build_converter(&case.sources, None, case.ambiguity_mode.as_deref());
+        let actual = converter.explain(&case.input);
+        assert_eq!(
+            actual.output, case.expected_output,
+            "input={:?}",
+            case.input
+        );
+        assert_eq!(actual.output, converter.convert(&case.input));
+        assert_eq!(
+            serde_json::to_value(actual.events).unwrap(),
+            serde_json::Value::Array(case.expected_events),
+            "input={:?}",
+            case.input
+        );
+    }
+}
+
+#[test]
+fn json_adapter_parity() {
+    let golden: JsonAdapterGolden = serde_json::from_str(JSON_ADAPTER_JSON).unwrap();
+    assert_eq!(golden.version, env!("CARGO_PKG_VERSION"));
+    for case in golden.cases {
+        let converter = build_converter(&case.sources, None, case.ambiguity_mode.as_deref());
+        assert_eq!(
+            converter.convert_json(&case.input).unwrap(),
+            case.expected,
+            "case {}",
+            case.id
+        );
+    }
+    for case in golden.reject {
+        let error = Converter::default_instance()
+            .convert_json(&case.input)
+            .expect_err("invalid JSON must fail");
+        assert_eq!(
+            error.json_code(),
+            Some(case.error_code.as_str()),
+            "case {}",
+            case.id
+        );
+    }
 }

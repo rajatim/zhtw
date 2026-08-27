@@ -14,6 +14,7 @@ daachorse = "=1.0.0"
 phf = { version = "0.13", features = ["macros"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+indexmap = { version = "=2.7.1", features = ["serde"] }
 thiserror = "2"
 wasm-bindgen = "0.2"
 js-sys = "0.3"

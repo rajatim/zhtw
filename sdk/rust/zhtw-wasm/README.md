@@ -12,12 +12,20 @@ npm install zhtw-wasm
 
 ## Quick start
 
+<!-- zhtw:disable -->
 ```ts
-import { convert, check, lookup } from 'zhtw-wasm';
+import { convert, convertJson, check, lookup, explain } from 'zhtw-wasm';
 
-convert('這個軟體需要最佳化');
+convert('这个软件需要优化');
 // => '這個軟體需要最佳化'
+
+convertJson('{"软件":"这个软件"}');
+// => '{"软件":"這個軟體"}'
+
+explain('软件');
+// => { output: '軟體', events: [...] }
 ```
+<!-- zhtw:enable -->
 
 ## Advanced: custom converter
 
@@ -27,6 +35,7 @@ import { createConverter } from 'zhtw-wasm';
 const conv = createConverter({
   sources: ['cn'],
   customDict: { '自訂': '自訂' },
+  ambiguityMode: 'balanced',
 });
 
 conv.convert('...');
@@ -34,7 +43,7 @@ conv.convert('...');
 
 ## Cross-SDK parity
 
-Verified against `sdk/data/golden-test.json`, the shared fixture consumed by all SDKs. Zero divergence is a release gate.
+Verified against `sdk/data/golden-test.json` and `sdk/data/json-adapter-golden.json`, the shared fixtures consumed by all SDKs. Zero divergence is a release gate.
 
 ## License
 

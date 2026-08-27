@@ -5,15 +5,38 @@ use std::collections::{BTreeSet, HashSet};
 use daachorse::CharwiseDoubleArrayAhoCorasick;
 
 use crate::header;
+use crate::rule_catalog::RuleMeta;
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub(crate) struct TermHit {
     pub byte_start: usize,
     pub byte_end: usize,
     pub source: String,
     pub target: String,
+    pub pattern_index: usize,
+}
+
+#[derive(Debug, Clone)]
+pub(crate) struct Pattern {
+    pub source: String,
+    pub target: String,
+    pub source_mask: u8,
+    pub records: Vec<RuleMeta>,
+}
+
+#[derive(Debug, Clone)]
+pub(crate) struct MatchDecision {
+    pub hit: TermHit,
+    pub outcome: &'static str,
+    pub reason_code: &'static str,
+}
+
+pub(crate) struct DetailedScan {
+    pub selected: Vec<TermHit>,
+    pub covered: HashSet<usize>,
+    pub decisions: Vec<MatchDecision>,
 }
 
 // ── Pattern table deserialization ────────────────────────────────────────────
@@ -28,9 +51,11 @@ pub(crate) struct TermHit {
 ///     [u8; source_len]: source bytes
 ///     u32 LE: target_len
 ///     [u8; target_len]: target bytes
+///     u32 LE: approved rule record count
+///     For each record: locale mask + ID bytes + target bytes
 ///
-/// Returns `(source, target, source_mask)` triples.
-pub(crate) fn deserialize_pattern_table(bytes: &[u8]) -> Vec<(String, String, u8)> {
+/// Returns runtime patterns with their approved rule metadata.
+pub(crate) fn deserialize_pattern_table(bytes: &[u8]) -> Vec<Pattern> {
     let mut pos = 0;
 
     let count = u32::from_le_bytes(bytes[pos..pos + 4].try_into().unwrap()) as usize;
@@ -55,7 +80,39 @@ pub(crate) fn deserialize_pattern_table(bytes: &[u8]) -> Vec<(String, String, u8
             .to_string();
         pos += tgt_len;
 
-        table.push((src, tgt, mask));
+        let record_count = u32::from_le_bytes(bytes[pos..pos + 4].try_into().unwrap()) as usize;
+        pos += 4;
+        let mut records = Vec::with_capacity(record_count);
+        for _ in 0..record_count {
+            let locale = bytes[pos];
+            pos += 1;
+            let id_len = u32::from_le_bytes(bytes[pos..pos + 4].try_into().unwrap()) as usize;
+            pos += 4;
+            let id = std::str::from_utf8(&bytes[pos..pos + id_len])
+                .unwrap()
+                .to_string();
+            pos += id_len;
+            let record_target_len =
+                u32::from_le_bytes(bytes[pos..pos + 4].try_into().unwrap()) as usize;
+            pos += 4;
+            let record_target = std::str::from_utf8(&bytes[pos..pos + record_target_len])
+                .unwrap()
+                .to_string();
+            pos += record_target_len;
+            records.push(RuleMeta {
+                id,
+                source: src.clone(),
+                target: record_target,
+                source_mask: locale,
+            });
+        }
+
+        table.push(Pattern {
+            source: src,
+            target: tgt,
+            source_mask: mask,
+            records,
+        });
     }
 
     table
@@ -64,15 +121,13 @@ pub(crate) fn deserialize_pattern_table(bytes: &[u8]) -> Vec<(String, String, u8
 // ── Automaton construction ──────────────────────────────────────────────────
 
 /// Build a runtime automaton from a pattern list (for custom dictionaries).
-pub(crate) fn build_automaton(
-    patterns: &[(String, String)],
-) -> CharwiseDoubleArrayAhoCorasick<u32> {
+pub(crate) fn build_automaton(patterns: &[Pattern]) -> CharwiseDoubleArrayAhoCorasick<u32> {
     use daachorse::{CharwiseDoubleArrayAhoCorasickBuilder, MatchKind};
 
     let patvals: Vec<(&str, u32)> = patterns
         .iter()
         .enumerate()
-        .map(|(i, (src, _))| (src.as_str(), i as u32))
+        .map(|(i, pattern)| (pattern.source.as_str(), i as u32))
         .collect();
 
     CharwiseDoubleArrayAhoCorasickBuilder::new()
@@ -127,24 +182,25 @@ pub(crate) fn build_byte_to_cp(text: &str) -> Vec<usize> {
 /// Walk the automaton once and derive selected term hits and effective coverage.
 pub(crate) fn scan(
     pma: &CharwiseDoubleArrayAhoCorasick<u32>,
-    pattern_table: &[(String, String)],
+    pattern_table: &[Pattern],
     text: &str,
 ) -> (Vec<TermHit>, HashSet<usize>) {
     let all_hits: Vec<TermHit> = pma
         .find_overlapping_iter(text)
         .map(|m| {
             let idx = m.value() as usize;
-            let (ref src, ref tgt) = pattern_table[idx];
+            let pattern = &pattern_table[idx];
             TermHit {
                 byte_start: m.start(),
                 byte_end: m.end(),
-                source: src.clone(),
-                target: tgt.clone(),
+                source: pattern.source.clone(),
+                target: pattern.target.clone(),
+                pattern_index: idx,
             }
         })
         .collect();
 
-    let (selected, protected) = select_term_matches(all_hits);
+    let (selected, protected, _) = select_term_matches(all_hits, false);
     let mut covered: HashSet<usize> = protected.into_iter().collect();
     for hit in &selected {
         covered.extend(hit.byte_start..hit.byte_end);
@@ -152,9 +208,43 @@ pub(crate) fn scan(
     (selected, covered)
 }
 
-fn select_term_matches(mut all_hits: Vec<TermHit>) -> (Vec<TermHit>, BTreeSet<usize>) {
+pub(crate) fn scan_detailed(
+    pma: &CharwiseDoubleArrayAhoCorasick<u32>,
+    pattern_table: &[Pattern],
+    text: &str,
+) -> DetailedScan {
+    let all_hits: Vec<TermHit> = pma
+        .find_overlapping_iter(text)
+        .map(|m| {
+            let idx = m.value() as usize;
+            let pattern = &pattern_table[idx];
+            TermHit {
+                byte_start: m.start(),
+                byte_end: m.end(),
+                source: pattern.source.clone(),
+                target: pattern.target.clone(),
+                pattern_index: idx,
+            }
+        })
+        .collect();
+    let (selected, protected, decisions) = select_term_matches(all_hits, true);
+    let mut covered: HashSet<usize> = protected.into_iter().collect();
+    for hit in &selected {
+        covered.extend(hit.byte_start..hit.byte_end);
+    }
+    DetailedScan {
+        selected,
+        covered,
+        decisions,
+    }
+}
+
+fn select_term_matches(
+    mut all_hits: Vec<TermHit>,
+    detailed: bool,
+) -> (Vec<TermHit>, BTreeSet<usize>, Vec<MatchDecision>) {
     if all_hits.is_empty() {
-        return (Vec::new(), BTreeSet::new());
+        return (Vec::new(), BTreeSet::new(), Vec::new());
     }
 
     // 2. Sort by (byte_start ASC, length DESC).
@@ -179,6 +269,7 @@ fn select_term_matches(mut all_hits: Vec<TermHit>) -> (Vec<TermHit>, BTreeSet<us
     }
 
     let mut protected: BTreeSet<usize> = BTreeSet::new();
+    let mut effective_identity: HashSet<TermHit> = HashSet::new();
 
     if non_identity_spans.is_empty() {
         // All identity → all ranges are protected (nothing to convert).
@@ -186,6 +277,7 @@ fn select_term_matches(mut all_hits: Vec<TermHit>) -> (Vec<TermHit>, BTreeSet<us
             for b in hit.byte_start..hit.byte_end {
                 protected.insert(b);
             }
+            effective_identity.insert((**hit).clone());
         }
     } else {
         // Sort non-identity spans by start, build prefix_max_end.
@@ -209,17 +301,40 @@ fn select_term_matches(mut all_hits: Vec<TermHit>) -> (Vec<TermHit>, BTreeSet<us
                 for b in hit.byte_start..hit.byte_end {
                     protected.insert(b);
                 }
+                effective_identity.insert((**hit).clone());
             }
         }
     }
 
     // 4. Left-to-right greedy filter.
     let mut result: Vec<TermHit> = Vec::new();
+    let mut decisions: Vec<MatchDecision> = Vec::new();
     let mut cursor: usize = 0;
 
     for hit in &all_hits {
         if hit.byte_start < cursor {
-            continue; // overlap — skip
+            if detailed {
+                let is_identity = hit.source == hit.target;
+                let effective = effective_identity.contains(hit);
+                decisions.push(MatchDecision {
+                    hit: hit.clone(),
+                    outcome: if is_identity && effective {
+                        "protected"
+                    } else {
+                        "skipped"
+                    },
+                    reason_code: if is_identity {
+                        if effective {
+                            "identity_guard"
+                        } else {
+                            "identity_contained"
+                        }
+                    } else {
+                        "overlap_loser"
+                    },
+                });
+            }
+            continue;
         }
 
         let is_identity = hit.source == hit.target;
@@ -227,6 +342,13 @@ fn select_term_matches(mut all_hits: Vec<TermHit>) -> (Vec<TermHit>, BTreeSet<us
         if !is_identity {
             // Check if any byte in [start..end) is protected.
             if (hit.byte_start..hit.byte_end).any(|b| protected.contains(&b)) {
+                if detailed {
+                    decisions.push(MatchDecision {
+                        hit: hit.clone(),
+                        outcome: "skipped",
+                        reason_code: "protected_by_identity",
+                    });
+                }
                 continue; // protected — skip (don't advance cursor)
             }
         }
@@ -235,11 +357,28 @@ fn select_term_matches(mut all_hits: Vec<TermHit>) -> (Vec<TermHit>, BTreeSet<us
 
         if !is_identity {
             result.push(hit.clone());
+            if detailed {
+                decisions.push(MatchDecision {
+                    hit: hit.clone(),
+                    outcome: "applied",
+                    reason_code: "term_selected",
+                });
+            }
+        } else if detailed {
+            decisions.push(MatchDecision {
+                hit: hit.clone(),
+                outcome: "protected",
+                reason_code: if effective_identity.contains(hit) {
+                    "identity_guard"
+                } else {
+                    "identity_contained"
+                },
+            });
         }
         // Identity matches advance cursor but are never emitted.
     }
 
-    (result, protected)
+    (result, protected, decisions)
 }
 
 /// Check whether the identity span `[start, end)` is fully contained within
@@ -287,9 +426,7 @@ pub(crate) fn apply_layers_skipping(
                     out = mapped;
                 }
             }
-            if out == ch {
-                out = char_map.get(&ch).copied().unwrap_or(ch);
-            }
+            out = char_map.get(&out).copied().unwrap_or(out);
             result.push(out);
         }
     }

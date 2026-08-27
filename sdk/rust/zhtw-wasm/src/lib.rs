@@ -1,5 +1,5 @@
 use wasm_bindgen::prelude::*;
-use zhtw::{Converter as CoreConverter, Source};
+use zhtw::{AmbiguityMode, Converter as CoreConverter, Source};
 
 // ─── TypeScript type declarations ───
 //
@@ -32,6 +32,25 @@ export interface ConversionDetail {
 export interface ConverterOptions {
     sources?: ("cn" | "hk")[];
     customDict?: Record<string, string>;
+    ambiguityMode?: "strict" | "balanced";
+}
+
+export interface ExplainEvent {
+    rule_id: string;
+    layer: "term" | "identity" | "balanced" | "char";
+    outcome: "applied" | "protected" | "skipped";
+    input_start: number;
+    input_end: number;
+    output_start: number;
+    output_end: number;
+    source: string;
+    target: string;
+    reason_code: string;
+}
+
+export interface ExplainResult {
+    output: string;
+    events: ExplainEvent[];
 }
 "#;
 
@@ -39,15 +58,19 @@ export interface ConverterOptions {
 #[wasm_bindgen(typescript_custom_section)]
 const TS_API: &str = r#"
 export function convert(text: string): string;
+export function convertJson(text: string): string;
 export function check(text: string): Match[];
 export function lookup(word: string): LookupResult;
+export function explain(text: string): ExplainResult;
 export function createConverter(options?: ConverterOptions): Converter;
 
 export class Converter {
     free(): void;
     convert(text: string): string;
+    convertJson(text: string): string;
     check(text: string): Match[];
     lookup(word: string): LookupResult;
+    explain(text: string): ExplainResult;
 }
 "#;
 
@@ -60,6 +83,11 @@ pub fn convert(text: &str) -> String {
     zhtw::convert(text)
 }
 
+#[wasm_bindgen(skip_typescript, js_name = convertJson)]
+pub fn convert_json(text: &str) -> Result<String, JsValue> {
+    zhtw::convert_json(text).map_err(|e| JsValue::from_str(&e.to_string()))
+}
+
 #[wasm_bindgen(skip_typescript)]
 pub fn check(text: &str) -> Result<JsValue, JsValue> {
     serde_wasm_bindgen::to_value(&zhtw::check(text)).map_err(|e| JsValue::from_str(&e.to_string()))
@@ -68,6 +96,12 @@ pub fn check(text: &str) -> Result<JsValue, JsValue> {
 #[wasm_bindgen(skip_typescript)]
 pub fn lookup(word: &str) -> Result<JsValue, JsValue> {
     serde_wasm_bindgen::to_value(&zhtw::lookup(word)).map_err(|e| JsValue::from_str(&e.to_string()))
+}
+
+#[wasm_bindgen(skip_typescript)]
+pub fn explain(text: &str) -> Result<JsValue, JsValue> {
+    serde_wasm_bindgen::to_value(&zhtw::explain(text))
+        .map_err(|e| JsValue::from_str(&e.to_string()))
 }
 
 // ─── Converter class ───
@@ -84,6 +118,13 @@ impl Converter {
         self.inner.convert(text)
     }
 
+    #[wasm_bindgen(js_name = convertJson, skip_typescript)]
+    pub fn convert_json(&self, text: &str) -> Result<String, JsValue> {
+        self.inner
+            .convert_json(text)
+            .map_err(|e| JsValue::from_str(&e.to_string()))
+    }
+
     #[wasm_bindgen(js_name = check, skip_typescript)]
     pub fn check(&self, text: &str) -> Result<JsValue, JsValue> {
         serde_wasm_bindgen::to_value(&self.inner.check(text))
@@ -93,6 +134,12 @@ impl Converter {
     #[wasm_bindgen(js_name = lookup, skip_typescript)]
     pub fn lookup(&self, word: &str) -> Result<JsValue, JsValue> {
         serde_wasm_bindgen::to_value(&self.inner.lookup(word))
+            .map_err(|e| JsValue::from_str(&e.to_string()))
+    }
+
+    #[wasm_bindgen(js_name = explain, skip_typescript)]
+    pub fn explain(&self, text: &str) -> Result<JsValue, JsValue> {
+        serde_wasm_bindgen::to_value(&self.inner.explain(text))
             .map_err(|e| JsValue::from_str(&e.to_string()))
     }
 }
@@ -133,6 +180,20 @@ pub fn create_converter(options: Option<JsValue>) -> Result<Converter, JsValue> 
                     })
                     .collect();
                 builder = builder.custom_dict(dict);
+            }
+        }
+
+        if let Ok(mode) = js_sys::Reflect::get(&opts, &"ambiguityMode".into()) {
+            if let Some(mode) = mode.as_string() {
+                builder = match mode.as_str() {
+                    "strict" => builder.ambiguity_mode(AmbiguityMode::Strict),
+                    "balanced" => builder.ambiguity_mode(AmbiguityMode::Balanced),
+                    _ => {
+                        return Err(JsValue::from_str(
+                            "ambiguityMode must be strict or balanced",
+                        ))
+                    }
+                };
             }
         }
     }
