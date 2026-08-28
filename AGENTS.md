@@ -95,7 +95,8 @@ make version-check   # 任一檔案不一致就 exit 1
   Credentials 在需要的 stage 注入。Job 不得呼叫 1Password、讀取 agent 主機上的
   私鑰／credential profile／session cache，或依賴互動式 shell。由 credential 產生的
   npm、GPG、GitHub CLI 等暫存設定只能放在 disposable workspace，且每種結果都要清除。
-  1Password 只可由 operator 在 Job 外做 credential 建立或輪替，不是 runtime fallback。
+  Credential 建立與輪替使用明確的本機或 service-native primary store。
+  1Password 只可保存額外備份或用於明確復原，不是 bootstrap 或 runtime fallback。
 - Registry 接受版本後沒有 rollback；失敗時重跑同一 build 補齊，內容錯誤則升下一個
   patch，禁止刪除／移動 tag 或重用版號。
 - 每次操作前必讀 `.claude/rules/releasing.md` 與

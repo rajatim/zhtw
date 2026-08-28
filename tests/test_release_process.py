@@ -51,7 +51,7 @@ def test_github_actions_are_not_a_ci_or_release_path() -> None:
     assert not workflows.exists() or not list(workflows.glob("*.yml"))
     assert not workflows.exists() or not list(workflows.glob("*.yaml"))
     assert "folder-scoped Jenkins" in agent_rules
-    assert "1Password" in agent_rules
+    assert "1Password 只可保存額外備份" in agent_rules
     assert "disposable workspace" in agent_rules
 
 
