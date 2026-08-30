@@ -1,6 +1,7 @@
 # zhtw 4.5.0 發版候選計畫
 
-> Status: Approved
+> Status: Done
+> Result: build #31、verify #13、PREVIEW #24 與 CREDENTIAL_PREFLIGHT #25 皆成功；其後依獨立明確核准完成 release #26，4.5.0 公開驗證 12/12 通過。
 > Date: 2026-08-27
 > Approved: 2026-08-27
 > Source branch: `plan/4.5.0-rule-foundation`
