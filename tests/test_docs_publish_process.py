@@ -101,6 +101,7 @@ def test_docs_publish_uses_immutable_release_and_recorded_rollback() -> None:
     assert "rollback-succeeded" in script
     assert "cloudfront create-invalidation" in script
     assert "RELEASE_SHA256SUMS" in script
+    assert "does not match the selected artifact" in script
     assert "Remote release file inventory mismatch" in script
     assert "Remote deployment.json source SHA mismatch" in script
     assert "__zhtw_missing_page__" in script
