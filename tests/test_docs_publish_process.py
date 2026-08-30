@@ -67,7 +67,8 @@ def test_cloudformation_keeps_s3_private_and_hub_out_of_scope() -> None:
 def test_docs_build_is_exact_main_and_archives_bilingual_site() -> None:
     script = read("scripts/jenkins-docs-build.sh")
 
-    assert "JOB_NAME must be zhtw/docs-build" in script
+    assert "Only zhtw/docs-build may build docs artifacts" in script
+    assert "zhtw/docs-build|zhtw/docs-publish" in script
     assert 'SOURCE_BRANCH:-}" = main' in script
     assert "make docs-build" in script
     assert "site/index.html" in script
@@ -86,6 +87,8 @@ def test_docs_publish_uses_immutable_release_and_recorded_rollback() -> None:
 
     assert "JOB_NAME must be zhtw/docs-publish" in script
     assert "AWS_PROFILE is forbidden" in script
+    assert "list-objects-v2" in script
+    assert "head-bucket" not in script
     assert "releases/$SOURCE_SHA/" in script
     assert "deploy-state/current.properties" in script
     assert "previous.properties" in script
@@ -93,6 +96,7 @@ def test_docs_publish_uses_immutable_release_and_recorded_rollback() -> None:
     assert "rollback-succeeded" in script
     assert "cloudfront create-invalidation" in script
     assert "RELEASE_SHA256SUMS" in script
+    assert "Remote release file inventory mismatch" in script
     assert "Remote deployment.json source SHA mismatch" in script
     assert "__zhtw_missing_page__" in script
     assert "strict-transport-security" in script
