@@ -37,8 +37,7 @@ Resources:
       LifecycleConfiguration:
         Rules:
           - Id: RetainNoncurrentVersionsForRecovery
-            Filter:
-              Prefix: ''
+            Prefix: ''
             Status: Enabled
             NoncurrentVersionExpiration:
               NoncurrentDays: 365
