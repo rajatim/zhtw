@@ -303,6 +303,14 @@ def test_jenkins_verify_uses_isolated_podman_compatible_cli() -> None:
     assert "printf '{\"auths\":{}}\\n'" in script
 
 
+def test_jenkins_verify_runs_each_python_matrix_environment_directly() -> None:
+    script = read("scripts/jenkins-verify.sh")
+
+    assert '"$environment/bin/pytest" tests/ -q' in script
+    assert '"$PWD/.venv-python-313/bin/ruff" check .' in script
+    assert 'UV_PROJECT_ENVIRONMENT="$environment" uv run pytest' not in script
+
+
 def test_release_verify_is_read_only_and_version_scoped() -> None:
     script = read("scripts/release-verify.sh")
 

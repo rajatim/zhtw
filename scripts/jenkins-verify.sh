@@ -71,7 +71,7 @@ verify_sdk_matrix() {
         environment="$PWD/.venv-python-${version/./}"
         (
             UV_PROJECT_ENVIRONMENT="$environment" uv sync --python "$version" --frozen --extra dev
-            UV_PROJECT_ENVIRONMENT="$environment" uv run pytest tests/ -q
+            "$environment/bin/pytest" tests/ -q
         ) > "$EVIDENCE_DIR/python-$version.log" 2>&1 &
         python_pids+=("$!")
         python_versions+=("$version")
@@ -85,7 +85,7 @@ verify_sdk_matrix() {
         cat "$EVIDENCE_DIR/python-${python_versions[$index]}.log"
     done
     [ "$failed" -eq 0 ] || die "One or more Python compatibility tests failed"
-    UV_PROJECT_ENVIRONMENT="$PWD/.venv-python-313" uv run ruff check .
+    "$PWD/.venv-python-313/bin/ruff" check .
 
     for version in 11 17 21; do
         java_home="$TOOLS_ROOT/jdks/$version"
