@@ -102,6 +102,22 @@ make version-check   # 任一檔案不一致就 exit 1
 - 每次操作前必讀 `.claude/rules/releasing.md` 與
   `docs/releases/RELEASE-CHECKLIST.md`；內部 Jenkins 維護細節在 private runbook。
 
+## 🔒 公開文件契約（MUST）
+
+- 公開產品行為、CLI、SDK、Browser WASM、schema、品質證據與版本資訊只以本 repo 的
+  `README*`、`docs/`、程式與測試為真相來源；內部 wiki 只記治理與收據，不重抄教學。
+- `mkdocs.yml` nav 內的正式頁必須同時有 `page.md` 與 `page.en.md`；繁中是預設語言，
+  英文放 `/en/`。功能、數字、code token 與相容性不得只更新一種語言。
+- 公開頁禁止寫 Jenkins build／verify／release 編號、credential 名稱、內部 URL、
+  private runbook 或復原操作。公開 release evidence 只列可由 tag、checksum、registry
+  與 repo 重現的內容。
+- CLI 與 API 範例要由測試或 `scripts/check_public_docs.py` 執行；版本、雙語配對、公開
+  邊界與 strict site build 必須通過 `make docs-build`，並納入 `make release-gate`。
+- Blind-v2 固定標示為 zhtw 4.4.2、1,960 筆的凍結歷史 benchmark；Blind-v3 未執行，
+  不得寫成 4.5.0 的分數或發布條件。
+- `site/` 是未版控的 build output。公開 hostname、DNS、TLS 與 docs publish 流程另案
+  核准；不得用 GitHub Actions 或開放內部 `rajatim.wiki` 當成部署捷徑。
+
 ## 📍 檔案定位
 
 | 任務 | 檔案 |
@@ -132,6 +148,7 @@ make version-check   # 任一檔案不一致就 exit 1
 pip install -e ".[dev]"  # 安裝
 pytest                    # 測試
 zhtw validate             # 驗證詞庫
+make docs-build            # 驗證並建置雙語公開文件
 ```
 
 ## 📚 模組化規則

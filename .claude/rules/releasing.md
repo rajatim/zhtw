@@ -41,7 +41,8 @@ change。Jenkins 會同步更新所有 SDK 版本、提升 CHANGELOG `[Unrelease
 release gate，阻擋 open medium 以上 Dependabot 警示與即將到期的 npm token；它也會
 執行 Python、npm、Rust、Go、.NET、Maven 的相依套件安全檢查。完成後建出 PyPI、
 npm x2、crate、NuGet、Maven 與五種 Go binary，並從封存成品逐一執行 consumer
-smoke test。候選會記錄 Jenkins pipeline 與完整 toolchain 版本證據。
+smoke test。release gate 同時執行公開文件雙語配對、版本／邊界檢查與 MkDocs strict
+build；文件錯誤會阻擋候選。候選會記錄 Jenkins pipeline 與完整 toolchain 版本證據。
 
 ### 2. 驗證同一份候選
 
@@ -53,7 +54,8 @@ jcli build zhtw/verify \
 
 只有 `all` 會產生可供發布的 receipt。receipt 也會繫結驗證 pipeline 與驗證證據
 checksum。`sdk-matrix` 與 `competitor-benchmark` 可以單獨診斷，但不能解除
-release gate。
+release gate。`sdk-matrix` 會在獨立 Python 環境重跑 public docs check 與 strict
+site build，避免候選只在 build workspace 偶然成功。
 
 ### 3. 唯讀預演
 
@@ -145,6 +147,10 @@ Windows 原生執行測試要等新增 Jenkins agent，不能把交叉編譯說�
 
 內部 credential、job 維護與首次發布證據請依 private Jenkins runbook；公開 repo
 不保存 Jenkins URL 或 secret 細節。
+
+公開 hostname 尚未核准，因此本流程只驗證 `site/` 產物，不部署文件。未來 docs
+publish 會影響對外服務與 Jenkins job 邊界，必須另寫 deploy／infra 計畫並取得核准；
+不得用 GitHub Actions 或公開內部 wiki 代替。
 
 ---
 

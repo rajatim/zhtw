@@ -86,6 +86,8 @@ verify_sdk_matrix() {
     done
     [ "$failed" -eq 0 ] || die "One or more Python compatibility tests failed"
     "$PWD/.venv-python-313/bin/ruff" check .
+    "$PWD/.venv-python-313/bin/python" scripts/check_public_docs.py
+    "$PWD/.venv-python-313/bin/python" -m mkdocs build --strict --clean
 
     for version in 11 17 21; do
         java_home="$TOOLS_ROOT/jdks/$version"

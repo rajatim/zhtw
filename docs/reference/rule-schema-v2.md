@@ -1,14 +1,14 @@
 # Rule schema v2 參考
 
-> 4.5.0 開發中；正式發版前，套件與 shared data 的版本仍維持 4.4.5。
+> 自 4.5.0 起提供；套件與 shared data 採 mono-versioning，版本必須一致。
 
 Rule schema v2 為每一條轉換規則加入穩定 ID、來源地區與 review metadata。4.5.0 只用
-這些欄位做驗證、稽核與 `explain`；runtime 仍使用和 4.4.5 相同的 effective
-source-to-target map。`domain`、`trust_level`、`priority` 與 `review_status` 不會在 4.5.0
+這些欄位做驗證、稽核與 `explain`；4.5.0 的 schema 遷移沒有為了 metadata 改寫
+effective source-to-target map。`domain`、`trust_level`、`priority` 與 `review_status` 不會在 4.5.0
 改變規則是否生效。
 
 正式 JSON Schema 位於
-[`src/zhtw/data/schemas/rule-v2.schema.json`](../../src/zhtw/data/schemas/rule-v2.schema.json)。
+[`src/zhtw/data/schemas/rule-v2.schema.json`](https://github.com/rajatim/zhtw/blob/main/src/zhtw/data/schemas/rule-v2.schema.json)。
 
 ## Authoring 格式
 

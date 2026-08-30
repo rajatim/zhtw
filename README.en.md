@@ -2,6 +2,8 @@
 
 **English** · [繁體中文](README.md)
 
+**Documentation:** [Five-minute start](docs/guides/getting-started.en.md) · [CLI](docs/guides/cli-and-files.en.md) · [SDKs and Browser WASM](docs/guides/sdk-and-browser.en.md) · [Quality evidence](docs/testing/quality-and-evidence.en.md) · [Current version](docs/releases/current.en.md)
+
 ## The top-ranked Simplified Chinese to Taiwan Traditional Chinese converter in a formal blind benchmark
 
 ZHTW converts Simplified Chinese into natural, conservative Taiwan Traditional Chinese. It is built for AI output, software interfaces, technical documents, and automated CI checks.
@@ -87,7 +89,7 @@ Simplified-to-Taiwan conversion is more than one-to-one character replacement. A
 | 台积电扩大先进制程投资 | 臺積電擴大先進位程投資 | **台積電擴大先進製程投資** |
 <!-- zhtw:enable -->
 
-ZHTW 4.4.4 uses:
+ZHTW 4.5.0 uses:
 
 - **31,904 exported CN mappings**: 31,505 lexical rules, 374 generated target-stability guards, and 25 additional generated context guards.
 - **6,352 safe character mappings** limited to suitable one-to-one conversions.
@@ -225,6 +227,9 @@ ZHTW is a rule-based conversion and quality-checking tool, not a generative tran
 
 | Document | Contents |
 |---|---|
+| [Public product documentation](docs/index.en.md) | Installation, CLI, SDKs, Browser WASM, behavior, quality, versions, and roadmap |
+| [Explain API](docs/reference/explain-api.en.md) | Stable rule events, spans, reason codes, and sensitive-text boundaries |
+| [JSON adapter](docs/reference/json-adapter.en.md) | Structure and write-safety contract for string-value conversion |
 | [Formal market benchmark](docs/reports/formal-market-benchmark-2026-07-31.md) | Blind-v2 scores, statistical comparisons, limits, and governance hashes |
 | [Accuracy standard](docs/testing/accuracy/precision-standard.md) | Ground truth, human review, and benchmark rules |
 | [Dictionary coverage](docs/reports/DICTIONARY-COVERAGE.md) | Term groups, ambiguous characters, and conversion design |
