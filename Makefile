@@ -1,6 +1,6 @@
 # Makefile — zhtw monorepo unified entry point
 
-.PHONY: export export-check target-guard-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-public-reproduce benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-paired-import-check benchmark-paired-report benchmark-formal-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-freeze-check benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-sample-check benchmark-blind-v2-decisions-finalize benchmark-blind-v2-annotation-validate benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
+.PHONY: export export-check target-guard-check precision-benchmark benchmark-validate benchmark-competitor-build benchmark-competitor-probe benchmark-public-reproduce benchmark-ud-import-check benchmark-ud-report benchmark-naer-import-check benchmark-naer-report benchmark-paired-import-check benchmark-paired-report benchmark-formal-report benchmark-blind-v2-source-import-check benchmark-blind-v2-source-classification-check benchmark-blind-v2-pool-validate benchmark-blind-v2-freeze-check benchmark-blind-v2-replacements-validate benchmark-blind-v2-sample benchmark-blind-v2-sample-check benchmark-blind-v2-decisions-finalize benchmark-blind-v2-annotation-validate benchmark-blind-v2-decisions-validate benchmark-blind-v2-ledger-validate accuracy-annotation-status accuracy-blind-review-packet accuracy-gemini-advisory accuracy-promotion-gate accuracy-promote-backlog accuracy-holdout-annotation-packet accuracy-holdout-gemini-advisory accuracy-benchmark docs-check docs-build test test-all test-python test-java test-typescript test-rust test-go test-dotnet test-corpus-prepare release-gate version-check bump release help
 
 PYTHON := uv run python
 VERSION ?=
@@ -485,8 +485,14 @@ test: test-all ## Run every SDK test suite
 test-corpus-prepare: ## Clone or verify the pinned public corpus
 	@bash scripts/prepare-test-corpus.sh
 
+docs-check: ## Verify curated public docs, bilingual pairs, examples, and public boundaries
+	$(PYTHON) scripts/check_public_docs.py
+
+docs-build: docs-check ## Build the bilingual public documentation in strict mode
+	$(PYTHON) -m mkdocs build --strict --clean
+
 release-gate: test-corpus-prepare ## Run the exact local/CI release gate
-	@$(MAKE) version-check export-check target-guard-check
+	@$(MAKE) version-check export-check target-guard-check docs-build
 	uv run zhtw validate
 	@$(MAKE) benchmark-validate
 	uv run python scripts/audit_idempotency.py --sources cn,hk --fail-on-issues

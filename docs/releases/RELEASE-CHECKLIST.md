@@ -6,6 +6,8 @@
 
 - [ ] 使用者／Maintainer 明確同意要發布的確切 Jenkins build 與 verify build。
 - [ ] CHANGELOG `[Unreleased]` 能讓使用者判斷是否值得升級。
+- [ ] 中英文公開文件已同步功能、版本、相容性、限制與 roadmap，沒有內部 Jenkins
+      編號、credential 名稱、private URL 或 runbook 步驟。
 - [ ] 版號符合語意：breaking → major、新功能 → minor、修復 → patch。
 - [ ] 詞庫有改動時，精準度 release gate 與治理證據均已完成。
 - [ ] 已接受目前 Jenkins 沒有 macOS／Windows 原生 agent 的限制。
@@ -26,11 +28,14 @@ jcli build zhtw/release \
 
 - [ ] build 固定 checkout `main`，沒有可選 branch 或自動排程。
 - [ ] build 的 lint、release gate、全部套件建置、consumer smoke test 與 checksum 都成功。
+- [ ] `make docs-build` 通過雙語配對、公開邊界、CLI 範例與 MkDocs strict build；
+      `site/` 沒有進版控，也沒有在未核准 hostname 上部署。
 - [ ] Dependabot 沒有 open medium/high/critical 警示，npm token 距離到期超過 14 天；
       Python、npm、Rust、Go、.NET 與 Maven 的本機安全檢查全部通過。
 - [ ] manifest 的 base SHA、base tree、candidate tree、release/build version 正確。
 - [ ] manifest schema、build pipeline SHA 與 toolchain 證據 checksum 正確。
 - [ ] verify 使用同一 build、`VERIFY_SUITE=all`，並封存 release-eligible receipt。
+- [ ] verify 的 SDK matrix 在獨立 Python 環境重跑 public docs check 與 strict site build。
 - [ ] receipt 的 build、SHA、tree、版本、pipeline SHA、manifest/checksum 與驗證證據 hash
       都和候選完全相同。
 - [ ] preview 使用同一組 build/verify，且沒有新增 tag、Release 或 registry version。
