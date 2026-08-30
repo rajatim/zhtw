@@ -68,7 +68,8 @@ credential_preflight() {
     [ "$bucket" = "$DOCS_BUCKET_NAME" ] || die "Stack bucket output mismatch"
     distribution="$(distribution_id)"
     [[ "$distribution" =~ ^[A-Z0-9]+$ ]] || die "Invalid CloudFront distribution ID"
-    aws s3api head-bucket --bucket "$DOCS_BUCKET_NAME" >/dev/null
+    aws s3api list-objects-v2 --bucket "$DOCS_BUCKET_NAME" --prefix current/ --max-items 1 \
+        --query 'KeyCount' --output text >/dev/null
     aws s3api get-bucket-versioning --bucket "$DOCS_BUCKET_NAME" --query Status --output text | grep -Fx Enabled >/dev/null
     aws cloudfront get-distribution --id "$distribution" --query 'Distribution.Status' --output text | grep -Fx Deployed >/dev/null
     printf 'credential_preflight=PASS\naccount=%s\nbucket=%s\ndistribution=%s\n' "$account" "$bucket" "$distribution"
@@ -119,12 +120,26 @@ verify_release_prefix() {
         --delete --only-show-errors
     [ -s "$remote_dir/RELEASE_SHA256SUMS" ] || die "Remote release checksum inventory is missing"
     (cd "$remote_dir" && sha256sum -c RELEASE_SHA256SUMS >/dev/null)
-    python3 - "$remote_dir/deployment.json" "$SOURCE_SHA" <<'PY'
+    python3 - "$remote_dir" "$SOURCE_SHA" <<'PY'
 import json
 from pathlib import Path
 import sys
 
-payload = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+root = Path(sys.argv[1])
+inventory = root / "RELEASE_SHA256SUMS"
+expected = {
+    line.split("  ", 1)[1]
+    for line in inventory.read_text(encoding="utf-8").splitlines()
+    if line
+}
+actual = {
+    f"./{path.relative_to(root).as_posix()}"
+    for path in root.rglob("*")
+    if path.is_file() and path != inventory
+}
+if actual != expected:
+    raise SystemExit("Remote release file inventory mismatch")
+payload = json.loads((root / "deployment.json").read_text(encoding="utf-8"))
 if payload.get("source_sha") != sys.argv[2]:
     raise SystemExit("Remote deployment.json source SHA mismatch")
 PY

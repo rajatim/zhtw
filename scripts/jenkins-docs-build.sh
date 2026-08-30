@@ -11,8 +11,16 @@ die() {
 }
 
 require_runtime() {
+    local action="$1"
     [ "${CI_PROVIDER:-}" = jenkins ] || die "Formal docs artifacts require Jenkins"
-    [ "${JOB_NAME:-}" = zhtw/docs-build ] || die "JOB_NAME must be zhtw/docs-build"
+    if [ "$action" = build ]; then
+        [ "${JOB_NAME:-}" = zhtw/docs-build ] || die "Only zhtw/docs-build may build docs artifacts"
+    else
+        case "${JOB_NAME:-}" in
+            zhtw/docs-build|zhtw/docs-publish) ;;
+            *) die "Only zhtw/docs-build or zhtw/docs-publish may verify docs artifacts" ;;
+        esac
+    fi
     [ -n "${JENKINS_URL:-}" ] || die "JENKINS_URL is required"
     [ -n "${WORKSPACE:-}" ] || die "WORKSPACE is required"
     [ "${SOURCE_BRANCH:-}" = main ] || die "SOURCE_BRANCH must be main"
@@ -56,7 +64,7 @@ PY
 }
 
 build_artifact() {
-    require_runtime
+    require_runtime build
     check_source_identity
     [ -n "$OUTPUT_DIR" ] || die "build requires an output directory"
     [ ! -e "$OUTPUT_DIR" ] || die "Output directory must not already exist"
@@ -97,7 +105,7 @@ EOF
 }
 
 verify_artifact() {
-    require_runtime
+    require_runtime verify
     check_source_identity
     [ -n "$OUTPUT_DIR" ] || die "verify requires an artifact directory"
     [ -s "$OUTPUT_DIR/manifest.properties" ] || die "Artifact manifest is missing"
