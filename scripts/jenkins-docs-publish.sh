@@ -119,6 +119,8 @@ verify_release_prefix() {
     aws s3 sync "s3://$DOCS_BUCKET_NAME/releases/$SOURCE_SHA/" "$remote_dir/" \
         --delete --only-show-errors
     [ -s "$remote_dir/RELEASE_SHA256SUMS" ] || die "Remote release checksum inventory is missing"
+    cmp "$SITE_DIR/RELEASE_SHA256SUMS" "$remote_dir/RELEASE_SHA256SUMS" >/dev/null || \
+        die "Remote release checksum inventory does not match the selected artifact"
     (cd "$remote_dir" && sha256sum -c RELEASE_SHA256SUMS >/dev/null)
     python3 - "$remote_dir" "$SOURCE_SHA" <<'PY'
 import json
