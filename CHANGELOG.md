@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.5.0] - 2026-08-30
+
 ### Added
 - 新增明確啟用的 JSON value adapter：只轉換 string value，逐位元保留 key、空白、
   數字表示與未變更的字串 token；duplicate key 與無效 JSON 會安全失敗，CLI 寫回則使用
@@ -589,7 +591,8 @@ Python / Java / Rust / .NET 程式碼與 4.0.0 **完全相同**，僅為滿足 m
 - `--exclude` 排除目錄
 - 自訂詞庫支援
 
-[Unreleased]: https://github.com/rajatim/zhtw/compare/v4.4.5...HEAD
+[Unreleased]: https://github.com/rajatim/zhtw/compare/v4.5.0...HEAD
+[4.5.0]: https://github.com/rajatim/zhtw/compare/v4.4.5...v4.5.0
 [4.4.5]: https://github.com/rajatim/zhtw/compare/v4.4.4...v4.4.5
 [4.4.4]: https://github.com/rajatim/zhtw/compare/v4.4.3...v4.4.4
 [4.4.3]: https://github.com/rajatim/zhtw/compare/v4.4.2...v4.4.3

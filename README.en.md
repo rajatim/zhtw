@@ -147,7 +147,7 @@ Python, Java, TypeScript, Rust, WebAssembly, Go, and C# share the same versioned
 | Runtime | Install | Documentation |
 |---|---|---|
 | Python | `pip install zhtw` | [PyPI](https://pypi.org/project/zhtw/) |
-| Java | `com.rajatim:zhtw:4.4.5` | [Java README](sdk/java/README.md) |
+| Java | `com.rajatim:zhtw:4.5.0` | [Java README](sdk/java/README.md) |
 | TypeScript | `npm install zhtw-js` | [TypeScript README](sdk/typescript/README.md) |
 | Rust | `cargo add zhtw` | [Rust README](sdk/rust/zhtw/README.md) |
 | WebAssembly | `npm install zhtw-wasm` | [WASM README](sdk/rust/zhtw-wasm/README.md) |
@@ -179,7 +179,7 @@ You can also check each commit:
 ```yaml
 repos:
   - repo: https://github.com/rajatim/zhtw
-    rev: v4.4.5
+    rev: v4.5.0
     hooks:
       - id: zhtw-check
 ```
