@@ -14,8 +14,7 @@
 
 ## 候選與唯讀預演
 
-三個套件 job 都是手動、發版時才執行；不應存在每日、每週或 SCM trigger。兩個文件
-job 也是手動且固定使用 `main`，但可在純文件修正時獨立執行。
+三個 zhtw job 都是手動、發版時才執行；不應存在每日、每週或 SCM trigger。
 
 ```bash
 jcli build zhtw/build -p VERSION_BUMP=patch
@@ -84,26 +83,3 @@ jcli build zhtw/release \
 - [ ] 單項 `RETRY_*` 完成後仍執行 `RESUME_ALL`，補完後續 registry 與最終驗證。
 - [ ] Recovery action 使用同一份已保留候選；即使超過 freshness 期限，也沒有重建或
       重用版號，且提供新的 `APPROVAL_REFERENCE`。
-
-## 公開文件站
-
-```bash
-jcli build zhtw/docs-build
-jcli build zhtw/docs-publish \
-  -p DOCS_BUILD_NUMBER=<成功-docs-build> \
-  -p PUBLISH_ACTION=PREVIEW \
-  -p SKIP_CONFIRMATION=false
-```
-
-- [ ] docs-build 固定 checkout 公開 `main`，沒有 branch 參數或自動 trigger。
-- [ ] `make docs-build`、artifact manifest、full SHA／tree、`deployment.json` 與全部
-      `SHA256SUMS` 通過，`site/` 沒有進版控。
-- [ ] PREVIEW 沒有綁 AWS credential，也沒有寫 S3、CloudFront、Route 53 或 IAM。
-- [ ] `CREDENTIAL_PREFLIGHT` 證明 AWS account、`zhtw-public-docs` stack、私有 versioned
-      bucket 與 distribution 正確；匿名 S3 URL 仍為 403。
-- [ ] 正式 `DEPLOY`／`ROLLBACK` 已核准精確 docs build、source SHA、site checksum 與
-      target；略過 UI 時留下 `APPROVAL_REFERENCE`。
-- [ ] immutable release 完整上傳並驗證後才切換 `current/`；失敗時 previous SHA 可回復。
-- [ ] 繁中、英文、exact `deployment.json`、404、HSTS、canonical、語言切換、console、
-      network 與行動版 browser flow 通過。
-- [ ] docs build 與 mutating publish evidence 已永久保留；credential runtime 目錄已清除。

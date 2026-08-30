@@ -71,17 +71,13 @@ make version-check   # 任一檔案不一致就 exit 1
 
 ## 🔒 Jenkins-only CI/CD（MUST）
 
-- zhtw 的建置、相容性驗證、套件發布與公開文件發布只能走 Jenkins。套件流程固定為
-  `zhtw/build`、`zhtw/verify`、`zhtw/release`；文件流程固定為
-  `zhtw/docs-build`、`zhtw/docs-publish`。
+- zhtw 的建置、相容性驗證與公開發布只能走 Jenkins：`zhtw/build`、
+  `zhtw/verify`、`zhtw/release`。
 - 禁止恢復 `.github/workflows`、執行 `gh workflow run`、本機建立 release tag，或
   直接對 PyPI/npm/crates/NuGet/Maven publish。
 - `make release` 與 `make release-dry` 會故意失敗；不是備援流程。
 - `zhtw/build`、`zhtw/verify`、`zhtw/release` 都只在準備發版時手動執行；禁止每日、
   每週或 SCM 自動 trigger。build 固定從 `main` 建立候選，不接受任意 branch。
-- `zhtw/docs-build`、`zhtw/docs-publish` 也只能手動執行且固定使用公開 `main`。
-  docs-build 封存 fingerprinted static site；docs-publish 只能選成功成品，預設
-  `PREVIEW`，不得現場重建、建立 tag 或發布 registry 套件。
 - `zhtw/verify` 必須選定一個成功的 main `zhtw/build`，並以 `VERIFY_SUITE=all`
   產生 verification receipt；`zhtw/release` 只接受 SHA、tree、版本與 checksum
   都和候選完全相同的成功 receipt。
@@ -101,9 +97,6 @@ make version-check   # 任一檔案不一致就 exit 1
   npm、GPG、GitHub CLI 等暫存設定只能放在 disposable workspace，且每種結果都要清除。
   Credential 建立與輪替使用明確的本機或 service-native primary store。
   1Password 只可保存額外備份或用於明確復原，不是 bootstrap 或 runtime fallback。
-- 文件 AWS credential 同樣只能存在 `zhtw/` folder，且只在
-  `CREDENTIAL_PREFLIGHT`、`DEPLOY` 或 `ROLLBACK` 的最短 stage 注入。`DEPLOY`／
-  `ROLLBACK` 必須指定精確 docs build、保留 evidence 並提供可追溯核准。
 - Registry 接受版本後沒有 rollback；失敗時重跑同一 build 補齊，內容錯誤則升下一個
   patch，禁止刪除／移動 tag 或重用版號。
 - 每次操作前必讀 `.claude/rules/releasing.md` 與
@@ -122,9 +115,8 @@ make version-check   # 任一檔案不一致就 exit 1
   邊界與 strict site build 必須通過 `make docs-build`，並納入 `make release-gate`。
 - Blind-v2 固定標示為 zhtw 4.4.2、1,960 筆的凍結歷史 benchmark；Blind-v3 未執行，
   不得寫成 4.5.0 的分數或發布條件。
-- `site/` 是未版控的 build output。正式站為 `https://zhtw.rajatim.com`，由私有 S3、
-  CloudFront OAC 與 Jenkins 手動 docs jobs 發布；不得用 GitHub Actions、公開 S3 bucket、
-  或開放內部 `rajatim.wiki` 當成部署捷徑。
+- `site/` 是未版控的 build output。公開 hostname、DNS、TLS 與 docs publish 流程另案
+  核准；不得用 GitHub Actions 或開放內部 `rajatim.wiki` 當成部署捷徑。
 
 ## 📍 檔案定位
 

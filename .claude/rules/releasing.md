@@ -1,6 +1,6 @@
 # 釋出流程
 
-> zhtw 的建置、驗證、套件發布與公開文件發布只走 Jenkins。GitHub Actions、手動 tag、
+> zhtw 的建置、驗證與公開發布只走 Jenkins。GitHub Actions、手動 tag、
 > `gh workflow run`、本機 registry publish 都不是備援路徑。
 
 ## 最高優先順序規則
@@ -26,8 +26,6 @@
 - `make release` 與 `make release-dry` 會 fail-closed，提醒改用 Jenkins。
 - 三個 job 都只在準備發布時手動執行，不設每日、每週或 SCM 自動觸發。
   `zhtw/build` 固定從 `main` 建立候選，不接受任意 branch。
-- 公開文件另用手動 `zhtw/docs-build` 與 `zhtw/docs-publish`。它們不建立套件候選、
-  tag 或 registry version，也不能接受任意 branch。
 
 ## 標準流程
 
@@ -150,34 +148,9 @@ Windows 原生執行測試要等新增 Jenkins agent，不能把交叉編譯說�
 內部 credential、job 維護與首次發布證據請依 private Jenkins runbook；公開 repo
 不保存 Jenkins URL 或 secret 細節。
 
-## 公開文件發布
-
-正式站為 `https://zhtw.rajatim.com`，使用私有 S3、CloudFront OAC、ACM 與 Route 53。
-Hub、Caddy、Lightsail 443 allowlist 與 `rajatim.wiki` 不在此流程內，也不得為文件站放寬。
-
-```bash
-jcli build zhtw/docs-build
-jcli build zhtw/docs-publish \
-  -p DOCS_BUILD_NUMBER=<成功-docs-build> \
-  -p PUBLISH_ACTION=PREVIEW \
-  -p SKIP_CONFIRMATION=false
-```
-
-- `docs-build` 固定 checkout 公開 `main`，執行 `make docs-build`，封存含 full SHA、tree、
-  build number、`deployment.json` 與 checksum 的靜態 artifact。它沒有 AWS credential。
-- `docs-publish` 不重建，只 CopyArtifact 精確成品。`PREVIEW` 不綁 AWS credential；
-  `CREDENTIAL_PREFLIGHT` 只驗證 account、stack、private bucket、versioning 與 distribution。
-- `DEPLOY` 與 `ROLLBACK` 會改公開站，必須指定精確 docs build。略過 UI 確認時
-  `APPROVAL_REFERENCE` 必填，且 mutating run 與來源 docs build 都永久保留。
-- 每個正式 action 在確認前重跑 credential preflight。AWS key 只能由 `zhtw/`
-  folder-scoped Jenkins Credential 短暫注入；不得讀 agent profile、1Password 或 host cache。
-- 發布先完整上傳 `releases/<source-sha>/` 並驗證 checksum，再更新 `current/` 與
-  CloudFront invalidation。live switch 後失敗必須使用本次記錄的 previous SHA 自動回復。
-- 公開驗證至少包含繁中、英文、`deployment.json` exact SHA、404 與 HSTS。第一次正式
-  上線與重要版面變更另用真實 browser 檢查導覽、語言切換、console、network 與行動版。
-
-純文件發布不變更 mono-version，也不代替套件 release gate。功能契約仍必須在下一個
-`zhtw/build`／`verify all` 候選中通過文件檢查。
+公開 hostname 尚未核准，因此本流程只驗證 `site/` 產物，不部署文件。未來 docs
+publish 會影響對外服務與 Jenkins job 邊界，必須另寫 deploy／infra 計畫並取得核准；
+不得用 GitHub Actions 或公開內部 wiki 代替。
 
 ---
 
