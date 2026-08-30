@@ -18,6 +18,7 @@ require_runtime() {
     [ "${SOURCE_BRANCH:-}" = main ] || die "SOURCE_BRANCH must be main"
     [[ "${SOURCE_SHA:-}" =~ ^[0-9a-f]{40}$ ]] || die "SOURCE_SHA must be a full Git SHA"
     [[ "${PROJECT_TREE_SHA:-}" =~ ^[0-9a-f]{40}$ ]] || die "PROJECT_TREE_SHA must be a full Git tree SHA"
+    [[ "${BUILD_CI_CONTROL_SHA:-}" =~ ^[0-9a-f]{40}$ ]] || die "BUILD_CI_CONTROL_SHA must be a full Git SHA"
     [[ "${BUILD_NUMBER:-}" =~ ^[1-9][0-9]*$ ]] || die "BUILD_NUMBER must be a positive integer"
 }
 
@@ -71,7 +72,7 @@ EOF
     mkdir -p "$OUTPUT_DIR/payload" "$OUTPUT_DIR/metadata"
     create_archive
     cat > "$OUTPUT_DIR/manifest.properties" <<EOF
-SCHEMA_VERSION=1
+SCHEMA_VERSION=2
 CI_PROVIDER=jenkins
 SYSTEM=zhtw-docs
 SOURCE_REPO=https://github.com/rajatim/zhtw.git
@@ -80,6 +81,7 @@ SOURCE_SHA=$SOURCE_SHA
 PROJECT_TREE_SHA=$PROJECT_TREE_SHA
 BUILD_JOB=zhtw/docs-build
 BUILD_NUMBER=$BUILD_NUMBER
+BUILD_CI_CONTROL_SHA=$BUILD_CI_CONTROL_SHA
 BUILT_AT=${BUILT_AT:-unknown}
 EOF
     printf '%s\n' "$SOURCE_SHA" > "$OUTPUT_DIR/metadata/source-sha"
@@ -99,8 +101,10 @@ verify_artifact() {
     [ -s "$OUTPUT_DIR/SHA256SUMS" ] || die "Artifact checksum inventory is missing"
     [ -s "$OUTPUT_DIR/payload/site.tar.gz" ] || die "Site archive is missing"
     grep -Fx "SYSTEM=zhtw-docs" "$OUTPUT_DIR/manifest.properties" >/dev/null
+    grep -Fx "SCHEMA_VERSION=2" "$OUTPUT_DIR/manifest.properties" >/dev/null
     grep -Fx "SOURCE_SHA=$SOURCE_SHA" "$OUTPUT_DIR/manifest.properties" >/dev/null
     grep -Fx "PROJECT_TREE_SHA=$PROJECT_TREE_SHA" "$OUTPUT_DIR/manifest.properties" >/dev/null
+    grep -Fx "BUILD_CI_CONTROL_SHA=$BUILD_CI_CONTROL_SHA" "$OUTPUT_DIR/manifest.properties" >/dev/null
     (cd "$OUTPUT_DIR" && sha256sum -c SHA256SUMS)
     python3 - "$OUTPUT_DIR/payload/site.tar.gz" "$SOURCE_SHA" <<'PY'
 import json

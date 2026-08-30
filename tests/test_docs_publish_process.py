@@ -74,6 +74,9 @@ def test_docs_build_is_exact_main_and_archives_bilingual_site() -> None:
     assert "site/en/index.html" in script
     assert "deployment.json" in script
     assert "PROJECT_TREE_SHA mismatch" in script
+    assert "BUILD_CI_CONTROL_SHA must be a full Git SHA" in script
+    assert "BUILD_CI_CONTROL_SHA=$BUILD_CI_CONTROL_SHA" in script
+    assert "SCHEMA_VERSION=2" in script
     assert "SHA256SUMS" in script
 
 
