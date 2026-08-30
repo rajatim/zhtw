@@ -49,6 +49,7 @@ scripts/generate_gemini_vertex_advisory.py
 scripts/generate_holdout_gemini_vertex_advisory.py
 scripts/promote_accuracy_backlog.py
 scripts/run_accuracy_benchmark.py
+scripts/check_public_docs.py
 
 # 程式碼中的範例（docstring 中的簡體範例）
 src/zhtw/matcher.py
@@ -63,6 +64,32 @@ docs/features/superpowers/specs/
 docs/reports/audit-report-83ch-2026-03-22.md
 docs/reports/DICTIONARY-COVERAGE.md
 docs/plans/
+
+# 雙語公開文件含「簡體輸入 → 台灣繁體輸出」的正式範例，不可讓 pre-commit 改寫 input。
+docs/index.md
+docs/index.en.md
+docs/guides/getting-started.md
+docs/guides/getting-started.en.md
+docs/guides/cli-and-files.md
+docs/guides/cli-and-files.en.md
+docs/guides/sdk-and-browser.md
+docs/guides/sdk-and-browser.en.md
+docs/guides/contributing.md
+docs/guides/contributing.en.md
+docs/reference/conversion-behavior.md
+docs/reference/conversion-behavior.en.md
+docs/reference/explain-api.md
+docs/reference/explain-api.en.md
+docs/reference/json-adapter.md
+docs/reference/json-adapter.en.md
+docs/reference/rule-schema-v2.md
+docs/reference/rule-schema-v2.en.md
+docs/reference/roadmap.md
+docs/reference/roadmap.en.md
+docs/testing/quality-and-evidence.md
+docs/testing/quality-and-evidence.en.md
+docs/releases/current.md
+docs/releases/current.en.md
 
 # Claude 指南（說明轉換規則）
 .claude/guides/

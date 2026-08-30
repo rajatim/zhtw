@@ -1,7 +1,7 @@
 <!-- zhtw:disable -->
 # Explain API 參考
 
-> 4.5.0 開發中；版本號在發版準備前仍維持 4.4.5。
+> 自 4.5.0 起提供；所有 SDK 的 event shape 由共用 fixtures 驗證。
 
 `explain` 使用正式 matcher 的同一次 Aho-Corasick scan，回傳轉換結果與規則事件。
 它不會另外跑一套簡化演算法，因此 `explain(text).output` 必須永遠等於

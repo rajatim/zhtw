@@ -1,0 +1,110 @@
+site_name: ZHTW 文件
+site_description: 簡體中文與香港繁體轉台灣繁體中文的公開產品文件
+repo_url: https://github.com/rajatim/zhtw
+repo_name: rajatim/zhtw
+edit_uri: edit/main/docs/
+docs_dir: docs
+site_dir: site
+strict: true
+
+exclude_docs: |
+  /architecture/
+  /deployment/
+  /features/
+  /plans/
+  /reports/
+  /guides/README.md
+  /guides/CLI-ADVANCED.md
+  /guides/RELEASE-CHECKLIST.md
+  /reference/README.md
+  /reference/ACKNOWLEDGMENTS.md
+  /releases/README.md
+  /releases/RELEASE-CHECKLIST.md
+  /testing/README.md
+  /testing/accuracy/
+  /testing/benchmark/
+  /testing/public-benchmark-third-party-reproduction.md
+  /testing/public-paired-localization-benchmarks.md
+
+theme:
+  name: material
+  language: zh-TW
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: false
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: zh-TW
+          default: true
+          name: 繁體中文
+          build: true
+        - locale: en
+          name: English
+          build: true
+          site_name: ZHTW Documentation
+          site_description: Public product documentation for Simplified and Hong Kong Traditional Chinese to Taiwan Traditional Chinese conversion
+          nav_translations:
+            開始使用: Start
+            產品概覽: Overview
+            五分鐘開始: Five-minute start
+            使用功能: Use
+            CLI 與檔案: CLI and files
+            Explain API: Explain API
+            JSON adapter: JSON adapter
+            整合: Integrate
+            SDK 與 Browser WASM: SDKs and Browser WASM
+            理解: Understand
+            轉換行為與限制: Conversion behavior and limits
+            Rule schema v2: Rule schema v2
+            品質: Quality
+            品質與證據: Quality and evidence
+            版本: Versions
+            目前版本: Current version
+            參與: Participate
+            貢獻方式: Contributing
+            Roadmap: Roadmap
+
+nav:
+  - 開始使用:
+      - 產品概覽: index.md
+      - 五分鐘開始: guides/getting-started.md
+  - 使用功能:
+      - CLI 與檔案: guides/cli-and-files.md
+      - Explain API: reference/explain-api.md
+      - JSON adapter: reference/json-adapter.md
+  - 整合:
+      - SDK 與 Browser WASM: guides/sdk-and-browser.md
+  - 理解:
+      - 轉換行為與限制: reference/conversion-behavior.md
+      - Rule schema v2: reference/rule-schema-v2.md
+  - 品質:
+      - 品質與證據: testing/quality-and-evidence.md
+  - 版本:
+      - 目前版本: releases/current.md
+  - 參與:
+      - 貢獻方式: guides/contributing.md
+      - Roadmap: reference/roadmap.md
+
+validation:
+  nav:
+    omitted_files: ignore
+  links:
+    absolute_links: relative_to_docs
+    unrecognized_links: warn
+    anchors: warn
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true

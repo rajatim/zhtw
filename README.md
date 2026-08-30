@@ -2,6 +2,8 @@
 
 **繁體中文** · [English](README.en.md)
 
+**公開文件：** [五分鐘開始](docs/guides/getting-started.md) · [CLI](docs/guides/cli-and-files.md) · [SDK 與 Browser WASM](docs/guides/sdk-and-browser.md) · [品質證據](docs/testing/quality-and-evidence.md) · [目前版本](docs/releases/current.md)
+
 ## 正式盲測第一的簡體中文轉台灣繁體中文工具
 
 ZHTW 專門把簡體中文轉成自然、保守的台灣繁體中文，適合 AI 生成內容、軟體介面、技術文件與 CI 自動檢查。
@@ -89,7 +91,7 @@ Blind-v2 在評測前凍結 1,960 筆測試句與答案，三個工具使用相�
 | 台积电扩大先进制程投资 | 臺積電擴大先進位程投資 | **台積電擴大先進製程投資** |
 <!-- zhtw:enable -->
 
-ZHTW 4.4.4 使用：
+ZHTW 4.5.0 使用：
 
 - **31,904 個匯出的中國來源對映**：31,505 條正式詞彙規則、374 條自動產生的目標穩定保護，以及 25 條額外產生的語境保護。
 - **6,352 個安全字元對映**，只放適合一對一轉換的字。
@@ -231,6 +233,9 @@ ZHTW 是規則式轉換與品質檢查工具，不是生成式翻譯模型。
 
 | 文件 | 內容 |
 |---|---|
+| [公開產品文件](docs/index.md) | 安裝、CLI、SDK、Browser WASM、轉換行為、品質、版本與 roadmap |
+| [Explain API](docs/reference/explain-api.md) | 穩定規則事件、span、reason code 與敏感文字邊界 |
+| [JSON adapter](docs/reference/json-adapter.md) | 只轉換 string value 的結構與寫檔安全契約 |
 | [正式市場評測](docs/reports/formal-market-benchmark-2026-07-31.md) | Blind-v2 分數、統計比較、限制與治理雜湊 |
 | [精準度標準](docs/testing/accuracy/precision-standard.md) | ground truth、人工審核與 benchmark 規則 |
 | [詞庫涵蓋報告](docs/reports/DICTIONARY-COVERAGE.md) | 詞庫分類、歧義字與轉換架構 |
