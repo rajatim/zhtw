@@ -58,6 +58,11 @@ def test_cloudformation_keeps_s3_private_and_hub_out_of_scope() -> None:
     ):
         assert setting in template
     assert "AWS::IAM::AccessKey" not in template
+    assert "DeleteOnlyMutableDocsObjects" in template
+    delete_statement = template.split("DeleteOnlyMutableDocsObjects", 1)[1].split(
+        "InvalidateOnlyDocsDistribution", 1
+    )[0]
+    assert "/releases/*" not in delete_statement
     assert "S3OriginConfig" in template
     assert "WebsiteConfiguration" not in template
     assert "13.115.159.51" not in template
