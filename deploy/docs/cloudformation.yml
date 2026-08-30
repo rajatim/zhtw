@@ -224,11 +224,17 @@ Resources:
                   - s3:GetObject
                   - s3:GetObjectVersion
                   - s3:PutObject
-                  - s3:DeleteObject
                 Resource:
                   - !Sub '${DocsBucket.Arn}/current/*'
                   - !Sub '${DocsBucket.Arn}/releases/*'
                   - !Sub '${DocsBucket.Arn}/deploy-state/*'
+              - Sid: DeleteOnlyMutableDocsObjects
+                Effect: Allow
+                Action:
+                  - s3:DeleteObject
+                Resource:
+                  - !Sub '${DocsBucket.Arn}/current/*'
+                  - !Sub '${DocsBucket.Arn}/deploy-state/current.properties'
               - Sid: InvalidateOnlyDocsDistribution
                 Effect: Allow
                 Action:
