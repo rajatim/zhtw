@@ -88,7 +88,10 @@ EOF
     printf '%s\n' "$PROJECT_TREE_SHA" > "$OUTPUT_DIR/metadata/project-tree-sha"
     (
         cd "$OUTPUT_DIR"
-        find payload metadata -type f -print0 | LC_ALL=C sort -z | xargs -0 sha256sum > SHA256SUMS
+        {
+            sha256sum manifest.properties
+            find payload metadata -type f -print0 | LC_ALL=C sort -z | xargs -0 sha256sum
+        } > SHA256SUMS
         sha256sum -c SHA256SUMS
     )
 }
